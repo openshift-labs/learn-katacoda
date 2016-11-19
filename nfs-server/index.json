@@ -1,0 +1,51 @@
+{
+	"icon": "fa-openshift",
+	"pathwayTitle": "OpenShift",
+	"title": "Deploying stateful containers using NFS",
+	"description": "",
+	"backend": {
+		"imageid": "openshift",
+		"port": 8443
+	},
+	"environment": {
+		"showdashboard": true,
+		"dashboard": "Dashboard",
+		"uilayout": "terminal"
+	},
+	"details": {
+		"steps": [
+			{
+				"title": "Step 1 - Deploy HTTP Web Server",
+				"text": "step1.md"
+			},
+			{
+				"title": "Step 2 - Deploy Persistent Volume",
+				"text": "step2.md"
+			},
+			{
+				"title": "Step 3 - Deploy Persistent Volume Claim",
+				"text": "step3.md"
+			},
+			{
+				"title": "Step 4 - Use Volume",
+				"text": "step4.md"
+			},
+			{
+				"title": "Step 5 - Read/Write Data",
+				"text": "step5.md"
+			},
+			{
+				"title": "Step 6 - Recreate Pod",
+				"text": "step6.md"
+			}
+		],
+		"intro": {
+			"courseData": "env-init.sh",
+			"code": "set-env.sh",
+			"text": "intro.md"
+		},
+		"finish": {
+			"text": "finish.md"
+		}
+	}
+}
