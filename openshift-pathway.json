@@ -1,0 +1,43 @@
+{
+  "title": "Learn OpenShift",
+  "description": "Learn OpenShift",
+  "paid": false,
+  "courses": [
+    {
+      "external_link": "http://openshift.katacoda.com/deploy-containers-using-cli.html",
+      "course_id": "deploy-containers-using-cli",
+    	"title": "Deploy Containers to OpenShift using CLI",
+    	"description": ""
+    },
+    {
+      "external_link": "http://openshift.katacoda.com/deploy-containers-using-ui.html",
+      "course_id": "deploy-containers-using-ui",
+    	"title": "Deploy Containers to OpenShift using UI",
+    	"description": ""
+    },
+    {
+      "external_link": "http://openshift.katacoda.com/build-docker-images.html",
+      "course_id": "build-docker-images",
+    	"title": "Using OpenShift to Build Docker Images",
+    	"description": ""
+    },
+    {
+      "external_link": "http://openshift.katacoda.com/application-healthchecks.html",
+      "course_id": "liveness-readiness-healthchecks",
+      "title": "Create Liveness and Readiness Healthchecks",
+      "description": "Learn how to ensure containers health using Liveness and Readiness probes"
+    },
+    {
+      "external_link": "http://openshift.katacoda.com/nfs-server.html",
+      "course_id": "nfs-server",
+      "title": "Deploying stateful containers using NFS",
+      "description": ""
+    },
+    {
+      "external_link": "http://openshift.katacoda.com/playground.html",
+      "course_id": "test-playground",
+      "title": "OpenShift Playground",
+      "description": ""
+    }
+  ]
+}
