@@ -1,3 +1,4 @@
+ssh -i ~/.ssh/id_rsa root@host01 "/root/.set-hostname && sed -i 's/\[\[KATACODA_URL\]\]/https:\/\/[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com:443/g' /etc/systemd/system/origin.service && rm -rf /openshift.local* && systemctl daemon-reload && systemctl restart origin"
 ssh -i ~/.ssh/id_rsa root@host01 "yum install nfs-utils -y"
 
 echo 'apiVersion: v1' >> nfs-0001.yaml
