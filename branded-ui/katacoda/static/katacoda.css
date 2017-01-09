@@ -1,0 +1,16 @@
+.navbar.navbar-default.navbar-openshift .navbar-nav>li>a:hover {
+  background: none;
+}
+.navbar.navbar-default.navbar-openshift {
+  margin-bottom: 0;
+}
+.navbar-nav h2 {
+  margin: 0;
+}
+.nav.navbar-nav.navbar-quicklinks {
+  margin-left: -270px;
+}
+
+.navbar.navbar-default.navbar-openshift .navbar-quicklinks li>a {
+  padding: 10px;
+}

@@ -1,0 +1,6 @@
+baseurl = "http://openshift.katacoda.com/"
+languageCode = "en-us"
+title = "OpenShift"
+
+[params]
+  embedjs = "//www.katacoda.com/embed.js"
