@@ -1,13 +1,12 @@
 {
-  "title": "Learn OpenShift",
-  "description": "Learn OpenShift",
+  "title": "Introduction to OpenShift For Developers",
+  "description": "",
   "paid": false,
   "courses": [
     {
-      "external_link": "http://openshift.katacoda.com/intro-openshift.html",
-      "course_id": "intro-openshift",
-    	"title": "Introduction to OpenShift For Developers",
-    	"description": ""
+      "external_link": "http://openshift.katacoda.com/introduction/getting-started/",
+      "course_id": "getting-started",
+      "title": "Getting Started with OpenShift for Developers"
     }
   ]
 }
