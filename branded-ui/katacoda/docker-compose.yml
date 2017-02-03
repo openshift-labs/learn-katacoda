@@ -1,0 +1,5 @@
+web:
+  build: .
+  environment:
+    VIRTUAL_HOST: 'openshift.katacoda.com'
+  restart: always
