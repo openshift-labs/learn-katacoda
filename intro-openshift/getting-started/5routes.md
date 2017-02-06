@@ -1,5 +1,3 @@
-## Routes
-
 While _Services_ provide internal abstraction and load balancing within an
 OpenShift environment, sometimes clients (users, systems, devices, etc.)
 **outside** of OpenShift need to access an application. The way that external
@@ -43,9 +41,9 @@ We will be able to see all the details associated with the route, like the hostn
 
 You can also verify the _Route_ by looking at the project in the OpenShift web console:
 
-![Route](/images/parksmap-route.png)
+![Route](./images/parksmap-route.png)
 
 Pretty nifty, huh?  This application is now available at the URL shown in the
 web console. Click the link and you will see:
 
-![Application](/images/parksmap-empty.png)
+![Application](./images/parksmap-empty.png)
