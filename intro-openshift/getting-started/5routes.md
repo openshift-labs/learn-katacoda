@@ -1,21 +1,51 @@
-OpenShift CLI is accessed using the command _oc_. From here, you can administrate the entire OpenShift cluster and deploy new applications.
+## Routes
 
-The CLI exposes the underlying technology of Kubernetes with the enhancements made by OpenShift. Users familiar with Kubernetes will be able to adopt OpenShift quickly. The CLI is ideal in situations where you are:
+While _Services_ provide internal abstraction and load balancing within an
+OpenShift environment, sometimes clients (users, systems, devices, etc.)
+**outside** of OpenShift need to access an application. The way that external
+clients are able to access applications running in OpenShift is through the
+OpenShift routing layer. And the data object behind that is a _Route_.
 
-1) Working directly with project source code.
+The default OpenShift router (HAProxy) uses the HTTP header of the incoming
+request to determine where to proxy the connection. You can optionally define
+security, such as TLS, for the _Route_. If you want your _Services_, and, by
+extension, your _Pods_,  to be accessible to the outside world, you need to
+create a _Route_.
 
-2) Scripting OpenShift operations.
+## Task: Creating a Route
 
-3) Restricted by bandwidth resources and cannot use the web console.
+Fortunately, creating a _Route_ is a pretty straight-forward process.  You simply
+`expose` the _Service_ via the command line. Or, via the web console, just click
+the "Create Route" button associated with the service.
 
-## Task
+First we want to verify that we don't already have any existing routes:
 
-The command _new-app_ deploys an application onto an OpenShift cluster.
+`oc get routes`{{execute}}
 
-The application can either be source code or as in this case, an existing Docker Image like _katacoda/docker-http-server:openshift-v1_. This image is an HTTP server that returns with the hostname of the container processing the request. The application is accessed a more friendly name of _ws-app1_.
+We should see no resources returned.
 
-Execute the command below to create and deploy the new application.
+Now we need to get the _Service_ name to expose:
 
-`oc new-app katacoda/docker-http-server:openshift-v1 --name=ws-app1`{{execute}}
+`oc get services`{{execute}}
 
-In the next step, we'll verify and view the status of the deployment.
+
+Once we know the _Service_ name, creating a _Route_ is a simple one-command task:
+
+`oc expose service parksmap`{{execute}}
+
+The output to this command will indicate us that the route has been created and the service is now externally exposed.
+
+Verify the _Route_ was created with the following command:
+
+`oc get route`{{execute}}
+
+We will be able to see all the details associated with the route, like the hostname, the service port the route is exposing, details on the TLS security for the route, if any, and more.
+
+You can also verify the _Route_ by looking at the project in the OpenShift web console:
+
+![Route](/images/parksmap-route.png)
+
+Pretty nifty, huh?  This application is now available at the URL shown in the
+web console. Click the link and you will see:
+
+![Application](/images/parksmap-empty.png)
