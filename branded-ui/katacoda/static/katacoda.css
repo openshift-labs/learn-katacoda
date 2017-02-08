@@ -14,3 +14,6 @@
 .navbar.navbar-default.navbar-openshift .navbar-quicklinks li>a {
   padding: 10px;
 }
+p.lead.intro {
+    padding-top: 60px;
+}
