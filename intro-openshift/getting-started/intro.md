@@ -27,4 +27,4 @@ During this training course you will be using a hosted OpenShift environment tha
  
 The OpenShift environment that has been created for you is running the latest version of our open source project called OpenShift Origin.  This deployment is a self contained environment that provides everything you need to be successful in learning the platform.  This includes such things as the command line, web console, and public URLs.
 
-With that being said, grab your favorite choice of beverage and let's do this.
+With that being said, grab your favorite choice of beverage and let's do this!
