@@ -18,4 +18,16 @@ Execute the command below to create and deploy the new application.
 
 `oc new-app katacoda/docker-http-server:openshift-v1 --name=ws-app1`{{execute}}
 
+Next, go ahead and login:
+
+`oc login`{{execute}}
+
+Enter the following when prompted:
+
+**Username:** `developer`{{execute}}
+
+**Password:** `developer`{{execute}}
+
+Congratulations, you're logged in!
+
 In the next step, we'll verify and view the status of the deployment.
