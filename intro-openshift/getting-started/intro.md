@@ -9,6 +9,7 @@ OpenShift is a full platform that incorporates several upstream projects while a
 Developers and Operators communication with the OpenShift Platform via one of the following methods:
 
 * Command Line Interface
+
 The command line tool that we will be using as part of this training is called the *oc* tool.  This tool is written in the Go programming language and is a single executable that is provided for Windows, OS X, and the Linux Operating Systems.
 
 * Web Console
