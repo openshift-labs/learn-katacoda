@@ -1,4 +1,4 @@
-While _Services_ provide internal abstraction and load balancing within an
+_Services_ provide internal abstraction and load balancing within an
 OpenShift environment, sometimes clients (users, systems, devices, etc.)
 **outside** of OpenShift need to access an application. The way that external
 clients are able to access applications running in OpenShift is through the
@@ -12,38 +12,32 @@ create a _Route_.
 
 ## Task: Creating a Route
 
-Fortunately, creating a _Route_ is a pretty straight-forward process.  You simply
-`expose` the _Service_ via the command line. Or, via the web console, just click
+Fortunately, creating a _Route_ is a pretty straight-forward process.  You just click
 the "Create Route" button associated with the service.
 
-First we want to verify that we don't already have any existing routes:
+![No route](../../assets/intro-openshift-getting-started-5no-route.png)
 
-`oc get routes`{{execute}}
+By default OpenShift is configured to create the _Route_ based on the _Service_ name being exposed and the _Project_ where the application lives, adding a common subdomain configured at the platform level. In our scenario, we have `[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com`. This means that there is no need to change the default settings in the _Route_ creation form.
 
-We should see no resources returned.
+![Route form](../../assets/intro-openshift-getting-started-5create-route.png)
 
-Now we need to get the _Service_ name to expose:
+Once you click `Create`, the _Route_ will be created and displayed in the `Overview` page.
 
-`oc get services`{{execute}}
+![Route created](../../assets/intro-openshift-getting-started-5route-created.png)
 
+We can also get the list of all the existing _Routes_ by clicking the `Applications->Routes` menu:
 
-Once we know the _Service_ name, creating a _Route_ is a simple one-command task:
+![Routes menu](../../assets/intro-openshift-getting-started-5routes-menu.png)
 
-`oc expose service parksmap`{{execute}}
+Currently the list of _Routes_ will only display the one we just created.
 
-The output to this command will indicate us that the route has been created and the service is now externally exposed.
+![Routes list](../../assets/intro-openshift-getting-started-5routes-list.png)
 
-Verify the _Route_ was created with the following command:
+In this list we will be able to see some the details associated with the route, like the hostname, the service and the port the route is exposing, details on the TLS security for the route, if any.
 
-`oc get route`{{execute}}
+You can always click on the _Route_ name in this list to modify an existing _Route_.
 
-We will be able to see all the details associated with the route, like the hostname, the service port the route is exposing, details on the TLS security for the route, if any, and more.
-
-You can also verify the _Route_ by looking at the project in the OpenShift web console:
-
-![Route](../../assets/intro-openshift-getting-started-5parksmap-route.png)
-
-Pretty nifty, huh?  This application is now available at the URL shown in the
+Now that we know how to create a _Route_, let's verify that the  application is really available at the URL shown in the
 web console. Click the link and you will see:
 
 ![Application](../../assets/intro-openshift-getting-started-5parksmap-empty.png)
