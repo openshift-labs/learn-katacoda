@@ -14,6 +14,26 @@
         </div>
     </div>
 </footer>
+<script type="text/javascript">
+  var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+  var windowEvent = window[eventMethod];
+  var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+  windowEvent(messageEvent,function(e) {
+  var d = e.data;
+  if(e && e.origin && e.origin.indexOf('katacoda.com') >= 0) {
+    var t = {
+      'event': 'katacoda-scenario',
+      'eventName': "katacoda-" + d.scenario,
+      'eventAction': d.action,
+      'eventLabel': d.label
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(t);
+  }
+  },false);
+
+</script>
 
 </body>
 </html>
