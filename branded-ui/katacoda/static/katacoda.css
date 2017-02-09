@@ -10,7 +10,9 @@
 .nav.navbar-nav.navbar-quicklinks {
   margin-left: -270px;
 }
-
+.navbar.navbar-default.navbar-openshift .navbar-brand {
+  margin-left: 19px;
+}
 .navbar.navbar-default.navbar-openshift .navbar-quicklinks li>a {
   padding: 10px;
 }
