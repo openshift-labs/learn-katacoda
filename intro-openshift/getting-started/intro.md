@@ -11,15 +11,15 @@ OpenShift is a full platform that incorporates several upstream projects while a
 
 Developers and Operators communication with the OpenShift Platform via one of the following methods:
 
-* Command Line Interface
+**Command Line Interface**
 
 The command line tool that we will be using as part of this training is called the *oc* tool.  This tool is written in the Go programming language and is a single executable that is provided for Windows, OS X, and the Linux Operating Systems.
 
-* Web Console
+**Web Console**
 
 OpenShift also provides a feature rich Web Console that provides a friendly graphical interface for interacting with the platform.
 
-* Rest API
+**Rest API**
 
 Both the command line tool and the web console actually communicate to OpenShift via the same method, the REST API.  Having a robust API allows users to create create their own scripts and automation depending on their specific requirements.
 
