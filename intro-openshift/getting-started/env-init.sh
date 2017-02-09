@@ -13,6 +13,7 @@ echo '  }' >> route.json
 echo '}' >> route.json
 scp route.json root@host01:~/route.json
 ssh root@host01 "oc adm registry -n default --config=/openshift.local.config/master/admin.kubeconfig"
+ssh root@host01 "oc login -u developer -p developer 2&> /dev/null"
 ssh root@host01 "docker pull centos/python-35-centos7:latest"
 ssh root@host01 "docker pull openshiftroadshow/parksmap-katacoda:1.0.0"
 
