@@ -1,5 +1,6 @@
 Let's get started with the OpenShift web console.
 
+## Task 1
 To begin, click on the **Dashboard** link in the console frame. This will open the web console link in another window.
 
 You should see an **OpenShift Origin** window with **Username** and **Password** forms, similar to this one:
@@ -24,3 +25,13 @@ You should now see a page for creating your first project in web console. Fill i
 The rest is optional and up to you. Be careful with all of that responsibility.
 
 After your project is created, you'll be taken to a screen where you can begin adding content to your project.
+
+## Task 2
+
+The breadcrumb at the top says **Add to Project** next to the name of your project, in this case **myproject**. Click on that now to take a look at more of the controls available to you.
+
+Notice the menu on the left. You're now currently on the **Overview** screen. The tools that you'll need for building and deploying your application can also be found here on the left, as well as setting access controls.
+
+Take a quick look around these, clicking on **Applications >**, **Builds >**, and **Resources >** to see more options.
+
+We'll get into those in future sections, but go ahead and explore to see what's possible!
