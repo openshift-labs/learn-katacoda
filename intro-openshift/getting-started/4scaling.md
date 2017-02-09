@@ -1,21 +1,45 @@
-OpenShift CLI is accessed using the command _oc_. From here, you can administrate the entire OpenShift cluster and deploy new applications.
+Let's scale our papplication up to 2 instances. You could also do this by clicking the "up" arrow next to
+the *Pod* in the OpenShift web console on the overview page.
 
-The CLI exposes the underlying technology of Kubernetes with the enhancements made by OpenShift. Users familiar with Kubernetes will be able to adopt OpenShift quickly. The CLI is ideal in situations where you are:
+![Scaling using arrows](../../assets/intro-openshift-getting-started-4scaling-arrows.png)
 
-1) Working directly with project source code.
+To verify that we changed the number of replicas, click the pods number in the circle next to the arrows.
+You should see list with your pods like
 
-2) Scripting OpenShift operations.
+![List of pods](../../assets/intro-openshift-getting-started-4scaling-pods.png)
 
-3) Restricted by bandwidth resources and cannot use the web console.
+You can see that we now have 2 replicas. 
 
-## Task
+Overall, that's how simple it is to scale an application (*Pods* in a
+*Service*). Application scaling can happen extremely quickly because OpenShift
+is just launching new instances of an existing image, especially if that image
+is already cached on the node.
 
-The command _new-app_ deploys an application onto an OpenShift cluster.
+### Application "Self Healing"
 
-The application can either be source code or as in this case, an existing Docker Image like _katacoda/docker-http-server:openshift-v1_. This image is an HTTP server that returns with the hostname of the container processing the request. The application is accessed a more friendly name of _ws-app1_.
+Because OpenShift's *RCs* are constantly monitoring to see that the desired number
+of *Pods* actually is running, you might also expect that OpenShift will "fix" the
+situation if it is ever not right. You would be correct!
 
-Execute the command below to create and deploy the new application.
+Since we have two *Pods* running right now, let's see what happens if we
+"accidentally" kill one.
 
-`oc new-app katacoda/docker-http-server:openshift-v1 --name=ws-app1`{{execute}}
+Open one of the pods by clicking it's name in the list.
 
-In the next step, we'll verify and view the status of the deployment.
+In the top right conrner of the page there is `Actions`, when opened, there is `Delete` action.
+
+![Delete action](../../assets/intro-openshift-getting-started-4scaling-actions.png)
+
+**Click it!** And confirm the dialog. And you will be taken back to the page listing pods, however
+this time, there are three pods.
+
+![List of pods](../../assets/intro-openshift-getting-started-4scaling-terminating.png)
+
+The pod that we deleted is `terminating, i.e. it is being clean up. And new pod was created, because
+OpenShift will always make sure, then when one pod dies, there is going to be new pod created to
+fill it's place.
+
+### Exercise: Scale Down
+
+Before we continue, go ahead and scale your application down to a single
+instance. It's as simple as clicking the down arrow on the `Overview` page.
