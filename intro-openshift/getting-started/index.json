@@ -10,7 +10,9 @@
 	"environment": {
 		"showdashboard": true,
 		"dashboard": "Dashboard",
-		"uilayout": "terminal"
+		"uilayout": "terminal",
+		"hideintro": false,
+		"hidefinish": false
 	},
 	"details": {
 		"steps": [
