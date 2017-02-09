@@ -1,21 +1,29 @@
-OpenShift CLI is accessed using the command _oc_. From here, you can administrate the entire OpenShift cluster and deploy new applications.
+In this lab you are going to deploy the front end web component of the ParksMap application, also called **parksmap**. The web application will display an interactive map, which will be used to display the location of major national parks from all over the world.
 
-The CLI exposes the underlying technology of Kubernetes with the enhancements made by OpenShift. Users familiar with Kubernetes will be able to adopt OpenShift quickly. The CLI is ideal in situations where you are:
+# Exercise: Deploying your first Image
 
-1) Working directly with project source code.
+The simplest way to deploy an application in OpenShift is to take an existing Docker-formatted image and run it. We are going to use the OpenShift web console to do this, so ensure you have the OpenShift web console open and that you are in the project called ``myproject``.
 
-2) Scripting OpenShift operations.
+The OpenShift web console provides various options to deploy an application to a project. For this lab we are doing to use the *Deploy Image* method. As the project is empty at this point, the *Overview* page should display a prominent *Add to Project* button, otherwise you can also find an *Add to project* button in the top menu bar for the project.
 
-3) Restricted by bandwidth resources and cannot use the web console.
+![Add to Project](../../assets/intro-openshift-getting-started-3add-to-empty-project.png)
 
-## Task
+Selecting *Add to Project* you should be presented with the options of *Browse Catalog*, *Deploy Image* and *Import YAML/JSON*. Choose the *Deploy Image* tab.
 
-The command _new-app_ deploys an application onto an OpenShift cluster.
+![Add to Project Options](../../assets/intro-openshift-getting-started-3add-to-project-options.png)
 
-The application can either be source code or as in this case, an existing Docker Image like _katacoda/docker-http-server:openshift-v1_. This image is an HTTP server that returns with the hostname of the container processing the request. The application is accessed a more friendly name of _ws-app1_.
+Within the *Deploy Image* tab, chose the *Image Name* option. This will be used to reference an existing Docker-formatted image hosted on the Docker Hub Registry. For the name of the image enter:
 
-Execute the command below to create and deploy the new application.
+``openshiftroadshow/parksmap-katacoda:1.0.0``
 
-`oc new-app katacoda/docker-http-server:openshift-v1 --name=ws-app1`{{execute}}
+and press enter, or click on the magnifying glass icon to the right of the text entry box.
 
-In the next step, we'll verify and view the status of the deployment.
+![Deploy Image](../../assets/intro-openshift-getting-started-3deploy-image-parksmap.png)
+
+At this point OpenShift will pull down and display key information about the image and the pending deployment, as well as populate the *Name* field with ``parksmap-katacoda``. This name will be what is used for your application and the various components created which relate to it. Leave this as the generated value as steps given in this and subsequent labs will use this name.
+
+You are ready to deploy the existing Docker-formatted image. Hit the blue *Create* button at the bottom of the screen and in the subsequent page click the *Continue to overview* link. This should bring you back to the *Overview* page where summary information about the application you just deployed will be displayed.
+
+![Console Overview](../../assets/intro-openshift-getting-started-3parksmap-overview.png)
+
+These are all the steps you need to run to get a "vanilla" Docker-formatted image deployed on OpenShift. This should work with any Docker-formatted image that follows best practices, such as defining the port any service is exposed on, not needing to run specifically as the *root user* or other dedicated user, and which embeds a default command for running the application.
