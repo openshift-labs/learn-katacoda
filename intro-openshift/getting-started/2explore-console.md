@@ -28,10 +28,10 @@ After your project is created, you'll be taken to a screen where you can begin a
 
 ## Task 2
 
-The breadcrumb at the top says **Add to Project** next to the name of your project, in this case **myproject**. Click on that now to take a look at more of the controls available to you.
+The breadcrumb at the top says **Add to Project** next to the name of your project, in this case **myproject**. We'll be using that in the next task. For now, just leave it alone.
 
 Notice the menu on the left. You're now currently on the **Overview** screen. The tools that you'll need for building and deploying your application can also be found here on the left, as well as setting access controls.
 
-Take a quick look around these, clicking on **Applications >**, **Builds >**, and **Resources >** to see more options.
+Take a quick look around these, clicking on **Applications >**, **Builds >**, and **Resources >** to see more options. There won't be much there for now as we have nothing in our project.
 
-We'll get into those in future sections, but go ahead and explore to see what's possible!
+We'll get into those in future sections, but go ahead and explore to see what's possible! Don't spend too much time on that now as you will get to use a lot of those in the upcoming sections.
