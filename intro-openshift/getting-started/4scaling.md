@@ -1,4 +1,4 @@
-Let's scale our papplication up to 2 instances. You could also do this by clicking the "up" arrow next to
+Let's scale our application up to 2 instances of the pods. You can do this by clicking the "up" arrow next to
 the *Pod* in the OpenShift web console on the overview page.
 
 ![Scaling using arrows](../../assets/intro-openshift-getting-started-4scaling-arrows.png)
@@ -17,7 +17,7 @@ is already cached on the node.
 
 ### Application "Self Healing"
 
-Because OpenShift's *RCs* are constantly monitoring to see that the desired number
+Because OpenShift's *DeploymentConfigs* are constantly monitoring to see that the desired number
 of *Pods* actually is running, you might also expect that OpenShift will "fix" the
 situation if it is ever not right. You would be correct!
 
