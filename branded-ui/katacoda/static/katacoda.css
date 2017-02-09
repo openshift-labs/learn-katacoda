@@ -11,7 +11,7 @@
   margin-left: -270px;
 }
 .navbar.navbar-default.navbar-openshift .navbar-brand {
-  margin-left: 19px;
+  margin-left: 19px;  /* remove this block if we re-implement the left menu */
 }
 .navbar.navbar-default.navbar-openshift .navbar-quicklinks li>a {
   padding: 10px;
