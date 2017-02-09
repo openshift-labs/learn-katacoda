@@ -8,14 +8,39 @@ The CLI exposes the underlying technology of Kubernetes with the enhancements ma
 
 3) Restricted by bandwidth resources and cannot use the web console.
 
-## Task
+For this section, our task is going to be deploying your first project.
 
-The command _new-app_ deploys an application onto an OpenShift cluster.
+## What is a project? Why does it matter?
+The goal of this scenario is to get a project created and running, which you'll be doing with the **web console** in the next section.
 
-The application can either be source code or as in this case, an existing Docker Image like _katacoda/docker-http-server:openshift-v1_. This image is an HTTP server that returns with the hostname of the container processing the request. The application is accessed a more friendly name of _ws-app1_.
+OpenShift is often referred to as a container application platform in that it is a platform designed for the development and deployment of containers.
 
-Execute the command below to create and deploy the new application.
+To contain your application, we use projects. The reason for having a project to contain your application is to allow for controlled access and quotas for developers or teams.
 
-`oc new-app katacoda/docker-http-server:openshift-v1 --name=ws-app1`{{execute}}
+More technically, it's a visualization of the Kubernetes namespace based on the developer access controls.
 
-In the next step, we'll verify and view the status of the deployment.
+## Command Line Interface (CLI)
+In this course, we're not focusing on CLI, but we want you to be aware of it in case CLI is your thing. **An additional course specifically in CLI will be available later.** Now, we're just going to practice logging in so you can get some experience with how the CLI works.
+
+## Task
+Let's get started by logging in. Your task is to enter the following into the console:
+
+`oc login`{{execute}}
+
+When prompted, enter the following username and password:
+
+>Username: `developer`{{execute}}
+
+>Password: `developer`{{execute}}
+
+Next, you can check if it was successful:
+
+`oc whoami`{{execute}}
+
+Should return a response of:
+
+>developer
+
+That's it!
+
+In the next step, we'll get started with creating your first project using the **web console**.

@@ -1,21 +1,37 @@
-OpenShift CLI is accessed using the command _oc_. From here, you can administrate the entire OpenShift cluster and deploy new applications.
+Let's get started with the OpenShift web console.
 
-The CLI exposes the underlying technology of Kubernetes with the enhancements made by OpenShift. Users familiar with Kubernetes will be able to adopt OpenShift quickly. The CLI is ideal in situations where you are:
+## Task 1
+To begin, click on the **Dashboard** link in the console frame. This will open the web console link in another window.
 
-1) Working directly with project source code.
+You should see an **OpenShift Origin** window with **Username** and **Password** forms, similar to this one:
 
-2) Scripting OpenShift operations.
+![OpenShift Origin Webconsole](http://labs.y7c0.gcp-roadshow.openshiftapps.com/images/ocp-login.png)
 
-3) Restricted by bandwidth resources and cannot use the web console.
+For this scenario, start by entering the following:
 
-## Task
+**Username:** `developer`
 
-The command _new-app_ deploys an application onto an OpenShift cluster.
+**Password:** `developer`
 
-The application can either be source code or as in this case, an existing Docker Image like _katacoda/docker-http-server:openshift-v1_. This image is an HTTP server that returns with the hostname of the container processing the request. The application is accessed a more friendly name of _ws-app1_.
+After logging in to the web console, you'll see a button labeled: **New Project**. Click this to get started.
 
-Execute the command below to create and deploy the new application.
+You should now see a page for creating your first project in web console. Fill it in with the following:
+>New project
 
-`oc new-app katacoda/docker-http-server:openshift-v1 --name=ws-app1`{{execute}}
+>** *Name **
 
-In the next step, we'll verify and view the status of the deployment.
+>`myproject`
+
+The rest is optional and up to you. Be careful with all of that responsibility.
+
+After your project is created, you'll be taken to a screen where you can begin adding content to your project.
+
+## Task 2
+
+The breadcrumb at the top says **Add to Project** next to the name of your project, in this case **myproject**. Click on that now to take a look at more of the controls available to you.
+
+Notice the menu on the left. You're now currently on the **Overview** screen. The tools that you'll need for building and deploying your application can also be found here on the left, as well as setting access controls.
+
+Take a quick look around these, clicking on **Applications >**, **Builds >**, and **Resources >** to see more options.
+
+We'll get into those in future sections, but go ahead and explore to see what's possible!
