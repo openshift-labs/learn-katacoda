@@ -4,7 +4,7 @@ In this lab you are going to deploy the front end web component of the ParksMap 
 
 The simplest way to deploy an application in OpenShift is to take an existing Docker-formatted image and run it. We are going to use the OpenShift web console to do this, so ensure you have the OpenShift web console open and that you are in the project called ``myproject``.
 
-The OpenShift web console provides various options to deploy an application to a project. For this lab we are doing to use the *Deploy Image* method. As the project is empty at this point, the *Overview* page should display a prominent *Add to Project* button, otherwise you can also find an *Add to project* button in the top menu bar for the project.
+The OpenShift web console provides various options to deploy an application to a project. For this lab we are going to use the *Deploy Image* method. As the project is empty at this point, the *Overview* page should display a prominent *Add to Project* button, otherwise you can also find an *Add to project* button in the top menu bar for the project.
 
 ![Add to Project](../../assets/intro-openshift-getting-started-3add-to-empty-project.png)
 
