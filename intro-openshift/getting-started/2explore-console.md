@@ -1,4 +1,4 @@
-While the command line tool is awesome, for this course we are going to focus on the web console which is equally awesome..
+While the command line tool is awesome, for this course we are going to focus on the web console, which is equally awesome.
 
 ## Task 1
 To begin, click on the **Dashboard** tab in the console frame of this browser window. This will open the web console link in another tab or window of your browser.
