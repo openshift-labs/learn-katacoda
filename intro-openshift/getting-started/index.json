@@ -41,14 +41,6 @@
 			{
 			"title": "Step 6 - Building From Source Code",
 			"text": "6s2i.md"
-			},
-			{
-			"title": "Step 7 - Code Changes",
-			"text": "7code-change.md"
-			},
-			{
-			"title": "Step 8 - GitHub Webhook Integration",
-			"text": "8webhooks.md"
 			}
 		],
 		"intro": {
