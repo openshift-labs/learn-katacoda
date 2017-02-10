@@ -28,7 +28,7 @@ After your project is created, you'll be taken to a screen where you can begin a
 
 ## Task 2
 
-The breadcrumb at the top says **Add to Project** next to the name of your project, in this case **myproject**. We'll be using that in the next task. For now, just leave it alone.
+The breadcrumb at the top says **Add to Project** next to the name of your project, in this case **myproject**. We'll be using that in the next task. For now, just click on the link for *myproject* which will bring you back to the overview.
 
 Notice the menu on the left. You're now currently on the **Overview** screen. The tools that you'll need for building and deploying your application can also be found here on the left, as well as setting access controls.
 
