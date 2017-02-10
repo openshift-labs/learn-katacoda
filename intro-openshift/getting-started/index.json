@@ -4,7 +4,7 @@
 	"description": "",
 	"pathwayTitle": "OpenShift",
 	"difficulty": "beginner",
-    	"time": "20-30 minutes",
+	"time": "20-30 minutes",
 	"backend": {
 		"imageid": "openshift",
 		"port": 8443
@@ -12,7 +12,7 @@
 	"environment": {
 		"showdashboard": true,
 		"dashboard": "Dashboard",
-		"uilayout": "terminal",
+		"uilayout": "terminal-iframe",
 		"hideintro": false,
 		"hidefinish": false
 	},
