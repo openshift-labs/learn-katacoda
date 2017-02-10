@@ -19,9 +19,9 @@ The command line tool that we will be using as part of this training is called t
 
 OpenShift also provides a feature rich Web Console that provides a friendly graphical interface for interacting with the platform.
 
-**Rest API**
+**REST API**
 
-Both the command line tool and the web console actually communicate to OpenShift via the same method, the REST API.  Having a robust API allows users to create create their own scripts and automation depending on their specific requirements.
+Both the command line tool and the web console actually communicate to OpenShift via the same method, the REST API.  Having a robust API allows users to create create their own scripts and automation depending on their specific requirements.  For detailed information about the REST API, check out the official documentation at: https://docs.openshift.org/latest/rest_api/index.html
 
 During this training, you will be using both the command line tool and the web console.  However, it should be noted that there are plugins for several integrated development environments as well.  For example, to use OpenShift from the Eclipse IDE, you would want to use the official [https://tools.jboss.org/features/openshift.html](JBoss Tools) plugin.
 
