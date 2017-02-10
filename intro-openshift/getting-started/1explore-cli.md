@@ -1,6 +1,6 @@
-OpenShift CLI is accessed using the command _oc_. From here, you can administrate the entire OpenShift cluster and deploy new applications.
+The OpenShift CLI is accessed using the command _oc_. From here, you can administrate the entire OpenShift cluster and deploy new applications.
 
-The CLI exposes the underlying technology of Kubernetes with the enhancements made by OpenShift. Users familiar with Kubernetes will be able to adopt OpenShift quickly. The CLI is ideal in situations where you are:
+The CLI exposes the underlying Kubernetes orchestration system with the enhancements made by OpenShift. Users familiar with Kubernetes will be able to adopt to OpenShift quickly. The CLI is ideal in situations where you are:
 
 1) Working directly with project source code.
 
@@ -8,7 +8,7 @@ The CLI exposes the underlying technology of Kubernetes with the enhancements ma
 
 3) Restricted by bandwidth resources and cannot use the web console.
 
-For this section, our task is going to be deploying your first project.
+For this section, our task is going to be creating our first project.
 
 ## What is a project? Why does it matter?
 The goal of this scenario is to get a project created and running, which you'll be doing with the **web console** in the next section.
@@ -20,7 +20,7 @@ To contain your application, we use projects. The reason for having a project to
 More technically, it's a visualization of the Kubernetes namespace based on the developer access controls.
 
 ## Command Line Interface (CLI)
-In this course, we're not focusing on CLI, but we want you to be aware of it in case CLI is your thing. **An additional course specifically in CLI will be available later.** Now, we're just going to practice logging in so you can get some experience with how the CLI works.
+In this course, we're not focusing on CLI, but we want you to be aware of it in case using the command line is your thing. **An additional course specifically for the CLI will be available later.** Now, we're just going to practice logging in so you can get some experience with how the CLI works.
 
 ## Task
 Let's get started by logging in. Your task is to enter the following into the console:
