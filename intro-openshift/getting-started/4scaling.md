@@ -1,14 +1,14 @@
 Let's scale our application up to 2 instances of the pods. You can do this by clicking the "up" arrow next to
 the *Pod* in the OpenShift web console on the overview page.
 
-![Scaling using arrows](../../assets/intro-openshift-getting-started-4scaling-arrows.png)
+![Scaling using arrows](../../assets/intro-openshift/getting-started/4scaling-arrows.png)
 
 To verify that we changed the number of replicas, click the pods number in the circle next to the arrows.
 You should see list with your pods like
 
-![List of pods](../../assets/intro-openshift-getting-started-4scaling-pods.png)
+![List of pods](../../assets/intro-openshift/getting-started/4scaling-pods.png)
 
-You can see that we now have 2 replicas. 
+You can see that we now have 2 replicas.
 
 Overall, that's how simple it is to scale an application (*Pods* in a
 *Service*). Application scaling can happen extremely quickly because OpenShift
@@ -28,12 +28,12 @@ Open one of the pods by clicking it's name in the list.
 
 In the top right conrner of the page there is `Actions`, when opened, there is `Delete` action.
 
-![Delete action](../../assets/intro-openshift-getting-started-4scaling-actions.png)
+![Delete action](../../assets/intro-openshift/getting-started/4scaling-actions.png)
 
 **Click it!** And confirm the dialog. And you will be taken back to the page listing pods, however
 this time, there are three pods.
 
-![List of pods](../../assets/intro-openshift-getting-started-4scaling-terminating.png)
+![List of pods](../../assets/intro-openshift/getting-started/4scaling-terminating.png)
 
 The pod that we deleted is `terminating, i.e. it is being clean up. And new pod was created, because
 OpenShift will always make sure, then when one pod dies, there is going to be new pod created to
