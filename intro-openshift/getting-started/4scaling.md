@@ -4,7 +4,7 @@ the *Pod* in the OpenShift web console on the overview page.
 ![Scaling using arrows](../../assets/intro-openshift/getting-started/4scaling-arrows.png)
 
 To verify that we changed the number of replicas, click the pods number in the circle next to the arrows.
-You should see list with your pods like
+You should see a list with your pods similar to the following:
 
 ![List of pods](../../assets/intro-openshift/getting-started/4scaling-pods.png)
 
@@ -18,7 +18,7 @@ is already cached on the node.
 ### Application "Self Healing"
 
 Because OpenShift's *DeploymentConfigs* are constantly monitoring to see that the desired number
-of *Pods* actually is running, you might also expect that OpenShift will "fix" the
+of *Pods* is actually running, you might also expect that OpenShift will "fix" the
 situation if it is ever not right. You would be correct!
 
 Since we have two *Pods* running right now, let's see what happens if we
@@ -35,8 +35,8 @@ this time, there are three pods.
 
 ![List of pods](../../assets/intro-openshift/getting-started/4scaling-terminating.png)
 
-The pod that we deleted is `terminating, i.e. it is being clean up. And new pod was created, because
-OpenShift will always make sure, then when one pod dies, there is going to be new pod created to
+The pod that we deleted is terminating, i.e. it is being cleaned up. And a new pod was created, because
+OpenShift will always make sure, that if one pod dies, there is going to be new pod created to
 fill it's place.
 
 ### Exercise: Scale Down
