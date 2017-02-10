@@ -8,7 +8,7 @@ The OpenShift web console provides various options to deploy an application to a
 
 ![Add to Project](../../assets/intro-openshift/getting-started/3add-to-empty-project.png)
 
-Selecting *Add to Project* you should be presented with the options of *Browse Catalog*, *Deploy Image* and *Import YAML/JSON*. Choose the *Deploy Image* tab.
+After selecting *Add to Project* you should be presented with the options of *Browse Catalog*, *Deploy Image* and *Import YAML/JSON*. Choose the *Deploy Image* tab.
 
 ![Add to Project Options](../../assets/intro-openshift/getting-started/3add-to-project-options.png)
 

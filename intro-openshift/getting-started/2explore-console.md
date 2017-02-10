@@ -1,12 +1,11 @@
-Let's get started with the OpenShift web console.
+While the command line tool is awesome, for this course we are going to focus on the web console which is equally awesome..
 
 ## Task 1
-To begin, click on the **Dashboard** link in the console frame. This will open the web console link in another window.
+To begin, click on the **Dashboard** tab in the console frame of this browser window. This will open the web console link in another tab or window of your browser.
 
 You should see an **OpenShift Origin** window with **Username** and **Password** forms, similar to this one:
 
-![OpenShift Origin Webconsole](http://labs.y7c0.gcp-roadshow.openshiftapps.com/images/ocp-login.png)
-
+![OpenShift Origin Web Console](../../assets/intro-openshift/getting-started/ocp-login.png)
 For this scenario, start by entering the following:
 
 **Username:** `developer`

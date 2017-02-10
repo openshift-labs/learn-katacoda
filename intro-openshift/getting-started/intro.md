@@ -1,6 +1,6 @@
 In this self paced tutorial you will learn how to use the OpenShift Container Platform to build and deploy applications using both containers and orchestration.
 
-**Let's get started**
+## Let's get started
 
 If you are not familiar with the OpenShift Container Platform, it's worth taking a few minutes to understand the basics of the platform as well as the environment that you will be using for this self paced tutorial.  
 
@@ -11,21 +11,21 @@ OpenShift is a full platform that incorporates several upstream projects while a
 
 Both Developers and Operators communicate with the OpenShift Platform via one of the following methods:
 
-**Command Line Interface**
+### Command Line Interface
 
 The command line tool that we will be using as part of this training is called the *oc* tool.  This tool is written in the Go programming language and is a single executable that is provided for Windows, OS X, and the Linux Operating Systems.
 
-**Web Console**
+### Web Console
 
 OpenShift also provides a feature rich Web Console that provides a friendly graphical interface for interacting with the platform.
 
-**REST API**
+### REST API
 
 Both the command line tool and the web console actually communicate to OpenShift via the same method, the REST API.  Having a robust API allows users to create their own scripts and automation depending on their specific requirements.  For detailed information about the REST API, check out the official documentation at: https://docs.openshift.org/latest/rest_api/index.html
 
 During this training, you will be using both the command line tool and the web console.  However, it should be noted that there are plugins for several integrated development environments as well.  For example, to use OpenShift from the Eclipse IDE, you would want to use the official [https://tools.jboss.org/features/openshift.html](JBoss Tools) plugin.
 
-**The Environment**
+### The Environment
 
 During this training course you will be using a hosted OpenShift environment that is created just for you.  This environment is not shared with other users of the system.  Because each user taking this training has their own environment, we had to make some concessions to ensure the overall platform is stable and used only for this training.  For that reason, your environment will only be active for a one hour period.  Keep this in mind before embarking on getting through the content.  Each time you start this training, a new environment will be created on the fly.
  

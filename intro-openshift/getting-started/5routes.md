@@ -33,7 +33,7 @@ Currently the list of _Routes_ will only display the one we just created.
 
 ![Routes list](../../assets/intro-openshift/getting-started/5routes-list.png)
 
-In this list we will be able to see some the details associated with the route, like the hostname, the service and the port the route is exposing, details on the TLS security for the route, if any.
+In this list we will be able to see the details associated with the route, like the hostname, the service, the port the route is exposing, and details on the TLS security for the route, if any.
 
 You can always click on the _Route_ name in this list to modify an existing _Route_.
 
