@@ -5,8 +5,7 @@ To begin, click on the **Dashboard** tab in the console frame of this browser wi
 
 You should see an **OpenShift Origin** window with **Username** and **Password** forms, similar to this one:
 
-![OpenShift Origin Webconsole](http://labs.y7c0.gcp-roadshow.openshiftapps.com/images/ocp-login.png)
-
+![OpenShift Origin Web Console](../../assets/intro-openshift/getting-started/ocp-login.png)
 For this scenario, start by entering the following:
 
 **Username:** `developer`
