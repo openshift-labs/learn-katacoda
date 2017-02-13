@@ -2,7 +2,7 @@ Now that you have created an application to work with, the list of key resource 
 
 ``oc get all``{{execute}}
 
-command.The output you see from running this command will be similar to the following:
+command. The output you will see from running this command will be similar to the following:
 
 ```
 NAME             TYPE      FROM      LATEST
@@ -21,8 +21,8 @@ dc/coming-soon   1          1         1         config,image(coming-soon:latest)
 NAME               DESIRED   CURRENT   READY     AGE
 rc/coming-soon-1   1         1         1         17m
 
-NAME                 HOST/PORT                                                PATH      SERVICES      PORT       TERMINATION
-routes/coming-soon   coming-soon-myproject.router.default.svc.cluster.local             coming-soon   8080-tcp
+NAME                 HOST/PORT                                                               PATH      SERVICES      PORT       TERMINATION
+routes/coming-soon   coming-soon-myproject.2886795322-80-ollie01.environments.katacoda.com             coming-soon   8080-tcp
 
 NAME              CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
 svc/coming-soon   172.30.213.183   <none>        8080/TCP   18m
@@ -60,8 +60,8 @@ In addition to being able to use the special name ``all`` to query information a
 For the application you have deployed, you should be see something like:
 
 ```
-NAME        HOST/PORT                                              PATH SERVICES    PORT     TERMINATION
-coming-soon coming-soon-myproject.router.default.svc.cluster.local      coming-soon 8080-tcp
+NAME        HOST/PORT                                                             PATH SERVICES    PORT     TERMINATION
+coming-soon coming-soon-myproject.2886795322-80-ollie01.environments.katacoda.com      coming-soon 8080-tcp
 ```
 
 You can get a list of all the different resource object types you can query by running
@@ -89,7 +89,9 @@ error: Required resource not specified.
 See 'oc get -h' for help and examples.
 ```
 
-In addition to being able to be queried using their full name, many resource object types can be queried using a shorter alias. In all cases where the ``type`` of a resource object is listed as a plural, you can also use the ``type`` in its singular form. You can therefore use ``route`` instead of ``routes``.
+In addition to being able to be queried using their full name, many resource object types can be queried using a shorter alias. You can therefore use ``dc`` instead of ``deploymentconfigs``.
+
+In all cases where the ``type`` of a resource object is listed as a plural, you can also use the ``type`` in its singular form. You can therefore use ``route`` instead of ``routes``.
 
 A high level description of the main resource object types, and other concepts, can be obtained by running the:
 
