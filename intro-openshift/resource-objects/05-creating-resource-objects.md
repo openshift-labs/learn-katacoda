@@ -36,12 +36,6 @@ To create the route from the ``coming-soon-fqdn.json`` file you would run the co
 
 ``oc create -f coming-soon-fqdn.json``{{execute}}.
 
-The output of the command would be the list of the resources created.
-
-```
-route "coming-soon-fqdn" created
-```
-
 The definition for this route had a unique value for ``route.metadata.name``, which wasn't previously in use. If you now run:
 
 ``oc get routes``{{execute}}

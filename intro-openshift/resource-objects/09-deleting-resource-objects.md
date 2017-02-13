@@ -20,4 +20,6 @@ A resource object type, or value of ``all`` can be used without a label selector
 
 ``oc delete all --all``{{execute}}
 
+This last one will actually show that there are no resource to delete, but that is only because you had already deleted them with the previous commands.
+
 It is recommended that before deleting any resource objects, you use ``oc get`` with the same parameters to confirm what would be deleted.

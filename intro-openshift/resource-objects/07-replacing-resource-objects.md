@@ -1,6 +1,6 @@
 The ``oc create`` command allows you to create a new resource object from a JSON or YAML definition contained in a file. To change an existing resource object using ``oc edit`` was an interactive process. To be able to change an existing resource from a JSON or YAML definition contained in a file, you can use the ``oc replace`` command.
 
-Edit the previous JSON file used to create the route to change the policy for edge termination and HTTP vs HTTPS connections to:
+To disallow an insecure route you create a modified definition of the route object:
 
 ``cat > coming-soon-fqdn.json << !
 {
@@ -24,7 +24,7 @@ Edit the previous JSON file used to create the route to change the policy for ed
         },
         "tls": {
             "termination": "edge",
-            "insecureEdgeTerminationPolicy": "Allow"
+            "insecureEdgeTerminationPolicy": "Redirect"
         }
     }
 }
