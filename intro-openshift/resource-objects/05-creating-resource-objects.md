@@ -1,8 +1,8 @@
-The ``oc edi`` command would be used to change an existing resource object, it cannot be used to create a new object. To create a new object you need to use the ``oc create`` command.
+The ``oc edit`` command would be used to change an existing resource object, it cannot be used to create a new object. To create a new object you need to use the ``oc create`` command.
 
 The ``oc create`` option provides a generic way of creating any resource object from a JSON or YAML definition, as well as a simpler option driven method for a subset of resource object types.
 
-If for example we wished to create a secure route for the application with our own host name, we would create a ``fqdn-route.json`` file containing the definition of the route:
+If for example you wanted to create a secure route for the application with your own host name, you would create a ``coming-soon-fqdn.json`` file containing the definition of the route:
 
 ```
 {
@@ -32,22 +32,32 @@ If for example we wished to create a secure route for the application with our o
 }
 ```
 
-To create the route from the ``fqdn-route.json`` file we would run the command ``oc create -f fqdn-route.json``{{execute}}. The output of the command would be the list of the resources created.
+To create the route from the ``coming-soon-fqdn.json`` file you would run the command:
+
+``oc create -f coming-soon-fqdn.json``{{execute}}.
+
+The output of the command would be the list of the resources created.
 
 ```
 route "coming-soon-fqdn" created
 ```
 
-The definition for this route had a unique value for ``route.metadata.name``, which wasn't previously in use. This means we now have two routes, as can be seen by running ``oc get routes``{{execute}}.
+The definition for this route had a unique value for ``route.metadata.name``, which wasn't previously in use. If you now run:
+
+``oc get routes``{{execute}}
+
+you should see two routes listed.
 
 ```
-NAME               HOST/PORT                                                PATH      SERVICES      PORT       TERMINATION
-coming-soon        coming-soon-myproject.router.default.svc.cluster.local             coming-soon   8080-tcp
-coming-soon-fqdn   www.example.com                                                    coming-soon   8080-tcp   edge/Allow
+NAME               HOST/PORT                                                              PATH   SERVICES      PORT       TERMINATION
+coming-soon        coming-soon-myproject.2886795322-80-ollie01.environments.katacoda.com         coming-soon   8080-tcp
+coming-soon-fqdn   www.example.com                                                               coming-soon   8080-tcp   edge/Allow
 ```
 
-In the case of a route, ``oc create`` provides a sub command specifically for creating a route. We could therefore also have run ``oc create route`` using the command:
+In the case of a route, ``oc create`` provides a sub command specifically for creating a route. You could therefore also have run ``oc create route`` using the command:
 
-``oc create route edge httpd-fqdn --service httpd --insecure-policy Allow --hostname www.example.com``
+``oc create route edge coming-soon-fqdn --service coming-soon --insecure-policy Allow --hostname www.example.com``
 
-To see the list of resource object types that ``oc create`` has more specific support for, run ``oc create --help``.
+To see the list of resource object types that ``oc create`` has more specific support for, run:
+
+``oc create --help``{{execute}}
