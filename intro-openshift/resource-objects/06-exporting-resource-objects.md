@@ -6,4 +6,6 @@ Run the command:
 
 and compare it to the output you previously got when running:
 
-``oc get route/coming-soon -o json``{{execute]}
+``oc get route/coming-soon -o json``{{execute}}
+
+Notice how when using ``oc export`` that the meta data no longer contains any mentions of the current project via attributes such as ``namespace``.
