@@ -42,4 +42,4 @@ To edit the definition will require a way of editing the JSON or YAML definition
 
 The ``route.spec.tls.insecureEdgeTerminationPolicy`` value could for example be by running:
 
-``oc patch route/httpd-fqdn --patch '{"spec":{"tls": {"insecureEdgeTerminationPolicy": "Redirect"}}}'``{{execute}}
+``oc patch route/coming-soon-fqdn --patch '{"spec":{"tls": {"insecureEdgeTerminationPolicy": "Redirect"}}}'``{{execute}}
