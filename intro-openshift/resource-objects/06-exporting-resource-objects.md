@@ -1,0 +1,9 @@
+When you use ``oc get -o json`` to query a resource object, it contains additional status information which can bind it to the current project and cluster. If you need to export a definition which can be used to create a new resource object in a different project or cluster, you should use ``oc export`` rather than ``oc get``.
+
+Run the command:
+
+``oc export route/coming-soon -o json``{{execute}}
+
+and compare it to the output you previously got when running:
+
+``oc get route/coming-soon -o json``{{execute]}
