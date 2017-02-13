@@ -1,6 +1,6 @@
 In this course you learnt about ``oc`` commands you would use for querying and updating the resource objects that OpenShift uses to track the state of the cluster.
 
-You can find a summary of the key commands covered below.
+You can find a summary of the key commands covered below. To see more information on each ``oc`` command, run it with the ``--help`` option.
 
 ``oc types``: Shows an introduction to core OpenShift concepts and types.
 
@@ -28,7 +28,9 @@ You can find a summary of the key commands covered below.
 
 ``oc create -f <definition.json>``: Create a resource object from a definition stored in a file. The format of the definition must be JSON or YAML. The ``metadata.name`` field of the definition must not correspond to an existing resource object.
 
-``oc replace -f <definition.json>``: Replace the defintion of a resource object with that stored in a file. The format of the definition must be JSON or YAML. The ``metadata.name`` field of the definition must correspond to an existing resource object.
+``oc replace -f <definition.json>``: Replace the definition of a resource object with that stored in a file. The format of the definition must be JSON or YAML. The ``metadata.name`` field of the definition must correspond to an existing resource object.
+
+``oc apply -f <definition.json>``: Replace the definition of a resource object if it exists with that stored in a file. The format of the definition must be JSON or YAML. The ``metadata.name`` field of the definition must correspond to an existing resource object. If the resource object does not already exist, it will be created.
 
 ``oc patch <type/name> --patch <patch>``: Update a resource object using a patch specification.
 

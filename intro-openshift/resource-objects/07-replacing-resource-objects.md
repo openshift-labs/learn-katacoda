@@ -43,3 +43,5 @@ To edit the definition will require a way of editing the JSON or YAML definition
 The ``route.spec.tls.insecureEdgeTerminationPolicy`` value could for example be by running:
 
 ``oc patch route/coming-soon-fqdn --patch '{"spec":{"tls": {"insecureEdgeTerminationPolicy": "Redirect"}}}'``{{execute}}
+
+For both cases, the resource object to be updated must already exist or the command will fail. If you do not know whether the resource object will already exist, and want it updated if it does, but created if it does not, instead of using ``oc replace``, you can use ``oc apply``.
