@@ -1,6 +1,10 @@
 To get a more detailed description of a specific resource object, you can use the ``oc describe`` command.
 
-Running ``oc describe route/coming-soon``{{execute}} would yield something similar to:
+Run:
+
+``oc describe route/coming-soon``{{execute}}
+
+and it should yield something similar to:
 
 ```
 Name:                   coming-soon
@@ -8,7 +12,7 @@ Namespace:              myproject
 Created:                5 minutes ago
 Labels:                 app=coming-soon
 Annotations:            openshift.io/host.generated=true
-Requested Host:         coming-soon-myproject.router.default.svc.cluster.local
+Requested Host:         coming-soon-myproject.2886795322-80-ollie01.environments.katacoda.com
                           exposed on router router 5 minutes ago
 Path:                   <none>
 TLS Termination:        <none>
@@ -20,13 +24,21 @@ Weight:         100 (100%)
 Endpoints:      172.18.0.2:8080
 ```
 
-Whenever passing a specific resource object as argument to an ``oc`` command, there are two conventions which can be used. The first is to use a single string of the form ``type/name``. The second is to pass the ``type`` and ``name`` as separate consecutive arguments. The command ``oc describe route coming-soon``{{execute}} is therefore equivalent.
+Whenever passing a specific resource object as argument to an ``oc`` command, there are two conventions which can be used. The first is to use a single string of the form ``type/name``. The second is to pass the ``type`` and ``name`` as separate consecutive arguments. The command:
+
+``oc describe route coming-soon``{{execute}}
+
+is therefore equivalent.
 
 The output produced by ``oc describe`` is intended to be a human readable format. To get the raw object details as JSON or YAML, you can use the ``oc get`` command, listing the name of the resource and the output format.
 
-For JSON output, you can use ``oc get route/coming-soon -o json``{{execute}}.
+For JSON output, you can use:
 
-For YAML output, you can use ``oc get route/coming-soon -o yaml``{{execute}}.
+``oc get route/coming-soon -o json``{{execute}}.
+
+For YAML output, you can use:
+
+``oc get route/coming-soon -o yaml``{{execute}}.
 
 An abbreviated example of the JSON description for a ``route`` object is:
 
@@ -42,7 +54,7 @@ An abbreviated example of the JSON description for a ``route`` object is:
         },
     },
     "spec": {
-        "host": "coming-soon-myproject.router.default.svc.cluster.local",
+        "host": "coming-soon-myproject.2886795322-80-ollie01.environments.katacoda.com",
         "to": {
             "kind": "Service",
             "name": "coming-soon",
@@ -59,7 +71,11 @@ An abbreviated example of the JSON description for a ``route`` object is:
 
 To see a description of the purpose of specific fields in the raw object, you can use the ``oc explain`` command, providing it with a path selector for the field.
 
-To see the description of the ``host`` field of the ``spec`` object, you can run ``oc explain route.spec.host``{{execute}}:
+To see the description of the ``host`` field of the ``spec`` object, you can run:
+
+``oc explain route.spec.host``{{execute}}
+
+This will output:
 
 ```
 FIELD: host <string>
