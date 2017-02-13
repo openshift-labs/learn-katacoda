@@ -1,6 +1,10 @@
 Before you can start this course you need to deploy a sample application to work with.
 
-The first step is to create a new project to add the application to, by running:
+The first step is to ensure you are logged in as the ``developer`` user.
+
+``oc login --user developer --password developer``{{execute}}
+
+Next create a new project to add the application to, by running:
 
 ``oc new-project myproject``{{execute}}
 
