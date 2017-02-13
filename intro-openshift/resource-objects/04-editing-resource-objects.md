@@ -1,8 +1,16 @@
 To make changes to an existing resource object you can use the ``oc edit`` command.
 
-To edit the details of the ``route`` object for the sample application you can run ``oc edit route/coming-soon``{{execute}}
+To edit the details of the ``route`` object for the sample application you can run:
 
-This will start up an editor from which you can edit the definition of the resource object. By default the definition will be provided as YAML. To edit the definition as JSON add the ``-o json`` option.
+``oc edit route/coming-soon``{{execute}}
+
+This will start up an editor from which you can edit the definition of the resource object.
+
+The ``vi`` editor will be used with this environment. If you are not familiar with ``vi``, you can enter ``:q`` to exit provided no changes have been made.
+
+By default, when editing a definition, it will be provided as YAML. To edit the definition as JSON add the ``-o json`` option.
+
+``oc edit route/coming-soon -o json``{{execute}}
 
 Once you are done with any edits, save the changes and quit the editor. The changes will be automatically uploaded and used to replace the original definition.
 
