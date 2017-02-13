@@ -2,7 +2,7 @@ The ``oc create`` command allows you to create a new resource object from a JSON
 
 Edit the previous JSON file used to create the route to change the policy for edge termination and HTTP vs HTTPS connections to:
 
-```
+``cat > coming-soon-fqdn.json << !
 {
     "kind": "Route",
     "apiVersion": "v1",
@@ -28,7 +28,7 @@ Edit the previous JSON file used to create the route to change the policy for ed
         }
     }
 }
-```
+!``{{execute}}
 
 and then run:
 

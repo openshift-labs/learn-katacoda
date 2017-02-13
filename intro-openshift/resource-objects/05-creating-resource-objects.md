@@ -4,7 +4,7 @@ The ``oc create`` option provides a generic way of creating any resource object 
 
 If for example you wanted to create a secure route for the application with your own host name, you would create a ``coming-soon-fqdn.json`` file containing the definition of the route:
 
-```
+``cat > coming-soon-fqdn.json << !
 {
     "kind": "Route",
     "apiVersion": "v1",
@@ -30,7 +30,7 @@ If for example you wanted to create a secure route for the application with your
         }
     }
 }
-```
+!``{{execute}}
 
 To create the route from the ``coming-soon-fqdn.json`` file you would run the command:
 
