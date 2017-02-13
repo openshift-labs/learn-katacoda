@@ -1,6 +1,6 @@
 {
         "icon": "fa-openshift",
-        "title": "Working with OpenShift Resource Objects",
+        "title": "Using the CLI to Manage Resource Objects",
         "description": "",
         "pathwayTitle": "OpenShift",
         "difficulty": "beginner",
