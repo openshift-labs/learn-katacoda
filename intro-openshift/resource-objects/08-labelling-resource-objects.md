@@ -25,7 +25,7 @@ If you need to apply additional labels to a resource object you can use the ``oc
 
 To add the label ``web`` to the service object for you application, and give it the value ``true``, run:
 
-``oc label service/coming-soon web=true``{{execute))}}
+``oc label service/coming-soon web=true``{{execute}}
 
 Then query all resource objects with just that label.
 
