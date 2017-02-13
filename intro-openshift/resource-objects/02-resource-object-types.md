@@ -1,4 +1,8 @@
-The list of key resource objects which have been created within a project can be listed using the ``oc get all``{{execute}} command.
+Now that you have created an application to work with, the list of key resource objects which have been created within the project can be listed using the:
+
+``oc get all``{{execute}}
+
+command.The output you see from running this command will be similar to the following:
 
 ```
 NAME             TYPE      FROM      LATEST
@@ -28,7 +32,11 @@ po/coming-soon-1-2x0tt   1/1       Running     0          17m
 po/coming-soon-1-build   0/1       Completed   0          18m
 ```
 
-You can restrict the output to just the names of the resources by running ``oc get all -o name``{{execute}}.
+You can restrict the output to just the names of the resources by running:
+
+``oc get all -o name``{{execute}}
+
+In other words, supply the ``-o name`` option to change the output format.
 
 ```
 buildconfig/coming-soon
@@ -45,14 +53,22 @@ pod/coming-soon-1-build
 
 The ``oc get`` command is the most basic command that exists in OpenShift for querying resource objects. You will use it a lot, so you should become familiar with it, as well as how to update resource objects.
 
-In addition to being able to use the special name ``all`` to query information about the key resource object types, you can also list specific object types by name. You can for example get a list of the routes created when applications have been exposed by running ``oc get routes``{{execute}}.
+In addition to being able to use the special name ``all`` to query information about the key resource object types, you can also list specific object types by name. You can for example get a list of the routes created when applications have been exposed by running:
+
+``oc get routes``{{execute}}
+
+For the application you have deployed, you should be see something like:
 
 ```
 NAME        HOST/PORT                                              PATH SERVICES    PORT     TERMINATION
 coming-soon coming-soon-myproject.router.default.svc.cluster.local      coming-soon 8080-tcp
 ```
 
-You can get a list of all the different resource object types you can query by running ``oc get``{{execute}} without any specific object type listed. This will output
+You can get a list of all the different resource object types you can query by running
+
+``oc get``{{execute}}
+
+without any specific object type listed. This will output
 
 ```
 You must specify the type of resource to get. Valid resource types include:
@@ -75,7 +91,11 @@ See 'oc get -h' for help and examples.
 
 In addition to being able to be queried using their full name, many resource object types can be queried using a shorter alias. In all cases where the ``type`` of a resource object is listed as a plural, you can also use the ``type`` in its singular form. You can therefore use ``route`` instead of ``routes``.
 
-A high level description of the main resource object types, and other concepts, can be obtained by running the ``oc types``{{execute}} command.
+A high level description of the main resource object types, and other concepts, can be obtained by running the:
+
+``oc types``{{execute}}
+
+command.
 
 ```
 Concepts and Types
