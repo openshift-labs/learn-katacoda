@@ -34,6 +34,10 @@ You can find a summary of the key commands covered below. To see more informatio
 
 ``oc patch <type/name> --patch <patch>``: Update a resource object using a patch specification.
 
+``oc label <type/name> <name=value>``: Add a label to a resource object.
+
+``oc label <type/name> <name->``: Remove a label from a resource object.
+
 ``oc delete <type/name>``: Delete a resource object.
 
 ``oc delete <type> --selector app=<name>``: Delete all resource objects of a type with the specified label.

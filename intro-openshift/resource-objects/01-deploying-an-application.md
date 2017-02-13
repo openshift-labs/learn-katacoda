@@ -10,12 +10,12 @@ Next create a new project to add the application to, by running:
 
 This should automatically switch you to the new project, so you are ready to deploy the application.
 
-The application you are going to deploy is the Apache HTTPD server. The image for this is S2I enabled. This means that it can be run against a Git repository containing the files you want the Apache HTTPD server to host. In this case you are going to deploy a small web site to tell people about an awesome new web site that you are working on and which is coming soon.
+The application you are going to deploy is the our ParksMap web application used in _Getting Started with OpenShift for Developers_ Katacoda course.
 
-``oc new-app getwarped/s2i-httpd-server~https://github.com/getwarped/httpd-parked-domain.git --name coming-soon``{{execute}}
+``oc new-app openshiftroadshow/parksmap-katacoda:1.0.0 --name parksmap``{{execute}}
 
 By default when using ``oc new-app`` from the command line to deploy an application, the application will not be exposed to the public. As our final step you therefore need to expose the service so that people can access it.
 
-``oc expose svc/coming-soon``{{execute}}
+``oc expose svc/parksmap``{{execute}}
 
 You are now ready to start investigating the resource objects which were created.

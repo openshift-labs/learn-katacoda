@@ -2,10 +2,10 @@ When you use ``oc get -o json`` to query a resource object, it contains addition
 
 Run the command:
 
-``oc export route/coming-soon -o json``{{execute}}
+``oc export route/parksmap -o json``{{execute}}
 
 and compare it to the output you previously got when running:
 
-``oc get route/coming-soon -o json``{{execute}}
+``oc get route/parksmap -o json``{{execute}}
 
 Notice how when using ``oc export`` that the meta data no longer contains any mentions of the current project via attributes such as ``namespace``.

@@ -5,31 +5,23 @@ Now that you have created an application to work with, the list of key resource 
 command. The output you will see from running this command will be similar to the following:
 
 ```
-NAME             TYPE      FROM      LATEST
-bc/coming-soon   Source    Git       1
+NAME          DOCKER REPO                             TAGS      UPDATED
+is/parksmap   172.30.204.23:5000/myproject/parksmap   1.0.0     6 seconds ago
 
-NAME                   TYPE      FROM          STATUS     STARTED          DURATION
-builds/coming-soon-1   Source    Git@627bdbd   Complete   18 minutes ago   53s
+NAME          REVISION   DESIRED   CURRENT   TRIGGERED BY
+dc/parksmap   1          1         0         config,image(parksmap:1.0.0)
 
-NAME                  DOCKER REPO                                     TAGS      UPDATED
-is/coming-soon        172.30.186.63:5000/myproject/coming-soon        latest    17 minutes ago
-is/s2i-httpd-server   172.30.186.63:5000/myproject/s2i-httpd-server   latest    18 minutes ago
+NAME            DESIRED   CURRENT   READY     AGE
+rc/parksmap-1   0         0         0         5s
 
-NAME             REVISION   DESIRED   CURRENT   TRIGGERED BY
-dc/coming-soon   1          1         1         config,image(coming-soon:latest)
+NAME              HOST/PORT                                                            PATH      SERVICES   PORT       TERMINATION
+routes/parksmap   parksmap-myproject.2886795339-80-ollie01.environments.katacoda.com             parksmap   8080-tcp
 
-NAME               DESIRED   CURRENT   READY     AGE
-rc/coming-soon-1   1         1         1         17m
+NAME           CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+svc/parksmap   172.30.247.188   <none>        8080/TCP   30s
 
-NAME                 HOST/PORT                                                               PATH      SERVICES      PORT       TERMINATION
-routes/coming-soon   coming-soon-myproject.2886795322-80-ollie01.environments.katacoda.com             coming-soon   8080-tcp
-
-NAME              CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
-svc/coming-soon   172.30.213.183   <none>        8080/TCP   18m
-
-NAME                     READY     STATUS      RESTARTS   AGE
-po/coming-soon-1-2x0tt   1/1       Running     0          17m
-po/coming-soon-1-build   0/1       Completed   0          18m
+NAME                   READY     STATUS    RESTARTS   AGE
+po/parksmap-1-deploy   0/1       Pending   0          5s
 ```
 
 You can restrict the output to just the names of the resources by running:
@@ -39,16 +31,12 @@ You can restrict the output to just the names of the resources by running:
 In other words, supply the ``-o name`` option to change the output format.
 
 ```
-buildconfig/coming-soon
-build/coming-soon-1
-imagestream/coming-soon
-imagestream/s2i-httpd-server
-deploymentconfig/coming-soon
-replicationcontroller/coming-soon-1
-route/coming-soon
-service/coming-soon
-pod/coming-soon-1-2x0tt
-pod/coming-soon-1-build
+imagestream/parksmap
+deploymentconfig/parksmap
+replicationcontroller/parksmap-1
+route/parksmap
+service/parksmap
+pod/parksmap-1-deploy
 ```
 
 The ``oc get`` command is the most basic command that exists in OpenShift for querying resource objects. You will use it a lot, so you should become familiar with it, as well as how to update resource objects.
@@ -60,8 +48,8 @@ In addition to being able to use the special name ``all`` to query information a
 For the application you have deployed, you should be see something like:
 
 ```
-NAME        HOST/PORT                                                             PATH SERVICES    PORT     TERMINATION
-coming-soon coming-soon-myproject.2886795322-80-ollie01.environments.katacoda.com      coming-soon 8080-tcp
+NAME       HOST/PORT                                                            PATH      SERVICES   PORT       TERMINATION
+parksmap   parksmap-myproject.2886795339-80-ollie01.environments.katacoda.com             parksmap   8080-tcp
 ```
 
 You can get a list of all the different resource object types you can query by running

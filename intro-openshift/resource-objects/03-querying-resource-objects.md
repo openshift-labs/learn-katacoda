@@ -2,31 +2,31 @@ To get a more detailed description of a specific resource object, you can use th
 
 Run:
 
-``oc describe route/coming-soon``{{execute}}
+``oc describe route/parksmap``{{execute}}
 
 and it should yield something similar to:
 
 ```
-Name:                   coming-soon
+Name:                   parksmap
 Namespace:              myproject
-Created:                5 minutes ago
-Labels:                 app=coming-soon
+Created:                2 minutes ago
+Labels:                 app=parksmap
 Annotations:            openshift.io/host.generated=true
-Requested Host:         coming-soon-myproject.2886795322-80-ollie01.environments.katacoda.com
-                          exposed on router router 5 minutes ago
+Requested Host:         parksmap-myproject.2886795339-80-ollie01.environments.katacoda.com
+                          exposed on router router 29 seconds ago
 Path:                   <none>
 TLS Termination:        <none>
 Insecure Policy:        <none>
 Endpoint Port:          8080-tcp
 
-Service:        coming-soon
+Service:        parksmap
 Weight:         100 (100%)
-Endpoints:      172.18.0.2:8080
+Endpoints:      <none>
 ```
 
 Whenever passing a specific resource object as argument to an ``oc`` command, there are two conventions which can be used. The first is to use a single string of the form ``type/name``. The second is to pass the ``type`` and ``name`` as separate consecutive arguments. The command:
 
-``oc describe route coming-soon``{{execute}}
+``oc describe route parksmap``{{execute}}
 
 is therefore equivalent.
 
@@ -34,11 +34,11 @@ The output produced by ``oc describe`` is intended to be a human readable format
 
 For JSON output, you can use:
 
-``oc get route/coming-soon -o json``{{execute}}.
+``oc get route/parksmap -o json``{{execute}}.
 
 For YAML output, you can use:
 
-``oc get route/coming-soon -o yaml``{{execute}}.
+``oc get route/parksmap -o yaml``{{execute}}.
 
 An abbreviated example of the JSON description for a ``route`` object is:
 
@@ -47,17 +47,17 @@ An abbreviated example of the JSON description for a ``route`` object is:
     "kind": "Route",
     "apiVersion": "v1",
     "metadata": {
-        "name": "coming-soon",
+        "name": "parksmap",
         "namespace": "myproject",
         "labels": {
-            "app": "coming-soon"
+            "app": "parksmap"
         },
     },
     "spec": {
-        "host": "coming-soon-myproject.2886795322-80-ollie01.environments.katacoda.com",
+        "host": "parksmap-myproject.2886795339-80-ollie01.environments.katacoda.com",
         "to": {
             "kind": "Service",
-            "name": "coming-soon",
+            "name": "parksmap",
             "weight": 100
         },
         "port": {

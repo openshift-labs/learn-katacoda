@@ -4,28 +4,25 @@ When you have multiple applications deployed, you can list all resource objects 
 
 To query the resources just for the application you deployed run:
 
-``oc get all -o name --selector app=coming-soon``{{execute}}
+``oc get all -o name --selector app=parksmap``{{execute}}
 
 This should yield:
 
 ```
-buildconfig/coming-soon
-build/coming-soon-1
-imagestream/coming-soon
-imagestream/s2i-httpd-server
-deploymentconfig/coming-soon
-replicationcontroller/coming-soon-1
-route/coming-soon
-route/coming-soon-fqdn
-service/coming-soon
-pod/coming-soon-1-a41rm
+imagestream/parksmap
+deploymentconfig/parksmap
+replicationcontroller/parksmap-1
+route/parksmap
+route/parksmap-fqdn
+service/parksmap
+pod/parksmap-1-cztb6
 ```
 
 If you need to apply additional labels to a resource object you can use the ``oc label`` command.
 
 To add the label ``web`` to the service object for you application, and give it the value ``true``, run:
 
-``oc label service/coming-soon web=true``{{execute}}
+``oc label service/parksmap web=true``{{execute}}
 
 Then query all resource objects with just that label.
 
@@ -35,4 +32,10 @@ Only the service object should be returned in the output.
 
 Labels are useful when exporting a set of resource objects to use as the basis for creating a template.
 
-``oc export is,dc,svc,route --selector app=coming-soon -o json --as-template=coming-soon``{{execute}}
+``oc export is,dc,svc,route --selector app=parksmap -o json --as-template=parksmap``{{execute}}
+
+To remove a label from a resource object you can use:
+
+``oc label service/parksmap web-``{{execute}}
+
+The label declaration in this command is of the form ``name-``. The trailing ``-``, rather than ``=value`` indicates the label should be removed.

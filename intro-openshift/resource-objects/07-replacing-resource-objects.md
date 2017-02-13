@@ -2,21 +2,21 @@ The ``oc create`` command allows you to create a new resource object from a JSON
 
 To disallow an insecure route you create a modified definition of the route object:
 
-``cat > coming-soon-fqdn.json << !
+``cat > parksmap-fqdn.json << !
 {
     "kind": "Route",
     "apiVersion": "v1",
     "metadata": {
-        "name": "coming-soon-fqdn",
+        "name": "parksmap-fqdn",
         "labels": {
-            "app": "coming-soon"
+            "app": "parksmap"
         }
     },
     "spec": {
         "host": "www.example.com",
         "to": {
             "kind": "Service",
-            "name": "coming-soon",
+            "name": "parksmap",
             "weight": 100
         },
         "port": {
@@ -32,7 +32,7 @@ To disallow an insecure route you create a modified definition of the route obje
 
 and then run:
 
-``oc replace -f coming-soon-fqdn.json``{{execute}}
+``oc replace -f parksmap-fqdn.json``{{execute}}
 
 In order for ``oc replace`` to target the correct resource object, the ``metadata.name`` value of the JSON or YAML definition must be the same as that to be changed.
 
@@ -42,6 +42,6 @@ To edit the definition will require a way of editing the JSON or YAML definition
 
 The ``route.spec.tls.insecureEdgeTerminationPolicy`` value could for example be by running:
 
-``oc patch route/coming-soon-fqdn --patch '{"spec":{"tls": {"insecureEdgeTerminationPolicy": "Redirect"}}}'``{{execute}}
+``oc patch route/parksmap-fqdn --patch '{"spec":{"tls": {"insecureEdgeTerminationPolicy": "Redirect"}}}'``{{execute}}
 
 For both cases, the resource object to be updated must already exist or the command will fail. If you do not know whether the resource object will already exist, and want it updated if it does, but created if it does not, instead of using ``oc replace``, you can use ``oc apply``.
