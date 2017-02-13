@@ -1,6 +1,6 @@
 The ``oc edit`` command would be used to change an existing resource object, it cannot be used to create a new object. To create a new object you need to use the ``oc create`` command.
 
-The ``oc create`` option provides a generic way of creating any resource object from a JSON or YAML definition, as well as a simpler option driven method for a subset of resource object types.
+The ``oc create`` command provides a generic way of creating any resource object from a JSON or YAML definition, as well as a simpler option driven method for a subset of resource object types.
 
 If for example you wanted to create a secure route for the application with your own host name, you would create a ``parksmap-fqdn.json`` file containing the definition of the route:
 
