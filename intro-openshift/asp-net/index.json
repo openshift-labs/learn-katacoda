@@ -1,0 +1,35 @@
+{
+	"icon": "fa-openshift",
+	"title": "Getting Started with OpenShift for Developers",
+	"description": "",
+	"pathwayTitle": "OpenShift",
+	"difficulty": "beginner",
+	"time": "20-30 minutes",
+	"backend": {
+		"imageid": "openshift",
+		"port": 8443
+	},
+	"environment": {
+		"showdashboard": true,
+		"dashboard": "Dashboard",
+		"uilayout": "terminal-iframe",
+		"hideintro": false,
+		"hidefinish": false
+	},
+	"details": {
+		"steps": [
+			{
+			"title": "Step 1 - Exploring The Command Line",
+			"text": "1explore-cli.md"
+			},
+		],
+		"intro": {
+			"courseData": "env-init.sh",
+			"code": "set-env.sh",
+			"text": "intro.md"
+		},
+		"finish": {
+			"text": "finish.md"
+		}
+	}
+}
