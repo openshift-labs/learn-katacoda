@@ -14,13 +14,13 @@ To login to the OpenShift cluster used for this course run:
 
 This will prompt you to enter your _username_ and _password_. Use the credentials:
 
-* **Username:** `developer`
-* **Password:** `developer`
+* **Username:** ``developer``
+* **Password:** ``developer``
 
 You should see output similar to:
 
 ```
-Authentication required for https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com (openshift)
+Authentication required for https://....environments.katacoda.com (openshift)
 Username: developer
 Password:
 Login successful.
@@ -32,11 +32,11 @@ Using project "myproject".
 
 Once logged in, you can verify what user you are logged in by running:
 
-``oc whoami``
+``oc whoami``{{execute}}
 
 You can verify which server you are logged into by running:
 
-``oc whoami --show-server``
+``oc whoami --show-server``{{execute}}
 
 You can list all the projects you currently have access to by running:
 
@@ -52,13 +52,13 @@ You must obtain an API token by visiting
   https://api.preview.openshift.com/oauth/token/request
 ```
 
-You would follow the link given, logging in first via GitHub if necessary. This will land you at a page looking like:
+You would visit the link given, logging in first via GitHub if necessary. This will land you at a page looking like:
 
 ![Request Access Token](../../assets/intro-openshift/cluster-access/02-request-access-token.png)
 
 In this case, rather than use your actual user credentials to login using ``oc login``, you use a special access token provided by that web page. The web page lists the specific ``oc login`` command to run.
 
-Even in the case where user authentication is managed by the OpenShift cluster and user credentials are accepted, you can opt to instead use an access token. You can retrieve the command to run by manually entering the ``/oauth/token/request`` URL against the OpenShift cluster being used, or you can instead retrieve it from the _Command Line Tools_ page you saw previously to download the ``oc`` command line tool.
+Even in the case where user authentication is managed by the OpenShift cluster and user credentials are accepted, you can opt to instead use an access token. You can retrieve the command to run by manually entering the ``/oauth/token/request`` URL against the OpenShift cluster being used, or you can instead retrieve it from the _Command Line Tools_ page you use to download the ``oc`` command line tool.
 
  ![Request Access Token](../../assets/intro-openshift/cluster-access/02-login-access-token.png)
 

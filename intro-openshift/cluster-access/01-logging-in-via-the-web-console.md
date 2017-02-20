@@ -6,7 +6,7 @@ For this course the public URL for the web console is:
 
 To view the web console at the same time as these instructions, you can also select the _Dashboard_ tab to the right of the embedded _Terminal_.
 
-In the case of the OpenShift cluster managing user authentication, the web console login page will prompt you for your _username_ and _password_.
+In the case of the OpenShift cluster managing user authentication, the web console login page will prompt you for your _Username_ and _Password_.
 
 ![Web Console Login](../../assets/intro-openshift/cluster-access/01-web-console-login.png)
 
@@ -16,8 +16,8 @@ In the case of an external authentication service provider being used as the ide
 
 For the OpenShift cluster used in this course, as the OpenShift cluster is managing user authentication, you will be presented with a login page that prompts you for your user account credentials. You can login using the credentials:
 
-* **Username:** `developer`
-* **Password:** `developer`
+* **Username:** ``developer``
+* **Password:** ``developer``
 
 As this is the first time you have logged in as this user in this OpenShift cluster, you will be presented with a "Welcome to OpenShift" message and the option of creating a new project.
 
