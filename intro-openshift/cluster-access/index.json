@@ -1,6 +1,6 @@
 {
         "icon": "fa-openshift",
-        "title": "Methods of Accessing an OpenShift Cluster",
+        "title": "Logging in to an OpenShift Cluster",
         "description": "",
         "pathwayTitle": "OpenShift",
         "difficulty": "beginner",
