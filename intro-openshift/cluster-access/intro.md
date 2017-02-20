@@ -3,5 +3,3 @@ When working with an OpenShift cluster you can use either the web console, the c
 In this course you will learn about how to access and login to an OpenShift cluster using the web console and command line. You will also learn how you can add collaborators on your projects so others can view or work on your applications.
 
 For the case where you may have some sort of administrator role, or have access to multiple user accounts, you will learn about how to switch between users, or impersonate users.
-
-Finally, you will learn about how you prove your identity when accessing an OpenShift cluster via the REST API.

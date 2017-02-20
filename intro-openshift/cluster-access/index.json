@@ -37,10 +37,6 @@
                         {
                         "title": "Topic 5 - Impersonating a Different User",
                         "text": "05-impersonating-a-different-user.md"
-                        },
-                        {
-                        "title": "Topic 6 - Using the OpenShift REST API",
-                        "text": "06-using-the-openshift-rest-api.md"
                         }
                 ],
                 "intro": {
