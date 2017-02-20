@@ -12,6 +12,11 @@
       "external_link": "http://openshift.katacoda.com/introduction/resource-objects/",
       "course_id": "resource-objects",
       "title": "Using the CLI to Manage Resource Objects"
+    },
+    {
+      "external_link": "http://openshift.katacoda.com/introduction/cluster-access/",
+      "course_id": "cluster-access",
+      "title": "Methods of Accessing an OpenShift Cluster"
     }
   ]
 }

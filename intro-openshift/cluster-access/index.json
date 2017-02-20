@@ -1,0 +1,55 @@
+{
+        "icon": "fa-openshift",
+        "title": "Methods of Accessing an OpenShift Cluster",
+        "description": "",
+        "pathwayTitle": "OpenShift",
+        "difficulty": "beginner",
+        "time": "10-15 minutes",
+        "backend": {
+                "imageid": "openshift",
+                "port": 8443
+        },
+	"environment": {
+		"showdashboard": true,
+		"dashboard": "Dashboard",
+		"uilayout": "terminal-iframe",
+		"hideintro": false,
+		"hidefinish": false
+	},
+        "details": {
+                "steps": [
+                        {
+                        "title": "Topic 1 - Logging in Via the Web Console",
+                        "text": "01-logging-in-via-the-web-console.md"
+                        },
+                        {
+                        "title": "Topic 2 - Logging in Via the Command Line",
+                        "text": "02-logging-in-via-the-command-line.md"
+                        },
+                        {
+                        "title": "Topic 3 - Collaborating with Other Users",
+                        "text": "03-collaborating-with-other-users.md"
+                        },
+                        {
+                        "title": "Topic 4 - Switching Between Different Users",
+                        "text": "04-switching-between-different-users.md"
+                        },
+                        {
+                        "title": "Topic 5 - Impersonating a Different User",
+                        "text": "05-impersonating-a-different-user.md"
+                        },
+                        {
+                        "title": "Topic 6 - Using the OpenShift REST API",
+                        "text": "06-using-the-openshift-rest-api.md"
+                        }
+                ],
+                "intro": {
+                        "courseData": "env-init.sh",
+                        "code": "set-env.sh",
+                        "text": "intro.md"
+                },
+                "finish": {
+                        "text": "finish.md"
+                }
+        }
+}
