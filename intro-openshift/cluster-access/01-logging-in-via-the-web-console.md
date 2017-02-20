@@ -4,13 +4,13 @@ For this course the public URL for the web console is:
 
 **https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com**
 
-To view the web console at the same time as these instructions, you can also select the _Dashboard_ tab to the right of the embedded _Terminal_.
+To view the web console at the same time as these instructions, you can also select the _Dashboard_ tab to the right of the tab for the embedded _Terminal_.
 
 In the case of the OpenShift cluster managing user authentication, the web console login page will prompt you for your _Username_ and _Password_.
 
 ![Web Console Login](../../assets/intro-openshift/cluster-access/01-web-console-login.png)
 
-In the case of an external authentication service provider being used as the identity provider, it will be necessary to login first to the external service. As an example, if you were signed up for the [OpenShift Online developer preview](https://www.openshift.com/devpreview/) you would be asked to login via GitHub.
+In the case of an external authentication service being used as the identity provider, it will be necessary to login first to the external service. As an example, if you were signed up for the [OpenShift Online developer preview](https://www.openshift.com/devpreview/) you would be asked to login via GitHub.
 
 ![External Login](../../assets/intro-openshift/cluster-access/01-external-identity-provider.png)
 

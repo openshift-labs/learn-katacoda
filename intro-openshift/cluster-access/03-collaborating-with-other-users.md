@@ -16,11 +16,11 @@ To grant this user access to your project, go to the list of projects in the web
 
 ![View Project Membership](../../assets/intro-openshift/cluster-access/03-view-project-membership.png)
 
-You will see that only the ``developer`` user is a member of the project.
+You will see that only the ``developer`` user is a member of the project. Select _Edit Membership_.
 
 ![Edit Project Membership](../../assets/intro-openshift/cluster-access/03-edit-project-membership.png)
 
-Select _Edit Membership_, then enter ``collaborator`` as the name of a new member for the project and select _edit_ from the list of roles. Click on _Add_ to create the new role for the user.
+Next enter ``collaborator`` as the name of a new member for the project and select _edit_ from the list of roles. Click on _Add_ to create the new role for the user.
 
 ![Add Member to Project](../../assets/intro-openshift/cluster-access/03-add-member-to-project.png)
 
@@ -32,16 +32,16 @@ This should show that ``collaborator`` now has access to the project created by 
 
 In this case you gave ``collaborator`` the role type ``edit`` in the project. This allows the user to perform most tasks within the project, with the exception of tasks related to administration of the project. The user therefore cannot make changes to project membership or delete the project.
 
-Other roles you might instead assign to a collaborator are ``view``, which means they can look at everything in the project, but not change anything. Or ``admin``, which gives them equal rights as the owner of the project, including editing project membership or deleting the project.
+Other roles you might instead assign to a collaborator are ``view``, which means they can look at everything in the project, but not change anything, or ``admin``, which gives them equal rights as the owner of the project, including editing project membership or deleting the project.
 
 Making changes to project membership can also be done from the command line using ``oc``.
 
 As ``collaborator`` has no projects at this point, create one by running:
 
-``oc new-project mysecret``{{execute}}
+``oc new-project mysecrets``{{execute}}
 
 Then add the ability for ``developer`` to also view that project by running:
 
-``oc adm policy add-role-to-user view developer``{{execute}}
+``oc adm policy add-role-to-user view developer -n mysecrets``{{execute}}
 
 The list of projects in the web console should now show both projects.
