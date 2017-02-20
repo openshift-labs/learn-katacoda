@@ -30,6 +30,6 @@ You can get a list of all OpenShift clusters you have ever logged into by runnin
 
 ``oc config get-clusters``{{execute}}
 
-You can get a list of all contexts which have ever been created, indicating what users on those clusters you have logged in as, by running:
+You can get a list of all contexts which have ever been created, indicating what users on those clusters you have logged in as, and which projects you have worked on, by running:
 
 ``oc config get-contexts``{{execute}}
