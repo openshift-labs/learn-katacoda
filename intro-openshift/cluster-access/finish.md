@@ -2,10 +2,10 @@ In this course you learnt about how to log into an OpenShift cluster, as well as
 
 You can find a summary of the key commands covered below, along with some related commands. To see more information on each ``oc`` command, run it with the ``--help`` option.
 
-``oc login``: Log in to your the and save the session token for subsequent use. You will be prompted for the user name and password or directed to a web console page where you can obtain a token you must then use to use to login from the command line. The web page will require you to first login in to the web console if you are not already logged in.
+``oc login``: Log in to you OpenShift cluster and save the session token for subsequent use. You will be prompted for the user name and password or directed to a web console page where you can obtain a token you must then use to use to login from the command line. The web page will require you to first login in to the web console if you are not already logged in.
 
 ``oc login <server>``:
-    Log in to a specific OpenShift cluster.
+    Log in to a specific OpenShift cluster. You will need to specify the name of the server as argument the first time you are using it, or if switching back to it after having used a different cluster.
 
 ``oc login --username <user>``:
     Log in to your OpenShift cluster as a specific user.
