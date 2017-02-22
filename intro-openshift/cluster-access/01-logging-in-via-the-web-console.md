@@ -27,9 +27,11 @@ Create a new project by selecting _New Project_. Call the project ``myproject``.
 
 ![Create New Project](../../assets/intro-openshift/cluster-access/01-create-new-project.png)
 
-When a new project is created you will be shown a catalog of application types you can deploy. To skip creating any application at this point and get to the list of all projects you have, you can select on the name of the OpenShift product found at the top left of the page.
+When a new project is created you will be shown a catalog of application types you can deploy. To skip creating any application at this point and get to main page with the list of all projects you have, you can select on the name of the OpenShift product found at the top left of the page.
 
 ![Shortcut to Projects](../../assets/intro-openshift/cluster-access/01-shortcut-to-projects.png)
+
+Click on the logo now to return to the main page.
 
 This is useful if you ever got lost in the web console and want to get back to the top most level.
 

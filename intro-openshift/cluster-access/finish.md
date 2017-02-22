@@ -29,13 +29,13 @@ You can find a summary of the key commands covered below, along with some relate
     Show which OpenShift cluster you are logged into.
 
 ``oc whoami --show-context``:
-    Shows the context for the current session.
+    Shows the context for the current session. This will include details about the project, server and name of user, in that order.
 
 ``oc config get-clusters``:
     Show a list of all OpenShift clusters ever logged in to.
 
 ``oc config get-contexts``:
-    Show a list of contexts for all sessions ever created. This will include the server, project and name of user.
+    Show a list of contexts for all sessions ever created. For each context listed, this will include details about the project, server and name of user, in that order.
 
 ``oc adm policy add-role-to-user edit <username> -n <project>``: Add another user to a project so that they can work within the project, including creating new deployments or deleting applications.
 

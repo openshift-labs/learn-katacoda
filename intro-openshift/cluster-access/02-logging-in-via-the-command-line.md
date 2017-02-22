@@ -42,9 +42,9 @@ You can list all the projects you currently have access to by running:
 
 ``oc get projects``{{execute}}
 
-In this case the OpenShift cluster is managing user authentication and so prompts you for the credentials. In the case of an external authentication service being used as the identity provider, the required steps are a bit different.
+In the case of an external authentication service being used as the identity provider, such as in OpenShift Online Developer Preview, the required steps are a bit different.
 
-Take the case where you are using the OpenShift Online developer preview. If you login using ``oc login`` on the command line you will be presented with an error message:
+If you login using ``oc login`` on the command line you will be presented with an error message:
 
 ```
 Login failed (401 Unauthorized)
@@ -58,7 +58,11 @@ You would visit the link given, logging in first via GitHub if necessary. This w
 
 In this case, rather than use your actual user credentials to login using ``oc login``, you use a special access token provided by that web page. The web page lists the specific ``oc login`` command to run.
 
-Even in the case where user authentication is managed by the OpenShift cluster and user credentials are accepted, you can opt to instead use an access token. You can retrieve the command to run by manually entering the ``/oauth/token/request`` URL against the OpenShift cluster being used, or you can instead retrieve it from the _Command Line Tools_ page you use to download the ``oc`` command line tool.
+Even in the case where user authentication is managed by the OpenShift cluster and user credentials are accepted, you can opt to instead use an access token. You can retrieve the command to run by manually entering the ``/oauth/token/request`` URL against the OpenShift cluster being used.
+
+**https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/oauth/token/request**
+
+Or you can instead retrieve it from the _Command Line Tools_ page you use to download the ``oc`` command line tool.
 
  ![Request Access Token](../../assets/intro-openshift/cluster-access/02-login-access-token.png)
 

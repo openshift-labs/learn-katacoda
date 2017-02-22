@@ -44,4 +44,5 @@ Then add the ability for ``developer`` to also view that project by running:
 
 ``oc adm policy add-role-to-user view developer -n mysecrets``{{execute}}
 
-The list of projects in the web console should now show both projects.
+Return to the main page in the web console where the list of projects is shown for ``developer`` and you should
+see ``mysecrets`` listed.
