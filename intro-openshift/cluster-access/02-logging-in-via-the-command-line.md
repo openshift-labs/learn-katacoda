@@ -58,11 +58,7 @@ You would visit the link given, logging in first via GitHub if necessary. This w
 
 In this case, rather than use your actual user credentials to login using ``oc login``, you use a special access token provided by that web page. The web page lists the specific ``oc login`` command to run.
 
-Even in the case where user authentication is managed by the OpenShift cluster and user credentials are accepted, you can opt to instead use an access token. You can retrieve the command to run by manually entering the ``/oauth/token/request`` URL against the OpenShift cluster being used.
-
-**https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/oauth/token/request**
-
-Or you can instead retrieve it from the _Command Line Tools_ page you use to download the ``oc`` command line tool.
+Even in the case where user authentication is managed by the OpenShift cluster and user credentials are accepted, you can opt to instead use an access token. You can retrieve the command to run by manually entering the ``/oauth/token/request`` URL against the OpenShift cluster being used. Or you can instead retrieve it from the _Command Line Tools_ page you use to download the ``oc`` command line tool.
 
  ![Request Access Token](../../assets/intro-openshift/cluster-access/02-login-access-token.png)
 
