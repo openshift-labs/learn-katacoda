@@ -1,49 +1,44 @@
-In this course you learnt about ``oc`` commands you would use for querying and updating the resource objects that OpenShift uses to track the state of the cluster.
+In this course you learnt about how to log into an OpenShift cluster, as well as how you can add other users as collaborators to you project.
 
-You can find a summary of the key commands covered below. To see more information on each ``oc`` command, run it with the ``--help`` option.
+You can find a summary of the key commands covered below, along with some related commands. To see more information on each ``oc`` command, run it with the ``--help`` option.
 
-``oc types``: Shows an introduction to core OpenShift concepts and types.
+``oc login``: Log in to your the and save the session token for subsequent use. You will be prompted for the user name and password or directed to a web console page where you can obtain a token you must then use to use to login from the command line. The web page will require you to first login in to the web console if you are not already logged in.
 
-``oc explain <setting-path>``: Shows a description of the purpose of a specific resource object type setting.
+``oc login <server>``:
+    Log in to a specific OpenShift cluster.
 
-``oc get``: Shows a list of all the resource object types you can make queries about.
+``oc login --username <user>``:
+    Log in to your OpenShift cluster as a specific user.
 
-``oc get <type>``: Shows summary details of all resource objects of a specific type.
+``oc login --username <username> --password <password>``:
+    Log in to your OpenShift cluster as a specific user and supply the password on the command line. Note that this is not recommended for real systems as your password may be logged or retained in command history.
 
-``oc get <type> --selector app=<name>``: Shows summary details of all resource objects of a type with the specified label.
+``oc login --token <token>``:
+    Log in to your server using a token for an existing session.
 
-``oc get <type/name>``: Show summary details of a resource object.
+``oc logout``:
+    Log out of the active session by clearing the session token.
 
-``oc get <type/name> -o <json|yaml>``: Shows raw details of a resource object type as JSON or YAML.
+``oc whoami``:
+    Show the name of the user for the current login session.
 
-``oc get all``: Shows summary details of the key resource objects in a project. The list of resource object types matched by ``all`` includes ``buildconfigs``, ``builds``, ``imagestreams``, ``deploymentconfigs``, ``replicationcontrollers``, ``routes``, ``services`` and ``pods``.
+``oc whoami --token``:
+    Show the token for the current login session.
 
-``oc get all --selector app=<name>``: Shows summary details of the key resource objects in a project with the specified label.
+``oc whoami --show-server``:
+    Show which OpenShift cluster you are logged into.
 
-``oc describe <type/name>``: Shows human readable long form description of a resource object.
+``oc whoami --show-context``:
+    Shows the context for the current session.
 
-``oc edit <type/name> -o <json|yaml>``: Edit the raw details of a resource object type as JSON or YAML.
+``oc config get-clusters``:
+    Show a list of all OpenShift clusters ever logged in to.
 
-``oc export <type/name> -o <json|yaml>``: Shows raw details of a resource object type as JSON or YAML where any settings not required when creating a resource object have been removed.
+``oc config get-contexts``:
+    Show a list of contexts for all sessions ever created. This will include the server, project and name of user.
 
-``oc create -f <definition.json>``: Create a resource object from a definition stored in a file. The format of the definition must be JSON or YAML. The ``metadata.name`` field of the definition must not correspond to an existing resource object.
+``oc adm policy add-role-to-user edit <username> -n <project>``: Add another user to a project so that they can work within the project, including creating new deployments or deleting applications.
 
-``oc replace -f <definition.json>``: Replace the definition of a resource object with that stored in a file. The format of the definition must be JSON or YAML. The ``metadata.name`` field of the definition must correspond to an existing resource object.
+``oc adm policy add-role-to-user view <username> -n <project>``: Add another user to a project but such that they can only view what is in the project.
 
-``oc apply -f <definition.json>``: Replace the definition of a resource object if it exists with that stored in a file. The format of the definition must be JSON or YAML. The ``metadata.name`` field of the definition must correspond to an existing resource object. If the resource object does not already exist, it will be created.
-
-``oc patch <type/name> --patch <patch>``: Update a resource object using a patch specification.
-
-``oc label <type/name> <name=value>``: Add a label to a resource object.
-
-``oc label <type/name> <name->``: Remove a label from a resource object.
-
-``oc delete <type/name>``: Delete a resource object.
-
-``oc delete <type> --selector app=<name>``: Delete all resource objects of a type with the specified label.
-
-``oc delete <type> --all``: Delete all resource objects of a specific type.
-
-``oc delete all --all``: Delete all key resource objects in a project. The list of resource object types matched by ``all`` includes ``buildconfigs``, ``builds``, ``imagestreams``, ``deploymentconfigs``, ``replicationcontrollers``, ``routes``, ``services`` and ``pods``.
-
-``oc delete all --selector app=<name>``: Delete all key resource objects in a project with the specified label.
+``oc adm policy add-role-to-user admin <username> -n <project>``: Add another user to a project such that they are effecively a joint owner of the project and have administration rights over it, including the ability to delete the project.
