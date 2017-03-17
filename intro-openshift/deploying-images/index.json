@@ -33,6 +33,14 @@
                         {
                         "title": "Topic 4 - Deleting the Application",
                         "text": "04-deleting-the-application.md"
+                        },
+                        {
+                        "title": "Topic 5 - Deploying Using the Command Line",
+                        "text": "05-deploying-using-the-command-line.md"
+                        },
+                        {
+                        "title": "Topic 6 - Pre-loading Application Images",
+                        "text": "06-pre-loading-application-images.md"
                         }
                 ],
                 "intro": {
