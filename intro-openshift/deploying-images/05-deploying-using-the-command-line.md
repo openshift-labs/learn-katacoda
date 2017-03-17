@@ -61,7 +61,3 @@ Switch to the OpenShift web console by selecting on _Dashboard_ to verify that t
 Alternatively, to view the hostname assigned to the route created from the command line, you can run the command:
 
 ``oc get route/blog-django-py``{{execute}}
-
-When you have verified the application has been deployed and is accessible, delete it by running the command:
-
-``oc delete all --selector app=blog-django-py``{{execute}}
