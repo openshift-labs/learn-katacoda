@@ -12,7 +12,9 @@ To expose the sample application you have deployed, click on _Create Route_. Thi
 
 ![Route Details](../../assets/intro-openshift/deploying-images/03-create-route-details.png)
 
-If you do not modify any details, OpenShift will automatically assign a hostname for the application as a sub domain of the hostname for the OpenShift cluster. To override the hostname you can modify the _Hostname_ field. For this to work you need to control the DNS which has delegated authority for that hostname and be able to set up a ``CNAME`` for the hostname mapping to the hostname for the OpenShift cluster's router.
+If you do not modify any of the pre-populated values, OpenShift will automatically assign a hostname for the application as a sub domain of the hostname for the OpenShift cluster.
+
+To override the hostname you can modify the _Hostname_ field. For this to work you would need to control the DNS which has delegated authority for that hostname and be able to set up a ``CNAME`` for the hostname mapping to the hostname for the OpenShift cluster's router.
 
 No matter what port the application listens to internally to the OpenShift cluster, port 8080 in this case, the external route will use the standard port 80 for the HTTP connection, and the standard port 443 for a secure HTTP connection.
 

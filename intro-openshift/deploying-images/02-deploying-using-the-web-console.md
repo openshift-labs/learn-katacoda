@@ -18,7 +18,7 @@ For deploying an application from an existing Docker-formatted container image, 
 
 When deploying an application from an image, there are two choices.
 
-The first choice is to select an image by specifying its _Image Stream Tag_. This option would be used where the image had previously been imported into the OpenShift cluster, or had been built within the OpenShift cluster from a ``Dockerfile`` or using Source-To-Image.
+The first choice is to select an image by specifying its _Image Stream Tag_. This option would be used where the image had previously been imported into the OpenShift cluster, or had been built within the OpenShift cluster from a ``Dockerfile`` or using Source-to-Image.
 
 The second choice is to specify the _Image Name_, where the image resides on an external image registry. This can be the Docker Hub Registry, or any other accessible image registry.
 
@@ -42,6 +42,6 @@ When you are ready, at the bottom of the page click on _Create_. This will take 
 
 ![Application Image Details](../../assets/intro-openshift/deploying-images/02-continue-to-overview.png)
 
-Click on _Continue to overview_ and you will be returned to the _Overview_ page, where you can view details of application created and monitor progress as it is deployed. When deployment as finished you should see:
+Click on _Continue to overview_ and you will be returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is deployed. When deployment as finished you should see:
 
 ![Application Overview](../../assets/intro-openshift/deploying-images/02-application-overview.png)
