@@ -22,6 +22,6 @@ Leaving all values as their defaults, click on _Create_ and you will be returned
 
 ![Exposed Route](../../assets/intro-openshift/deploying-images/03-exposed-route-url.png)
 
-Click on the URL and a new browser window should open showing the sample blog application.
+Click on the URL and a new browser window should open showing the sample application.
 
 ![Sample Application](../../assets/intro-openshift/deploying-images/03-sample-blog-application.png)
