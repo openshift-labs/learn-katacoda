@@ -25,6 +25,10 @@
                         {
                         "title": "Topic 2 - Deploying Using the Web Console",
                         "text": "02-deploying-using-the-web-console.md"
+                        },
+                        {
+                        "title": "Topic 3 - Creating an External Route",
+                        "text": "03-creating-an-external-route.md"
                         }
                 ],
                 "intro": {
