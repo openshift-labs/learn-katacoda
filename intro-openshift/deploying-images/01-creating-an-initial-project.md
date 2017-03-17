@@ -25,7 +25,7 @@ You don't have any projects. You can try to create a new project, by running
     oc new-project <projectname>
 ```
 
-To create a new project use the ``oc new-project`` command.
+To create a new project called ``myproject`` run the command:
 
 ``oc new-project myproject``{{execute}}
 
