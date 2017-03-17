@@ -42,6 +42,6 @@ When you are ready, at the bottom of the page click on _Create_. This will take 
 
 ![Application Image Details](../../assets/intro-openshift/deploying-images/02-continue-to-overview.png)
 
-Click on _Continue to overview_ and you will be returned to the _Overview_ page, where you can view details of application created.
+Click on _Continue to overview_ and you will be returned to the _Overview_ page, where you can view details of application created and monitor progress as it is deployed. When deployment as finished you should see:
 
 ![Application Overview](../../assets/intro-openshift/deploying-images/02-application-overview.png)
