@@ -21,6 +21,10 @@
                         {
                         "title": "Topic 1 - Creating an Initial Project",
                         "text": "01-creating-an-initial-project.md"
+                        },
+                        {
+                        "title": "Topic 2 - Deploying Using the Web Console",
+                        "text": "01-deploying-using-the-web-console.md"
                         }
                 ],
                 "intro": {
