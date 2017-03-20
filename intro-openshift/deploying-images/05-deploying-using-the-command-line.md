@@ -50,7 +50,7 @@ This will display out similar to:
     Run 'oc status' to view your app.
 ```
 
-OpenShift will assign a default name based on the name of the image, in this case ``blog-django-py``. You can specify a different name to be given to the application, and the resources created, by supplying the ``--name`` option along the name you wish to use as an argument.
+OpenShift will assign a default name based on the name of the image, in this case ``blog-django-py``. You can specify a different name to be given to the application, and the resources created, by supplying the ``--name`` option along with the name you wish to use as an argument.
 
 As with when deploying an existing Docker-formatted image from the web console, it is not exposed outside of the OpenShift cluster by default. To expose the application created so it is available outside of the OpenShift cluster, you can run the command:
 

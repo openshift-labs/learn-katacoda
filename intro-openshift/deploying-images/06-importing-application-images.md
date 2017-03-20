@@ -109,7 +109,7 @@ This should yield output similar to:
 
 Jump back to the OpenShift web console, click on _Add to project_ in the menu bar, then click on _Deploy Image_.
 
-This time select _Image Stream Tag_ and from the drop down menus select the image stream ``blog-django-py`` with tag ``latest``, in the project ``myproject``.
+This time select _Image Stream Tag_ and from the drop down menus select the project ``myproject``, and the image stream ``blog-django-py`` with tag ``latest``.
 
 ![Deploy Image Stream Tag](../../assets/intro-openshift/deploying-images/06-deploy-image-stream-tag.png)
 
@@ -141,7 +141,7 @@ Delete each application by running:
 
 ``oc delete all --selector app=blog-2``{{execute}}
 
-When the resource objects for the each instance of the application have been deleted, you should be left with just the image stream object.
+When the resource objects for each instance of the application have been deleted, you should be left with just the image stream object.
 
 ``oc get all -o name``{{execute}}
 
