@@ -1,6 +1,6 @@
 When you deploy an existing Docker-formatted container image which resides on an external image registry, the image will be pulled down and stored within the internal OpenShift image registry. The image will then be copied to any node in the OpenShift cluster where an instance of the application is run.
 
-In order to track what images exist in the internal OpenShift image registry, an _Image Stream_ resource will be created. You can list what image stream resources have been created within a project by running the command:
+In order to track the image that is pulled down, an _Image Stream_ resource will be created. You can list what image stream resources have been created within a project by running the command:
 
 ``oc get imagestream -o name``{{execute}}
 
