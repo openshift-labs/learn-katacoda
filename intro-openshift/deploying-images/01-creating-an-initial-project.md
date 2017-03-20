@@ -9,8 +9,8 @@ run:
 This will prompt you to enter your _username_ and _password_. Use the
 credentials:
 
-* **Username:** ``developer``
-* **Password:** ``developer``
+* **Username:** ``developer``{{execute}}
+* **Password:** ``developer``{{execute}}
 
 You should see output similar to:
 

@@ -17,7 +17,7 @@ service/blog-django-py
 pod/blog-django-py-1-9fshs
 ```
 
-You have only created one application, so you would know they all relate to it. When you have multiple applications deployed, you need to identify those which are specific to the application you may want to delete. You can do this by applying a command to a subset of resources using a label selector.
+You have only created one application, so you would know that all the resources listed will relate to it. When you have multiple applications deployed, you need to identify those which are specific to the application you may want to delete. You can do this by applying a command to a subset of resources using a label selector.
 
 To determine what labels may have been added to the resources, select one and display the details on it. To look at the _Route_ which was created, you can run the command:
 

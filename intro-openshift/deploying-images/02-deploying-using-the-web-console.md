@@ -1,5 +1,3 @@
-From within the project, to deploy an existing Docker-formatted container image select _Add to Project_.
-
 When you are in an empty project, a prominent _Add to Project_ button will be displayed in the centre of the page.
 
 ![Adding to Empty Project](../../assets/intro-openshift/deploying-images/02-add-to-project-empty.png)

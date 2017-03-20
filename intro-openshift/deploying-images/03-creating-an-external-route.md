@@ -6,7 +6,7 @@ That an application is not visible and may need to be exposed to be visible can 
 
 ![Adding a Route](../../assets/intro-openshift/deploying-images/03-select-create-route.png)
 
-Routes can be used to expose any application which communicates over HTTP. OpenShift can handle termination for secure HTTP connections, or a secure connection can be tunnelled through direct to the application, with the application handling termination of the secure connection. Non HTTP applications can be exposed via a tunnelled secure connection if the client supports SNI for host identification.
+Routes can be used to expose any application which communicates over HTTP. OpenShift can handle termination for secure HTTP connections, or a secure connection can be tunnelled through direct to the application, with the application handling termination of the secure connection. Non HTTP applications can be exposed via a tunnelled secure connection if the client supports the SNI extension for a secure connection using TLS.
 
 To expose the sample application you have deployed, click on _Create Route_. This will display a page for entering the route details.
 
