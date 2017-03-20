@@ -34,7 +34,7 @@ latest
       4 minutes ago
 ```
 
-In the details of the image stream which was created, you will see that the label ``app=blog-django-py`` was applied, identify the image as relating to this one deployment. Consequently, when the application was deleted by using a label selector with the same value, the image stream would also be deleted.
+In the details of the image stream which was created, you will see that the label ``app=blog-django-py`` was applied, identifying the image as relating to this one deployment. Consequently, when the application was deleted by using a label selector with the same value, the image stream would also be deleted.
 
 When you are deploying only a single instance of the application from the image, this is reasonable, but if you need to deploy multiple instances of an application from the same image, with different names, you should import the image as a separate step before attempting to deploy the image.
 
@@ -82,6 +82,8 @@ Verify that only the image stream has been created, and no other resource object
 To deploy an instance of the application from the image stream which has been created, run the command:
 
 ``oc new-app blog-django-py --name blog-1``{{execute}}
+
+This is using the image stream name, not the full name which identifies the image as being on the Docker Hub Registry.
 
 This should yield output similar to:
 
@@ -136,13 +138,14 @@ You will see a deployment config, replication controller, service and pod for ea
 Delete each application by running:
 
 ``oc delete all --selector app=blog-1``{{execute}}
+
 ``oc delete all --selector app=blog-2``{{execute}}
 
 When the resource objects for the each instance of the application have been deleted, you should be left with just the image stream object.
 
 ``oc get all -o name``{{execute}}
 
-Importing the existing Docker-formatter container image before hand, therefore means that it is retained when any application instance using it is deleted.
+Importing the existing Docker-formatted container image before hand, therefore means that it is retained when any application instance using it is deleted.
 
 
 
