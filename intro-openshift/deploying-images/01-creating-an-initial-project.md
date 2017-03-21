@@ -8,8 +8,8 @@ run:
 
 This will log you in using the credentials:
 
-* **Username:** ``developer``{{execute}}
-* **Password:** ``developer``{{execute}}
+* **Username:** ``developer``
+* **Password:** ``developer``
 
 You should see the output:
 
