@@ -1,23 +1,19 @@
-Before we get started, we need to login and create a project in OpenShift
+Before we get started, you need to login and create a project in OpenShift
 to work in.
 
 To login to the OpenShift cluster used for this course from the _Terminal_,
 run:
 
-``oc login https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com``{{execute}}
+``oc login -u developer -p developer``{{execute}}
 
-This will prompt you to enter your _username_ and _password_. Use the
-credentials:
+This will log you in using the credentials:
 
 * **Username:** ``developer``{{execute}}
 * **Password:** ``developer``{{execute}}
 
-You should see output similar to:
+You should see the output:
 
 ```
-Authentication required for https://....environments.katacoda.com (openshift)
-Username: developer
-Password:
 Login successful.
 
 You don't have any projects. You can try to create a new project, by running
