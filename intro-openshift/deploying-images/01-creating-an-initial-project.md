@@ -28,7 +28,7 @@ To create a new project called ``myproject`` run the command:
 You should see output similar to:
 
 ```
-Now using project "myproject" on server "https://....environments.katacoda.com:443".
+Now using project "myproject" on server "https://172.17.0.41:8443".
 
 You can add applications to this project with the 'new-app' command. For example, try:
 
