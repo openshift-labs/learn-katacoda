@@ -39,7 +39,7 @@
             "text": "finish.md"
         },
         "assets": {
-          "host01": [{"file": "route.json", "target": "~/"}]
+          "host01": [{"file": "route.json", "target": "/root/"}]
         }
     }
 }
