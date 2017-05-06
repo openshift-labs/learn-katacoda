@@ -1,4 +1,4 @@
-baseurl = "http://openshift.katacoda.com/"
+baseurl = "http://learn.openshift.com/"
 languageCode = "en-us"
 title = "OpenShift"
 
