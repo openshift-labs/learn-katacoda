@@ -36,6 +36,6 @@ When you are ready, at the bottom of the page click on _Create_. This will take 
 
 ![Application Image Details](../../assets/intro-openshift/deploying-python/02-continue-to-overview.png)
 
-Click on _Continue to overview_ and you will be returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is deployed. When deployment as finished you should see:
+Click on _Continue to overview_ and you will be returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is deployed.
 
-![Application Overview](../../assets/intro-openshift/deploying-python/02-application-overview.png)
+![Application Overview](../../assets/intro-openshift/deploying-python/02-build-in-progress.png)
