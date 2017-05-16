@@ -6,7 +6,7 @@
     "difficulty": "beginner",
     "time": "20-30 minutes",
     "backend": {
-        "imageid": "openshift",
+        "imageid": "openshift-client",
         "url": "https://manage.openshift.com",
         "port": 8443
     },
