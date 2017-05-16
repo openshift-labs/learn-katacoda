@@ -1,0 +1,12 @@
+{
+  "title": "Introduction to OpenShift",
+  "description": "",
+  "paid": false,
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/openshift/getting-started/",
+      "course_id": "getting-started",
+      "title": "Getting Started with OpenShift"
+    }
+  ]
+}
