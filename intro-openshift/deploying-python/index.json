@@ -24,6 +24,9 @@
             "title": "Topic 2 - Deploying Using the Web Console",
             "text": "02-deploying-using-the-web-console.md"
         }, {
+            "title": "Topic 3 - Viewing the Builder Logs",
+            "text": "03-viewing-the-builder-logs.md"
+        }, {
             "title": "Topic 3 - Creating an External Route",
             "text": "03-creating-an-external-route.md"
         }, {
