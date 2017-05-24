@@ -1,4 +1,4 @@
-While a build is running, the _Overview_ page will display a banner. The build may take a moment to start if the environment needs to update the S2I builder being used due to a newer version being available.
+While a build is running, the _Overview_ page will display a banner. The build may take a moment to start running if the environment needs to update the S2I builder being used due to a newer version being available.
 
 ![Build Progress Banner](../../assets/intro-openshift/deploying-python/03-build-progress-banner.png)
 
