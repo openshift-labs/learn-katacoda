@@ -32,7 +32,7 @@ For the _Git Repository URL_ enter:
 
 `https://github.com/openshift-katacoda/blog-django-py`{{copy}}
 
-When you are ready, at the bottom of the page click on _Create_. This will take you to a splash page confirming the application deployment is occurring.
+When you are ready, at the bottom of the page click on _Create_. This will take you to a splash page confirming the application has been created.
 
 ![Application Image Details](../../assets/intro-openshift/deploying-python/02-continue-to-overview.png)
 

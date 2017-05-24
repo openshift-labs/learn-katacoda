@@ -2,3 +2,10 @@ Once the build of the application image has completed, it will be deployed. The 
 
 ![Build has Completed](../../assets/intro-openshift/deploying-python/04-build-has-completed.png)
 
+When you deploy an application from application source code using the web console, a _Route_ will be automatically created for the application and it will be exposed outside of the cluster. The URL which can be used to access the application from a web browser will be displayed in the _Overview_ page.
+
+![Application Route](../../assets/intro-openshift/deploying-python/04-application-route.png)
+
+Click on the URL and you can view the web application.
+
+![Blog Web Site](../../assets/intro-openshift/deploying-python/04-blog-web-site.png)
