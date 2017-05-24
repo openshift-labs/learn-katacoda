@@ -47,7 +47,7 @@ Weight:         100 (100%)
 Endpoints:      172.18.0.3:8080
 ```
 
-In this case when deploying the existing Docker-formatted container image via the OpenShift web console, OpenShift has applied automatically to all resources the label ``app=blog``. You can confirm this by running the command:
+In this case when deploying the application via the OpenShift web console, OpenShift has applied automatically to all resources the label ``app=blog``. You can confirm this by running the command:
 
 ``oc get all --selector app=blog -o name``{{execute}}
 
