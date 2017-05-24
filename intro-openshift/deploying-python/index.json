@@ -30,17 +30,11 @@
             "title": "Topic 4 - Accessing the Application",
             "text": "04-accessing-the-application.md"
         }, {
-            "title": "Topic 3 - Creating an External Route",
-            "text": "03-creating-an-external-route.md"
+            "title": "Topic 5 - Deleting the Application",
+            "text": "05-deleting-the-application.md"
         }, {
-            "title": "Topic 4 - Deleting the Application",
-            "text": "04-deleting-the-application.md"
-        }, {
-            "title": "Topic 5 - Deploying Using the Command Line",
-            "text": "05-deploying-using-the-command-line.md"
-        }, {
-            "title": "Topic 6 - Importing Application Images",
-            "text": "06-importing-application-images.md"
+            "title": "Topic 6 - Deploying Using the Command Line",
+            "text": "06-deploying-using-the-command-line.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
