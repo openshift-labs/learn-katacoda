@@ -19,10 +19,10 @@
     "details": {
         "steps": [{
             "title": "Topic 1 - Container Architecture: Starting From Scratch",
-            "text": "01-container-architecture-scratch.md"
+            "text": "01-container-scratch.md"
         }, {
             "title": "Topic 2 - Containers Are Linux",
-            "text": "02-containers-are-linux.md"
+            "text": "02-container-libraries.md"
         }, {
             "title": "Topic 3 - Single Host Toolchain",
             "text": "03-single-host-toolchain.md"
@@ -31,7 +31,7 @@
             "text": "04-multi-host-toolchain.md"
         }, {
             "title": "Topic 5 - Community Landscape",
-            "text": "05-communit-landscape.md"
+            "text": "05-community-landscape.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
