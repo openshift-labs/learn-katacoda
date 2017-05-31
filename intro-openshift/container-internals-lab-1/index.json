@@ -1,10 +1,10 @@
 {
     "icon": "fa-openshift",
-    "title": "Fred Johnson is an Informant",
+    "title": "Container Architecture",
     "description": "",
     "pathwayTitle": "OpenShift",
-    "difficulty": "beginner",
-    "time": "10-15 minutes",
+    "difficulty": "Intermediate",
+    "time": "45-60 minutes",
     "backend": {
         "imageid": "openshift",
         "port": 8443
@@ -18,8 +18,8 @@
     },
     "details": {
         "steps": [{
-            "title": "Topic 1 - Creating an Initial Project",
-            "text": "01-creating-an-initial-project.md"
+            "title": "Topic 1 - Container Architecture: Starting From Scratch",
+            "text": "01-container-architecture-scratch.md"
         }, {
             "title": "Topic 2 - Deploying Using the Web Console",
             "text": "02-deploying-using-the-web-console.md"
