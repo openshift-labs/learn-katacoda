@@ -1,6 +1,6 @@
 First and foremost, you need to understand that THE INTERNET IS WRONG. If you just do a quick Google search, you will find architecture drawing after architecture drawing showing things the wrong way or with only part of the solution.
 
-![Containers Are Linux](../../assets/intro-openshift/container-internals-lab-1/Container-Internals-Lab-Google-Wrong.png)
+![Containers Are Linux](../../assets/intro-openshift/container-internals-lab-1/01-google-wrong.png)
 
 What’s wrong? Two main things:
  

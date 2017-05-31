@@ -1,9 +1,18 @@
-In this course you learnt about deploying an existing Docker-formatted container image to OpenShift. You first deployed an image direct from an external image registry. This was followed by importing an image into the OpenShift internal registry, and then deploying the image from the internal registry.
+In this course you learned:
 
-You can find a summary of the key commands covered below. To see more information on each ``oc`` command, run it with the ``--help`` option.
+- Containers Are Linux: Userspace libraries interact with the kernel to isolate processes
+- Single Host Toolchain: Includes Docker runtime, Systemd, and Lincontainer
+- Multi-Host Toolchain: Includes Kubernetes/OpenShift
+- Typical Architecture: Explains what a production cluster looks like
+- Community Landscape: Explains the basics of the upstream projects and how they are contributing
 
-``oc new-app <docker-image> --name <name>``: Deploy an application from a Docker-formatted image found on an external image registry. If there is any ambiguity as to the source of the image, use the ``--docker-image`` option.
+You can find a copy of the slides and GitHub repo that containers all of these commands so that you can run them yourself in your own environment:
 
-``oc new-app <image-stream> --name <name>``: Deploy an application from a Docker-formatted image found in the internal image registry. If there is any ambiguity as to the source of the image, use the ``--image-stream`` option.
+- https://github.com/fatherlinux/container-internals-lab
+- https://docs.google.com/presentation/d/1fC9cKR2-kFW5l-VEk0Z5_1vriYpROXOXM_5rhyVnBi4/edit#slide=id.gb6f3e2d2d_2_213
 
-``oc import-image <docker-image> --confirm``: Import a Docker-formatted image found on an external image registry, causing it to be pulled into the internal image registry.
+Also, if you have any questions tweet us at:
+
+@OpenShift
+@RedHatAtomic 
+@fatherlinux
