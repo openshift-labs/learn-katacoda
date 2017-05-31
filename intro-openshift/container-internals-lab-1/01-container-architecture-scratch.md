@@ -20,6 +20,9 @@ These processes all work together to create a container in the Linux kernel. The
 - **docker-containerd-shim**: this is a shim layer which starts the docker-runc-current command with the right options.
 - **docker**: This is the docker command which you typed on the command line.
 
+Now let's take a look at the OpenShift daemons which are runnning on the master:
+``mega-proc.sh openshift``{{execute}}''
+
 Pay particular attention the the following daemons. The OpenShift/Kubernetes code is very modular. OpenShift compiles all of the functionality into a single binary and determines which role the daemon will play with startup parameters. Depending on which installation method (single node, clustered, registry server only, manual) is chosen the OpenShift binaries can be started in different ways.
 
 - **openshift start master api**: This process handles all API calls with REST, kubectl, or oc commands.
@@ -29,6 +32,4 @@ Pay particular attention the the following daemons. The OpenShift/Kubernetes cod
 
 Now that you have an understanding of the different daemons, take a look at all of it together. Notice which daemons start which ones. Also, notice that the OpenShift API, Controller and Node processes are actually docker containers. There is roadmap to containerize the docker daemon on RHEL Atomic Host in the comming months as well.
 
-```
-ps aux --forest
-```
+``ps aux --forest``{{execute}}
