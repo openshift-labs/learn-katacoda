@@ -21,8 +21,8 @@
             "title": "Topic 1 - Container Architecture: Starting From Scratch",
             "text": "01-container-architecture-scratch.md"
         }, {
-            "title": "Topic 2 - Deploying Using the Web Console",
-            "text": "02-deploying-using-the-web-console.md"
+            "title": "Topic 2 - Containers Are Linux",
+            "text": "containers-are-linux.md"
         }, {
             "title": "Topic 3 - Creating an External Route",
             "text": "03-creating-an-external-route.md"
