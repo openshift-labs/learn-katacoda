@@ -22,6 +22,11 @@
       "external_link": "https://learn.openshift.com/introduction/resource-objects/",
       "course_id": "resource-objects",
       "title": "Using the CLI to Manage Resource Objects"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/container-internals-lab-1/",
+      "course_id": "container-internals-lab-1",
+      "title": "Introduction to Container Architecture"
     }
   ]
 }
