@@ -1,11 +1,16 @@
-First watch this video, then move on to the interactive labs:
+In this self paced tutorial you will gain a basic understanding of the moving parts that make up the typical container architecture.  This will cover container hosts, daemons, runtimes, images, orchestration, etc.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gcfjWF_H5SU" frameborder="0" allowfullscreen></iframe>
+## Video
+This video will give you a background to all of the concepts in this lab
 
-* Deploy an application from an existing Docker-formatted image.
-* Build and deploy from source code contained in a Git repository using a Source-to-Image builder.
-* Build and deploy from source code contained in a Git repository from a Dockerfile.
+<iframe width="800" src="https://www.youtube.com/embed/gcfjWF_H5SU" frameborder="0" allowfullscreen></iframe>
 
-In this course you will learn how to deploy an application from an existing
-Docker-formatted image using the OpenShift web console, and from the command
-line using ``oc``.
+## Outline
+- Containers Are Linux: Userspace libraries interact with the kernel to isolate processes
+- Single Host Toolchain: Includes Docker runtime, Systemd, and Lincontainer
+- Multi-Host Toolchain: Includes Kubernetes/OpenShift
+- Typical Architecture: Explains what a production cluster looks like
+- Community Landscape: Explains the basics of the upstream projects and how they are contributing
+
+## Start Scenario
+Once you have completed the background video, continue to the exercises
