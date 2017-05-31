@@ -3,7 +3,7 @@ In this self paced tutorial you will gain a basic understanding of the moving pa
 ## Video
 This video will give you a background to all of the concepts in this lab
 
-<iframe width="800" src="https://www.youtube.com/embed/gcfjWF_H5SU" frameborder="0" allowfullscreen></iframe>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/gcfjWF_H5SU" frameborder="0" allowfullscreen></iframe>
 
 ## Outline
 - Containers Are Linux: Userspace libraries interact with the kernel to isolate processes
