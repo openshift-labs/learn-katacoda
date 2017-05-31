@@ -21,4 +21,4 @@ This video will give you a background to all of the concepts in this lab
 - Community Landscape: Explains the basics of the upstream projects and how they are contributing
 
 ## Start Scenario
-Once you have completed the background video, continue to the exercises
+Once you have watched the background video, continue to the exercises

@@ -1,3 +1,12 @@
+It is possible to leverage our existing architectural knowledge in a containerized environent. To do this, we need to understand some fundamental primatives including: libraries, containerized processes, regular processes, kernel data structures (namespaces, cgroups, SELinux).
+
+![Kernel & Containers](../../assets/intro-openshift/container-internals-lab-1/Container-Internals-Lab-Kernel-Containers.png)
+
+
+old material
+=============================================================
+
+
 Before we get started, you need to login and create a project in OpenShift
 to work in.
 
