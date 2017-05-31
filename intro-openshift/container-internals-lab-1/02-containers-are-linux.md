@@ -1,36 +1,9 @@
-First and foremost, you need to understand that THE INTERNET IS WRONG. If you just do a quick Google search, you will find architecture drawing after architecture drawing showing things the wrong way or with only part of the solution.
+It's possible to leverage a lot of your existing architectural knowledge in a containerized environent. To do this, we need to understand some fundamental primatives including: libraries, containerized processes, regular processes, kernel data structures (namespaces, cgroups, SELinux). Containers started in the Linux kernel and remain there. What got easier over time, is how your start them - libraries like LXC, libcontainer, and LXD made it easier and easier to start containers on a Linux system.
 
-![Containers Are Linux](../../assets/intro-openshift/container-internals-lab-1/Container-Internals-Lab-Google-Wrong.png)
+![Kernel & Containers](../../assets/intro-openshift/container-internals-lab-1/Container-Internals-Lab-Kernel-Containers.png)
 
-What’s wrong? Two main things:
- 
-1. Most of the architectural drawings above show the docker daemon as a wide blue box stretched out over the container host. The containers are shown as if they are running on top of the docker daemon. This is incorrect - the containers are actually created and run by the Linux kernel.
-2. When the architectural drawings do actually show the right architecture between the docker daemon, libcontainer/lxc/etc and the kernel, they never show containers running side by side. This leaves the viewer to imagine #1.
- 
-OK, let’s start from scratch. In the terminal, let's inspect the daemons which are running on the master nodes.
+The docker command makes it really easy to start containers and even show which ones are running, but it actually relies on a lot of system libraries to communicate with the kernel. Libraries like libcontainer, libseccomp, libselinux, libpcap and libc all assist in interacting with the kernel. Storage, network, process, and security data structures are all manipulated when a container is started or stopped.
 
-``mega-proc.sh docker``{{execute}}
+``ldd /usr/bin/docker-current``{{execute}}
 
-Pay attention to the following proecesses and daemons running. You may notice that all of the docker commands and daemons have the "-current" extension - this is a methodology Red Hat uses to specify which version of the tools are installed. Red Hat supports two versions - a fast moving version with the -latest extension and a stable version targetted for OpenShift with the -current extension.
-
-These processes all work together to create a container in the Linux kernel. The following is a basic description of their purpose:
-
-- **dockerd**: This is the main docker daemon. It handles all docker API calls (docker run, docker build, docker images) through either the unix socket /var/run/docker.sock or it can be configured to handle requests over TCP. This is the "main" daemon and it is started by systemd with the /usr/lib/systemd/system/docker.service unit file.
-- **docker-containerd**: Containerd was recently open sourced as a separate community project. The docker daemon talks to containerd when it needs to fire up a container. More and more plumbing is being added to containerd (such as storage).
-- **docker-containerd-shim**: this is a shim layer which starts the docker-runc-current command with the right options.
-- **docker**: This is the docker command which you typed on the command line.
-
-Now let's take a look at the OpenShift daemons which are runnning on the master:
-
-``mega-proc.sh openshift``{{execute}}''
-
-Pay particular attention the the following daemons. The OpenShift/Kubernetes code is very modular. OpenShift compiles all of the functionality into a single binary and determines which role the daemon will play with startup parameters. Depending on which installation method (single node, clustered, registry server only, manual) is chosen the OpenShift binaries can be started in different ways.
-
-- **openshift start master api**: This process handles all API calls with REST, kubectl, or oc commands.
-- **/usr/bin/openshift start node**: This process plays the role of the Kubelet and communicates with dockerd (which then communicates with the kernel) to create containers.
-- **/usr/bin/openshift start master controllers**: This daemon embeds the core control loops shipped with Kubernetes. A controller is a control loop that watches the shared state of the cluster through the apiserver and makes changes attempting to move the current state towards the desired state. Examples of controllers that ship with Kubernetes today are the replication controller, endpoints controller, namespace controller, and serviceaccounts controller.
-
-
-Now that you have an understanding of the different daemons, take a look at all of it together. Notice which daemons start which ones. Also, notice that the OpenShift API, Controller and Node processes are actually docker containers. There is roadmap to containerize the docker daemon on RHEL Atomic Host in the comming months as well.
-
-``ps aux --forest``{{execute}}
+Let's move on...
