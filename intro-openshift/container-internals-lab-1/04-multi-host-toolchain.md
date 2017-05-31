@@ -8,7 +8,7 @@ The OpenShift/Kubernetes code is very modular. OpenShift compiles all of the fun
 
 ![Container Libraries](../../assets/intro-openshift/container-internals-lab-1/04-multi-host-toolchain.png)
 
-In a full highly available, multi-master environment, you will see all of the following daemons running. On smaller installations, or all in one installation, several of these services may be running inside daemon configured to run as master:
+In a full highly available, multi-master environment, you will see all of the following daemons running. On smaller installations, or all in one installation, several of these services may be running inside the daemon configured to run as master:
 
 - **openshift start master api**: This process handles all API calls with REST, kubectl, or oc commands.
 - **/usr/bin/openshift start node**: This process plays the role of the Kubelet and communicates with dockerd (which then communicates with the kernel) to create containers.

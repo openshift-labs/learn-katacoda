@@ -2,7 +2,7 @@ Now, let's inspect the daemons which are running on the master nodes. Normally, 
 
 ``mega-proc.sh docker``{{execute}}
 
-We call this a userspce toolchain because none of it lives in the kernel. The following proecesses and daemons are running in user space, not terribly different than bind or httpd. You may notice that all of the docker commands and daemons have the "-current" extension - this is a methodology Red Hat uses to specify which version of the tools are installed. Red Hat supports two versions - a fast moving version with the -latest extension and a stable version targetted for OpenShift with the -current extension.
+We call this a userspace toolchain because none of it lives in the kernel. The following proecesses and daemons are running in user space, not terribly different than bind or httpd. You may notice that all of the docker commands and daemons have the "-current" extension - this is a methodology Red Hat uses to specify which version of the tools are installed. Red Hat supports two versions - a fast moving version with the -latest extension and a stable version targetted for OpenShift with the -current extension.
 
 These processes all work together to create a container in the Linux kernel. The following is a basic description of their purpose:
 
