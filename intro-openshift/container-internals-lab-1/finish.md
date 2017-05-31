@@ -13,6 +13,4 @@ You can find a copy of the slides and GitHub repo that containers all of these c
 
 Also, if you have any questions tweet us at:
 
-@OpenShift
-@RedHatAtomic 
-@fatherlinux
+@OpenShift @RedHatAtomic @fatherlinux
