@@ -42,7 +42,7 @@ To monitor the log output from the build as it is running, run the command:
 
 ``oc logs -f bc/blog --follow``{{execute}}
 
-This command will exit once the build has completed. You can also interrupt the command by typing _CTRL-C_.
+This command will exit once the build has completed. You can also interrupt the command by typing _CTRL-C_ in the terminal window.
 
 To view the status of any applications deployed to the project you can run the command:
 
