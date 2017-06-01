@@ -1,4 +1,4 @@
-It's possible to leverage a lot of your existing architectural knowledge in a containerized environent. To do this, we need to understand some fundamental primatives including: libraries, containerized processes, regular processes, kernel data structures (namespaces, cgroups, SELinux). Containers started in the Linux kernel and remain there. What got easier over time, is how your start them - libraries like LXC, libcontainer, and LXD made it easier and easier to start containers on a Linux system.
+It's possible to leverage a lot of your existing architectural knowledge in a containerized environent. To do this, we need to understand some fundamental primitives including: libraries, containerized processes, regular processes, kernel data structures (namespaces, cgroups, SELinux). Containers started in the Linux kernel and remain there. What got easier over time, is how your start them - libraries like LXC, libcontainer, and LXD made it easier and easier to start containers on a Linux system.
 
 ![Container Libraries](../../assets/intro-openshift/container-internals-lab-1/02-container-libraries.png)
 

@@ -1,6 +1,6 @@
 Now let's take a look at the OpenShift daemons which are runnning on the master. OpenShift masters are typically installed with the OpenShift node daemons running as well, so you will see several daemons running. Now let's take a look ourselves:
 
-``mega-proc.sh openshift``{{execute}}''
+``mega-proc.sh openshift``{{execute}}
 
 Notice, again, that the openshift processes are just standard daemons running side by side with docker, containerd, the containerized processes and all of the other processes on the system:
 

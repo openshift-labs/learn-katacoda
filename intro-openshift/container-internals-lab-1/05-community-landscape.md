@@ -6,6 +6,6 @@ Notice which daemons start which ones. Also, notice that the OpenShift API, Cont
 
 ![Container Libraries](../../assets/intro-openshift/container-internals-lab-1/05-community-landscape.png)
 
-Looking at this all working togeter, it's important to realize that this entire toolchain is open source, but pieces parts are driven by different communities. Red Hat leads in all of these communities and brings all of these pieces together with OpenShift.
+Looking at this all working togeter, it's important to realize that this entire toolchain is open source, but different components are driven by different communities. Red Hat leads in all of these communities and brings all of these pieces together with OpenShift.
 
 
