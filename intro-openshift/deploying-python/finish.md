@@ -6,7 +6,7 @@ You can find a summary of the key commands covered below. To see more informatio
 
 ``oc start-build <name>``: Trigger a new build and deployment of the application where source code is taken from the hosted Git repository specified to ``oc new-app`` when the build configuration was created.
 
-``oc start-build <name> --from-dir=.``: Trigger a new build and deployment of the application where source code is take from the current working directory of the local machine where the ``oc`` command is being run.
+``oc start-build <name> --from-dir=.``: Trigger a new build and deployment of the application where source code is taken from the current working directory of the local machine where the ``oc`` command is being run.
 
 ``oc cancel-build <build>``: Cancel a running build.
 
