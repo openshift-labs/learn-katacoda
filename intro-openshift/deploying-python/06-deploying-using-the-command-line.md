@@ -48,7 +48,7 @@ To view the status of any applications deployed to the project you can run the c
 
 ``oc status``{{execute}}
 
-Once the build and deployment on the application has completed you should see output similar to:
+Once the build and deployment of the application has completed you should see output similar to:
 
 ```
 In project myproject on server https://172.17.0.23:8443
