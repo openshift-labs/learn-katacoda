@@ -38,6 +38,9 @@
         }, {
             "title": "Topic 7 - Triggering a New Build",
             "text": "07-triggering-a-new-build.md"
+        }, {
+            "title": "Topic 8 - Source-to-Image Builders",
+            "text": "07-source-to-image-builders.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
