@@ -21,8 +21,6 @@ As the build progress, this should display output similar to:
 ```
 NAME      TYPE      FROM          STATUS     STARTED         DURATION
 blog-1    Source    Git@fcdc38c   Complete   2 minutes ago   1m2s
-blog-2    Source    Git           Running    1 seconds ago   1s
-NAME      TYPE      FROM          STATUS    STARTED         DURATION
 blog-2    Source    Git@fcdc38c   Running   3 seconds ago   3s
 blog-2    Source    Git@fcdc38c   Complete   About a minute ago   1m9s
 ```
@@ -118,22 +116,16 @@ blog-1-build   0/1       Completed   0          6m
 blog-2-build   0/1       Completed   0          1m
 blog-2-mmhtr   1/1       Running     0          35s
 blog-3-build   1/1       Running     0          5s
-NAME            READY     STATUS    RESTARTS   AGE
 blog-3-deploy   0/1       Pending   0          0s
-blog-3-deploy   0/1       Pending   0         0s
 blog-3-deploy   0/1       ContainerCreating   0         0s
 blog-3-build   0/1       Completed   0         1m
 blog-3-deploy   1/1       Running   0         3s
-blog-3-6plng   0/1       Pending   0         0s
 blog-3-6plng   0/1       Pending   0         0s
 blog-3-6plng   0/1       ContainerCreating   0         0s
 blog-3-6plng   1/1       Running   0         3s
 blog-2-mmhtr   1/1       Terminating   0         1m
 blog-3-deploy   0/1       Completed   0         13s
 blog-3-deploy   0/1       Terminating   0         13s
-blog-3-deploy   0/1       Terminating   0         13s
-blog-2-mmhtr   0/1       Terminating   0         1m
-blog-2-mmhtr   0/1       Terminating   0         1m
 blog-2-mmhtr   0/1       Terminating   0         1m
 ```
 
