@@ -35,6 +35,9 @@
         }, {
             "title": "Topic 6 - Deploying Using the Command Line",
             "text": "06-deploying-using-the-command-line.md"
+        }, {
+            "title": "Topic 7 - Triggering a New Build",
+            "text": "07-triggering-a-new-build.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
