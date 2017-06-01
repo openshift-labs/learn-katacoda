@@ -2,9 +2,9 @@ The source code for an application isn't going to be static, so a way to trigger
 
 To do this from the command line using ``oc``, run the command:
 
-``oc new-build blog``{{execute}}
+``oc start-build blog``{{execute}}
 
-This should display output similar to:
+This should display:
 
 ```
 build "blog-2" started
@@ -69,7 +69,13 @@ You will also see listed a _Webhook URL_ that can be configured into a Git hosti
 
 The typical workflow followed when developing an application, is to work on your application source code on your own local machine. When you are happy with changes and they are ready to be made live, commit the changes and push them up to the hosted Git repository linked to the build configuration. If a webhook has been configured, a new build and deployment would be triggered automatically, otherwise you can trigger a new build manually.
 
+In the case of where you are rapidly iterating on changes to test ideas and don't want to have to commit every change and push it back up to the hosted Git repository, you can use what is called a binary build.
+
+To demonstrate this, clone the Git repository for the application by running:
+
 ``git clone https://github.com/openshift-katacoda/blog-django-py``{{execute}}
+
+This will create a sub directory ``blog-django-py`` containing the source code for the application:
 
 ```
 Cloning into 'blog-django-py'...
@@ -79,23 +85,101 @@ Receiving objects: 100% (125/125), 22.59 KiB | 0 bytes/s, done.
 Resolving deltas: 100% (45/45), done.
 ```
 
+Change into the sub directory.
+
 ``cd blog-django-py``{{execute}}
+
+To show how a build can be triggered from the local copy of the application source code, without needing to commit changes back to the Git repository, first run the command:
 
 ``echo 'BLOG_BANNER_COLOR=blue' >> .s2i/environment``{{execute}}
 
+This command will update an environment variable setting file used by the S2I to determine what environment variables are baked into the application image created.
+
+Start a new build by running the command:
+
 ``oc start-build blog --from-dir=.``{{execute}}
+
+This is similar to what you ran before, with the exception that the option ``--from-dir=.`` is also passed to the command. You should see the output:
 
 ```
 Uploading directory "." as binary input for the build ...
 build "blog-3" started
 ```
 
+The result of supply this option is that the contents of the current working directory will be packaged up and uploaded to OpenShift, with it being used as the source code for the build, rather than the source code being pulled down from the hosted Git repository.
+
+You can track the progress of the build using ``oc logs --follow`` or ``oc get builds --watch``. A further way you can monitor changes happening in the project, in this case by looking at the running pods in the project, is to run the command:
+
 ``oc get pods --watch``{{execute}}
 
+```
+NAME           READY     STATUS      RESTARTS   AGE
+blog-1-build   0/1       Completed   0          6m
+blog-2-build   0/1       Completed   0          1m
+blog-2-mmhtr   1/1       Running     0          35s
+blog-3-build   1/1       Running     0          5s
+NAME            READY     STATUS    RESTARTS   AGE
+blog-3-deploy   0/1       Pending   0          0s
+blog-3-deploy   0/1       Pending   0         0s
+blog-3-deploy   0/1       ContainerCreating   0         0s
+blog-3-build   0/1       Completed   0         1m
+blog-3-deploy   1/1       Running   0         3s
+blog-3-6plng   0/1       Pending   0         0s
+blog-3-6plng   0/1       Pending   0         0s
+blog-3-6plng   0/1       ContainerCreating   0         0s
+blog-3-6plng   1/1       Running   0         3s
+blog-2-mmhtr   1/1       Terminating   0         1m
+blog-3-deploy   0/1       Completed   0         13s
+blog-3-deploy   0/1       Terminating   0         13s
+blog-3-deploy   0/1       Terminating   0         13s
+blog-2-mmhtr   0/1       Terminating   0         1m
+blog-2-mmhtr   0/1       Terminating   0         1m
+blog-2-mmhtr   0/1       Terminating   0         1m
+```
+
+By monitoring pods using the ``--watch`` option, you can see progress as a new build and deployment occur, along with a new instance of the application being started and the old instance terminated.
+
+When the deployment has completed, if you visit the web application once more, you will see that the banner colour has been changed to blue.
+
 ![Blog Web Site](../../assets/intro-openshift/deploying-python/07-blog-web-site-blue.png)
+
+When you use the ``--from-dir=.`` option with ``oc start-build``, the contents from the current working directory will only be used for that one build. If you wanted to run further builds with source code from your local directory, you would need to supply ``--from-dir=.`` each time.
+
+To return back to using the source code from the hosted Git repository, run:
 
 
 ``oc start-build blog``{{execute}}
 
+This should output:
+
+```
+build "blog-4" started
+```
+
+If for some reason a build was wrongly started, of you realised it would fail anyway, you can cancel the build by running ``oc cancel-build`` and supplying the name of the build.
+
+``oc cancel-build blog-4``{{execute}}
+
+This should show the build has been cancelled.
+
+```
+build "blog-4" cancelled
+```
+
+You can confirm this by also looking at the list of all builds run.
+
+``oc get builds``{{execute}}
+
+This should display output similar to:
+
+```
+NAME      TYPE      FROM             STATUS      STARTED          DURATION
+blog-1    Source    Git@fcdc38c      Complete    12 minutes ago   2m36s
+blog-2    Source    Git@fcdc38c      Complete    8 minutes ago    1m9s
+blog-3    Source    Binary@fcdc38c   Complete    6 minutes ago    1m10s
+blog-4    Source    Git@fcdc38c      Cancelled   18 seconds ago   10s
+```
+
+Note that starting a build using source code from a local directory on your own machine can only be done from the command line. There is no way to trigger such a build from the web console.
 
 
