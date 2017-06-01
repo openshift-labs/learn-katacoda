@@ -91,7 +91,7 @@ To show how a build can be triggered from the local copy of the application sour
 
 ``echo 'BLOG_BANNER_COLOR=blue' >> .s2i/environment``{{execute}}
 
-This command will update an environment variable setting file used by the S2I to determine what environment variables are baked into the application image created.
+This command will update an environment variable setting file used by S2I to determine what environment variables are baked into the application image created.
 
 Start a new build by running the command:
 
@@ -104,11 +104,13 @@ Uploading directory "." as binary input for the build ...
 build "blog-3" started
 ```
 
-The result of supply this option is that the contents of the current working directory will be packaged up and uploaded to OpenShift, with it being used as the source code for the build, rather than the source code being pulled down from the hosted Git repository.
+The result of supplying this option is that the contents of the current working directory will be packaged up and uploaded to OpenShift, with it being used as the source code for the build, rather than the source code being pulled down from the hosted Git repository.
 
-You can track the progress of the build using ``oc logs --follow`` or ``oc get builds --watch``. A further way you can monitor changes happening in the project, in this case by looking at the running pods in the project, is to run the command:
+As before, you can track the progress of the build using ``oc logs --follow`` or ``oc get builds --watch``. A further way you can monitor changes happening in the project, in this case by looking at the running pods in the project, is to run the command:
 
 ``oc get pods --watch``{{execute}}
+
+This will result in output similar to:
 
 ```
 NAME           READY     STATUS      RESTARTS   AGE
@@ -131,7 +133,9 @@ blog-2-mmhtr   0/1       Terminating   0         1m
 
 By monitoring pods using the ``--watch`` option, you can see progress as a new build and deployment occur, along with a new instance of the application being started and the old instance terminated.
 
-When the deployment has completed, if you visit the web application once more, you will see that the banner colour has been changed to blue.
+To exit the command when the build has completed, type _CTRL-C_ in the terminal window.
+
+If you visit the web application once more, you will see that the banner colour has been changed to blue.
 
 ![Blog Web Site](../../assets/intro-openshift/deploying-python/07-blog-web-site-blue.png)
 
@@ -148,7 +152,7 @@ This should output:
 build "blog-4" started
 ```
 
-If for some reason a build was wrongly started, of you realised it would fail anyway, you can cancel the build by running ``oc cancel-build`` and supplying the name of the build.
+If for some reason a build was wrongly started, or you realised it would fail anyway, you can cancel the build by running ``oc cancel-build`` and supplying the name of the build.
 
 ``oc cancel-build blog-4``{{execute}}
 
