@@ -6,6 +6,6 @@ When you deploy an application from application source code using the web consol
 
 ![Application Route](../../assets/intro-openshift/deploying-python/04-application-route.png)
 
-Click on the URL and you can view the web application.
+With the build and deployment completed, click on the URL and you can view the web application.
 
 ![Blog Web Site](../../assets/intro-openshift/deploying-python/04-blog-web-site.png)
