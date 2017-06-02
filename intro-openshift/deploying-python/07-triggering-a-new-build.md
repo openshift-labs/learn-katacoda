@@ -16,7 +16,7 @@ As before you can use ``oc logs`` to monitor the log output as the build runs. Y
 
 ``oc get builds --watch``{{execute}}
 
-As the build progress, this should display output similar to:
+As the build progresses, this should display output similar to:
 
 ```
 NAME      TYPE      FROM          STATUS     STARTED         DURATION
@@ -61,13 +61,13 @@ blog-1  complete        1m2s            2017-06-01 02:05:11 +0000 UTC
 No events.
 ```
 
-You can see how details of the Git repository being used as the source for any build.
+You can see details of the Git repository being used as the source for any build.
 
 You will also see listed a _Webhook URL_ that can be configured into a Git hosting service to trigger a new build automatically when changes are committed and pushed up to a Git repository. As you are using a Git repository on GitHub that you don't own this can not be done for this exercise, but if you had forked the Git repository into your own account, or this was your own application, it could have been configured.
 
 The typical workflow followed when developing an application, is to work on your application source code on your own local machine. When you are happy with changes and they are ready to be made live, commit the changes and push them up to the hosted Git repository linked to the build configuration. If a webhook has been configured, a new build and deployment would be triggered automatically, otherwise you can trigger a new build manually.
 
-In the case of where you are rapidly iterating on changes to test ideas and don't want to have to commit every change and push it back up to the hosted Git repository, you can use what is called a binary build.
+In the case of where you are rapidly iterating on changes to test ideas and don't want to have to commit every change and push it back up to the hosted Git repository, you can use what is called a binary input build.
 
 To demonstrate this, clone the Git repository for the application by running:
 
