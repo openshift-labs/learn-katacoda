@@ -12,7 +12,7 @@
     "environment": {
         "showdashboard": true,
         "dashboard": "Dashboard",
-        "uilayout": "terminal-iframe",
+        "uilayout": "terminal-terminal",
         "hideintro": false,
         "hidefinish": false
     },
