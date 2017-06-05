@@ -63,4 +63,4 @@ To exit the interactive shell run:
 
 Anything you want to do to the database could be be done through any database admin tool included in the container. This will though be limited to console based tools and you would not be able to use a GUI based tool which runs from your local machine as the database is still not exposed outside of the OpenShift cluster at this point.
 
-If you need to run database script files to perform operations on the database, you would also need to first copy those files into the database container using the ``oc rsh`` command.
+If you need to run database script files to perform operations on the database, you would also need to first copy those files into the database container using the ``oc rsync`` command.
