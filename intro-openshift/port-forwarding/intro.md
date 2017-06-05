@@ -4,6 +4,6 @@ Databases deployed to OpenShift will typically be used to support the operations
 
 To manage a database, it can though be convenient to use a database client running on your own local machine. This could be a command line client, or a GUI based application.
 
-In this course you will learn how to use port forwarding to temporarily expose a database, allowing you to access it from a database tool running on your own local machine.
+In this course you will learn how to access a database using an interactive shell, and also how to use port forwarding to temporarily expose a database outside of OpenShift, allowing you to access it from a database tool running on your own local machine.
 
 You will be using just the ``oc`` command line tool in this exercise. We have left the OpenShift web console enabled if you wish to also explore the resource objects using it.
