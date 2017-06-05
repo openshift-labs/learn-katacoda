@@ -53,7 +53,7 @@ sampledb=>
 
 You could now dynamically create database tables, add data, or modify existing data.
 
-To exit ``psql`` run:
+To exit ``psql`` enter:
 
 ``\q``{{execute}}
 

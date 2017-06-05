@@ -26,7 +26,7 @@ oc port-forward <pod-name> :<remote-port>
 
 In this form, the local port is left off, resulting in a random available port being used. You would need to look at the output from the command to work out what port number was used for the local port and use that.
 
-When the ``oc port-forward`` command is run and the connection setup, it would stay running until the command is interrupted. You would then use a separate terminal window to run the administration tool which could connect via the forwarded connection. In this case, as we only have the one terminal window, we ran the ``oc port-forward`` command as a background job.
+When the ``oc port-forward`` command is run and the connection setup, it will stay running until the command is interrupted. You would then use a separate terminal window to run the administration tool which could connect via the forwarded connection. In this case, as we only have the one terminal window, we ran the ``oc port-forward`` command as a background job.
 
 You can see that it is still running using: 
 
@@ -35,6 +35,8 @@ You can see that it is still running using:
 With the port forwarding in place, you can now run ``psql`` again. This time it is being run from the local machine, and not inside of the container. Because the forwarded connection is using port 15432 on the local machine, you need to explicitly tell it to use that port rather than the default database port.
 
 ``psql sampledb username --host=127.0.0.1 --port=15432``{{execute}}
+
+This will again present you with the prompt for running database operations via ``psql``.
 
 ```
 Handling connection for 5432
@@ -46,9 +48,9 @@ Type "help" for help.
 sampledb=>
 ```
 
-As before when running ``psql`` from inside of the container, you could now dynamically create database tables, add data, or modify existing data.
+You could now dynamically create database tables, add data, or modify existing data.
 
-To exit ``psql`` run:
+To exit ``psql`` enter:
 
 ``\q``{{execute}}
 
