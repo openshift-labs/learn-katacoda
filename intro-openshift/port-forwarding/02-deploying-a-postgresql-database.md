@@ -8,6 +8,6 @@ Although a database would normally be paired with a persistent volume, we only w
 
 To monitor progress as the database is deployed and made ready, run the command:
 
-``oc rollout status dc/dbname``{{execute}}
+``oc rollout status dc/database``{{execute}}
 
 This command will exit once the database is ready to be used.
