@@ -23,9 +23,11 @@ You can create an interactive shell within the same container running the databa
 
 ``\q``{{execute}}
 
-``exit``
+``exit``{{execute}}
 
 ``oc port-forward $POD 5432:5432 &``{{execute}}
+
+``jobs``{{execute}}
 
 ``psql sampledb username --host=127.0.0.1 --port=5432``{{execute}}
 
