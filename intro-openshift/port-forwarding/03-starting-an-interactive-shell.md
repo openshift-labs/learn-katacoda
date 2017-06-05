@@ -42,7 +42,7 @@ Because you are in the same container, you could at this point run the database 
 
 ``psql sampledb username``{{execute}}
 
-This will present you with the prompt for issue database operations via ``psql``.
+This will present you with the prompt for running database operations via ``psql``.
 
 ```
 psql (9.5.4)
