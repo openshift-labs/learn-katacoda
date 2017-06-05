@@ -18,6 +18,14 @@ To create a connection to the PostgreSQL database, which uses port 5432, and exp
 
 Port 15432 is used here for the local machine, rather than using 5432, in case an instance of PostgreSQL was also running on the local machine. If an instance of PostgreSQL was running on the local machine and the same port was used, setting up the connection would fail as the port would already be in use.
 
+If you do not know what ports may be available, you can instead use the following format for the command:
+
+```
+oc port-forward <pod-name> :<remote-port>
+```
+
+In this form, the local port is left off, resulting in a random available port being used. You would need to look at the output from the command to work out what port number was used for the local port and use that.
+
 When the ``oc port-forward`` command is run and the connection setup, it would stay running until the command is interrupted. You would then use a separate terminal window to run the administration tool which could connect via the forwarded connection. In this case, as we only have the one terminal window, we ran the ``oc port-forward`` command as a background job.
 
 You can see that it is still running using: 
