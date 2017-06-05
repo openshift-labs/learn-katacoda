@@ -24,8 +24,11 @@
             "title": "Topic 2 - Deploying a PostgreSQL Database",
             "text": "02-deploying-a-postgresql-database.md"
         }, {
-            "title": "Topic 3 - Connecting to the Database",
-            "text": "03-connecting-to-the-database.md"
+            "title": "Topic 3 - Starting an Interactive Shell",
+            "text": "03-starting-an-interactive-shell.md"
+        }, {
+            "title": "Topic 4 - Creating a Remote Connection",
+            "text": "04-creating-a-remote-connection.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
