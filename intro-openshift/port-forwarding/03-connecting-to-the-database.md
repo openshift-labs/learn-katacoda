@@ -19,6 +19,8 @@ You can create an interactive shell within the same container running the databa
 
 ``oc rsh $POD``{{execute}}
 
+``ps x``{{execute}}
+
 ``psql sampledb username``{{execute}}
 
 ``\q``{{execute}}
