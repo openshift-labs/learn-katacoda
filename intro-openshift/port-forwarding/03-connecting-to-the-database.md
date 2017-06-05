@@ -11,9 +11,9 @@ NAME               READY     STATUS    RESTARTS   AGE
 database-1-9xv8n   1/1       Running   0          1m
 ```
 
-To make it easier to interact with the pod, capture the name of the pod in an environment variable by running. This should also display the name of the pod.
+To make it easier to interact with the pod, capture the name of the pod in an environment variable by running.
 
-``POD=`oc get pods --selector app=database -o custom-columns=name:.metadata.name --no-headers`; echo $POD``
+``POD=`oc get pods --selector app=database -o custom-columns=name:.metadata.name --no-headers`; echo $POD``{{execute}}
 
 You can create an interactive shell within the same container running the database using the ``oc rsh`` command, supplying it the name of the pod.
 
