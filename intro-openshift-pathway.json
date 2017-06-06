@@ -32,6 +32,11 @@
       "external_link": "https://learn.openshift.com/introduction/port-forwarding/",
       "course_id": "port-forwarding",
       "title": "Connecting to a Database Using Port Forwarding"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/transferring-files/",
+      "course_id": "transferring-files",
+      "title": "Transferring Files in and out of Containers"
     }
   ]
 }
