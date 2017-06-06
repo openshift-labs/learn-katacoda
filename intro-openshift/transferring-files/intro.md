@@ -1,4 +1,4 @@
-One of the properties of container images is that they are immutable. That is, although you can make changes to the local container filesystem of a running image, the changes are not permanent. When that container is stopped, any changes are discarded. When a new container is started from the same container image, it reverts back to what was original built into the image.
+One of the properties of container images is that they are immutable. That is, although you can make changes to the local container filesystem of a running image, the changes are not permanent. When that container is stopped, any changes are discarded. When a new container is started from the same container image, it reverts back to what was originally built into the image.
 
 Although any changes to the local container filesystem are discarded when the container is stopped, it can sometimes be convenient to be able to copy up files into a running container. One example of where this might be done is during development and a dynamic scripting language is being used. By being able to modify code in the container, you can modify the application to test changes before rebuilding the image.
 
