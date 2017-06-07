@@ -42,7 +42,7 @@
             "text": "finish.md"
         },
         "assets": {
-          "client": [{"file": "robots.txt", "target": "~/"}]
+          "host01": [{"file": "robots.txt", "target": "~/"}]
         }
     }
 }
