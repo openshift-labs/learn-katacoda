@@ -82,7 +82,7 @@ To exit the interactive shell and return to the local machine run:
 
 To copy files from the container to the local machine the ``oc rsync`` command can be used.
 
-The form of the command when copying a single from the container to the local machine is:
+The form of the command when copying a single file from the container to the local machine is:
 
 ```
 oc rsync <pod-name>:/remote/dir/filename ./local/dir
