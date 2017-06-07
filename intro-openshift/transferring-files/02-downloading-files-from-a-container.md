@@ -27,7 +27,7 @@ To make it easier to reference the name of the pod, capture the name of the pod 
 
 ``POD=`oc get pods --selector app=blog -o custom-columns=name:.metadata.name --no-headers`; echo $POD``{{execute}}
 
-To create an interactive shell within the same container running the database, you can use the ``oc rsh`` command, supplying it the name of the pod.
+To create an interactive shell within the same container running the application, you can use the ``oc rsh`` command, supplying it the name of the pod.
 
 ``oc rsh $POD``{{execute}}
 
@@ -82,15 +82,15 @@ To exit the interactive shell and return to the local machine run:
 
 To copy files from the container to the local machine the ``oc rsync`` command can be used.
 
-The form of the command when copying files from the container to the local machine is:
+The form of the command when copying a single from the container to the local machine is:
 
 ```
-oc rsync <pod-name>:/remote/dir/ ./local/dir
+oc rsync <pod-name>:/remote/dir/filename ./local/dir
 ```
 
 To copy the single database file run:
 
-``oc rsync $POD:/opt/app-root/src/db.sqlite3 ./``{{execute}}
+``oc rsync $POD:/opt/app-root/src/db.sqlite3 .``{{execute}}
 
 This should display output similar to:
 
@@ -112,4 +112,28 @@ and you should see that the local machine now has a copy of the file.
 40 -rw-rw-r--   1 1000040000 root 39936 Jun  6 05:53 db.sqlite3
 ```
 
+Note that the local directory into which you want the file copied must exist. If you didn't want to copy it into the current directory, ensure the target directory has been created beforehand.
 
+In addition to copying a single file, a directory can also be copied. The form of the command when copying a directory to the local machine is:
+
+```
+oc rsync <pod-name>:/remote/dir ./local/dir
+```
+
+To copy the ``media`` directory from the container, run:
+
+``oc rsync $POD:/opt/app-root/src/media .``{{execute}}
+
+If you wanted to rename the directory when it is being copied, you should create the target directory with the name you want to use first.
+
+``mkdir uploads``{{execute}}
+
+and then to copy the files use the command:
+
+``oc rsync $POD:/opt/app-root/src/media/. uploads``{{execute}}
+
+To ensure only the contents of the directory on the container are copied, and not the directory itself, the remote directory is suffixed with ``/.``.
+
+Note that if the target directory contains existing files with the same name as a file in the container, the local file will be overwritten. If there are additional files in the target directory which don't exist in the container, those files will be left as is. If you did want an exact copy, where the target directory was always updated to be exactly the same as what exists in the container, use the ``--delete`` option to ``oc rsync``.
+
+When copying a directory, you can be more selective about what is copied by using the ``--exclude`` and ``--include`` options to specify patterns to be matched against directories and files, with them being excluded or included as appropriate. 
