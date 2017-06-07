@@ -29,6 +29,9 @@
         }, {
             "title": "Topic 4 - Synchronizing Files with a Container",
             "text": "04-synchronizing-files-with-a-container.md"
+        }, {
+            "title": "Topic 5 - Copying Files to a Persistent Volume",
+            "text": "05-copying-files-to-a-persistent-volume.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
