@@ -19,17 +19,17 @@ The local machine already contains a ``robots.txt`` file to be uploaded to the c
 
 ``cat robots.txt``{{execute}}
 
-For the web application being used, it hosts static files out of the ``static`` sub directory of the application source code. To upload the ``robots.txt`` file run:
+For the web application being used, it hosts static files out of the ``htdocs`` sub directory of the application source code. To upload the ``robots.txt`` file run:
 
-``oc rsync . $POD:/opt/app-root/src/static --exclude=* --include=robots.txt --no-perms``{{execute}}
+``oc rsync . $POD:/opt/app-root/src/htdocs --exclude=* --include=robots.txt --no-perms``{{execute}}
 
-As already noted it is not possible to copy a single file, so we indicate that the current directory should be copied, but use the ``--exclude=*`` option to first say that all files should be ignored when copy. That pattern is then overridden for just the ``robots.txt`` file by using the ``--include=robots.txt`` file, ensuring the ``robots.txt`` file is copied.
+As already noted it is not possible to copy a single file, so we indicate that the current directory should be copied, but use the ``--exclude=*`` option to first say that all files should be ignored when performing the copy. That pattern is then overridden for just the ``robots.txt`` file by using the ``--include=robots.txt`` file, ensuring the ``robots.txt`` file is copied.
 
 When copying files to the container, it is required that the directory into which files are being copied exists, and that it is writable to the user or group that the container is being run as. Permissions on directories and files should be set as part of the process of building the image.
 
-In the above command, the ``--no-perms`` option is also used because the target directory in the container, although writable by the group the container is run as, is owned by a different user to that the container is run as. This means that although files can be added to the directory, permissions on existing directories cannot be changed. The ``--no-perms`` options tells ``oc rsync`` to not attempt to update permissions as doing so would fail and cause ``oc rsync`` to return errors.
+In the above command, the ``--no-perms`` option is also used because the target directory in the container, although writable by the group the container is run as, is owned by a different user to that which the container is run as. This means that although files can be added to the directory, permissions on existing directories cannot be changed. The ``--no-perms`` options tells ``oc rsync`` to not attempt to update permissions to avoid it failing and returning errors.
 
-Having uploaded the ``robots.txt`` file, fetching the ``robots.txt`` file now succeeds.
+Having uploaded the ``robots.txt`` file, fetching the ``robots.txt`` file again now succeeds.
 
 ``curl http://blog-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/robots.txt``{{execute}}
 
