@@ -21,14 +21,14 @@ You don't have any projects. You can try to create a new project, by running
     oc new-project <projectname>
 ```
 
-To create a new project called ``myproject`` run the command:
+To create a new project called ``fuselab`` run the command:
 
-``oc new-project myproject``{{execute}}
+``oc new-project fuselab``{{execute}}
 
 You should see output similar to:
 
 ```
-Now using project "myproject" on server "https://172.17.0.41:8443".
+Now using project "fuselab" on server "https://172.17.0.41:8443".
 
 You can add applications to this project with the 'new-app' command. For example, try:
 
