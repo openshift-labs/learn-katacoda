@@ -31,7 +31,7 @@
             "text": "04-accessing-the-swagger-document.md"
         }, {
             "title": "Topic 5 - Exceute the APIs",
-            "text": "04-exceute-the-apis.md"
+            "text": "05-exceute-the-apis.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
