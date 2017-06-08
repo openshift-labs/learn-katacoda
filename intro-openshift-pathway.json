@@ -34,9 +34,10 @@
       "title": "Connecting to a Database Using Port Forwarding"
     },
     {
-      "external_link": "https://learn.openshift.com/introduction/fis-deploy-app/",
+      "external_link": "http://learn.openshift.com/katacoda-introduction/fis-deploy-app",
       "course_id": "fis-deploy-app",
-      "title": "Getting started with Fuse on API"
+      "title": "Getting started with Fuse",
+      "description": ""
     }
   ]
 }
