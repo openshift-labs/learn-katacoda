@@ -12,7 +12,7 @@ Clicking on either option, you should be presented with the catalog browser.
 
 In this course you are going to deploy a web application which is implemented using the Python programming language.
 
-Select the _Python_ category from the catalog browser. Any options for deploying applications which are related to Python will be displayed.
+Select the _FIS_ category from the catalog browser. Any options for deploying applications which are related to Python will be displayed.
 
 ![Available Python Versions](../../assets/intro-openshift/deploying-python/02-deploy-python-versions.png)
 
