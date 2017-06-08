@@ -17,13 +17,11 @@ Select the _Java_ category from the catalog browser. Any options for deploying a
 ![Available Java Apps](../../assets/intro-openshift/fis-deploy-app/02-deploy-java-app.png)
 
 
-In the environment used for this course, the only option presented will be that for the Python Source-to-Image (S2I) builder.
-
-For this exercise select the _fis-java-openshift_ from the list and leave the version as ``2.0``.
+In the environment used for this course, the there will be two options presented for Red Hat Fuse project. This exercise select the _fis-java-openshift_ from the list and leave the version as ``2.0``.
 
 ![Available Fuse Versions](../../assets/intro-openshift/fis-deploy-app/02-deploy-fuse-versions.png)
 
-Click on _Select_ to bring up the deployment options for the Python S2I builder.
+Click on _Select_ to bring up the deployment options for the Fuse SpringBoot S2I builder.
 
 ![Fuse Deployment Options](../../assets/intro-openshift/fis-deploy-app/02-deploy-fuse-options.png)
 

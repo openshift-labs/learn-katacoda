@@ -43,11 +43,11 @@ same credentials you used above.
 ![Web Console Login](../../assets/intro-openshift/fis-deploy-app/01-web-console-login.png)
 
 This should leave you at the list of projects you have access to. As we only
-created the one project, all you should see is ``myproject``.
+created the one project, all you should see is ``fislab``.
 
 ![List of Projects](../../assets/intro-openshift/fis-deploy-app/01-list-of-projects.png)
 
-Click on ``myproject`` and you should be left at the _Overview_ page for
+Click on ``fislab `` and you should be left at the _Overview_ page for
 the project.
 
 ![Project Overview](../../assets/intro-openshift/fis-deploy-app/01-project-overview.png)
