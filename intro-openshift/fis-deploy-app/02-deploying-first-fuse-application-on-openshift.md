@@ -1,42 +1,64 @@
-When you are in an empty project, a prominent _Add to Project_ button will be displayed in the centre of the page.
+Inside the project, where is this case it should be an empty project, a prominent _Add to Project_ button will be displayed in the centre of the page.
 
 ![Adding to Empty Project](../../assets/intro-openshift/fis-deploy-app/02-add-to-project-empty.png)
 
-If applications had previously been deployed to the project, or you were not on the project _Overview_ page, you can use the _Add to project_ link in the menu bar.
+This basic senario shows an example of a Fuse application running on OpenShift. It is defined in a template, which is constructed from a set of services, build configurations, and deployment configurations. This template references the source repositories to build and deploy the application.
 
-![Adding via Menu Bar](../../assets/intro-openshift/fis-deploy-app/02-add-to-project-menubar.png)
+Create the template by going back to console and excute following command:
 
-Clicking on either option, you should be presented with the catalog browser.
+`oc create -f fgstemplate.yml`{{execute}}
 
-![Catalog Browser](../../assets/intro-openshift/fis-deploy-app/02-add-to-project-browser.png)
+you will be prompted with output
 
-In this course you are going to deploy a API service implemented using **Red Hat Fuse**.
-
-Select the _Java_ category from the catalog browser. Any options for deploying applications which are related to Java will be displayed. 
-
-![Available Java Apps](../../assets/intro-openshift/fis-deploy-app/02-deploy-java-app.png)
+```template "mypeopleservice-template" created```
 
 
-In the environment used for this course, the there will be two options presented for Red Hat Fuse project. This exercise select the _fis-java-openshift_ from the list and leave the version as ``2.0``.
+After importing the template, create the application by running: 
 
-![Available Fuse Versions](../../assets/intro-openshift/fis-deploy-app/02-deploy-fuse-versions.png)
+`oc new-app mypeopleservice-template`{{execute}}
 
-Click on _Select_ to bring up the deployment options for the Fuse SpringBoot S2I builder.
+you should have similar output: 
 
-![Fuse Deployment Options](../../assets/intro-openshift/fis-deploy-app/02-deploy-fuse-options.png)
+```
+--> Deploying template "fislab/mypeopleservice-template" to project fislab
 
-For the _Name_ to be given to resources, enter:
+     mypeopleservice-template
+     ---------
+     Katacode || FUSE || Getting started
 
-`mypeopleservice`{{copy}}
 
-For the _Git Repository URL_ enter:
+     * With parameters:
+        * Application Name=mypeopleservice
+        * Git Repository URL=https://github.com/weimeilin79/katacoda-fuse-getting-started.git
+        * CONTEXT_DIR=
+        * Git Reference=master
+        * Builder version=2.0
+        * Application Version=1.0.0
+        * Maven Arguments=package -DskipTests -Dfabric8.skip -e -B
+        * Extra Maven Arguments=
+        * Maven build directory=
+        * Image Stream Namespace=openshift
+        * Git Build Secret=6n3kxwUfa8Y37EMQNwH7c3e6S7VDXrLq2DvSMjeX # generated
 
-`https://github.com/weimeilin79/katacoda-fuse-getting-started.git`{{copy}}
+--> Creating resources ...
+    route "mypeopleservice" created
+    service "mypeopleservice" created
+    imagestream "mypeopleservice" created
+    buildconfig "mypeopleservice" created
+    deploymentconfig "mypeopleservice" created
+--> Success
+    Use 'oc start-build mypeopleservice' to start a build.
+    Run 'oc status' to view your app.
+```
 
-When you are ready, at the bottom of the page click on _Create_. This will take you to a splash page confirming the application has been created.
+This senario builds the application by downloading your code, compile and build the application on OpenShift. Kick start and build application by running : 
 
-![Application Image Details](../../assets/intro-openshift/fis-deploy-app/02-continue-to-overview.png)
+`oc start-build mypeopleservice`{{execute}}
 
-Click on _Continue to overview_ and you will be returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is built and deployed.
+you should see similar output: 
+
+```build "mypeopleservice-1" started```
+
+WGo back to the console and reload/refresh the page. Returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is built and deployed.
 
 ![Application Overview](../../assets/intro-openshift/fis-deploy-app/02-build-in-progress.png)
