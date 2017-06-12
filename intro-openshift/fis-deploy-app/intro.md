@@ -1,4 +1,3 @@
-V2
 There many runtime choices when it comes to Fuse application:
 
 * As a standalone Java application (SpringBoot)
