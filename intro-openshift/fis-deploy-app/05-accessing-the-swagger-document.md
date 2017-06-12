@@ -13,7 +13,7 @@ And Fuse can automatically generates the documentation for you, by importing the
 
 To access the Swagger document for your APIs, 
 
-``curl http://mypeopleservice-fuselab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/people-service/api-docs``
+``curl http://mypeopleservice-fuselab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/people-service/api-docs``{{execute}}
 
 You should be able to get similar outpurs:
 
