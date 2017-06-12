@@ -12,15 +12,37 @@ If the banner is not visible, you can access build logs by selecting the _Builds
 
 ![Accessing Builds Menu](../../assets/intro-openshift/fis-deploy-app/03-accessing-builds-menu.png)
 
-This will bring up a list of builds which are currently running, as well as builds which have completed. 
+This will bring up a list of builds which are currently running, as well as builds which have completed. Select on the build number of the last build to bring up the details for the build.
 
 ![List of Builds Run](../../assets/intro-openshift/fis-deploy-app/03-list-of-builds-run.png)
 
-Select on the build number of the last build to bring up the details for the build.
+Select on the _Logs_ tab to bring up the log output for the build.
 
 ![Build Details](../../assets/intro-openshift/fis-deploy-app/03-build-details.png)
 
-Select on the _Logs_ tab to bring up the log output for the build.
+
+Once the build of the application image has completed, it will be deployed. The _Overview_ page will indicate this by the banner listing the status of the build as complete. The _Deployment Config_ pane will also show the state of the deployment and indicate the number of running pods.
+
+![Build has Completed](../../assets/intro-openshift/fis-deploy-app/03-build-has-completed.png)
+
+After successfully building the application, access the Hawtio console by selecting the Resource menu and select Pods.
+
+![Select Pods menu](../../assets/intro-openshift/fis-deploy-app/03-select-pods.png)
+
+This will bring up a list of running pods, as well as builds which have completed. Select the pod running current application:
+
+![Pods list](../../assets/intro-openshift/fis-deploy-app/03-pods-list.png)
+
+You will be taken directly to the pod detail page, underneath, find a link name "Open Java Console" and select it
+
+![Select Java Console](../../assets/intro-openshift/fis-deploy-app/03-select-java-console.png)
+
+The Hawtio console display all the available Camel routes, select the "Route Diagram" to see more detail implementation:
+
+![Select Diagram route](../../assets/intro-openshift/fis-deploy-app/03-select-diagram-route.png)
+
+This is what it should look like: 
+
+![Detail Camel Route](../../assets/intro-openshift/fis-deploy-app/03-detail-camel-route.png)
 
 
-##???? WHERE DID THE JAVA CONSOLE GONE TO ?????###
