@@ -29,7 +29,7 @@ objects:
       targetPort: 8080
     to:
       kind: Service
-      name: ${APP_NAME}-uat
+      name: ${APP_NAME}
       weight: 100
     wildcardPolicy: None
 - apiVersion: v1

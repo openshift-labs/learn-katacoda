@@ -41,7 +41,6 @@ you should have similar output:
         * Git Build Secret=6n3kxwUfa8Y37EMQNwH7c3e6S7VDXrLq2DvSMjeX # generated
 
 --> Creating resources ...
-    route "mypeopleservice" created
     service "mypeopleservice" created
     imagestream "mypeopleservice" created
     buildconfig "mypeopleservice" created
@@ -59,6 +58,9 @@ you should see similar output:
 
 ```build "mypeopleservice-1" started```
 
-WGo back to the console and reload/refresh the page. Returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is built and deployed.
+
+Go back to the console and reload/refresh the page. Returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is built and deployed.
 
 ![Application Overview](../../assets/intro-openshift/fis-deploy-app/02-build-in-progress.png)
+
+
