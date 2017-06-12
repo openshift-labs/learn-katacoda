@@ -6,7 +6,7 @@ systemctl disable NetworkManager.service
 killall -STOP NetworkManager
 
 mkdir -p /openshift
-yum install ca-certificates dnsmasq git nfs-utils -y
+yum install ca-certificates git nfs-utils -y
 curl -o openshift.tar.gz -L https://github.com/openshift/origin/releases/download/v1.5.0/openshift-origin-server-v1.5.0-031cbe4-linux-64bit.tar.gz 
 tar -xvf openshift.tar.gz
 rm openshift.tar.gz
@@ -59,28 +59,6 @@ chmod +x ~/.launch.sh
 
 echo 'echo 127.0.0.1 \$HOSTNAME >> /etc/hosts' >> /root/.set-hostname
 chmod +x /root/.set-hostname
-
-
-echo 'nameserver 8.8.8.8' > /etc/resolv.conf.upstream
-echo 'nameserver 8.8.4.4' > /etc/resolv.conf.upstream
-echo 'nameserver 2001:4860:4860::8888' > /etc/resolv.conf.upstream
-echo 'nameserver 2001:4860:4860::8844' > /etc/resolv.conf.upstream
-
-
-cp /etc/resolv.conf /etc/resolv.conf.upstream
-mv /etc/dnsmasq.conf /etc/dnsmasq.conf.bak
-echo 'strict-order' >> /etc/dnsmasq.conf
-echo 'domain-needed' >> /etc/dnsmasq.conf
-echo 'local=/router.default.svc.cluster.local/' >> /etc/dnsmasq.conf
-echo 'bind-dynamic' >> /etc/dnsmasq.conf
-echo 'resolv-file=/etc/resolv.conf.upstream' >> /etc/dnsmasq.conf
-echo 'address=/.router.default.svc.cluster.local/127.0.0.1' >> /etc/dnsmasq.conf
-echo 'log-queries' >> /etc/dnsmasq.conf
-
-echo 'prepend domain-name-servers 127.0.0.1' > /etc/dhcp/dhclient.conf
-
-systemctl disable dnsmasq
-
 
 curl -Lk https://raw.githubusercontent.com/openshift/origin/master/examples/image-streams/image-streams-centos7.json -o /openshift/image-streams-centos7.json
 oc create -f /openshift/image-streams-centos7.json --namespace=openshift
