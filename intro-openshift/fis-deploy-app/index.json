@@ -27,11 +27,11 @@
             "title": "Topic 3 - Viewing the Java Console and Camel Route",
             "text": "03-viewing-the-java-console-and-camel-route.md"
         }, {
-            "title": "Topic 4 - Access the Swagger Document",
-            "text": "04-accessing-the-swagger-document.md"
+            "title": "Topic 4 - Exceute the APIs",
+            "text": "04-exceute-the-apis.md"
         }, {
-            "title": "Topic 5 - Exceute the APIs",
-            "text": "05-exceute-the-apis.md"
+            "title": "Topic 5 - Access the Swagger Document",
+            "text": "05-accessing-the-swagger-document.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
