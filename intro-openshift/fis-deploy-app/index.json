@@ -42,6 +42,7 @@
             "text": "finish.md"
         },
         "assets": {
+        	"client": [{"file": "fgstemplate.yml", "target": "/root/"}],
           "host01": [{"file": "route.json", "target": "/root/"}]
         }
     }
