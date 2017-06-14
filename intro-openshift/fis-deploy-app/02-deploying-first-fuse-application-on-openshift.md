@@ -20,7 +20,7 @@ After importing the template, create the application by running:
 you should have similar output: 
 
 ```
---> Deploying template "fislab/mypeopleservice-template" to project fislab
+--> Deploying template "fuselab/mypeopleservice-template" to project fuselab
 
      mypeopleservice-template
      ---------
