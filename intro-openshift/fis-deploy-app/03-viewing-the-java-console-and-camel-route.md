@@ -47,4 +47,6 @@ The Route Diagram tab provids a graphical review of all the routes currently dep
 
 ![Detail Camel Route](../../assets/intro-openshift/fis-deploy-app/03-detail-camel-route.png)
 
+In the next part of our tutorial we will start calling our newly deployed APIs and reviewing the output on the JBoss Fuse Hawtio console.
+
 
