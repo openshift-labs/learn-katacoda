@@ -1,4 +1,4 @@
-While a build is running, the _Overview_ page will display a banner. The build may take a couple of minutes to start running because OpenShift needs to download the dependent jars needed for this project.
+While a build is running, the _Overview_ page will display a banner. Generally, first time builds will take a couple of minutes the first time through as the build process hydrates the builds local reposiltory with the required build dependencies.
 
 ![Build Progress Banner](../../assets/intro-openshift/fis-deploy-app/03-build-progress-banner.png)
 
@@ -25,11 +25,11 @@ Once the build of the application image has completed, it will be deployed. The 
 
 ![Build has Completed](../../assets/intro-openshift/fis-deploy-app/03-build-has-completed.png)
 
-After successfully building the application, access the Hawtio console by selecting the Resource menu and select Pods.
+Now that we have successfully built our application, lets take a look at it on the JBoss Fuse Hawtio console.  To get there we start with selecting the Applications menu on the left and then select Pods.
 
 ![Select Pods menu](../../assets/intro-openshift/fis-deploy-app/03-select-pods.png)
 
-This will bring up a list of running pods, as well as builds which have completed. Select the pod running current application:
+This will bring up a list of available pods for both deployed and running applications and completed builds. Select the pod running current application:
 
 ![Pods list](../../assets/intro-openshift/fis-deploy-app/03-pods-list.png)
 
@@ -37,11 +37,13 @@ You will be taken directly to the pod detail page, underneath, find a link name 
 
 ![Select Java Console](../../assets/intro-openshift/fis-deploy-app/03-select-java-console.png)
 
-The Hawtio console display all the available Camel routes, select the "Route Diagram" to see more detail implementation:
+You are now taken to the JBoss Fuse Hawtio console.  The JBoss Fuse Hawtio console provides in depth details into our running application including JMX, runtime Threads, and a full selection of tools to drill into the RESTFul API developed and deployed as an Apache Camel route.
+
+Lets take a look at some statistics provided by the console.  Select the "Route Diagram" to see more detail implementation:
 
 ![Select Diagram route](../../assets/intro-openshift/fis-deploy-app/03-select-diagram-route.png)
 
-This is what it should look like: 
+The Route Diagram tab provids a graphical review of all the routes currently deployed in our API application.  After selecting this tab we should see something similar to what is pictured below; 5 routes starting with various EIP depictions of route behavior: 
 
 ![Detail Camel Route](../../assets/intro-openshift/fis-deploy-app/03-detail-camel-route.png)
 
