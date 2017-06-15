@@ -4,7 +4,7 @@ Inside the project, where is this case it should be an empty project, a prominen
 
 Now lets have OpenShift build and deploy our newly developed API. In our case we have a predefined OpenShift Template, which contains the details for our services, build configurations, and deployment configurations. The template also references the source repositories which contain the Fuse API application.
 
-First we need to add the template to OpenShift by executing the following command:
+Lets head on back over to the terminal.  The first step in building and deploying our API is to add the template to OpenShift by executing the following command :
 
 `oc create -f fgstemplate.yml`{{execute}}
 
