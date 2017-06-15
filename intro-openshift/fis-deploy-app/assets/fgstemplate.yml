@@ -5,7 +5,7 @@ labels:
 metadata:
   name: mypeopleservice-template
   annotations:
-    description: Katacode || FUSE || Getting started
+    description: Katacoda || FUSE || Getting started
     iconClass: icon-jenkins
     tags: demo,java,springboot,fis,jenkins
     version: "2.0"
