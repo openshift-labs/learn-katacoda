@@ -59,7 +59,7 @@ Once complete you should see output similar to:
 ```build "mypeopleservice-1" started```
 
 
-Go back to the console and reload/refresh the page. Returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is built and deployed.
+Go back to the OpenShift administrative console and click the _Overview_ menu on the left.  Here  you can view the details of the application created and monitor progress as it is built and deployed.  The page will refresh periodically as events in the system, such as your build, begin to occur.
 
 ![Application Overview](../../assets/intro-openshift/fis-deploy-app/02-build-in-progress.png)
 
