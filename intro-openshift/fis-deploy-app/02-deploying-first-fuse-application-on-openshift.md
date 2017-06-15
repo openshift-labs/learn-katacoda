@@ -2,22 +2,22 @@ Inside the project, where is this case it should be an empty project, a prominen
 
 ![Adding to Empty Project](../../assets/intro-openshift/fis-deploy-app/02-add-to-project-empty.png)
 
-This basic senario shows an example of a Fuse application running on OpenShift. It is defined in a template, which is constructed from a set of services, build configurations, and deployment configurations. This template references the source repositories to build and deploy the application.
+Now lets have OpenShift build and deploy our newly developed API. In our case we have a predefined OpenShift Template, which contains the details for our services, build configurations, and deployment configurations. The template also references the source repositories which contain the Fuse API application.
 
-Create the template by going back to console and excute following command:
+First we need to add the template to OpenShift by executing the following command:
 
 `oc create -f fgstemplate.yml`{{execute}}
 
-you will be prompted with output
+If successful, you will be prompted with the following output:
 
 ```template "mypeopleservice-template" created```
 
 
-After importing the template, create the application by running: 
+Once the template is available in OpenShift we can now create the actual API service by running: 
 
 `oc new-app mypeopleservice-template`{{execute}}
 
-you should have similar output: 
+Once complete, you should see something similar to the output below: 
 
 ```
 --> Deploying template "fuselab/mypeopleservice-template" to project fuselab
@@ -50,11 +50,11 @@ you should have similar output:
     Run 'oc status' to view your app.
 ```
 
-This senario builds the application by downloading your code, compile and build the application on OpenShift. Kick start and build application by running : 
+The ``oc start-build`` command tells OpenShift to start the build process which starts downloading your code, then compiling it, and finally packaging it for deployment on OpenShift. Kick start and build application by running : 
 
 `oc start-build mypeopleservice`{{execute}}
 
-you should see similar output: 
+Once complete you should see output similar to: 
 
 ```build "mypeopleservice-1" started```
 
