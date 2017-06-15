@@ -50,7 +50,7 @@ Once complete, you should see something similar to the output below:
     Run 'oc status' to view your app.
 ```
 
-The ``oc start-build`` command tells OpenShift to start the build process which starts downloading your code, then compiling it, and finally packaging it for deployment on OpenShift. Kick start and build application by running : 
+The ``oc start-build`` command tells OpenShift to start the build process which starts downloads, compiles, and utlimately packages your code deployment on OpenShift. Kick start and build application by running : 
 
 `oc start-build mypeopleservice`{{execute}}
 
