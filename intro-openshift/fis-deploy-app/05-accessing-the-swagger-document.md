@@ -1,5 +1,4 @@
-
-Swagger is the world’s largest framework of API developer tools for the OpenAPI Specification(OAS), enabling development across the entire API lifecycle, from design and documentation, to test and deployment.
+When building an API for other services to consume its important to document the API as well as provide the schema for its use.  For our API we used the Camel Swagger Java component to generate our API document.  Swagger is the world’s largest framework of API developer tools for the OpenAPI Specification(OAS), enabling development across the entire API lifecycle, from design and documentation, to test and deployment.
 
 And Fuse can automatically generates the documentation for you, by importing the swagger-java library and configure settings in the Camel route: 
 
