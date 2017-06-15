@@ -1,6 +1,6 @@
 When building an API for other services to consume its important to document the API as well as provide the schema for its use.  For our API we used the Camel Swagger Java component to generate our API document.  Swagger is the world’s largest framework of API developer tools for the OpenAPI Specification(OAS), enabling development across the entire API lifecycle, from design and documentation, to test and deployment.
 
-And Fuse can automatically generates the documentation for you, by importing the swagger-java library and configure settings in the Camel route: 
+Here we show where to update our JBoss Fuse Camel API route with the context path for our API Swagger document : 
 
 ```
 <restConfiguration
@@ -10,11 +10,11 @@ And Fuse can automatically generates the documentation for you, by importing the
             ... />
 ```
 
-To access the Swagger document for your APIs, 
+This is already been completed for our API so lets take a look at the Swagger document outpt for your APIs :
 
 ``curl http://mypeopleservice-fuselab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/people-service/api-docs``{{execute}}
 
-You should be able to get similar outpurs:
+Your output should look similar to that one presente below:
 
 ```
 {
@@ -144,4 +144,4 @@ You should be able to get similar outpurs:
 }
 ```
 
-And there, you have completed this scenario! 
+And there you have it.  In just 15 minutes you have spun up a project on OpenShift and rolled out your new API.  Pretty simple isn't it.  Stay tuned as we expand our JBoss Fuse API tutorial by demonstrating how to customize your JBoss Fuse API service.  Cheers!!!
