@@ -63,4 +63,6 @@ Go back to the OpenShift administrative console and click the _Overview_ menu on
 
 ![Application Overview](../../assets/intro-openshift/fis-deploy-app/02-build-in-progress.png)
 
+Continue on to see how to monitor the build process.
+
 
