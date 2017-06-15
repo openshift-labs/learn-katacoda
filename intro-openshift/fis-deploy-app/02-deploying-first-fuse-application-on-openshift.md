@@ -24,7 +24,7 @@ Once complete, you should see something similar to the output below:
 
      mypeopleservice-template
      ---------
-     Katacode || FUSE || Getting started
+     Katacoda || FUSE || Getting started
 
 
      * With parameters:
