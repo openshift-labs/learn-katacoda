@@ -6,7 +6,7 @@ We have there are three APIs avalible for us to call.  They are:
 - Create User  
 - Retrieve All Users
 
-Let's try retrieving user information by running:
+Switch back over to the _Terminal_ screen and let's try retrieving user information by running:
 
 ``curl http://mypeopleservice-fuselab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/people-service/user/123``{{execute}}
 
@@ -20,12 +20,12 @@ This will display output similar to:
 ```
 Go back to the _Dashboard view_, in the **Hawtio console**, you should be able to see the number of message pass through route "get user" has been updated to "1":
 
-_If the numbers do not update at first, select <- Back in the upper left hand corner and then go back into the Java Console..._
+_If the numbers do not update at first, click over to the Source or Inflight tab and then back to the Route Diagram screen..._
 
 ![Get user route udpate](../../assets/intro-openshift/fis-deploy-app/04-get-user-route-update.png)
 
 
-Try getting more user data
+Lets make some more calls to our User API service.  Switch back over to the _Terminal_ screen and and run each of the following :
 
 ``curl http://mypeopleservice-fuselab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/people-service/user/456``{{execute}}
 
@@ -72,7 +72,7 @@ Back to _Dashboard view_, in the **Hawtio console**, numbers of API calls are al
 
 ![Camel stats update](../../assets/intro-openshift/fis-deploy-app/04-camel-stats-update.png)
 
-And lastly, try adding more user to the list:
+And lastly, try adding another user to the list.  Switch back over to the _Terminal_ screen and run :
 
 ``curl -H "Content-Type: application/json" -X PUT -d '{"id":888, "name" : "Christina"}' http://mypeopleservice-fuselab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/people-service/user``{{execute}}
 
@@ -84,5 +84,8 @@ This will display output similar to:
   "name" : "Christina"
 }
 ```
+Over in the _Dashboard_ browser our _Route Diagram_ should have even more updates as shown below :
 
 ![Camel stats update after PUT](../../assets/intro-openshift/fis-deploy-app/04-camel-stats-update-put.png)
+
+Now lets see how the User Service API is documented by clicking the _Continue_ button.
