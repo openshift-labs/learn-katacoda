@@ -1,4 +1,6 @@
-There are three APIs avalible
+Now lets take a look at calling our APIs and tracing that output on the Hawtio console.
+
+We have there are three APIs avalible for us to call.  They are:
 
 - Retrieve User
 - Create User  
@@ -17,6 +19,8 @@ This will display output similar to:
 }
 ```
 Go back to the _Dashboard view_, in the **Hawtio console**, you should be able to see the number of message pass through route "get user" has been updated to "1":
+
+_If the numbers do not update at first, select <- Back in the upper left hand corner and then go back into the Java Console..._
 
 ![Get user route udpate](../../assets/intro-openshift/fis-deploy-app/04-get-user-route-update.png)
 
