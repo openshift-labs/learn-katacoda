@@ -1,7 +1,6 @@
-Before we get started, you need to login and create a project in OpenShift
-to work in.
+To get started, first we need to login to OpenShift.
 
-To login to the OpenShift cluster used for this course from the _Terminal_,
+To login to the OpenShift cluster use the following commmand in the _Terminal_,
 run:
 
 ``oc login -u developer -p developer``{{execute}}
@@ -16,12 +15,12 @@ You should see the output:
 ```
 Login successful.
 
-You don't have any projects. You can try to create a new project, by running
+Now we need to creae a Project space in OpenShift for our API.  In OpenShift we can create a new project by running
 
     oc new-project <projectname>
 ```
 
-To create a new project called ``fuselab`` run the command:
+For out project lets create a project called ``fuselab`` by running the command:
 
 ``oc new-project fuselab``{{execute}}
 
@@ -37,18 +36,17 @@ You can add applications to this project with the 'new-app' command. For example
 to build a new example application in Ruby.
 ```
 
-Switch to the _Dashboard_ and login to the OpenShift web console using the
+Now switch to the _Dashboard_ and login to the OpenShift web console using the
 same credentials you used above.
 
 ![Web Console Login](../../assets/intro-openshift/fis-deploy-app/01-web-console-login.png)
 
-This should leave you at the list of projects you have access to. As we only
+This should take you to the list of projects you have access to. As we only
 created the one project, all you should see is ``fuselab``.
 
 ![List of Projects](../../assets/intro-openshift/fis-deploy-app/01-list-of-projects.png)
 
-Click on ``fuselab `` and you should be left at the _Overview_ page for
-the project.
+Click on ``fuselab `` to be taken to the project _Overview_ page for ``fuselab``.
 
 ![Project Overview](../../assets/intro-openshift/fis-deploy-app/01-project-overview.png)
 
