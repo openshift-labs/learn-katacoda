@@ -19,4 +19,4 @@ Also when using the OpenShift Cotainer Platform there are various why to deploy 
 * Build Fuse locally and push the build result into OpenShift, a Binary Source-to-Image (s2i) builder.
 * Build and deploy from source code contained in a Git repository using a Source-to-Image builder.
 
-For our introductory lesson we are going to use OpenShifts s2i repository builder to pull in, build and deploy a JBoss FIS API service using the SpringBoot container runtime.
+For our introductory lesson we are going to use OpenShifts s2i repository builder to pull in, build and deploy a JBoss FIS API service using the SpringBoot container runtime. So lets get started!
