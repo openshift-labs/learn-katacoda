@@ -1,7 +1,6 @@
 To get started, first we need to login to OpenShift.
 
-To login to the OpenShift cluster use the following commmand in the _Terminal_,
-run:
+To login to the OpenShift cluster use the following commmand in your _Terminal_:
 
 ``oc login -u developer -p developer``{{execute}}
 
