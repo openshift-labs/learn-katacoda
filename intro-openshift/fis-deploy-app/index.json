@@ -1,7 +1,7 @@
 {
     "icon": "fa-openshift",
-    "title": "Getting started with Fuse",
-    "description": "",
+    "title": "Developing APIs using JBoss FIS 2.0",
+    "description": "In this self paced tutorial you will learn how to build and deploy cloud native APIs using JBoss FIS 2.0 for container services on the OpenShift Container Platform from Red Hat.",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
     "time": "10-15 minutes",

@@ -1,16 +1,22 @@
-There many runtime choices when it comes to Fuse application:
+In this self paced tutorial you will learn how to build, deploy, and expose container based APIs using JBoss FIS 2.0 for OpenShift. This introductory service will expose a single API with several methods as well provide API Swagger documentation via FIS Camel SWAGGER.
+
+## Before you get started
+
+If you are not familiar with the OpenShift Container Platform, it's worth taking a few minutes to understand the basics of the platform as well as the environment that you will be using for this self paced tutorial.  Head on over to [Learning OpenShift - Getting Started](https://learn.openshift.com/introduction/getting-started/).
+
+## What is JBoss FIS
+
+Red Hat JBoss FIS 2.0 is an agile, lightweight, and modern development framework for building and deploying highly scalable and modular APIs. A true hybrid solution, JBoss FIS 2.0 offers best of container based development practices coupled with well known microservices and enterprise integration patterns including: Proxy/Sidecars, Circuit Breakers, Tracing, Routing, Transformations, Auditing and more.
+
+Having this hybrid capability is important as demand grows for scalable cloud native microservice APIs. To simplify the development JBoss FIS components offer a choice of two runtimes:
 
 * As a standalone Java application (SpringBoot)
-* As a service in Apache Karaf (OSGi Standard)
-* JBoss Enterprise Application Platform (JavaEE)
+* As a service in Apache Karaf (OSGi)
 
-As more and more demands for cloud native, microservice ready and hybrid deployment model, Fuse can also be packaged and containerized. OpenShift provides a great platfrom to Host Red Hat Fuse, there are also various why to deploy Fuse on OpenShift
+Also when using the OpenShift Cotainer Platform there are various why to deploy a JBoss FIS API:
 
 * Deploy Fuse application from an existing Docker-formatted image.
-* Build Fuse locally and push the build result into OpenShift, a Binary Source-to-Image builder.
+* Build Fuse locally and push the build result into OpenShift, a Binary Source-to-Image (s2i) builder.
 * Build and deploy from source code contained in a Git repository using a Source-to-Image builder.
 
-
-In this course you will learn how to deploy the Fuse application from source code contained in a Git repository using a Source-to-Image builder.
-
-You will learn how to deploy the application from the OpenShift web console, and access the APIs build by Fuse application.
+For our introductory lesson we are going to use OpenShifts s2i repository builder to pull in, build and deploy a JBoss FIS API service using the SpringBoot container runtime.
