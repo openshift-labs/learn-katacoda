@@ -13,7 +13,7 @@ Having this hybrid capability is important as demand grows for scalable cloud na
 * As a standalone Java application (SpringBoot)
 * As a service in Apache Karaf (OSGi)
 
-Also when using the OpenShift Cotainer Platform there are various why to deploy a JBoss FIS API:
+Also when using the OpenShift Cotainer Platform there are various ways to deploy a JBoss FIS API:
 
 * Deploy Fuse application from an existing Docker-formatted image.
 * Build Fuse locally and push the build result into OpenShift, a Binary Source-to-Image (s2i) builder.
