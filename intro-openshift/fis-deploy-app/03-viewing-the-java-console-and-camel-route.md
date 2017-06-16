@@ -33,17 +33,17 @@ This will bring up a list of available pods for both deployed and running applic
 
 ![Pods list](../../assets/intro-openshift/fis-deploy-app/03-pods-list.png)
 
-You will be taken directly to the pod detail page, underneath, find a link name "Open Java Console" and select it
+You will be taken directly to the pod detail page. Below the *Template* section on the page you will find a link named "Open Java Console". Go ahead and click it
 
 ![Select Java Console](../../assets/intro-openshift/fis-deploy-app/03-select-java-console.png)
 
-You are now taken to the JBoss Fuse Hawtio console.  The JBoss Fuse Hawtio console provides in depth details into our running application including JMX, runtime Threads, and a full selection of tools to drill into the RESTFul API developed and deployed as an Apache Camel route.
+You are now taken to the JBoss Fuse Hawtio console. MOVE THIS NEXT SENTENCE UP HIGHER IN THE DOCUMENT TO SERVE AS MOTIVATION FOR WHY WE ARE DOING ALL THESE STEPS The JBoss Fuse Hawtio console provides in depth details into our running application including JMX, runtime Threads, and a full selection of tools to drill into the RESTFul API developed and deployed as an Apache Camel route. WHAT IS AN APACHE CAMEL ROUTE? WHAT IS APACHE CAMEL, I THOUGHT WE WERE TALKING ABOUT FIS.
 
 Lets take a look at some statistics provided by the console.  Select the "Route Diagram" to see more detail implementation:
 
 ![Select Diagram route](../../assets/intro-openshift/fis-deploy-app/03-select-diagram-route.png)
 
-The Route Diagram tab provids a graphical review of all the routes currently deployed in our API application.  After selecting this tab we should see something similar to what is pictured below; 5 routes starting with various EIP depictions of route behavior: 
+The Route Diagram tab provids a graphical review of all the routes currently deployed in our API application.  After selecting this tab we should see something similar to what is pictured below; 5 routes starting with various EIP depictions of route behavior: WHAT IS EIP?
 
 ![Detail Camel Route](../../assets/intro-openshift/fis-deploy-app/03-detail-camel-route.png)
 
