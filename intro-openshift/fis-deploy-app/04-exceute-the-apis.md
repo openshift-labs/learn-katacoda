@@ -6,6 +6,8 @@ We have there are three APIs avalible for us to call.  They are:
 - Create User  
 - Retrieve All Users
 
+HOW DID YOU KNOW THIS? CAN YOU PLEASE SHOW ME IN THE INTERFACE WHERE I COULD HAVE DISCOVERED THIS INFORMATION.
+
 Switch back over to the _Terminal_ screen and let's try retrieving user information by running:
 
 ``curl http://mypeopleservice-fuselab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/people-service/user/123``{{execute}}
@@ -20,7 +22,7 @@ This will display output similar to:
 ```
 Go back to the _Dashboard view_, in the **Hawtio console**, you should be able to see the number of message pass through route "get user" has been updated to "1":
 
-_If the numbers do not update at first, click over to the Source or Inflight tab and then back to the Route Diagram screen..._
+_If the numbers do not update at first, click over to the Source or Inflight tab and then back to the Route Diagram screen..._ I NEVER GET THE NUMBERS TO UPDATE, EVEN AFTER CURL'ING FOR DONALD DUCK
 
 ![Get user route udpate](../../assets/intro-openshift/fis-deploy-app/04-get-user-route-update.png)
 
