@@ -4,7 +4,7 @@ Inside the project, where is this case it should be an empty project, a prominen
 
 Its now time have OpenShift build and deploy our newly developed API. In our case we have a predefined OpenShift Template, which contains the details for our services, build configurations, and deployment configurations. The template also references the source repositories which contain the Fuse API application.
 
-Lets head on back over to the terminal.  The first step in building and deploying our API is to add the template to OpenShift by executing the following command :
+Lets head on back over to the terminal, by clicking on the terminal tab to the right. .  The first step in building and deploying our API is to add the template to OpenShift by executing the following command: SINCE THEY ARE NOT FILLING IN ANY PARAMETERS YOU COULD JUST DO A OC NEW APP AGAINST THE TEMPLATE AND IT WOULD WORK. HAVING THE TEMPLATE HERE MAKES IT A BIT CONFUSING AND MORE FOR A NEW PERSON TO TRY AND UNDERSTAND. IS THERE SOMEWHERE I CAN GO TO SEE THIS TEMPLATE - NOT SURE IT IS CRITICAL BUT IT MIGHT BE GOOD FOR FOLLOW UP LATER.
 
 `oc create -f fgstemplate.yml`{{execute}}
 
@@ -50,7 +50,7 @@ Once complete, you should see something similar to the output below:
     Run 'oc status' to view your app.
 ```
 
-The ``oc start-build`` command tells OpenShift to start the build process which starts downloads, compiles, and utlimately packages your code deployment on OpenShift. Kick start and build application by running : 
+The ``oc start-build`` command tells OpenShift to start the build process which starts downloads, compiles, and utlimately packages your code deployment on OpenShift. !!!!HERE!!! Kick start and build application by running : 
 
 `oc start-build mypeopleservice`{{execute}}
 
@@ -59,7 +59,7 @@ Once complete you should see output similar to:
 ```build "mypeopleservice-1" started```
 
 
-Go back to the OpenShift administrative console and click the _Overview_ menu on the left.  Here  you can view the details of the application created and monitor progress as it is built and deployed.  The page will refresh periodically as events in the system, such as your build, begin to occur.
+Go back to the OpenShift Web console and click the _Overview_ menu on the left.  Here  you can view the details of the application created and monitor progress as it is built and deployed.  The build will take a little while to complete. This page will refresh periodically as events in the system, such as your build, begin to occur.
 
 ![Application Overview](../../assets/intro-openshift/fis-deploy-app/02-build-in-progress.png)
 
