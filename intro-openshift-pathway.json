@@ -29,6 +29,11 @@
       "title": "Using the CLI to Manage Resource Objects"
     },
     {
+      "external_link": "https://learn.openshift.com/introduction/container-internals/",
+      "course_id": "container-internals",
+      "title": "Introductin to Container Internals"
+    },
+    {
       "external_link": "https://learn.openshift.com/introduction/port-forwarding/",
       "course_id": "port-forwarding",
       "title": "Connecting to a Database Using Port Forwarding"
