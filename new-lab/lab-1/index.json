@@ -1,10 +1,10 @@
 {
     "icon": "fa-openshift",
-    "title": "Installation of OpenShift",
+    "title": "Introduction to Container internals hie",
     "description": "",
-    "pathwayTitle": "Installation of OpenShift",
-    "difficulty": "Beginner",
-    "time": "10-15 minutes",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "20-25 minutes",
     "backend": {
         "imageid": "openshift",
         "port": 8443
@@ -18,11 +18,23 @@
     },
     "details": {
         "steps": [{
-            "title": "Topic 1 - Running Interactive Installer",
-            "text": "01-step1.md"
+            "title": "Topic 1 - Creating an Initial Project",
+            "text": "01-creating-an-initial-project.md"
         }, {
-            "title": "Topic 2 - Exploring Config file",
-            "text": "02-step2.md"
+            "title": "Topic 2 - Deploying Using the Web Console",
+            "text": "02-deploying-using-the-web-console.md"
+        }, {
+            "title": "Topic 3 - Creating an External Route",
+            "text": "03-creating-an-external-route.md"
+        }, {
+            "title": "Topic 4 - Deleting the Application",
+            "text": "04-deleting-the-application.md"
+        }, {
+            "title": "Topic 5 - Deploying Using the Command Line",
+            "text": "05-deploying-using-the-command-line.md"
+        }, {
+            "title": "Topic 6 - Importing Application Images",
+            "text": "06-importing-application-images.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
@@ -30,10 +42,11 @@
             "text": "intro.md"
         },
         "finish": {
-            "text": "finish-page.md"
+            "text": "finish.md"
         },
         "assets": {
           "host01": [{"file": "route.json", "target": "/root/"}]
         }
     }
 }
+
