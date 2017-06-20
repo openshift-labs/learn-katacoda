@@ -1,0 +1,39 @@
+{
+    "icon": "fa-openshift",
+    "title": "Installation of OpenShift",
+    "description": "",
+    "pathwayTitle": "Installation of OpenShift",
+    "difficulty": "Beginner",
+    "time": "10-15 minutes",
+    "backend": {
+        "imageid": "openshift",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Running Interactive Installer",
+            "text": "01-step1.md"
+        }, {
+            "title": "Topic 2 - Exploring Config file",
+            "text": "02-step2.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish-page.md"
+        },
+        "assets": {
+          "host01": [{"file": "route.json", "target": "/root/"}]
+        }
+    }
+}

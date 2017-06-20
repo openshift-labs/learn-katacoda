@@ -1,0 +1,1 @@
+There are 2 ways of installing OpenShift on a host - Quick Installation and Advanced Installation. This lab enables the user to install OpenShift on a singl enode using Quick Installation method. It is an interactive installation. The user need not worry about setting up the prerequisites.
