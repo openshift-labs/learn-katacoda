@@ -5,14 +5,14 @@
     "builders":
     [
         {
-            "name": "openshift1",
+            "name": "openshift",
 
             "type": "qemu",
             "format": "qcow2",
             "accelerator": "kvm",
             "headless": true,
       	    "disk_image": true,
-            "iso_url": "{{ user `pwd` }}/output/centos-71",
+            "iso_url": "{{ user `pwd` }}/output/centos-7",
             "iso_checksum_type": "none",
             "iso_checksum": "",
             "vnc_port_min": 5922,
