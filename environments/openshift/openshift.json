@@ -5,7 +5,7 @@
     "builders":
     [
         {
-            "name": "openshift",
+            "name": "openshift1",
 
             "type": "qemu",
             "format": "qcow2",
