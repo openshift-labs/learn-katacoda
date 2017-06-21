@@ -1,18 +1,18 @@
 When you are in an empty project, a prominent _Add to Project_ button will be displayed in the centre of the page.
 
-![Adding to Empty Project](../../assets/intro-openshift/deploying-images/02-add-to-project-empty.png)
+![Adding to Empty Project](../../assets/new-lab/intro-openshift/deploying-images/02-add-to-project-empty.png)
 
 If applications had previously been deployed to the project, or you were not on the project _Overview_ page, you can use the _Add to project_ link in the menu bar.
 
-![Adding via Menu Bar](../../assets/intro-openshift/deploying-images/02-add-to-project-menubar.png)
+![Adding via Menu Bar](../../assets/new-lab/intro-openshift/deploying-images/02-add-to-project-menubar.png)
 
 Clicking on either option, you should be presented with the catalog browser.
 
-![Options for Adding to Project](../../assets/intro-openshift/deploying-images/02-add-to-project-options.png)
+![Options for Adding to Project](../../assets/new-lab/intro-openshift/deploying-images/02-add-to-project-options.png)
 
 For deploying an application from an existing Docker-formatted container image, you need to switch to the _Deploy Image_ tab.
 
-![Deploy Image Options](../../assets/intro-openshift/deploying-images/02-deploy-image-options.png)
+![Deploy Image Options](../../assets/new-lab/intro-openshift/deploying-images/02-deploy-image-options.png)
 
 When deploying an application from an image, there are two choices.
 
@@ -30,7 +30,7 @@ openshiftkatacoda/blog-django-py
 
 Press _Enter_, or click on the magnifying glass to the right of the field. This should trigger a query to pull down the details of the image from the Docker Hub Registry, including information on when the image was last updated, the size of the image and the number of layers.
 
-![Application Image Details](../../assets/intro-openshift/deploying-images/02-image-name-details.png)
+![Application Image Details](../../assets/new-lab/intro-openshift/deploying-images/02-image-name-details.png)
 
 From the name of the image, the _Name_ field will be automatically populated. This name is used in OpenShift to identify the resources created when the application is deployed. This will include the internal _Service_ name used by other applications in the same project to communicate with it, as well as being used as part of the default hostname for the application if exposed externally to the cluster via a _Route_.
 
@@ -38,8 +38,8 @@ In this example leave the _Name_ field as ``blog-django-py``. For your own appli
 
 When you are ready, at the bottom of the page click on _Create_. This will take you to a splash page confirming the application deployment is occurring.
 
-![Application Image Details](../../assets/intro-openshift/deploying-images/02-continue-to-overview.png)
+![Application Image Details](../../assets/new-lab/intro-openshift/deploying-images/02-continue-to-overview.png)
 
 Click on _Continue to overview_ and you will be returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is deployed. When deployment as finished you should see:
 
-![Application Overview](../../assets/intro-openshift/deploying-images/02-application-overview.png)
+![Application Overview](../../assets/new-lab/intro-openshift/deploying-images/02-application-overview.png)
