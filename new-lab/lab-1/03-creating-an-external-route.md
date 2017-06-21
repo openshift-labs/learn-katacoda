@@ -4,13 +4,13 @@ If the application is a web application and you need to make it visible outside 
 
 That an application is not visible and may need to be exposed to be visible can be determined from the _Overview_ page for a project and the details of the application displayed. In particular, if the application is not being exposed, then _Create Route_ will be displayed to the right of the application name.
 
-![Adding a Route](../../assets/intro-openshift/deploying-images/03-select-create-route.png)
+![Adding a Route](../../assets/new-lab/intro-openshift/deploying-images/03-select-create-route.png)
 
 Routes can be used to expose any application which communicates over HTTP. OpenShift can handle termination for secure HTTP connections, or a secure connection can be tunnelled through direct to the application, with the application handling termination of the secure connection. Non HTTP applications can be exposed via a tunnelled secure connection if the client supports the SNI extension for a secure connection using TLS.
 
 To expose the sample application you have deployed, click on _Create Route_. This will display a page for entering the route details.
 
-![Route Details](../../assets/intro-openshift/deploying-images/03-create-route-details.png)
+![Route Details](../../assets/new-lab/intro-openshift/deploying-images/03-create-route-details.png)
 
 If you do not modify any of the pre-populated values, OpenShift will automatically assign a hostname for the application as a sub domain of the hostname for the OpenShift cluster.
 
@@ -20,8 +20,8 @@ No matter what port the application listens to internally to the OpenShift clust
 
 Leaving all values as their defaults, click on _Create_ and you will be returned to the _Overview_ page for the project. Instead of _Create Route_, you should now see the URL by which the exposed application can be accessed from a web browser.
 
-![Exposed Route](../../assets/intro-openshift/deploying-images/03-exposed-route-url.png)
+![Exposed Route](../../assets/new-lab/intro-openshift/deploying-images/03-exposed-route-url.png)
 
 Click on the URL and a new browser window should open showing the sample application.
 
-![Sample Application](../../assets/intro-openshift/deploying-images/03-sample-blog-application.png)
+![Sample Application](../../assets/new-lab/intro-openshift/deploying-images/03-sample-blog-application.png)
