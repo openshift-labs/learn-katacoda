@@ -9,10 +9,10 @@
 
             "type": "qemu",
             "format": "qcow2",
-            "accelerator": "kvm",
+            "accelerator": "kvn",
             "headless": true,
       	    "disk_image": true,
-            "iso_url": "{{ user `pwd` }}/output/centos-7",
+            "iso_url": "{{ user `pwd` }}/output2/centos-7",
             "iso_checksum_type": "none",
             "iso_checksum": "",
             "vnc_port_min": 5922,
