@@ -10,6 +10,12 @@
     	"description": ""
     },
     {
+      "external_link": "http://learn.openshift.com/katacoda-introduction/deploy-containers-using-pp",
+      "course_id": "deploy-containers-using-pp",
+    	"title": "Deploy Containers to OpenShift using pp",
+    	"description": ""
+    },
+    {
       "external_link": "http://learn.openshift.com/katacoda-introduction/deploy-containers-using-ui",
       "course_id": "deploy-containers-using-ui",
     	"title": "Deploy Containers to OpenShift using UI",
