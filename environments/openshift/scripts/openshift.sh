@@ -52,7 +52,8 @@ echo 'for i in {1..10}; do oc adm router > /dev/null 2>&1 && break || sleep 1; d
 echo 'until $(oc get svc router &> /dev/null); do' >> ~/.launch.sh
   echo 'sleep 1' >> ~/.launch.sh
 echo 'done' >> ~/.launch.sh
-echo 'oc create -f /openshift/image-streams-centos7.json --namespace=openshift > /dev/null' >> ~/.launch.sh
+echo 'oc create namespace openshift > /dev/null 2>&1' >> ~/.launch.sh
+echo 'oc create -f /openshift/image-streams-centos7.json --namespace=openshift > /dev/null 2>&1' >> ~/.launch.sh
 echo 'echo "OpenShift Ready"' >> ~/.launch.sh
 
 chmod +x ~/.launch.sh
