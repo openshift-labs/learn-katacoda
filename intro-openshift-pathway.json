@@ -1,5 +1,5 @@
 {
-  "title": "Introduction to OpenShift For Developers",
+  "title": "Introduction to OpenShift For Developerss",
   "description": "",
   "paid": false,
   "courses": [
@@ -27,6 +27,11 @@
       "external_link": "https://learn.openshift.com/introduction/resource-objects/",
       "course_id": "resource-objects",
       "title": "Using the CLI to Manage Resource Objects"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/container-internals/",
+      "course_id": "container-internals",
+      "title": "Introductin to Container Internals"
     },
     {
       "external_link": "https://learn.openshift.com/introduction/port-forwarding/",

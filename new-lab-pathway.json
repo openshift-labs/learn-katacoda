@@ -1,0 +1,13 @@
+{
+  "title": "Installation of OpenShift",
+  "description": "",
+  "paid": false,
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/introduction/install/",
+      "course_id": "install",
+      "title": "Installing OpenShift"
+    }
+  ]
+}
+
