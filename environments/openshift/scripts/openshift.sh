@@ -29,6 +29,8 @@ Type=notify
 Environment=KUBECONFIG=/openshift.local.config/master/admin.kubeconfig
 Environment=CURL_CA_BUNDLE=/openshift.local.config/master/ca.crt
 ExecStart=/var/lib/openshift/openshift start --master-config=/openshift.local.config/master/master-config.yaml --node-config=/openshift.local.config/node-%H/node-config.yaml --dns=tcp://0.0.0.0:8053
+Restart=always
+RestartSec=3
 [Install]
 WantedBy=multi-user.target
 EOF
