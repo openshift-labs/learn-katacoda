@@ -42,7 +42,7 @@
             "text": "finish.md"
         },
         "assets": {
-          "host01": [{"file": "htdocs", "target": "~/"}]
+          "host01": [{"file": "htdocs/robots.txt", "target": "~/htdocs/"}]
         }
     }
 }
