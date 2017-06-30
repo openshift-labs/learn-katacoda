@@ -6,6 +6,8 @@ If you haven't as yet deployed your application, but are wanting to prepare in a
 
 ``oc rollout status dc/dummy``{{execute}}
 
+``oc get all --selector run=dummy -o name``{{execute}}
+
 ``oc set volume dc/dummy --add --name=tmp-mount --claim-name=data --type pvc --claim-size=1G --mount-path /mnt``{{execute}}
 
 ``oc rollout status dc/dummy``{{execute}}
@@ -22,6 +24,10 @@ If you haven't as yet deployed your application, but are wanting to prepare in a
 
 ``oc rollout status dc/dummy``{{execute}}
 
+``POD=`oc get pods --selector run=dummy -o custom-columns=name:.metadata.name --no-headers`; echo $POD``{{execute}}
+
+``oc rsh $POD ls -las /mnt``{{execute}}
+
 ``oc set volume dc/dummy --add --name=tmp-mount --claim-name=data --mount-path /mnt``{{execute}}
 
 ``oc rollout status dc/dummy``{{execute}}
@@ -31,5 +37,7 @@ If you haven't as yet deployed your application, but are wanting to prepare in a
 ``oc rsh $POD ls -las /mnt``{{execute}}
 
 ``oc delete all --selector run=dummy``{{execute}}
+
+``oc get all --selector run=dummy -o name``{{execute}}
 
 ``oc get pvc``{{execute}}
