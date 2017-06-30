@@ -22,12 +22,36 @@ Receiving objects: 100% (125/125), 22.59 KiB | 0 bytes/s, done.
 Resolving deltas: 100% (45/45), done.
 ```
 
-Now run the following command to have ``oc rsync`` to perform live synchronisation of the code, copy any changes from the ``blog-django-py`` directory up to the container.
+Now run the following command to have ``oc rsync`` to perform live synchronisation of the code, copying any changes from the ``blog-django-py`` directory up to the container.
 
-``oc rsync blog-django-py $POD:/opt/app-root/src --no-perms --watch &``
+``oc rsync blog-django-py $POD:/opt/app-root/src --no-perms --watch &``{{execute}}
 
 In this case we are running this as a background process as we only have the one terminal window available, you could run it as a foreground process in a separate terminal if doing this yourself.
 
 You can see the details for the background process by running:
 
 ``jobs``{{execute}}
+
+When you initially ran this ``oc rsync`` command, you will see that it copied up the files from the local directory so the local and remote directory are synchronized. Any changes made to the local files will now be automatically copied up to the remote directory.
+
+Before we make a change, bring up the web application we have deployed in a separate browser window by using the URL:
+
+http://blog-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
+
+You should see that the color of the title banner for the web site is red.
+
+Lets change that banner color by running the command:
+
+``echo "BLOG_BANNER_COLOR = 'blue'" >> blog-django-py/blog/context_processors.py``{{execute}}
+
+Refresh the page for the web site.
+
+Unfortunately you will see that the title banner is still red. This is because for Python any code changes are cached by the running process and it is necessary to restart the web server application processes.
+
+For this deployment the WSGI server ``mod_wsgi-express`` is being used. To trigger a restart of the web server application processes, run:
+
+``oc rsh $POD kill -HUP 1``{{execute}}
+
+This command will have the affect of sending a HUP signal to process ID 1 running within the container, which is the instance of ``mod_wsgi-express`` which is running. This will trigger the required restart and reloading of the application, but without the web server actually exiting.
+
+Refresh the page for the web site one more and the title banner should now be blue.
