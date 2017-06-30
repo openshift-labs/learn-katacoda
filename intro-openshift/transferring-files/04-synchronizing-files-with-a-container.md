@@ -22,7 +22,7 @@ Receiving objects: 100% (125/125), 22.59 KiB | 0 bytes/s, done.
 Resolving deltas: 100% (45/45), done.
 ```
 
-Now run the following command to have ``oc rsync`` to perform live synchronisation of the code, copying any changes from the ``blog-django-py`` directory up to the container.
+Now run the following command to have ``oc rsync`` perform live synchronisation of the code, copying any changes from the ``blog-django-py`` directory up to the container.
 
 ``oc rsync blog-django-py/. $POD:/opt/app-root/src --no-perms --watch &``{{execute}}
 
@@ -32,7 +32,7 @@ You can see the details for the background process by running:
 
 ``jobs``{{execute}}
 
-When you initially ran this ``oc rsync`` command, you will see that it copied up the files from the local directory so the local and remote directory are synchronized. Any changes made to the local files will now be automatically copied up to the remote directory.
+When you initially ran this ``oc rsync`` command, you will see that it copied up the files so the local and remote directory are synchronized. Any changes made to the local files will now be automatically copied up to the remote directory.
 
 Before we make a change, bring up the web application we have deployed in a separate browser window by using the URL:
 
@@ -56,7 +56,7 @@ For this deployment the WSGI server ``mod_wsgi-express`` is being used. To trigg
 
 This command will have the affect of sending a HUP signal to process ID 1 running within the container, which is the instance of ``mod_wsgi-express`` which is running. This will trigger the required restart and reloading of the application, but without the web server actually exiting.
 
-Refresh the page for the web site one more and the title banner should now be blue.
+Refresh the page for the web site once more and the title banner should now be blue.
 
 ![Blog Web Site Blue](../../assets/intro-openshift/transferring-files/04-blog-web-site-blue.png)
 
@@ -68,19 +68,19 @@ In the case of ``mod_wsgi-express`` and how this web application has been config
 
 ``oc set env dc/blog MOD_WSGI_RELOAD_ON_CHANGES=1``{{execute}}
 
-This command will update the deployment configuration, shutdown the existing pod and replacing it with a new instance of our application.
+This command will update the deployment configuration, shutdown the existing pod and replace it with a new instance of our application with the environment variable now being passed through to the application.
 
 Because the existing pod has been shutdown, we will need to capture again the new name for the pod.
 
 ``POD=`oc get pods --selector app=blog -o custom-columns=name:.metadata.name --no-headers`; echo $POD``{{execute}}
 
-You may also notice that the synchronization process we had running in the background has stopped. This is because the pod it was connected to had been shutdown.
+You may also notice that the synchronization process we had running in the background may have stopped. This is because the pod it was connected to had been shutdown.
 
 You can check this is the case by running:
 
 ``jobs``{{execute}}
 
-If it is still showing as running, run:
+If it is still showing as running, due to shutdown of the pod not yet having been detected, run:
 
 ``kill -9 %1``{{execute}}
 
@@ -102,7 +102,7 @@ Refresh the web site page again, multiple times if need be, until the title bann
 
 Kill the synchronization task by running:
 
-``kill -9 %2``{{execute}}
+``kill -9 %1``{{execute}}
 
 Although one can synchronize files from the local computer into a container in this way, whether you can use it as a mechanism for enabling live coding will depend on the programming language being used, and the web application stack being used. This was possible for Python when using ``mod_wsgi-express``, but may not be possible with other WSGI servers for Python, or other programming languages.
 
