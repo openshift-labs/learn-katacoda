@@ -70,6 +70,10 @@ In the case of ``mod_wsgi-express`` and how this web application has been config
 
 This command will update the deployment configuration, shutdown the existing pod and replace it with a new instance of our application with the environment variable now being passed through to the application.
 
+Monitor the re-deployment of the application by running:
+
+``oc rollout status dc/blog``{{execute}}
+
 Because the existing pod has been shutdown, we will need to capture again the new name for the pod.
 
 ``POD=`oc get pods --selector app=blog -o custom-columns=name:.metadata.name --no-headers`; echo $POD``{{execute}}
@@ -78,13 +82,17 @@ You may also notice that the synchronization process we had running in the backg
 
 You can check this is the case by running:
 
-``jobs``{{execute}}
+
 
 If it is still showing as running, due to shutdown of the pod not yet having been detected, run:
 
 ``kill -9 %1``{{execute}}
 
 to kill it.
+
+Ensure the background task has exited:
+
+``jobs``{{execute}}
 
 Now run the ``oc rsync`` command again, against the new pod.
 
