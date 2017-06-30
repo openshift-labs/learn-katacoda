@@ -82,7 +82,7 @@ You may also notice that the synchronization process we had running in the backg
 
 You can check this is the case by running:
 
-
+``jobs``{{execute}}
 
 If it is still showing as running, due to shutdown of the pod not yet having been detected, run:
 
