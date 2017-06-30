@@ -56,7 +56,7 @@ and look again at what is in the target directory. It should be empty at this po
 
 ``oc rsh $POD ls -las /mnt``{{execute}}
 
-If you already have an existing persistent volume claim, as we know do, you could mount the existing claimed volume to the dummy application instead. This is different to above where we both claimed a new persistent volume and mounted it to the application at the same time.
+If you already have an existing persistent volume claim, as we now do, you could mount the existing claimed volume against the dummy application instead. This is different to above where we both claimed a new persistent volume and mounted it to the application at the same time.
 
 ``oc set volume dc/dummy --add --name=tmp-mount --claim-name=data --mount-path /mnt``{{execute}}
 
