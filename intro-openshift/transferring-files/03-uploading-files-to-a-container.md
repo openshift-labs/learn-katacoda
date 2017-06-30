@@ -34,3 +34,9 @@ Having uploaded the ``robots.txt`` file, fetching the ``robots.txt`` file again 
 ``curl http://blog-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/robots.txt``{{execute}}
 
 This worked without needing to take any further actions as the Apache HTTPD server being used to host static files, would automatically detect the presence of a new file in the directory.
+
+If instead of copying a single file you wanted to copy a complete directory, leave off the ``--include`` and ``--exclude`` options. To copy the complete contents of the current directory to the ``htdocs`` directory in the container, run:
+
+``oc rsync . $POD:/opt/app-root/src/htdocs --no-perms``{{execute}}
+
+Just be aware that this will be everything, including notionally hidden files or directories starting with ".". You should therefore be careful, and if necessary be more specific by using ``--include`` or ``--exclude`` options to limit the set of files or directories copied.
