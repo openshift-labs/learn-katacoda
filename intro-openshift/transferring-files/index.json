@@ -42,7 +42,8 @@
             "text": "finish.md"
         },
         "assets": {
-          "host01": [{"file": "robots.txt", "target": "~/"}]
+          "host01": [{"file": "robots.txt", "target": "~/"},
+                     {"file": "volumes.json", "target": "~/"}]
         }
     }
 }
