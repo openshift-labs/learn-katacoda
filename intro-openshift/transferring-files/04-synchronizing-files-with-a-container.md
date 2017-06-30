@@ -40,6 +40,8 @@ http://blog-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katac
 
 You should see that the color of the title banner for the web site is red.
 
+![Blog Web Site Red](../../assets/intro-openshift/transferring-files/04-blog-web-site-red.png)
+
 Lets change that banner color by running the command:
 
 ``echo "BLOG_BANNER_COLOR = 'blue'" >> blog-django-py/blog/context_processors.py``{{execute}}
@@ -55,3 +57,53 @@ For this deployment the WSGI server ``mod_wsgi-express`` is being used. To trigg
 This command will have the affect of sending a HUP signal to process ID 1 running within the container, which is the instance of ``mod_wsgi-express`` which is running. This will trigger the required restart and reloading of the application, but without the web server actually exiting.
 
 Refresh the page for the web site one more and the title banner should now be blue.
+
+![Blog Web Site Blue](../../assets/intro-openshift/transferring-files/04-blog-web-site-blue.png)
+
+Note that the name of the pod as displayed in the title banner is unchanged, indicating that the pod was not restarted and only the web server application processes were restarted.
+
+Manually forcing a restart of the web server application processes will get the job done, but a better way is if the web server can automatically detect code changes and trigger a restart.
+
+In the case of ``mod_wsgi-express`` and how this web application has been configured, this can be enabled by setting an environment variable for the deployment. To set this environment variable run:
+
+``oc set env dc/blog MOD_WSGI_RELOAD_ON_CHANGES=1``{{execute}}
+
+This command will update the deployment configuration, shutdown the existing pod and replacing it with a new instance of our application.
+
+Because the existing pod has been shutdown, we will need to capture again the new name for the pod.
+
+``POD=`oc get pods --selector app=blog -o custom-columns=name:.metadata.name --no-headers`; echo $POD``{{execute}}
+
+You may also notice that the synchronization process we had running in the background has stopped. This is because the pod it was connected to had been shutdown.
+
+You can check this is the case by running:
+
+``jobs``{{execute}}
+
+If it is still showing as running, run:
+
+``kill -9 %1``{{execute}}
+
+to kill it.
+
+Now run the ``oc rsync`` command again, against the new pod.
+
+``oc rsync blog-django-py/. $POD:/opt/app-root/src --no-perms --watch &``{{execute}}
+
+Refresh the page for the web site again and the title banner should still be blue, but you will notice that the pod name displayed has changed.
+
+Modify the code file once more, setting the color to green.
+
+``echo "BLOG_BANNER_COLOR = 'green'" >> blog-django-py/blog/context_processors.py``{{execute}}
+
+Refresh the web site page again, multiple times if need be, until the title banner shows as green. The change may not be immediate as the file synchronization may take a few moments, as may the detection of the code changes and restart of the web server application process.
+
+![Blog Web Site Green](../../assets/intro-openshift/transferring-files/04-blog-web-site-green.png)
+
+Kill the synchronization task by running:
+
+``kill -9 %2``{{execute}}
+
+Although one can synchronize files from the local computer into a container in this way, whether you can use it as a mechanism for enabling live coding will depend on the programming language being used, and the web application stack being used. This was possible for Python when using ``mod_wsgi-express``, but may not be possible with other WSGI servers for Python, or other programming languages.
+
+Do note that even for the case of Python, this can only be used where modifying code files. If you need to install additional Python packages, you would need to re-build the application from the original source code. This is because changes to packages required, which for Python is given in the ``requirements.txt`` file, isn't going to trigger the installation of that package when using this mechanism.
