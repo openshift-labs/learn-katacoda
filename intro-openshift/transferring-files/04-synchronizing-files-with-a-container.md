@@ -24,7 +24,7 @@ Resolving deltas: 100% (45/45), done.
 
 Now run the following command to have ``oc rsync`` to perform live synchronisation of the code, copying any changes from the ``blog-django-py`` directory up to the container.
 
-``oc rsync blog-django-py $POD:/opt/app-root/src --no-perms --watch &``{{execute}}
+``oc rsync blog-django-py/. $POD:/opt/app-root/src --no-perms --watch &``{{execute}}
 
 In this case we are running this as a background process as we only have the one terminal window available, you could run it as a foreground process in a separate terminal if doing this yourself.
 
