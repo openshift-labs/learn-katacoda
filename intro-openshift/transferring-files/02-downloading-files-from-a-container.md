@@ -25,7 +25,7 @@ blog-1-9j3p3   1/1       Running   0          1m
 
 To make it easier to reference the name of the pod, capture the name of the pod in an environment variable by running:
 
-``POD=`oc get pods --selector app=blog -o custom-columns=name:.metadata.name --no-headers`; echo $POD``{{execute}}
+``POD=`oc get pods --selector app=blog -o jsonpath='{.items[-1:].metadata.name}'`; echo $POD``{{execute}}
 
 To create an interactive shell within the same container running the application, you can use the ``oc rsh`` command, supplying it the name of the pod.
 
