@@ -136,4 +136,6 @@ To ensure only the contents of the directory on the container are copied, and no
 
 Note that if the target directory contains existing files with the same name as a file in the container, the local file will be overwritten. If there are additional files in the target directory which don't exist in the container, those files will be left as is. If you did want an exact copy, where the target directory was always updated to be exactly the same as what exists in the container, use the ``--delete`` option to ``oc rsync``.
 
-When copying a directory, you can be more selective about what is copied by using the ``--exclude`` and ``--include`` options to specify patterns to be matched against directories and files, with them being excluded or included as appropriate. 
+When copying a directory, you can be more selective about what is copied by using the ``--exclude`` and ``--include`` options to specify patterns to be matched against directories and files, with them being excluded or included as appropriate.
+
+If there is more than one container running within a pod, you will need to specify which container you want to work with by using the ``--container`` option.
