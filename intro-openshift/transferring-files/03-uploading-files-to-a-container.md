@@ -4,7 +4,7 @@ The form of the command when copying files from the local machine to the contain
 
 
 ```
-oc rsync <pod-name>:/remote/dir ./local/dir
+oc rsync ./local/dir <pod-name>:/remote/dir
 ```
 
 Unlike when copying from the container to the local machine, there is no form for copying a single file. To copy selected files only, you will need to use the ``--exclude`` and ``--include`` options to filter what is and isn't copied from a specified directory.
