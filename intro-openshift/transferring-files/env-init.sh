@@ -1,4 +1,4 @@
-ssh root@host01 "setenforce 0"
+ssh root@host01 "setenforce 0 || true"
 ssh root@host01 "mkdir /tmp/pv-01 /tmp/pv-02"
 ssh root@host01 "chmod 0777 /tmp/pv-01 /tmp/pv-02"
 ssh root@host01 "oc create -f volumes.json"
