@@ -46,7 +46,7 @@ Lets change that banner color by running the command:
 
 ``echo "BLOG_BANNER_COLOR = 'blue'" >> blog-django-py/blog/context_processors.py``{{execute}}
 
-Refresh the page for the web site.
+Wait to see that the changed file is uploaded, and then refresh the page for the web site.
 
 Unfortunately you will see that the title banner is still red. This is because for Python any code changes are cached by the running process and it is necessary to restart the web server application processes.
 
