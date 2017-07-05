@@ -3,7 +3,7 @@
     "title": "Transferring Files in and out of Containers",
     "description": "",
     "pathwayTitle": "OpenShift",
-    "difficulty": "beginner",
+    "difficulty": "intermediate",
     "time": "15-20 minutes",
     "backend": {
         "imageid": "openshift",
