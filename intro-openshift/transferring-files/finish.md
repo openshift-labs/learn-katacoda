@@ -16,7 +16,7 @@ You can find a summary of the key commands covered below. To see more informatio
 
 ``oc rsync ./local/dir <pod-name>:/remote/dir --no-perms --watch``: Copy the directory to the remote directory in the pod and then keep the remote directory syncrhonized with the local directory, with any changed files automatically being copied to the pod. The ``--no-perms`` option ensures that no attempt is made to transfer permissions, which can fail if remote directories are not owned by user container runs as. The ``--watch`` option is what enables the synchronization mechanism.
 
-``oc run dummy --image centos/httpd-24-centos7``: Run a dummy application pod which can be used to mount persistent volumes to facilitate copy files to a persistent volume.
+``oc run dummy --image centos/httpd-24-centos7``: Run a dummy application pod which can be used to mount persistent volumes to facilitate copying files to a persistent volume.
 
 ``oc set volume dc/dummy --add --name=tmp-mount --claim-name=<claim-name> --type pvc --claim-size=1G --mount-path /mnt``: Claim a persistent volume and mount it against a dummy application pod at the directory ``/mnt`` so files can be copied into the persistent volume using ``oc rsync``.
 
