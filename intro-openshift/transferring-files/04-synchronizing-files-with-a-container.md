@@ -76,7 +76,7 @@ Monitor the re-deployment of the application by running:
 
 Because the existing pod has been shutdown, we will need to capture again the new name for the pod.
 
-``POD=`oc get pods --selector app=blog -o jsonpath='{.items[-1:].metadata.name}'`; echo $POD``{{execute}}
+``POD=`oc get pods --selector app=blog -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}'`; echo $POD``{{execute}}
 
 You may also notice that the synchronization process we had running in the background may have stopped. This is because the pod it was connected to had been shutdown.
 
