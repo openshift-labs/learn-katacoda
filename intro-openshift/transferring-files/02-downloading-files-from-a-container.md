@@ -29,15 +29,7 @@ To make it easier to reference the name of the pod in these instructions, we def
 
 To create the shell function run:
 
-```
-pod()
-{
-    local selector=$1
-    local query='?(@.status.phase=="Running")'
-    oc get pods --selector $selector \
-      -o jsonpath="{.items[$query].metadata.name}"
-}
-```{{execute}}
+``pod() { local selector=$1; local query='?(@.status.phase=="Running")'; oc get pods --selector $selector -o jsonpath="{.items[$query].metadata.name}"; }``{{execute}}
 
 To capture the name of the pod for this application in the ``POD`` environment variable, run:
 
