@@ -46,24 +46,25 @@ From within the interactive shell, see what files exist in the application direc
 This will yield output similar to:
 
 ```
-total 80
- 4 drwxrwxrwx 9 default    root  4096 Jun  6 05:53 .
- 0 drwxrwxrwx 7 default    root    97 May 31 06:59 ..
- 4 -rwxrwxr-x 1 default    root   107 May 31 06:54 app.sh
- 4 drwxrwxr-x 6 default    root  4096 May 31 06:59 blog
-40 -rw-r--r-- 1 1000040000 root 39936 Jun  6 05:53 db.sqlite3
- 4 -rw-rw-r-- 1 default    root   430 May 31 06:54 Dockerfile
- 0 drwxrwxr-x 3 default    root    88 May 31 06:59 katacoda
- 4 -rwxrwxr-x 1 default    root   806 May 31 06:54 manage.py
- 0 drwxrwxr-x 3 default    root    19 May 31 06:59 media
- 0 drwxrwxrwx 3 default    root    18 May 26 12:32 .pki
- 4 -rw-rw-r-- 1 default    root   832 May 31 06:54 posts.json
- 8 -rw-rw-r-- 1 default    root  7126 May 31 06:54 README.md
- 4 -rw-rw-r-- 1 default    root    65 May 31 06:54 requirements.txt
- 4 -rw-rwxrwx 1 default    root  1024 May 29 14:28 .rnd
- 0 drwxrwxr-x 3 default    root    43 May 31 06:56 .s2i
- 0 drwxrwxr-x 2 default    root    88 May 31 06:54 scripts
- 0 drwxrwxr-x 4 default    root    28 May 31 06:59 static
+total 72
+ 0 drwxrwxrwx. 10 default    root   252 Jul  7 05:03 .
+ 0 drwxrwxrwx.  7 default    root   104 Jul  6 11:58 ..
+ 4 -rwxrwxr-x.  1 default    root   284 Jul  6 11:57 app.sh
+ 0 drwxrwxr-x.  6 default    root   233 Jul  6 12:01 blog
+40 -rw-r--r--.  1 1000040000 root 39936 Jul  7 05:03 db.sqlite3
+ 4 -rw-rw-r--.  1 default    root   430 Jul  6 11:57 Dockerfile
+ 0 drwxrwxr-x.  2 default    root    25 Jul  6 11:57 htdocs
+ 0 drwxrwxr-x.  3 default    root    93 Jul  6 12:01 katacoda
+ 4 -rwxrwxr-x.  1 default    root   806 Jul  6 11:57 manage.py
+ 0 drwxrwxr-x.  3 default    root    20 Jul  6 12:01 media
+ 0 drwxrwxrwx.  3 default    root    19 Jun 29 11:54 .pki
+ 4 -rw-rw-r--.  1 default    root   832 Jul  6 11:57 posts.json
+ 8 -rw-rw-r--.  1 default    root  7861 Jul  6 11:57 README.md
+ 4 -rw-rw-r--.  1 default    root    65 Jul  6 11:57 requirements.txt
+ 4 -rw-rwxrwx.  1 default    root  1024 Jun 29 12:34 .rnd
+ 0 drwxrwxr-x.  3 default    root    45 Jul  6 11:58 .s2i
+ 0 drwxrwxr-x.  2 default    root    93 Jul  6 11:57 scripts
+ 0 drwxrwxr-x.  4 default    root    30 Jul  6 12:01 static
 ```
 
 For the application being used, this has created a database file:
