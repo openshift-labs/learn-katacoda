@@ -30,7 +30,7 @@ To confirm that the persistent volume claim was successful, you can run:
 
 With the dummy application now running, and with the persistent volume mounted, capture the name of the pod for the running application.
 
-``POD=`oc get pods --selector run=dummy -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}'`; echo $POD``{{execute}}
+``POD=`pod run=dummy`; echo $POD``{{execute}}
 
 We can now copy any files into the persistent volume, using the ``/mnt`` directory where we mounted the persistent volume, as the target directory. In this case since we are doing a one off copy, we can use the ``tar`` strategy instead of the ``rsync`` strategy.
 
@@ -50,7 +50,7 @@ Monitor the process once again to confirm the re-deployment has completed.
 
 Capture the name of the current pod again:
 
-``POD=`oc get pods --selector run=dummy -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}'`; echo $POD``{{execute}}
+``POD=`pod run=dummy`; echo $POD``{{execute}}
 
 and look again at what is in the target directory. It should be empty at this point. This is because the persistent volume is no longer mounted and you are looking at the directory within the local container file system.
 
@@ -66,7 +66,7 @@ Look for completion of the re-deployment:
 
 Capture the name of the pod:
 
-``POD=`oc get pods --selector run=dummy -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}'`; echo $POD``{{execute}}
+``POD=`pod run=dummy`; echo $POD``{{execute}}
 
 and check the contents of the target directory. The files we copied to the persistent volume should again be visible.
 
