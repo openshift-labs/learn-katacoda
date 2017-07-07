@@ -23,11 +23,27 @@ NAME           READY     STATUS    RESTARTS   AGE
 blog-1-9j3p3   1/1       Running   0          1m
 ```
 
-To make it easier to reference the name of the pod, capture the name of the pod in an environment variable by running:
+For subsequent commands which need to interact with that pod, you will need to use the name of the pod, as an argument.
 
-``POD=`oc get pods --selector app=blog -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}'`; echo $POD``{{execute}}
+To make it easier to reference the name of the pod in these instructions, we define here a shell function to capture the name so it can be stored in an environment variable. That environment variable will then be used in the commands you run.
 
-To create an interactive shell within the same container running the application, you can use the ``oc rsh`` command, supplying it the name of the pod.
+To create the shell function run:
+
+```
+pod()
+{
+    local selector=$1
+    local query='?(@.status.phase=="Running")'
+    oc get pods --selector $selector \
+      -o jsonpath="{.items[$query].metadata.name}"
+}
+```{{execute}}
+
+To capture the name of the pod for this application in the ``POD`` environment variable, run:
+
+``POD=`pod app=blog`; echo $POD``{{execute}}
+
+To create an interactive shell within the same container running the application, you can use the ``oc rsh`` command, supplying it the environment variable holding the name of the pod.
 
 ``oc rsh $POD``{{execute}}
 
