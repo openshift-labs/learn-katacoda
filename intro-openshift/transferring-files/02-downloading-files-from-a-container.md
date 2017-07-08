@@ -31,7 +31,7 @@ The command we will run from the shell function to get out just the name of the 
 
 ```
 oc get pods --selector app=blog \
-  -o jsonpath="{.items[?(@.status.phase=="Running")].metadata.name}"
+  -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}'
 ```
 
 As above this uses ``oc get pods`` with a label selector, but we also use a ``jsonpath`` query to extract the name of the running pod.
