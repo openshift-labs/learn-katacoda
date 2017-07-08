@@ -12,7 +12,7 @@ To monitor the deployment of the application run:
 
 The command will exit once the deployment has completed and the web application is ready.
 
-The result of the deployment will be the running container. You can see the name of the pods corresponding to the running containers, by running:
+The result of the deployment will be the running container. You can see the name of the pods corresponding to the running containers for this application, by running:
 
 ``oc get pods --selector app=blog``{{execute}}
 
