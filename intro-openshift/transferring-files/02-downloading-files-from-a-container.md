@@ -12,7 +12,7 @@ To monitor the deployment of the application run:
 
 The command will exit once the deployment has completed and the web application is ready.
 
-The result of the deployment will be the running container. You can see the list of _Pods_ for any running containers by running:
+The result of the deployment will be the running container. You can see the name of the pods corresponding to the running containers, by running:
 
 ``oc get pods --selector app=blog``{{execute}}
 
@@ -26,6 +26,15 @@ blog-1-9j3p3   1/1       Running   0          1m
 For subsequent commands which need to interact with that pod, you will need to use the name of the pod, as an argument.
 
 To make it easier to reference the name of the pod in these instructions, we define here a shell function to capture the name so it can be stored in an environment variable. That environment variable will then be used in the commands you run.
+
+The command we will run from the shell function to get out just the name of the pod will be:
+
+```
+oc get pods --selector app=blog \
+  -o jsonpath="{.items[?(@.status.phase=="Running")].metadata.name}"
+```
+
+As above this uses ``oc get pods`` with a label selector, but we also use a ``jsonpath`` query to extract the name of the running pod.
 
 To create the shell function run:
 
