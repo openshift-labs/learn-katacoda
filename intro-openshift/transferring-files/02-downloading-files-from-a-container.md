@@ -29,10 +29,7 @@ To make it easier to reference the name of the pod in these instructions, we def
 
 The command we will run from the shell function to get out just the name of the pod will be:
 
-```
-oc get pods --selector app=blog \
-  -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}'
-```
+``oc get pods --selector app=blog -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}'``{{execute}}
 
 As above this uses ``oc get pods`` with a label selector, but we also use a ``jsonpath`` query to extract the name of the running pod.
 
