@@ -42,17 +42,17 @@ You can list all the projects you currently have access to by running:
 
 ``oc get projects``{{execute}}
 
-In the case of an external authentication service being used as the identity provider, such as in OpenShift Online Developer Preview, the required steps are a bit different.
+In the case of an external authentication service being used as the identity provider, the required steps are a bit different.
 
 If you login using ``oc login`` on the command line you will be presented with an error message:
 
 ```
 Login failed (401 Unauthorized)
 You must obtain an API token by visiting
-  https://api.preview.openshift.com/oauth/token/request
+  https://api.starter-us-east-1.openshift.com/oauth/token/request
 ```
 
-You would visit the link given, logging in first via GitHub if necessary. This will land you at a page looking like:
+You would visit the link given, logging in first via the separate authentication service if necessary. This will land you at a page looking like:
 
 ![Request Access Token](../../assets/intro-openshift/cluster-access/02-request-access-token.png)
 
