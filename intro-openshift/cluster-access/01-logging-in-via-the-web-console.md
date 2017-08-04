@@ -10,7 +10,7 @@ In the case of the OpenShift cluster managing user authentication, the web conso
 
 ![Web Console Login](../../assets/intro-openshift/cluster-access/01-web-console-login.png)
 
-In the case of an external authentication service being used as the identity provider, it will be necessary to login first to the external service. As an example, if you were signed up for the [OpenShift Online Developer Preview](https://www.openshift.com/devpreview/) you would be asked to login via GitHub.
+In the case of an external authentication service being used as the identity provider, it will be necessary to login first to the external service. As an example, if you were accessing [OpenShift Online](https://www.openshift.com/get-started/) you would see:
 
 ![External Login](../../assets/intro-openshift/cluster-access/01-external-identity-provider.png)
 
