@@ -6,7 +6,7 @@ You should be presented with the catalog browser.
 
 ![Catalog Browser](../../assets/intro-openshift/deploying-python/02-add-to-project-browser.png)
 
-If applications had previously been deployed to the project, or you were not on the project _Overview_ page, you can use the _Add to project_ link in the menu bar.
+If applications had previously been deployed to the project, or you were not on the project _Overview_ page, you can use the _Add to Project_ link in the menu bar.
 
 ![Adding via Menu Bar](../../assets/intro-openshift/deploying-python/02-add-to-project-menubar.png)
 
