@@ -24,6 +24,7 @@ Labels:                 app=blog-django-py
 Annotations:            openshift.io/generated-by=OpenShiftNewApp
                         openshift.io/image.dockerRepositoryCheck=2017-03-20T02:51:09Z
 Docker Pull Spec:       172.30.125.109:5000/myproject/blog-django-py
+Image Lookup:           local=false
 Unique Images:          1
 Tags:                   1
 
@@ -61,6 +62,7 @@ Created:                Less than a second ago
 Labels:                 <none>
 Annotations:            openshift.io/image.dockerRepositoryCheck=2017-03-20T03:20:35Z
 Docker Pull Spec:       172.30.235.4:5000/myproject/blog-django-py
+Image Lookup:           local=false
 Unique Images:          1
 Tags:                   1
 
@@ -69,6 +71,8 @@ latest
 
   * openshiftkatacoda/blog-django-py@sha256:43e78e610a3181a4b710f938598acaf43d511ab38c4e84a98e59f29dbdb62c62
       Less than a second ago
+
+...
 ```
 
 This is the details of the image stream created.
@@ -92,7 +96,7 @@ This should yield output similar to:
 
     Python 3.5
     ----------
-    Platform for building and running Python 3.5 applications
+    ...
 
     Tags: builder, python, python35, rh-python35
 
@@ -122,15 +126,15 @@ From the command line, list all the resources which have been created.
 This should yield output similar to:
 
 ```
-imagestream/blog-django-py
-deploymentconfig/blog-1
-deploymentconfig/blog-2
-replicationcontroller/blog-1-1
-replicationcontroller/blog-2-1
-service/blog-1
-service/blog-2
-pod/blog-1-1-mzpbf
-pod/blog-2-1-d2snt
+imagestreams/blog-django-py
+deploymentconfigs/blog-1
+deploymentconfigs/blog-2
+replicationcontrollers/blog-1-1
+replicationcontrollers/blog-2-1
+services/blog-1
+services/blog-2
+pods/blog-1-1-mzpbf
+pods/blog-2-1-d2snt
 ```
 
 You will see a deployment config, replication controller, service and pod for each instance of the application. Only the one image stream exists corresponding to the initial image import that was run.
@@ -146,7 +150,3 @@ When the resource objects for each instance of the application have been deleted
 ``oc get all -o name``{{execute}}
 
 Importing the existing Docker-formatted container image before hand, therefore means that it is retained when any application instance using it is deleted.
-
-
-
-
