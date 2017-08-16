@@ -15,7 +15,7 @@ This should display output similar to:
 
     Python 3.5
     ----------
-    Platform for building and running Python 3.5 applications
+    ...
 
     Tags: builder, python, python35, rh-python35
 
