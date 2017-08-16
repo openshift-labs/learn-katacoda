@@ -1,20 +1,20 @@
-When you are in an empty project, a prominent _Add to Project_ button will be displayed in the centre of the page.
+In the empty project, select the _Add to Project_ button in the centre of the page.
 
 ![Adding to Empty Project](../../assets/intro-openshift/deploying-images/02-add-to-project-empty.png)
 
-If applications had previously been deployed to the project, or you were not on the project _Overview_ page, you can use the _Add to project_ link in the menu bar.
-
-![Adding via Menu Bar](../../assets/intro-openshift/deploying-images/02-add-to-project-menubar.png)
-
-Clicking on either option, you should be presented with the catalog browser.
+You should be presented with the catalog browser.
 
 ![Options for Adding to Project](../../assets/intro-openshift/deploying-images/02-add-to-project-options.png)
 
 For deploying an application from an existing Docker-formatted container image, you need to switch to the _Deploy Image_ tab.
 
-![Deploy Image Options](../../assets/intro-openshift/deploying-images/02-deploy-image-options.png)
+If applications had previously been deployed to the project, or you were not on the project _Overview_ page, you can also use the _Add to Project_ drop down menu in the top menu bar, selecting _Deploy Image_.
 
-When deploying an application from an image, there are two choices.
+![Adding via Menu Bar](../../assets/intro-openshift/deploying-images/02-add-to-project-menubar.png)
+
+When you are deploying an application from an image, there are two choices.
+
+![Deploy Image Options](../../assets/intro-openshift/deploying-images/02-deploy-image-options.png)
 
 The first choice is to select an image by specifying its _Image Stream Tag_. This option would be used where the image had previously been imported into the OpenShift cluster, or had been built within the OpenShift cluster from a ``Dockerfile`` or using Source-to-Image.
 
