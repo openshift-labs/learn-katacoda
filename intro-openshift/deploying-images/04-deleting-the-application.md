@@ -13,7 +13,7 @@ imagestreams/blog-django-py
 deploymentconfigs/blog-django-py
 replicationcontrollers/blog-django-py-1
 routes/blog-django-py
-service/blog-django-py
+services/blog-django-py
 pods/blog-django-py-1-9fshs
 ```
 
