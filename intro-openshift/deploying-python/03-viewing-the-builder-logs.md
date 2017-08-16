@@ -1,4 +1,4 @@
-While a build is running, the _Overview_ page will display a banner. The build may take a moment to start running if the environment needs to update the S2I builder being used due to a newer version being available.
+The build may take a moment to start running if the environment needs to update the S2I builder being used due to a newer version being available.
 
 ![Build Progress Banner](../../assets/intro-openshift/deploying-python/03-build-progress-banner.png)
 
@@ -6,7 +6,7 @@ To view the output of the build as it is running, click on _View Full Log_. This
 
 ![Running Build Log](../../assets/intro-openshift/deploying-python/03-running-build-log.png)
 
-If the banner is not visible, you can access build logs by selecting the _Builds_ menu and then selecting _Builds_.
+If the build details are not visible, you can access build logs by selecting the _Builds_ menu and then selecting _Builds_.
 
 ![Accessing Builds Menu](../../assets/intro-openshift/deploying-python/03-accessing-builds-menu.png)
 
