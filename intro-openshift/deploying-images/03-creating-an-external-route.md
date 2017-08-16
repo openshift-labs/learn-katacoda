@@ -18,7 +18,11 @@ To override the hostname you can modify the _Hostname_ field. For this to work y
 
 No matter what port the application listens to internally to the OpenShift cluster, port 8080 in this case, the external route will use the standard port 80 for the HTTP connection, and the standard port 443 for a secure HTTP connection.
 
-Leaving all values as their defaults, click on _Create_ and you will be returned to the _Overview_ page for the project. Instead of _Create Route_, you should now see the URL by which the exposed application can be accessed from a web browser.
+Before creating the route, ensure that the ``app`` label is listed with value ``blog-django-py``. Add this label if not present as we will be using it later.
+
+![Route Details](../../assets/intro-openshift/deploying-images/03-create-route-labels.png)
+
+Leaving all all other values as their defaults, click on _Create_ and you will be returned to the _Overview_ page for the project. Instead of _Create Route_, you should now see the URL by which the exposed application can be accessed from a web browser.
 
 ![Exposed Route](../../assets/intro-openshift/deploying-images/03-exposed-route-url.png)
 
