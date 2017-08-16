@@ -2,7 +2,7 @@ The easiest way to access and interact with OpenShift is through the web console
 
 For this course the public URL for the web console is:
 
-**https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com**
+**https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com**{{copy}}
 
 To view the web console at the same time as these instructions, you can also select the _Dashboard_ tab to the right of the tab for the embedded _Terminal_.
 
