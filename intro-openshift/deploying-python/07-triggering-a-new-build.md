@@ -58,7 +58,7 @@ Build   Status          Duration        Creation Time
 blog-2  complete        1m9s            2017-06-01 02:07:15 +0000 UTC
 blog-1  complete        1m2s            2017-06-01 02:05:11 +0000 UTC
 
-No events.
+...
 ```
 
 You can see details of the Git repository being used as the source for any build.
@@ -177,5 +177,3 @@ blog-4    Source    Git@fcdc38c      Cancelled   18 seconds ago   10s
 ```
 
 Note that starting a build using source code from a local directory on your own machine can only be done from the command line. There is no way to trigger such a build from the web console.
-
-
