@@ -12,7 +12,7 @@ This is the first time this user has logged in, so if you run:
 
 you should see that he has access to no projects.
 
-To grant this user access to your project, go to the list of projects in the web console and select on the people icon to view project membership.
+To grant this user access to your project, go to the list of projects in the web console and select on the drop down menu to the right of the project name and select on _View Membership_.
 
 ![View Project Membership](../../assets/intro-openshift/cluster-access/03-view-project-membership.png)
 
