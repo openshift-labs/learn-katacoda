@@ -24,9 +24,7 @@ For this example, the application image we are going to deploy is being hosted o
 
 In the _Image name or pull spec_ field enter:
 
-```
-openshiftkatacoda/blog-django-py
-```
+``openshiftkatacoda/blog-django-py``{{copy}}
 
 Press _Enter_, or click on the magnifying glass to the right of the field. This should trigger a query to pull down the details of the image from the Docker Hub Registry, including information on when the image was last updated, the size of the image and the number of layers.
 
