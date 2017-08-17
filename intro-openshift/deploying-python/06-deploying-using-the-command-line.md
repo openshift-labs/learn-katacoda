@@ -58,7 +58,7 @@ svc/blog - 172.30.35.238:8080
     bc/blog source builds https://github.com/openshift-katacoda/blog-django-py on openshift/python:latest
     deployment #1 deployed 4 minutes ago - 1 pod
 
-3 warnings identified, use 'oc status -v' to see details.
+View details with 'oc describe <resource>/<name>' or list everything with 'oc get all'.
 ```
 
 Unlike the case of deploying the application from the web console, the application is not exposed outside of the OpenShift cluster by default. To expose the application created so it is available outside of the OpenShift cluster, you can run the command:
