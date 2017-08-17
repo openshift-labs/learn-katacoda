@@ -14,12 +14,9 @@ For this scenario, start by entering the following:
 
 After logging in to the web console, you'll see a button labeled: **New Project**. Click this to get started.
 
-You should now see a page for creating your first project in web console. Fill it in with the following:
->New project
+You should now see a page for creating your first project in web console. Fill in the _Name_ field as ``myproject``.
 
->** *Name **
-
->`myproject`
+![Create Project](../../assets/intro-openshift/getting-started/2create-project.png)
 
 The rest is optional and up to you. Be careful with all of that responsibility.
 

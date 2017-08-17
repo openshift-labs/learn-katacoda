@@ -4,17 +4,19 @@ In this lab you are going to deploy the front end web component of the ParksMap 
 
 The simplest way to deploy an application in OpenShift is to take an existing Docker-formatted image and run it. We are going to use the OpenShift web console to do this, so ensure you have the OpenShift web console open and that you are in the project called ``myproject``.
 
-The OpenShift web console provides various options to deploy an application to a project. For this lab we are going to use the *Deploy Image* method. As the project is empty at this point, the *Overview* page should display a prominent *Add to Project* button, otherwise you can also find an *Add to project* button in the top menu bar for the project.
+The OpenShift web console provides various options to deploy an application to a project. For this lab we are going to use the *Deploy Image* method. As the project is empty at this point, the *Overview* page should display a prominent *Add to Project* button.
 
 ![Add to Project](../../assets/intro-openshift/getting-started/3add-to-empty-project.png)
 
-After selecting *Add to Project* you should be presented with the options of *Browse Catalog*, *Deploy Image* and *Import YAML/JSON*. Choose the *Deploy Image* tab.
+Selecting the *Add to Project* button you should be presented with the options of *Browse Catalog*, *Deploy Image* and *Import YAML/JSON*. Choose the *Deploy Image* tab.
 
 ![Add to Project Options](../../assets/intro-openshift/getting-started/3add-to-project-options.png)
 
+You could also have selected the *Add to Project* drop down menu in the top menu bar for the project and selected _Deploy Image_ to go direct to the required tab.
+
 Within the *Deploy Image* tab, chose the *Image Name* option. This will be used to reference an existing Docker-formatted image hosted on the Docker Hub Registry. For the name of the image enter:
 
-``openshiftroadshow/parksmap-katacoda:1.0.0``
+``openshiftroadshow/parksmap-katacoda:1.0.0``{{copy}}
 
 and press enter, or click on the magnifying glass icon to the right of the text entry box.
 
