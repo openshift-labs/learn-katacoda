@@ -29,9 +29,9 @@ Let's get started by logging in. Your task is to enter the following into the co
 
 When prompted, enter the following username and password:
 
-**Username:** `developer`
+**Username:** ``developer``{{execute}}
 
-**Password:** `developer`
+**Password:** ``developer``{{execute}}
 
 Next, you can check if it was successful:
 
