@@ -9,13 +9,13 @@ To query the resources just for the application you deployed run:
 This should yield:
 
 ```
-imagestream/parksmap
-deploymentconfig/parksmap
-replicationcontroller/parksmap-1
-route/parksmap
-route/parksmap-fqdn
-service/parksmap
-pod/parksmap-1-cztb6
+imagestreams/parksmap
+deploymentconfigs/parksmap
+replicationcontrollers/parksmap-1
+routes/parksmap
+routes/parksmap-fqdn
+services/parksmap
+pods/parksmap-1-cztb6
 ```
 
 If you need to apply additional labels to a resource object you can use the ``oc label`` command.
