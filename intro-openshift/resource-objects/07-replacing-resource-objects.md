@@ -40,8 +40,8 @@ To script the updating of a value in an existing resource object using ``oc repl
 
 To edit the definition will require a way of editing the JSON or YAML definition on the fly. The alternative to this process is to use the ``oc patch`` command, which will edit a value in place for you based on a supplied specification.
 
-The ``route.spec.tls.insecureEdgeTerminationPolicy`` value could for example be by running:
+The ``route.spec.tls.insecureEdgeTerminationPolicy`` value could for example be switched back to allowing an insecure route by running:
 
-``oc patch route/parksmap-fqdn --patch '{"spec":{"tls": {"insecureEdgeTerminationPolicy": "Redirect"}}}'``{{execute}}
+``oc patch route/parksmap-fqdn --patch '{"spec":{"tls": {"insecureEdgeTerminationPolicy": "Allow"}}}'``{{execute}}
 
 For both cases, the resource object to be updated must already exist or the command will fail. If you do not know whether the resource object will already exist, and want it updated if it does, but created if it does not, instead of using ``oc replace``, you can use ``oc apply``.

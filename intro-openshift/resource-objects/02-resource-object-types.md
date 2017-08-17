@@ -31,12 +31,12 @@ You can restrict the output to just the names of the resources by running:
 In other words, supply the ``-o name`` option to change the output format.
 
 ```
-imagestream/parksmap
-deploymentconfig/parksmap
-replicationcontroller/parksmap-1
-route/parksmap
-service/parksmap
-pod/parksmap-1-deploy
+imagestreams/parksmap
+deploymentconfigs/parksmap
+replicationcontrollers/parksmap-1
+routes/parksmap
+services/parksmap
+pods/parksmap-1-deploy
 ```
 
 The ``oc get`` command is the most basic command that exists in OpenShift for querying resource objects. You will use it a lot, so you should become familiar with it, as well as how to update resource objects.
@@ -45,7 +45,7 @@ In addition to being able to use the special name ``all`` to query information a
 
 ``oc get routes``{{execute}}
 
-For the application you have deployed, you should be see something like:
+For the application you have deployed, you should see something like:
 
 ```
 NAME       HOST/PORT                                                            PATH      SERVICES   PORT       TERMINATION
@@ -60,24 +60,20 @@ without any specific object type listed. This will output
 
 ```
 You must specify the type of resource to get. Valid resource types include:
-   * buildconfigs (aka 'bc')
-   * builds
-   * componentstatuses (aka 'cs')
-   * configmaps
-   * daemonsets (aka 'ds')
-   * deploymentconfigs (aka 'dc')
-   ...
-   * rolebindings
-   * routes
-   * secrets
-   * serviceaccounts (aka 'sa')
-   * services (aka 'svc')
-   * users
-error: Required resource not specified.
+
+    * all
+    * buildconfigs (aka 'bc')
+    * builds
+    ...
+    * users
+    * storageclasses
+    * thirdpartyresources
+    error: Required resource not specified.
+Use "oc explain <resource>" for a detailed description of that resource (e.g. oc explain pods).
 See 'oc get -h' for help and examples.
 ```
 
-In addition to being able to be queried using their full name, many resource object types can be queried using a shorter alias. You can therefore use ``dc`` instead of ``deploymentconfigs``.
+In addition to being able to be queried using their full name, many resource object types can be queried using a shorter alias. You can therefore use ``bc`` instead of ``buildconfigs``.
 
 In all cases where the ``type`` of a resource object is listed as a plural, you can also use the ``type`` in its singular form. You can therefore use ``route`` instead of ``routes``.
 
