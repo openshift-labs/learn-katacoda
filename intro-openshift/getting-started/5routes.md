@@ -13,11 +13,15 @@ create a _Route_.
 ## Task: Creating a Route
 
 Fortunately, creating a _Route_ is a pretty straight-forward process.  You just click
-the "Create Route" button associated with the service.
+the "Create Route" link displayed against the application on the _Overview_ page.
 
 ![No route](../../assets/intro-openshift/getting-started/5no-route.png)
 
-By default OpenShift is configured to create the _Route_ based on the _Service_ name being exposed and the _Project_ where the application lives, adding a common subdomain configured at the platform level. In our scenario, we have **https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com**. This means that there is no need to change the default settings in the _Route_ creation form.
+By default OpenShift is configured to create the _Route_ based on the _Service_ name being exposed and the _Project_ where the application lives, adding a common subdomain configured at the platform level. In our scenario, we have:
+
+**https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com**.
+
+This means that there is no need to change the default settings in the _Route_ creation form.
 
 ![Route form](../../assets/intro-openshift/getting-started/5create-route.png)
 
