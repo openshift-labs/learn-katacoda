@@ -1,4 +1,4 @@
-Once the build of the application image has completed, it will be deployed, the _Overview_ page showing the details.
+Once the build of the application image has completed, it will be deployed, the _Overview_ page showing the details. Click on the arrow to the left of the deployment summary to expose all the details available for the application on the overview page.
 
 ![Build has Completed](../../assets/intro-openshift/deploying-python/04-build-has-completed.png)
 
