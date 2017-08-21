@@ -25,11 +25,11 @@ This means that there is no need to change the default settings in the _Route_ c
 
 ![Route form](../../assets/intro-openshift/getting-started/5create-route.png)
 
-Once you click `Create`, the _Route_ will be created and displayed in the `Overview` page.
+Once you click _Create_, the _Route_ will be created and displayed in the _Overview_ page.
 
 ![Route created](../../assets/intro-openshift/getting-started/5route-created.png)
 
-We can also get the list of all the existing _Routes_ by clicking the `Applications->Routes` menu:
+We can also get the list of all the existing _Routes_ by clicking the _Applications->Routes_ menu:
 
 ![Routes menu](../../assets/intro-openshift/getting-started/5routes-menu.png)
 
