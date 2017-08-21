@@ -24,7 +24,7 @@ and press enter, or click on the magnifying glass icon to the right of the text 
 
 At this point OpenShift will pull down and display key information about the image and the pending deployment, as well as populate the *Name* field with ``parksmap-katacoda``. This name will be what is used for your application and the various components created which relate to it. Leave this as the generated value as steps given in this and subsequent labs will use this name.
 
-You are ready to deploy the existing Docker-formatted image. Hit the blue *Create* button at the bottom of the screen and in the subsequent page click the *Continue to overview* link. This should bring you back to the *Overview* page where summary information about the application you just deployed will be displayed.
+You are ready to deploy the existing Docker-formatted image. Hit the blue *Create* button at the bottom of the screen and in the subsequent page click the *Continue to overview* link. This should bring you back to the *Overview* page where summary information about the application you just deployed will be displayed. If only the summary for the deployment is shown on the _Overview_ page, select the arrow to the left of the deployment name, to expand the full detail.
 
 ![Console Overview](../../assets/intro-openshift/getting-started/3parksmap-overview.png)
 
