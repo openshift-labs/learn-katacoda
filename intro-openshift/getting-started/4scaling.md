@@ -42,4 +42,4 @@ fill it's place.
 ### Exercise: Scale Down
 
 Before we continue, go ahead and scale your application down to a single
-instance. It's as simple as clicking the down arrow on the _Overview_ page. If only the summary for the deployment is shown on the _Overview_ page, select the arrow to the left of the deployment name, to expand the full detail.
+instance. It's as simple as clicking the down arrow on the _Overview_ page.
