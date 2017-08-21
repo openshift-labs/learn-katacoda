@@ -26,7 +26,7 @@ Since we have two *Pods* running right now, let's see what happens if we
 
 Open one of the pods by clicking it's name in the list.
 
-In the top right conrner of the page there is `Actions`, when opened, there is `Delete` action.
+In the top right corner of the page there is _Actions_, when opened, there is _Delete_ action.
 
 ![Delete action](../../assets/intro-openshift/getting-started/4scaling-actions.png)
 
@@ -42,4 +42,4 @@ fill it's place.
 ### Exercise: Scale Down
 
 Before we continue, go ahead and scale your application down to a single
-instance. It's as simple as clicking the down arrow on the `Overview` page.
+instance. It's as simple as clicking the down arrow on the _Overview_ page. If only the summary for the deployment is shown on the _Overview_ page, select the arrow to the left of the deployment name, to expand the full detail.
