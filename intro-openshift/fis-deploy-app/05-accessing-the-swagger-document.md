@@ -14,7 +14,7 @@ This is already been completed for our API so lets take a look at the Swagger do
 
 ``curl http://mypeopleservice-fuselab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/people-service/api-docs``{{execute}}
 
-Your output should look similar to that one presente below:
+Your output should look similar to that one presented below:
 
 ```
 {
