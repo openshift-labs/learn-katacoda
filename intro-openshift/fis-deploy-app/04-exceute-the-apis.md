@@ -3,14 +3,23 @@ In this next section of the scenario we will use the JBoss FIS 2.0 Hawtio Consol
 ### What is Hawtio? 
 The JBoss Fuse Hawtio console provides in depth details into the Camel and ActiveMQ components deployed as part of a JBoss FIS 2.0 application. This includes standard JVM resources such as memeory and threads as well as JMX attributes and operations. The Hawtio console also provides a full selection of tools used to drill into the JBoss FIS 2.0 Camel and ActiveMQ components.
 
+To get there we start with selecting the Applications menu on the left and then select Pods.
+
+![Select Pods menu](../../assets/intro-openshift/fis-deploy-app/04-step1-select-pod.png)
+
+You will be taken directly to the pod detail page. Below the *Template* section on the page you will find a link named "Open Java Console". Go ahead and click it
+
+![Select Java Console](../../assets/intro-openshift/fis-deploy-app/04-select-java-console.png)
+
+You are now taken to the JBoss Fuse Hawtio console. Continue on to see how we can get better insight into the People Service API through this console deployed with all JBoss FIS 2.0 applications.
+
 Lets get started by taking a look at some statistics provided by the console.  Select the "Route Diagram" to see more detail implementation:
 
-![Select Diagram route](../../assets/intro-openshift/fis-deploy-app/03-select-diagram-route.png)
+![Select Diagram route](../../assets/intro-openshift/fis-deploy-app/04-select-diagram-route.png)
 
 The Route Diagram tab provids a graphical review of all the routes currently deployed in our API application.  After selecting this tab we should see something similar to what is pictured below; 5 routes starting with various Enterprise Integration Patterns, or EIPs, representation of route behavior:
 
-
-![Detail Camel Route](../../assets/intro-openshift/fis-deploy-app/03-detail-camel-route.png)
+![Detail Camel Route](../../assets/intro-openshift/fis-deploy-app/04-detail-camel-route.png)
 
 
 Now lets take a look at calling the APIs and tracing that output on the Hawtio console.

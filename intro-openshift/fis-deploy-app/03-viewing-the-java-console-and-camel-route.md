@@ -14,13 +14,11 @@ While a build is running, the _Overview_ page will display a banner. To the far 
 
 > Note: Generally, first time builds will take an additional few minutes to complete as Maven initializes the applications local repository.
 
-![Build Progress Banner](../../assets/intro-openshift/fis-deploy-app/03-build-progress-banner.png)
+![Build Progress Banner](../../assets/intro-openshift/fis-deploy-app/03-build-progress-banner-v2.png)
 
 To view the output of the build as it is running, click on _View Log_. This will bring you to the _Logs_ tab of the _Pod_ for the build which is running.
 
-![Running Build Log](../../assets/intro-openshift/fis-deploy-app/03-running-build-log.png)
-
-Click on _Follow_ at the right hand side to see the latest log output as it is being produced.
+![Running Build Log](../../assets/intro-openshift/fis-deploy-app/03-running-build-log-v2.png)
 
 If the banner is not visible, you can access build logs by selecting the _Builds_ menu and then selecting _Builds_.
 
@@ -39,17 +37,5 @@ Once the build of the application image has completed, it will be deployed. The 
 
 ![Build has Completed](../../assets/intro-openshift/fis-deploy-app/03-build-has-completed.png)
 
-Now that we have successfully built our application, lets take a look at it on the JBoss Fuse Hawtio console.  To get there we start with selecting the Applications menu on the left and then select Pods.
-
-![Select Pods menu](../../assets/intro-openshift/fis-deploy-app/03-select-pods.png)
-
-This will bring up a list of available pods for both deployed and running applications and completed builds. Select the pod running current application:
-
-![Pods list](../../assets/intro-openshift/fis-deploy-app/03-pods-list.png)
-
-You will be taken directly to the pod detail page. Below the *Template* section on the page you will find a link named "Open Java Console". Go ahead and click it
-
-![Select Java Console](../../assets/intro-openshift/fis-deploy-app/03-select-java-console.png)
-
-You are now taken to the JBoss Fuse Hawtio console. Continue on to see how we can get better insight into the People Service API through this console deployed with all JBoss FIS 2.0 applications.
+Now that we have successfully built our application, lets take take it for a test drive with the on the JBoss Fuse Hawtio console.  
 
