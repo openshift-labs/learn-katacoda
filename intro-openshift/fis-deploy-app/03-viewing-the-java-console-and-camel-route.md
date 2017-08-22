@@ -49,16 +49,5 @@ You will be taken directly to the pod detail page. Below the *Template* section 
 
 ![Select Java Console](../../assets/intro-openshift/fis-deploy-app/03-select-java-console.png)
 
-You are now taken to the JBoss Fuse Hawtio console. MOVE THIS NEXT SENTENCE UP HIGHER IN THE DOCUMENT TO SERVE AS MOTIVATION FOR WHY WE ARE DOING ALL THESE STEPS The JBoss Fuse Hawtio console provides in depth details into our running application including JMX, runtime Threads, and a full selection of tools to drill into the RESTFul API developed and deployed as an Apache Camel route. WHAT IS AN APACHE CAMEL ROUTE? WHAT IS APACHE CAMEL, I THOUGHT WE WERE TALKING ABOUT FIS.
-
-Lets take a look at some statistics provided by the console.  Select the "Route Diagram" to see more detail implementation:
-
-![Select Diagram route](../../assets/intro-openshift/fis-deploy-app/03-select-diagram-route.png)
-
-The Route Diagram tab provids a graphical review of all the routes currently deployed in our API application.  After selecting this tab we should see something similar to what is pictured below; 5 routes starting with various EIP depictions of route behavior: WHAT IS EIP?
-
-![Detail Camel Route](../../assets/intro-openshift/fis-deploy-app/03-detail-camel-route.png)
-
-In the next part of our tutorial we will start calling our newly deployed APIs and reviewing the output on the JBoss Fuse Hawtio console.
-
+You are now taken to the JBoss Fuse Hawtio console. Continue on to see how we can get better insight into the People Service API through this console deployed with all JBoss FIS 2.0 applications.
 

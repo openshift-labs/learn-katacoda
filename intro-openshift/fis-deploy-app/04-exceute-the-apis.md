@@ -1,3 +1,17 @@
+In this next section of the scenario we will use the JBoss FIS 2.0 Hawtio Console to test and review the behavior of our new route.  
+
+### What is Hawtio? 
+The JBoss Fuse Hawtio console provides in depth details into the Camel and ActiveMQ components deployed as part of a JBoss FIS 2.0 application. This includes standard JVM resources such as memeory and threads as well as JMX attributes and operations. The Hawtio console also provides a full selection of tools used to drill into the JBoss FIS 2.0 Camel and ActiveMQ components.
+
+Lets get started by taking a look at some statistics provided by the console.  Select the "Route Diagram" to see more detail implementation:
+
+![Select Diagram route](../../assets/intro-openshift/fis-deploy-app/03-select-diagram-route.png)
+
+The Route Diagram tab provids a graphical review of all the routes currently deployed in our API application.  After selecting this tab we should see something similar to what is pictured below; 5 routes starting with various EIP depictions of route behavior: WHAT IS EIP?
+
+![Detail Camel Route](../../assets/intro-openshift/fis-deploy-app/03-detail-camel-route.png)
+
+
 Now lets take a look at calling our APIs and tracing that output on the Hawtio console.
 
 We have there are three APIs avalible for us to call.  They are:
