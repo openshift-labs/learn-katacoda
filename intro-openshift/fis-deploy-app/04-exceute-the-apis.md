@@ -7,20 +7,21 @@ Lets get started by taking a look at some statistics provided by the console.  S
 
 ![Select Diagram route](../../assets/intro-openshift/fis-deploy-app/03-select-diagram-route.png)
 
-The Route Diagram tab provids a graphical review of all the routes currently deployed in our API application.  After selecting this tab we should see something similar to what is pictured below; 5 routes starting with various EIP depictions of route behavior: WHAT IS EIP?
+The Route Diagram tab provids a graphical review of all the routes currently deployed in our API application.  After selecting this tab we should see something similar to what is pictured below; 5 routes starting with various Enterprise Integration Patterns, or EIPs, representation of route behavior:
+
 
 ![Detail Camel Route](../../assets/intro-openshift/fis-deploy-app/03-detail-camel-route.png)
 
 
-Now lets take a look at calling our APIs and tracing that output on the Hawtio console.
+Now lets take a look at calling the APIs and tracing that output on the Hawtio console.
 
-We have there are three APIs avalible for us to call.  They are:
+To highlight these capabilities the People Service API has 3 methods provided with it. They are:
 
 - Retrieve User
 - Create User  
 - Retrieve All Users
 
-HOW DID YOU KNOW THIS? CAN YOU PLEASE SHOW ME IN THE INTERFACE WHERE I COULD HAVE DISCOVERED THIS INFORMATION.
+> Note: To see the Camel REST APIs defined, check it out [here](https://github.com/jbossdemocentral/katacoda-fuse-getting-started/blob/master/src/main/resources/spring/camel-context.xml)
 
 Switch back over to the _Terminal_ screen and let's try retrieving user information by running:
 
