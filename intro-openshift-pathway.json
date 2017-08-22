@@ -34,6 +34,11 @@
       "title": "Connecting to a Database Using Port Forwarding"
     },
     {
+      "external_link": "https://learn.openshift.com/introduction/transferring-files/",
+      "course_id": "transferring-files",
+      "title": "Transferring Files in and out of Containers"
+    },
+    {
       "external_link": "http://learn.openshift.com/katacoda-introduction/fis-deploy-app",
       "course_id": "fis-deploy-app",
       "title": "OpenShift for Fuse Developers",
