@@ -1,4 +1,4 @@
-Test v1
+Test v2
 
 To get started, first we need to login to OpenShift.
 
