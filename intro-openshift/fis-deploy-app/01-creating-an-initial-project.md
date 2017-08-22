@@ -50,4 +50,4 @@ Click on ``fuselab `` to be taken to the project _Overview_ page for ``fuselab``
 ![Project Overview](../../assets/intro-openshift/fis-deploy-app/01-project-overview.png)
 
 As the project is currently empty, you should be presented with an _Add to Project_
-button.
+button. Lets continue on to see how to add the first application to this project.
