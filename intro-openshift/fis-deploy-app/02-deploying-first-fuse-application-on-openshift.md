@@ -1,4 +1,4 @@
-Inside the project, where is this case it should be an empty project, a prominent _Add to Project_ button will be displayed in the center of the page.
+Lets get started adding an application to the **fuselab** project
 
 ![Adding to Empty Project](../../assets/intro-openshift/fis-deploy-app/02-add-to-project-empty.png)
 
