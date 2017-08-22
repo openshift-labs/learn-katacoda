@@ -43,7 +43,6 @@
         },
         "assets": {
         	"host01": [
-        		{"file": "route.json", "target": "/root/"},
         		{"file": "fgstemplate.yml", "target": "/root/"} 
         	]
         }
