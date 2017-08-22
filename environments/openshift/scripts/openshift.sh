@@ -28,7 +28,11 @@ After=docker.target network.target
 Type=notify
 Environment=KUBECONFIG=/openshift.local.config/master/admin.kubeconfig
 Environment=CURL_CA_BUNDLE=/openshift.local.config/master/ca.crt
+ExecStartPre=/usr/bin/rm -irf /openshift.local.etcd/ /openshift.local.volumes/;
 ExecStart=/var/lib/openshift/openshift start --master-config=/openshift.local.config/master/master-config.yaml --node-config=/openshift.local.config/node-%H/node-config.yaml --dns=tcp://0.0.0.0:8053
+Restart=always
+RestartSec=3
+TimeoutSec=30
 [Install]
 WantedBy=multi-user.target
 EOF
@@ -52,7 +56,8 @@ echo 'for i in {1..10}; do oc adm router > /dev/null 2>&1 && break || sleep 1; d
 echo 'until $(oc get svc router &> /dev/null); do' >> ~/.launch.sh
   echo 'sleep 1' >> ~/.launch.sh
 echo 'done' >> ~/.launch.sh
-echo 'oc create -f /openshift/image-streams-centos7.json --namespace=openshift > /dev/null' >> ~/.launch.sh
+echo 'oc create namespace openshift > /dev/null 2>&1' >> ~/.launch.sh
+echo 'oc create -f /openshift/image-streams-centos7.json --namespace=openshift > /dev/null 2>&1' >> ~/.launch.sh
 echo 'echo "OpenShift Ready"' >> ~/.launch.sh
 
 chmod +x ~/.launch.sh

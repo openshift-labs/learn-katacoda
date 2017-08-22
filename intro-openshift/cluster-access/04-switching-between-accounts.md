@@ -16,9 +16,9 @@ You can validate that you are now the ``developer`` user by running:
 
 ``oc whoami``{{execute}}
 
-If you are working against multiple OpenShift clusters, to switch between them, you again use ``oc login``, but supply just the URL for the OpenShift cluster. For example, if you want to switch to using the OpenShift Online developer preview, you could run:
+If you are working against multiple OpenShift clusters, to switch between them, you again use ``oc login``, but supply just the URL for the OpenShift cluster. For example, if you had an account with the OpenShift Online free starter tier, and had been assigned to the ``os-east-1` cluster, you could run:
 
-``oc login https://api.preview.openshift.com``
+``oc login https://api.starter-us-east-1.openshift.com``
 
 When switching which OpenShift cluster is used, if you do not explicitly say which user to use, it will use whatever was the last user you were logged in as with that cluster. You can still provide ``--username`` if required.
 

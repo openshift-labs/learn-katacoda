@@ -1,6 +1,7 @@
 baseurl = "http://learn.openshift.com/"
 languageCode = "en-us"
 title = "OpenShift"
+disableLiveReload = true
 
 [params]
   embedjs = "//www.katacoda.com/embed.js"
