@@ -120,4 +120,4 @@ Over in the _Dashboard_ browser our _Route Diagram_ should have even more update
 
 ![Camel stats update after PUT](../../assets/intro-openshift/fis-deploy-app/04-camel-stats-update-put.png)
 
-Now lets see how the User Service API is documented by clicking the _Continue_ button.
+Lets continue on over to the last step of the scenario and take a look at the API docs which our route provides by clicking the _Continue_ button.
