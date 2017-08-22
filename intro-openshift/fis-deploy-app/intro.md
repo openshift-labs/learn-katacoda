@@ -1,4 +1,4 @@
-In this self paced tutorial you will learn how to build, deploy, and expose container based APIs using JBoss Fuse Integration Services (FIS) 2.0 for OpenShift. This introductory service will expose a single API with several methods as well provide API Swagger documentation via FIS Camel SWAGGER.
+In this self paced tutorial you will learn how to build, deploy, and expose container based APIs using JBoss Fuse Integration Services (FIS) 2.0 for OpenShift. This introductory service will expose the People Service API which includes methods for adding, searching, and listing individuals. In addition, the People Service API will publish the associated API Swagger documentation via FIS Camel SWAGGER.
 
 ## Before you get started
 
