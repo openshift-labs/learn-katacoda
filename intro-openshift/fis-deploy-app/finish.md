@@ -1,36 +1,35 @@
-In this course you have learned about deploying a JBoss Fuse Integration Service API application from source code using OpenShifts Source-to-Image (S2I) builder. You first deployed the application from the web console, following that up with using the command line. You also learnt about using binary input source builds to run builds using source code from a local directory on your own computer.
+Congratulations!  You just finished learning how to deploy your own JBoss Fuse Integration Service to OpenShift. Pretty simple isn't it?
 
-OpenShift provides S2I builders for a number of different programming languages/frameworks in addition to Python. These include Java, NodeJS, Perl, PHP and Ruby.
+## What's next?
 
-You can find a summary of the key commands covered below. To see more information on each ``oc`` command, run it with the ``--help`` option.
-
-``oc new-app <image:tag>~<source-code> --name <name>``: Deploy an application from source code hosted on a Git repository using the specified S2I builder image.
-
-``oc start-build <name>``: Trigger a new build and deployment of the application where source code is taken from the hosted Git repository specified to ``oc new-app`` when the build configuration was created.
-
-``oc start-build <name> --from-dir=.``: Trigger a new build and deployment of the application where source code is taken from the current working directory of the local machine where the ``oc`` command is being run.
-
-``oc cancel-build <build>``: Cancel a running build.
-
-``oc logs bc/<name> --follow``: Monitor the log output from the current build for the application.
-
-``oc get builds``: Display a list of all builds, completed, cancelled and running.
-
-``oc get builds --watch``: Monitor the progress of any active builds.
-
-``oc get pods --watch``: Monitor any activity related to pods in the project. This will include pods run to handle building and deployment of an application.
+Now you are probably interested in expanding your work with OpenShift in a less structured environment. You can start with setting up your own OpenShift environment if you haven't already or if you have maybe expanding on what you have learned to build your own JBoss FIS 2.0 applications. For hints and ideas of where to start next check out the resources below.
 
 
-## Additional Links and References:
-For addtional details or deeper dives please see the list of links and references below.
+### Getting Started with Fuse Integration Services
 
-### OpenShift:
-* [OpenShift S2I](https://docs.openshift.com/container-platform/3.5/dev_guide/migrating_applications/S2I_tool.html)
+If you are ready for the next step take a look at this detailed guide [_"Getting Started with Fuse Integration Services"_](https://access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.3/html/tooling_user_guide/riderfistools). This thorough guide covers the basics from setting up the JBoss Developer suite of tools, the OpenShift CDK, and creating your first Camel project as well as more advanced topics like securing and using OpenShift to configure your applications.  _Getting Started with Fuse Integration Services_ covers all the basics.
 
-### Scenario Assets:
-* [People Service Template](https://raw.githubusercontent.com/jbossdemocentral/katacoda-fuse-getting-started/master/src/main/openshift/fgstemplate.yml "People Service Template").
+For additional details or deeper dives please see the list of links and references below.
 
-### JBoss Fuse Integration Services:
+### Additional Links and References:
 * [Fuse for agile integration on the cloud – FIS 2.0 release](https://developers.redhat.com/blog/2017/02/21/announcing-fuse-for-agile-integration-on-the-cloud-fis-2-0-release/)
 * [How to run FIS 2.0 application using source S2I deployment procedure](https://developers.redhat.com/blog/2017/08/14/how-to-run-fis-2-0-application-using-source-s2i-deployment-procedure/)
 * [Development workflows with Fuse Integration Services (FIS)](https://developers.redhat.com/blog/2016/09/22/development-workflows-with-fuse-integration-services-fis/)
+
+## OpenShift Links and References
+
+### OpenShift Development Tooling:
+* [Minishift](http://www.openshift.org/vm)
+  Minishift is a complete OpenShift environment that you can run on your local machine.  
+  The project supports Windows, OS X, and the Linux operating system.  To find more about minishift, visit http://www.openshift.org/vm 
+* [oc cluster up](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md)
+  oc cluster up is a command provided by the oc client tool.  It configures and runs an openshift environment 
+  running inside of the native docker system for your operating system.  It supports Windows, OS X, and the Linux 
+  operating sytems.  For more information, visit https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md
+
+### OpenShift S2I References:
+* [OpenShift S2I](https://docs.openshift.com/container-platform/3.5/dev_guide/migrating_applications/S2I_tool.html)
+
+
+## Scenario Assets:
+* [People Service Template](https://raw.githubusercontent.com/jbossdemocentral/katacoda-fuse-getting-started/master/src/main/openshift/fgstemplate.yml "People Service Template").
