@@ -4,7 +4,6 @@ Congratulations!  You just finished learning how to deploy your own JBoss Fuse I
 
 Now you are probably interested in expanding your work with OpenShift in a less structured environment. You can start with setting up your own OpenShift environment if you haven't already or if you have maybe expanding on what you have learned to build your own JBoss FIS 2.0 applications. For hints and ideas of where to start next check out the resources below.
 
-
 ### Getting Started with Fuse Integration Services
 
 If you are ready for the next step take a look at this detailed guide [_"Getting Started with Fuse Integration Services"_](https://access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.3/html/tooling_user_guide/riderfistools). This thorough guide covers the basics from setting up the JBoss Developer suite of tools, the OpenShift CDK, and creating your first Camel project as well as more advanced topics like securing and using OpenShift to configure your applications.  _Getting Started with Fuse Integration Services_ covers all the basics.
@@ -30,6 +29,7 @@ For additional details or deeper dives please see the list of links and referenc
 ### OpenShift S2I References:
 * [OpenShift S2I](https://docs.openshift.com/container-platform/3.5/dev_guide/migrating_applications/S2I_tool.html)
 
-
-## Scenario Assets:
-* [People Service Template](https://raw.githubusercontent.com/jbossdemocentral/katacoda-fuse-getting-started/master/src/main/openshift/fgstemplate.yml "People Service Template").
+## Scenario Code and Assets:
+* [Code Repository on Github](https://github.com/jbossdemocentral/katacoda-fuse-getting-started.git)
+* [People Service Template](https://raw.githubusercontent.com/jbossdemocentral/katacoda-fuse-getting-started/master/src/main/openshift/fgstemplate.yml "People Service Template")
+* [Enterprise Integration Patterns](http://www.enterpriseintegrationpatterns.com/)
