@@ -1,6 +1,6 @@
-In this course you learnt about deploying an application from source code using a Source-to-Image (S2I) builder. You first deployed the application from the web console, following that up with using the command line. You also learnt about using binary input source builds to run builds using source code from a local directory on your own computer.
+In this course you have learned about deploying a JBoss Fuse Integration Service API application from source code using OpenShifts Source-to-Image (S2I) builder. You first deployed the application from the web console, following that up with using the command line. You also learnt about using binary input source builds to run builds using source code from a local directory on your own computer.
 
-The web application you deployed was implemented using the Python programming language. OpenShift provides S2I builders for a number of different programming languages/frameworks in addition to Python. These include Java, NodeJS, Perl, PHP and Ruby.
+OpenShift provides S2I builders for a number of different programming languages/frameworks in addition to Python. These include Java, NodeJS, Perl, PHP and Ruby.
 
 You can find a summary of the key commands covered below. To see more information on each ``oc`` command, run it with the ``--help`` option.
 
@@ -19,3 +19,18 @@ You can find a summary of the key commands covered below. To see more informatio
 ``oc get builds --watch``: Monitor the progress of any active builds.
 
 ``oc get pods --watch``: Monitor any activity related to pods in the project. This will include pods run to handle building and deployment of an application.
+
+
+## Additional Links and References:
+For addtional details or deeper dives please see the list of links and references below.
+
+### OpenShift:
+* [OpenShift S2I](https://docs.openshift.com/container-platform/3.5/dev_guide/migrating_applications/S2I_tool.html)
+
+### Scenario Assets:
+* [People Service Template](https://raw.githubusercontent.com/jbossdemocentral/katacoda-fuse-getting-started/master/src/main/openshift/fgstemplate.yml "People Service Template").
+
+### JBoss Fuse Integration Services:
+* [Fuse for agile integration on the cloud – FIS 2.0 release](https://developers.redhat.com/blog/2017/02/21/announcing-fuse-for-agile-integration-on-the-cloud-fis-2-0-release/)
+* [How to run FIS 2.0 application using source S2I deployment procedure](https://developers.redhat.com/blog/2017/08/14/how-to-run-fis-2-0-application-using-source-s2i-deployment-procedure/)
+* [Development workflows with Fuse Integration Services (FIS)](https://developers.redhat.com/blog/2016/09/22/development-workflows-with-fuse-integration-services-fis/)
