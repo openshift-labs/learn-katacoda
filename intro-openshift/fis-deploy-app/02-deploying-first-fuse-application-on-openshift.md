@@ -2,11 +2,11 @@ Inside the project, where is this case it should be an empty project, a prominen
 
 ![Adding to Empty Project](../../assets/intro-openshift/fis-deploy-app/02-add-to-project-empty.png)
 
-Its now time to build and deploy our People Service API onto OpenShift. To do this we will be using OpenShifts Source 2 Image capabilities, commonly referred to as S2I. The Source-to-Image (S2I) tool injects application source code into a container image and the final product is a new and ready-to-run container image that incorporates the builder image and built source code. You can find more details regarding S2I at the finish of this scenario. 
+Its now time to build and deploy the People Service API onto OpenShift. To do this we will be using OpenShift's Source 2 Image capabilities, also referred to as _S2I_. The OpenShift S2I tool injects application source code into a container image and the final product is a new and ready-to-run container image that incorporates the builder image and built source code. You can find more details regarding S2I at the finish of this scenario. 
 
-To get started with S2I, we will use a pre-defined template for our People Service API which contains the details for the APIs build, deployment, and services configurations. The template also references the source repositories which contain the Fuse API application. For reference the template may be located [here](https://raw.githubusercontent.com/jbossdemocentral/katacoda-fuse-getting-started/master/src/main/openshift/fgstemplate.yml "People Service Template").
+To get started with S2I, we will use a pre-defined template for our People Service API which contains the details for the APIs build, deployment, and services configurations. The template also references the source repositories which contain the Fuse API application. For reference the template is located [here](https://raw.githubusercontent.com/jbossdemocentral/katacoda-fuse-getting-started/master/src/main/openshift/fgstemplate.yml "People Service Template").
 
-Lets head on back over to the terminal, by clicking on the terminal tab at the top. The first step in building and deploying our API is to add the template to OpenShift by executing the following command: SINCE THEY ARE NOT FILLING IN ANY PARAMETERS YOU COULD JUST DO A OC NEW APP AGAINST THE TEMPLATE AND IT WOULD WORK. HAVING THE TEMPLATE HERE MAKES IT A BIT CONFUSING AND MORE FOR A NEW PERSON TO TRY AND UNDERSTAND. IS THERE SOMEWHERE I CAN GO TO SEE THIS TEMPLATE - NOT SURE IT IS CRITICAL BUT IT MIGHT BE GOOD FOR FOLLOW UP LATER.
+Lets head on back over to the terminal, by clicking on the terminal tab at the top. The first step in building and deploying the People Service API is to create a new application based on the provided template by executing the following command:
 
 `oc new-app -f https://raw.githubusercontent.com/jbossdemocentral/katacoda-fuse-getting-started/master/src/main/openshift/fgstemplate.yml`{{execute}}
 
@@ -22,7 +22,7 @@ If successful, you will be prompted with the following output:
 
      * With parameters:
         * Application Name=mypeopleservice
-        * Git Repository URL=https://github.com/weimeilin79/katacoda-fuse-getting-started.git
+        * Git Repository URL=https://github.com/jbossdemocentral/katacoda-fuse-getting-started.git
         * CONTEXT_DIR=
         * Git Reference=master
         * Builder version=2.0
@@ -44,22 +44,16 @@ If successful, you will be prompted with the following output:
     Run 'oc status' to view your app.
 ```
 
-The ``oc start-build`` command tells OpenShift to start the build process which starts downloads, compiles, and utlimately packages your code deployment on OpenShift. !!!!HERE!!! Kick start and build application by running : 
+The ``oc new-app`` command creates a new application in OpenShift either by using a local or remote project. In this case we have used a project hosted remotely at Github, the location of which can be found at the bottom of the referenced [template](https://github.com/jbossdemocentral/katacoda-fuse-getting-started/blob/94f3c2b940aaa50301c0b8d8d66d07de642947ca/src/main/openshift/fgstemplate.yml#L194).
+
+Now that the applications template is configured in our project we can start the build and deployment part of this scenario.
+
+Starting with the ``oc start-build`` command, this tells OpenShift to start the build process which clones the project from the provided Github repository, compiles it, and then ultimately packaging the code deployment as a container on OpenShift. In this case the JBoss FIS 2.0 People Service API project, hosted [here](https://github.com/jbossdemocentral/katacoda-fuse-getting-started) at Github, this is a standard Maven project with a pom.xml and associated sources. The OpenShift's S2I builder knows how to handle Maven project and will execute accordingly when the projects pom file is discovered. So lets kick start and build application and see what happens by running : 
 
 `oc start-build mypeopleservice`{{execute}}
 
-Once complete you should see output similar to: 
+Which is followed by ``build "mypeopleservice-1" started`` if the the command is completed successfully. 
 
-```build "mypeopleservice-1" started```
-
-Using S2I
-To do this we will be using the OpenShift S2I, or Source 2 Image, capabilities of OpenShift. Before we get into 
-
-
-Go back to the OpenShift Web console and click the _Overview_ menu on the left.  Here  you can view the details of the application created and monitor progress as it is built and deployed.  The build will take a little while to complete. This page will refresh periodically as events in the system, such as your build, begin to occur.
-
-![Application Overview](../../assets/intro-openshift/fis-deploy-app/02-build-in-progress.png)
-
-Continue on to see how to monitor the build process.
+How do we know if the build is actually working or not. Well there are a couple of ways we can monitor the build of our application. Continue on to see how.
 
 

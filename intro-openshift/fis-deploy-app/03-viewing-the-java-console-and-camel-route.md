@@ -1,3 +1,15 @@
+Now that we have kicked off our People Service API build and deployment lets take a look at the logs from our build. First we can take a look at the output from the command line.
+
+Execute the following command:
+
+`oc logs -f bc/mypeopleservice`{{execute}}
+
+We should see the streaming output of our build which will look something like a typical Maven build running through its lifecycle. We can also see this output over in the OpenShift Web Console.
+
+Open the OpenShift Web console by selecting the Dashboard tab at the top of your screen and then click the _Overview_ menu on the left. Here  you can view the details of the application created and monitor progress as it is built and deployed.  The build will take a little while to complete. This page will refresh periodically as events in the system, such as your build, begin to occur.
+
+![Application Overview](../../assets/intro-openshift/fis-deploy-app/02-build-in-progress.png)
+
 While a build is running, the _Overview_ page will display a banner. Generally, first time builds will take a couple of minutes the first time through as the build process hydrates the builds local reposiltory with the required build dependencies.
 
 ![Build Progress Banner](../../assets/intro-openshift/fis-deploy-app/03-build-progress-banner.png)
