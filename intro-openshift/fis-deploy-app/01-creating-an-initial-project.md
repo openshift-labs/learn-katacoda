@@ -1,5 +1,3 @@
-Test v3
-
 To get started, first we need to login to OpenShift.
 
 To login to the OpenShift cluster use the following commmand in your _Terminal_:
