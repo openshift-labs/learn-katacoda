@@ -21,6 +21,10 @@ The Route Diagram tab provids a graphical review of all the routes currently dep
 
 ![Detail Camel Route](../../assets/intro-openshift/fis-deploy-app/04-detail-camel-route.png)
 
+Once done, close the console by clicking the back link as shown below and then head back to our terminal:
+
+![Close Hawtio Console](../../assets/intro-openshift/fis-deploy-app/04-hawtio-back-link.png)
+
 
 Now lets take a look at calling the APIs and tracing that output on the Hawtio console.
 
@@ -94,7 +98,9 @@ This will display output similar to:
 } ]
 ```
 
-Back to _Dashboard view_, in the **Hawtio console**, numbers of API calls are also refected on the diagram:
+The terminal is nice and all but what about seeing more details in the **Hawtio console**. Do you remember how to get there? 
+
+Once you get back to the **Hawtio** console, click the **Camel** tab at the top and then select _Route Diagram_ tab just below it and see if anything has changed. Notice anything different?  Check out the number of calls on the associated routes in the diagram which now reflects the number of API calls you made earlier:
 
 ![Camel stats update](../../assets/intro-openshift/fis-deploy-app/04-camel-stats-update.png)
 
