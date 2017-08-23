@@ -50,7 +50,7 @@ This will display output similar to:
 ```
 Go back to the _Dashboard view_, in the **Hawtio console**, you should be able to see the number of message pass through route "get user" has been updated to "1":
 
-_If the numbers do not update at first, click over to the Source or Inflight tab and then back to the Route Diagram screen..._ I NEVER GET THE NUMBERS TO UPDATE, EVEN AFTER CURL'ING FOR DONALD DUCK
+_If the numbers do not update at first, click over to the Source or Inflight tab and then back to the Route Diagram screen..._
 
 ![Get user route udpate](../../assets/intro-openshift/fis-deploy-app/04-get-user-route-update.png)
 
