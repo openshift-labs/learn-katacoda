@@ -13,11 +13,11 @@ You will be taken directly to the pod detail page. Below the *Template* section 
 
 You are now taken to the JBoss Fuse Hawtio console. Continue on to see how we can get better insight into the People Service API through this console deployed with all JBoss FIS 2.0 applications.
 
-Lets get started by taking a look at some statistics provided by the console.  Select the "Route Diagram" to see more detail implementation:
+Lets get started by taking a look at some statistics provided by the console.  Select the "Route Diagram" to see a more detailed implementation:
 
 ![Select Diagram route](../../assets/intro-openshift/fis-deploy-app/04-select-diagram-route.png)
 
-The Route Diagram tab provids a graphical review of all the routes currently deployed in our API application.  After selecting this tab we should see something similar to what is pictured below; 5 routes starting with various Enterprise Integration Patterns, or EIPs, representation of route behavior:
+The Route Diagram tab provids a graphical review of all the routes currently deployed in our API application.  After selecting this tab we should see something similar to what is pictured below; 5 routes represented as Enterprise Integration Patterns, or EIPs. Further details on EIPs can be found at the completions of this scenario:
 
 ![Detail Camel Route](../../assets/intro-openshift/fis-deploy-app/04-detail-camel-route.png)
 

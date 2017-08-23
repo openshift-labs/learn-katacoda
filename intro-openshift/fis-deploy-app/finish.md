@@ -14,6 +14,7 @@ For additional details or deeper dives please see the list of links and referenc
 * [Fuse for agile integration on the cloud – FIS 2.0 release](https://developers.redhat.com/blog/2017/02/21/announcing-fuse-for-agile-integration-on-the-cloud-fis-2-0-release/)
 * [How to run FIS 2.0 application using source S2I deployment procedure](https://developers.redhat.com/blog/2017/08/14/how-to-run-fis-2-0-application-using-source-s2i-deployment-procedure/)
 * [Development workflows with Fuse Integration Services (FIS)](https://developers.redhat.com/blog/2016/09/22/development-workflows-with-fuse-integration-services-fis/)
+* [Enterprise Integration Patterns](http://www.enterpriseintegrationpatterns.com/)
 
 ## OpenShift Links and References
 
@@ -32,4 +33,3 @@ For additional details or deeper dives please see the list of links and referenc
 ## Scenario Code and Assets:
 * [Code Repository on Github](https://github.com/jbossdemocentral/katacoda-fuse-getting-started.git)
 * [People Service Template](https://raw.githubusercontent.com/jbossdemocentral/katacoda-fuse-getting-started/master/src/main/openshift/fgstemplate.yml "People Service Template")
-* [Enterprise Integration Patterns](http://www.enterpriseintegrationpatterns.com/)
