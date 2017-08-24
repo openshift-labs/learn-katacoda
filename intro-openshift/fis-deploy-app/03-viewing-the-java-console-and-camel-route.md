@@ -4,11 +4,15 @@ Execute the following command:
 
 `oc logs -f bc/mypeopleservice`{{execute}}
 
-We should see the streaming output of our build which will look something like a typical Maven build running through its lifecycle. We can also see this output over in the OpenShift Web Console.
+What you will see the streaming output of our build which, for the most part, will look something like a typical Maven build running through its lifecycle. 
+
+![Terminal Build Logging Output](../../assets/intro-openshift/fis-deploy-app/03-build-logging.png){:width="800px"}
+
+When using the ``oc logs -f bc/mypeopleservice`` command we also are passing in the ``-f`` flag. This is the _follow_ flog which streams the output till complete or till you hit _ctrl-c_. This output can also be seen in the OpenShift Web Console.
 
 Open the OpenShift Web console by selecting the _Dashboard_ tab at the top of your screen and then click the _Overview_ menu on the left. Here you can view the details of the application created and monitor progress as it is built and deployed. This page will refresh periodically as events in the system, such as your build, begin to occur.
 
-![Application Overview](../../assets/intro-openshift/fis-deploy-app/02-build-in-progress.png)
+<img alt="Build In Progress Overview Screen" src="../../assets/intro-openshift/fis-deploy-app/02-build-in-progress.png" width="800">
 
 While a build is running, the _Overview_ page will display a banner. To the far right of this banner is a _View Log_ link. Clicking this will take you to the builds logging output screen.
 
