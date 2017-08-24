@@ -43,7 +43,7 @@ same credentials you used above.
 This should take you to the list of projects you have access to. As we only
 created the one project, all you should see is ``fuselab``.
 
-![List of Projects](../../assets/intro-openshift/fis-deploy-app/01-list-of-projects.png)
+![List of Projects](../../assets/intro-openshift/fis-deploy-app/01-list-of-projects-3_6.png)
 
 Click on ``fuselab `` to be taken to the project _Overview_ page for ``fuselab``.
 
