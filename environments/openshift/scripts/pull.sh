@@ -1,4 +1,4 @@
-V=v1.5.0
+V=v3.6.0
 docker pull docker.io/openshift/origin-deployer:$V
 docker pull docker.io/openshift/origin-pod:$V
 docker pull openshift/origin:$V
@@ -15,6 +15,7 @@ docker pull openshift/origin-metrics-deployer:$V
 docker pull openshift/origin-metrics-heapster:$V
 docker pull openshift/origin-metrics-cassandra:$V
 docker pull openshift/origin-metrics-hawkular-metrics:$V
+docker pull openshift/origin-service-catalog:$V
 docker pull openshift/base-centos7:latest
 docker pull openshift/jenkins-1-centos7:latest
 docker pull centos/python-35-centos7:latest
