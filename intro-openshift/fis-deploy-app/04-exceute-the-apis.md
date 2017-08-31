@@ -36,7 +36,7 @@ To highlight these capabilities the People Service API has 3 methods provided wi
 
 > Note: To see the Camel REST APIs defined, check it out [here](https://github.com/jbossdemocentral/katacoda-fuse-getting-started/blob/master/src/main/resources/spring/camel-context.xml)
 
-Switch back over to the _Terminal_ screen and let's try retrieving user information by running:
+Switch back over to the **_Terminal_** screen and let's try retrieving user information by running:
 
 ``curl http://mypeopleservice-fuselab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/people-service/user/123``{{execute}}
 
@@ -48,14 +48,14 @@ This will display output similar to:
   "name" : "John Doe"
 }
 ```
-Go back to the _Dashboard view_, in the **Hawtio console**, you should be able to see the number of message pass through route "get user" has been updated to "1":
+Go back to the **_Dashboard view_**, in the **Hawtio console**, you should be able to see the number of message pass through route "get user" has been updated to "1":
 
-_If the numbers do not update at first, click over to the Source or Inflight tab and then back to the Route Diagram screen..._
+> _Note: If the numbers do not update at first, click over to the Source or Inflight tab and then back to the Route Diagram screen..._
 
 ![Get user route udpate](../../assets/intro-openshift/fis-deploy-app/04-get-user-route-update.png)
 
 
-Lets make some more calls to our User API service.  Switch back over to the _Terminal_ screen and and run each of the following :
+Lets make some more calls to our User API service.  Switch back over to the **_Terminal_** screen and and run each of the following :
 
 ``curl http://mypeopleservice-fuselab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/people-service/user/456``{{execute}}
 
@@ -100,11 +100,11 @@ This will display output similar to:
 
 The terminal is nice and all but what about seeing more details in the **Hawtio console**. Do you remember how to get there? 
 
-Once you get back to the **Hawtio** console, click the **Camel** tab at the top and then select _Route Diagram_ tab just below it and see if anything has changed. Notice anything different?  Check out the number of calls on the associated routes in the diagram which now reflects the number of API calls you made earlier:
+Once you get back to the **Hawtio** console, click the **Camel** tab at the top and then select **_Route Diagram_** tab just below it and see if anything has changed. Notice anything different?  Check out the number of calls on the associated routes in the diagram which now reflects the number of API calls you made earlier:
 
 ![Camel stats update](../../assets/intro-openshift/fis-deploy-app/04-camel-stats-update.png)
 
-And lastly, try adding another user to the list.  Switch back over to the _Terminal_ screen and run :
+And lastly, try adding another user to the list.  Switch back over to the **_Terminal_** screen and run :
 
 ``curl -H "Content-Type: application/json" -X PUT -d '{"id":888, "name" : "Christina"}' http://mypeopleservice-fuselab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/people-service/user``{{execute}}
 
@@ -116,8 +116,8 @@ This will display output similar to:
   "name" : "Christina"
 }
 ```
-Over in the _Dashboard_ browser our _Route Diagram_ should have even more updates as shown below :
+Over in the **_Dashboard_** browser our **_Route Diagram_** should have even more updates as shown below :
 
 ![Camel stats update after PUT](../../assets/intro-openshift/fis-deploy-app/04-camel-stats-update-put.png)
 
-Lets continue on over to the last step of the scenario and take a look at the API docs which our route provides by clicking the _Continue_ button.
+Lets continue on over to the last step of the scenario and take a look at the API docs which our route provides by clicking the **_Continue_** button.
