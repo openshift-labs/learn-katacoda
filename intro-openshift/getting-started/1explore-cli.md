@@ -20,7 +20,7 @@ To contain your application, we use projects. The reason for having a project to
 More technically, it's a visualization of the Kubernetes namespace based on the developer access controls.
 
 ## Command Line Interface (CLI)
-In this course, we're not focusing on CLI, but we want you to be aware of it in case using the command line is your thing. **An additional course specifically for the CLI will be available later.** Now, we're just going to practice logging in so you can get some experience with how the CLI works.
+In this course, we're not focusing on CLI, but we want you to be aware of it in case using the command line is your thing. Check out our other courses which go into the use of the CLI in more depth. Now, we're just going to practice logging in so you can get some experience with how the CLI works.
 
 ## Task
 Let's get started by logging in. Your task is to enter the following into the console:
@@ -29,9 +29,9 @@ Let's get started by logging in. Your task is to enter the following into the co
 
 When prompted, enter the following username and password:
 
->Username: `developer`{{execute}}
+**Username:** ``developer``{{execute}}
 
->Password: `developer`{{execute}}
+**Password:** ``developer``{{execute}}
 
 Next, you can check if it was successful:
 
@@ -39,7 +39,7 @@ Next, you can check if it was successful:
 
 Should return a response of:
 
->developer
+``developer``
 
 That's it!
 

@@ -18,7 +18,7 @@
                     "storage": "10Gi"
                 },
                 "hostPath": {
-                    "path": "/tmp/pv-01"
+                    "path": "/data/pv-01"
                 },
                 "persistentVolumeReclaimPolicy": "Recycle"
             }
@@ -39,7 +39,7 @@
                     "storage": "10Gi"
                 },
                 "hostPath": {
-                    "path": "/tmp/pv-02"
+                    "path": "/data/pv-02"
                 },
                 "persistentVolumeReclaimPolicy": "Recycle"
             }

@@ -9,15 +9,15 @@ To see a list of all the resources that have been created in the project so far,
 This will display output similar to:
 
 ```
-buildconfig/blog
-build/blog-1
-imagestream/blog
-deploymentconfig/blog
-replicationcontroller/blog-1
-route/blog
-service/blog
-pod/blog-1-build
-pod/blog-1-fibfy
+buildconfigs/blog
+builds/blog-1
+imagestreams/blog
+deploymentconfigs/blog
+replicationcontrollers/blog-1
+routes/blog
+services/blog
+pods/blog-1-build
+pods/blog-1-fibfy
 ```
 
 You have only created one application, so you would know that all the resources listed will relate to it. When you have multiple applications deployed, you need to identify those which are specific to the application you may want to delete. You can do this by applying a command to a subset of resources using a label selector.
@@ -68,5 +68,3 @@ To confirm that the resources have been deleted, run again the command:
 If you do still see any resources listed, keep running this command until it shows they have all been deleted. You can find that resources may not be deleted immediately as you only scheduled them for deletion and how quickly they can be deleted will depend on how quickly the application can be shutdown.
 
 Although label selectors can be used to qualify what resources are to be queried, or deleted, do be aware that it may not always be the ``app`` label that you need to use. When an application is created from a template, the labels applied and their names are dictated by the template. As a result, a template may use a different labelling convention. Always use ``oc describe`` to verify what labels have been applied and use ``oc get all --selector`` to verify what resources are matched before deleting any resources.
-
-

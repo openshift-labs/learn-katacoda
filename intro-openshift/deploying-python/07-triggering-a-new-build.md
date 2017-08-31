@@ -58,7 +58,7 @@ Build   Status          Duration        Creation Time
 blog-2  complete        1m9s            2017-06-01 02:07:15 +0000 UTC
 blog-1  complete        1m2s            2017-06-01 02:05:11 +0000 UTC
 
-No events.
+...
 ```
 
 You can see details of the Git repository being used as the source for any build.
@@ -95,47 +95,23 @@ This command will update an environment variable setting file used by S2I to det
 
 Start a new build by running the command:
 
-``oc start-build blog --from-dir=.``{{execute}}
+``oc start-build blog --from-dir=. --wait``{{execute}}
 
-This is similar to what you ran before, with the exception that the option ``--from-dir=.`` is also passed to the command. You should see the output:
+This is similar to what you ran before, with the exception that the option ``--from-dir=.`` is also passed to the command, indicating that source code should be uploaded from the directory on the host where you are running the command, rather than it being pulled down from the hosted Git repository.
+
+The output from running the command should start with:
 
 ```
 Uploading directory "." as binary input for the build ...
-build "blog-3" started
 ```
 
-The result of supplying this option is that the contents of the current working directory will be packaged up and uploaded to OpenShift, with it being used as the source code for the build, rather than the source code being pulled down from the hosted Git repository.
+indicating that the source code is being uploaded.
 
-As before, you can track the progress of the build using ``oc logs --follow`` or ``oc get builds --watch``. A further way you can monitor changes happening in the project, in this case by looking at the running pods in the project, is to run the command:
+The ``--wait`` option is also supplied to indicate that the command should only return when the build has completed. This option can be useful if integrating it into a script and you need to ensure the build has completed before running a subsequent command.
 
-``oc get pods --watch``{{execute}}
+While the build command is running and the application is being deployed, switch to the web console to monitor progress.
 
-This will result in output similar to:
-
-```
-NAME           READY     STATUS      RESTARTS   AGE
-blog-1-build   0/1       Completed   0          6m
-blog-2-build   0/1       Completed   0          1m
-blog-2-mmhtr   1/1       Running     0          35s
-blog-3-build   1/1       Running     0          5s
-blog-3-deploy   0/1       Pending   0          0s
-blog-3-deploy   0/1       ContainerCreating   0         0s
-blog-3-build   0/1       Completed   0         1m
-blog-3-deploy   1/1       Running   0         3s
-blog-3-6plng   0/1       Pending   0         0s
-blog-3-6plng   0/1       ContainerCreating   0         0s
-blog-3-6plng   1/1       Running   0         3s
-blog-2-mmhtr   1/1       Terminating   0         1m
-blog-3-deploy   0/1       Completed   0         13s
-blog-3-deploy   0/1       Terminating   0         13s
-blog-2-mmhtr   0/1       Terminating   0         1m
-```
-
-By monitoring pods using the ``--watch`` option, you can see progress as a new build and deployment occur, along with a new instance of the application being started and the old instance terminated.
-
-To exit the command when the build has completed, type _CTRL-C_ in the terminal window.
-
-If you visit the web application once more, you will see that the banner colour has been changed to blue.
+Once the build and deployment is finished, if you visit the web application once more, you will see that the banner colour has been changed to blue.
 
 ![Blog Web Site](../../assets/intro-openshift/deploying-python/07-blog-web-site-blue.png)
 
@@ -177,5 +153,3 @@ blog-4    Source    Git@fcdc38c      Cancelled   18 seconds ago   10s
 ```
 
 Note that starting a build using source code from a local directory on your own machine can only be done from the command line. There is no way to trigger such a build from the web console.
-
-

@@ -1,14 +1,14 @@
-When you are in an empty project, a prominent _Add to Project_ button will be displayed in the centre of the page.
+In the empty project, select the _Add to Project_ button in the centre of the page.
 
 ![Adding to Empty Project](../../assets/intro-openshift/deploying-python/02-add-to-project-empty.png)
 
-If applications had previously been deployed to the project, or you were not on the project _Overview_ page, you can use the _Add to project_ link in the menu bar.
-
-![Adding via Menu Bar](../../assets/intro-openshift/deploying-python/02-add-to-project-menubar.png)
-
-Clicking on either option, you should be presented with the catalog browser.
+You should be presented with the catalog browser.
 
 ![Catalog Browser](../../assets/intro-openshift/deploying-python/02-add-to-project-browser.png)
+
+If applications had previously been deployed to the project, or you were not on the project _Overview_ page, you can use the _Add to Project_ link in the menu bar.
+
+![Adding via Menu Bar](../../assets/intro-openshift/deploying-python/02-add-to-project-menubar.png)
 
 In this course you are going to deploy a web application which is implemented using the Python programming language.
 

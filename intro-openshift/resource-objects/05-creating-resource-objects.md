@@ -43,9 +43,9 @@ The definition for this route had a unique value for ``route.metadata.name``, wh
 you should see two routes listed.
 
 ```
-NAME            HOST/PORT                                                            PATH      SERVICES   PORT       TERMINATION
-parksmap        parksmap-myproject.2886795339-80-ollie01.environments.katacoda.com             parksmap   8080-tcp
-parksmap-fqdn   www.example.com                                                                parksmap   8080-tcp   edge/Allow
+NAME            HOST/PORT                                                            PATH      SERVICES   PORT       TERMINATION   WILDCARD
+parksmap        parksmap-myproject.2886795339-80-ollie01.environments.katacoda.com             parksmap   8080-tcp                 None
+parksmap-fqdn   www.example.com                                                                parksmap   8080-tcp   edge/Allow    None
 ```
 
 In the case of a route, ``oc create`` provides a sub command specifically for creating a route. You could therefore also have run ``oc create route`` using the command:

@@ -15,7 +15,7 @@ This should display output similar to:
 
     Python 3.5
     ----------
-    Platform for building and running Python 3.5 applications
+    ...
 
     Tags: builder, python, python35, rh-python35
 
@@ -40,7 +40,7 @@ OpenShift will assign a default name for the application created based on the na
 
 To monitor the log output from the build as it is running, run the command:
 
-``oc logs -f bc/blog --follow``{{execute}}
+``oc logs bc/blog --follow``{{execute}}
 
 This command will exit once the build has completed. You can also interrupt the command by typing _CTRL-C_ in the terminal window.
 
@@ -58,7 +58,7 @@ svc/blog - 172.30.35.238:8080
     bc/blog source builds https://github.com/openshift-katacoda/blog-django-py on openshift/python:latest
     deployment #1 deployed 4 minutes ago - 1 pod
 
-3 warnings identified, use 'oc status -v' to see details.
+View details with 'oc describe <resource>/<name>' or list everything with 'oc get all'.
 ```
 
 Unlike the case of deploying the application from the web console, the application is not exposed outside of the OpenShift cluster by default. To expose the application created so it is available outside of the OpenShift cluster, you can run the command:

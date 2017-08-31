@@ -1,4 +1,4 @@
-Once the build of the application image has completed, it will be deployed. The _Overview_ page will indicate this by the banner listing the status of the build as complete. The _Deployment Config_ pane will also show the state of the deployment and indicate the number of running pods.
+Once the build of the application image has completed, it will be deployed, the _Overview_ page showing the details. Click on the arrow to the left of the deployment summary to expose all the details available for the application on the overview page.
 
 ![Build has Completed](../../assets/intro-openshift/deploying-python/04-build-has-completed.png)
 
