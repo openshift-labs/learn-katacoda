@@ -8,7 +8,7 @@ What you will see is the streaming output of our build which, for the most part,
 
 ![Terminal Build Logging Output](../../assets/intro-openshift/fis-deploy-app/03-1-cli-build-logging.png)
 
-As part of the ``oc logs -f bc/mypeopleservice`` command we also are passing in the ``-f`` flag. This is the **_follow_** flog which streams the output till complete or till you hit **_ctrl-c_**. This output can also be seen in the OpenShift Web Console.
+As part of the ``oc logs -f bc/mypeopleservice`` command we also are passing in the ``-f`` flag. This is the **_follow_** log flag which streams the output till complete or till you hit **_ctrl-c_**. This output can also be seen in the OpenShift Web Console.
 
 Now open the OpenShift Web console by selecting the **_Dashboard_** tab at the top of your screen and then click the **_Overview_** menu on the left. Here you can view the details of the application created and monitor progress as it is built and deployed. This page will refresh periodically as events in the system, such as your build, begin to occur.
 
@@ -26,7 +26,7 @@ Once the build begins for an application, a **_Builds_** frame will appear in th
 > _Note: Generally, first time builds will take an additional few minutes to complete as Maven initializes the applications local repository._
 
 
-At a quick glance, the build summary is more than helpful but what if we need to take a deeper look at the build output logs? Well, you have a couple ways available to view the full logs output in progress, the first of which is clicking on **_View Log_** (#3 above). This will bring you to the **_Logs_** tab of the **_Pod_** for the build which is running.
+At a quick glance, the build summary is more than helpful but what if we need to take a deeper look at the build output logs? Well, you have a couple ways available to view the full logs output in progress, the first of which is clicking on **_View Full Log_** (#3 above). This will bring you to the **_Logs_** tab of the **_Pod_** for the build which is running.
 
 ![Running Build Log](../../assets/intro-openshift/fis-deploy-app/03-4-build-log.png)
 
