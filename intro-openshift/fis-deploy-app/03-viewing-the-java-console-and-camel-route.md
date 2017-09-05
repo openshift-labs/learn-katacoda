@@ -37,5 +37,5 @@ Once the build of the application image has completed, it will be deployed. The 
 
 ![Build has Completed](../../assets/intro-openshift/fis-deploy-app/03-build-has-completed.png)
 
-Now that we have successfully built our application, lets take take it for a test drive on the JBoss Fuse Hawtio console.  
+Now that we have successfully built our application, lets take it for a test drive on the JBoss Fuse Hawtio console.  
 
