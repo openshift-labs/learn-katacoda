@@ -1,7 +1,7 @@
 In this next section of the scenario we will use the JBoss FIS 2.0 Hawtio Console to test and review the behavior of our new route.  
 
 ### What is Hawtio? 
-The JBoss Fuse Hawtio console provides in depth details into the Camel and ActiveMQ components deployed as part of a JBoss FIS 2.0 application. This includes standard JVM resources such as memeory and threads as well as JMX attributes and operations. The Hawtio console also provides a full selection of tools used to drill into the JBoss FIS 2.0 Camel and ActiveMQ components.
+The JBoss Fuse Hawtio console provides in depth details into the Camel and ActiveMQ components deployed as part of a JBoss FIS 2.0 application. This includes standard JVM resources such as memory and threads as well as JMX attributes and operations. The Hawtio console also provides a full selection of tools used to drill into the JBoss FIS 2.0 Camel and ActiveMQ components.
 
 To get there we start with selecting the Applications menu on the left and then select Pods.
 

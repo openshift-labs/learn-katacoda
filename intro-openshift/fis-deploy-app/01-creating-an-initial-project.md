@@ -14,7 +14,7 @@ You should see the output:
 ```
 Login successful.
 
-Now we need to creae a Project space in OpenShift for our API.  In OpenShift we can create a new project by running
+Now we need to create a Project space in OpenShift for our API.  In OpenShift we can create a new project by running
 
     oc new-project <projectname>
 ```
