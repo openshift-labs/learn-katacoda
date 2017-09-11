@@ -17,7 +17,7 @@ Lets get started by taking a look at some statistics provided by the console.  S
 
 ![Select Diagram route](../../assets/intro-openshift/fis-deploy-app/04-select-diagram-route.png)
 
-The Route Diagram tab provids a graphical review of all the routes currently deployed in our API application.  After selecting this tab we should see something similar to what is pictured below; 5 routes represented as Enterprise Integration Patterns, or EIPs. Further details on EIPs can be found at the completions of this scenario:
+The Route Diagram tab provides a graphical review of all the routes currently deployed in our API application.  After selecting this tab we should see something similar to what is pictured below; 5 routes represented as Enterprise Integration Patterns, or EIPs. Further details on EIPs can be found at the completions of this scenario:
 
 ![Detail Camel Route](../../assets/intro-openshift/fis-deploy-app/04-detail-camel-route.png)
 
