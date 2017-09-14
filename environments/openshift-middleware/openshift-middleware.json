@@ -36,6 +36,7 @@
             "scripts": [
                 "scripts/openshift.sh",
                 "scripts/pull.sh",
+                "scripts/middleware.sh",
                 "scripts/zerodisk.sh"
             ]
         }
