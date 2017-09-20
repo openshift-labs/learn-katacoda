@@ -44,11 +44,11 @@ If successful, you will be prompted with the following output:
     Run 'oc status' to view your app.
 ```
 
-The ``oc new-app`` command creates a new application in OpenShift either by using a local or remote project. In this case we have used a project hosted remotely at Github, the location of which can be found at the bottom of the referenced [template](https://github.com/jbossdemocentral/katacoda-fuse-getting-started/blob/94f3c2b940aaa50301c0b8d8d66d07de642947ca/src/main/openshift/fgstemplate.yml#L194).
+The ``oc new-app`` command creates a new application in OpenShift either by using a local or remote project. In this case we have used a project hosted remotely at GitHub, the location of which can be found at the bottom of the referenced [template](https://github.com/jbossdemocentral/katacoda-fuse-getting-started/blob/94f3c2b940aaa50301c0b8d8d66d07de642947ca/src/main/openshift/fgstemplate.yml#L194).
 
 Now that the applications template is configured in our project we can start the build and deployment part of this scenario.
 
-We start a build with the ``oc start-build`` command. This command tells OpenShift to start a build process which then clones the project from the provided Github repository, compiles it, and then ultimately packaging the code deployment as a container on OpenShift. In this case the JBoss FIS 2.0 People Service API project, hosted [here](https://github.com/jbossdemocentral/katacoda-fuse-getting-started) at Github, is a standard Maven project with a pom.xml and associated sources. The OpenShift's S2I builder knows how to handle a Maven project and will execute accordingly when the projects pom file is discovered. So lets kick start and build application and see what happens by running : 
+We start a build with the ``oc start-build`` command. This command tells OpenShift to start a build process which then clones the project from the provided GitHub repository, compiles it, and then ultimately packaging the code deployment as a container on OpenShift. In this case the JBoss FIS 2.0 People Service API project, hosted [here](https://github.com/jbossdemocentral/katacoda-fuse-getting-started) at GitHub, is a standard Maven project with a pom.xml and associated sources. The OpenShift's S2I builder knows how to handle a Maven project and will execute accordingly when the projects pom file is discovered. So lets kick start and build application and see what happens by running : 
 
 `oc start-build mypeopleservice`{{execute}}
 

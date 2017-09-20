@@ -23,13 +23,13 @@ For additional details or deeper dives please see the list of links and referenc
   Minishift is a complete OpenShift environment that you can run on your local machine.  
   The project supports Windows, OS X, and the Linux operating system.  To find more about minishift, visit http://www.openshift.org/vm 
 * [oc cluster up](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md)
-  oc cluster up is a command provided by the oc client tool.  It configures and runs an openshift environment 
+  oc cluster up is a command provided by the oc client tool.  It configures and runs an OpenShift environment 
   running inside of the native docker system for your operating system.  It supports Windows, OS X, and the Linux 
-  operating sytems.  For more information, visit https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md
+  operating systems.  For more information, visit https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md
 
 ### OpenShift S2I References:
 * [OpenShift S2I](https://docs.openshift.com/container-platform/3.5/dev_guide/migrating_applications/S2I_tool.html)
 
 ## Scenario Code and Assets:
-* [Code Repository on Github](https://github.com/jbossdemocentral/katacoda-fuse-getting-started.git)
+* [Code Repository on GitHub](https://github.com/jbossdemocentral/katacoda-fuse-getting-started.git)
 * [People Service Template](https://raw.githubusercontent.com/jbossdemocentral/katacoda-fuse-getting-started/master/src/main/openshift/fgstemplate.yml "People Service Template")
