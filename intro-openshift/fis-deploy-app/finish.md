@@ -19,7 +19,7 @@ For additional details or deeper dives please see the list of links and referenc
 ## OpenShift Links and References
 
 ### OpenShift Development Tooling:
-* [Minishift](http://www.openshift.org/vm)
+* [Minishift](https://www.openshift.org/minishift/)
   Minishift is a complete OpenShift environment that you can run on your local machine.  
   The project supports Windows, OS X, and the Linux operating system.  To find more about minishift, visit http://www.openshift.org/vm 
 * [oc cluster up](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md)
