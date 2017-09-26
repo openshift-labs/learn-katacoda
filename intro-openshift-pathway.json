@@ -42,14 +42,6 @@
       "external_link": "https://learn.openshift.com/introduction/fis-deploy-app/",
       "course_id": "fis-deploy-app",
       "title": "OpenShift for Fuse Developers"
-    },{
-      "external_link": "https://learn.openshift.com/introduction/middleware-test/",
-      "course_id": "middleware-test",
-      "title": "Test of the middleware image"
-    },{
-      "external_link": "https://learn.openshift.com/introduction/rhoar-eao/",
-      "course_id": "rhoar-eap",
-      "title": "Introduction to Red Hat Application Runtime - EAP"
     }
   ]
 }
