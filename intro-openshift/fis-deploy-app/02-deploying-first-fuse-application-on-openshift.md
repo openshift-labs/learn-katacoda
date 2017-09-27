@@ -2,7 +2,7 @@ Lets get started adding an application to the **fuselab** project
 
 ![Adding to Empty Project](../../assets/intro-openshift/fis-deploy-app/02-add-to-project-empty.png)
 
-Its now time to build and deploy the People Service API onto OpenShift. To do this we will be using OpenShift's Source 2 Image capabilities, also referred to as _S2I_. The OpenShift S2I tool injects application source code into a container image and the final product is a new and ready-to-run container image that incorporates the builder image and built source code. You can find more details regarding S2I at the finish of this scenario. 
+Its now time to build and deploy the People Service API onto OpenShift. To do this we will be using OpenShift's Source 2 Image capabilities, also referred to as **_S2I_** . The OpenShift S2I tool injects application source code into a container image and the final product is a new and ready-to-run container image that incorporates the builder image and built source code. You can find more details regarding S2I at the finish of this scenario. 
 
 To get started with S2I, we will use a pre-defined template for our People Service API which contains the details for the APIs build, deployment, and services configurations. The template also references the source repositories which contain the Fuse API application. For reference the template is located [here](https://raw.githubusercontent.com/jbossdemocentral/katacoda-fuse-getting-started/master/src/main/openshift/fgstemplate.yml "People Service Template").
 
@@ -54,6 +54,6 @@ We start a build with the ``oc start-build`` command. This command tells OpenShi
 
 Which is followed by ``build "mypeopleservice-1" started`` if the the command is completed successfully. 
 
-How do we know if the build is actually working or not. Well there are a couple of ways we can monitor the build of our application. Continue on to see how.
+How do we know if the build is actually working or not. Well there are a couple of ways we can monitor the build of our application. Click **_Continue_** on to see how.
 
 

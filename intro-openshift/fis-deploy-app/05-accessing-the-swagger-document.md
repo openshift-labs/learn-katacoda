@@ -144,4 +144,4 @@ Your output should look similar to that one presented below:
 }
 ```
 
-And there you have it.  In just 15 minutes you have spun up a project on OpenShift and rolled out your new API.  Pretty simple isn't it.  Stay tuned as we expand our JBoss Fuse API tutorial by demonstrating how to customize your JBoss Fuse API service.  Cheers!!!
+And there you have it.  In just 15 minutes you have spun up a project on OpenShift and rolled out your new API.  Pretty simple isn't it.  Stay tuned as we expand our JBoss Fuse API tutorial by demonstrating how to customize your JBoss Fuse API service. Cheers!!!
