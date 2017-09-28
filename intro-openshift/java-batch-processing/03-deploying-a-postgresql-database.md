@@ -10,8 +10,8 @@ Although a database would normally be paired with a persistent volume, we only w
 Click _Select_ button, and on the next page enter database parameters. We will only specify database
 user name and password, and leave other fields with default values.
 
-_PostgreSQL Connection Username_: jberet
-_PostgreSQL Connection Password_: jberet
+* _PostgreSQL Connection Username_: ``jberet``{{copy}}
+* _PostgreSQL Connection Password_: ``jberet``{{copy}}
 
 ![PostgreSQL Parameters](../../assets/intro-openshift/java-batch-processing/03-postgresql-params.png)
 

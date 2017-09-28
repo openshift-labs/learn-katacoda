@@ -1,4 +1,7 @@
-Now we are ready to run the batch application. 
+Now we are ready to run the batch application. This sample application contains a job
+named ``csv2db``, which reads data from 
+[an online CSV resource of movies](https://raw.githubusercontent.com/jberet/jsr352/master/jberet-support/src/test/resources/movies-2012.csv), 
+and writes them in chunks to PostgreSQL database table ``MOVIES``.
 
 To start the job named ``csv2db``
 
@@ -37,11 +40,11 @@ To get details and status of a job execution, just follow the href link given ab
 
 To get all step executions belonging to a job execution (your job execution id may be different):
 
-``curl $APP/jobexecutions/1/stepexecutions/``{{execution}}
+``curl $APP/jobexecutions/1/stepexecutions/``{{execute}}
 
 To get details for a step execution (your job and step execution id may be different):
 
-``curl $APP/jobexecutions/1/stepexecutions/2``{{execution}}
+``curl $APP/jobexecutions/1/stepexecutions/2``{{execute}}
 
 ```json
 {
