@@ -6,12 +6,8 @@ In this self-paced tutorial you will learn how to build, deploy, and execute Jav
  * composing a job with both batchlet step and chunk step
  * chunked reading and writing with transaction checkpointing
  * start/restart/stop/abandon/schedule job executions
- * list job execution details and status
- * list step execution details and status
+ * list job and step execution details and status
  
- This sample batch application reads from an online CSV resource in chunk, and writes
- output to PostgreSQL database.
-
 ## Before you get started
 
 If you are not familiar with the OpenShift Container Platform, it's worth taking a few minutes to understand the basics of the platform as well as the environment that you will be using for this self paced tutorial.  Head on over to [Learning OpenShift - Getting Started](https://learn.openshift.com/introduction/getting-started/).

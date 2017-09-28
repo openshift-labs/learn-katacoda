@@ -17,8 +17,8 @@ http://intro-jberet-jberet-lab.2886795305-80-ollie02.environments.katacoda.com t
 
 View details with 'oc describe <resource>/<name>' or list everything with 'oc get all'.
 ```
-Create an environment variable by concatenating the application URL in 2nd line of the output, 
-and ``/intro-jberet/api``. For example (your URL is different):
+Create an environment variable by concatenating the application URL (NOT the IP address), 
+and ``/intro-jberet/api``{{copy}}. For example (your URL is different):
  
 ``export APP=http://intro-jberet-jberet-lab.2886795305-80-ollie02.environments.katacoda.com/intro-jberet/api``
 

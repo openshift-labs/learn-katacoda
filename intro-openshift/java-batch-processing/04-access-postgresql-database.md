@@ -6,7 +6,7 @@ click PostgreSQL POD with blue circle:
 
 It then takes you to the POD detail page, similar to the following:
 
-[PostgreSQL POD Detail](../../assets/intro-openshift/java-batch-processing/04-postgresql-pod.png)
+![PostgreSQL POD Detail](../../assets/intro-openshift/java-batch-processing/04-postgresql-pod.png)
 
 Here you can view PostgreSQL POD details, environment variables, logs, events and access its terminal,
 all available through the the menu tab near the top.
@@ -14,7 +14,7 @@ all available through the the menu tab near the top.
 We will access the POD terminal to get the database connection info. Click the _Terminal_ tab, and
 run ``env | grep POSTGRES`` command in this terminal:
 
-[PostgreSQL POD](../../assets/intro-openshift/java-batch-processing/04-postgresql-terminal.png)
+![PostgreSQL POD](../../assets/intro-openshift/java-batch-processing/04-postgresql-terminal.png)
 
 Among all these PostgreSQL database parameters, we will need ``POSTGRESQL_SERVICE_HOST`` value, 
 and rely on default values for other parameters. So copy its value, similar to ``172.30.245.228``,

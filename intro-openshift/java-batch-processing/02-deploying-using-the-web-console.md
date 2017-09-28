@@ -36,7 +36,7 @@ When you are ready, at the bottom of the page click on _Create_. This will take 
 
 ![Application Image Details](../../assets/intro-openshift/java-batch-processing/02-continue-to-overview.png)
 
-Click on _Go to overview_ and you will be returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is built and deployed.
+Click on _Continue to overview_ and you will be returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is built and deployed.
 
 ![Application Overview](../../assets/intro-openshift/java-batch-processing/02-build-in-progress.png)
 
