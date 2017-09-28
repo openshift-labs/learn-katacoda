@@ -38,9 +38,14 @@ To get details and status of a job execution, just follow the href link given ab
 
 ``curl $APP/jobexecutions/1``{{execute}}
 
+The output is the same as above, except that the job has completed and its batch status 
+should be ``COMPLETED``
+
 To get all step executions belonging to a job execution (your job execution id may be different):
 
 ``curl $APP/jobexecutions/1/stepexecutions/``{{execute}}
+
+The output should include 2 step executions (details omitted here).
 
 To get details for a step execution (your job and step execution id may be different):
 
@@ -97,14 +102,17 @@ Just some notes about the step metrics:
 * ``COMMIT_COUNT: 11`` indicates all these items were split into chunks with 11 transactions
 
 To check PostgreSQL database table content, switch to OpenShift dashboard, 
-go to PostgreSQL POD, click _Terminal_ tab, and ``psql`` tool with ``sampledb`` as database name
+select PostgreSQL POD, and then click _Terminal_ tab to launch the web terminal.
+
+Inside PostgreSQL POD web terminal, run ``psql`` tool with ``sampledb`` as database name
 and ``jberet`` as user name:
 
-``psql sampledb jberet``
+``psql sampledb jberet``{{copy}}
 
-After ``psql`` tool starts, issue the following SQL statement:
+Inside ``psql`` tool, issue the following SQL statement, and the query result should have
+100 rows of movie data:
 
-``select * from MOVIES;``
+``select * from MOVIES;``{{copy}}
 
 ![PostgreSQL Table Content](../../assets/intro-openshift/java-batch-processing/06-psql.png)
 

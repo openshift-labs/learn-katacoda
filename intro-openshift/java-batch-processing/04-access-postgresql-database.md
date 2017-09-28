@@ -11,8 +11,8 @@ It then takes you to the POD detail page, similar to the following:
 Here you can view PostgreSQL POD details, environment variables, logs, events and access its terminal,
 all available through the the menu tab near the top.
 
-We will access the POD terminal to get the database connection info. Click the _Terminal_ tab, and
-run ``env | grep POSTGRES`` command in this terminal:
+We will access the POD web terminal to get the database connection info. Click the _Terminal_ tab, and
+run ``env | grep POSTGRES``{{copy}} command in web terminal:
 
 ![PostgreSQL POD](../../assets/intro-openshift/java-batch-processing/04-postgresql-terminal.png)
 
@@ -20,8 +20,9 @@ Among all these PostgreSQL database parameters, we will need ``POSTGRESQL_SERVIC
 and rely on default values for other parameters. So copy its value, similar to ``172.30.245.228``,
 by selecting it, right-clicking, and choosing _Copy_ in the context menu.
 
-Save ``POSTGRESQL_SERVICE_HOST`` value in an environment variable in terminal. Switch to terminal,
-and set the following environment variable. For example (your value is different):
+Save ``POSTGRESQL_SERVICE_HOST`` value in environment variable ``DB`` 
+in client _Terminal_(NOT the POD web terminal). Switch to client _Terminal_, 
+and set the following environment variable. For example (your value may be different):
 
 ``export DB=172.30.245.228``
 

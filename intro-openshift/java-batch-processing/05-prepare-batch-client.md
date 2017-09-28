@@ -3,7 +3,7 @@ how to communicate with the server-side components. We will use ``curl`` to invo
 REST API to perform various batch processing operations.
 
 First, we need to get the application URL and save it to an environment variable
-for easy access. Run the following command in the terminal:
+for easy access. Run the following command in the _Terminal_:
 
 ``oc status``{{execute}}
 
@@ -17,8 +17,8 @@ http://intro-jberet-jberet-lab.2886795305-80-ollie02.environments.katacoda.com t
 
 View details with 'oc describe <resource>/<name>' or list everything with 'oc get all'.
 ```
-Create an environment variable by concatenating the application URL (NOT the IP address), 
-and ``/intro-jberet/api``{{copy}}. For example (your URL is different):
+Create environment variable ``APP`` by concatenating the application URL shown above (NOT the IP address), 
+and ``/intro-jberet/api``{{copy}}. For example (your URL may be different):
  
 ``export APP=http://intro-jberet-jberet-lab.2886795305-80-ollie02.environments.katacoda.com/intro-jberet/api``
 
