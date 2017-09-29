@@ -42,12 +42,13 @@ Click on _Continue to overview_ and you will be returned to the _Overview_ page,
 
 
 To view details of application build and deployment, expand _DEPLOYMENT intro-jberet_ panel:
+[Can you please change this image to have a build success]
 
 ![Deployment Details](../../assets/intro-openshift/java-batch-processing/02-build-details.png)
 
 Here you can view full logs, and error messages if any. Once the build completes, 
-click the URL under the application name ``intro-jberet``, similar to:
+click the URL under the application name ``intro-jberet``, which should be:
 
-`http://intro-jberet-jberet-lab.2886795351-80-ollie02.environments.katacoda.com/`
+`https:// intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-[[KATACODA_HOST]].environments.katacoda.com/`
 
 This will take you to WildFly 10.1 landing page, which shows the application server is up and running.
