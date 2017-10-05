@@ -22,6 +22,8 @@ Can you see all of the layers that make up the new image/repository/tag? This co
 
 ``docker history rhel7-change``{{execute}}
 
-Now run the "dockviz" command. What does this command show you? What's the parent image of the rhel7-change image? It is important to build on a trusted base image from a trusted source (aka have provenance or maintain chain of custody).
+Now run the "dockviz" command. What does this command show you? What's the parent image of the rhel7-change image? 
 
 ``docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t``{{execute}}
+
+Notice that with the dockviz command we can trace back to the rhel7 base image. Remember, it is important to build on a trusted base image from a trusted source (aka have provenance or maintain chain of custody).
