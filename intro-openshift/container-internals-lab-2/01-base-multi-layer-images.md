@@ -1,10 +1,12 @@
 The goal of this exercise is to understand the difference between base images and multi-layered images (repositories). Also, try to understand the difference between an image layer and a repository.
 
-First, let's take a look at some base images. We will use the docker history command to inspect all of the layers in these repositories. Notice that these container images have no parent layers. These are base images and they are designed to be built upon.
+Let's take a look at some base images. We will use the docker history command to inspect all of the layers in these repositories. Notice that these container images have no parent layers. These are base images and they are designed to be built upon. First, let's look at the full rhel7 base image:
 
 ``docker pull rhel7``{{execute}}
 
 ``docker history rhel7``{{execute}}
+
+Now, let's take a look at the minimal base image from Red Hat, called the Red Hat Enterprise Linux 7 Atomic image. Notice that it's quite a bit smaller:
 
 ``docker pull rhel7-atomic``{{execute}}
 
@@ -26,4 +28,4 @@ Now run the "dockviz" command. What does this command show you? What's the paren
 
 ``docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t``{{execute}}
 
-Notice that with the dockviz command we can trace back to the rhel7 base image. Remember, it is important to build on a trusted base image from a trusted source (aka have provenance or maintain chain of custody).
+Notice that with the dockviz command we can trace back to the rhel7 base image. Remember, it is important to build on a trusted base image from a trusted source (aka have provenance or maintain chain of custody). Container repositories are made up of layers, but we often refer to them simply as "container images" or containers. When architecting systems, we must be precise with our language or we will cause confusion to our end users.
