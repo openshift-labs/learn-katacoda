@@ -15,7 +15,7 @@ This video will give you a background to all of the concepts in this lab
 
 ## Outline
 - Containers Are Linux: Userspace libraries interact with the kernel to isolate processes
-- Single Host Toolchain: Includes Docker runtime, Systemd, and Lincontainer
+- Single Host Toolchain: Includes Docker runtime, Systemd, runc, and Libcontainer
 - Multi-Host Toolchain: Includes Kubernetes/OpenShift
 - Typical Architecture: Explains what a production cluster looks like
 - Community Landscape: Explains the basics of the upstream projects and how they are contributing
