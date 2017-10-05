@@ -30,7 +30,9 @@ Now, initiate a distributed build on the OpenShift cluster. The yaml file below 
 
 Inspect the builds in the web interface. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster.
 
-https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/lab02-exercise04/browse/builds
+Username: `admin`{{copy}}
+Password: `admin`{{copy}}
+Console: [here](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/lab02-exercise04/browse/builds)
 
 When the core build completes, inspect some of the dependent builds. Pay particular attention to the "Node:" and "Events:" sections
 
