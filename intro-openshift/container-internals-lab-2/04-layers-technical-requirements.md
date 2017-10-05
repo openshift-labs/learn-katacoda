@@ -25,7 +25,8 @@ corebuild                                                   latest              
 Now, initiate a distributed build on the OpenShift cluster. The yaml file below will create everything you need. Once the builds complete, the images will be placed in the OpenShift registry and are usable in the cluster:
 
 ``oc new-project lab02-exercise04``{{execute}}
-``oc create -f exercise-04/AutomaticSupplyChain.yaml``{{execute}}
+
+``oc create -f ~/assets/exercise-04/AutomaticSupplyChain.yaml``{{execute}}
 
 Inspect the builds in the web interface. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster.
 
@@ -34,6 +35,7 @@ https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/cons
 When the core build completes, inspect some of the dependent builds. Pay particular attention to the "Node:" and "Events:" sections
 
 ``oc describe pod wordpress-1-build``{{execute}}
+
 ``oc describe pod httpd-ruby-1-build``{{execute}}
 
 These images can now be used to build (BuildConfigs) and Deploy (DeploymentConfigs) other applications:
