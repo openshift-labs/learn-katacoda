@@ -31,7 +31,7 @@
     {
       "external_link": "https://learn.openshift.com/introduction/container-internals-lab-2/",
       "course_id": "container-internals-lab-2",
-      "title": "Linux Container Internals: Lab 2: Single Host Toolchain"
+      "title": "Linux Container Internals: Lab 2: Container Images"
     }
   ]
 }
