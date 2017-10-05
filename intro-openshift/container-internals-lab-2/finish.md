@@ -1,10 +1,10 @@
 In this course you learned:
 
-- Containers Are Linux: Userspace libraries interact with the kernel to isolate processes
-- Single Host Toolchain: Includes Docker runtime, Systemd, and Lincontainer
-- Multi-Host Toolchain: Includes Kubernetes/OpenShift
-- Typical Architecture: Explains what a production cluster looks like
-- Community Landscape: Explains the basics of the upstream projects and how they are contributing
+- Understand what the Open Containers Intiative and why this standard is important for your container images
+- Internalize the difference between base images and multi-layered images
+- Understand the full URL to an image/repository
+- Command a complete understanding of what is inside of a container image
+- Use layers appropriately in your architecure and design
 
 You can find a copy of the slides and GitHub repo that contains all of these commands so that you can run them yourself in your own environment:
 
