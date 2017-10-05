@@ -6,7 +6,7 @@ Notice that dynamic scripting languages are also compiled and linked against sys
 
 ``docker run -it rhel7 ldd /usr/bin/python``{{execute}}
 
-Inspecting a common tool like "curl" demonstrates how many libraries are used from the operating system. First, start the RHEL Tools container:
+Inspecting a common tool like "curl" demonstrates how many libraries are used from the operating system. First, start the RHEL Tools container. This is a special image which Red Hat releases with all of the tools necessary for troubleshooting in a containerized environment. It's quite convenient:
 
 ``docker run -it rhel7/rhel-tools bash``{{execute}}
 
