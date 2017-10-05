@@ -2,7 +2,11 @@ The goal of this exercise is to understand the difference between base images an
 
 First, let's take a look at some base images. We will use the docker history command to inspect all of the layers in these repositories. Notice that these container images have no parent layers. These are base images and they are designed to be built upon.
 
+``docker pull rhel7``{{execute}}
+
 ``docker history rhel7``{{execute}}
+
+``docker pull rhel7-atomic``{{execute}}
 
 ``docker history rhel7-atomic``{{execute}}
 
