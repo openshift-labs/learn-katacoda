@@ -4,8 +4,6 @@ Now we are going to inspect the different parts of the URL that you pull. The mo
 
 But, what's really going on? Well, similar to DNS, the docker command line is resolving the full URL and TAG of the repository on the registry server. The following command will give you the exact same results:
 
-``docker pull registry.access.redhat.com/rhel7/rhel:latest``{{execute}}
-
 ``docker inspect registry.access.redhat.com/rhel7/rhel:latest``{{execute}}
 
 You can run any of the following commands and you will get the exact same results as well:

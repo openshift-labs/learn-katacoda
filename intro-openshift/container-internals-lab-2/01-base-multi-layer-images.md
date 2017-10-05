@@ -2,13 +2,13 @@ The goal of this exercise is to understand the difference between base images an
 
 Let's take a look at some base images. We will use the docker history command to inspect all of the layers in these repositories. Notice that these container images have no parent layers. These are base images and they are designed to be built upon. First, let's look at the full rhel7 base image:
 
-``docker pull rhel7``{{execute}}
+``docker pull registry.access.redhat.com/rhel7/rhel:latest``{{execute}}
 
 ``docker history rhel7``{{execute}}
 
 Now, let's take a look at the minimal base image from Red Hat, called the Red Hat Enterprise Linux 7 Atomic image. Notice that it's quite a bit smaller:
 
-``docker pull rhel7-atomic``{{execute}}
+``docker pull registry.access.redhat.com/rhel7-atomic:latest``{{execute}}
 
 ``docker history rhel7-atomic``{{execute}}
 
