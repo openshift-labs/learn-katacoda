@@ -1,13 +1,16 @@
 The goal of this exercise is to understand the difference between base images and multi-layered images (repositories). Also, try to understand the difference between an image layer and a repository.
 
 First, let's take a look at some base images. We will use the docker history command to inspect all of the layers in these repositories. Notice that these container images have no parent layers. These are base images and they are designed to be built upon.
+
 ``docker history rhel7``{{execute}}
 ``docker history rhel7-atomic``{{execute}}
 
 Now, build a multi-layered image:
+
 ``docker build -t rhel7-change exercise-01/``{{execute}}
 
 Do you see the newly created rhel7-change image?
+
 ``docker images``{{execute}}
 
 Can you see all of the layers that make up the new image/repository? This command even shows a short summary of the commands run in each layer. This is very convenient for exploring how an image was made.
