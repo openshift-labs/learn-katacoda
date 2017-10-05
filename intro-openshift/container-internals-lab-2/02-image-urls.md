@@ -22,7 +22,7 @@ You can run any of the following commands and you will get the exact same result
 
 Now, let's build another image, but give it a tag other than "latest":
 
-``docker build -t registry.access.redhat.com/rhel7/rhel:test exercise-01/``{{execute}}
+``docker build -t registry.access.redhat.com/rhel7/rhel:test ~/assets/exercise-01/``{{execute}}
 
 Now, notice there is another tag
 
@@ -32,6 +32,9 @@ Now try the resolution trick again. What happened?
 
 ``docker inspect rhel7:test``{{execute}}
 
-Notice that full resolution only works with the latest tag. You have to specify the namespace and the repository with other tags. There are a lot of caveats to namespace, repository and tag resolution, so be careful. Typically, it's best to use the full URL. Remember this when building scripts.
+It failed, but why? Try again with a more complete URL:
 
 ``docker inspect rhel7/rhel:test``{{execute}}
+
+Notice that the DNS-like resolution only works with the latest tag. You have to specify the namespace and the repository with other tags. If you test long enough, you will find many other caveats to namespace, repository and tag resolution, so be careful. Typically, it's best to use the full URL. Remember this when building scripts. Containers seem deceptively easy, but you need to pay attention to details.
+
