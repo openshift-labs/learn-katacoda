@@ -8,7 +8,7 @@ First, let's take a look at some base images. We will use the docker history com
 
 Now, build a multi-layered image:
 
-``docker build -t rhel7-change /root/container-internals-lab-2/assets/exercise-01/``{{execute}}
+``docker build -t rhel7-change ~/assets/exercise-01/``{{execute}}
 
 Do you see the newly created rhel7-change image?
 
