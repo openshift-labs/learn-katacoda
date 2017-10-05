@@ -33,5 +33,10 @@
       "course_id": "container-internals-lab-2",
       "title": "Linux Container Internals: Lab 2: Container Images"
     }
+    {
+      "external_link": "https://learn.openshift.com/introduction/container-internals-lab-3/",
+      "course_id": "container-internals-lab-3",
+      "title": "Linux Container Internals: Lab 2: Container Runtime"
+    }
   ]
 }
