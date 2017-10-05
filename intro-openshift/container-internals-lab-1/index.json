@@ -1,6 +1,6 @@
 {
     "icon": "fa-openshift",
-    "title": "Container Architecture",
+    "title": "Linux Container Internals Lab: Container Architecture",
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "Intermediate",
