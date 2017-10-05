@@ -26,7 +26,12 @@
     {
       "external_link": "https://learn.openshift.com/introduction/container-internals-lab-1/",
       "course_id": "container-internals-lab-1",
-      "title": "Introduction to Container Architecture"
+      "title": "Linux Container Internals: Lab 1: Container Architecture"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/container-internals-lab-2/",
+      "course_id": "container-internals-lab-2",
+      "title": "Linux Container Internals: Lab 2: Single Host Toolchain"
     }
   ]
 }
