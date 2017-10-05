@@ -1,14 +1,43 @@
-Now, let's inspect the daemons which are running on the master nodes. Normally, we would just use the ps command to dump the contents of the process id table in the linux kernel. For the purpose of clarity, we will use a simple script called mega-proc which will dump this same content, but pretty printed for clarity. Each of the command line options are displayed on a separate line for clarity. Lets inspect the components of the docker userspace toolchain.
+In this exercise we will take a look at what's inside the container image. Java is particularly interesting because it uses glibc. The ldd command shows you all of the libraries that a binary is linked against. These libraries have to be on the system, or the binary will not run. In this example, you can see that getting a JVM to run in a particular container, with the exact same behavior, requries having it compiled and linked in the same way.
 
-``mega-proc.sh docker``{{execute}}
+``docker run -it registry.access.redhat.com/jboss-eap-7/eap70-openshift ldd -v -r /usr/lib/jvm/java-1.8.0-openjdk/jre/bin/java``{{execute}}
 
-We call this a userspace toolchain because none of it lives in the kernel. The following proecesses and daemons are running in user space, not terribly different than bind or httpd. You may notice that all of the docker commands and daemons have the "-current" extension - this is a methodology Red Hat uses to specify which version of the tools are installed. Red Hat supports two versions - a fast moving version with the -latest extension and a stable version targeted for OpenShift with the -current extension.
+Notice that dynamic scripting languages are also compiled and linked against system libraries:
 
-These processes all work together to create a container in the Linux kernel. The following is a basic description of their purpose:
+``docker run -it rhel7 ldd /usr/bin/python``{{execute}}
 
-![Kernel & Containers](../../assets/intro-openshift/container-internals-lab-1/03-single-host-toolchain.png)
+Inspecting a common tool like "curl" demonstrates how many libraries are used from the operating system. First, start the RHEL Tools container:
 
-- **dockerd**: This is the main docker daemon. It handles all docker API calls (docker run, docker build, docker images) through either the unix socket /var/run/docker.sock or it can be configured to handle requests over TCP. This is the "main" daemon and it is started by systemd with the /usr/lib/systemd/system/docker.service unit file.
-- **docker-containerd**: Containerd was recently open sourced as a separate community project. The docker daemon talks to containerd when it needs to fire up a container. More and more plumbing is being added to containerd (such as storage).
-- **docker-containerd-shim**: this is a shim layer which starts the docker-runc-current command with the right options.
-- **docker**: This is the docker command which you typed on the command line.
+``docker run -it rhel7/rhel-tools bash``{{execute}}
+
+Take a look at all of the libraries curl is linked against:
+
+``ldd /usr/bin/curl``{{execute}}
+
+Let's see what packages deliver those libraries? Both, OpenSSL, and the Network Security Services libraries. When there is a new CVE discovered in either nss or oepnssl, a new container image will need built to patch it.
+
+``rpm -qf /lib64/libssl.so.10``{{execute}}
+``rpm -qf /lib64/libssl3.so``{{execute}}
+
+Exit the rhel-tools container:
+
+``exit``{{execute}}
+
+
+It's a similar story with Apache and most other daemons and utilities that rely on libraries for security, or deep hardware integration:
+
+``docker run -it registry.access.redhat.com/rhscl/httpd-24-rhel7 bash``{{execute}}
+
+Inspect mod_ssl Apache module:
+
+``ldd /opt/rh/httpd24/root/usr/lib64/httpd/modules/mod_ssl.so``{{execute}}
+
+Once again we find a library provided by OpenSSL:
+
+``rpm -qf /lib64/libcrypto.so.10``{{execute}}
+
+Exit the httpd24 container:
+
+``exit``{{execute}}
+
+What does this all mean? Well, it means you need to be ready to rebuild all of your container images any time there is a security vulnerability in one of the libraries inside one of your container images...

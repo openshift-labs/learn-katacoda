@@ -1,18 +1,18 @@
-First and foremost, you need to understand that THE INTERNET IS WRONG. If you just do a quick Google search, you will find architecture drawing after architecture drawing showing things the wrong way or with only part of the solution.
+The goal of this exercise is to understand the difference between base images and multi-layered images (repositories). Also, try to understand the difference between an image layer and a repository.
 
-![Containers Are Linux](../../assets/intro-openshift/container-internals-lab-1/01-google-wrong.png)
+First, let's take a look at some base images. We will use the docker history command to inspect all of the layers in these repositories. Notice that these container images have no parent layers. These are base images and they are designed to be built upon.
+``docker history rhel7``{{execute}}
+``docker history rhel7-atomic``{{execute}}
 
-What’s wrong? Two main things:
- 
-1. Most of the architectural drawings above show the docker daemon as a wide blue box stretched out over the container host. The containers are shown as if they are running on top of the docker daemon. This is incorrect - the containers are actually created and run by the Linux kernel.
-2. When the architectural drawings do actually show the right architecture between the docker daemon, libcontainer/lxc/etc and the kernel, they never show containers running side by side. This leaves the viewer to imagine #1.
- 
-OK, let’s start from scratch. In the terminal, let's start with a simple experiment - start the top command in a container:
+Now, build a multi-layered image:
+``docker build -t rhel7-change exercise-01/``{{execute}}
 
-``docker run -td rhel7 top``{{execute}}''
+Do you see the newly created rhel7-change image?
+``docker images``{{execute}}
 
-Now, let's inspect the process table of the underlying host:
+Can you see all of the layers that make up the new image/repository? This command even shows a short summary of the commands run in each layer. This is very convenient for exploring how an image was made.
 
-``ps -ef | grep top``{{execute}}
+``docker history rhel7-change``{{execute}}
 
-Even though we started the top command in a docker contianers, notice that it's just a regular process which can be viewed with the trusty old ps command. That's because containers are just fancy Linux processes with extra isolation. Containerized processes are isolated using selinux and cgroups - they are also started in a special way, but they are still just Linux processes. Containerized processes and regular Linux processes, long lived daemons, batch jobs, and interactive commands all live side by side, making requests to the Linux kernel for protected resources like memory, ram, tcp sockets, etc. We will explore this deeper in later labs, but for now, let's move on...
+Now run the "dockviz" command. What does this command show you? What's the parent image of the rhel7-change image? It is important to build on a trusted base image from a trusted source (aka have provenance or maintain chain of custody).
+``docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t``{{execute}}

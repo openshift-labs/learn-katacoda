@@ -1,9 +1,32 @@
-It's possible to leverage a lot of your existing architectural knowledge in a containerized environent. To do this, we need to understand some fundamental primitives including: libraries, containerized processes, regular processes, kernel data structures (namespaces, cgroups, SELinux). Containers started in the Linux kernel and remain there. What got easier over time, is how your start them - libraries like LXC, libcontainer, and LXD made it easier and easier to start containers on a Linux system.
+Now we are going to inspect the different parts of the URL that you pull. The most common command is something like this, where only the repository name is specified:
 
-![Container Libraries](../../assets/intro-openshift/container-internals-lab-1/02-container-libraries.png)
+``docker inspect rhel7``{{execute}}
 
-The docker command makes it really easy to start containers and even show which ones are running, but it actually relies on a lot of system libraries to communicate with the kernel. Libraries like libcontainer, libseccomp, libselinux, libpcap and libc all assist in interacting with the kernel. Storage, network, process, and security data structures are all manipulated when a container is started or stopped.
+But, what's really going on? Well, similar to DNS, the docker command line is resolving the full URL and TAG of the repository on the registry server. The following command will give you the exact same results:
 
-``ldd /usr/bin/docker-current``{{execute}}
+``docker inspect registry.access.redhat.com/rhel7/rhel:latest``{{execute}}
 
-Let's move on...
+You can run any of the following commands and you will get the exact same results as well:
+
+``docker inspect registry.access.redhat.com/rhel7/rhel:latest``{{execute}}
+``docker inspect registry.access.redhat.com/rhel7/rhel``{{execute}}
+``docker inspect registry.access.redhat.com/rhel7:latest``{{execute}}``
+``docker inspect registry.access.redhat.com/rhel7``{{execute}}``
+``docker inspect rhel7/rhel:latest``{{execute}}``
+``docker inspect rhel7/rhel``{{execute}}``
+
+Now, let's build another image, but give it a tag other than "latest":
+
+``docker build -t registry.access.redhat.com/rhel7/rhel:test exercise-01/``{{execute}}
+
+Now, notice there is another tag
+
+``docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t``{{execute}}
+
+Now try the resolution trick again. What happened?
+
+``docker inspect rhel7:test``{{execute}}
+
+Notice that full resolution only works with the latest tag. You have to specify the namespace and the repository with other tags. There are a lot of caveats to namespace, repository and tag resolution, so be careful. Typically, it's best to use the full URL. Remember this when building scripts.
+
+``docker inspect rhel7/rhel:test``{{execute}}

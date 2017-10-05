@@ -1,15 +1,41 @@
-Now let's take a look at the OpenShift daemons which are runnning on the master. OpenShift masters are typically installed with the OpenShift node daemons running as well, so you will see several daemons running. Now let's take a look ourselves:
+Using containers is as much a business advantage as a technical one.  When building and using containers, everything is about layering.  You want to look at your application and think about each of the pieces and how they work together.  Similar to the way you can break up a program into a series of classes and functions.  Containers are made up of packages and scripts that combine with other containers to build your application. So approach containers with the mindset that your application is made up of smaller units and the packaging of those units into something easily consumable will make your containerized application.
 
-``mega-proc.sh openshift``{{execute}}
+The purpose of layering is to provide a thin level of abstraction above the previous layer to build something more complex.  Layers are logical units where the contents are the same type of object or perform a similar task. The right amount of layers will make your container easily consumable.  Too many layers will be too complex and too little, difficult to consume. The proper amount of layers for an application should reflect the complexity of your application.  The more complex the application, the more layers and vice versa. For example, if a Hello World container prints to stdout “Hello World” there’s no configuration, no process management, and no dependencies, so it’s a single layer.  However, if we expand the Hello World application to say hello to the user, we will need a second layer to gather input.
 
-Notice, again, that the openshift processes are just standard daemons running side by side with docker, containerd, the containerized processes and all of the other processes on the system:
+To demonstrate the layered approach, we are going to inspect a simple three tier supply chain with a core build two different pieces of a middleware (Ruby and PHP) and an example application (wordpress). This will demonstrate how development and operations collaberate, yet maintain separatation of concerns, to build containers and make user space changes, over time, in the container image to deliver applications which can easily be updated when needed.
 
-The OpenShift/Kubernetes code is very modular. OpenShift compiles all of the functionality into a single binary and determines which role the daemon will play with startup parameters. Depending on which installation method (single node, clustered, registry server only, manual) is chosen the OpenShift binaries can be started in different ways.
+This exercise has subdirectories which contain a Dockerfile for each layer. Take a look at each one and notice the separation of concerns between development and operations. Pay particular attention to the FROM directive in each file:
 
-![Container Libraries](../../assets/intro-openshift/container-internals-lab-1/04-multi-host-toolchain.png)
+``for i in exercise-04/*/Dockerfile; do less $i; done``{{execute}}
 
-In a full highly available, multi-master environment, you will see all of the following daemons running. On smaller installations, or all in one installation, several of these services may be running inside the daemon configured to run as master:
+Initiate a single node build with all of the Dockerfiles using the Makefile. Watch the output - notice the yum updates and installs that are happening. Also, notice that the corebuild is built before any of the other layers:
 
-- **openshift start master api**: This process handles all API calls with REST, kubectl, or oc commands.
-- **/usr/bin/openshift start node**: This process plays the role of the Kubelet and communicates with dockerd (which then communicates with the kernel) to create containers.
-- **/usr/bin/openshift start master controllers**: This daemon embeds the core control loops shipped with Kubernetes. A controller is a control loop that watches the shared state of the cluster through the apiserver and makes changes attempting to move the current state towards the desired state. Examples of controllers that ship with Kubernetes today are the replication controller, endpoints controller, namespace controller, and serviceaccounts controller.
+``make -C ./exercise-04/``{{execute}}
+
+Now, inspect the images which were built:
+
+``docker images``{{execute}}
+
+
+``wordpress                                                   latest              0257c101e2b3        4 minutes ago       294.7 MB
+httpd-ruby                                                  latest              99aace3c31f2        16 minutes ago      338.6 MB
+httpd-php                                                   latest              7b7f6eefa4ec        19 minutes ago      273.8 MB
+corebuild                                                   latest              f87d9be15b22        22 minutes ago      207.8 MB``
+
+Now, initiate a distributed build on the OpenShift cluster. The yaml file below will create everything you need. Once the builds complete, the images will be placed in the OpenShift registry and are usable in the cluster:
+
+``oc new-project lab02-exercise04``{{execute}}
+``oc create -f exercise-04/AutomaticSupplyChain.yaml``{{execute}}
+
+Inspect the builds in the web interface. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster.
+
+https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/lab02-exercise04/browse/builds
+
+When the core build completes, inspect some of the dependent builds. Pay particular attention to the "Node:" and "Events:" sections
+
+``oc describe pod wordpress-1-build``{{execute}}
+``oc describe pod httpd-ruby-1-build``{{execute}}
+
+These images can now be used to build (BuildConfigs) and Deploy (DeploymentConfigs) other applications:
+
+``oc get is``{{execute}}
