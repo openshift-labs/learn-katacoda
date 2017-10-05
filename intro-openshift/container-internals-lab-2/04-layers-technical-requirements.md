@@ -34,12 +34,11 @@ Inspect the builds in the web interface. Notice how the OpenShift BuildConfigs c
 * Password: `admin`{{copy}}
 * Console: [here](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/lab02-exercise04/browse/builds)
 
-When the core build completes, inspect some of the dependent builds. Pay particular attention to the "Node:" and "Events:" sections
+First, inspect the corebuild. It should kick off immediately after creation. When the core build completes, inspect some of the dependent builds. Pay particular attention to the "Node:" and "Events:" sections
 
-``oc describe pod wordpress-1-build``{{execute}}
+``oc describe pod corebuild-1-build``{{execute}}
 
-``oc describe pod httpd-ruby-1-build``{{execute}}
 
-These images can now be used to build (BuildConfigs) and Deploy (DeploymentConfigs) other applications:
+These images can now be used to build (BuildConfigs) and deploy (DeploymentConfigs) other applications:
 
 ``oc get is``{{execute}}
