@@ -10,15 +10,15 @@ First, let's take a look at some base images. We will use the docker history com
 
 ``docker history rhel7-atomic``{{execute}}
 
-Now, build a multi-layered image:
+Now, using a simple Dockerfile we created for you, build a multi-layered image:
 
 ``docker build -t rhel7-change ~/assets/exercise-01/``{{execute}}
 
-Do you see the newly created rhel7-change image?
+Do you see the newly created rhel7-change tag?
 
 ``docker images``{{execute}}
 
-Can you see all of the layers that make up the new image/repository? This command even shows a short summary of the commands run in each layer. This is very convenient for exploring how an image was made.
+Can you see all of the layers that make up the new image/repository/tag? This command even shows a short summary of the commands run in each layer. This is very convenient for exploring how an image was made.
 
 ``docker history rhel7-change``{{execute}}
 
