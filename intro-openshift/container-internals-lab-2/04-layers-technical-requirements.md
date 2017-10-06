@@ -28,13 +28,15 @@ Now, initiate a distributed build on the OpenShift cluster. The yaml file below 
 
 ``oc create -f ~/assets/exercise-04/AutomaticSupplyChain.yaml``{{execute}}
 
-Inspect the builds in the web interface. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster.
+Inspect the builds in the web interface. The build will start automatically after submitting the yaml file to the Kubernetes API daemon. Inspect the actual build by clicking on the "#1" then the "Logs" and "Events" sections. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster.
 
 * Username: `admin`{{copy}}
 * Password: `admin`{{copy}}
 * Console: [here](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/lab02-exercise04/browse/builds)
 
-First, inspect the corebuild. It should kick off immediately after creation. When the core build completes, inspect some of the dependent builds. Pay particular attention to the "Node:" and "Events:" sections
+Now, inspect the corebuild with the command line. When the core build completes, inspect some of the dependent builds. Pay particular attention to the "Node:" and "Events:" sections
+
+``oc get builds``{{execute}}
 
 ``oc describe pod corebuild-1-build``{{execute}}
 
