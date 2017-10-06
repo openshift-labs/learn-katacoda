@@ -41,6 +41,10 @@ Now, inspect the corebuild with the command line. When the core build completes,
 ``oc describe pod corebuild-1-build``{{execute}}
 
 
-These images can now be used to build (BuildConfigs) and deploy (DeploymentConfigs) other applications:
+OpenShift creates data structures which point to these images and can now be used to build (BuildConfigs) and deploy (DeploymentConfigs) other applications within OpenShift. These are very powerful automation tools:
 
 ``oc get is``{{execute}}
+
+Finally, notice that these images are available in the local docker cache. Kubernetes/OpenShift builds on top of Docker, but you still have access to the lower level tooling:
+
+``docker images``{{execute}}
