@@ -37,6 +37,11 @@
       "external_link": "https://learn.openshift.com/introduction/container-internals-lab-3/",
       "course_id": "container-internals-lab-3",
       "title": "Linux Container Internals: Lab 3: Container Runtime"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/container-internals-lab-4/",
+      "course_id": "container-internals-lab-4",
+      "title": "Linux Container Internals: Lab 4: Container Orchestration"
     }
   ]
 }
