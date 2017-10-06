@@ -28,7 +28,7 @@ Now, initiate a distributed build on the OpenShift cluster. The yaml file below 
 
 ``oc create -f ~/assets/exercise-04/AutomaticSupplyChain.yaml``{{execute}}
 
-Inspect the builds in the web interface. The build will start automatically after submitting the yaml file to the Kubernetes API daemon. Inspect the actual build by clicking on the "#1" then the "Logs" and "Events" sections. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster.
+Inspect the builds in the web interface. The build will start automatically after submitting the yaml file to the Kubernetes API daemon. Inspect the actual build by clicking on the "#1" then the "Logs" and "Events" sections. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster. Feel free to explore the different sections of the web interfece, especially the "Applications -> Pods" and "Builds -> Builds" sections.
 
 * Username: `admin`{{copy}}
 * Password: `admin`{{copy}}
