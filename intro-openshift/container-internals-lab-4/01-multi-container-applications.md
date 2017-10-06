@@ -1,31 +1,60 @@
-The goal of this exercise is to understand the difference between base images and multi-layered images (repositories). Also, try to understand the difference between an image layer and a repository.
+The goal of this exercise is to build a containerized two tier application in the OpenShift cluster. This application will help you learn about clustered containers and distributed systems
 
-Let's take a look at some base images. We will use the docker history command to inspect all of the layers in these repositories. Notice that these container images have no parent layers. These are base images and they are designed to be built upon. First, let's look at the full rhel7 base image:
 
-``docker pull registry.access.redhat.com/rhel7/rhel:latest``{{execute}}
+First, inspect the application that we are going to create. We will start with the definition of the application itself. Notice the different software defined objects we are going to create - Services, ReplicationControllers, Routes, PeristentVolumeClaims. All of these objects are defined in a single file to make sharing and deployment of the entire application easy. These definitions can be stored in version control systems just like code. With Kubernetes these application definition files can be written in either JSON or YAML. 
 
-``docker history rhel7``{{execute}}
+Notice, there is only a single Route in this definition. That's because Services are internal to the Kubernetes cluster, while Routes expose the service externally. We only want to expose our Web Server externally, not our Database:
 
-Now, let's take a look at the minimal base image from Red Hat, called the Red Hat Enterprise Linux 7 Atomic image. Notice that it's quite a bit smaller:
+``vi ~/assets/exercise-01/wordpress-objects.yaml``{{execute}}
 
-``docker pull registry.access.redhat.com/rhel7-atomic:latest``{{execute}}
 
-``docker history rhel7-atomic``{{execute}}
+Now, let's create an application:
 
-Now, using a simple Dockerfile we created for you, build a multi-layered image:
+``oc create -f ~/assets/exercise-01/wordpress-objects.yaml``{{execute}}
 
-``docker build -t rhel7-change ~/assets/exercise-01/``{{execute}}
 
-Do you see the newly created rhel7-change tag?
+Look at the status of the application. The two pods that make up this application will remain in a "pending" state - why?
 
-``docker images``{{execute}}
+``oc describe pod wordpress-``{{execute}}
 
-Can you see all of the layers that make up the new image/repository/tag? This command even shows a short summary of the commands run in each layer. This is very convenient for exploring how an image was made.
+``oc describe pod mysql-``{{execute}}
 
-``docker history rhel7-change``{{execute}}
 
-Now run the "dockviz" command. What does this command show you? What's the parent image of the rhel7-change image? 
+Inspect the persistent volume claims:
 
-``docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t``{{execute}}
+``oc get pvc``{{execute}}
 
-Notice that with the dockviz command we can trace back to the rhel7 base image. Remember, it is important to build on a trusted base image from a trusted source (aka have provenance or maintain chain of custody). Container repositories are made up of layers, but we often refer to them simply as "container images" or containers. When architecting systems, we must be precise with our language or we will cause confusion to our end users.
+
+The application needs storage for the MySQL tables, and Web Root for Apache. Let's inspect the yaml file which will create the storage. We will create four persistent volumes - two that have 1GB of storage and two that will have 2GB of storage. These perisistent volumes will reside on the storage node and use NFS:
+
+``vi exercise-01/persistent-volumes.yaml``{{execute}}
+
+
+Instantiate the peristent volumes:
+
+``oc create -f exercise-01/persistent-volumes.yaml``{{execute}}
+
+
+Now, the persistent volume claims for the application will become Bound and satisfy the storage requirements:
+
+``oc get pvc``{{execute}}
+
+
+Now look at the status of the pods again:
+
+``oc describe pod wordpress-``{{execute}}
+
+``oc describe pod mysql-``{{execute}}
+
+
+You may notice the wordpress pod enter a state called CrashLoopBackOff. This is a natural state in Kubernetes/OpenShift which helps satisfy dependencies. The wordpress pod will not start until the mysql pod is up and running. This makes sense, because wordpress can't run until it has a database and a connection to it. Similar to email retries, Kubernetes will back off and attempt to restart the pod again after a short time. Kubernetes will try several times, extending the time between tries until eventually the dependency is satisfied, or it enters an Error state. Luckily, once the mysql pod comes up, wordpress will come up successfully.
+
+``oc describe pod wordpress-``
+
+
+Visit the web interface and run through the wordpress installer:
+
+http://wpfrontend-wordpress.apps.example.com/
+
+
+In this exercise you learned how to deploy a fully functional two tier application with a single command (oc create -f excercise-01/wordpress-objects.yaml). As long as the cluster has peristnet volumes available to satisify the application, an end user can do this on their laptop, in a development environment or in production data centers all over the world. All of the dependent code is packaged up and delivered in the container images - all of the data and configuration comes from the environment. Production instances will access production persistent volumes, development environments can be seeded with copies of production data, etc. It's easy to see why container orchestration is so powerful. 

@@ -1,191 +1,196 @@
-# Lab 2 Excercises
+# Lab 4 Exercises
 Get into the right directory
 ```
-cd /root/work/container-internals-lab/labs/lab-02/
+cd /root/work/container-internals-lab/labs/lab-04/
 ```
 
 
 
-## Excercise 1
-The goal of this exercise is to understand the difference between base images and multi-layered images (repositories). Also, try to understand the difference between an image layer and a repository.
+## Exercise 1
+The goal of this exercise is to build a containerized two tier application in the OpenShift cluster. This application will help you learn about clustered containers and distributed systems
 
-First, let's take a look at some base images. We will use the docker history command to inspect all of the layers in these repositories. Notice that these container images have no parent layers. These are base images and they are designed to be built upon.
-```
-docker history rhel7
-docker history rhel7-atomic
-```
 
-Now, build a multi-layered image:
+First, inspect the application that we are going to create. We will start with the definition of the application itself. Notice the different software defined objects we are going to create - Services, ReplicationControllers, Routes, PeristentVolumeClaims. All of these objects are defined in a single file to make sharing and deployment of the entire application easy. These definitions can be stored in version control systems just like code. With Kubernetes these application definition files can be written in either JSON or YAML. 
+
+Notice, there is only a single Route in this definition. That's because Services are internal to the Kubernetes cluster, while Routes expose the service externally. We only want to expose our Web Server externally, not our Database:
 ```
-docker build -t rhel7-change exercise-01/
+vi exercise-01/wordpress-objects.yaml
 ```
 
-Do you see the newly created rhel7-change image?
+Now, let's create an application:
 ```
-docker images
-```
-
-Can you see all of the layers that make up the new image/repository? This command even shows a short summary of the commands run in each layer. This is very convenient for exploring how an image was made.
-
-```
-docker history rhel7-change
+oc create -f exercise-01/wordpress-objects.yaml
 ```
 
-Now run the "dockviz" command. What does this command show you? What's the parent image of the rhel7-change image? It is important to build on a trusted base image from a trusted source (aka have provenance or maintain chain of custody).
+Look at the status of the application. The two pods that make up this application will remain in a "pending" state - why?
 ```
-docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t
+oc describe pod wordpress-
+oc describe pod mysql-
 ```
+
+Inspect the persistent volume claims:
+```
+oc get pvc
+```
+
+The application needs storage for the MySQL tables, and Web Root for Apache. Let's inspect the yaml file which will create the storage. We will create four persistent volumes - two that have 1GB of storage and two that will have 2GB of storage. These perisistent volumes will reside on the storage node and use NFS:
+```
+vi exercise-01/persistent-volumes.yaml
+```
+
+Instantiate the peristent volumes:
+```
+oc create -f exercise-01/persistent-volumes.yaml
+```
+
+Now, the persistent volume claims for the application will become Bound and satisfy the storage requirements:
+```
+oc get pvc
+```
+
+Now look at the status of the pods again:
+```
+oc describe pod wordpress-
+oc describe pod mysql-
+```
+
+You may notice the wordpress pod enter a state called CrashLoopBackOff. This is a natural state in Kubernetes/OpenShift which helps satisfy dependencies. The wordpress pod will not start until the mysql pod is up and running. This makes sense, because wordpress can't run until it has a database and a connection to it. Similar to email retries, Kubernetes will back off and attempt to restart the pod again after a short time. Kubernetes will try several times, extending the time between tries until eventually the dependency is satisfied, or it enters an Error state. Luckily, once the mysql pod comes up, wordpress will come up successfully.
+```
+oc describe pod wordpress-
+```
+
+Visit the web interface and run through the wordpress installer:
+```
+http://wpfrontend-wordpress.apps.example.com/
+```
+
+In this exercise you learned how to deploy a fully functional two tier application with a single command (oc create -f excercise-01/wordpress-objects.yaml). As long as the cluster has peristnet volumes available to satisify the application, an end user can do this on their laptop, in a development environment or in production data centers all over the world. All of the dependent code is packaged up and delivered in the container images - all of the data and configuration comes from the environment. Production instances will access production persistent volumes, development environments can be seeded with copies of production data, etc. It's easy to see why container orchestration is so powerful. 
 
 
 
 ## Exercise 2
-Now we are going to inspect the different parts of the URL that you pull. The most common command is something like this, where only the repository name is specified:
+In this exercise, you will scale and load test a distributed application
 
+Test with AB before we scale the application to get a base line. We will run this command from the privileged rhel-tools container on the master node:
 ```
-docker inspect rhel7
-```
-
-But, what's really going on? Well, similar to DNS, the docker command line is resolving the full URL and TAG of the repository on the registry server. The following command will give you the exact same results:
-```
-docker inspect registry.access.redhat.com/rhel7/rhel:latest
+ab -n100 -c 10 -k -H "Accept-Encoding: gzip, deflate" http://wpfrontend-wordpress.apps.example.com/
 ```
 
-You can run any of the following commands and you will get the exact same results as well:
+Scale in interface. Click the up arrow and scale to 3 nodes:
 ```
-docker inspect registry.access.redhat.com/rhel7/rhel:latest
-docker inspect registry.access.redhat.com/rhel7/rhel
-docker inspect registry.access.redhat.com/rhel7:latest
-docker inspect registry.access.redhat.com/rhel7
-docker inspect rhel7/rhel:latest
-docker inspect rhel7/rhel
+https://ose3-master.example.com:8443/console/project/lab02-exercise04/overview
 ```
 
-Now, let's build another image, but give it a tag other than "latest":
+Test with AB. The response time should now be lower.
 ```
-docker build -t registry.access.redhat.com/rhel7/rhel:test exercise-01/
-```
-
-Now, notice there is another tag
-```
-docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t
+ab -n100 -c 10 -k -H "Accept-Encoding: gzip, deflate" http://wpfrontend-wordpress.apps.example.com/
 ```
 
-Now try the resolution trick again. What happened?
+Scale with command line. Run the follwing command to scale with the command line:
 ```
-docker inspect rhel7:test
-```
-
-Notice that full resolution only works with the latest tag. You have to specify the namespace and the repository with other tags. There are a lot of caveats to namespace, repository and tag resolution, so be careful. Typically, it's best to use the full URL. Remember this when building scripts.
-```
-docker inspect rhel7/rhel:test
+oc scale --replicas=5 rc/wordpress
 ```
 
+Test with AB. The response time should now be even lower.
+```
+ab -n100 -c 10 -k -H "Accept-Encoding: gzip, deflate" http://wpfrontend-wordpress.apps.example.com/
+```
+
+Scale the application back down to one pod:
+```
+oc scale --replicas=1 rc/wordpress
+```
 
 
 ## Exercise 3
-In this exercise we will take a look at what's inside the container image. Java is particularly interesting because it uses glibc. The ldd command shows you all of the libraries that a binary is linked against. These libraries have to be on the system, or the binary will not run. In this example, you can see that getting a JVM to run in a particular container, with the exact same behavior, requries having it compiled and linked in the same way.
+The goal of this exercise is to understand the nature of a distributed systems environment with containers. Quickly and easily troubleshooting problems in containers requires distributed systems thinking. You have to think of things programatically. You can't just ssh into a server and understand the problem. You can execute commands in a sinlge pod, but even that might prevent you from troubleshooting things like network, or database connection errrors which are specific to only certain pods. This can happen because of persnickety differences in locations of your compute nodes in a cloud environment or code that only fails in unforseen ways at scale or under load. 
+
+We are going to simulate one of these problems by using a specially designed test application. In this exercise we will learn how to figure things out quickly and easily.
+
+Inspect each of the files and try to understand them a bit:
 ```
-docker run -it registry.access.redhat.com/jboss-eap-7/eap70-openshift ldd -v -r /usr/lib/jvm/java-1.8.0-openjdk/jre/bin/java
+vi exercise-03/Build.yaml
+```
+```
+vi exercise-03/Run.yaml
+````
+
+Build the test application. Wait for the build to successfully complete. You can watch the log output in the OpenShift web interface.
+```
+oc create -f exercise-03/Build.yaml
+```
+```
+oc get builds
 ```
 
-Notice that dynamic scripting languages are also compiled and linked against system libraries:
+Run the test application
 ```
-docker run -it rhel7 ldd /usr/bin/python
-```
-
-Inspecting a common tool like "curl" demonstrates how many libraries are used from the operating system. First, start the RHEL Tools container:
-```
-docker run -it rhel7/rhel-tools bash
+oc create -f exercise-03/Run.yaml
 ```
 
-Take a look at all of the libraries curl is linked against:
+Get the IP address for the goodbad service
 ```
-ldd /usr/bin/curl
-```
-
-Let's see what packages deliver those libraries? Both, OpenSSL, and the Network Security Services libraries. When there is a new CVE discovered in either nss or oepnssl, a new container image will need built to patch it.
-```
-rpm -qf /lib64/libssl.so.10
-rpm -qf /lib64/libssl3.so
+oc get svc
 ```
 
-Exit the rhel-tools container:
+Now test the cluster IP with curl. Use the cluster IP address so that the traffic is balanced among the active pods. You will notice some errors in your responses. You may also test with a browser. Some of the pods are different - how could this be? They should be identical because they were built from code right?
 ```
-exit
-```
-
-
-It's a similar story with Apache and most other daemons and utilities that rely on libraries for security, or deep hardware integration:
-```
-docker run -it registry.access.redhat.com/rhscl/httpd-24-rhel7 bash
+SVC_IP=`oc get svc | grep goodbad | awk '{print $2}'`
+for i in {1..20}; do curl $SVC_IP; done
 ```
 
-Inspect mod_ssl Apache module:
+Example output:
 ```
-ldd /opt/rh/httpd24/root/usr/lib64/httpd/modules/mod_ssl.so
-```
-
-Once again we find a library provided by OpenSSL:
-```
-rpm -qf /lib64/libcrypto.so.10
-```
-
-Exit the httpd24 container:
-```
-exit
-```
-
-What does this all mean? Well, it means you need to be ready to rebuild all of your container images any time there is a security vulnerability in one of the libraries inside one of your container images...
-
-
-
-## Optional: Exercise 4
-Using containers is as much a business advantage as a technical one.  When building and using containers, everything is about layering.  You want to look at your application and think about each of the pieces and how they work together.  Similar to the way you can break up a program into a series of classes and functions.  Containers are made up of packages and scripts that combine with other containers to build your application. So approach containers with the mindset that your application is made up of smaller units and the packaging of those units into something easily consumable will make your containerized application.
-
-The purpose of layering is to provide a thin level of abstraction above the previous layer to build something more complex.  Layers are logical units where the contents are the same type of object or perform a similar task. The right amount of layers will make your container easily consumable.  Too many layers will be too complex and too little, difficult to consume. The proper amount of layers for an application should reflect the complexity of your application.  The more complex the application, the more layers and vice versa. For example, if a Hello World container prints to stdout “Hello World” there’s no configuration, no process management, and no dependencies, so it’s a single layer.  However, if we expand the Hello World application to say hello to the user, we will need a second layer to gather input.
-
-To demonstrate the layered approach, we are going to inspect a simple three tier supply chain with a core build two different pieces of a middleware (Ruby and PHP) and an example application (wordpress). This will demonstrate how development and operations collaberate, yet maintain separatation of concerns, to build containers and make user space changes, over time, in the container image to deliver applications which can easily be updated when needed.
-
-This exercise has subdirectories which contain a Dockerfile for each layer. Take a look at each one and notice the separation of concerns between development and operations. Pay particular attention to the FROM directive in each file:
-```
-for i in exercise-04/*/Dockerfile; do less $i; done
+<html>
+ <head>
+  <title>PHP Test</title>
+ </head>
+ <body>
+ <p>ERROR</p> </body>
+</html>
+<html>
+ <head>
+  <title>PHP Test</title>
+ </head>
+ <body>
+ <p>Hello World</p> </body>
+</html>
+<html>
+ <head>
+  <title>PHP Test</title>
+ </head>
+ <body>
+ <p>Hello World</p> </body>
+</html>
 ```
 
-Initiate a single node build with all of the Dockerfiles using the Makefile. Watch the output - notice the yum updates and installs that are happening. Also, notice that the corebuild is built before any of the other layers:
+Take a look at the code. A random number is generated in the entrypoint and written to a file in /var/www/html/goodbad.txt:
 ```
-make -C ./exercise-04/
-```
-
-Now, inspect the images which were built:
-```
-docker images
+cat exercise-03/index.php
+cat exercise-03/Dockerfile
 ```
 
+Troubleshoot the problem in a programatic way. Notice some pods have files which contian numbers that are lower than 7, this means the pod will return a bad response:
 ```
-wordpress                                                   latest              0257c101e2b3        4 minutes ago       294.7 MB
-httpd-ruby                                                  latest              99aace3c31f2        16 minutes ago      338.6 MB
-httpd-php                                                   latest              7b7f6eefa4ec        19 minutes ago      273.8 MB
-corebuild                                                   latest              f87d9be15b22        22 minutes ago      207.8 MB
+for i in `oc get pods | grep goodbad | grep -v build | awk '{print $1}'`; do oc exec -t $i -- cat /var/www/html/goodbad.txt; done
 ```
 
-Now, initiate a distributed build on the OpenShift cluster. The yaml file below will create everything you need. Once the builds complete, the images will be placed in the OpenShift registry and are usable in the cluster:
+Continue to troubleshoot the problem by temporarily fixing the file
 ```
-oc new-project lab02-exercise04
-oc create -f exercise-04/AutomaticSupplyChain.yaml
-```
-
-Inspect the builds in the web interface. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster.
-```
-https://haproxy1.ocp1.dc2.crunchtools.com:8443/console/project/lab02-exercise04/browse/builds
+for i in `oc get pods | grep goodbad | grep -v build | awk '{print $1}'`; do oc exec -t $i -- sed -i -e s/[0-9]*/7/ /var/www/html/goodbad.txt; done
 ```
 
-When the core build completes, inspect some of the dependent builds. Pay particular attention to the "Node:" and "Events:" sections
+Write a quick test that verifies the logic of your fix
 ```
-oc describe pod wordpress-1-build
-oc describe pod httpd-ruby-1-build
+for i in {1..2000}; do curl $SVC_IP 2>&1; done | grep "Hello World" | wc -l
 ```
 
-These images can now be used to build (BuildConfigs) and Deploy (DeploymentConfigs) other applications:
+Scale up the nodes, and test again. Notice it's broken again because new pods have been added with the broken file
 ```
-oc get is
+oc scale rc goodbad --replicas=10
+for i in {1..2000}; do curl $SVC_IP 2>&1; done | grep "Hello World" | wc -l
 ```
+
+Optional: As a final challenge, fix the problem permanently by fixing the logic so that the number is always above 7 and never causes the application to break. Rebuild, and redeploy the applicaion. Hint: you have to get the images to redeploy with the newer versions (delete the rc) :-)
+
+
