@@ -25,7 +25,7 @@
             "text": "02-load-testing.md"
         }, {
             "title": "Topic 3 - Cluster Debuggin: Troubleshooting in a distributed systems environment",
-            "text": "03-.md"
+            "text": "03-troubleshooting-distributed-applications.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
