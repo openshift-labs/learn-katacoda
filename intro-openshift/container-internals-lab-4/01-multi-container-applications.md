@@ -54,7 +54,7 @@ You may notice the wordpress pod enter a state called CrashLoopBackOff. This is 
 
 Visit the web interface and run through the wordpress installer:
 
-``links http://\`hostname\```{{execute}}
+``links http://$HOSTNAME``{{execute}}
 
 
 In this exercise you learned how to deploy a fully functional two tier application with a single command (oc create -f excercise-01/wordpress-objects.yaml). As long as the cluster has peristnet volumes available to satisify the application, an end user can do this on their laptop, in a development environment or in production data centers all over the world. All of the dependent code is packaged up and delivered in the container images - all of the data and configuration comes from the environment. Production instances will access production persistent volumes, development environments can be seeded with copies of production data, etc. It's easy to see why container orchestration is so powerful. 
