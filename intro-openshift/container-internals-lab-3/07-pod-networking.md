@@ -8,20 +8,20 @@ Once the container becomes active, bring up another terminal and run the the res
 ``oc describe pod rhel-test``{{execute}}
 
 
-Output: 
+Example Output:
 
 ``Name:			rhel-test
-Namespace:		lab02-exercise04
+Namespace:		default
 Security Policy:	anyuid
-Node:			node3.ocp1.dc2.crunchtools.com/192.168.122.205``
+Node:			c3845a763c93/172.17.0.11``
 
 
-Now, ssh into the node where the pod is running and run the following commands. Notice that there are actually two docker containers running. One represents the pod and helps setup the network namespace, the second container actually runs the bash process. They both share the same network namespace.
+In another terminal, run the following commands - in this lab, it's an all-in-one installation, so the master and node are running on the same host - but, in a live environment, you will need to ssh into the right node. Notice that there are actually two docker containers running. One represents the pod and helps setup the network namespace, the second container actually runs the bash process. They both share the same network namespace.
 
 ``docker ps | grep rhel-test``{{execute}}
 
 
-Output
+Example Output
 
 ``56948c9d6a92        rhel7/rhel                                       "bash"                   6 minutes ago       Up 6 minutes                            k8s_rhel-test.e4ff8054_rhel-test_lab02-exercise04_0c5a6e56-25a3-11e7-9d46-525400b431c8_b46e2f45
 093e63116819        openshift3/ose-pod:v3.4.1.10                     "/pod"                   6 minutes ago       Up 6 minutes                            k8s_POD.5aa7dc24_rhel-test_lab02-exercise04_0c5a6e56-25a3-11e7-9d46-525400b431c8_39480ba2``
@@ -29,13 +29,18 @@ Output
 
 We can verify that both docker containers are placed in the same kernel network namespace, by verifying that they are using the same TCP stack.
 
-``DID=`docker ps | grep rhel-test | grep pod | awk '{print $1}'`
-nsenter -t `docker inspect --format '{{ .State.Pid }}' $DID` -n ip addr
-DID=`docker ps | grep rhel-test | grep bash | awk '{print $1}'`
-nsenter -t `docker inspect --format '{{ .State.Pid }}' $DID` -n ip addr``
+First, the pod container:
+
+``DID=$(docker ps | grep rhel-test | grep pod | awk '{print $1}')
+nsenter -t `docker inspect --format '{{ .State.Pid }}' $DID` -n ip addr``{{execute}}
+
+Then, for the container running Bash:
+
+``DID=$(docker ps | grep rhel-test | grep bash | awk '{print $1}')
+nsenter -t `docker inspect --format '{{ .State.Pid }}' $DID` -n ip addr``{{execute}}
 
 
-Output for both
+Output for both will be the same:
 
 ``1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -55,7 +60,7 @@ Now, inspect the type of docker networking. OpenShift communicates with docker a
 
 For the pod container:
 
-``DID=`docker ps | grep rhel-test | grep pod | awk '{print $1}'`
+``DID=$(docker ps | grep rhel-test | grep pod | awk '{print $1}')
 docker inspect $DID | grep NetworkMode``
 
 
@@ -64,9 +69,9 @@ Output:
 ``"NetworkMode": "none",``
 
 
-For the process container:
+For the process (Bash) container:
 
-``DID=`docker ps | grep rhel-test | grep bash | awk '{print $1}'`
+``DID=$(docker ps | grep rhel-test | grep bash | awk '{print $1}')
 docker inspect $DID | grep NetworkMode``
 
 
