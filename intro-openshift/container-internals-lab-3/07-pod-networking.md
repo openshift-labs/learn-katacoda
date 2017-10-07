@@ -40,7 +40,7 @@ Then, for the container running Bash:
 nsenter -t `docker inspect --format '{{ .State.Pid }}' $DID` -n ip addr``{{execute}}
 
 
-Output for both will be the same:
+The output will be the same because they share a network namespace. Example output:
 
 ``1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -61,7 +61,7 @@ Now, inspect the type of docker networking. OpenShift communicates with docker a
 For the pod container:
 
 ``DID=$(docker ps | grep rhel-test | grep pod | awk '{print $1}')
-docker inspect $DID | grep NetworkMode``
+docker inspect $DID | grep NetworkMode``{{execute}}
 
 
 Output:
@@ -72,7 +72,7 @@ Output:
 For the process (Bash) container:
 
 ``DID=$(docker ps | grep rhel-test | grep bash | awk '{print $1}')
-docker inspect $DID | grep NetworkMode``
+docker inspect $DID | grep NetworkMode``{{execute}}
 
 
 Example Output:
