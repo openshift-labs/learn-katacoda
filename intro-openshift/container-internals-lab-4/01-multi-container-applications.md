@@ -2,7 +2,7 @@ The goal of this exercise is to build a containerized two tier application in th
 
 Before we do anything, we need some application images for MySQL and HTTPD/PHP. To do this, we are going to build the supply chain again:
 
-``Make -C ~/assets/exercise-01-a/``{{execute}}
+``make -C ~/assets/exercise-01-a/``{{execute}}
 
 Inspect the application that we are going to create. We will start with the definition of the application itself. Notice the different software defined objects we are going to create - Services, ReplicationControllers, Routes, PeristentVolumeClaims. All of these objects are defined in a single file to make sharing and deployment of the entire application easy. These definitions can be stored in version control systems just like code. With Kubernetes these application definition files can be written in either JSON or YAML. 
 
