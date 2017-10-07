@@ -39,27 +39,10 @@ for i in {1..20}; do curl $SVC_IP; done``{{execute}}
 
 Example output:
 
-``<html>
- <head>
-  <title>PHP Test</title>
- </head>
- <body>
- <p>ERROR</p> </body>
-</html>
-<html>
- <head>
-  <title>PHP Test</title>
- </head>
- <body>
- <p>Hello World</p> </body>
-</html>
-<html>
- <head>
-  <title>PHP Test</title>
- </head>
- <body>
- <p>Hello World</p> </body>
-</html>``
+``ERROR
+ERROR
+Hello World
+ERROR``
 
 
 Take a look at the code. A random number is generated in the entrypoint and written to a file in /var/www/html/goodbad.txt:
