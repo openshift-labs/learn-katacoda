@@ -29,7 +29,7 @@ spec:
   strategy:
     dockerStrategy:
       from:
-        kind: ImageStreamTag
+        kind: DockerImage
         name: httpd-php:latest
     type: Docker
   triggers:
