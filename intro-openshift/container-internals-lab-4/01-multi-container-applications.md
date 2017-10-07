@@ -2,18 +2,7 @@ The goal of this exercise is to build a containerized two tier application in th
 
 Before we do anything, we need some application images for MySQL and HTTPD/PHP. To do this, we are going to build the supply chain again:
 
-``oc create -f ~/assets/exercise-01-a/AutomaticSupplyChain.yaml``{{execute}}
-
-Watch the builds in the web interface, wait until they finish to begin the next section. If you have forgotten since lab 2, then click on "#1" then watch the "Logs" and "Events" sections:
-
-* Username: `admin`{{copy}}
-* Password: `admin`{{copy}}
-* Console: [here](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/default/browse/builds)
-
-
-Since each lab environment is dynamically generated in Katacoda, they are all unique. We need to patch the yaml file to use the right internal registry server. Run the following command to do this for you:
-
-``sed -i s#172.30.175.143:5000/default/wordpress#$(oc get is | grep wordpress | awk '{print $2}')# ~/assets/exercise-01-b/wordpress-objects.yaml``{{execute}}
+``Make -C ~/assets/exercise-01-a/``{{execute}}
 
 Inspect the application that we are going to create. We will start with the definition of the application itself. Notice the different software defined objects we are going to create - Services, ReplicationControllers, Routes, PeristentVolumeClaims. All of these objects are defined in a single file to make sharing and deployment of the entire application easy. These definitions can be stored in version control systems just like code. With Kubernetes these application definition files can be written in either JSON or YAML. 
 
@@ -21,7 +10,6 @@ Notice, there is only a single Route in this definition. That's because Services
 
 ``cat ~/assets/exercise-01-b/wordpress-objects.yaml``{{execute}}
 
-**IMPORTANT**: wait for the above builds to complete before moving on.
 
 Now, let's create an application:
 
@@ -67,9 +55,9 @@ You may notice the wordpress pod enter a state called CrashLoopBackOff. This is 
 ``oc describe pod wordpress-``{{execute}}
 
 
-Visit the web interface and run through the wordpress installer:
+Ensure that the web interface is up and running:
 
-``links http://$HOSTNAME``{{execute}}
+``curl http://$(oc get svc | grep wpfrontend | awk '{print $2}')/wp-admin/install.php``{{execute}}
 
 
 In this exercise you learned how to deploy a fully functional two tier application with a single command (oc create -f excercise-01/wordpress-objects.yaml). As long as the cluster has peristnet volumes available to satisify the application, an end user can do this on their laptop, in a development environment or in production data centers all over the world. All of the dependent code is packaged up and delivered in the container images - all of the data and configuration comes from the environment. Production instances will access production persistent volumes, development environments can be seeded with copies of production data, etc. It's easy to see why container orchestration is so powerful. 
