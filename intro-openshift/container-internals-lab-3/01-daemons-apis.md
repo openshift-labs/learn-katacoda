@@ -1,6 +1,6 @@
 The goal of this exercise is to gain a basic understanding of the APIs (Kubernetes/OpenShift, Docker, Linux kernel). First let's inspect the daemons which are running on the master nodes.
 
-``~/assets/exercise-01/mega-proc.sh docker``{{execute}}
+``mega-proc.sh docker``{{execute}}
 
 
 Pay attention to the following proecesses and daemons running. You may notice that all of the docker commands and daemons have the "-current" extension - this is a methodology Red Hat uses to specify which version of the tools are installed. Red Hat supports two versions - a fast moving version with the -latest extension and a stable version targetted for OpenShift with the -current extension.
@@ -15,7 +15,7 @@ These processes all work together to create a container in the Linux kernel. The
 
 Now let's take a look at the OpenShift daemons which are runnning on the master:
 
-``~/assets/exercise-01/mega-proc.sh openshift``{{execute}}
+``mega-proc.sh openshift``{{execute}}
 
 
 Pay particular attention the the following daemons. The OpenShift/Kubernetes code is very modular. OpenShift compiles all of the functionality into a single binary and determines which role the daemon will play with startup parameters. Depending on which installation method (single node, clustered, registry server only, manual) is chosen the OpenShift binaries can be started in different ways.
