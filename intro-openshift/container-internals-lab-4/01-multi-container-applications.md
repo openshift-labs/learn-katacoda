@@ -10,12 +10,18 @@ Watch the builds in the web interface, wait until they finish to begin the next 
 * Password: `admin`{{copy}}
 * Console: [here](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/default/browse/builds)
 
+
+Since each lab environment is dynamically generated in Katacoda, they are all unique. We need to patch the yaml file to use the right internal registry server. Run the following command to do this for you:
+
+``sed -i s#172.30.175.143:5000/default/wordpress#$(oc get is | grep wordpress | awk '{print $2}')# ~/assets/exercise-01-b/wordpress-objects.yaml``{{execute}}
+
 Inspect the application that we are going to create. We will start with the definition of the application itself. Notice the different software defined objects we are going to create - Services, ReplicationControllers, Routes, PeristentVolumeClaims. All of these objects are defined in a single file to make sharing and deployment of the entire application easy. These definitions can be stored in version control systems just like code. With Kubernetes these application definition files can be written in either JSON or YAML. 
 
 Notice, there is only a single Route in this definition. That's because Services are internal to the Kubernetes cluster, while Routes expose the service externally. We only want to expose our Web Server externally, not our Database:
 
 ``cat ~/assets/exercise-01-b/wordpress-objects.yaml``{{execute}}
 
+**IMPORTANT**: wait for the above builds to complete before moving on.
 
 Now, let's create an application:
 
