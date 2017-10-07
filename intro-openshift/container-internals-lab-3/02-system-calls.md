@@ -12,7 +12,7 @@ Now, let's inspect a containerized version of the same command. Use megaproc to 
 
 Prepare to inspect what containerd is doing. Replace the -p argument with the PID for containerd:
 
-``strace -f -s4096 -e clone,getpid -p 10516``{{execute}}
+``strace -f -s4096 -e clone,getpid -p REPLACE_WITH_PID_OF_DOCKERD``
 
 
 In a second terminal, run some commands, and inspect what happens in terminal 1. You will what containerd fire off clone() system calls to the kernel and create the container. The different flags passed to clone() are what determine which kernel namespaces will be used (network, pid, uid, gid, etc):
