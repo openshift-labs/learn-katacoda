@@ -1,12 +1,18 @@
-The goal of this exercise is to gain a basic understanding of storage. Using "docker inspect" you can find the layers used in a particular container by looking at the GraphDriver -> Data.
+The goal of this exercise is to gain a basic understanding of storage. 
 
-``docker inspect openshift3/ose-pod:v3.4.1.10 | grep GraphDriver -A 7``
+First, lets take a look at which Graph Driver is used by the Docker daemon:
+
+``docker info | grep "Storage Driver``{{execute}}
 
 
-Optional Homework: With device mapper, which is the default configuration in RHEL7 and Atomic Host
+Now, for troubleshooting purposes, imagine that we want to see which volume of storage is used by a particular container. Using "docker inspect" you can find the layers used in a particular container by looking at the GraphDriver -> Data.
+
+``docker inspect openshift/origin-pod:v3.6.0 | grep GraphDriver -A 7``
+
+
+Device Mappter is the default storage configuration for RHEL7 and Atomic Host. You can use the demsetup command to find out information about any given container. 
 
 ``dmsetup ls --tree -o inverted``{{execute}}
-
 
 
 `` (252:17)
@@ -25,9 +31,9 @@ Optional Homework: With device mapper, which is the default configuration in RHE
  │     └─docker-253:0-1402402-db523524bfa345fd768dfc1f89dadb01de3e424903470030ff4bd4b1a61e70d5 (253:6)
  └─rhel-root (253:0)``
 
-Run the following command, but replace it with a volume from your live machine:
+Now, lets see how much storage our container is using. Run the following command, but replace it with a volume from your live machine:
 
-``dmsetup status docker-253:0-1402402-db523524bfa345fd768dfc1f89dadb01de3e424903470030ff4bd4b1a61e70d5``
+``dmsetup status `docker inspect openshift/origin-pod:v3.6.0 | grep GraphDriver -A 7 | grep DeviceName | cut -d\" -f4```{{execute}}
 
 Output:
 
