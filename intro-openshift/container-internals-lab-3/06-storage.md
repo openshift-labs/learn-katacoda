@@ -31,7 +31,7 @@ Device Mapper is the default storage configuration for RHEL7 and Atomic Host. Yo
  │     └─docker-253:0-1402402-db523524bfa345fd768dfc1f89dadb01de3e424903470030ff4bd4b1a61e70d5 (253:6)
  └─rhel-root (253:0)``
 
-Now, lets find out exactly which blocks this container is using on disk. The following command will give you that information:
+Now, lets find out exactly which blocks this container is using on disk. Run the output from the below code. You can use the environment variables to better understand its construction:
 
 ``export HAPROXY_CONTAINER=$(docker ps | grep haproxy | cut -d" " -f1)
 export DEVICEMAPPER_VOLUME=$(docker inspect $HAPROXY_CONTAINER | grep GraphDriver -A7 | grep DeviceName | cut -d\" -f4)
@@ -39,7 +39,7 @@ echo "dmsetup status $DEVICEMAPPER_VOLUME"
 ``{{execute}}
 
 
-Or, for those of you that would like a compact Bash one-liner:
+Or, for those of you who like compact Bash one-liners:
 
 ``dmsetup status $(docker inspect $(docker ps | grep haproxy | cut -d" " -f1) | grep GraphDriver -A7 | grep DeviceName | cut -d\" -f4)``{{execute}}
 
@@ -47,6 +47,7 @@ Output:
 
 ``0 20971520 thin 1391616 20971519``
 
+The output is poorly document, but here is what it means:
 
 - 0 is starting point
 - 20971520 (10GB) is length
