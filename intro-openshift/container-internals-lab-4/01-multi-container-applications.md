@@ -2,9 +2,9 @@ The goal of this exercise is to build a containerized two tier application in th
 
 Before we do anything, we need some application images for MySQL and HTTPD/PHP. To do this, we are going to build the supply chain again:
 
-``oc create -f ~/assets/exercise-04/AutomaticSupplyChain.yaml``{{execute}}
+``oc create -f ~/assets/exercise-01-a/AutomaticSupplyChain.yaml``{{execute}}
 
-Inspect the builds in the web interface. The build will start automatically after submitting the yaml file to the Kubernetes API daemon. Inspect the actual build by clicking on the "#1" then the "Logs" and "Events" sections. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster. Feel free to explore the different sections of the web interfece, especially the "Applications -> Pods" and "Builds -> Builds" sections.
+Watch the builds in the web interface, wait until they finish to begin the next section. If you have forgotten since lab 2, then click on "#1" then watch watch "Logs" and "Events" sections:
 
 * Username: `admin`{{copy}}
 * Password: `admin`{{copy}}
@@ -14,12 +14,12 @@ Inspect the application that we are going to create. We will start with the defi
 
 Notice, there is only a single Route in this definition. That's because Services are internal to the Kubernetes cluster, while Routes expose the service externally. We only want to expose our Web Server externally, not our Database:
 
-``vi ~/assets/exercise-01/wordpress-objects.yaml``{{execute}}
+``vi ~/assets/exercise-01-b/wordpress-objects.yaml``{{execute}}
 
 
 Now, let's create an application:
 
-``oc create -f ~/assets/exercise-01/wordpress-objects.yaml``{{execute}}
+``oc create -f ~/assets/exercise-01-b/wordpress-objects.yaml``{{execute}}
 
 
 Look at the status of the application. The two pods that make up this application will remain in a "pending" state - why?
