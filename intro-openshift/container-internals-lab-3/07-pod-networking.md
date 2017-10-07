@@ -1,9 +1,9 @@
-The goal of this exercise is to gain a basic understanding of container networking. First, start a container in OpenShift to work with:
+The goal of this exercise is to gain a basic understanding of container networking. First, we need a container to work with. In a **new** terminal, start a container in OpenShift:
 
 ``oc run --restart=Never --attach --stdin --tty --image rhel7/rhel rhel-test bash``{{execute}}
 
 
-Once the container becomes active, bring up another terminal and run the the rest of the tests:
+Once the container becomes active, run the following commands in your primary terminal:
 
 ``oc describe pod rhel-test``{{execute}}
 
@@ -56,7 +56,7 @@ The output will be the same because they share a network namespace. Example outp
        valid_lft forever preferred_lft forever``
 
 
-Now, inspect the type of docker networking. OpenShift communicates with docker and starts a container with the None Mode networking. This causes a namespace to be created in the kernel, and then OpenShift configures the network. OpenShift then communicates with docker to start a second container with Container Mode networking, which places the bash process in the same network namespace as the first container. We can verify this with the following commands:
+Now, inspect the type of docker networking. OpenShift communicates with docker and starts a container with the either the **none** or **default** mode networking. This causes a namespace to be created in the kernel, and then OpenShift configures the network. OpenShift then communicates with docker to start a second container with Container Mode networking, which places the bash process in the same network namespace as the first container. We can verify this with the following commands:
 
 For the pod container:
 
