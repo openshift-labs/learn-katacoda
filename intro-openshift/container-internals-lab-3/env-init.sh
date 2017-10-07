@@ -5,7 +5,7 @@ ssh root@host01 '/var/lib/openshift/openshift admin policy add-cluster-role-to-u
 ssh root@host01 'cp ~/assets/exercise-01/mega-proc.sh /usr/bin/mega-proc.sh'
 ssh root@host01 'cp ~/assets/exercise-01/atomic-openshift-master.service /etc/systemd/system/atomic-openshift-master.service'
 ssh root@host01 'cp ~/assets/exercise-01/atomic-openshift-node.service /etc/systemd/system/atomic-openshift-node.service'
-ssh root@host01 'systemctl disable --now origin.service; systemctl enable --now atomic-openshift-master.service; systemctl enable --now atomic-openshift-node.service'
+ssh root@host01 'systemctl disable --now origin.service; systemctl enable --now atomic-openshift-master.service &; systemctl enable --now atomic-openshift-node.service &'
 ssh root@host01 'docker pull rhel7'
 ssh root@host01 'docker pull rhel7-atomic'
 ssh root@host01 'docker pull nate/dockviz'
