@@ -4,7 +4,7 @@ Before we do anything, we need some application images for MySQL and HTTPD/PHP. 
 
 ``oc create -f ~/assets/exercise-01-a/AutomaticSupplyChain.yaml``{{execute}}
 
-Watch the builds in the web interface, wait until they finish to begin the next section. If you have forgotten since lab 2, then click on "#1" then watch watch "Logs" and "Events" sections:
+Watch the builds in the web interface, wait until they finish to begin the next section. If you have forgotten since lab 2, then click on "#1" then watch the "Logs" and "Events" sections:
 
 * Username: `admin`{{copy}}
 * Password: `admin`{{copy}}
@@ -14,7 +14,7 @@ Inspect the application that we are going to create. We will start with the defi
 
 Notice, there is only a single Route in this definition. That's because Services are internal to the Kubernetes cluster, while Routes expose the service externally. We only want to expose our Web Server externally, not our Database:
 
-``vi ~/assets/exercise-01-b/wordpress-objects.yaml``{{execute}}
+``cat ~/assets/exercise-01-b/wordpress-objects.yaml``{{execute}}
 
 
 Now, let's create an application:
@@ -36,12 +36,12 @@ Inspect the persistent volume claims:
 
 The application needs storage for the MySQL tables, and Web Root for Apache. Let's inspect the yaml file which will create the storage. We will create four persistent volumes - two that have 1GB of storage and two that will have 2GB of storage. These perisistent volumes will reside on the storage node and use NFS:
 
-``vi ~/assets/exercise-01/persistent-volumes.yaml``{{execute}}
+``cat ~/assets/exercise-01-b/persistent-volumes.yaml``{{execute}}
 
 
 Instantiate the peristent volumes:
 
-``oc create -f ~/assets/exercise-01/persistent-volumes.yaml``{{execute}}
+``oc create -f ~/assets/exercise-01-b/persistent-volumes.yaml``{{execute}}
 
 
 Now, the persistent volume claims for the application will become Bound and satisfy the storage requirements:
