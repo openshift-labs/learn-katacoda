@@ -3,7 +3,7 @@ ssh root@host01 'ln -s ~/intro-katacoda/intro-openshift/container-internals-lab-
 ssh root@host01 'cp ~/assets/exercise-01/mega-proc.sh /usr/bin/mega-proc.sh'
 ssh root@host01 'cp ~/assets/exercise-01/atomic-openshift-master.service /etc/systemd/system/atomic-openshift-master.service'
 ssh root@host01 'cp ~/assets/exercise-01/atomic-openshift-node.service /etc/systemd/system/atomic-openshift-node.service'
-ssh root@host01 'systemctl disable --now origin.service; sleep 3'
+ssh root@host01 'systemctl disable --now origin.service'
 ssh root@host01 'systemctl enable --now atomic-openshift-master.service; systemctl enable --now atomic-openshift-node.service'
 ssh root@host01 'git clone https://github.com/fatherlinux/container-supply-chain.git ~/assets/exercise-04/'
 ssh root@host01 '/var/lib/openshift/openshift admin policy add-cluster-role-to-user cluster-admin admin'
