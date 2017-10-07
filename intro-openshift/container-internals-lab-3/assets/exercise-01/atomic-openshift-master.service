@@ -11,15 +11,13 @@ Requires=network-online.target
 Type=notify
 Environment=KUBECONFIG=/openshift.local.config/master/admin.kubeconfig
 Environment=CURL_CA_BUNDLE=/openshift.local.config/master/ca.crt
-ExecStartPre=/usr/bin/rm -irf /openshift.local.etcd/ /openshift.local.volumes/;
 ExecStart=/var/lib/openshift/openshift start master --config=/openshift.local.config/master/master-config.yaml --dns=tcp://0.0.0.0:8053
-LimitNOFILE=131072
+NOFILE=131072
 LimitCORE=infinity
-WorkingDirectory=/var/lib/origin/
+WorkingDirectory=/var/lib/openshift
 SyslogIdentifier=atomic-openshift-master
 Restart=always
-RestartSec=3s
-TimeoutSec=30
+RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target
