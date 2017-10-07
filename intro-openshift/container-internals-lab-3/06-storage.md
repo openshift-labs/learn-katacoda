@@ -35,7 +35,7 @@ Now, lets find out exactly which blocks this container is using on disk. The fol
 
 ``HAPROXY_CONTAINER=$(docker ps | grep haproxy | cut -d" " -f1)``{{execute}}
 
-``DEVICEMAPPER_VOLUME=$(docker inspect $HAPROXY_CONTAINER)
+``DEVICEMAPPER_VOLUME=$(docker inspect $HAPROXY_CONTAINER)``{{execute}}
 
 ``dmsetup status $DEVICEMAPPER_VOLUME``{{execute}}
 
