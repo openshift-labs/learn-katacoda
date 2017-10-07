@@ -56,9 +56,9 @@ Now, the persistent volume claims for the application will become Bound and sati
 
 Now look at the status of the pods again:
 
-``oc describe pod wordpress-``{{execute}}
-
 ``oc describe pod mysql-``{{execute}}
+
+``oc describe pod wordpress-``{{execute}}
 
 
 You may notice the wordpress pod enter a state called CrashLoopBackOff. This is a natural state in Kubernetes/OpenShift which helps satisfy dependencies. The wordpress pod will not start until the mysql pod is up and running. This makes sense, because wordpress can't run until it has a database and a connection to it. Similar to email retries, Kubernetes will back off and attempt to restart the pod again after a short time. Kubernetes will try several times, extending the time between tries until eventually the dependency is satisfied, or it enters an Error state. Luckily, once the mysql pod comes up, wordpress will come up successfully. Here are some useful commands to watch the state:
