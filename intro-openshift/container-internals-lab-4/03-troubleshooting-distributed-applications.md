@@ -17,6 +17,10 @@ Build the test application. Wait for the build to successfully complete. You can
 ``oc get builds``{{execute}}
 
 
+Before we define the applicaiton, we need to patch application defintion because each Katacoda environment is generated dynamically and is different:
+
+```sed -i s#172.30.170.9:5000/lab02-exercise04/goodbad#$(oc get is | grep wordpress | awk '{print $2}')# ~/assets/exercise-03/Run.yaml``{{execute}}
+
 Run the test application
 
 ``oc create -f ~/assets/exercise-03/Run.yaml``{{execute}}
@@ -65,7 +69,7 @@ Take a look at the code. A random number is generated in the entrypoint and writ
 ``cat ~/assets/exercise-03/Dockerfile``{{execute}}
 
 
-Troubleshoot the problem in a programatic way. Notice some pods have files which contian numbers that are lower than 7, this means the pod will return a bad response:
+Troubleshoot the problem in a programatic way. Notice some pods have files which contain numbers that are lower than 7, this means the pod will return a bad response:
 
 ``for i in $(oc get pods | grep goodbad | grep -v build | awk '{print $1}'); do oc exec -t $i -- cat /var/www/html/goodbad.txt; done``{{execute}}
 
@@ -84,7 +88,7 @@ Scale up the nodes, and test again. Notice it's broken again because new pods ha
 
 ``oc scale rc goodbad --replicas=10``{{execute}}
 
-``for i in {1..2000}; do curl $SVC_IP 2>&1; done | grep "Hello World" | wc -l
+``for i in {1..2000}; do curl $SVC_IP 2>&1; done | grep "Hello World" | wc -l``{{execute}}
 
 
 Optional: As a final challenge, fix the problem permanently by fixing the logic so that the number is always above 7 and never causes the application to break. Rebuild, and redeploy the applicaion. Hint: you have to get the images to redeploy with the newer versions (delete the rc) :-)
