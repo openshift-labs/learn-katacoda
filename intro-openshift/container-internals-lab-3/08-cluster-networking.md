@@ -1,4 +1,4 @@
-*NOTE: There was change to this lab last minute, so the commands below need to be ran outside of a cotnainer. The concepts are identical and show that the network operates the same way whether OVS is containerized or not.
+*NOTE: The current lab is setup without OVS netowrking, so the commands below will not work in this lab. We hope to add this lab back in once we have a new environment set up in Katacoda. Until then, read through the below to get an understanding of how networking works in a production OpenShift environment.
 
 The goal of this exercise is to gain a basic understanding of the overlay network that enables multi-container networking. On any node, insepct the openvswtich container. Notice that the container is started with the following three options: --privileged --net=host --pid=host. These three options make this container super privileged similar to running a normal process as root. They also place the containerized proecess in the host's network namespace and process id namespace. Essentially, this privileged container only uses mount namespace to utilize a container image for delivery of software - hence, it has very limited containment.
 
