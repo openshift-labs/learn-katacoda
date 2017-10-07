@@ -19,7 +19,7 @@ Build the test application. Wait for the build to successfully complete. You can
 
 Before we define the applicaiton, we need to patch application defintion because each Katacoda environment is generated dynamically and is different:
 
-``sed -i s#172.30.170.9:5000/lab02-exercise04/goodbad#$(oc get is | grep wordpress | awk '{print $2}')# ~/assets/exercise-03/Run.yaml``{{execute}}
+``sed -i s#172.30.170.9:5000/lab02-exercise04/goodbad#$(oc get is | grep goodbad | awk '{print $2}')# ~/assets/exercise-03/Run.yaml``{{execute}}
 
 Run the test application
 
