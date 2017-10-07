@@ -19,3 +19,4 @@ In a second terminal, run some commands, and inspect what happens in terminal 1.
 
 ``docker run -it rhel7 bash``{{execute}}
 
+Finally, use ctrl-c to get out of the strace
