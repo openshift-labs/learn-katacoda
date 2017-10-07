@@ -67,17 +67,17 @@ Show all pods:
 
 ``oc get pods``{{execute}}
 
-View the terminal output for a pod:
-
-``oc logs $(oc get pods | grep mysql- | awk '{print $1}')``{{execute}}
-
-``oc logs $(oc get pods | grep wordpress- | awk '{print $1}')``{{execute}}
-
 View the events for a pod:
 
 ``oc describe pod mysql-``{{execute}}
 
 ``oc describe pod wordpress-``{{execute}}
+
+View the terminal output for a pod:
+
+``oc logs $(oc get pods | grep mysql- | awk '{print $1}')``{{execute}}
+
+``oc logs $(oc get pods | grep wordpress- | awk '{print $1}')``{{execute}}
 
 
 Log into the OpenShift web interface which is a convenient place to monitor the state, and troublshoot things when they go wrong. You can even get a debug terminal into a Pod to troublshoot if it crashes. This can help you figure out why it crashed. This shouldn't happen in this lab, but as you build applications it surely will :-)
