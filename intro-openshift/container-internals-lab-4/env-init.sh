@@ -1,6 +1,7 @@
 ssh root@host01 'git clone https://github.com/fatherlinux/intro-katacoda.git'
 ssh root@host01 'ln -s ~/intro-katacoda/intro-openshift/container-internals-lab-4/assets ~/assets'
 ssh root@host01 'git clone https://github.com/fatherlinux/container-supply-chain.git ~/assets/exercise-01-a/'
+ssh root@host01 'cd ~/assets/exercise-01-a/; git checkout centos7'
 ssh root@host01 'git clone https://github.com/fatherlinux/wordpress-demo.git ~/assets/exercise-01-b/'
 ssh root@host01 'sed -i s/wpfrontend-wordpress.apps.example.com/`hostname`/ ~/assets/exercise-01-b/wordpress-objects.yaml'
 ssh root@host01 'yum install -y links'
