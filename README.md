@@ -20,7 +20,7 @@ A few things concerning the layout:
 
 * Create a separate directory for your scenario.
 * Follow the naming convention for each step, see [intro-openshift/deploying-images](https://github.com/openshift-evangelists/intro-katacoda/tree/master/intro-openshift/deploying-images) for an example.
-* If you have images you want to use in the instructions, you must place them into [assets/intro-openshift](https://github.com/openshift-evangelists/intro-katacoda/tree/master/assets/intro-openshift).
+* If you have images you want to use in the instructions, you must place them into [assets/intro-openshift](https://github.com/openshift-evangelists/intro-katacoda/tree/master/assets/intro-openshift). Please make a directory matching your scenario name so we can associate the files with the right scenario.
 * If you need assets copied into the node to be usable from the shell, you must place them into the `assets/` directory in your scenario, see [intro-openshift/transferring-files/assets](https://github.com/openshift-evangelists/intro-katacoda/tree/master/intro-openshift/transferring-files/assets) for an example. Note that files to be copied also must be listed in your `index.json` under the `assets` key, see [intro-openshift/transferring-files/index.json](https://github.com/openshift-evangelists/intro-katacoda/blob/master/intro-openshift/transferring-files/index.json) for an example.
 
 ## Resources
