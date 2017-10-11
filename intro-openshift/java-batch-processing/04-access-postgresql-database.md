@@ -20,11 +20,14 @@ Among all these PostgreSQL database parameters, we will need ``POSTGRESQL_SERVIC
 and rely on default values for other parameters. So copy its value, similar to ``172.30.245.228``,
 by selecting it, right-clicking, and choosing _Copy_ in the context menu.
 
-Save ``POSTGRESQL_SERVICE_HOST`` value in environment variable ``DB`` 
-in client _Terminal_(NOT the POD web terminal). Switch to client _Terminal_, 
-and set the following environment variable. For example (your value may be different):
+Now in switch from the web console to the terminal pane at the top of the environment.
+In the terminal where you logged into OpenShift do the following command, but replace the IP here
+with the IP for your db.  For example (your value may be different):
 
 ``export DB=172.30.245.228``
+
+[HEY, you can actually get the IP of the pod on the overview screen without making them go into the local terminal
+you can see it right under **deployment** which is easier to copy]
 
 Later when we run the batch application, we will reference ``$DB`` for the application
 to connect to PostgreSQL database.
