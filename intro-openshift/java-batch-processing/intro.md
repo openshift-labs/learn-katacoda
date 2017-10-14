@@ -1,8 +1,10 @@
 In this self-paced tutorial you will learn how to build, deploy, and execute Java batch application
  using JBeret and WildFly for OpenShift. 
  
- [Can you please put in a paragraph here about what the problems Batch API is used for. Things like problems it good for solving]
-
+Batch processing is typically bulk-oriented, non-interactive, background execution.
+It usually involves large volume of data or intensive computation. It is used across
+many industries to tackle tasks like data ETL (extract, transform and load), recurring
+account statement generation, periodic security scanning, financial portfolio analysis, etc.
  
  [The sample batch application](https://github.com/jberet/intro-jberet)
  demonstrates basic batch processing operations, such as

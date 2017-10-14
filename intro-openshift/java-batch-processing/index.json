@@ -21,20 +21,20 @@
             "title": "Step 1 - Create an Initial Project",
             "text": "01-creating-an-initial-project.md"
         }, {
-            "title": "Step 2 - Deploying App Using the Web Console",
-            "text": "02-deploying-using-the-web-console.md"
+            "title": "Step 2 - Deploying an New Application",
+            "text": "02-deploying-a-new-application.md"
         }, {
             "title": "Step 3 - Deploying PostgreSQL Database",
             "text": "03-deploying-a-postgresql-database.md"
         }, {
-            "title": "Step 4 - Access PostgreSQL Database",
-            "text": "04-access-postgresql-database.md"
+            "title": "Step 4 - Reviewing Sample Batch Job",
+            "text": "04-reviewing-sample-batch-job.md"
         }, {
-            "title": "Step 5 - Prepare Client Side of Batch Application",
-            "text": "05-prepare-batch-client.md"
+            "title": "Step 5 - Running Batch Application",
+            "text": "05-running-batch-application.md"
         }, {
-            "title": "Step 6 - Run Batch Application",
-            "text": "06-run-batch-application.md"
+            "title": "Step 6 - Running More Batch Job Operations",
+            "text": "06-more-job-operations.md"
         }],
         "intro": {
             "courseData": "env-init.sh",

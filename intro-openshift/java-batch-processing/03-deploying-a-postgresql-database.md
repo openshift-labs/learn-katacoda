@@ -1,25 +1,55 @@
 ``intro-jberet`` app uses PostgreSQL database for storing output data. 
-To create PostgreSQL database in OpenShift dashboard, 
-navigate to _Add to Project_, then _Browse Catalog_, then _Data_Stores_, and finally select _postgresql-ephemeral_.
-For quicker access, you can start typing ``postgre`` in the filter field.
+To create a database which you can then connect to, run the command:
 
-![Select PostgreSQL](../../assets/intro-openshift/java-batch-processing/03-catalog-postgresql.png)
+``oc new-app postgresql-ephemeral --name postgresql --param POSTGRESQL_USER=jberet --param POSTGRESQL_PASSWORD=jberet``{{execute}}
 
-Click _Select_ button.
+This will start up an instance of a PostgreSQL database, with the following info:
+
+```text
+--> Deploying template "openshift/postgresql-ephemeral" to project jberet-lab
+
+     PostgreSQL (Ephemeral)
+     ---------
+     PostgreSQL database service, without persistent storage. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.
+
+     WARNING: Any data stored will be lost upon pod destruction. Only use this template for testing
+
+     The following service(s) have been created in your project: postgresql.
+
+            Username: jberet
+            Password: jberet
+       Database Name: sampledb
+      Connection URL: postgresql://postgresql:5432/
+
+     For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/postgresql-container/blob/master/9.5.
+
+     * With parameters:
+        * Memory Limit=512Mi
+        * Namespace=openshift
+        * Database Service Name=postgresql
+        * PostgreSQL Connection Username=jberet
+        * PostgreSQL Connection Password=jberet
+        * PostgreSQL Database Name=sampledb
+        * Version of PostgreSQL Image=9.5
+
+--> Creating resources ...
+    secret "postgresql" created
+    service "postgresql" created
+    deploymentconfig "postgresql" created
+--> Success
+    Run 'oc status' to view your app.
+```
 
 Although a database would normally be paired with a persistent volume, we only want to demonstrate how to access the database in this course. The database instance we create here, will therefore only store the database in the filesystem local to the container. This means that if the database was restarted, any changes would be lost. When you deploy a database to be used with your own applications, you would want to look at using persistent volumes.
 
+To monitor progress as the database is deployed and made ready, run the command:
 
-On the details page **you must** enter a few database parameters. We will only specify database
-user name and password, and leave other fields with default values.
+``oc rollout status dc/postgresql``{{execute}}
 
-* _PostgreSQL Connection Username_: ``jberet``{{copy}}
-* _PostgreSQL Connection Password_: ``jberet``{{copy}}
+This command will exit once the database is ready to be used:
 
-![PostgreSQL Parameters](../../assets/intro-openshift/java-batch-processing/03-postgresql-params.png)
-
-Click _Create_ button, and the database is successfully created:
-
-![PostgreSQL Created](../../assets/intro-openshift/java-batch-processing/03-postgresql-created.png)
+```text
+	replication controller "postgresql-1" successfully rolled out
+```
 
 
