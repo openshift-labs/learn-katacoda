@@ -15,8 +15,6 @@ For hints and ideas of where to start next check out the resources below.
 * [Project JBeret Docs](http://docs.jboss.org/jberet/latest/)
 * [JSR 352 : Batch Applications for the Java Platform Spec](https://jcp.org/en/jsr/detail?id=352)
 
-## OpenShift Links and References
-
 ### OpenShift Development Tooling:
 * [Minishift](http://www.openshift.org/vm)
   Minishift is a complete OpenShift environment that you can run on your local machine.  

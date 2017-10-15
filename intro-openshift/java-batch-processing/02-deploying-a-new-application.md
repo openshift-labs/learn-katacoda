@@ -63,3 +63,11 @@ Once the build completes, you can visit the application test URL below to verify
 `http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/`{{copy}}
 
 This will take you to WildFly landing page, which shows the application server is up and running.
+If the application is not ready yet, you will see messages like the following, which means more time
+is needed to build and deploy the application:
+
+```text
+Application is not available
+
+The application is currently not serving requests at this endpoint. It may not have been started or is still starting.
+```

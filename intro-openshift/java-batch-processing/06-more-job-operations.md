@@ -25,7 +25,7 @@ completed job execution, expecting the stop operation to fail:
 
 ``curl -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/2/stop"``{{execute}}
 
-You should see output like this:
+You should see output like this with long stacktrace:
 
 ```json
 {
@@ -46,7 +46,30 @@ To schedule a job execution:
 
 ``curl -X POST -H 'Content-Type:application/json' -d '{"jobName":"csv2db", "initialDelay":1, "interval":60}' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobs/csv2db/schedule"``{{execute}}
 
+And you will see the resultant job schedule information as output:
+
+```text
+{
+  "id":"1",
+  "jobScheduleConfig":{
+    "jobName":"csv2db",
+    "jobExecutionId":0,
+    "jobParameters":null,
+    "scheduleExpression":null,
+    "initialDelay":1,
+    "afterDelay":0,
+    "interval":60,
+    "persistent":false
+  },
+  "createTime":1508094664385,
+  "status":"SCHEDULED",
+  "jobExecutionIds":[]
+}
+```
+
 The above command schedules to run job `csv2db` after 1 minute, and every 60 minutes.
+Note that its status is ``SCHEDULED``, and its associated job executions are an empty array, since
+no job execution has been started for this schedule.
 More advanced scheduling are also supported by JBeret such as repeated execution, interval between executions, 
 and calendar-based cron-like schedules.
 
@@ -54,8 +77,63 @@ To list all job schedules:
 
 ``curl "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/schedules"``{{execute}}
 
+Your output may be like this:
+
+```text
+[
+  {
+    "id":"1",
+    "jobScheduleConfig":{
+      "jobName":"csv2db",
+      "jobExecutionId":0,
+      "jobParameters":null,
+      "scheduleExpression":null,
+      "initialDelay":1,
+      "afterDelay":0,
+      "interval":60,
+      "persistent":false
+    },
+    "createTime":1508094664385,
+    "status":"SCHEDULED",
+    "jobExecutionIds":[
+      4
+    ]
+  }
+]
+```
+From the above output, we can see there is 1 job schedule, which has been fulfilled once with job execution id ``4``.
+Its status remains ``SCHEDULED``, since it's a recurring job schedule with more job executions to come.
+
 To cancel the above recurring job schedule:
 
 ``curl -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/schedules/1/cancel"``{{execute}}
 
+Then re-run the previous command to list job schedules, to verify their status:
+
+``curl "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/schedules"``{{execute}}
+
+The output should show that the job schedule ``1`` is in ``CANCELLED`` status:
+
+```text
+[
+  {
+    "id":"1",
+    "jobScheduleConfig":{
+      "jobName":"csv2db",
+      "jobExecutionId":0,
+      "jobParameters":null,
+      "scheduleExpression":null,
+      "initialDelay":1,
+      "afterDelay":0,
+      "interval":60,
+      "persistent":false
+    },
+    "createTime":1508094664385,
+    "status":"CANCELLED",
+    "jobExecutionIds":[
+      4
+    ]
+  }
+]
+```
 

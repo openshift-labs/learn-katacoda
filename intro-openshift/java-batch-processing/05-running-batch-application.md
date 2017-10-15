@@ -137,6 +137,18 @@ To check the content of ``MOVIES`` table:
 
 ``SELECT * FROM MOVIES;``{{execute}}
 
+There should be 100 rows in ``MOVIES`` table in paginated view. Press ``space`` for next page, or ``q`` to stop.
+
+```
+ rank |                        tit                        |      grs      |    opn
+------+---------------------------------------------------+---------------+------------
+    1 | Marvel's The Avengers                             | 623357910.000 | 2012-05-04
+    2 | The Dark Knight Rises                             | 448139099.000 | 2012-07-20
+    3 | The Hunger Games                                  | 408010692.000 | 2012-03-23
+    4 | Skyfall                                           | 304360277.000 | 2012-11-09
+    5 | The Hobbit: An Unexpected Journey                 | 303003568.000 | 2012-12-14
+``` 
+
 To exit ``psql``:
 
 ``\q``{{execute}}
