@@ -30,8 +30,8 @@ DELETE FROM MOVIES"/>
     </step>
 ```
 
-* ``csv2db.step2``: a chunk-type step, which reads, processes and writes data in chunks, and repeats the
-                    read-process-write cycle till the input is exhausted. 
+* ``csv2db.step2``: a chunk-type step, which reads, processes and writes data in chunks, and repeats the 
+read-process-write cycle till the input is exhausted. 
                     
 ```xml
     <!-- read data from online CSV resource and output to db, following chunk processing pattern -->

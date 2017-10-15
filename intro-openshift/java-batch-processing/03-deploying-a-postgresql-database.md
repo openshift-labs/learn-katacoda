@@ -49,6 +49,8 @@ To monitor progress as the database is deployed and made ready, run the command:
 This command will exit once the database is ready to be used:
 
 ```text
+    Waiting for rollout to finish: 0 of 1 updated replicas are available...
+    Waiting for latest deployment config spec to be observed by the controller loop...
 	replication controller "postgresql-1" successfully rolled out
 ```
 

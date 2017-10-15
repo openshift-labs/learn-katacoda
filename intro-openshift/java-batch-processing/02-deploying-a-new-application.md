@@ -1,4 +1,4 @@
-To create a new application based on WildFly image, run the command:
+To create our new Java batch application based on WildFly image, run the command:
 
 ``oc new-app wildfly~https://github.com/jberet/intro-jberet.git``{{execute}}
 
@@ -60,6 +60,6 @@ route "intro-jberet" exposed
 
 Once the build completes, you can visit the application test URL below to verify:
 
-`https://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-[[KATACODA_HOST]].environments.katacoda.com/`{{copy}}
+`http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/`{{copy}}
 
 This will take you to WildFly landing page, which shows the application server is up and running.

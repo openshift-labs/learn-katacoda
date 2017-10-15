@@ -3,7 +3,7 @@ We will use ``curl`` command line tool to invoke REST API to perform various bat
 
 To start the job named ``csv2db``:
 
-``curl -X POST -H 'Content-Type:application/json' "https://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobs/csv2db/start"``{{execute}}
+``curl -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobs/csv2db/start"``{{execute}}
 
 ```json
 {
@@ -33,20 +33,20 @@ query parameters in test URL.
 
 To get details and status of a job execution, just follow the href link given above:
 
-``curl https://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/1``{{execute}}
+``curl http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/1``{{execute}}
 
 The output is the same as above, except that the job has completed and its batch status 
 is updated to ``COMPLETED``
 
 To get all step executions belonging to this job execution:
 
-``curl https://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/1/stepexecutions/``{{execute}}
+``curl http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/1/stepexecutions/``{{execute}}
 
 The output should include 2 step executions (details omitted here).
 
 To get details for the 2nd step execution, which performs the reading and writing of batch data:
 
-``curl https://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/1/stepexecutions/2``{{execute}}
+``curl http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/1/stepexecutions/2``{{execute}}
 
 ```json
 {
