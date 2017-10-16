@@ -30,7 +30,7 @@ enterprise batch processing capability.
 When using the OpenShift Container Platform there are various ways to deploy a batch application:
 
 * Deploy batch application from an existing Docker-formatted image.
-* Build application locally and push the build result into OpenShift using a Binary strategy with the Source-to-Image (s2i) builder.
-* Build and deploy from source code contained in a Git repository using a s2i builder.
+* Build application locally and push the build result into OpenShift using a Binary strategy with the Source-to-Image (S2I) builder.
+* Build and deploy from source code contained in a Git repository using a S2I builder.
 
-For our introductory lesson we are going to use OpenShifts s2i repository builder to pull in, build and deploy a Java batch application to WildFly runtime. So let's get started!
+For our introductory lesson we are going to use OpenShifts S2I repository builder to pull in, build and deploy a Java batch application to WildFly runtime. So let's get started!

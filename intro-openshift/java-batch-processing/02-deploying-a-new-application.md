@@ -31,22 +31,25 @@ And the output should look something like this:
 ```
 
 The build of our application is now scheduled, and it will take some time before it's ready.
-To check the status of our application, run the command:
+To watch its status and progress, run the command:
 
-``oc status``{{execute}}
+``oc rollout status dc/intro-jberet``{{execute}}
 
-If the application is ready, you will see output like this:
+You will see output like the following as the application is being built and deployed:
 
 ```text
-In project jberet-lab on server https://172.17.0.19:8443
-
-http://intro-jberet-jberet-lab.2886795283-80-ollie01.environments.katacoda.com to pod port 8080-tcp (svc/intro-jberet)
-  dc/intro-jberet deploys istag/intro-jberet:latest <-
-    bc/intro-jberet source builds https://github.com/jberet/intro-jberet.git on openshift/wildfly:10.1
-    deployment #1 deployed 22 seconds ago - 1 pod
-
-View details with 'oc describe <resource>/<name>' or list everything with 'oc get all'.
+Deployment config "intro-jberet" waiting on image update
+Waiting for latest deployment config spec to be observed by the controller loop...
+Waiting for rollout to finish: 0 out of 1 new replicas have been updated...
+Waiting for rollout to finish: 0 out of 1 new replicas have been updated...
+Waiting for rollout to finish: 0 of 1 updated replicas are available...
+Waiting for latest deployment config spec to be observed by the controller loop...
+replication controller "intro-jberet-1" successfully rolled out
 ```
+
+This command will exit once the application is ready.
+Now is a great time to switch to the _Dashboard_ and explore features in OpenShift web console
+including application configuration, details, logs, monitoring, resource management, etc.
 
 To expose `intro-jberet` application to external clients, run the command:
 
@@ -60,7 +63,7 @@ route "intro-jberet" exposed
 
 Once the build completes, you can visit the application test URL below to verify:
 
-`http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/`{{copy}}
+http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
 
 This will take you to WildFly landing page, which shows the application server is up and running.
 If the application is not ready yet, you will see messages like the following, which means more time
