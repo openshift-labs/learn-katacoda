@@ -37,50 +37,50 @@ It contains 2 steps:
 read-process-write cycle till the input is exhausted. 
                     
 ```xml
-<!-- read data from online CSV resource and output to db, following chunk processing pattern -->
+<!-- read data from online CSV resource and output
+  to db, following chunk processing pattern -->
+     
 <step id="csv2db.step2">
   <chunk>
     <reader ref="csvItemReader">
       <properties>
-        <property name="resource" value=
-          "https://raw.githubusercontent.com/jberet/jsr352/master/jberet-support/src/test/resources/movies-2012.csv"/>
+      <property name="resource" value=
+        "https://raw.githubusercontent.com/jberet/jsr352/master/jberet-support/src/test/resources/movies-2012.csv"/>
         
-        <property name="beanType" value=
-          "java.util.Map"/>
+      <property name="beanType" value=
+        "java.util.Map"/>
         
-        <property name="nameMapping" value=
-          "rank,tit,grs,opn"/>
+      <property name="nameMapping" value=
+        "rank,tit,grs,opn"/>
         
-        <property name="cellProcessors" value= 
-          "ParseInt; NotNull, StrMinMax(1, 100); DMinMax(1000000, 1000000000); ParseDate('yyyy-MM-dd')"/>
+      <property name="cellProcessors" value= 
+        "ParseInt; 
+        NotNull, StrMinMax(1, 100); 
+        DMinMax(1000000, 1000000000); 
+        ParseDate('yyyy-MM-dd')"/>
       </properties>
     </reader>
         
-    <!-- processor element is optional and is not used here -->
+    <!-- processor is optional and is not used -->
 
     <writer ref="jdbcItemWriter">
       <properties>
-        <property name="url" value=
-          "jdbc:postgresql://#{jobParameters['db.host']}?:postgresql;/#{jobParameters['db.name']}?:sampledb;"/>
-        
-        <property name="user" value=
-          "#{jobParameters['db.user']}?:jberet;"/>
-        
-        <property name="password" value=
-          "#{jobParameters['db.password']}?:jberet;"/>
+      <!-- url, user & password properties are the same 
+        as in csv2db.step1, and are now shown here -->
 
-        <property name="sql" value=
-          "insert into MOVIES (rank,tit,grs,opn) VALUES (?, ?, ?, ?)"/>
+      <property name="sql" value=
+        "insert into MOVIES (rank,tit,grs,opn) 
+                     VALUES (?, ?, ?, ?)"/>
         
-        <property name="parameterNames" value=
-          "rank,tit,grs,opn"/>
+      <property name="parameterNames" value=
+        "rank,tit,grs,opn"/>
           
-        <property name="parameterTypes" value=
-          "Int,String,Double,Date"/>
+      <property name="parameterTypes" value=
+        "Int,String,Double,Date"/>
           
-        <property name="beanType" value=
-          "java.util.Map"/>
-        </properties>
+      <property name="beanType" value=
+        "java.util.Map"/>
+      </properties>
     </writer>
   </chunk>
 </step>
