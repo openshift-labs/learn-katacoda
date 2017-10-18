@@ -18,7 +18,7 @@ For hints and ideas of where to start next check out the resources below.
 ### OpenShift Development Tooling:
 * [Minishift](https://www.openshift.org/minishift/)
   Minishift is a complete OpenShift environment that you can run on your local machine.  
-  The project supports Windows, OS X, and the Linux operating system.  To find more about minishift, visit http://www.openshift.org/vm 
+  The project supports Windows, OS X, and the Linux operating system.  To find more about Minishift, visit https://www.openshift.org/minishift/ 
 * [oc cluster up](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md)
   oc cluster up is a command provided by the oc client tool.  It configures and runs an OpenShift environment 
   running inside of the native docker system for your operating system.  It supports Windows, OS X, and the Linux operating systems.  For more information, 

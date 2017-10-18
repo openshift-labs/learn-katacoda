@@ -4,7 +4,7 @@ The JSON output is formatted with ``python -m json.tool``
 
 To start the job named ``csv2db``:
 
-``curl -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobs/csv2db/start" | python -m json.tool``{{execute}}
+``curl -s -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobs/csv2db/start" | python -m json.tool``{{execute}}
 
 ```json
 {
@@ -35,20 +35,20 @@ query parameters in test URL.
 The ``href`` value in the ``curl`` command output indicates the address for the newly-created
 job execution resource. To get its details and status, run the following command: 
 
-``curl http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/1 | python -m json.tool``{{execute}}
+``curl -s http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/1 | python -m json.tool``{{execute}}
 
 The output is the same as above, except that the job has completed and its batch status 
 is updated to ``COMPLETED``
 
 To get all step executions belonging to this job execution:
 
-``curl http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/1/stepexecutions/ | python -m json.tool``{{execute}}
+``curl -s http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/1/stepexecutions/ | python -m json.tool``{{execute}}
 
 The output should include 2 step executions (details omitted here).
 
 To get details for the 2nd step execution, which performs the reading and writing of batch data:
 
-``curl http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/1/stepexecutions/2 | python -m json.tool``{{execute}}
+``curl -s http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/1/stepexecutions/2 | python -m json.tool``{{execute}}
 
 ```json
 {

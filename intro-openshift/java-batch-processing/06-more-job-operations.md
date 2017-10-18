@@ -4,26 +4,26 @@ it to fail so we can restart it next.
 
 To start ``csv2db`` job with wrong ``db.host`` value:
 
-``curl -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobs/csv2db/start?db.host=x" | python -m json.tool``{{execute}}
+``curl -s -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobs/csv2db/start?db.host=x" | python -m json.tool``{{execute}}
 
 Check the status of the above job execution, which should be ``FAILED`` when it's finished running:
 
-``curl http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/2 | python -m json.tool``{{execute}}
+``curl -s http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/2 | python -m json.tool``{{execute}}
 
 To restart the above failed job execution, with correct configuration:
 
-``curl -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/2/restart?db.host=postgresql" | python -m json.tool``{{execute}}
+``curl -s -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/2/restart?db.host=postgresql" | python -m json.tool``{{execute}}
 
 Restarting creates a new job execution. Check the status of the restart job execution, which should be ``COMPLETED`` when it's finished running:
 
-``curl http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/3 | python -m json.tool``{{execute}}
+``curl -s http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/3 | python -m json.tool``{{execute}}
 
 If a job execution is taking too long, you may want to stop it. Note that you can only
 stop a running job execution, and apply ``stop`` operation on job execution in other state
 will fail. Since the duration of our sample job execution is short, let's try stopping a
 completed job execution, expecting the stop operation to fail:
 
-``curl -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/2/stop" | python -m json.tool``{{execute}}
+``curl -s -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/2/stop" | python -m json.tool``{{execute}}
 
 You should see output like this with long stacktrace:
 
@@ -37,14 +37,14 @@ You should see output like this with long stacktrace:
 
 To abandon a finished job execution:
 
-``curl -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/2/abandon"``{{execute}}
+``curl -s -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobexecutions/2/abandon"``{{execute}}
 
 Note that you can only abandon a finished job execution, not running ones. Once a job execution is abandoned,
 it cannot be restarted.
 
 To schedule a job execution:
 
-``curl -X POST -H 'Content-Type:application/json' -d '{"jobName":"csv2db", "initialDelay":1, "interval":60}' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobs/csv2db/schedule" | python -m json.tool``{{execute}}
+``curl -s -X POST -H 'Content-Type:application/json' -d '{"jobName":"csv2db", "initialDelay":1, "interval":60}' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/jobs/csv2db/schedule" | python -m json.tool``{{execute}}
 
 And you will see the resultant job schedule information as output:
 
@@ -75,7 +75,7 @@ and calendar-based cron-like schedules.
 
 To list all job schedules:
 
-``curl "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/schedules" | python -m json.tool``{{execute}}
+``curl -s "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/schedules" | python -m json.tool``{{execute}}
 
 Your output may be like this:
 
@@ -106,11 +106,11 @@ Its status remains ``SCHEDULED``, since it's a recurring job schedule with more 
 
 To cancel the above recurring job schedule:
 
-``curl -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/schedules/1/cancel"``{{execute}}
+``curl -s -X POST -H 'Content-Type:application/json' "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/schedules/1/cancel"``{{execute}}
 
 Then re-run the previous command to list job schedules, to verify their status:
 
-``curl "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/schedules" | python -m json.tool``{{execute}}
+``curl -s "http://intro-jberet-jberet-lab.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/intro-jberet/api/schedules" | python -m json.tool``{{execute}}
 
 The output should show that the job schedule ``1`` is in ``CANCELLED`` status:
 
