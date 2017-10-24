@@ -11,6 +11,10 @@ OK, let’s start from scratch. In the terminal, let's start with a simple exper
 
 ``docker run -td rhel7 top``{{execute}}''
 
+Now, let's start a couple of more containers doing the same thing:
+
+``docker run -td rhel7 top``{{execute}}''
+
 Now, let's inspect the process table of the underlying host:
 
 ``ps -ef | grep top``{{execute}}
