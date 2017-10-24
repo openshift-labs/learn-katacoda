@@ -17,4 +17,8 @@ Now, let's inspect the process table of the underlying host:
 
 ``ps -ef | grep top``{{execute}}
 
-Notice that even though we started each of the top commands in contianers, but they are still just a regular process which can be viewed with the trusty old ``ps`` command. That's because containers are just [fancy Linux processes](http://sdtimes.com/guest-view-containers-really-just-fancy-files-fancy-processes/) with extra isolation. Containerized processes are isolated using selinux and cgroups - they are also started in a special way, but they are still just Linux processes. Containerized processes and regular Linux processes, long lived daemons, batch jobs, and interactive commands all live side by side, making requests to the Linux kernel for protected resources like memory, ram, tcp sockets, etc. We will explore this deeper in later labs, but for now, let's move on...
+Notice that even though we started each of the top commands in contianers, but they are still just a regular process which can be viewed with the trusty old ``ps`` command. That's because containers are just [fancy Linux processes](http://sdtimes.com/guest-view-containers-really-just-fancy-files-fancy-processes/) with extra isolation. 
+
+Containerized processes are started in a way that their kernel data structures are separate from other Linux processes on the system and are further isolated using technologies like selinux and cgroups, but they are still just Linux processes. 
+
+Containerized processes, regular Linux processes, long lived daemons, batch jobs, and interactive commands which you run all live side by side, making requests to the Linux kernel for protected resources like memory, ram, tcp sockets, etc. We will explore this deeper in later labs, but for now, let's move on...
