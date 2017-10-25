@@ -1,4 +1,4 @@
-Now, let's inspect the daemons which are running on the master nodes. Normally, we would just use the ps command to dump the contents of the process id table in the linux kernel. For the purpose of clarity, we will use a simple script called mega-proc which will dump this same content, but pretty printed for clarity. Each of the command line options are displayed on a separate line for clarity. Lets inspect the components of the docker userspace toolchain.
+Now, let's inspect the daemons which are running on a container host. Normally, we would just use the ps command to dump the contents of the process id table in the linux kernel. For the purpose of clarity, we will use a simple script called mega-proc which will dump this same content, but pretty printed for clarity. Each of the command line options are displayed on a separate line for clarity. Lets inspect the components of the docker userspace toolchain.
 
 ``mega-proc.sh docker``{{execute}}
 
