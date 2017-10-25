@@ -19,7 +19,7 @@ Now, let's inspect the process table of the underlying host:
 
 ``ps -ef | grep top``{{execute}}
 
-Notice that even though we started each of the top commands in containers, they are still just a regular process which can be viewed with the trusty old ``ps`` command. That's because containers are just [fancy Linux processes](http://sdtimes.com/guest-view-containers-really-just-fancy-files-fancy-processes/) with extra isolation from normal Linux processes. 
+Notice that even though we started each of the ``top`` commands in containers, they are still just a regular process which can be viewed with the trusty old ``ps`` command. That's because containers are just [fancy Linux processes](http://sdtimes.com/guest-view-containers-really-just-fancy-files-fancy-processes/) with extra isolation from normal Linux processes. 
 
 Containerized processes are started in a way that their kernel data structures are separate from other Linux processes on the system and are further isolated using technologies like selinux and cgroups, but they are still just Linux processes. This is sometimes described as "sand boxing" or "isolation" or an "illusion" of virtualization.
 
