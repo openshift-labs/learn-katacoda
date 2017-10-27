@@ -10,3 +10,5 @@ docker pull registry.access.redhat.com/jboss-eap-7/eap70-openshift
 docker pull registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift
 docker pull registry.access.redhat.com/jboss-fuse-6/fis-java-openshift
 docker pull registry.access.redhat.com/jboss-fuse-6/fis-karaf-openshift
+
+curl -L -o /opt/jboss-image-streams.json https://raw.githubusercontent.com/redhat-middleware-hackathon/openshift-files/master/jboss-image-streams.json
