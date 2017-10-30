@@ -1,0 +1,50 @@
+{
+    "icon": "fa-openshift",
+    "title": "Developing APIs using Red Hat OpenShift and JBoss Fuse",
+    "description": "In this self paced tutorial you will learn how to build and deploy cloud native APIs using JBoss FIS 2.0 for container services on the OpenShift Container Platform from Red Hat.",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "10-15 minutes",
+    "backend": {
+        "imageid": "openshift",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Creating an Initial Project",
+            "text": "01-creating-an-initial-project.md"
+        }, {
+            "title": "Topic 2 - Deploying First Fuse Application on OpenShift",
+            "text": "02-deploying-first-fuse-application-on-openshift.md"
+        }, {
+            "title": "Topic 3 - Viewing the Java Console and Camel Route",
+            "text": "03-viewing-the-java-console-and-camel-route.md"
+        }, {
+            "title": "Topic 4 - Execute the APIs",
+            "text": "04-exceute-the-apis.md"
+        }, {
+            "title": "Topic 5 - Access the Swagger Document",
+            "text": "05-accessing-the-swagger-document.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+        	"host01": [
+        		{"file": "fgstemplate.yml", "target": "/root/"} 
+        	]
+        }
+    }
+}
