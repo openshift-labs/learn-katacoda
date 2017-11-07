@@ -63,3 +63,19 @@ You can see the list of what is available, and what versions, under _Add to
 Project_ in the web console, or by running from the command line:
 
 ``oc new-app -L``{{execute}}
+
+## Running Images as a Defined User
+
+By default OpenShift prohibits images from running as the ``root`` user
+or as a specified user. Instead, each project is assigned its own unique
+range of user IDs that application images have to run as.
+
+If you attempt to run an arbitrary image from an external image registry
+such a Docker Hub, which is not built to best practices, or requires that
+it be run as ``root``, it may not work as a result.
+
+In order to run such an image, you will need to grant additional privileges
+to the project you create to allow it to run an application image as any
+user ID. This can be done by running the command:
+
+``oc adm policy add-scc-to-user anyuid -z default -n myproject``{{execute}}
