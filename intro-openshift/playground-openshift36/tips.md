@@ -52,3 +52,15 @@ much less.
 To view the list of available persistent volumes you can run:
 
 ``oc get pv --as system:admin``{{execute}}
+
+## Builder Images and Templates
+
+The playground environment is pre-loaded with Source-to-Image (S2I) builders
+for Java (Wildfly), Javascript (Node.JS), Perl, PHP, Python and Ruby.
+Templates are also available for MariaDB, MongoDB, MySQL, PostgreSQL and
+Redis.
+
+You can see the list of what is available, and what versions, under _Add to
+Project_ in the web console, or by running from the command line:
+
+``oc new-app -L``{{execute}}
