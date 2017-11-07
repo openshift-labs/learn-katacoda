@@ -78,4 +78,4 @@ In order to run such an image, you will need to grant additional privileges
 to the project you create to allow it to run an application image as any
 user ID. This can be done by running the command:
 
-``oc adm policy add-scc-to-user anyuid -z default -n myproject``{{execute}}
+``oc adm policy add-scc-to-user anyuid -z default -n myproject --as system:admin``{{execute}}
