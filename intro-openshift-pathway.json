@@ -42,6 +42,11 @@
       "external_link": "https://learn.openshift.com/introduction/fis-deploy-app/",
       "course_id": "fis-deploy-app",
       "title": "OpenShift for Fuse Developers"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/playground-openshift36/",
+      "course_id": "playground-openshift36",
+      "title": "Playground (OpenShift 3.6)"
     }
   ]
 }
