@@ -8,11 +8,10 @@ a cluster admin on the command line. This will allow you to perform
 operations which would normally be performed by a cluster admin.
 
 Before creating any applications, it is recommended you login as a distinct
-user. This will be required if you want to be able to log in to the web
-console and use it.
+user. This will be required if you want to log in to the web console and
+use it.
 
-To login to the OpenShift cluster used for this course from the _Terminal_,
-run:
+To login to the OpenShift cluster from the _Terminal_ run:
 
 ``oc login -u developer -p developer``{{execute}}
 
