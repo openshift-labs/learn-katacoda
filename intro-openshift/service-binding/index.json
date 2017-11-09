@@ -29,7 +29,7 @@
         }, {
             "title": "Topic 4 - Deploying the Database",
             "text": "03-deploying-the-database.md"
-        },
+        }],
         "intro": {
             "courseData": "env-init.sh",
             "code": "set-env.sh",
