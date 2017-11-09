@@ -1,18 +1,8 @@
-In the empty project, select the _Add to Project_ button in the centre of the page.
+In this course you are going to first deploy a web application which is implemented using the Python programming language.
 
-![Adding to Empty Project](../../assets/intro-openshift/service-binding/02-add-to-project-empty.png)
+Select the _Languages_ category from the service catalog.
 
-You should be presented with the catalog browser.
-
-![Catalog Browser](../../assets/intro-openshift/service-binding/02-add-to-project-browser.png)
-
-If applications had previously been deployed to the project, or you were not on the project _Overview_ page, you can use the _Add to Project_ link in the menu bar.
-
-![Adding via Menu Bar](../../assets/intro-openshift/service-binding/02-add-to-project-menubar.png)
-
-In this course you are going to deploy a web application which is implemented using the Python programming language.
-
-Select the _Python_ category from the catalog browser. Any options for deploying applications which are related to Python will be displayed.
+Any options for deploying applications which are related to Python will be displayed.
 
 ![Available Python Versions](../../assets/intro-openshift/service-binding/02-deploy-python-versions.png)
 
