@@ -1,31 +1,31 @@
 In this course you are going to first deploy a web application which is implemented using the Python programming language.
 
-Select the _Languages_ category from the service catalog.
+Select the _Languages_ category from the service catalog and then select _Python_.
 
-Any options for deploying applications which are related to Python will be displayed.
+![Available Languages](../../assets/intro-openshift/service-binding/02-python-language-category.png)
 
-![Available Python Versions](../../assets/intro-openshift/service-binding/02-deploy-python-versions.png)
+Any options for deploying applications which are related to Python will be displayed. In the environment used for this course, the only option presented will be that for the Python Source-to-Image (S2I) builder. Click on _Python_ in the lower pane to start setting up the deployment for the application.
 
-In the environment used for this course, the only option presented will be that for the Python Source-to-Image (S2I) builder.
+The first splash screen displayed will provide information on the S2I builder being used.
 
-For this exercise leave the version as ``latest``, which in this environment maps to Python 3.5.
+![Builder Information](../../assets/intro-openshift/service-binding/02-builder-information.png)
 
-Click on _Select_ to bring up the deployment options for the Python S2I builder.
+Click on _Next_ in order to enter in configuration for the deployment.
 
-![Python Deployment Options](../../assets/intro-openshift/service-binding/02-deploy-python-options.png)
+![Deployment Configuration](../../assets/intro-openshift/service-binding/02-deployment-configuration.png)
 
-For the _Name_ to be given to resources, enter:
+For the _Application Name_ enter:
 
 `blog`{{copy}}
 
-For the _Git Repository URL_ enter:
+For the _Git Repository_ enter:
 
 `https://github.com/openshift-katacoda/blog-django-py`{{copy}}
 
 When you are ready, at the bottom of the page click on _Create_. This will take you to a splash page confirming the application has been created.
 
-![Application Image Details](../../assets/intro-openshift/service-binding/02-continue-to-overview.png)
+![Application Created](../../assets/intro-openshift/service-binding/02-application-created.png)
 
-Click on _Continue to overview_ and you will be returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is built and deployed.
+Click on _Continue to the project overview_. This will take you to the _Overview_ page for the project, where you can view the details of the application created and monitor progress as it is built and deployed.
 
 ![Application Overview](../../assets/intro-openshift/service-binding/02-build-in-progress.png)
