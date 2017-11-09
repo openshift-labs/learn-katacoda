@@ -28,7 +28,7 @@
             "text": "03-accessing-the-web-application.md"
         }, {
             "title": "Topic 4 - Deploying the Database",
-            "text": "03-deploying-the-database.md"
+            "text": "04-deploying-the-database.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
