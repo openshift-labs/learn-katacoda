@@ -1,4 +1,4 @@
-Once the database has been provisioned, you should see on the _Overview_ page for the project two entries related to the database. The first is the actual deployment and the second is the service binding listed on _Provisioned Services_.
+Once the database has been provisioned, you should see on the _Overview_ page for the project two entries related to the database. The first is the actual deployment and the second is the service binding listed under _Provisioned Services_.
 
 ![Database Provisioned](../../assets/intro-openshift/service-binding/05-postgresql-provisioned.png)
 
@@ -18,7 +18,7 @@ To have the web application use these details, click on _Add to Application_.
 
 ![Add to Application](../../assets/intro-openshift/service-binding/05-add-to-application.png)
 
-Select +blog+ from the _Add this secret to Application_ drop down menu.
+Select ``blog`` from the _Add this secret to Application_ drop down menu.
 
 Two options are then presented as to how the database credentials can be injected into the application.
 
