@@ -4,7 +4,7 @@
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
-    "time": "20-25 minutes",
+    "time": "15-20 minutes",
     "backend": {
         "imageid": "openshift-3-7",
         "port": 8443
