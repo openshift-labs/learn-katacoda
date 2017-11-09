@@ -2,9 +2,9 @@ To deploy a PostgreSQL database which the web application can use, click on _Add
 
 ![Databases Category](../../assets/intro-openshift/service-binding/04-databases-category.png)
 
-In the environment used for this course, the only option presented should be that for a PostgreSQL database. Click on _PostgreSQL (Persistent)_ in the lower pane to start setting up the deployment for the application.
+In the environment used for this course, the only option presented should be that for a PostgreSQL database. Click on _PostgreSQL (Persistent)_ in the lower pane to start setting up the deployment for the database.
 
-The first splash screen displayed will provide information on the PostgreSQL database whgich can be deployed.
+The first splash screen displayed will provide information on the PostgreSQL database which can be deployed.
 
 ![PostgreSQL Information](../../assets/intro-openshift/service-binding/04-postgresql-information.png)
 

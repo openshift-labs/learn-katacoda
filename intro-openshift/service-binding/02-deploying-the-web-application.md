@@ -22,7 +22,7 @@ For the _Git Repository_ enter:
 
 `https://github.com/openshift-katacoda/blog-django-py`{{copy}}
 
-When you are ready, at the bottom of the page click on _Create_. This will take you to a splash page confirming the application has been created.
+When you are ready, at the bottom of the page click on _Create_. This will take you to a final splash page confirming the application has been created.
 
 ![Application Created](../../assets/intro-openshift/service-binding/02-application-created.png)
 
