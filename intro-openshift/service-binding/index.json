@@ -29,6 +29,12 @@
         }, {
             "title": "Topic 4 - Deploying the Database",
             "text": "04-deploying-the-database.md"
+        }, {
+            "title": "Topic 5 - Add Secret to Application",
+            "text": "05-add-secret-to-application.md"
+        }, {
+            "title": "Topic 6 - Verifying the Connection",
+            "text": "06-verifying-the-connection.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
