@@ -52,6 +52,11 @@
       "external_link": "https://learn.openshift.com/introduction/playground-openshift36/",
       "course_id": "playground-openshift36",
       "title": "Playground (OpenShift 3.6)"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/playground-openshift37/",
+      "course_id": "playground-openshift37",
+      "title": "Playground (OpenShift 3.7)"
     }
   ]
 }
