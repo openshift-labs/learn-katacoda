@@ -1,0 +1,51 @@
+{
+    "icon": "fa-openshift",
+    "title": "Binding a Database to an Application",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "15-20 minutes",
+    "backend": {
+        "imageid": "openshift-3-7",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Creating an Initial Project",
+            "text": "01-creating-an-initial-project.md"
+        }, {
+            "title": "Topic 2 - Deploying the Web Application",
+            "text": "02-deploying-the-web-application.md"
+        }, {
+            "title": "Topic 3 - Accessing the Web Application",
+            "text": "03-accessing-the-web-application.md"
+        }, {
+            "title": "Topic 4 - Deploying the Database",
+            "text": "04-deploying-the-database.md"
+        }, {
+            "title": "Topic 5 - Add Secret to Application",
+            "text": "05-add-secret-to-application.md"
+        }, {
+            "title": "Topic 6 - Verifying the Connection",
+            "text": "06-verifying-the-connection.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "volumes.json", "target": "~/"}]
+        }
+    }
+}
