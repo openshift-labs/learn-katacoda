@@ -1,1 +1,1 @@
-yum reinstall ca-certificates -y
+yum reinstall ca-certificates sudo -y
