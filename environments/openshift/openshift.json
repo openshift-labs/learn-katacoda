@@ -1,6 +1,6 @@
 {
   "variables": {
-     "pwd": "{{ env `PWD` }}"
+     "pwd": "{{ env `PWD` }}/../centos"
   },
     "builders":
     [

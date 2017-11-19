@@ -1,2 +1,6 @@
 .DS_Store
 .project
+*.iso
+output/
+output-openshift/
+output-openshift-middleware/
