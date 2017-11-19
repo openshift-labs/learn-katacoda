@@ -1,6 +1,6 @@
 {
   "variables": {
-     "pwd": "{{ env `PWD` }}"
+     "pwd": "{{ env `PWD` }}/../openshift"
   },
     "builders":
     [
@@ -12,7 +12,7 @@
             "accelerator": "kvm",
             "headless": true,
       	    "disk_image": true,
-            "iso_url": "{{ user `pwd` }}/output/centos-7",
+            "iso_url": "{{ user `pwd` }}/output-openshift/packer-openshift",
             "iso_checksum_type": "none",
             "iso_checksum": "",
             "vnc_port_min": 5922,
@@ -32,10 +32,7 @@
     "provisioners": [
         {
             "type": "shell",
-            "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
             "scripts": [
-                "scripts/openshift.sh",
-                "scripts/pull.sh",
                 "scripts/middleware.sh",
                 "scripts/zerodisk.sh"
             ]

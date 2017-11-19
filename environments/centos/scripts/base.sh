@@ -32,7 +32,21 @@ DNS3=2001:4860:4860::8888
 DNS4=2001:4860:4860::8844
 EOF
 
-sed -i 's/crashkernel=[^ ]*[ ]*//' /boot/grub2/grub.cfg
+echo "GRUB_DEFAULT=1" > /etc/default/grub
+echo "GRUB_TIMEOUT=0" >> /etc/default/grub
+echo "GRUB_DISTRIBUTOR=\"CentOS\"" >> /etc/default/grub
+echo "GRUB_CMDLINE_LINUX_DEFAULT=\"console=tty1 console=ttyS0 init=/usr/lib/systemd/systemd\"" >> /etc/default/grub
+echo "GRUB_CMDLINE_LINUX=\"console=tty1 console=ttyS0 init=/usr/lib/systemd/systemd\"" >> /etc/default/grub
+echo "GRUB_PRELOAD_MODULES=\"part_gpt part_msdos\"" >> /etc/default/grub
+echo "GRUB_TERMINAL_INPUT=\"console\"" >> /etc/default/grub
+echo "GRUB_TERMINAL_OUTPUT=\"console\"" >> /etc/default/grub
+echo "GRUB_TERMINAL=\"console\"" >> /etc/default/grub
+echo "GRUB_SERIAL_COMMAND=\"serial --speed=38400 --unit=0 --word=8 --parity=no --stop=1\"" >> /etc/default/grub
+echo "GRUB_GFXMODE=auto" >> /etc/default/grub
+echo "GRUB_GFXPAYLOAD_LINUX=keep" >> /etc/default/grub
+echo "GRUB_DISABLE_RECOVERY=true" >> /etc/default/grub
+
+grub2-mkconfig -o /boot/grub2/grub.cfg
 
 cat <<EOF > /etc/fstab
 # /etc/fstab: static file system information.
