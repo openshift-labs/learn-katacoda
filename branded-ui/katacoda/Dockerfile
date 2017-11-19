@@ -1,1 +1,7 @@
-FROM benhall/hugo:0.18-alpine
+FROM golang:1.7
+CMD ["./main"]
+EXPOSE 3000
+RUN mkdir -p /go/src/github.com/openshift-evangelists/intro-katacoda
+WORKDIR /go/src/github.com/openshift-evangelists/intro-katacoda
+ADD . /go/src/github.com/openshift-evangelists/intro-katacoda
+RUN go get && go build -a -installsuffix cgo -o main .

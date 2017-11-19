@@ -1,6 +1,0 @@
-web:
-  build: .
-  ports:
-    - 8080:1313
-  volumes:
-    - .:/usr/share/blog
