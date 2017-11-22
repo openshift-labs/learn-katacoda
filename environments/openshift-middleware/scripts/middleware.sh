@@ -33,3 +33,5 @@ docker pull bucharestgold/centos7-s2i-nodejs
 # docker pull registry.access.redhat.com/jboss-fuse-6/fis-karaf-openshift
 
 curl -k -L -o /opt/jboss-image-streams.json https://raw.githubusercontent.com/redhat-middleware-hackathon/openshift-files/master/jboss-image-streams.json
+
+sh populate-maven-repos.sh
