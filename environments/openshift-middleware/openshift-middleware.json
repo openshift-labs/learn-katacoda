@@ -34,7 +34,8 @@
             "type": "shell",
             "scripts": [
                 "scripts/middleware.sh",
-                "scripts/zerodisk.sh"
+                "scripts/zerodisk.sh",
+                "scripts/populate-maven-repos.sh"
             ]
         }
     ]
