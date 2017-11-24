@@ -1,15 +1,27 @@
 #!/bin/bash
 
-# Turn on exit on error
-set -e
+# Uncomment to turn on exit on error
+#set -e
+
 
 # Add additional repos to use to pre-populate the local maven repostiory to the SOURCE_REPOS environment variable. 
 # Entries are separated by spaces
 SOURCE_REPOS=( https://github.com/openshift-katacoda/rhoar-getting-started.git )
 PROJECT_DIR=/root/projects
 SKIP_TESTS=true
+SCRIPT_VERSION=0.1
+SCRIPT_LOG=~/.$(basename $0).log
 
-echo  - ADDING A MAVEN SETTINGS FILE
+# Redirect all out put to the SCRIPT_LOG
+exec 3>&1 4>&2 >$SCRIPT_LOG 2>&1
+
+echo "#################################################################################"
+echo "##### BUILD SCRIPT VERSION $SCRIPT_VERSION WAS EXECUTED AT $(date)" >
+echo "#################################################################################"
+
+echo "STARTING"
+
+echo  - ADDING A MAVEN SETTINGS FILE 
 
 mkdir -p ~/.m2
 cat > ~/.m2/settings.xml <<-EOF1
@@ -184,14 +196,17 @@ for pom in $(find . -name pom.xml)
         pushd $project > /dev/null
         echo -- BUILDING PROJECT $project
         mvn -q dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -Dmaven.test.skip=$SKIP_TESTS
-        # for profile in $(cat pom.xml | grep -A 1 "<profile>" | grep "<id>" | sed 's/.*<id>\(.*\)<\/id>.*/\1/')
-        # do
-        #     mvn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -DskipTests
-        # done
+        for profile in $(cat pom.xml | grep -A 1 "<profile>" | grep "<id>" | sed 's/.*<id>\(.*\)<\/id>.*/\1/')
+        do
+            mvn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -DskipTests
+        done
         mvn -q clean
         popd > /dev/null
     done
 popd > /dev/null
 
 echo - DONE
+
+# Restore redirects
+exec 1>&3 2>&4
 
