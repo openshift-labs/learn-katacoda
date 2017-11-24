@@ -34,7 +34,8 @@
             "type": "shell",
             "scripts": [
                 "scripts/middleware.sh",
-                "scripts/populate-maven-repos.sh"
+                "scripts/populate-maven-repos.sh",
+                "scripts/middleware-pull.sh"
             ]
         },
         {
