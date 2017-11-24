@@ -1,15 +1,27 @@
 #!/bin/bash
 
-# Turn on exit on error
-set -e
+# Uncomment to turn on exit on error
+#set -e
+
 
 # Add additional repos to use to pre-populate the local maven repostiory to the SOURCE_REPOS environment variable. 
 # Entries are separated by spaces
 SOURCE_REPOS=( https://github.com/openshift-katacoda/rhoar-getting-started.git )
 PROJECT_DIR=/root/projects
 SKIP_TESTS=true
+SCRIPT_VERSION=0.1
+SCRIPT_LOG=~/.$(basename $0).log
 
-echo  - ADDING A MAVEN SETTINGS FILE
+# Redirect all out put to the SCRIPT_LOG
+exec 3>&1 4>&2 >$SCRIPT_LOG 2>&1
+
+echo "#################################################################################"
+echo "##### BUILD SCRIPT VERSION $SCRIPT_VERSION WAS EXECUTED AT $(date)" >
+echo "#################################################################################"
+
+echo "STARTING"
+
+echo  - ADDING A MAVEN SETTINGS FILE 
 
 mkdir -p ~/.m2
 cat > ~/.m2/settings.xml <<-EOF1
@@ -194,4 +206,7 @@ for pom in $(find . -name pom.xml)
 popd > /dev/null
 
 echo - DONE
+
+# Restore redirects
+exec 1>&3 2>&4
 
