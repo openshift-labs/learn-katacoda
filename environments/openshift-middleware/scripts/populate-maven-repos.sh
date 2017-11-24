@@ -9,16 +9,15 @@ set -e
 SOURCE_REPOS=( https://github.com/openshift-katacoda/rhoar-getting-started.git )
 PROJECT_DIR=/root/projects
 SKIP_TESTS=true
-SCRIPT_VERSION=0.1
-SCRIPT_LOG=~/.$(basename $0).log
+SCRIPT_VERSION=0.2
+VERSION_LOG=~/.$(basename $0)-version.log
+SCRIPT_LOG=~/.$(basename $0)-version.log
 
-echo "#################################################################################"
-echo "##### BUILD SCRIPT VERSION $SCRIPT_VERSION WAS EXECUTED AT $(date)" 
-echo "#################################################################################"
+echo "BUILD SCRIPT $(basename $0) VERSION $SCRIPT_VERSION WAS EXECUTED AT $(date)" | tee $VERSION_LOG
 
-echo "STARTING"
+echo "STARTING" | tee $SCRIPT_LOG
 
-echo  - ADDING A MAVEN SETTINGS FILE 
+echo  - ADDING A MAVEN SETTINGS FILE | tee $SCRIPT_LOG
 
 mkdir -p ~/.m2
 cat > ~/.m2/settings.xml <<-EOF1
@@ -92,7 +91,7 @@ cat > ~/.m2/settings.xml <<-EOF1
 EOF1
 
 
-echo - CREATING A TEMPORARY POM FILE TO PRE-POPULATE PLUGINS
+echo - CREATING A TEMPORARY POM FILE TO PRE-POPULATE PLUGINS | tee $SCRIPT_LOG
 cat > temp-pom.xml <<-EOF2
   <project>
     <modelVersion>4.0.0</modelVersion>
@@ -155,7 +154,7 @@ EOF2
 
 
 
-echo - BUILDING THE TEMPORARY POM
+echo - BUILDING THE TEMPORARY POM | tee $SCRIPT_LOG
 mvn -q -f temp-pom.xml dependency:go-offline \
     dependency:resolve-plugins \
     dependency:resolve \
@@ -168,39 +167,41 @@ mvn -q -f temp-pom.xml dependency:go-offline \
     jar:help \
     resources:help \
     surefire:help
+ 
+echo - DELETE THE TEMPORARY POM | tee $SCRIPT_LOG
+rm -rf src dummy-pom.xml | tee $SCRIPT_LOG
 
-echo - DELETE THE TEMPORARY POM
-rm -rf src dummy-pom.xml
-
-echo - CLONING REPOSITORIES
+echo - CLONING REPOSITORIES | tee $SCRIPT_LOG
 
 if [ -d $PROJECT_DIR ]; then
-    rm -rf $PROJECT_DIR
+    rm -rf $PROJECT_DIR | tee $SCRIPT_LOG
 fi
 
-mkdir -p $PROJECT_DIR
+mkdir -p $PROJECT_DIR | tee $SCRIPT_LOG
 pushd $PROJECT_DIR > /dev/null
 for repo in "${SOURCE_REPOS[@]}"
 do
-    echo -- CLONING REPO $repo
-    git clone --quiet $repo 
+    echo -- CLONING REPO $repo | tee $SCRIPT_LOG
+    git clone --quiet $repo | tee $SCRIPT_LOG
 done
 
-echo - ITERATING OVER PROJECT AND BUILDING THEM
+echo - ITERATING OVER PROJECT AND BUILDING THEM | tee $SCRIPT_LOG
 for pom in $(find . -name pom.xml)
     do
         project=$(dirname "$pom")
         pushd $project > /dev/null
-        echo -- BUILDING PROJECT $project
-        mvn -q dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -Dmaven.test.skip=$SKIP_TESTS
+        echo -- BUILDING PROJECT $project | tee $SCRIPT_LOG
+        mvn -q -fn dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -Dmaven.test.skip=$SKIP_TESTS | tee $SCRIPT_LOG
+        echo --- ITERATAING OVER PROFILES IN PROJECT $project | tee $SCRIPT_LOG
         for profile in $(cat pom.xml | grep -A 1 "<profile>" | grep "<id>" | sed 's/.*<id>\(.*\)<\/id>.*/\1/')
         do
-            mvn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -DskipTests
+            echo ---- BUILDING $project WITH PROFILE $profile ACTIVE | tee $SCRIPT_LOG
+            mvn -q -fn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -DskipTests | tee $SCRIPT_LOG
         done
-        mvn -q clean
+        mvn -q clean | tee $SCRIPT_LOG
         popd > /dev/null
     done
 popd > /dev/null
 
-echo - DONE
+echo - DONE | tee $SCRIPT_LOG
 
