@@ -196,10 +196,10 @@ for pom in $(find . -name pom.xml)
         pushd $project > /dev/null
         echo -- BUILDING PROJECT $project
         mvn -q dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -Dmaven.test.skip=$SKIP_TESTS
-        # for profile in $(cat pom.xml | grep -A 1 "<profile>" | grep "<id>" | sed 's/.*<id>\(.*\)<\/id>.*/\1/')
-        # do
-        #     mvn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -DskipTests
-        # done
+        for profile in $(cat pom.xml | grep -A 1 "<profile>" | grep "<id>" | sed 's/.*<id>\(.*\)<\/id>.*/\1/')
+        do
+            mvn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -DskipTests
+        done
         mvn -q clean
         popd > /dev/null
     done
