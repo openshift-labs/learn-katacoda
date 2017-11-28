@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Uncomment to turn on exit on error
-set -e
+#set -e
 
 
 # Add additional repos to use to pre-populate the local maven repostiory to the SOURCE_REPOS environment variable. 
