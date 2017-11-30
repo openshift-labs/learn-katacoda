@@ -9,7 +9,7 @@
 SOURCE_REPOS=( https://github.com/openshift-katacoda/rhoar-getting-started.git )
 PROJECT_DIR=/root/projects
 SKIP_TESTS=true
-SCRIPT_VERSION=0.4
+SCRIPT_VERSION=0.5
 VERSION_LOG=~/.populate-maven-repos-version.log
 SCRIPT_LOG=~/.populate-maven-repos.log
 
@@ -146,6 +146,11 @@ cat > temp-pom.xml <<-EOF2
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>buildnumber-maven-plugin</artifactId>
           <version>1.4</version>
+        </plugin>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>1.5.8.RELEASE</version>
         </plugin>      
       </plugins>
     </build> 
@@ -166,7 +171,8 @@ mvn -q -f temp-pom.xml dependency:go-offline \
     install:help \
     jar:help \
     resources:help \
-    surefire:help
+    surefire:help \
+    spring-boot:help
  
 echo - DELETE THE TEMPORARY POM | tee -a $SCRIPT_LOG
 rm -rf src dummy-pom.xml | tee -a $SCRIPT_LOG
@@ -196,7 +202,7 @@ for pom in $(find . -name pom.xml)
         for profile in $(cat pom.xml | grep -A 1 "<profile>" | grep "<id>" | sed 's/.*<id>\(.*\)<\/id>.*/\1/')
         do
             echo ---- BUILDING $project WITH PROFILE $profile ACTIVE | tee -a $SCRIPT_LOG
-            mvn -q -fn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -DskipTests | tee -a $SCRIPT_LOG
+            mvn -q -fn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
         done
         mvn -q clean | tee -a $SCRIPT_LOG
         popd > /dev/null
