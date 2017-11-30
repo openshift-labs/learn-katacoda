@@ -9,7 +9,7 @@
 SOURCE_REPOS=( https://github.com/openshift-katacoda/rhoar-getting-started.git )
 PROJECT_DIR=/root/projects
 SKIP_TESTS=true
-SCRIPT_VERSION=0.3
+SCRIPT_VERSION=0.4
 VERSION_LOG=~/.populate-maven-repos-version.log
 SCRIPT_LOG=~/.populate-maven-repos.log
 
@@ -85,7 +85,7 @@ cat > ~/.m2/settings.xml <<-EOF1
     </profiles>
     <activeProfiles>
         <activeProfile>jboss-enterprise-maven-repository-ga</activeProfile>
-        <activeProfile>jboss-enterprise-maven-repository-earlyaccess</activeProfile>
+        <!--<activeProfile>jboss-enterprise-maven-repository-earlyaccess</activeProfile>-->
     </activeProfiles>
 </settings>
 EOF1
