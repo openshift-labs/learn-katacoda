@@ -1,6 +1,6 @@
 export VERSION=v3.7.0
 export ARCH=v3.7.0-7ed6862-linux
-export URL=https://github.com/openshift/origin/releases/download/$VERSION/
+export URL=https://github.com/openshift/origin/releases/download/$VERSION
 
 
 
