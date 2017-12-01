@@ -9,7 +9,7 @@
 SOURCE_REPOS=( https://github.com/openshift-katacoda/rhoar-getting-started.git )
 PROJECT_DIR=/root/projects
 SKIP_TESTS=true
-SCRIPT_VERSION=0.5
+SCRIPT_VERSION=0.6
 VERSION_LOG=~/.populate-maven-repos-version.log
 SCRIPT_LOG=~/.populate-maven-repos.log
 
@@ -150,8 +150,13 @@ cat > temp-pom.xml <<-EOF2
         <plugin>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
-          <version>1.5.8.RELEASE</version>
-        </plugin>      
+          <version>1.5.8.Final-redhat-1</version>
+        </plugin>
+        <plugin>
+            <groupId>io.fabric8</groupId>
+            <artifactId>fabric8-maven-plugin</artifactId>
+            <version>3.5.30</version>
+        </plugin>
       </plugins>
     </build> 
   </project>
@@ -197,12 +202,12 @@ for pom in $(find . -name pom.xml)
         project=$(dirname "$pom")
         pushd $project > /dev/null
         echo -- BUILDING PROJECT $project | tee -a $SCRIPT_LOG
-        mvn -q -fn dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
+        mvn -q -fn dependency:resolve-plugins dependency:resolve dependency:go-offline clean compile -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
         echo --- ITERATAING OVER PROFILES IN PROJECT $project | tee -a $SCRIPT_LOG
         for profile in $(cat pom.xml | grep -A 1 "<profile>" | grep "<id>" | sed 's/.*<id>\(.*\)<\/id>.*/\1/')
         do
             echo ---- BUILDING $project WITH PROFILE $profile ACTIVE | tee -a $SCRIPT_LOG
-            mvn -q -fn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean package install -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
+            mvn -q -fn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean compile -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
         done
         mvn -q clean | tee -a $SCRIPT_LOG
         popd > /dev/null
