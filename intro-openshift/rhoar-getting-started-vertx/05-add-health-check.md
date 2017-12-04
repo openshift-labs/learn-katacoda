@@ -1,5 +1,5 @@
 # Add health check
-One limitation of our current application is that we do not provide an away for OpenShift to correctly monitoring it. Optimally we should probably add a specific health check route so please check out the health check booster (TODO: Add link), but for the moment we will add a simple call to '/', just to check that the Vert.x instance is alive and responding. 
+One limitation of our current application is that we do not provide an away for OpenShift to correctly monitoring it. Optimally we should probably add a specific health check route so please check out the [health check mission](https://access.redhat.com/documentation/en-us/red_hat_openshift_application_runtimes/1/html/eclipse_vert.x_runtime_guide/missions-intro#mission-health-check-vertx) , but for the moment we will add a simple call to '/', just to check that the Vert.x instance is alive and responding. 
 
 ## Health check warning
 
