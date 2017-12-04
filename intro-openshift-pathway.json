@@ -44,20 +44,26 @@
       "title": "Eclipse Vert.x development"
     },
     {
-      "external_link": "https://learn.openshift.com/introduction/fis-deploy-app/",
-      "course_id": "fis-deploy-app",
-      "title": "OpenShift for Fuse Developers"
+      "external_link": "https://learn.openshift.com/introduction/rhoar-getting-started-spring/",
+      "course_id": "rhoar-getting-started-spring",
+      "title": "Spring Boot development"
     },
     {
       "external_link": "https://learn.openshift.com/introduction/rhoar-getting-started-wfswarm/",
       "course_id": "rhoar-getting-started-wfswarm",
-      "title": "Intro to WildFly Swarm"
+      "title": "WildFly Swarm development"
     },
     {
       "external_link": "https://learn.openshift.com/introduction/rhoar-getting-started-nodejs/",
       "course_id": "rhoar-getting-started-nodejs",
-      "title": "Intro to Node.js"
+      "title": "Node.js development"
     },
+    {
+      "external_link": "https://learn.openshift.com/introduction/fis-deploy-app/",
+      "course_id": "fis-deploy-app",
+      "title": "OpenShift for Fuse Developers"
+    },
+
     {
       "external_link": "https://learn.openshift.com/introduction/playground-openshift36/",
       "course_id": "playground-openshift36",
