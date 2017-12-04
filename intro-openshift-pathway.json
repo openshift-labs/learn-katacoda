@@ -39,6 +39,16 @@
       "title": "Transferring Files in and out of Containers"
     },
     {
+      "external_link": "https://learn.openshift.com/introduction/rhoar-getting-started-vertx/",
+      "course_id": "rhoar-getting-started-vertx",
+      "title": "Intro to Eclipse Vert.x"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/rhoar-getting-started-spring/",
+      "course_id": "rhoar-getting-started-spring",
+      "title": "Intro to Spring Boot"
+    },
+    {
       "external_link": "https://learn.openshift.com/introduction/fis-deploy-app/",
       "course_id": "fis-deploy-app",
       "title": "OpenShift for Fuse Developers"
