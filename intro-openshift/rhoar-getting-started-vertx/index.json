@@ -2,7 +2,7 @@
   "pathwayTitle": "Intro to Red Hat OpenShift Application Runtimes",
   "icon": "fa-openshift",
   "title": "Eclipse Vert.x development on OpenShift",
-  "description": "",
+  "description": "In this scenario you will learn more about Spring Boot, one of the runtimes included in Red Hat OpenShift Application Runtimes.",
   "difficulty": "beginner",
   "time": "15 minutes",
   "details": {
@@ -22,12 +22,17 @@
       "text": "99-outro.md"
     }
   },
+  "files": [
+
+  ],
   "environment": {
     "showdashboard": true,
     "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
     "uilayout": "editor-terminal",
     "uisettings": "java",
-    "uieditorpath": "/root/projects/rhoar-getting-started/vertx"
+    "hideintro": false,
+    "uieditorpath": "/root/projects/rhoar-getting-started/vertx",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
     "imageid": "openshift-middleware",
