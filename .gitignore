@@ -4,3 +4,4 @@
 output/
 output-openshift/
 output-openshift-middleware/
+*.backup
