@@ -5,7 +5,7 @@ yum install python-rhsm-certificates -y
 mkdir -p /etc/docker/certs.d/registry.access.redhat.com/
 ln -s /etc/rhsm/ca/redhat-uep.pem /etc/docker/certs.d/registry.access.redhat.com/redhat-ca.crt
 
-yum install java-1.8.0-openjdk-devel -y
+yum install java-1.8.0-openjdk-devel tree -y
 wget http://www.eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
 tar xzf apache-maven-3.3.9-bin.tar.gz
 rm -rf apache-maven-3.3.9-bin.tar.gz

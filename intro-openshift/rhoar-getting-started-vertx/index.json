@@ -1,15 +1,17 @@
 {
   "pathwayTitle": "Intro to Red Hat OpenShift Application Runtimes",
   "icon": "fa-openshift",
-  "title": "Getting Started with Eclipse Vert.x on OpenShift",
+  "title": "Eclipse Vert.x development on OpenShift",
   "description": "",
   "difficulty": "beginner",
   "time": "15 minutes",
   "details": {
     "steps": [
-      { "title": "Step 1", "text": "01-step1.md" },
-      { "title": "Step 2", "text": "02-step2.md" },
-      { "title": "Step 3", "text": "03-step3.md" }
+      { "title": "Step 1", "text": "01-local-build.md" },
+      { "title": "Step 2", "text": "02-local-build2.md" },
+      { "title": "Step 3", "text": "03-login-to-openshift.md" },
+      { "title": "Step 4", "text": "04-deploy-to-openshift.md" },
+      { "title": "Step 4", "text": "05-add-health-check.md" }
     ],
     "intro": {
       "text": "00-intro.md",
@@ -22,7 +24,7 @@
   },
   "environment": {
     "showdashboard": true,
-    "dashboards": [{"name":"OpenShift Console","port":8443}],
+    "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
     "uilayout": "editor-terminal",
     "uisettings": "java",
     "uieditorpath": "/root/projects/rhoar-getting-started/vertx"
