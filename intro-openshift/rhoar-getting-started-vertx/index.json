@@ -11,7 +11,7 @@
       { "title": "Step 2", "text": "02-local-build2.md" },
       { "title": "Step 3", "text": "03-login-to-openshift.md" },
       { "title": "Step 4", "text": "04-deploy-to-openshift.md" },
-      { "title": "Step 4", "text": "05-add-health-check.md" }
+      { "title": "Step 5", "text": "05-add-health-check.md" }
     ],
     "intro": {
       "text": "00-intro.md",
