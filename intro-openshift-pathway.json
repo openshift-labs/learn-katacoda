@@ -44,6 +44,16 @@
       "title": "OpenShift for Fuse Developers"
     },
     {
+      "external_link": "https://learn.openshift.com/introduction/rhoar-getting-started-wfswarm/",
+      "course_id": "rhoar-getting-started-wfswarm",
+      "title": "Intro to Red Hat OpenShift Application Runtimes - WildFly Swarm"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/rhoar-getting-started-nodejs/",
+      "course_id": "rhoar-getting-started-nodejs",
+      "title": "Intro to Red Hat OpenShift Application Runtimes - Node.js"
+    },
+    {
       "external_link": "https://learn.openshift.com/introduction/playground-openshift36/",
       "course_id": "playground-openshift36",
       "title": "Playground (OpenShift 3.6)"
