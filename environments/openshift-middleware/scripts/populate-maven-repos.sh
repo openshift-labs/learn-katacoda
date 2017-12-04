@@ -9,7 +9,7 @@
 SOURCE_REPOS=( https://github.com/openshift-katacoda/rhoar-getting-started.git )
 PROJECT_DIR=/root/projects
 SKIP_TESTS=true
-SCRIPT_VERSION=0.6
+SCRIPT_VERSION=0.7
 VERSION_LOG=~/.populate-maven-repos-version.log
 SCRIPT_LOG=~/.populate-maven-repos.log
 
@@ -150,7 +150,7 @@ cat > temp-pom.xml <<-EOF2
         <plugin>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
-          <version>1.5.8.Final-redhat-1</version>
+          <version>1.5.8.RELEASE</version>
         </plugin>
         <plugin>
             <groupId>io.fabric8</groupId>
@@ -194,25 +194,46 @@ for repo in "${SOURCE_REPOS[@]}"
 do
     echo -- CLONING REPO $repo | tee -a $SCRIPT_LOG
     git clone --quiet $repo | tee -a $SCRIPT_LOG
-done
-
-echo - ITERATING OVER PROJECT AND BUILDING THEM | tee -a $SCRIPT_LOG
-for pom in $(find . -name pom.xml)
+    repo_dir=$(echo $repo | sed "s/.*\/\(.*\).git/\1/")
+    echo --- CD INTO $repo_dir | tee -a $SCRIPT_LOG
+    pushd $repo_dir > /dev/null
+    echo ---- ITERATING OVER PROJECT AND BUILDING THEM | tee -a $SCRIPT_LOG
+    for pom in $(find . -name pom.xml)
     do
         project=$(dirname "$pom")
         pushd $project > /dev/null
-        echo -- BUILDING PROJECT $project | tee -a $SCRIPT_LOG
+        echo ----- BUILDING PROJECT $project | tee -a $SCRIPT_LOG
         mvn -q -fn dependency:resolve-plugins dependency:resolve dependency:go-offline clean compile -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
-        echo --- ITERATAING OVER PROFILES IN PROJECT $project | tee -a $SCRIPT_LOG
+        echo ------- ITERATAING OVER PROFILES IN PROJECT $project | tee -a $SCRIPT_LOG
         for profile in $(cat pom.xml | grep -A 1 "<profile>" | grep "<id>" | sed 's/.*<id>\(.*\)<\/id>.*/\1/')
         do
-            echo ---- BUILDING $project WITH PROFILE $profile ACTIVE | tee -a $SCRIPT_LOG
+            echo -------- BUILDING $project WITH PROFILE $profile ACTIVE | tee -a $SCRIPT_LOG
             mvn -q -fn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean compile -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
         done
         mvn -q clean | tee -a $SCRIPT_LOG
         popd > /dev/null
     done
+    if git checkout solution > /dev/null 2>&1; then
+        echo ---- FOUND A SOLUTION BRANCH, WILL BUILD USING THE SOLUTION BRANCH | tee -a $SCRIPT_LOG
+        for pom in $(find . -name pom.xml)
+        do
+            project=$(dirname "$pom")
+            pushd $project > /dev/null
+            echo ----- BUILDING PROJECT $project | tee -a $SCRIPT_LOG
+            mvn -q -fn dependency:resolve-plugins dependency:resolve dependency:go-offline clean compile -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
+            echo ------ ITERATAING OVER PROFILES IN PROJECT $project | tee -a $SCRIPT_LOG
+            for profile in $(cat pom.xml | grep -A 1 "<profile>" | grep "<id>" | sed 's/.*<id>\(.*\)<\/id>.*/\1/')
+            do
+                echo ------- BUILDING $project WITH PROFILE $profile ACTIVE | tee -a $SCRIPT_LOG
+                mvn -q -fn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean compile -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
+            done
+            mvn -q clean | tee -a $SCRIPT_LOG
+            popd > /dev/null
+        done
+        git checkout master > /dev/null
+    fi
+    popd > /dev/null
+done
 popd > /dev/null
-
 echo - DONE | tee -a $SCRIPT_LOG
 
