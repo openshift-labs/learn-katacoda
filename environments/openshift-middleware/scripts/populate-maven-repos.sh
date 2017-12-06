@@ -8,10 +8,12 @@
 # Entries are separated by spaces
 SOURCE_REPOS=( https://github.com/openshift-katacoda/rhoar-getting-started.git )
 PROJECT_DIR=/root/projects
-SKIP_TESTS=true
-SCRIPT_VERSION=0.7
+SKIP_TESTS=false
+SCRIPT_VERSION=0.8
 VERSION_LOG=~/.populate-maven-repos-version.log
 SCRIPT_LOG=~/.populate-maven-repos.log
+MAVEN_QUITE_FLAG="--quiet"
+#MAVEN_QUITE_FLAG=""
 
 echo "BUILD SCRIPT populate-maven-repos.sh VERSION $SCRIPT_VERSION WAS STARTED AT $(date)" | tee $VERSION_LOG
 
@@ -139,6 +141,10 @@ cat > temp-pom.xml <<-EOF2
           <version>3.0.2</version>
         </plugin>
         <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.3.2</version>
+        </plugin>
+        <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.20.1</version>
         </plugin>        
@@ -165,7 +171,7 @@ EOF2
 
 
 echo - BUILDING THE TEMPORARY POM | tee -a $SCRIPT_LOG
-mvn -q -f temp-pom.xml dependency:go-offline \
+mvn ${MAVEN_QUITE_FLAG} -f temp-pom.xml dependency:go-offline \
     dependency:resolve-plugins \
     dependency:resolve \
     assembly:help \
@@ -203,14 +209,14 @@ do
         project=$(dirname "$pom")
         pushd $project > /dev/null
         echo ----- BUILDING PROJECT $project | tee -a $SCRIPT_LOG
-        mvn -q -fn dependency:resolve-plugins dependency:resolve dependency:go-offline clean compile -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
+        mvn ${MAVEN_QUITE_FLAG} -fn dependency:resolve-plugins dependency:resolve dependency:go-offline clean package -Dmaven.test.skip=$SKIP_TESTS -Dsurefire.printSummary=false | tee -a $SCRIPT_LOG
         echo ------- ITERATAING OVER PROFILES IN PROJECT $project | tee -a $SCRIPT_LOG
         for profile in $(cat pom.xml | grep -A 1 "<profile>" | grep "<id>" | sed 's/.*<id>\(.*\)<\/id>.*/\1/')
         do
             echo -------- BUILDING $project WITH PROFILE $profile ACTIVE | tee -a $SCRIPT_LOG
-            mvn -q -fn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean compile -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
+            mvn ${MAVEN_QUITE_FLAG} -fn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean compile -Dmaven.test.skip=true | tee -a $SCRIPT_LOG
         done
-        mvn -q clean | tee -a $SCRIPT_LOG
+        mvn ${MAVEN_QUITE_FLAG} clean | tee -a $SCRIPT_LOG
         popd > /dev/null
     done
     if git checkout solution > /dev/null 2>&1; then
@@ -220,14 +226,14 @@ do
             project=$(dirname "$pom")
             pushd $project > /dev/null
             echo ----- BUILDING PROJECT $project | tee -a $SCRIPT_LOG
-            mvn -q -fn dependency:resolve-plugins dependency:resolve dependency:go-offline clean compile -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
+            mvn ${MAVEN_QUITE_FLAG} -fn dependency:resolve-plugins dependency:resolve dependency:go-offline clean package -Dmaven.test.skip=$SKIP_TESTS -Dsurefire.printSummary=false | tee -a $SCRIPT_LOG
             echo ------ ITERATAING OVER PROFILES IN PROJECT $project | tee -a $SCRIPT_LOG
             for profile in $(cat pom.xml | grep -A 1 "<profile>" | grep "<id>" | sed 's/.*<id>\(.*\)<\/id>.*/\1/')
             do
                 echo ------- BUILDING $project WITH PROFILE $profile ACTIVE | tee -a $SCRIPT_LOG
-                mvn -q -fn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean compile -Dmaven.test.skip=$SKIP_TESTS | tee -a $SCRIPT_LOG
+                mvn ${MAVEN_QUITE_FLAG} -fn -P$profile dependency:resolve-plugins dependency:resolve dependency:go-offline clean compile -Dmaven.test.skip=true | tee -a $SCRIPT_LOG
             done
-            mvn -q clean | tee -a $SCRIPT_LOG
+            mvn ${MAVEN_QUITE_FLAG} clean | tee -a $SCRIPT_LOG
             popd > /dev/null
         done
         git checkout master > /dev/null
@@ -236,4 +242,3 @@ do
 done
 popd > /dev/null
 echo - DONE | tee -a $SCRIPT_LOG
-
