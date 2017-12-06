@@ -41,7 +41,9 @@ Before we add code to create our web server you should build and test that curre
 
 Since this is already a working application, you can run it without any code changes locally directly using `maven` with goal `vertx:run`
 
-``mvn vertx:run``{{execute}}
+``mvn compile vertx:run``{{execute}}
+
+>**NOTE:** The vert.x maven plugin replays the phases executed before it starts the application and it's therefor good practice to also specify the goals.  
 
 At this stage, the application doesn't do anything, but after a while, you should see the following two lines in your console window:
 
