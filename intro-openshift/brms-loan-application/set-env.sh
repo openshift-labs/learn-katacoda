@@ -6,6 +6,8 @@ oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templ
 oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/decisionserver/decisionserver64-basic-s2i.json -n openshift
 
 # Logging as Developer
-/usr/local/bin/oc login -u developer -p developer
+oc login -u developer -p developer
 
-echo "Katacoda BRMS Loan Application instance ready!"
+echo '----------------------------------------------'
+echo 'Katacoda BRMS Loan Application instance ready!'
+echo '----------------------------------------------'
