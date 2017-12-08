@@ -11,6 +11,10 @@ docker pull registry.access.redhat.com/jboss-datavirt-6/datavirt63-driver-opensh
 docker pull registry.access.redhat.com/jboss-amq-6/amq63-openshift
 docker pull registry.access.redhat.com/redhat-sso-7/sso71-openshift
 docker pull bucharestgold/centos7-s2i-nodejs
+docker pull enmasseproject/zookeeper:latest
+docker pull enmasseproject/kafka-statefulsets:latest
+docker pull enmasseproject/kafka-connect-s2i:latest
+docker pull debezium/example-mysql:latest
 
 
 # Requires RHEL subscription
