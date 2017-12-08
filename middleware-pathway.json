@@ -40,6 +40,11 @@
       "external_link": "https://learn.openshift.com/middleware/resilient-apps/",
       "course_id": "resilient-apps",
       "title": "Using Istio to detect and prevent issues in a distributed system"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/debezium-getting-started/",
+      "course_id": "debezium-getting-started",
+      "title": "Debezium deployment"
     }
   ]
 }
