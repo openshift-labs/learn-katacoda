@@ -63,7 +63,6 @@
       "course_id": "fis-deploy-app",
       "title": "OpenShift for Fuse Developers"
     },
-
     {
       "external_link": "https://learn.openshift.com/introduction/playground-openshift36/",
       "course_id": "playground-openshift36",
@@ -73,6 +72,11 @@
       "external_link": "https://learn.openshift.com/introduction/playground-openshift37/",
       "course_id": "playground-openshift37",
       "title": "Playground (OpenShift 3.7)"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/brms-loan-application/",
+      "course_id": "brms-loan-application",
+      "title": "JBoss BRMS Loan Application demo"
     }
   ]
 }
