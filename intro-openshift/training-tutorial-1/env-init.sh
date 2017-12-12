@@ -13,3 +13,5 @@ ssh root@host01 "oc create -f https://github.com/openshift/origin/raw/release-3.
 ssh root@host01 "oc create -f https://github.com/openshift/origin/raw/release-3.6/examples/db-templates/postgresql-persistent-template.json -n openshift"
 ssh root@host01 "oc create -f https://github.com/openshift/origin/raw/release-3.6/examples/db-templates/redis-ephemeral-template.json -n openshift"
 ssh root@host01 "oc create -f https://github.com/openshift/origin/raw/release-3.6/examples/db-templates/redis-persistent-template.json -n openshift"
+ssh root@host01 "docker pull openshiftroadshow/parksmap-py:1.0.0"
+ssh root@host01 "docker pull centos/python-35-centos7:latest"
