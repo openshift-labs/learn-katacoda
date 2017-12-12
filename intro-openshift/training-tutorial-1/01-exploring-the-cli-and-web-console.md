@@ -1,16 +1,13 @@
-## Lab: Exploring the CLI and Web Console
-
 ### Command Line
 
-The first thing we want to do to ensure that our `oc` command line tools was
-installed and successfully added to our path is login to the OpenShift
-environment that has been provided for this Roadshow session.  In
-order to login, we will use the `oc` command and then specify the server that we
-want to authenticate to.  Issue the following command:
+To access OpenShift from the command line you need the `oc` command line tool. In this environment that tool has already been installed for you and is accessible from the _Terminal_ window to the right.  In
+order to login, run the following command:
 
-``oc login``
+``oc login``{{execute}}
 
-Once you issue the `oc login` command, you will be prompted for the username and
+In this interactive learning environment, whenever you see a command like that above which displays a carriage return icon to the right of the command, you can click on the command and it will be run for you in the _Terminal_ window automatically.
+
+Once you run the `oc login` command, you will be prompted for the username and
 password combination for your user account:
 
 When prompted, enter the following username and password:
@@ -44,14 +41,13 @@ their content in isolation from other communities. Each project has its own
 resources, policies (who can or cannot perform actions), and constraints (quotas
 and limits on resources, etc). Projects act as a "wrapper" around all the
 application services and endpoints you (or your teams) are using for your work.
-For this first lab, we are going to use a project named *smoke* that has been
-created and populated with an application for you.
+For this first lab, we are going to use a project named ``myproject``.
 
 During this lab, we are going to use a few different commands to make sure that
 things in the environment are working as expected.  Don't worry if you don't
 understand all of the terminology as we will cover it in detail in later labs.
 
-The first thing we want to do is create a project to work in. Create a project by running:
+The first thing we want to do is create the project to work in. Create the `myproject` project by running:
 
 ``oc new-project myproject``{{execute}}
 
@@ -92,7 +88,7 @@ something that looks like the following image:
 
 ![List of Projects](../../assets/intro-openshift/deploying-python/01-list-of-projects.png)
 
-Click on the ``myproject project. You will be taken to the project overview page
+Click on the `myproject` project. You will be taken to the project overview page
 which will list all of the routes, services, deployments, and pods that you have
 running as part of your project. There's nothing there now, but that's about to
 change.
