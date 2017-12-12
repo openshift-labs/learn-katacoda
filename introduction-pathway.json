@@ -1,0 +1,47 @@
+{
+  "title": "Introduction to OpenShift For Developers",
+  "description": "",
+  "paid": false,
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/introduction/getting-started/",
+      "course_id": "getting-started",
+      "title": "Getting Started with OpenShift for Developers"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/cluster-access/",
+      "course_id": "cluster-access",
+      "title": "Logging in to an OpenShift Cluster"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/deploying-images/",
+      "course_id": "deploying-images",
+      "title": "Deploying Applications From Images"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/deploying-python/",
+      "course_id": "deploying-python",
+      "title": "Deploying Applications From Source"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/resource-objects/",
+      "course_id": "resource-objects",
+      "title": "Using the CLI to Manage Resource Objects"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/port-forwarding/",
+      "course_id": "port-forwarding",
+      "title": "Connecting to a Database Using Port Forwarding"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/transferring-files/",
+      "course_id": "transferring-files",
+      "title": "Transferring Files in and out of Containers"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/fis-deploy-app/",
+      "course_id": "fis-deploy-app",
+      "title": "OpenShift for Fuse Developers"
+    }
+  ]
+}
