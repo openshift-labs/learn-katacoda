@@ -11,11 +11,11 @@ We will create a simple data model consisting of 2 classes: *Applicant* and *Loa
 
 Give the object two fields:
 1. Click on *+ add field*
-2. Add the field with *Id* "creditScore" and *Label* "CreditScore" of type "int".
+2. Add the field with *Id* `creditScore`{{copy}} and *Label* `Credit Score`{{copy}} of type `int`
 3. Click on *Create and Continue*
-4. Add the field with *Id* "name" and *Label* "Name" of type "String"
+4. Add the field with *Id* `name`{{copy}} and *Label* `Name`{{copy}} of type `String`
 5. Click on *Create*
-6. Click on the *Save* button to save the model.
+6. Click on the *Save* button to save the model
 
 <img src="../../assets/intro-openshift/brms-loan-application/brms-datamodel-applicant.png" width="800" />
 

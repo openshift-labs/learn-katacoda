@@ -1,7 +1,7 @@
 We can now create our first rules project. A JBoss BRMS rules project can contain various types of rule assets:
 
 1. DRL: Rule definitions written in the *Drools Rule Language*
-2. Guided Rules: rules written in a more business friendly language, including a business friendly editors
+2. Guided Rules: rules written in a more business friendly language, including a business friendly editor
 3. Guided Decision Tables: rules written in the form of a decision table.
 4. etc.
 
@@ -12,7 +12,7 @@ To create the project, perform the following steps:
 
 Now that we've selected the correct repository, we can create our project.
 
-1. Click on *Authoring -> Project Authoring”*
+1. Click on *Authoring -> Project Authoring*
 2. Click on *New Item -> Project*
 3. Provide the following details:
 - Project Name: `loandemo`{{copy}}
