@@ -9,4 +9,4 @@ Use the following credentials to log in:
 
 If all is well, you will be presented with the following screen:
 
-![Business Central](../assets/brms-index.png)
+<img src="../../assets/intro-openshift/brms-loan-application/brms-index.png" width="800" />
