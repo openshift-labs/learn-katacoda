@@ -1,4 +1,6 @@
-### Command Line
+In this exercise you are going to login to the OpenShift cluster and create a project to work in.
+
+### Exercise: Login using the command line
 
 To access OpenShift from the command line you need the `oc` command line tool. In this environment that tool has already been installed for you and is accessible from the _Terminal_ window to the right.
 
@@ -33,7 +35,7 @@ OpenShift master includes a built-in OAuth server. Developers and administrators
 obtain OAuth access tokens to authenticate themselves to the API. By default
 your authorization token will last for 24 hours.
 
-### Using a project
+### Exercise: Creating a project
 
 Projects are a top level concept to help you organize your deployments. An
 OpenShift project allows a community of users (or a user) to organize and manage
@@ -58,7 +60,7 @@ You can add applications to this project with the 'new-app' command. For example
 to build a new example application in Ruby.
 ```
 
-### The Web Console
+### Exercise: Login using the web console
 
 OpenShift ships with a web-based console that will allow users to
 perform various tasks via a browser.  In this interactive learning portal, to the right of this description you should initially see a terminal window. To access the web console, click on the _Dashboard_ button above the terminal window. You can switch back to the terminal by clicking on the _Terminal_ button.
