@@ -10,3 +10,5 @@ These are our 4 rules:
 | Rule 4      |         401          |                      |                |      5000      |    true   |
 
 The final table will look like this:
+
+<img src="../../assets/intro-openshift/brms-loan-application/brms-decision-table.png" width="400" />

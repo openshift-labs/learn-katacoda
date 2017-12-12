@@ -11,7 +11,7 @@ To do this, we first need to create a so-called Organizational Unit (OU) in the 
 
 1. In the workbench, click on *Authoring -> Administration*
 2. Click on *Organizational Units -> Manage Organizational Units*
-3. Click on *Add* and create a new Organizational Unit with *Name* and *Default Group ID* "Demos” (you can leave the other fields in the screen empty).
+3. Click on *Add* and create a new Organizational Unit with *Name* and *Default Group ID* `Demos`{{copy}} (you can leave the other fields in the screen empty).
 4. Click on the *OK* button
 
 <img src="../../assets/intro-openshift/brms-loan-application/brms-organizational-unit.png" width="800" />
@@ -19,8 +19,8 @@ To do this, we first need to create a so-called Organizational Unit (OU) in the 
 Now we’re going to create a new repository in which we can store our project:
 
 1. Click on *Repositories -> New repository*
-2. Give it the *Repository Name* “loan” and assign it to the “Demos” OU we created earlier (leave the *Managed Repository* checkbox unchecked).
-3. Click on the "Finish" button.
+2. Give it the *Repository Name* `loan`{{copy}} and assign it to the `Demos` OU we created earlier (leave the *Managed Repository* checkbox unchecked).
+3. Click on the *Finish* button.
 
 <img src="../../assets/intro-openshift/brms-loan-application/brms-loan-repository.png" width="800" />
 

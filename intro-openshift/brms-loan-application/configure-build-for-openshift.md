@@ -1,10 +1,10 @@
-The Red Hat JBoss BRMS Decision Server in OpenShift Container Platform uses the so-called S2I, or Source-to-Image, concept to build its OpenShift (Docker) container images. In essence, you provide S2I the source code of your rules project, and the build system will use Maven to build the KJAR (Knowledge JAR) containing the data model and rules, deploy this KJAR onto the Decision Server and create the container image.
+The Red Hat JBoss BRMS Decision Server in OpenShift Container Platform uses the so-called S2I, or Source-to-Image, concept to build its OpenShift (Docker) container images. In essence, you provide S2I the source code of your rules project, and the build-system will use Maven to build the KJAR (Knowledge JAR) containing the data model and rules, deploy this KJAR onto the Decision Server and create the container image.
 
 Because S2I uses Maven, we first need to make sure that our project is buildable by Maven. To verify this, we clone the project onto our local filesystem. Business Central uses a Git repository for storage under the covers, so we can simply use our favorite Git tool to clone the BRMS repository:
 
-`git clone ssh://brmsAdmin@localhost:8001/loan`{{code}}
+`git clone ssh://brmsAdmin@localhost:8001/loan`{{copy}}
 
-When asked for the password, use `jbossbrms1!`{{code}}
+When asked for the password, use `jbossbrms1!`{{copy}}
 
 ---
 **NOTE**
@@ -59,8 +59,8 @@ Run the build again: “mvn clean install”. The build should now succeed. We c
 
 `git add pom.xml`{{copy}}
 
-`git commit -m "Added kie-api dependency to POM."`{{code}}
+`git commit -m "Added kie-api dependency to POM."`{{copy}}
 
-`git push`{{code}}
+`git push`{{copy}}
 
-Again, when asked for a password, use `jbossbrms1!`{{code}}
+Again, when asked for a password, use `jbossbrms1!`{{copy}}
