@@ -13,17 +13,17 @@ https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com
 Return to the project overview page for the `myproject` project. Next, click the _Add to Project_ drop down menu in the top navigation bar. Select the "Deploy Image".
 
 We will learn more about image streams and image stream tags later. For now,
-select the "Image Name" option, and copy/paste the following into the box:
+select the _Image Name_ option, and enter the following into the text entry field for _image name or pull spec_:
 
 ``docker.io/openshiftroadshow/parksmap-py:1.0.0``{{copy}}
 
-Your screen should look like:
-
-image::/images/parksmap-image.png[Explore Project]
-
 Press *enter* or click on the magnifying glass icon. OpenShift will query the ``docker.io`` image registry and pull down details about the image and display them.
 
-When the query is complete and the details available, you should then be
+Your screen should look like:
+
+![Application Image Details](../../assets/intro-openshift/training-tutorial-1/02-deploy-image-by-image-name.png)
+
+With the query complete and the details available, you should also now be
 presented with options to set the name of the application and add additional configuration such as environment variables and labels.
 
 For now, ensure you change the application name from:
@@ -34,7 +34,7 @@ to:
 
 ``parksmap``{{copy}}
 
-image::/images/parksmap-image-options.png[Explore Project]
+![Deploy Application Image](../../assets/intro-openshift/training-tutorial-1/02-deploy-application-image.png)
 
 Hit the _Create_ button at the bottom of the screen and on the next page click
 "Continue to overview". Take a moment to look at the various messages that
@@ -48,25 +48,15 @@ a single non-exiting CMD to execute on start.
 
 ### Background: Containers and Pods
 
-Before we start digging in we need to understand how containers and *Pods* are
-related. Given the morning sessions where we discussed the OpenShift platform
-and how it uses containers and *Pods*, we will not be covering the background on
-these technologies in this lab.  Instead, we will dive right in and start using
-them.
-
 In OpenShift, the smallest deployable unit is a *Pod*. A *Pod* is a group of one or
-more Docker containers deployed together and guaranteed to be on the same host.
-From the doc:
+more containers deployed together and guaranteed to be on the same host.
 
-[source]
-----
 Each pod has its own IP address, therefore owning its entire port space, and
 containers within pods can share storage. Pods can be "tagged" with one or
 more labels, which are then used to select and manage groups of pods in a
 single operation.
-----
 
-*Pods* can contain multiple Docker instances. The general idea is for a Pod to
+*Pods* can contain multiple containers. The general idea is for a Pod to
 contain a "server" and any auxiliary services you want to run along with that
 server. Examples of containers you might put in a *Pod* are, an Apache HTTPD
 server, a log analyzer, and a file service to help manage uploaded files.
@@ -75,86 +65,58 @@ server, a log analyzer, and a file service to help manage uploaded files.
 
 In the web console's overview page you will see that there is a single *Pod* that
 was created by your actions. This *Pod* contains a single container, which
-happens to be the parks map application - a simple Spring Boot/Java application.
+is the `parksmap` application.
 
 You can also examine *Pods* from the command line:
 
-[source]
-----
-oc get pod
-----
+``oc get pod``{{execute}}
 
 You should see output that looks similar to:
 
-[source]
-----
+```
 NAME               READY     STATUS    RESTARTS   AGE
-parksmap-1-hx0kv   1/1       Running   0          2m
-----
+parksmap-1-cf6b6   1/1       Running   0          2m
+```
 
 The above output lists all of the *Pods* in the current *Project*, including the
 *Pod* name, state, restarts, and uptime. Once you have a *Pod*'s name, you can
-get more information about the *Pod* using the *oc get* command.  To make the
-output readable, I suggest changing the output type to *YAML* using the
+get more information about the *Pod* using the ``oc get`` command.  To make the
+output readable, you can set the output type to *YAML* using the
 following syntax:
 
-NOTE: Make sure you use the correct *Pod* name from your output.
+```
+oc get pod parksmap-1-cf6b6 -o yaml
+```
 
-[source,role=copypaste]
-----
-oc get pod parksmap-1-hx0kv -o yaml
-----
+NOTE: You will need to enter this command into the _Terminal_ yourself as you need to use the correct *Pod* name corresponding to what you have running.
 
-You should see something like the following output (which has been truncated due
-to space considerations of this workshop manual):
+You should see output which starts with a description similar to that below:
 
-[source]
-----
+```
 apiVersion: v1
 kind: Pod
 metadata:
   annotations:
-    kubernetes.io/created-by: |
-      {"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicationController","namespace":"explore-00","name":"parksmap-1","uid":"f1b37b1b-e3e2-11e6-81a2-0696d1181070","apiVersion":"v1","reso
-urceVersion":"36222"}}
-    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for container
-      parksmap; cpu, memory limit for container parksmap'
     openshift.io/deployment-config.latest-version: "1"
     openshift.io/deployment-config.name: parksmap
     openshift.io/deployment.name: parksmap-1
     openshift.io/generated-by: OpenShiftWebConsole
     openshift.io/scc: restricted
-  creationTimestamp: 2017-01-26T16:17:36Z
+  creationTimestamp: 2017-12-12T10:00:42Z
   generateName: parksmap-1-
   labels:
     app: parksmap
     deployment: parksmap-1
     deploymentconfig: parksmap
-  name: parksmap-1-bvaz6
-...............
-----
+  name: parksmap-1-cf6b6
+  namespace: myproject
+  ...
+```
 
 The web interface also shows a lot of the same information on the *Pod* details
-page. If you click in the *Pod* circle, and then click the *Pod* name, you will
-find the details page. You can also get there by clicking "Applications", then
-"Pods", at the left, and then clicking the *Pod* name.
-
-Getting the parks map image running may take a little while to complete. Each
-OpenShift node that is asked to run the image has to pull (download) it if the
-node does not already have it cached locally. You can check on the status of the
-image download and deployment in the *Pod* details page, or from the command
-line with the `oc get pods` command that you used before.
-
-### Background: A Little About the Docker Daemon
-
-Whenever OpenShift asks the node's Docker daemon to run an image, the Docker
-daemon will check to make sure it has the right "version" of the image to run.
-If it doesn't, it will pull it from the specified registry.
-
-There are a number of ways to customize this behavior. They are documented in
-https://{{DOCS_URL}}/latest/dev_guide/new_app.html#specifying-an-image[specifying an image]
-as well as
-https://{{DOCS_URL}}/latest/dev_guide/managing_images.html#image-pull-policy[image pullpolicy].
+page. Click on the blue *Pod* circle on the project overview page. As there is only one *Pod* you will
+be taken direct to the details page for the *Pod*. You can also get there by clicking "Applications", then
+"Pods", at the left, and then clicking the *Pod* name. If there was more than one *Pod* and you clicked in the *Pod* circle you would instead end up at the *Pod* list.
 
 #### Background: Services
 
