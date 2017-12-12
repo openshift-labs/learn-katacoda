@@ -1,7 +1,8 @@
 ### Command Line
 
-To access OpenShift from the command line you need the `oc` command line tool. In this environment that tool has already been installed for you and is accessible from the _Terminal_ window to the right.  In
-order to login, run the following command:
+To access OpenShift from the command line you need the `oc` command line tool. In this environment that tool has already been installed for you and is accessible from the _Terminal_ window to the right.
+
+In order to login, run the following command:
 
 ``oc login``{{execute}}
 
@@ -30,8 +31,7 @@ You don't have any projects. You can try to create a new project, by running
 Congratulations, you are now authenticated to the OpenShift server. The
 OpenShift master includes a built-in OAuth server. Developers and administrators
 obtain OAuth access tokens to authenticate themselves to the API. By default
-your authorization token will last for 24 hours. There is more information about
-the login command and its configuration in the [OpenShift Documentation](https://docs.openshift.org/cli_reference/get_started_cli.html#basic-setup-and-login).
+your authorization token will last for 24 hours.
 
 ### Using a project
 
@@ -41,11 +41,6 @@ their content in isolation from other communities. Each project has its own
 resources, policies (who can or cannot perform actions), and constraints (quotas
 and limits on resources, etc). Projects act as a "wrapper" around all the
 application services and endpoints you (or your teams) are using for your work.
-For this first lab, we are going to use a project named ``myproject``.
-
-During this lab, we are going to use a few different commands to make sure that
-things in the environment are working as expected.  Don't worry if you don't
-understand all of the terminology as we will cover it in detail in later labs.
 
 The first thing we want to do is create the project to work in. Create the `myproject` project by running:
 
@@ -66,13 +61,15 @@ to build a new example application in Ruby.
 ### The Web Console
 
 OpenShift ships with a web-based console that will allow users to
-perform various tasks via a browser.  In this interactive learning portal, to the right of this description you should initially see a terminal window. To access the web console, click on the _Dashboard_ button about the terminal window. You can switch back to the terminal by clicking on the _Terminal_ button.
+perform various tasks via a browser.  In this interactive learning portal, to the right of this description you should initially see a terminal window. To access the web console, click on the _Dashboard_ button above the terminal window. You can switch back to the terminal by clicking on the _Terminal_ button.
 
-If you want to access the web console from a separate browser tab, you can also visit:
+The actual URL for the web console is:
 
 https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com
 
-The first screen you will see is the authentication screen.
+If you click on this you will be taken to the _Dashboard_ tab. If you want to view the web console in a separate browser tab or window, right click on the URL and select the menu option to open it.
+
+The first screen you will see in the web console is the authentication screen.
 
 ![Web Console Login](../../assets/intro-openshift/deploying-python/01-web-console-login.png)
 
@@ -81,6 +78,8 @@ Enter in the following credentials:
 **Username:** ``developer``{{copy}}
 
 **Password:** ``developer``{{copy}}
+
+In this interactive learning environment, whenever you see text like that above which has the copy icon to the right of the text, you can click on it and it will be automatically copied into your copy/paste buffer. You can then copy it into any web console fields or the terminal window.
 
 After you have authenticated to the web console, you will be presented with a
 list of projects that your user has permission to work with. You will see
@@ -95,5 +94,5 @@ change.
 
 ![Project Overview](../../assets/intro-openshift/deploying-python/01-project-overview.png)
 
-We will be using a mix of command line tooling and the web console for the labs.
+We will be using a mix of command line tooling and the web console for this tutorial.
 Get ready!
