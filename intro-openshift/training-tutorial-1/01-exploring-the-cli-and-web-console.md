@@ -6,7 +6,7 @@ In order to login, run the following command:
 
 ``oc login``{{execute}}
 
-In this interactive learning environment, whenever you see a command like that above which displays a carriage return icon to the right of the command, you can click on the command and it will be run for you in the _Terminal_ window automatically.
+In this interactive learning environment, whenever you see a command like that above which displays a carriage return icon to the right of the command, you can click on the command and it will be run for you in the _Terminal_ window automatically. You can at any time also enter any command yourself direct into the terminal window.
 
 Once you run the `oc login` command, you will be prompted for the username and
 password combination for your user account:
@@ -63,11 +63,11 @@ to build a new example application in Ruby.
 OpenShift ships with a web-based console that will allow users to
 perform various tasks via a browser.  In this interactive learning portal, to the right of this description you should initially see a terminal window. To access the web console, click on the _Dashboard_ button above the terminal window. You can switch back to the terminal by clicking on the _Terminal_ button.
 
-The actual URL for the web console is:
+The actual URL of the web console for your environment is:
 
 https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com
 
-If you click on this you will be taken to the _Dashboard_ tab. If you want to view the web console in a separate browser tab or window, right click on the URL and select the menu option to open it.
+If you click on this you will also be taken to the _Dashboard_ tab. If you want to view the web console in a separate browser tab or window, right click on the URL and select the menu option to open it.
 
 The first screen you will see in the web console is the authentication screen.
 
@@ -79,7 +79,9 @@ Enter in the following credentials:
 
 **Password:** ``developer``{{copy}}
 
-In this interactive learning environment, whenever you see text like that above which has the copy icon to the right of the text, you can click on it and it will be automatically copied into your copy/paste buffer. You can then copy it into any web console fields or the terminal window.
+and click on _Log In_.
+
+In this interactive learning environment, whenever you see text like that above which has the copy icon to the right of the text, you can click on it and it will be automatically copied into your copy/paste buffer. You can then paste it into any web console fields or the terminal window.
 
 After you have authenticated to the web console, you will be presented with a
 list of projects that your user has permission to work with. You will see
