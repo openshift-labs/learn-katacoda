@@ -10,14 +10,14 @@ Return to the web console:
 
 https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com
 
-Return to the project overview page for the `myproject` project. Next, click the _Add to Project_ drop down menu in the top navigation bar. Select the "Deploy Image".
+Return to the project overview page for the `myproject` project. Next, click the _Add to Project_ drop down menu in the top navigation bar. Select the _Deploy Image_ option.
 
 We will learn more about image streams and image stream tags later. For now,
-select the _Image Name_ option, and enter the following into the text entry field for _image name or pull spec_:
+select the _Image Name_ option, and copy/paste the following into the text entry field for _image name or pull spec_:
 
 ``docker.io/openshiftroadshow/parksmap-py:1.0.0``{{copy}}
 
-Press *enter* or click on the magnifying glass icon. OpenShift will query the ``docker.io`` image registry and pull down details about the image and display them.
+Press *enter* or click on the magnifying glass icon. OpenShift will query the ``docker.io`` image registry and pull down details about the image and display it.
 
 Your screen should look like:
 
@@ -37,8 +37,7 @@ to:
 ![Deploy Application Image](../../assets/intro-openshift/training-tutorial-1/02-deploy-application-image.png)
 
 Hit the _Create_ button at the bottom of the screen and on the next page click
-"Continue to overview". Take a moment to look at the various messages that
-you now see on the overview page.
+_Continue to overview_.
 
 WINNING! These few steps are the only ones you need to run to get a "vanilla"
 container image deployed on OpenShift. This should work with any
@@ -69,7 +68,7 @@ is the `parksmap` application.
 
 You can also examine *Pods* from the command line:
 
-``oc get pod``{{execute}}
+``oc get pods``{{execute}}
 
 You should see output that looks similar to:
 
@@ -82,7 +81,7 @@ The above output lists all of the *Pods* in the current *Project*, including the
 *Pod* name, state, restarts, and uptime. Once you have a *Pod*'s name, you can
 get more information about the *Pod* using the ``oc get`` command.  To make the
 output readable, you can set the output type to *YAML* using the
-following syntax:
+`-o yaml` option.
 
 ```
 oc get pod parksmap-1-cf6b6 -o yaml
@@ -115,16 +114,16 @@ metadata:
 
 The web interface also shows a lot of the same information on the *Pod* details
 page. Click on the blue *Pod* circle on the project overview page. As there is only one *Pod* you will
-be taken direct to the details page for the *Pod*. You can also get there by clicking "Applications", then
-"Pods", at the left, and then clicking the *Pod* name. If there was more than one *Pod* and you clicked in the *Pod* circle you would instead end up at the *Pod* list.
+be taken direct to the details page for the *Pod*. You can also get there by clicking _Applications_ in the left hand side navigation bar, then
+_Pods_. This will give you a list of the *Pods* for the application. Click on the *Pod* name. If there was more than one *Pod* and you clicked in the *Pod* circle you would instead end up at the *Pod* list from which you can select which *Pod* to view.
 
 #### Background: Services
 
 *Services* provide a convenient abstraction layer inside OpenShift to find a
 group of like *Pods*. They also act as an internal proxy/load balancer between
 those *Pods* and anything else that needs to access them from inside the
-OpenShift environment. For example, if you needed more parks map servers to
-handle the load, you could spin up more *Pods*. OpenShift automatically maps
+OpenShift environment. For example, if you needed to start up multiple instances of the `parksmap` application to
+handle the volume of requests to it, you could spin up more *Pods*. OpenShift automatically maps
 them as endpoints to the *Service*, and the incoming requests would not notice
 anything different except that the *Service* was now doing a better job handling
 the requests.
@@ -135,65 +134,53 @@ available to the "outside world", or anything that is outside the OpenShift
 environment. That's OK, as you will learn later.
 
 The way that a *Service* maps to a set of *Pods* is via a system of *Labels* and
-*Selectors*. *Services* are assigned an eternal IP address and many ports and
+*Selectors*. *Services* are assigned their own IP address and many ports and
 protocols can be mapped.
-
-There is a lot more information about
-https://{{DOCS_URL}}/latest/architecture/core_concepts/pods_and_services.html#services[Services],
-including the YAML format to make one by hand, in the official documentation.
 
 Now that we understand the basics of what a *Service* is, let's take a look at
 the *Service* that was created for the image that we just deployed.  In order to
 view the *Services* defined in your *Project*, enter in the following command:
 
-[source]
-----
-oc get services
-----
+``oc get services``{{execute}}
 
 You should see output similar to the following:
 
-[source]
-----
+```
 NAME       CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
-parksmap   172.30.169.213   <none>        8080/TCP   3h
-----
+parksmap   172.30.169.213   <none>        8080/TCP   3m
+```
 
 In the above output, we can see that we have a *Service* named `parksmap` with an
 IP/Port combination of 172.30.169.213/8080TCP. Your IP address may be different, as
 each *Service* receives a unique IP address upon creation. *Service* IPs are
 eternal and never change for the life of the *Service*.
 
-In the web console, service information is available by clicking "Applications"
-and then clicking "Services" in the "Networking" submenu.
+In the web console, service information is available by clicking _Applications_ in the left hand side navigation bar
+and then clicking _Services_.
 
 You can also get more detailed information about a *Service* by using the
 following command to display the data in YAML:
 
-[source]
-----
-oc get service parksmap -o yaml
-----
+``oc get service parksmap -o yaml``{{execute}}
 
 You should see output similar to the following:
 
-[source]
-----
+```
 apiVersion: v1
 kind: Service
 metadata:
   annotations:
     openshift.io/generated-by: OpenShiftWebConsole
-  creationTimestamp: 2016-10-03T15:33:17Z
+  creationTimestamp: 2017-12-12T10:18:01Z
   labels:
     app: parksmap
   name: parksmap
-  namespace: {{EXPLORE_PROJECT_NAME}}{{USER_SUFFIX}}
-  resourceVersion: "6893"
-  selfLink: /api/v1/namespaces/{{EXPLORE_PROJECT_NAME}}{{USER_SUFFIX}}/services/parksmap
-  uid: b51260a9-897e-11e6-bdaa-2cc2602f8794
+  namespace: myproject
+  resourceVersion: "1593"
+  selfLink: /api/v1/namespaces/myproject/services/parksmap
+  uid: bb7c852d-df25-11e7-ad7e-0242ac110022
 spec:
-  clusterIP: 172.30.169.213
+  clusterIP: 172.30.255.86
   ports:
   - name: 8080-tcp
     port: 8080
@@ -205,76 +192,62 @@ spec:
   type: ClusterIP
 status:
   loadBalancer: {}
-----
+```
 
 Take note of the `selector` stanza. Remember it.
 
-It is also of interest to view the JSON of the *Pod* to understand how OpenShift
+It is also of interest to view the YAML of the *Pod* to understand how OpenShift
 wires components together.  For example, run the following command to get the
 name of your `parksmap` *Pod*:
 
-[source]
-----
-oc get pods
-----
+Run ``oc get pod -o yaml`` against the *Pod* again:
 
-You should see output similar to the following:
-
-[source]
-----
-NAME               READY     STATUS    RESTARTS   AGE
-parksmap-1-hx0kv   1/1       Running   0          3h
-----
-
-Now you can view the detailed data for your *Pod* with the following command:
-
-[source]
-----
-oc get pod parksmap-1-hx0kv -o yaml
-----
+```
+oc get pod parksmap-1-cf6b6 -o yaml
+```
 
 Under the `metadata` section you should see the following:
 
-[source]
-----
+```
 labels:
   app: parksmap
   deployment: parksmap-1
   deploymentconfig: parksmap
-----
+```
 
-* The *Service* has `selector` stanza that refers to `deploymentconfig=parksmap`.
-* The *Pod* has multiple *Labels*:
-** `deploymentconfig=parksmap`
-** `app=parksmap`
-** `deployment=parksmap-1`
+The *Service* has `selector` stanza that refers to `deploymentconfig=parksmap`.
+
+The *Pod* has multiple *Labels*:
+
+* `deploymentconfig=parksmap`
+
+* `app=parksmap`
+
+* `deployment=parksmap-1`
 
 *Labels* are just key/value pairs. Any *Pod* in this *Project* that has a *Label* that
 matches the *Selector* will be associated with the *Service*. To see this in
 action, issue the following command:
 
-[source]
-----
-oc describe service parksmap
-----
+``oc describe service parksmap``{{execute}}
 
 You should see something like the following output:
 
-[source]
-----
+```
 Name:                   parksmap
-Namespace:              {{EXPLORE_PROJECT_NAME}}{{USER_SUFFIX}}
+Namespace:              myproject
 Labels:                 app=parksmap
+Annotations:            openshift.io/generated-by=OpenShiftWebConsole
 Selector:               deploymentconfig=parksmap
 Type:                   ClusterIP
-IP:                     172.30.169.213
+IP:                     172.30.255.86
 Port:                   8080-tcp        8080/TCP
-Endpoints:              10.1.2.5:8080
+Endpoints:              172.20.0.3:8080
 Session Affinity:       None
-No events.
-----
+Events:                 <none>
+```
 
 You may be wondering why only one end point is listed. That is because there is
-only one *Pod* currently running.  In the next lab, we will learn how to scale
+only one *Pod* currently running.  In the next set of exercises, you will learn how to scale
 an application, at which point you will be able to see multiple endpoints
 associated with the *Service*.
