@@ -1,0 +1,22 @@
+{
+  "title": "Introduction to OpenShift For Developers",
+  "description": "",
+  "paid": false,
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/playgrounds/openshift36/",
+      "course_id": "playground-openshift36",
+      "title": "Introduction to OpenShift For Developers"
+    },
+    {
+      "external_link": "https://learn.openshift.com/playgrounds/openshift37/",
+      "course_id": "playground-openshift37",
+      "title": "Red Hat OpenShift Application Runtimes"
+    },
+    {
+      "external_link": "https://learn.openshift.com/playgrounds/openshift37/",
+      "course_id": "playground-openshift37",
+      "title": "Red Hat OpenShift Playgrounds"
+    }
+  ]
+}
