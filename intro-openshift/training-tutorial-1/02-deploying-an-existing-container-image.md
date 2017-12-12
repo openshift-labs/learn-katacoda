@@ -70,16 +70,14 @@ parksmap-py-1-713cw   1/1       Running   0          1m
 ```
 
 The above output lists all of the *Pods* in the current *Project*, including the
-*Pod* name, state, restarts, and uptime. Once you have a *Pod*'s name, you can
-get more information about the *Pod* using the ``oc get`` command.  To make the
-output readable, you can set the output type to *YAML* using the
+*Pod* name, state, restarts, and uptime. To see more information about *Pods*, you can set the output type to *YAML* using the
 `-o yaml` option.
 
 ``oc get pods -o yaml``{{execute}}
 
-This will output a list with the details of all *Pods*. If you want to restrict the output to a single *Pod* pass the name of the *Pod* to the ``oc get pod`` command.
+This will output a list with the details of all *Pods*. If you want to restrict the output to a single *Pod* pass the name of the *Pod* as argument to the ``oc get pod`` command.
 
-You should see output which starts with a description similar to that below:
+When running ``oc get pods -o yaml`` you should see output which starts with details similar to that below:
 
 ```
 kind: List
@@ -147,7 +145,7 @@ parksmap-py   172.30.17.45   <none>        8080/TCP   2m
 ```
 
 In the above output, you can see that you have a *Service* named `parksmap-py` with an
-IP/Port combination of 172.30.169.213/8080TCP. Your IP address may be different, as
+IP/Port combination of 172.30.17.45/8080TCP. Your IP address may be different, as
 each *Service* receives a unique IP address upon creation. *Service* IPs are
 eternal and never change for the life of the *Service*.
 
@@ -155,7 +153,7 @@ In the web console, service information is available by clicking _Applications_ 
 and then clicking _Services_.
 
 You can also get more detailed information about a *Service* by using the
-following command to display the data in YAML:
+following command to display the data as YAML:
 
 ``oc get service parksmap-py -o yaml``{{execute}}
 
@@ -193,10 +191,7 @@ status:
 Take note of the `selector` stanza. Remember it.
 
 It is also of interest to view the YAML of the *Pod* to understand how OpenShift
-wires components together.  For example, run the following command to get the
-name of your `parksmap-py` *Pod*:
-
-Run again the command:
+wires components together. Run again the command:
 
 ```
 oc get pods -o yaml
@@ -211,7 +206,7 @@ labels:
   deploymentconfig: parksmap-py
 ```
 
-The *Service* has `selector` stanza that refers to `deploymentconfig=parksmap`.
+The *Service* has `selector` stanza that refers to `deploymentconfig=parksmap-py`.
 
 The *Pod* has multiple *Labels*:
 
