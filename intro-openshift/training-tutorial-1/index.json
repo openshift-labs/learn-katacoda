@@ -20,6 +20,9 @@
         "steps": [{
             "title": "Topic 1 - Exploring the CLI and Web Console",
             "text": "01-exploring-the-cli-and-web-console.md"
+        }, {
+            "title": "Topic 2 - Deploying an Existing Container Image",
+            "text": "02-deploying-an-existing-container-image.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
