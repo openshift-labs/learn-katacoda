@@ -11,9 +11,9 @@ There will be a set of independent backend services deployed that will provide d
 * WorldWide National Parks
 * Major League Baseball Stadiums in the US
 * International Airports
-* Recent earthquakes in New Zealand
+* Earthquakes in New Zealand
 * Aussie Dunnies
 
 The original source code for the applications are located [here](https://github.com/openshift-roadshow/).
 
-The server-side component of the ParksMap web acts as a communication gateway to all the available backends. These backends will be dynamically discovered by using service discovery mechanisms provided by OpenShift which will be discussed in more details in the following labs.
+The server-side component of the ParksMap web acts as a communication gateway to all the available backends. These backends will be dynamically discovered by using service discovery mechanisms provided by OpenShift which will be discussed in more details in the tutorial.
