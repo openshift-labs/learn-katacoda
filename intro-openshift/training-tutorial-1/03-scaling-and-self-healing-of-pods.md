@@ -23,8 +23,8 @@ almost all of those cases, OpenShift will create all of them for you.
 
 ### Exercise: Exploring the Objects Created by a Deployment
 
-Now that we know the background of what a *ReplicatonController* and
-*DeploymentConfig* are, we can explore how they work and are related. Take a
+Now that you understand what a *ReplicatonController* and
+*DeploymentConfig* are, you can explore how they work and are related. Take a
 look at the *DeploymentConfig* (DC) that was created for you when you told
 OpenShift to deploy the `parksmap-py` image. You can get a list of the *DeploymentConfig* objects in the current project by running:
 
@@ -37,29 +37,29 @@ NAME          REVISION   DESIRED   CURRENT   TRIGGERED BY
 parksmap-py   1          1         1         config,image(parksmap-py:1.0.0)
 ```
 
-To get more details, we can look into the *ReplicationController* (RC).
+To get more details, you can look into the *ReplicationController* (RC).
 
 Take a look at the *ReplicationController* (RC) that was created for you when
-you told OpenShift to deploy the `parksmap-py` image. You can get a list if the *ReplicationController* objects in the current project by running:
+you told OpenShift to deploy the `parksmap-py` image. You can get a list of the *ReplicationController* objects in the current project by running:
 
 ``oc get rc``{{execute}}
 
-This should out out:
+This should output:
 
 ```
 NAME            DESIRED   CURRENT   READY     AGE
 parksmap-py-1   1         1         1         2m
 ```
 
-This lets us know that, right now, we expect one *Pod* to be deployed
-(`Desired`), and we have one *Pod* actually deployed (`Current`). By changing
-the desired number, we can tell OpenShift that we want more or less *Pods*.
+This lets you know that, right now, it is expected that one *Pod* should be running
+(`Desired`), and that one *Pod* is actually deployed (`Current`). By changing
+the desired number, you can tell OpenShift how many *Pods*, or instances of your application you want running.
 
 ### Exercise: Scaling Up the Application
 
 To scale the application up to 2 instances you can use
 the `oc scale` command. You could also do this by clicking the "up" arrow next to
-the *Pod* circle in the OpenShift web console on the overview page. It's your choice.
+the *Pod* circle in the OpenShift web console on the overview page. To use the command line run:
 
 ``oc scale --replicas=2 dc/parksmap-py``{{execute}}
 
@@ -108,7 +108,7 @@ Another way to get a list of the endpoints is by running:
 
 ``oc get endpoints parksmap-py``{{execute}}
 
-And you will see something like the following:
+You will see something like the following:
 
 ```
 NAME          ENDPOINTS                         AGE
@@ -119,7 +119,7 @@ Your IP addresses will likely be different, as each pod receives a unique IP
 within the OpenShift environment. The endpoint list is a quick way to see how
 many pods are behind a service.
 
-You can also see that both *Pods* are running using the web console:
+You can also see that two *Pods* are running using the web console:
 
 ![Application Scaling](../../assets/intro-openshift/training-tutorial-1/03-overview-of-scaled-application.png)
 
@@ -158,7 +158,7 @@ That's because OpenShift almost immediately detected that the current state (1
 *Pod*) didn't match the desired state (2 *Pods*), and it fixed it by scheduling
 another *Pod*.
 
-Additionally, OpenShift provides rudimentary capabilities around checking the
+In addition to handling the case of a *Pod* being terminated, OpenShift provides rudimentary capabilities around checking the
 liveness and/or readiness of application instances. If the basic checks are
 insufficient, OpenShift also allows you to run a command inside the container in
 order to perform the check. That command could be a complicated script that uses
@@ -170,6 +170,6 @@ it, always ensuring that the desired number of replicas was in place.
 
 ### Exercise: Scaling Down the Application
 
-Before continuing, scale down the application down to a single
+Before continuing, scale down the application to a single replica.
 
 ``oc scale --replicas=1 dc/parksmap-py``{{execute}}
