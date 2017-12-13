@@ -1,3 +1,11 @@
+.navbar-right {
+  height: 54px;
+}
+
+.navbar-right li {
+  height: 54px;
+}
+
 .navbar.navbar-default.navbar-openshift .navbar-nav>li>a:hover {
   background: none;
 }
