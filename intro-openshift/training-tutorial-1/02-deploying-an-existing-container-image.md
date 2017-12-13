@@ -197,9 +197,7 @@ selector:
 
 Run again the command:
 
-```
-oc get pods -o yaml
-```
+``oc get pods -o yaml``{{execute}}
 
 Under the `metadata` section you should see the following:
 
