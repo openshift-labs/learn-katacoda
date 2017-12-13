@@ -15,7 +15,7 @@ create a _Route_.
 Fortunately, creating a _Route_ is a pretty straight-forward process.  You just click
 the "Create Route" link displayed against the application on the _Overview_ page.
 
-![No route](../../assets/intro-openshift/getting-started/5no-route.png)
+![No route](../../assets/introduction/getting-started/5no-route.png)
 
 By default OpenShift is configured to create the _Route_ based on the _Service_ name being exposed and the _Project_ where the application lives, adding a common subdomain configured at the platform level. In our scenario, we have:
 
@@ -23,19 +23,19 @@ By default OpenShift is configured to create the _Route_ based on the _Service_ 
 
 This means that there is no need to change the default settings in the _Route_ creation form.
 
-![Route form](../../assets/intro-openshift/getting-started/5create-route.png)
+![Route form](../../assets/introduction/getting-started/5create-route.png)
 
 Once you click _Create_, the _Route_ will be created and displayed in the _Overview_ page.
 
-![Route created](../../assets/intro-openshift/getting-started/5route-created.png)
+![Route created](../../assets/introduction/getting-started/5route-created.png)
 
 We can also get the list of all the existing _Routes_ by clicking the _Applications->Routes_ menu:
 
-![Routes menu](../../assets/intro-openshift/getting-started/5routes-menu.png)
+![Routes menu](../../assets/introduction/getting-started/5routes-menu.png)
 
 Currently the list of _Routes_ will only display the one we just created.
 
-![Routes list](../../assets/intro-openshift/getting-started/5routes-list.png)
+![Routes list](../../assets/introduction/getting-started/5routes-list.png)
 
 In this list we will be able to see the details associated with the route, like the hostname, the service, the port the route is exposing, and details on the TLS security for the route, if any.
 
@@ -44,4 +44,4 @@ You can always click on the _Route_ name in this list to modify an existing _Rou
 Now that we know how to create a _Route_, let's verify that the  application is really available at the URL shown in the
 web console. Click the link and you will see:
 
-![Application](../../assets/intro-openshift/getting-started/5parksmap-empty.png)
+![Application](../../assets/introduction/getting-started/5parksmap-empty.png)

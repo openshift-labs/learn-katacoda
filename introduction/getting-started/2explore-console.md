@@ -5,7 +5,7 @@ To begin, click on the **Dashboard** tab in the console frame of this browser wi
 
 You should see an **OpenShift Origin** window with **Username** and **Password** forms, similar to this one:
 
-![OpenShift Origin Web Console](../../assets/intro-openshift/getting-started/ocp-login.png)
+![OpenShift Origin Web Console](../../assets/introduction/getting-started/ocp-login.png)
 For this scenario, start by entering the following:
 
 **Username:** ``developer``{{copy}}
@@ -16,7 +16,7 @@ After logging in to the web console, you'll see a button labeled "Create Project
 
 You should now see a page for creating your first project in web console. Fill in the _Name_ field as ``myproject``{{copy}}.
 
-![Create Project](../../assets/intro-openshift/getting-started/2create-project.png)
+![Create Project](../../assets/introduction/getting-started/2create-project.png)
 
 The rest is optional and up to you. Be careful with all of that responsibility.
 

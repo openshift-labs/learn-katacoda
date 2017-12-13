@@ -4,7 +4,7 @@ In this course the embedded _Terminal_ provided to you already has ``oc`` instal
 
 If you were using a different OpenShift cluster and did not already have the ``oc`` command line tool, you can download it by following the links in the _Command Line Tools_ menu option of the web console.
 
-![Command Line Tools](../../assets/intro-openshift/cluster-access/02-command-line-tools.png)
+![Command Line Tools](../../assets/introduction/cluster-access/02-command-line-tools.png)
 
 Depending on the version of OpenShift which has been installed and how it was setup, you may see a single link here off to the downloads for the latest release, or multiple links to platform specific variants of the archive containing the ``oc`` binary. You would need to download the archive specific to your platform, extract the ``oc`` binary and install it.
 
@@ -54,12 +54,12 @@ You must obtain an API token by visiting
 
 You would visit the link given, logging in first via the separate authentication service if necessary. This will land you at a page looking like:
 
-![Request Access Token](../../assets/intro-openshift/cluster-access/02-request-access-token.png)
+![Request Access Token](../../assets/introduction/cluster-access/02-request-access-token.png)
 
 In this case, rather than use your actual user credentials to login using ``oc login``, you use a special access token provided by that web page. The web page lists the specific ``oc login`` command to run.
 
 Even in the case where user authentication is managed by the OpenShift cluster and user credentials are accepted, you can opt to instead use an access token. You can retrieve the command to run by manually entering the ``/oauth/token/request`` URL against the OpenShift cluster being used. Or you can instead retrieve it from the _Command Line Tools_ page you use to download the ``oc`` command line tool.
 
- ![Request Access Token](../../assets/intro-openshift/cluster-access/02-login-access-token.png)
+ ![Request Access Token](../../assets/introduction/cluster-access/02-login-access-token.png)
 
 Whichever mechanism you use to login from the command line using ``oc login``, the login will periodically expire and you will need to login again. The expiration period is typically 24 hours.

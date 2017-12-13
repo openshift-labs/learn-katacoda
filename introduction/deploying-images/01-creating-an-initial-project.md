@@ -40,17 +40,17 @@ to build a new example application in Ruby.
 Switch to the _Dashboard_ and login to the OpenShift web console using the
 same credentials you used above.
 
-![Web Console Login](../../assets/intro-openshift/deploying-images/01-web-console-login.png)
+![Web Console Login](../../assets/introduction/deploying-images/01-web-console-login.png)
 
 This should leave you at the list of projects you have access to. As we only
 created the one project, all you should see is ``myproject``.
 
-![List of Projects](../../assets/intro-openshift/deploying-images/01-list-of-projects.png)
+![List of Projects](../../assets/introduction/deploying-images/01-list-of-projects.png)
 
 Click on ``myproject`` and you should be left at the _Overview_ page for
 the project.
 
-![Project Overview](../../assets/intro-openshift/deploying-images/01-project-overview.png)
+![Project Overview](../../assets/introduction/deploying-images/01-project-overview.png)
 
 As the project is currently empty, you should be presented with an _Add to Project_
 button.

@@ -9,7 +9,7 @@ microservices, and OpenShift/Kubernetes.
 
 ## What is Node.js? 
 
-![Logo](../../assets/intro-openshift/rhoar-getting-started-nodejs/logo.png)
+![Logo](../../assets/middleware/rhoar-getting-started-nodejs/logo.png)
 
 Node.js is a JavaScript runtime built on [Chrome’s V8 JavaScript engine](https://developers.google.com/v8/). Node.js uses an event-driven,
 non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, [npm](https://www.npmjs.com/), is the

@@ -1,6 +1,6 @@
 Lets get started adding an application to the **fuselab** project
 
-![Adding to Empty Project](../../assets/intro-openshift/fis-deploy-app/02-add-to-project-empty.png)
+![Adding to Empty Project](../../assets/middleware/fis-deploy-app/02-add-to-project-empty.png)
 
 Its now time to build and deploy the People Service API onto OpenShift. To do this we will be using OpenShift's Source 2 Image capabilities, also referred to as **_S2I_** . The OpenShift S2I tool injects application source code into a container image and the final product is a new and ready-to-run container image that incorporates the builder image and built source code. You can find more details regarding S2I at the finish of this scenario. 
 

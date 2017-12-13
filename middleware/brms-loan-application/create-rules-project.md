@@ -8,7 +8,7 @@ We can now create our first rules project. A JBoss BRMS rules project can contai
 To create the project, perform the following steps:
 1. First, make sure to select the "loan" repository in the breadcrumbs right under the text *Project Explorer*.
 
-<img src="../../assets/intro-openshift/brms-loan-application/brms-select-loan-repository.png" width="400" />
+<img src="../../assets/middleware/brms-loan-application/brms-select-loan-repository.png" width="400" />
 
 Now that we've selected the correct repository, we can create our project.
 

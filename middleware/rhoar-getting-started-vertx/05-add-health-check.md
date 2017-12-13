@@ -7,7 +7,7 @@ Open the [OpenShift webconsole Deployment config page](https://[[HOST_SUBDOMAIN]
 
 You will then see the following warning
 
-![Health Check Warning](../../assets/intro-openshift/rhoar-getting-started-vertx/health-check-warning.png)
+![Health Check Warning](../../assets/middleware/rhoar-getting-started-vertx/health-check-warning.png)
 
 This is just a warning, and your container might be working 100% correctly, but without a proper health-check configured there is no way for OpenShift to tell if the application is responding correctly or not.  
 

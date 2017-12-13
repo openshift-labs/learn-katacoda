@@ -113,7 +113,7 @@ While the build command is running and the application is being deployed, switch
 
 Once the build and deployment is finished, if you visit the web application once more, you will see that the banner colour has been changed to blue.
 
-![Blog Web Site](../../assets/intro-openshift/deploying-python/07-blog-web-site-blue.png)
+![Blog Web Site](../../assets/introduction/deploying-python/07-blog-web-site-blue.png)
 
 When you use the ``--from-dir=.`` option with ``oc start-build``, the contents from the current working directory will only be used for that one build. If you wanted to run further builds with source code from your local directory, you would need to supply ``--from-dir=.`` each time.
 

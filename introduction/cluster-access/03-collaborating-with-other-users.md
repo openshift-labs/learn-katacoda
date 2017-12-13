@@ -14,15 +14,15 @@ you should see that he has access to no projects.
 
 To grant this user access to your project, go to the list of projects in the web console and select on the drop down menu to the right of the project name and select on _View Membership_.
 
-![View Project Membership](../../assets/intro-openshift/cluster-access/03-view-project-membership.png)
+![View Project Membership](../../assets/introduction/cluster-access/03-view-project-membership.png)
 
 You will see that only the ``developer`` user is a member of the project. Select _Edit Membership_.
 
-![Edit Project Membership](../../assets/intro-openshift/cluster-access/03-edit-project-membership.png)
+![Edit Project Membership](../../assets/introduction/cluster-access/03-edit-project-membership.png)
 
 Next enter ``collaborator`` as the name of a new member for the project and select _edit_ from the list of roles. Click on _Add_ to create the new role for the user.
 
-![Add Member to Project](../../assets/intro-openshift/cluster-access/03-add-member-to-project.png)
+![Add Member to Project](../../assets/introduction/cluster-access/03-add-member-to-project.png)
 
 The user ``collaborator`` is now a member of the project. Back in the _Terminal_ run again the command:
 

@@ -43,13 +43,13 @@ INFO  [org.wildfly.swarm] (main) WFSWARM99999: WildFly Swarm is Ready
 
 To begin, click on the **Local Web Browser** tab in the console frame of this browser window. This will open another tab or window of your browser pointing to port 8080 on your client.
 
-![Local Web Browser Tab](../../assets/intro-openshift/rhoar-getting-started-wfswarm/web-browser-tab.png)
+![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-wfswarm/web-browser-tab.png)
 
 > or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
 You should now see a html page that looks like this
 
-![App](../../assets/intro-openshift/rhoar-getting-started-wfswarm/app.png)
+![App](../../assets/middleware/rhoar-getting-started-wfswarm/app.png)
 
 **4. Stop the application**
 

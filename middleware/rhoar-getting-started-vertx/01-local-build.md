@@ -76,11 +76,11 @@ NOTE: As you may have noticed Vert.x will automatically detect when you change a
 
 To begin, click on the **Local Web Browser** tab in the console frame of this browser window, which will open another tab or window of your browser pointing to port 8080 on your client.
 
-![Local Web Browser Tab](../../assets/intro-openshift/rhoar-getting-started-vertx/web-browser-tab.png)
+![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-vertx/web-browser-tab.png)
 
 You should now see an HTML page that looks like this:
 
-![Local Web Browser Tab](../../assets/intro-openshift/rhoar-getting-started-vertx/web-page.png)
+![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-vertx/web-page.png)
 
 or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
