@@ -128,7 +128,7 @@ available to the "outside world", or anything that is outside the OpenShift
 environment. That's OK, as you will learn later.
 
 The way that a *Service* maps to a set of *Pods* is via a system of *Labels* and
-*Selectors*. *Services* are assigned their own IP address and many ports and
+  *Selectors*. *Services* are assigned a fixed IP address and many ports and
 protocols can be mapped.
 
 Now that you understand the basics of what a *Service* is, let's take a look at
@@ -147,7 +147,7 @@ parksmap-py   172.30.17.45   <none>        8080/TCP   2m
 In the above output, you can see that you have a *Service* named `parksmap-py` with an
 IP/Port combination of 172.30.17.45/8080TCP. Your IP address may be different, as
 each *Service* receives a unique IP address upon creation. *Service* IPs are
-eternal and never change for the life of the *Service*.
+fixed and never change for the life of the *Service*.
 
 In the web console, service information is available by clicking _Applications_ in the left hand side navigation bar
 and then clicking _Services_.
@@ -188,10 +188,14 @@ status:
   loadBalancer: {}
 ```
 
-Take note of the `selector` stanza. Remember it.
+Take note of the `selector` stanza.
 
-It is also of interest to view the YAML of the *Pod* to understand how OpenShift
-wires components together. Run again the command:
+```
+selector:
+  deploymentconfig: parksmap-py
+```
+
+Run again the command:
 
 ```
 oc get pods -o yaml
@@ -206,15 +210,15 @@ labels:
   deploymentconfig: parksmap-py
 ```
 
-The *Service* has `selector` stanza that refers to `deploymentconfig=parksmap-py`.
+The *Service* has a `selector` stanza that refers to `deploymentconfig=parksmap-py`.
 
 The *Pod* has multiple *Labels*:
-
-* `deploymentconfig=parksmap-py`
 
 * `app=parksmap-py`
 
 * `deployment=parksmap-py-1`
+
+* `deploymentconfig=parksmap-py`
 
 *Labels* are just key/value pairs. Any *Pod* in this *Project* that has a *Label* that
 matches the *Selector* will be associated with the *Service*. To see this in
