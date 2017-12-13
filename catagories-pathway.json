@@ -4,19 +4,16 @@
   "paid": false,
   "courses": [
     {
-      "external_link": "https://learn.openshift.com/playgrounds/openshift36/",
-      "course_id": "playground-openshift36",
-      "title": "Introduction to OpenShift For Developers"
+      "external_link": "https://learn.openshift.com/introduction/",
+      "title": "OpenShift For Developers"
     },
     {
-      "external_link": "https://learn.openshift.com/playgrounds/openshift37/",
-      "course_id": "playground-openshift37",
-      "title": "Red Hat OpenShift Application Runtimes"
+      "external_link": "https://learn.openshift.com/middleware/",
+      "title": "OpenShift Middleware"
     },
     {
-      "external_link": "https://learn.openshift.com/playgrounds/openshift37/",
-      "course_id": "playground-openshift37",
-      "title": "Red Hat OpenShift Playgrounds"
+      "external_link": "https://learn.openshift.com/playgrounds/",
+      "title": "OpenShift Playgrounds"
     }
   ]
 }
