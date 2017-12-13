@@ -45,23 +45,23 @@ OpenShift ships with a web-based console that will allow users to
 perform various tasks via a browser. To get a feel for how the web console
 works, click on the "OpenShift Console" tab next to the "Local Web Browser" tab.
 
-![OpenShift Console Tab](../../assets/intro-openshift/rhoar-getting-started-wfswarm/openshift-console-tab.png)
+![OpenShift Console Tab](../../assets/middleware/rhoar-getting-started-wfswarm/openshift-console-tab.png)
 
 The first screen you will see is the authentication screen. Enter your username and password and 
 then log in:
 
-![Web Console Login](../../assets/intro-openshift/rhoar-getting-started-wfswarm/login.png)
+![Web Console Login](../../assets/middleware/rhoar-getting-started-wfswarm/login.png)
 
 After you have authenticated to the web console, you will be presented with a
 list of projects that your user has permission to work with.
 
-![Web Console Projects](../../assets/intro-openshift/rhoar-getting-started-wfswarm/projects.png)
+![Web Console Projects](../../assets/middleware/rhoar-getting-started-wfswarm/projects.png)
 
 Click on your new project name to be taken to the project overview page
 which will list all of the routes, services, deployments, and pods that you have
 running as part of your project:
 
-![Web Console Overview](../../assets/intro-openshift/rhoar-getting-started-wfswarm/overview.png)
+![Web Console Overview](../../assets/middleware/rhoar-getting-started-wfswarm/overview.png)
 
 There's nothing there now, but that's about to change.
 

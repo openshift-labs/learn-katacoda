@@ -11,4 +11,4 @@ These are our 4 rules:
 
 The final table will look like this:
 
-<img src="../../assets/intro-openshift/brms-loan-application/brms-decision-table.png" width="800" />
+<img src="../../assets/middleware/brms-loan-application/brms-decision-table.png" width="800" />

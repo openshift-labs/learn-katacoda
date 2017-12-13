@@ -24,12 +24,12 @@ To verify that everything is started, run the following command and wait for it 
 This sample project includes a simple UI that allows you to access the Greeting API. Click the
 [route URL](http://nodejs-configmap-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com) to open up the sample application in a separate browser tab:
 
-> You can also access the application through the link on the OpenShift Web Console Overview page. ![Overview link](../../assets/intro-openshift/rhoar-getting-started-nodejs/overview-link.png)
+> You can also access the application through the link on the OpenShift Web Console Overview page. ![Overview link](../../assets/middleware/rhoar-getting-started-nodejs/overview-link.png)
 
 Enter a name in the 'Name' field and click **Invoke** to test out the service. You should get the same hard-coded
 greeting as in previous steps.
 
-![Hardcoded message](../../assets/intro-openshift/rhoar-getting-started-nodejs/hardcode.png)
+![Hardcoded message](../../assets/middleware/rhoar-getting-started-nodejs/hardcode.png)
 
 While the greeting code is functional, if you wanted to change the message you would need to stop the
 application, make the code change, and re-deploy. As you'll learn in the next section, in a real world

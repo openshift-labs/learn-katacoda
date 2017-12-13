@@ -38,15 +38,15 @@ to build a new example application in Ruby.
 Now switch to the **_Dashboard_** and login to the OpenShift web console using the
 same credentials you used above.
 
-![Web Console Login](../../assets/intro-openshift/fis-deploy-app/01-web-console-login.png)
+![Web Console Login](../../assets/middleware/fis-deploy-app/01-web-console-login.png)
 
 This should take you to the list of projects you have access to. As we only
 created the one project, all you should see is ``fuselab``.
 
-![List of Projects](../../assets/intro-openshift/fis-deploy-app/01-list-of-projects-3_6.png)
+![List of Projects](../../assets/middleware/fis-deploy-app/01-list-of-projects-3_6.png)
 
 Click on ``fuselab `` to be taken to the project **_Overview_** page for ``fuselab``.
 
-![Project Overview](../../assets/intro-openshift/fis-deploy-app/01-project-overview.png)
+![Project Overview](../../assets/middleware/fis-deploy-app/01-project-overview.png)
 
 As the project is currently empty, you should be presented with an **_Add to Project_** button. Click **_Continue_** on to see how to add the first application to this project.

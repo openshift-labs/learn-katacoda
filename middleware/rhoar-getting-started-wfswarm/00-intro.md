@@ -9,7 +9,7 @@ microservices, and OpenShift/Kubernetes.
 
 ## What is WildFly Swarm? 
 
-![Logo](../../assets/intro-openshift/rhoar-getting-started-wfswarm/swarm-logo.png)
+![Logo](../../assets/middleware/rhoar-getting-started-wfswarm/swarm-logo.png)
 
 Java EE applications are traditionally created as an **ear** or **war** archive including all 
 dependencies and deployed in an application server. Multiple Java EE applications can and 

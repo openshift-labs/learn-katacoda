@@ -17,7 +17,7 @@ Give the object two fields:
 5. Click on *Create*
 6. Click on the *Save* button to save the model
 
-<img src="../../assets/intro-openshift/brms-loan-application/brms-datamodel-applicant.png" width="800" />
+<img src="../../assets/middleware/brms-loan-application/brms-datamodel-applicant.png" width="800" />
 
 Next, create a data object with name `Loan`{{copy}} in package `com.redhat.demos.loandemo`{{copy}} with the following fields:
 
@@ -28,4 +28,4 @@ Next, create a data object with name `Loan`{{copy}} in package `com.redhat.demos
 
 Make sure to also save this model using the *Save* button in the editor. We can now create our rules.
 
-<img src="../../assets/intro-openshift/brms-loan-application/brms-datamodel-loan.png" width="800" />
+<img src="../../assets/middleware/brms-loan-application/brms-datamodel-loan.png" width="800" />

@@ -7,7 +7,7 @@ You will learn how to get started with building a reactive web application that 
 
 ## What is Eclipse Vert.x?
 
-![Local Web Browser Tab](../../assets/intro-openshift/rhoar-getting-started-vertx/vertx-logo.png)
+![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-vertx/vertx-logo.png)
 
 Eclipse Vert.x is a reactive toolkit for the Java Virtual Machine that is polyglot (e.g., supports multiple programming languages).
 In this session, we will focus on Java, but it would be possible to build the same application in JavaScript, Groovy, Ruby, Ceylon, Scala, and Kotlin.

@@ -46,16 +46,16 @@ At this stage the application doesn't really do anything but after a while you w
 
 To begin, click on the **Local Web Browser** tab in the console frame of this browser window. This will open the another tab or window of your browser pointing to port 8080 on your client.
 
-![Local Web Browser Tab](../../assets/intro-openshift/rhoar-getting-started-nodejs/web-browser-tab.png)
+![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-nodejs/web-browser-tab.png)
 
 You should now see a html page that looks like this
 
-![App](../../assets/intro-openshift/rhoar-getting-started-nodejs/app.png)
+![App](../../assets/middleware/rhoar-getting-started-nodejs/app.png)
 
 This indicates that the app started up correctly. Type in your name into the Name field and click **Invoke**. The default
 hard-coded greeting is returned.
 
-![Hardcode](../../assets/intro-openshift/rhoar-getting-started-nodejs/hardcode.png)
+![Hardcode](../../assets/middleware/rhoar-getting-started-nodejs/hardcode.png)
 
 **4. Stop the application**
 
