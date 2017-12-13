@@ -1,4 +1,4 @@
-In this exercise you are going to deploy the front end web component of the ParksMap application. The front end uses a dynamic service discovery mechanism to discover what backend services have been deployed and shows their data on the map.
+In these exercises you are going to deploy the front end web component of the ParksMap application. The front end uses a dynamic service discovery mechanism to discover what backend services have been deployed and shows their data on the map.
 
 ![Web Console Login](../../assets/intro-openshift/training-tutorial-1/02-application-architecture-stage-1.png)
 

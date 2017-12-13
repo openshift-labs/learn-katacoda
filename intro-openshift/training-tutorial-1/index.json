@@ -23,6 +23,9 @@
         }, {
             "title": "Topic 2 - Deploying an Existing Container Image",
             "text": "02-deploying-an-existing-container-image.md"
+        }, {
+            "title": "Topic 3 - Scaling and Self Healing of Pods",
+            "text": "03-scaling-and-self-healing-of-pods.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
