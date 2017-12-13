@@ -33,13 +33,9 @@ When testing starting locally or when running test we also need to use a local d
 
 We are going to implement an Entity class that represents a fruit. This class is used to map our object to a database schema.
 
-First, we need to create the actual file. For that, you need to execute the following command ``touch src/main/java/com/example/service/Fruit.java``{{execute}}
+First, we need to create the java class file. For that, you need to click on the following link, which open the empty file in the editor: ``src/main/java/com/example/service/Fruit.java``{{open}}
 
->**NOTE:** Using touch to create an empty file might feel a bit awkward, but Katacoda currently does not have a `new-file` option. 
-
-Secondly, open ``src/main/java/com/example/service/Fruit.java``{{open}}
-
-Finally, copy the below content into the file (or use the `Copy to editor` button):
+Then, copy the below content into the file (or use the `Copy to editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/service/Fruit.java" data-target="replace">
 package com.example.service;
@@ -88,11 +84,9 @@ public class Fruit {
 
 The repository should provide with methods for insert, update, select and delete Fruits from the database. We are going to use Spring Data for this which already provides us with a lot of the boilerplate code, so all we have to do is to add an interface that extends the `CrudRepository<Fruit, Integer>` interface provided by Spring Data.
 
-First, create the file ``touch src/main/java/com/example/service/FruitRepository.java``{{execute}}
+First, we need to create the java class file. For that, you need to click on the following link, which open the empty file in the editor: ``src/main/java/com/example/service/FruitRepository.java``{{open}}
 
-Secondly, open ``src/main/java/com/example/service/FruitRepository.java``{{open}}
-
-Finally, copy the below content into the file (or use the `Copy to editor` button):
+Then, copy the below content into the file (or use the `Copy to editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/service/FruitRepository.java" data-target="replace">
 package com.example.service;
@@ -107,11 +101,10 @@ public interface FruitRepository extends CrudRepository&lt;Fruit, Integer&gt; {
 
 To pre-populate the database with content, Hibernate offers a nifty feature where we can provide an SQL file that populates the content.
 
-First, create the file ``touch src/main/resources/import.sql``{{execute}}
+First, we need to create the SQL  file. For that, you need to click on the following link, which open the empty file in the editor: ``src/main/resources/import.sql``{{open}}
 
-Then, Open the file ``src/main/resources/import.sql``{{open}}
+Then, copy the below content into the file (or use the `Copy to editor` button):
 
-Finally, Add the following content:
 <pre class="file" data-filename="src/main/resources/import.sql" data-target="replace">
 insert into fruit (name) values ('Cherry');
 insert into fruit (name) values ('Apple');
@@ -121,11 +114,10 @@ insert into fruit (name) values ('Banana');
 **5. Add a test class**
 To verifies that we can use the `FruitRepository` for retrieving and storing Fruit objects, we are going to create a test class.
 
-First, create the file ``touch src/test/java/com/example/ApplicationTest.java``{{execute}}
+First, we need to create the java class file. For that, you need to click on the following link, which open the empty file in the editor: ``src/test/java/com/example/ApplicationTest.java``{{open}}
 
-Then, open it ``src/test/java/com/example/ApplicationTest.java``{{open}}
+Then, copy the below content into the file (or use the `Copy to editor` button):
 
-Finally, copy the following code into it:
 <pre class="file" data-filename="src/test/java/com/example/ApplicationTest.java" data-target="replace">
 package com.example;
 
