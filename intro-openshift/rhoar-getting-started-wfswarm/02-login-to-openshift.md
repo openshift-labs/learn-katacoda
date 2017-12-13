@@ -35,9 +35,7 @@ application services and endpoints you (or your teams) are using for your work.
 
 For this scenario, let's create a project that you will use to house your applications. 
 
-```
-oc new-project example --display-name="Sample WildFly Swarm Health Check App"
-```{{execute}}
+```oc new-project example --display-name="Sample WildFly Swarm Health Check App"```{{execute}}
 
 **3. Open the OpenShift Web Console**
 
