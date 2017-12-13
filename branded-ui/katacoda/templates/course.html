@@ -1,4 +1,5 @@
-{{ partial "header.html" . }}
+{{ template "templates/header.html" . }}
+{{ template "templates/banner.html" . }}
 
 <header class="masthead masthead-logo text-center">
   <div class="container text-center">
@@ -14,16 +15,17 @@
     <div class="row">
 
       <div id="katacoda-terminal"
-      data-katacoda-id="openshift/intro-openshift/dashboard"
-      data-katacoda-color="#373534"
-      data-katacoda-secondary="#c00"
-      data-katacoda-background="#fff"
-      data-katacoda-hideprogress="true"
-      data-katacoda-font="Open Sans"
-      data-katacoda-fontheader="Open Sans" style="height:900px;"></div>
+        data-katacoda-id="openshift/{{ .Name }}/dashboard"
+        data-katacoda-color="#373534"
+        data-katacoda-secondary="#c00"
+        data-katacoda-background="#fff"
+        data-katacoda-hideprogress="true"
+        data-katacoda-font="Open Sans"
+        data-katacoda-fontheader="Open Sans" style="height:1200px;">
+      </div>
 
     </div>
   </div>
 </section>
 
-{{ partial "footer.html" . }}
+{{ template "templates/footer.html" . }}
