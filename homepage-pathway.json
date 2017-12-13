@@ -3,11 +3,11 @@
   "courses": [
     {
       "external_link": "https://learn.openshift.com/introduction/",
-      "title": "OpenShift For Developers"
+      "title": "Foundations of OpenShift"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/",
-      "title": "OpenShift Middleware"
+      "title": "Building Applications On OpenShift"
     },
     {
       "external_link": "https://learn.openshift.com/playgrounds/",
