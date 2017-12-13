@@ -1,7 +1,5 @@
 {
-  "title": "Introduction to OpenShift For Developers",
-  "description": "",
-  "paid": false,
+  "title": "Learn.OpenShift.com",
   "courses": [
     {
       "external_link": "https://learn.openshift.com/introduction/",
