@@ -1,6 +1,8 @@
 web:
   build: .
   ports:
-    - 8080:1313
-  volumes:
-    - .:/usr/share/blog
+    - 80:3000
+  environment:
+    VIRTUAL_HOST: 'openshift.katacoda.com,learn.openshift.com'
+    CERT_NAME: 'shared'
+  restart: always
