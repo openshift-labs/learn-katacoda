@@ -26,6 +26,9 @@
         }, {
             "title": "Topic 3 - Scaling and Self Healing of Pods",
             "text": "03-scaling-and-self-healing-of-pods.md"
+        }, {
+            "title": "Topic 4 - Exposing an Application Via a Route",
+            "text": "04-exposing-an-application-via-a-route.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
