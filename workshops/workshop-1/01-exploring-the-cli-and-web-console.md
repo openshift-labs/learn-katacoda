@@ -73,7 +73,7 @@ If you click on this you will also be taken to the _Dashboard_ tab. If you want 
 
 The first screen you will see in the web console is the authentication screen.
 
-![Web Console Login](../../assets/training/tutorial-1/01-web-console-login.png)
+![Web Console Login](../../assets/workshops/workshop-1/01-web-console-login.png)
 
 Enter in the following credentials:
 
@@ -89,14 +89,14 @@ After you have authenticated to the web console, you will be presented with a
 list of projects that your user has permission to work with. You will see
 something that looks like the following image:
 
-![List of Projects](../../assets/training/tutorial-1/01-list-of-projects.png)
+![List of Projects](../../assets/workshops/workshop-1/01-list-of-projects.png)
 
 Click on the `myproject` project. You will be taken to the project overview page
 which will list all of the routes, services, deployments, and pods that you have
 running as part of your project. There's nothing there now, but that's about to
 change.
 
-![Project Overview](../../assets/training/tutorial-1/01-project-overview.png)
+![Project Overview](../../assets/workshops/workshop-1/01-project-overview.png)
 
 We will be using a mix of command line tooling and the web console for this tutorial.
 Get ready!
