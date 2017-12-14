@@ -48,20 +48,25 @@ Once you know the *Service* name, creating a *Route* is done using the ``oc expo
 
 ``oc expose service parksmap-py``{{execute}}
 
-Verify the *Route* was created with running ``oc get routes`` again.
+Verify the *Route* was created by running ``oc get routes`` again.
 
 ``oc get routes``{{execute}}
 
+You should see output similar to:
 ```
-NAME       HOST/PORT                                              PATH      SERVICES   PORT       TERMINATION
-parksmap   parksmap-py.[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com             parksmap-py   8080-tcp
+NAME         HOST/PORT                                          PATH  SERVICES     PORT       TERMINATION
+parksmap-py  parksmap-py-myproject...environments.katacoda.com        parksmap-py  8080-tcp
 ```
+
+The ``HOST/PORT`` field will display the hostname which has been assigned by OpenShift to your application. For your application which you just exposed, the URL would then be:
+
+http://parksmap-py-myproject.[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com
 
 You can also verify the *Route* by looking at the project in the OpenShift web console:
 
 ![Parksmap Web Interface](../../assets/workshops/workshop-1/04-parksmap-route.png)
 
 Pretty nifty, huh?  This application is now available at the URL shown in the
-web console. Click the link and you will see:
+web console. Visit the URL in your browser and you will see:
 
 ![Parksmap Web Interface](../../assets/workshops/workshop-1/04-parksmap-empty-view.png)
