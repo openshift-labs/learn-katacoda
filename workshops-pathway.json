@@ -4,8 +4,8 @@
   "paid": false,
   "courses": [
     {
-      "external_link": "https://learn.openshift.com/training/tutorial-1/",
-      "title": "OpenShift Tutorial 1"
+      "external_link": "https://learn.openshift.com/workshops/workshop-1/",
+      "title": "OpenShift Workshop 1"
     }
   ]
 }
