@@ -1,0 +1,11 @@
+{
+  "title": "Introduction to OpenShift For Developers",
+  "description": "",
+  "paid": false,
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/training/tutorial-1/",
+      "title": "OpenShift Tutorial 1"
+    }
+  ]
+}
