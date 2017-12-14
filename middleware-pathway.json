@@ -1,7 +1,5 @@
 {
-  "title": "Introduction to OpenShift For Developers",
-  "description": "",
-  "paid": false,
+  "title": "Building Applications On OpenShift",
   "courses": [
     {
       "external_link": "https://learn.openshift.com/middleware/fis-deploy-app/",

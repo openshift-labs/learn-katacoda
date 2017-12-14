@@ -1,7 +1,5 @@
 {
-  "title": "Introduction to OpenShift For Developers",
-  "description": "",
-  "paid": false,
+  "title": "OpenShift Playgrounds",
   "courses": [
     {
       "external_link": "https://learn.openshift.com/playgrounds/openshift36/",
