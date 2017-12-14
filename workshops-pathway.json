@@ -5,6 +5,7 @@
   "courses": [
     {
       "external_link": "https://learn.openshift.com/workshops/workshop-1/",
+      "course_id": "workshop-1",
       "title": "OpenShift Workshop 1"
     }
   ]
