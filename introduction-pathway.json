@@ -3,7 +3,6 @@
   "courses": [
     {
       "external_link": "https://learn.openshift.com/introduction/getting-started/",
-      "pathway_id": "intro-openshift",
       "course_id": "getting-started",
       "title": "Getting Started with OpenShift for Developers"
     },
