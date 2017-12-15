@@ -1,5 +1,5 @@
 
-In these exercies you are going to make your application visible to end users, so they can access it.
+In these exercies you are going to make your application visible to end users so they can access it.
 
 ![Application Architecture](../../assets/workshops/workshop-1/04-application-architecture-stage-2.png)
 
@@ -41,7 +41,7 @@ You should see output similar to:
 
 ```
 NAME         CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
-parksmap-py  172.30.17.45   <none>        8080/TCP   10m
+parksmap-py  172.30.17.45   <none>        8080/TCP   7m
 ```
 
 Once you know the *Service* name, creating a *Route* is done using the ``oc expose`` command.
@@ -60,7 +60,7 @@ parksmap-py  parksmap-py-myproject...environments.katacoda.com        parksmap-p
 
 The ``HOST/PORT`` field will display the hostname which has been assigned by OpenShift to your application. For your application which you just exposed, the URL would then be:
 
-http://parksmap-py-myproject.[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com
+http://parksmap-py-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
 
 You can also verify the *Route* by looking at the project in the OpenShift web console:
 
