@@ -32,6 +32,9 @@
         }, {
             "title": "Topic 5 - Exploring the Application Logs",
             "text": "05-exploring-the-application-logs.md"
+        }, {
+            "title": "Topic 6 - Granting Access to the REST API",
+            "text": "06-granting-access-to-the-rest-api.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
