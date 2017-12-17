@@ -1,5 +1,5 @@
 
-In these exercies you are going to make your application visible to end users so they can access it.
+In these exercises you are going to make your application visible to end users so they can access it.
 
 ![Application Architecture](../../assets/workshops/workshop-1/04-application-architecture-stage-2.png)
 

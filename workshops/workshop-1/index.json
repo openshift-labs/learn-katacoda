@@ -29,6 +29,9 @@
         }, {
             "title": "Topic 4 - Exposing an Application Via a Route",
             "text": "04-exposing-an-application-via-a-route.md"
+        }, {
+            "title": "Topic 5 - Exploring the Application Logs",
+            "text": "05-exploring-the-application-logs.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
