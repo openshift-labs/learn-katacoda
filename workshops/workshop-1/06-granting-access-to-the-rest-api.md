@@ -1,4 +1,4 @@
-In these exercises you will learn about how anything done with OpenShift is controlled using a role based access control mechanism. You will also grant access to the ParksMap application front end to access the REST API of OpenShift.
+In these exercises you will learn about how anything done with OpenShift is controlled using a role based access control mechanism. You will also grant the ParksMap application front end to access the REST API of OpenShift.
 
 ### Exercise: Role Base Access Control
 
@@ -12,7 +12,7 @@ permissions (AuthZ), sometimes we may wish for non-users to be able to perform
 actions against the API. These "non-users" are referred to as service accounts.
 
 OpenShift automatically creates a few special service accounts in every project.
-The **default** service account has its credentials automatically injected into
+The ``default`` service account has its credentials automatically injected into
 every pod that is launched. By changing the permissions for that service
 account, we can do interesting things.
 
@@ -66,8 +66,8 @@ system:image-pullers    /system:image-puller                system:serviceaccoun
 view                    /view                                                                  default
 ```
 
-Now that the default *Service Account* has ``view`` access, it can query the REST API
-to see what resources are within the *Project*. This also has the added benefit
+Now that the ``default`` Service Account has ``view`` access, it can query the REST API
+to see what resources are within the project. This also has the added benefit
 of suppressing the error message! Although, in reality, we fixed the application.
 
 ### Exercise: Redeploying an Application
