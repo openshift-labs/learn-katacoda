@@ -58,7 +58,7 @@ You will see a number of technologies and runtimes that you
 can choose from.
 Enter `python` into the _Filter by name or description_ text entry box.
 
-![Python Options](../../assets/workshops/workshop-1/07-python-service-catalog.png)
+![Python Deployment Options](../../assets/workshops/workshop-1/07-python-service-catalog.png)
 
 Click on _Select_ for the Python builder to begin the process of creating the application. On the next page, for the _Name_, enter:
 
