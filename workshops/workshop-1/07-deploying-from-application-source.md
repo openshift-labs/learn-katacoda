@@ -10,7 +10,7 @@ provided can be directly used by the end user.
 ### Background: Source-to-Image (S2I)
 
 In previous exercises you learned how to deploy a pre-existing container
-image. Instead of using a pre-existing container image, you can deploy directly from a Git repository containing the application source code.
+image. Instead of using a pre-existing container image, you can deploy directly from a Git repository containing the application source code using a S2I builder.
 
 [Source-to-Image (S2I)](https://github.com/openshift/source-to-image) is another
 open source project sponsored by Red Hat. Its goal:
@@ -43,7 +43,7 @@ GitLab, Bitbucket, or any other server that speaks Git. You can even register we
 your Git server to initiate OpenShift builds triggered by any update to the
 application code!
 
-The repository that we are going to use is available at Github.com
+The repository that we are going to use is available on GitHub at:
 
 https://github.com/openshift-roadshow/nationalparks-py
 
@@ -53,14 +53,14 @@ console to do the same thing. Similar to how you used _Add to Project_ before
 with a pre-existing container image, you can do the same for specifying a source code
 repository.
 
-From the web console, select _Browse Catalog_ in the _Add to Project_ drop down menu in the top navigation bar.
+From the web console, select _Browse Catalog_ from the _Add to Project_ drop down menu in the top navigation bar.
 You will see a number of technologies and runtimes that you
 can choose from.
 Enter `python` into the _Filter by name or description_ text entry box.
 
 ![Python Options](../../assets/workshops/workshop-1/07-python-service-catalog.png)
 
-Click on _Select_ to begin the process of creating the application. On the next page, for the _Name_, enter:
+Click on _Select_ for the Python builder to begin the process of creating the application. On the next page, for the _Name_, enter:
 
 ``nationalparks-py``{{copy}}
 
@@ -92,7 +92,7 @@ You can also view the build logs with the following command:
 
 ``oc logs -f builds/nationalparks-py-1 --follow``{{execute}}
 
-The ``--follow`` option will result in the build log veing tailed until the build has completed.
+The ``--follow`` option will result in the build log being tailed until the build has completed.
 
 After the build has completed successfully:
 
