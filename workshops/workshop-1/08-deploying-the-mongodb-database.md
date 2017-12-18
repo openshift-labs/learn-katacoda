@@ -1,7 +1,5 @@
 In these exercises, you are going to deploy a Mongo database that will be used to store the data for the `nationalparks-py` application. You will also connect the `nationalparks-py` application with the newly deployed Mongo database, so that the `nationalparks-py` application can load and query the database for the corresponding information.
 
-You will also label the `nationalparks-py` application as a backend for the ParksMap front end application, so that it can be dynamically discovered using the OpenShift discovery mechanism and the map populated.
-
 ![Application Architecture](../../assets/workshops/workshop-1/08-application-architecture-stage-4.png)
 
 ### Exercise: Deploying the Database
@@ -26,10 +24,10 @@ persistent storage!). The image will ensure that:
 - A user exists with the specified name
 - The user can access the specified database with the specified password
 
-To deploy a Mongo database, in the web console use _Add to
+To deploy a Mongo database, in the web console click on the _Add to
 Project_ drop down menu on the top navigation bar and select _Browse Catalog_. Enter ``mongodb`` into the _Filter by name or description_ text entry box.
 
-You will notice that there are two MongoDB templates available. an ephemeral database which isn't backed by persistent storage, where all data would be lost if it were restarted, and a persistent database which comes re-configure to use a persistent volume for storing data.
+You will notice that there are two MongoDB options available. an ephemeral database which isn't backed by persistent storage, where all data would be lost if it were restarted, and a persistent database which comes pre-configured to use a persistent volume for storing data.
 
 ![MongoDB Deployment Options](../../assets/workshops/workshop-1/08-mongodb-service-catalog.png)
 
@@ -64,13 +62,13 @@ _Create_, then click _Continue to overview_ on the next page. The MongoDB instan
 
 #### Exercise: Wiring up the Application and the Database
 
-When you initially created the `nationalparks-py` application, you did not provide any configuration, it therefore doesn't know how to connect to the Mongo database you have created.
+When you initially created the `nationalparks-py` application, you did not provide any configuration, it therefore doesn't know how to connect to the Mongo database you just created.
 
 You need to configure the `nationalparks-py` *Pod*(s) to have the right values in
 the right environment variables so that the application knows how and where to
 find the Mongo database.
 
-If you think way back to the beginning of the labs, you will recall that a
+If you think way back to prior exercises, you will recall that a
 _DeploymentConfig_ tells OpenShift how to deploy something. This includes
 things like what environment variables to configure. So, to set up the right
 environment variables, you need to modify the _DeploymentConfig_
@@ -81,7 +79,7 @@ The command line takes a little less time, so let's use that option. To confirm 
 
 ``oc get dc``{{execute}}
 
-It should be ``nationalparks-py``.
+You should have ``nationalparks-py`` listed.
 
 Then, use the `oc set env` command to set environment variables directly on the DC:
 
@@ -110,18 +108,18 @@ As soon as you set the environment variables on the _DeploymentConfig_, some
 magic happened. OpenShift decided that this was a significant enough change to
 warrant re-deploying the application. This was due to a configuration change trigger being enabled on the _DeploymentConfig_.
 
-You can verify this by running:
+You can verify this is what happened by running:
 
 ``oc get dc``{{execute}}
 
-This will output result similar to:
+This will output results similar to:
 
 ```
 NAME               REVISION   DESIRED   CURRENT   TRIGGERED BY
 nationalparks-py   2          1         0         config,image(nationalparks-py:latest)
 ```
 
-The version of the *DeploymentConfig* for ``nationalparks-py`` now shows 2. Also run:
+The revision number of the *DeploymentConfig* for ``nationalparks-py`` now shows 2. Also run:
 
 ``oc get rc``{{execute}}
 
@@ -179,5 +177,4 @@ Bring up the ParksMap front end application again:
 http://parksmap-py-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
 
 Hmm... There's just one thing. The main map **STILL** isn't displaying the parks.
-That's because the ParksMap front end application only tries to talk to backend services that have
-the correct *Label* applied.
+That's because the ParksMap front end application only tries to talk to backend services that it knows about.
