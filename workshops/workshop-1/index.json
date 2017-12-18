@@ -38,6 +38,9 @@
         }, {
             "title": "Topic 7 - Deploying from Application Source",
             "text": "07-deploying-from-application-source.md"
+        }, {
+            "title": "Topic 8 - Deploying the MongoDB Database",
+            "text": "08-deploying-the-mongodb-database.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
