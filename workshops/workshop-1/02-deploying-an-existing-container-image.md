@@ -2,7 +2,7 @@ In these exercises you are going to deploy the front end web component of the Pa
 
 ![Application Architecture](../../assets/workshops/workshop-1/02-application-architecture-stage-1.png)
 
-### Exercise: Deploying an application image
+### Exercise: Deploying an Application Image
 
 Let's start by doing the simplest thing possible - take a pre-existing container image and run it on OpenShift. This is incredibly simple to do using the web console.
 
