@@ -226,7 +226,7 @@ h2 {
   background-position: center;
   background-attachment: scroll;
   background-size: cover;
-  background-image: url("/bg-ocp-announce.png");
+  background-image: url("/static/bg-ocp-announce.png");
   background-repeat: no-repeat;
   color: #fff; }
   @media (min-width: 768px) {
@@ -264,7 +264,7 @@ h2 {
       background-size: cover; }
       .masthead.masthead-overview .item.openshift3-speed {
         background-color: #1b3962;
-        background-image: url("/images/ui/bg-ocp-announce.png"); }
+        background-image: url("/images/ui/static/bg-ocp-announce.png"); }
         .masthead.masthead-overview .item.openshift3-speed h1 {
           text-shadow: none;
           font-weight: 600; }
@@ -282,7 +282,7 @@ h2 {
             margin-left: auto; }
       .masthead.masthead-overview .item.devpreview {
         background-color: #373534;
-        background-image: url("/bg-ocp-announce.png"); }
+        background-image: url("/static/bg-ocp-announce.png"); }
         .masthead.masthead-overview .item.devpreview .title-inner {
           text-align: center; }
           .masthead.masthead-overview .item.devpreview .title-inner .primary-message {
