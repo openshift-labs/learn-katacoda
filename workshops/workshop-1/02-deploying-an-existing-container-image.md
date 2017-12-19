@@ -244,3 +244,13 @@ You may be wondering why only one end point is listed. That is because there is
 only one *Pod* currently running.  In the next set of exercises, you will learn how to scale
 an application, at which point you will be able to see multiple endpoints
 associated with the *Service*.
+
+### Catch-up: When Things Go Wrong
+
+The "catch-up" commands for these exercises are as follows.
+
+``oc new-app --name parksmap-py openshiftroadshow/parksmap-py:1.0.0``{{execute}}
+
+``oc rollout status dc/parksmap-py``{{execute}}
+
+ONLY run the "catch-up" commands if you had not already done a set of exercises.

@@ -178,3 +178,25 @@ http://parksmap-py-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environment
 
 Hmm... There's just one thing. The main map **STILL** isn't displaying the parks.
 That's because the ParksMap front end application only tries to talk to backend services that it knows about.
+
+### Catch-up: When Things Go Wrong
+
+The "catch-up" commands for these exercises are as follows.
+
+``oc new-app --name nationalparks-py python:3.5~https://github.com/openshift-roadshow/nationalparks-py``{{execute}}
+
+``oc new-app --template mongodb-persistent --param DATABASE_SERVICE_NAME=mongodb --param MONGODB_USER=mongodb--param MONGODB_PASSWORD=mongodb --param MONGODB_DATABASE=mongodb --param MONGODB_ADMIN_PASSWORD=mongodb``{{execute}}
+
+``oc rollout status dc/mongodb``{{execute}}
+
+``oc set env dc/nationalparks-py -e DB_USERNAME=mongodb -e DB_PASSWORD=mongodb -e DB_NAME=mongodb -e DB_HOST=mongodb``{{execute}}
+
+``oc rollout status dc/nationalparks-py``{{execute}}
+
+Using your browser visit the URL:
+
+http://nationalparks-py-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ws/data/load
+
+to load the ``nationalparks-py`` data into the database.
+
+ONLY run the "catch-up" commands if you had not already done a set of exercises.
