@@ -1,7 +1,7 @@
 In these exercises, we're going to deploy a complete backend application, consisting of
 an REST API backend and a Mongo database. The complete application will already
 be wired together and described as a backend for the ParksMap front end application, so
-that once the application is build and deployed, you will be able to see the new
+that once the application is built and deployed, you will be able to see the new
 map straight away.
 
 ![Application Architecture](../../assets/workshops/workshop-1/10-application-architecture-stage-5.png)
@@ -23,9 +23,7 @@ The great thing about *Templates* is that they can speed up the deployment
 workflow for application development by providing a "recipe" of sorts that can
 be deployed with a single command.  Not only that, they can be loaded into
 OpenShift from an external URL, which will allow you to keep your templates in a
-version control system. And, even further, they can be stored in a version
-control system (even in the same repository as the application source code) --
-they're just serialized text data!
+version control system.
 
 Let's combine all of the exercises you have performed in the last several exercises by
 using a *Template* that you can instantiate with a single command.  While you
@@ -65,46 +63,44 @@ mlbparks-py   Application template MLB Parks backend running on Python/Flask and
 
 Are you ready for the magic command? Now run:
 
-```
-oc new-app mlbparks-py -p APPLICATION_NAME=mlbparks-py -p GIT_URI=https://github.com/openshift-roadshow/mlbparks-py -p GIT_REF=1.0.0
-```
+``oc new-app mlbparks-py -p APPLICATION_NAME=mlbparks-py -p GIT_URI=https://github.com/openshift-roadshow/mlbparks-py -p GIT_REF=1.0.0``{{execute}}
 
 You will see output similar to:
 
 ```
---> Deploying template "developer/mlbparks-py" to project myproject
+--> Deploying template "myproject/mlbparks-py" to project myproject
 
      mlbparks-py
      ---------
      Application template MLB Parks backend running on Python/Flask and using mongodb
 
      * With parameters:
-        * Application Name=mlbparks
+        * Application Name=mlbparks-py
         * Application route=
-        * Mongodb App=mongodb-mlbparks
+        * Mongodb App=mongodb-mlbparks-py
         * Git source repository=https://github.com/openshift-roadshow/mlbparks-py
         * Git branch/tag reference=1.0.0
         * Database name=mongodb
         * MONGODB_NOPREALLOC=
         * MONGODB_SMALLFILES=
         * MONGODB_QUIET=
-        * Database user name=userxmt # generated
-        * Database user password=lk8hYPOe # generated
-        * Database admin password=uuvr7vRG # generated
-        * GitHub Trigger=hbJ8Fdw7 # generated
-        * Generic Trigger=ho4s1c6f # generated
+        * Database user name=userc3F # generated
+        * Database user password=LrUaTl3f # generated
+        * Database admin password=JvEE1K4x # generated
+        * GitHub Trigger=FF8hMKbJ # generated
+        * Generic Trigger=Gm0VQFUB # generated
 
 --> Creating resources ...
-    configmap "mlbparks" created
-    service "mongodb-mlbparks" created
-    deploymentconfig "mongodb-mlbparks" created
-    imagestream "mlbparks" created
-    buildconfig "mlbparks" created
-    deploymentconfig "mlbparks" created
-    service "mlbparks" created
-    route "mlbparks" created
+    configmap "mlbparks-py" created
+    service "mongodb-mlbparks-py" created
+    deploymentconfig "mongodb-mlbparks-py" created
+    imagestream "mlbparks-py" created
+    buildconfig "mlbparks-py" created
+    deploymentconfig "mlbparks-py" created
+    service "mlbparks-py" created
+    route "mlbparks-py" created
 --> Success
-    Build scheduled, use 'oc logs -f bc/mlbparks' to track its progress.
+    Build scheduled, use 'oc logs -f bc/mlbparks-py' to track its progress.
     Run 'oc status' to view your app.
 ````
 
@@ -112,15 +108,21 @@ OpenShift will now:
 
 * Configure and start a build
   * From the supplied source code repository
-* Configure and deploy MongoDB
+* Configure and deploy the Mongo database
   * Using auto-generated user, password, and database name
-* Configure environment variables for the app to connect to the DB
+* Configure environment variables for the app to connect to the database
 * Create the correct services
 * Label the app service with `type=parksmap-backend`
 
 All with one command!
 
-When the build is complete, visit the URL for the ParksMap front end application.
+To monitor the proress of the deployment from the command line run:
+
+``oc rollout status dc/mlbparks-py``{{execute}}
+
+While you wait, you can dig around in the web console to see what was created.
+
+When the build is complete and the deployment finished, visit the URL for the ParksMap front end application.
 
 http://parksmap-py-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
 
@@ -135,5 +137,13 @@ microservices, fix bugs, and more.
 
 As a final exercise, look at the template that was used to create the
 resources for our ``mlbparks-py`` application.
+
+First get the description of the template.
+
+``oc describe template/mlbparks-py``{{execute}}
+
+This will display what parameters the template accepts.
+
+You can then look at the raw definition of the template by running:
 
 ``oc get template mlbparks-py -o yaml``{{execute}}
