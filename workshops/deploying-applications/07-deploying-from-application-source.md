@@ -5,7 +5,7 @@ coordinates) that is stored in a Mongo database.
 This application will also provide an external access point, so that the API
 provided can be directly used by the end user.
 
-![Application Architecture](../../assets/workshops/workshop-1/07-application-architecture-stage-3.png)
+![Application Architecture](../../assets/workshops/deploying-applications/07-application-architecture-stage-3.png)
 
 ### Background: Source-to-Image (S2I)
 
@@ -58,7 +58,7 @@ You will see a number of technologies and runtimes that you
 can choose from.
 Enter `python` into the _Filter by name or description_ text entry box.
 
-![Python Deployment Options](../../assets/workshops/workshop-1/07-python-service-catalog.png)
+![Python Deployment Options](../../assets/workshops/deploying-applications/07-python-service-catalog.png)
 
 Click on _Select_ for the Python builder to begin the process of creating the application. On the next page, for the _Name_, enter:
 
@@ -70,12 +70,12 @@ For the _Git Repository URL_, enter:
 
 The page should look like:
 
-![Create Python Application](../../assets/workshops/workshop-1/07-create-python-application.png)
+![Create Python Application](../../assets/workshops/deploying-applications/07-create-python-application.png)
 
 Hit the _Create_ button. Then click _Continue to
 overview_. You will be able to see the build logs in the _Overview_ page once the build starts.
 
-![Application Build Running](../../assets/workshops/workshop-1/07-application-build-running.png)
+![Application Build Running](../../assets/workshops/deploying-applications/07-application-build-running.png)
 
 From the command line, you can also see the *Builds*:
 

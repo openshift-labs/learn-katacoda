@@ -1,7 +1,7 @@
 
 In these exercises you are going to make your application visible to end users so they can access it.
 
-![Application Architecture](../../assets/workshops/workshop-1/04-application-architecture-stage-2.png)
+![Application Architecture](../../assets/workshops/deploying-applications/04-application-architecture-stage-2.png)
 
 ### Background: Routes
 
@@ -64,12 +64,12 @@ http://parksmap-py-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environment
 
 You can also verify the *Route* by looking at the project in the OpenShift web console:
 
-![Parksmap Web Interface](../../assets/workshops/workshop-1/04-parksmap-route.png)
+![Parksmap Web Interface](../../assets/workshops/deploying-applications/04-parksmap-route.png)
 
 Pretty nifty, huh?  This application is now available at the URL shown in the
 web console. Visit the URL in your browser and you will see:
 
-![Parksmap Web Interface](../../assets/workshops/workshop-1/04-parksmap-empty-view.png)
+![Parksmap Web Interface](../../assets/workshops/deploying-applications/04-parksmap-empty-view.png)
 
 ### Catch-up: When Things Go Wrong
 

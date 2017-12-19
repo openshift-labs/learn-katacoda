@@ -85,7 +85,7 @@ right?).
 
 Click it.
 
-![Start New Deployment](../../assets/workshops/workshop-1/06-start-new-deployment.png)
+![Start New Deployment](../../assets/workshops/deploying-applications/06-start-new-deployment.png)
 
 You'll see that a new deployment is immediately started. Return to the _Overview_
 page and watch it happen. You might not be fast enough! If you look at the logs
