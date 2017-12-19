@@ -53,7 +53,7 @@ http://parksmap-py-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environment
 
 You'll notice that the national parks data will suddenly show up.
 
-![National Parks Data](../../assets/workshops/deploying-applications/09-national-parks-data.png)
+![National Parks Data](../../assets/workshops/training-workshop/09-national-parks-data.png)
 
 That's really cool!
 

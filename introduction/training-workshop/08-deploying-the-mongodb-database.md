@@ -1,6 +1,6 @@
 In these exercises, you are going to deploy a Mongo database that will be used to store the data for the `nationalparks-py` application. You will also connect the `nationalparks-py` application with the newly deployed Mongo database, so that the `nationalparks-py` application can load and query the database for the corresponding information.
 
-![Application Architecture](../../assets/workshops/deploying-applications/08-application-architecture-stage-4.png)
+![Application Architecture](../../assets/workshops/training-workshop/08-application-architecture-stage-4.png)
 
 ### Exercise: Deploying the Database
 
@@ -29,7 +29,7 @@ Project_ drop down menu on the top navigation bar and select _Browse Catalog_. E
 
 You will notice that there are two MongoDB options available. an ephemeral database which isn't backed by persistent storage, where all data would be lost if it were restarted, and a persistent database which comes pre-configured to use a persistent volume for storing data.
 
-![MongoDB Deployment Options](../../assets/workshops/deploying-applications/08-mongodb-service-catalog.png)
+![MongoDB Deployment Options](../../assets/workshops/training-workshop/08-mongodb-service-catalog.png)
 
 When you created the ``national-parks-py`` application, you selected the
 builder image to use and OpenShift presented standard options for a S2I builder.
@@ -39,7 +39,7 @@ admin password).
 
 Select the _MongoDB (Persistent)_ template.
 
-![MongoDB Peristent Template](../../assets/workshops/deploying-applications/08-mongodb-persistent-template.png)
+![MongoDB Peristent Template](../../assets/workshops/training-workshop/08-mongodb-persistent-template.png)
 
 You will be presented with the template parameters you can set. Set the following parameters, with the value of ``mongodb`` for all.
 
@@ -53,12 +53,12 @@ Do not leave the username and password fields empty, and ensure that the default
 
 The fields for the template parameters should look like the following:
 
-![MongoDB Peristent Parameters](../../assets/workshops/deploying-applications/08-mongodb-template-options.png)
+![MongoDB Peristent Parameters](../../assets/workshops/training-workshop/08-mongodb-template-options.png)
 
 Leave the rest of the values as their defaults. Click
 _Create_, then click _Continue to overview_ on the next page. The MongoDB instance should be deployed.
 
-![MongoDB Project Overview](../../assets/workshops/deploying-applications/08-mongodb-project-overview.png)
+![MongoDB Project Overview](../../assets/workshops/training-workshop/08-mongodb-project-overview.png)
 
 #### Exercise: Wiring up the Application and the Database
 
