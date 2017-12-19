@@ -1,4 +1,4 @@
-V=v3.7.0-rc.0
+V=v3.7.0
 docker pull docker.io/openshift/origin-deployer:$V
 docker pull docker.io/openshift/origin-pod:$V
 docker pull openshift/origin:$V
