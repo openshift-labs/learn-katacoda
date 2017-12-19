@@ -1,0 +1,45 @@
+{
+    "pathwayTitle": "Modernizing Legacy Apps",
+    "icon": "fa-java",
+    "title": "Resiliant Apps",
+    "description": "",
+    "difficulty": "intermediate",
+    "time": "20-30 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Deploying Initial App",
+                "text": "01-deploy.md"
+            }
+        ],
+        "intro": {
+            "courseData": "run-init.sh",
+            "code": "set-env.sh",
+            "text": "00-intro.md"
+        },
+        "finish": {
+          "text": "99-outro.md"
+        },
+        "assets": {
+            "host01": [
+                {"file": "volumes.json", "target": "~/"}
+            ]
+        }
+    },
+    "files": [
+
+    ],
+    "environment": {
+        "uilayout": "editor-terminal",
+        "uisettings": "java",
+        "uieditorpath": "/root/projects/modernize-apps-labs/monolith",
+        "showdashboard": true,
+        "hideintro": false,
+        "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
+        "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+    },
+    "backend": {
+        "imageid": "openshift-istio",
+        "port": 8443
+    }
+}
