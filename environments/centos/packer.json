@@ -10,7 +10,7 @@
       "format": "qcow2",
       "headless": true,
       "http_directory": "files",
-      "iso_urls": "CentOS-7-x86_64-NetInstall-1611.iso",
+      "iso_urls": "https://buildlogs.centos.org/rolling/7/isos/x86_64/CentOS-7-x86_64-NetInstall-1611.iso",
       "iso_checksum": "06187f7485b8224f480b61962ddeae85",
       "iso_checksum_type": "md5",
       "net_device": "virtio-net",

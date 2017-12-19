@@ -20,9 +20,10 @@ This is the base OS used for the OpenShift installation.
 
 ```
 cd environments/centos
-curl -LO https://buildlogs.centos.org/rolling/7/isos/x86_64/CentOS-7-x86_64-NetInstall-1611.iso
 packer build packer.json
 ```
+
+*NOTE:* The first time it will download the CentOS7 iso from https://buildlogs.centos.org/rolling/7/isos/x86_64/CentOS-7-x86_64-NetInstall-1611.iso
 
 ### Build OpenShift Image
 
