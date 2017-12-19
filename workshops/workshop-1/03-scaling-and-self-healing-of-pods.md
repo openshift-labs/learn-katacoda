@@ -86,7 +86,7 @@ parksmap-py-1-713cw   1/1       Running   0          4m
 
 You can also verify that the *Service* now lists the two endpoints.
 
-``oc describe svc parksmap-py``{{execute}}
+``oc describe service/parksmap-py``{{execute}}
 
 You will see something like the following output:
 
