@@ -27,6 +27,11 @@
       "title": "Node.js development"
     },
     {
+      "external_link": "https://learn.openshift.com/middleware/resiliant-apps/",
+      "course_id": "resiliant-apps",
+      "title": "Resiliant Apps"
+    },
+    {
       "external_link": "https://learn.openshift.com/middleware/brms-loan-application/",
       "course_id": "brms-loan-application",
       "title": "JBoss BRMS Loan Application demo"
