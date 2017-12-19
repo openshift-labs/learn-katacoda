@@ -150,3 +150,17 @@ _This is a Python application that performs 2D geo-spatial queries
 against a MongoDB database_
 
 But we don't have a database. Yet.
+
+### Catch-up: When Things Go Wrong
+
+The "catch-up" commands for these exercises are as follows.
+
+``oc new-app --name nationalparks-py python:3.5~https://github.com/openshift-roadshow/nationalparks-py``{{execute}}
+
+``oc logs bc/nationalparks-py --follow``{{execute}}
+
+``oc rollout status dc/nationalparks-py``{{execute}}
+
+``oc expose svc/nationalparks-py``{{execute}}
+
+ONLY run the "catch-up" commands if you had not already done a set of exercises.

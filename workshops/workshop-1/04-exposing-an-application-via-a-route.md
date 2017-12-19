@@ -70,3 +70,11 @@ Pretty nifty, huh?  This application is now available at the URL shown in the
 web console. Visit the URL in your browser and you will see:
 
 ![Parksmap Web Interface](../../assets/workshops/workshop-1/04-parksmap-empty-view.png)
+
+### Catch-up: When Things Go Wrong
+
+The "catch-up" commands for these exercises are as follows.
+
+``oc expose svc/parksmap-py``{{execute}}
+
+ONLY run the "catch-up" commands if you had not already done a set of exercises.

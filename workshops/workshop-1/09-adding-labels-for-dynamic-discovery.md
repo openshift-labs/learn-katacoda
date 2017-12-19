@@ -56,3 +56,11 @@ You'll notice that the national parks data will suddenly show up.
 ![National Parks Data](../../assets/workshops/workshop-1/09-national-parks-data.png)
 
 That's really cool!
+
+### Catch-up: When Things Go Wrong
+
+The "catch-up" commands for these exercises are as follows.
+
+``oc label route/nationalparks-py type=parksmap-backend``{{execute}}
+
+ONLY run the "catch-up" commands if you had not already done a set of exercises.

@@ -1,6 +1,6 @@
 In this exercise you are going to login to the OpenShift cluster and create a project to work in.
 
-### Exercise: Login using the command line
+### Exercise: Login Using the Command Line
 
 To access OpenShift from the command line you need the `oc` command line tool. In this environment that tool has already been installed for you and is accessible from the _Terminal_ window to the right.
 
@@ -35,7 +35,7 @@ OpenShift master includes a built-in OAuth server. Developers and administrators
 obtain OAuth access tokens to authenticate themselves to the API. By default
 your authorization token will last for 24 hours.
 
-### Exercise: Creating a project
+### Exercise: Creating a Project
 
 Projects are a top level concept to help you organize your deployments. An
 OpenShift project allows a community of users (or a user) to organize and manage
@@ -60,7 +60,7 @@ You can add applications to this project with the 'new-app' command. For example
 to build a new example application in Ruby.
 ```
 
-### Exercise: Login using the web console
+### Exercise: Login Using the Web Console
 
 OpenShift ships with a web-based console that will allow users to
 perform various tasks via a browser.  In this interactive learning portal, to the right of this description you should initially see a terminal window. To access the web console, click on the _Dashboard_ button above the terminal window. You can switch back to the terminal by clicking on the _Terminal_ button.
@@ -100,3 +100,17 @@ change.
 
 We will be using a mix of command line tooling and the web console for this tutorial.
 Get ready!
+
+### Catch-up: When Things Go Wrong
+
+The interactive learning environment you are using provides a time limited (max 1 hour) instance of OpenShift just for you. If you have network connection issues or accidentally kill your browser window, you will loose access to the environment you were using and it will be shutdown, loosing your progress. You could also simply run out of time and not finish all the exercises in time.
+
+To cater for this eventuality, you will find a "catch-up" section at the end of certain sets of exercises. If you have to start over, go to each of the "catch-up" sections for the exercises you had already done, and run the commands listed. This will allow you to get quickly back to where you were up to so you can keep going. You will need to separately login in to the web console using the same credentials.
+
+The "catch-up" commands for this initial set of exercises are below.
+
+``oc login --username developer --password developer``{{execute}}
+
+``oc new-project myproject``{{execute}}
+
+ONLY run the "catch-up" commands if you had not already done a set of exercises.

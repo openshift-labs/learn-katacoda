@@ -90,3 +90,11 @@ Click it.
 You'll see that a new deployment is immediately started. Return to the _Overview_
 page and watch it happen. You might not be fast enough! If you look at the logs
 for the application now, you should see no errors.  That's great.
+
+### Catch-up: When Things Go Wrong
+
+The "catch-up" commands for these exercises are as follows.
+
+``oc policy add-role-to-user view -z default``{{execute}}
+
+ONLY run the "catch-up" commands if you had not already done a set of exercises.
