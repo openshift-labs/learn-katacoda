@@ -75,6 +75,6 @@ web console. Visit the URL in your browser and you will see:
 
 The "catch-up" commands for these exercises are as follows.
 
-``oc expose svc/parksmap-py``{{execute}}
+``oc expose service/parksmap-py``{{execute}}
 
 ONLY run the "catch-up" commands if you had not already done a set of exercises.

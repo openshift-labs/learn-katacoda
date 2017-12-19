@@ -161,6 +161,6 @@ The "catch-up" commands for these exercises are as follows.
 
 ``oc rollout status dc/nationalparks-py``{{execute}}
 
-``oc expose svc/nationalparks-py``{{execute}}
+``oc expose service/nationalparks-py``{{execute}}
 
 ONLY run the "catch-up" commands if you had not already done a set of exercises.
