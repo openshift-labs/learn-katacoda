@@ -1,6 +1,6 @@
 In these exercises you are going to deploy the front end web component of the ParksMap application. The front end uses a dynamic service discovery mechanism to discover what backend services have been deployed and shows their data on the map.
 
-![Application Architecture](../../assets/workshops/training-workshop/02-application-architecture-stage-1.png)
+![Application Architecture](../../assets/introduction/training-workshop/02-application-architecture-stage-1.png)
 
 ### Exercise: Deploying an Application Image
 
@@ -21,12 +21,12 @@ Press *enter* or click on the magnifying glass icon. OpenShift will query the ``
 
 Your screen should look like:
 
-![Application Image Details](../../assets/workshops/training-workshop/02-deploy-image-by-image-name.png)
+![Application Image Details](../../assets/introduction/training-workshop/02-deploy-image-by-image-name.png)
 
 With the query complete and the details available, you should also now be
 presented with options to set the name of the application and add additional configuration such as environment variables and labels.
 
-![Deploy Application Image](../../assets/workshops/training-workshop/02-deploy-application-image.png)
+![Deploy Application Image](../../assets/introduction/training-workshop/02-deploy-application-image.png)
 
 Hit the _Create_ button at the bottom of the screen and on the next page click
 _Continue to overview_.
