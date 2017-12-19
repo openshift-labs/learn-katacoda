@@ -2,7 +2,7 @@ This is an extended tutorial for learning how to deploy applications to OpenShif
 
 ParksMap is a polyglot geo-spatial data visualization application built using the microservices architecture and is composed of a set of services which are developed using different programming language frameworks.
 
-![Application Architecture](../../assets/workshops/workshop-1/00-application-architecture.png)
+![Application Architecture](../../assets/workshops/deploying-applications/00-application-architecture.png)
 
 The main service is a web application which has a server-side component in charge of aggregating the geo-spatial APIs provided by multiple independent backend services and a client-side component in Javascript that is responsible for visualizing the geo-spatial data on the map. The client-side component which runs in your browser communicates with the server-side via WebSockets protocol in order to update the map in real-time.
 
