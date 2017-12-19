@@ -46,7 +46,7 @@ parksmap-py  172.30.17.45   <none>        8080/TCP   7m
 
 Once you know the *Service* name, creating a *Route* is done using the ``oc expose`` command.
 
-``oc expose service parksmap-py``{{execute}}
+``oc expose service/parksmap-py``{{execute}}
 
 Verify the *Route* was created by running ``oc get routes`` again.
 

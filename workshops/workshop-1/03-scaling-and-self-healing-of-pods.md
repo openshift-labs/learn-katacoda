@@ -7,7 +7,7 @@ While *Services* provide routing and load balancing for *Pods*, which may go in 
 out of existence, *ReplicationControllers* (RC) are used to specify and then
 ensure the desired number of *Pods* (replicas) are in existence. For example, if
 you always want your application server to be scaled to 3 *Pods* (instances), a
-*ReplicationController* is needed. Without an RC, any *Pods* that are killed or
+*ReplicationController* is needed. Without a RC, any *Pods* that are killed or
 somehow die/exit are not automatically restarted. *ReplicationControllers* are
 how OpenShift "self heals".
 

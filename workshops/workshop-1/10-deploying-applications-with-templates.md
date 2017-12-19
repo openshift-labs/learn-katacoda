@@ -1,8 +1,8 @@
 In these exercises, we're going to deploy a complete backend application, consisting of
-an REST API backend and a Mongo database. The complete application will already
+a REST API backend and a Mongo database. The complete application will already
 be wired together and described as a backend for the ParksMap front end application, so
 that once the application is built and deployed, you will be able to see the new
-map straight away.
+map data straight away.
 
 ![Application Architecture](../../assets/workshops/workshop-1/10-application-architecture-stage-5.png)
 
@@ -36,7 +36,7 @@ The front end application we've been working with this whole time will display
 as many back end services' data as are created. Adding more stuff with the right
 *Label* will make more stuff show up on the map.
 
-Now you will deploy a map of Major League Baseball stadiums in the US by using a
+Now you will deploy a service to provide data for Major League Baseball stadiums in the US by using a
 template. It is pre-configured to build the back end application, and
 deploy the Mongo database. It also uses a *Hook* to call the `/ws/data/load`
 endpoint to cause the data to be loaded into the database from a JSON file in
