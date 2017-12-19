@@ -1,6 +1,6 @@
-This is an extended tutorial for learning how to deploy applications to OpenShift. In the tutorial you will deploy an application call ParksMap.
+This is an extended tutorial for learning how to deploy applications to OpenShift. In the tutorial you will deploy an application called ParksMap.
 
-ParksMap is a polyglot geo-spatial data visualization application built using the microservices architecture and is composed of a set of services which are developed using different programming languages and frameworks.
+ParksMap is a polyglot geo-spatial data visualization application built using the microservices architecture and is composed of a set of services which are developed using different programming language frameworks.
 
 ![Application Architecture](../../assets/workshops/workshop-1/00-application-architecture.png)
 
@@ -16,4 +16,4 @@ There will be a set of independent backend services deployed that will provide d
 
 The original source code for the applications are located [here](https://github.com/openshift-roadshow/).
 
-The server-side component of the ParksMap web acts as a communication gateway to all the available backends. These backends will be dynamically discovered by using service discovery mechanisms provided by OpenShift which will be discussed in more details in the tutorial.
+The server-side component of the ParksMap web application acts as a communication gateway to all the available backends. These backends will be dynamically discovered by using service discovery mechanisms provided by OpenShift which will be discussed in more details in the tutorial.

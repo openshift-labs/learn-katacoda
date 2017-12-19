@@ -33,13 +33,13 @@ other aspects of OpenShift.
 
 The backend service that you will be deploying as part of this exercise is
 called `nationalparks-py`.  This is a Python application that performs 2D
-geo-spatial queries against a MongoDB database to locate and return map
+geo-spatial queries against a Mongo database to locate and return map
 coordinates of all National Parks in the world. That was just a fancy way of
 saying that we are going to deploy a web service that returns a JSON list of
 places.
 
 OpenShift can work with any accessible Git repository. This could be GitHub,
-GitLab, Bitbucket, or any other server that speaks Git. You can even register webhooks in
+GitLab, Bitbucket, or any other service that speaks Git. You can even register webhooks in
 your Git server to initiate OpenShift builds triggered by any update to the
 application code!
 
@@ -147,7 +147,7 @@ You will see a simple JSON string:
 Earlier we said:
 
 _This is a Python application that performs 2D geo-spatial queries
-against a MongoDB database_
+against a Mongo database_
 
 But we don't have a database. Yet.
 

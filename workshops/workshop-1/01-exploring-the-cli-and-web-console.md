@@ -63,7 +63,7 @@ to build a new example application in Ruby.
 ### Exercise: Login Using the Web Console
 
 OpenShift ships with a web-based console that will allow users to
-perform various tasks via a browser.  In this interactive learning portal, to the right of this description you should initially see a terminal window. To access the web console, click on the _Dashboard_ button above the terminal window. You can switch back to the terminal by clicking on the _Terminal_ button.
+perform various tasks via a browser.  In this interactive learning environment, to the right of this description you should initially see a terminal window. To access the web console, click on the _Dashboard_ button above the terminal window. You can switch back to the terminal by clicking on the _Terminal_ button.
 
 The actual URL of the web console for your environment is:
 
