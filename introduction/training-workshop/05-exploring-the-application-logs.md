@@ -23,11 +23,11 @@ Since you have already deployed the application, you can take some time to exami
 logs. In the web console _Overview_ page, click on the kebab menu (three squares) at the
 far right of the deployment and then click on the _View Logs_ item.
 
-![View Logs Menu Item](../../assets/workshops/deploying-applications/05-view-logs-menu-item.png)
+![View Logs Menu Item](../../assets/workshops/training-workshop/05-view-logs-menu-item.png)
 
 You should see a nice view of the *Pod*'s logs:
 
-![View Application Error Logs](../../assets/workshops/deploying-applications/05-application-error-logs.png)
+![View Application Error Logs](../../assets/workshops/training-workshop/05-application-error-logs.png)
 
 It appears there are some errors in the log, and that's OK. You will remedy those
 in a little bit.

@@ -121,7 +121,7 @@ many pods are behind a service.
 
 You can also see that two *Pods* are running using the web console:
 
-![Application Scaling](../../assets/workshops/deploying-applications/03-overview-of-scaled-application.png)
+![Application Scaling](../../assets/workshops/training-workshop/03-overview-of-scaled-application.png)
 
 Overall, that's how simple it is to scale an application (*Pods* in a
 *Service*). Application scaling can happen extremely quickly because OpenShift

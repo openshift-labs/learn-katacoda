@@ -4,7 +4,7 @@ be wired together and described as a backend for the ParksMap front end applicat
 that once the application is built and deployed, you will be able to see the new
 map data straight away.
 
-![Application Architecture](../../assets/workshops/deploying-applications/10-application-architecture-stage-5.png)
+![Application Architecture](../../assets/workshops/training-workshop/10-application-architecture-stage-5.png)
 
 ### Background: Templates
 
