@@ -30,7 +30,23 @@ using a *Template* that you can instantiate with a single command.  While you
 could have used templates to deploy everything in the workshop, it was done as separate steps so you could understand how to create, deploy, and wire
 resources together yourself.
 
-#### Exercise: Instantiate a Template
+### Exercise: Making Some Extra Room
+
+You have already deployed the ParksMap front end application, the ``nationalparks-py`` backend service and a Mongo database instance. The OpenShift environment you are using for this interactive workshop only provides a limited amount of resources (1GB memory). If we deploy much more, OpenShift will not be able to schedule deployment of the applications due to lack of memory. Before we can continue, we therefore need to delete the existing ``nationalpark-py`` application and the Mongo database it used.
+
+To delete these, run:
+
+``oc delete all --selector app=nationalparks-py``{{execute}}
+
+``oc delete all,pvc,secret --selector app=mongodb-persistent``{{execute}}
+
+This will leave the ParksMap front end application still running.
+
+To verify that this is all that is running, run:
+
+``oc get all -o name``{{execute}}
+
+### Exercise: Instantiate a Template
 
 The front end application we've been working with this whole time will display
 as many back end services' data as are created. Adding more stuff with the right
