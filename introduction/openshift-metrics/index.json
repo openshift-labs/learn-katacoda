@@ -1,0 +1,42 @@
+{
+    "icon": "fa-openshift",
+    "title": "Use OpenShift metrics",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "20-30 minutes",
+    "backend": {
+        "imageid": "openshift-36-metrics",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Step 1 - Check metrics",
+            "text": "1check-metrics.md"
+        }, {
+            "title": "Step 2 - Create HPA",
+            "text": "2create-hpa.md"
+        }, {
+            "title": "Step 3 - Explore HPA",
+            "text": "3explore-hpa.md"
+        }, {
+            "title": "Step 4 - Use HPA",
+            "text": "4use-hpa.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    }
+}
