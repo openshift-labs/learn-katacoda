@@ -21,5 +21,5 @@ The OpenShift team provides a hosted environment that you is free to use for you
 
 ### OpenShift Dedicated
 
-You can also let Red Hat host an OpenShift instance for you on a public cloud.  This is an ideal scenario for larger teams that doesn't want to deal with the operational aspects or running a full environment.  To find out more, visit https://www.openshift.com/dedicated/
+You can also let Red Hat host an OpenShift instance for you on a public cloud.  This is an ideal scenario for larger teams that don't want to deal with the operational aspects of running a full environment.  To find out more, visit https://www.openshift.com/dedicated/
 
