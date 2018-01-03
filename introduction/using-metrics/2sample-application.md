@@ -41,7 +41,13 @@ We will deploy a sample application:
 
 ``oc new-app kubernetes/guestbook``{{execute}}
 
-After the pod has been created, check the metrics using ``oc``
+After the pod has been created, check the metrics using ``oc``. In order to see
+the metrics, using the ``oc`` command line, it is required to be cluster-admin
+first:
+
+``oc login -u system:admin``{{execute}}
+
+Then perform the ``adm top pod`` command:
 
 ``oc adm top pod --heapster-namespace='openshift-infra'  --heapster-scheme="https" -n myproject``{{execute}}
 
@@ -54,6 +60,13 @@ NAME                CPU(cores)   MEMORY(bytes)
 guestbook-1-7lz1l   0m           0Mi
 ```
 
+As an exercise to the reader, explore the different ``oc adm top`` options,
+including observing nodes utilization.
+
+Login again as developer once you've finished observing the stats:
+
+``oc login -u developer -p developer``{{execute}}
+
 To access the web console, click on the _Dashboard_ button above the terminal
 window. You can switch back to the terminal by clicking on the _Terminal_
 button.
@@ -64,7 +77,34 @@ https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com
 
 If you click on this you will also be taken to the _Dashboard_ tab. If you want to view the web console in a separate browser tab or window, right click on the URL and select the menu option to open it.
 
-The first screen you will see in the web console is the authentication screen.
+The hawkular-metrics certificate should be trusted temporary in your browser,
+otherwise, metrics won't show up in the web interface. In order to make do it,
+open the following URL:
+
+https://hawkular-metrics.[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/hawkular/metrics
+
+Accept the security warning and temporary accept the certificate. The hawkular
+metrics mighty hawk should show once finished.
+
+In Firefox:
+
+![Firefox certificate warning](../../assets/introduction/using-metrics/ff-warning-1.png)
+![Firefox certificate warning](../../assets/introduction/using-metrics/ff-warning-2.png)
+![Firefox certificate warning](../../assets/introduction/using-metrics/ff-warning-3.png)
+![Firefox certificate warning](../../assets/introduction/using-metrics/ff-warning-4.png)
+
+In Chrome:
+
+![Chrome certificate](../../assets/introduction/using-metrics/chrome-warning-1.png)
+![Chrome certificate](../../assets/introduction/using-metrics/chrome-warning-2.png)
+![Chrome certificate](../../assets/introduction/using-metrics/chrome-warning-3.png)
+
+**NOTE:** This step should be ideally performed before login in the web console,
+even if it can be done later but you need to log out from the web console and
+log in again after the certificate has been trusted.
+
+Once the certificate has been trusted, the next step is to login in the
+web console.
 
 ![Web Console Login](../../assets/introduction/using-metrics/01-web-console-login.png)
 
@@ -86,8 +126,7 @@ in the overview section.
 ![Metrics overview](../../assets/introduction/using-metrics/02-metrics-overview.png)
 
 **NOTE:** If metrics don't appear, verify if the hawkular certificate has been
-trusted. Visit the metrics route using the browser and accept the self signed
-certificate warning and refresh the metrics tab to check if metrics are shown.
+trusted.
 
 Accessing every pod details in "Applications" -> "Pods" -> "<pod name>" will
 show a new tab named "Metrics" with a metrics historical graph that can be
