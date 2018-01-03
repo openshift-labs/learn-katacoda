@@ -77,34 +77,7 @@ https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com
 
 If you click on this you will also be taken to the _Dashboard_ tab. If you want to view the web console in a separate browser tab or window, right click on the URL and select the menu option to open it.
 
-The hawkular-metrics certificate should be trusted temporary in your browser,
-otherwise, metrics won't show up in the web interface. In order to make do it,
-open the following URL:
-
-https://hawkular-metrics.[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/hawkular/metrics
-
-Accept the security warning and temporary accept the certificate. The hawkular
-metrics mighty hawk should show once finished.
-
-In Firefox:
-
-![Firefox certificate warning](../../assets/introduction/using-metrics/ff-warning-1.png)
-![Firefox certificate warning](../../assets/introduction/using-metrics/ff-warning-2.png)
-![Firefox certificate warning](../../assets/introduction/using-metrics/ff-warning-3.png)
-![Firefox certificate warning](../../assets/introduction/using-metrics/ff-warning-4.png)
-
-In Chrome:
-
-![Chrome certificate](../../assets/introduction/using-metrics/chrome-warning-1.png)
-![Chrome certificate](../../assets/introduction/using-metrics/chrome-warning-2.png)
-![Chrome certificate](../../assets/introduction/using-metrics/chrome-warning-3.png)
-
-**NOTE:** This step should be ideally performed before login in the web console,
-even if it can be done later but you need to log out from the web console and
-log in again after the certificate has been trusted.
-
-Once the certificate has been trusted, the next step is to login in the
-web console.
+The next step is to login in the OpenShift web console:
 
 ![Web Console Login](../../assets/introduction/using-metrics/01-web-console-login.png)
 
@@ -124,9 +97,6 @@ the current resource usage detailed by CPU, Memory and Network I/O per pod
 in the overview section.
 
 ![Metrics overview](../../assets/introduction/using-metrics/02-metrics-overview.png)
-
-**NOTE:** If metrics don't appear, verify if the hawkular certificate has been
-trusted.
 
 Accessing every pod details in "Applications" -> "Pods" -> "<pod name>" will
 show a new tab named "Metrics" with a metrics historical graph that can be

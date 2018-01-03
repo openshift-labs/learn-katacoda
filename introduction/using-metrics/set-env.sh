@@ -30,7 +30,7 @@ $(hostname) ansible_connection=local
 $(hostname) ansible_connection=local
 EOF
 
-ansible-playbook -i myinventory openshift-ansible-openshift-ansible-${OAVERSION}/playbooks/byo/openshift-cluster/openshift-metrics.yml -e "openshift_metrics_install_metrics=True" -e "openshift_metrics_hawkular_hostname=hawkular-metrics.$(awk '/subdomain/ { print $2 }' /etc/origin/master/master-config.yaml | sed 's/-80-/-443-/g')" > /dev/null 2>&1
+ansible-playbook -i myinventory openshift-ansible-openshift-ansible-${OAVERSION}/playbooks/byo/openshift-cluster/openshift-metrics.yml -e "openshift_metrics_install_metrics=True" -e "openshift_metrics_hawkular_hostname=hawkular-metrics-$(awk '/subdomain/ { print $2 }' /etc/origin/master/master-config.yaml | sed 's/-80-/-443-/g')" > /dev/null 2>&1
 
 systemctl restart origin.service
 rm -Rf myinventory openshift-ansible-openshift-ansible-${OAVERSION}/
