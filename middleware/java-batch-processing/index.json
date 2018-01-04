@@ -2,7 +2,7 @@
     "icon": "fa-openshift",
     "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret",
     "description": "Learn to deploy and run Java batch processing application on OpenShift",
-    "pathwayTitle": "Red Hat Middleware on OpenShift",
+    "pathwayTitle": "Building Applications on OpenShift",
     "difficulty": "beginner",
     "time": "20-30 minutes",
     "backend": {
