@@ -1,5 +1,9 @@
-export VERISON=v3.6.0
-export ARCH=v3.6.0-c4dd4cf-linux
+export VERSION=v3.7.0
+export ARCH=v3.7.0-7ed6862-linux
+export URL=https://github.com/openshift/origin/releases/download/$VERSION
+
+
+
 df -h
 setenforce 0
 
@@ -9,12 +13,12 @@ killall -STOP NetworkManager
 
 mkdir -p /openshift
 yum install ca-certificates git nfs-utils -y
-curl -o openshift.tar.gz -L https://github.com/openshift/origin/releases/download/$VERISON/openshift-origin-server-$ARCH-64bit.tar.gz
+curl -o openshift.tar.gz -L $URL/openshift-origin-server-$ARCH-64bit.tar.gz
 tar -xvf openshift.tar.gz
 rm openshift.tar.gz
 mv openshift-origin-server-$ARCH-64bit/ /var/lib/openshift/
 
-curl -o oc.tar.gz -L https://github.com/openshift/origin/releases/download/$VERISON/openshift-origin-client-tools-$ARCH-64bit.tar.gz
+curl -o oc.tar.gz -L $URL/openshift-origin-client-tools-$ARCH-64bit.tar.gz
 tar -xvf oc.tar.gz
 rm oc.tar.gz
 
