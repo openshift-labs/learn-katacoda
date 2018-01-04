@@ -35,11 +35,6 @@
       "external_link": "https://learn.openshift.com/introduction/transferring-files/",
       "course_id": "transferring-files",
       "title": "Transferring Files in and out of Containers"
-    },
-    {
-      "external_link": "https://learn.openshift.com/introduction/java-batch-processing/",
-      "course_id": "java-batch-processing",
-      "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret"
     }
   ]
 }
