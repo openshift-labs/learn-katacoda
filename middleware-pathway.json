@@ -30,6 +30,11 @@
       "external_link": "https://learn.openshift.com/middleware/brms-loan-application/",
       "course_id": "brms-loan-application",
       "title": "JBoss BRMS Loan Application demo"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/java-batch-processing/",
+      "course_id": "java-batch-processing",
+      "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret"
     }
   ]
 }

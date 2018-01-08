@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "name": "frontend"
+  },
+  "apiVersion": "v1",
+  "kind": "Route",
+  "spec": {
+    "to": {
+      "name": "frontend"
+    }
+  }
+}
