@@ -30,7 +30,7 @@ And the output should look something like this:
     Run 'oc status' to view your app.
 ```
 
-The build of our application is now scheduled, and it will take some time before it's ready.
+The build of our application is now scheduled, and it will take **up to 3 minutes** before it's ready.
 To watch its status and progress, run the command:
 
 ``oc rollout status dc/intro-jberet``{{execute}}
