@@ -31,7 +31,7 @@ limits. We will configure a 80 milicores limit for CPU requests to our app:
 been modified and there is a `ConfigChange` trigger by default.
 
 Next step is to create the ``hpa`` to trigger the scale process if the CPU usage
-is higher than the 50% (to be able to see the scale up quickly) and with a
+is higher than the 20% (to be able to see the scale up quickly) and with a
 maximum of 3 pods by using ``oc``:
 
 ``oc autoscale dc/guestbook --min 1 --max 3 --cpu-percent=50``{{execute}}

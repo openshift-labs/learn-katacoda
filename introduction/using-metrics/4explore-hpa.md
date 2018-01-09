@@ -20,7 +20,7 @@ spec:
     apiVersion: v1
     kind: DeploymentConfig
     name: guestbook
-  targetCPUUtilizationPercentage: 50
+  targetCPUUtilizationPercentage: 20
 status:
   currentCPUUtilizationPercentage: 0
   currentReplicas: 1

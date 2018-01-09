@@ -1,5 +1,9 @@
 Congratulations!  You just finished learning the basics on OpenShift Container Platform metrics and HorizontalPodAutoscaler. Feels good doesn't it?
 
+If you are curious enough, see [the official documentation](https://docs.openshift.org/latest/dev_guide/pod_autoscaling.html)
+about the `hpa` and how to configure the autoscaling procedure for memory
+limits.
+
 ## What's next?
 
 At this point you are probably itching to keep working with OpenShift as you have had a glimpse of the power this can bring to your own applications.  We are currently working on more advanced tutorials that will be hosted here but in the meantime, you can certainly run your own version of OpenShift or use a hosted model.  You are welcome to use one of the following options:

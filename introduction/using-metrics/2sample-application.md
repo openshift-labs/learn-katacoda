@@ -1,6 +1,9 @@
 We will create an initial project where we deploy a sample application
 that we will use to observe the metrics.
 
+This time, 'cluster-admin' privileges are not required, so we will login as a
+regular user.
+
 To login to the OpenShift cluster used for this course from the _Terminal_,
 run:
 
@@ -41,13 +44,13 @@ We will deploy a sample application:
 
 ``oc new-app kubernetes/guestbook``{{execute}}
 
-After the pod has been created, check the metrics using ``oc``. In order to see
-the metrics, using the ``oc`` command line, it is required to be cluster-admin
-first:
+Once the pod has been created, the metrics components will start to gather
+information. To check the metrics using ``oc``, it is required to be
+`system:admin` again:
 
 ``oc login -u system:admin``{{execute}}
 
-Then perform the ``adm top pod`` command:
+Then perform the ``adm top pod`` command as follows:
 
 ``oc adm top pod --heapster-namespace='openshift-infra'  --heapster-scheme="https" -n myproject``{{execute}}
 
@@ -59,6 +62,8 @@ You should see output similar to:
 NAME                CPU(cores)   MEMORY(bytes)   
 guestbook-1-7lz1l   0m           0Mi
 ```
+
+*NOTE:* It can take a couple of moments for metrics to be available
 
 As an exercise to the reader, explore the different ``oc adm top`` options,
 including observing nodes utilization.

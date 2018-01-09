@@ -12,9 +12,34 @@ data persistence, pods limits, replicas of individual components, custom
 certificates, etc. The customization is provided by the `Ansible` variables
 as part of the deployment process.
 
-By default, the metrics pods are deployed in the `openshift-infra` namespace.
-To see the running pods for metrics components, type the following in the
-_Terminal_:
+*NOTE:* For more information about the metrics components see [the official documentation](https://docs.openshift.org/latest/install_config/cluster_metrics.html)
+
+Metrics components such as heapster should gather information from all hosts
+therefore they should be protected from regular users. That's why the metrics
+components such as pods, secrets, etc. are deployed in the `openshift-infra`
+namespace where only the cluster-admin roles can use.
+
+In order to see the running pods for metrics components, it is required to be
+logged as the `system:admin` user. The `system:admin` user is a special user
+created in OpenShift that doesn't use password for authentication but
+certificates.
+
+Type the following in the _Terminal_ to login as `system:admin`:
+
+``oc login -u system:admin``{{execute}}
+
+You should see an output message with a confirmation you are logged as `system:admin` user as:
+
+```
+Logged into "https://172.17.0.10:8443" as "system:admin" using existing credentials.
+...
+```
+
+*NOTE:* If you are curious, explore the `~/.kube/` folder where the user
+configuration is stored.
+
+Once logged as the cluster-admin user (`system:admin`), check the pods running
+the metrics components using:
 
 ``oc get pods -n openshift-infra``{{execute}}
 
