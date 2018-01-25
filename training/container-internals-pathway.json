@@ -1,0 +1,30 @@
+{
+  "title": "Linux Container Internals Workshop",
+  "description": "",
+  "courses": [
+    {
+      "pathway_id": "fatherlinux/intro-openshift",
+      "course_id": "container-internals-lab-1",
+      "id": "container-internals-lab-1",
+      "title": "Lab 1: Container Architecture"
+    },
+    {
+      "pathway_id": "fatherlinux/intro-openshift",
+      "course_id": "container-internals-lab-2",
+      "id": "container-internals-lab-2",
+      "title": "Lab 2: Container Images"
+    },
+    {
+      "pathway_id": "fatherlinux/intro-openshift",
+      "course_id": "container-internals-lab-3",
+      "id": "container-internals-lab-3",
+      "title": "Lab 3: Container Runtime"
+    },
+    {
+      "pathway_id": "fatherlinux/intro-openshift",
+      "course_id": "container-internals-lab-4",
+      "id": "container-internals-lab-4",
+      "title": "Lab 4: Container Orchestration"
+    }
+  ]
+}

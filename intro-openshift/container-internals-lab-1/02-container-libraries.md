@@ -8,7 +8,7 @@ Another problem, historically, is that the mechanisms to distribute, manage and 
 
 With the advent of Docker and Kubernetes, this problem has been solved. Almost all modern container runtimes consume and run container images defined by the Open Containers Initiatve (OCI). The docker format, which essentially became the OCI format, has changed everything. We finally have a user space definition that allows us to build an ecosystem of tools. The best part is, the format is compatibile with tool chains in Linux and Windows, so Registry Servers and other infrastructure can be shared.
 
-![Container Libraries](../../assets/intro-openshift/container-internals-lab-1/02-container-libraries.png)
+![Container Libraries](https://katacoda.com/fatherlinux/assets/intro-openshift/container-internals-lab-1/02-container-libraries.png)
 
 Building and running containers is a collaboration between user space tools and the operating system kernel. Container images are built using user space tools, like YUM, RPM, Docker, and Buildah - it should be particularly noted that tools like YUM and RPM are still leveraged. Containerized processes are also created through a collaboration of user space daemons and the operating system kernel. With containers, everything has changed, and nothing has changed.
 
