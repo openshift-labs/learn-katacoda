@@ -2,6 +2,8 @@ The goal of this exercise is to gain a basic understanding of system calls and k
 
 First, let's inspect the system calls that a common command makes. If you have done any programming, a few of these system calls should be familiar - the **open** and **close** system calls open and close files. The **mprotect** and **mmap** system calls interact with memory. But, let's focus on a very important systemc call **execve** because this is the system call that strace (or the shell) uses to start the sleep process. Most normal Linux processes use some version of the **exec** or **fork** system call.
 
+`yum install strace -y`{{execute}}
+
 ``strace sleep 5``{{execute}}
 
 
