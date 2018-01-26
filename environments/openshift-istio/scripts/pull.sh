@@ -1,7 +1,0 @@
-docker pull prom/statsd-exporter
-docker pull gcr.io/istio-testing/mixer:5253b6b574a98b209c0ef3d0d6e90c1b8d6a5c2a
-docker pull gcr.io/istio-testing/proxy_debug:3101ea9d82a5f83b699c2d3245b371a19fa6bef4
-docker pull gcr.io/istio-testing/pilot:3101ea9d82a5f83b699c2d3245b371a19fa6bef4
-docker pull gcr.io/istio-testing/istio-ca:d10e0c4aa05ca726cae71aa5d033dea4f7bc26e4
-docker pull gcr.io/istio-testing/proxy_init:3101ea9d82a5f83b699c2d3245b371a19fa6bef4
-docker pull gcr.io/istio-testing/sidecar_initializer:3101ea9d82a5f83b699c2d3245b371a19fa6bef4
