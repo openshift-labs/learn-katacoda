@@ -7,10 +7,10 @@ setenforce 0
 
 mkdir -p /openshift
 yum install ca-certificates git nfs-utils -y
-curl -o openshift.tar.gz -L $URL/openshift-origin-server-$ARCH-64bit.tar.gz
-tar -xvf openshift.tar.gz
-rm openshift.tar.gz
-mv openshift-origin-server-$ARCH-64bit/ /var/lib/openshift/
+# curl -o openshift.tar.gz -L $URL/openshift-origin-server-$ARCH-64bit.tar.gz
+# tar -xvf openshift.tar.gz
+# rm openshift.tar.gz
+# mv openshift-origin-server-$ARCH-64bit/ /var/lib/openshift/
 
 curl -o oc.tar.gz -L $URL/openshift-origin-client-tools-$ARCH-64bit.tar.gz
 tar -xvf oc.tar.gz
@@ -23,6 +23,35 @@ chmod +x /usr/bin/oc
 echo $PATH
 oc version
 
+ROUTERIMAGE=openshift/origin-haproxy-router:${VERSION}
+DEPLOYERIMAGE=openshift/origin-deployer:${VERSION}
+ORIGINIMAGE=openshift/origin:${VERSION}
+DOCKERREGISTRYIMAGE=openshift/origin-docker-registry:${VERSION}
+PODIMAGE=openshift/origin-pod:${VERSION}
+
+for IMAGE in $ROUTERIMAGE $DEPLOYERIMAGE $ORIGINIMAGE $DOCKERREGISTRYIMAGE $PODIMAGE
+do
+  docker pull ${IMAGE}
+done
+
+mkdir -p /katacoda/{config,data,pv,volumes}
+yum install centos-release-openshift-origin origin-clients python2-ruamel-yaml -y
+
+oc cluster up --host-data-dir=/katacoda/data --host-config-dir=/katacoda/config --host-pv-dir=/katacoda/pv --host-volumes-dir=/katacoda/volumes --use-existing-config #--public-hostname="changeme.example.com" --routing-suffix="wildcard.changeme.example.com"
+
+oc --config=/katacoda/config/master/admin.kubeconfig scale dc router -n default --replicas=0
+oc --config=/katacoda/config/master/admin.kubeconfig scale dc docker-registry -n default  --replicas=0
+
+sleep 60
+
+oc cluster down
+
+docker rm -f $(docker ps -a -q)
+
+umount /katacoda/volumes/pods/*/volumes/*/*
+rm -Rf /katacoda/{pv,volumes}/*
+rm -Rf /var/log/containers/*
+rm -Rf /var/log/pods/*
 
 cat <<-EOF > /etc/systemd/system/origin.service
 [Unit]
@@ -33,15 +62,14 @@ Type=notify
 Environment=KUBECONFIG=/openshift.local.config/master/admin.kubeconfig
 Environment=CURL_CA_BUNDLE=/openshift.local.config/master/ca.crt
 ExecStartPre=/usr/bin/rm -irf /openshift.local.etcd/ /openshift.local.volumes/;
-ExecStart=/var/lib/openshift/openshift start --master-config=/openshift.local.config/master/master-config.yaml --node-config=/openshift.local.config/node-%H/node-config.yaml --dns=tcp://0.0.0.0:8053
+ExecStart=/opt/oc_cluster_up_start.sh
 Restart=always
 RestartSec=3
 TimeoutSec=30
 [Install]
 WantedBy=multi-user.target
 EOF
-systemctl enable origin
-systemctl start origin
+# systemctl enable origin
 
 # copy ssh key
 mkdir -p ~/.ssh
