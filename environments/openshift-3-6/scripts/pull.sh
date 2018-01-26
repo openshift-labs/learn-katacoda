@@ -22,3 +22,5 @@ docker pull centos/python-35-centos7:latest
 docker pull katacoda/contained-nfs-server:centos7
 
 docker pull openshiftroadshow/parksmap-katacoda:1.0.0
+
+docker pull kubernetes/guestbook:latest

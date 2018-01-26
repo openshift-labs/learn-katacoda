@@ -14,7 +14,7 @@ Selecting the *Add to Project* button you should be presented with the options o
 
 You could also have selected the *Add to Project* drop down menu in the top menu bar for the project and selected _Deploy Image_ to go direct to the required tab.
 
-Within the *Deploy Image* tab, chose the *Image Name* option. This will be used to reference an existing Docker-formatted image hosted on the Docker Hub Registry. For the name of the image enter:
+Within the *Deploy Image* tab, choose the *Image Name* option. This will be used to reference an existing Docker-formatted image hosted on the Docker Hub Registry. For the name of the image enter:
 
 ``openshiftroadshow/parksmap-katacoda:1.0.0``{{copy}}
 
