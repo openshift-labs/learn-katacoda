@@ -1,4 +1,8 @@
-Congratulations!  You just finished learning the basics of how to get started with the OpenShift Container Platform.  Feels good doesn't it?
+Congratulations!  You just finished learning the basics on OpenShift Container Platform metrics and HorizontalPodAutoscaler. Feels good doesn't it?
+
+If you are curious enough, see [the official documentation](https://docs.openshift.org/latest/dev_guide/pod_autoscaling.html)
+about the `hpa` and how to configure the autoscaling procedure for memory
+limits.
 
 ## What's next?
 
@@ -15,11 +19,10 @@ oc cluster up is a command provided by the oc client tool.  It configures and ru
 If you decide to try out *oc cluster up*, and you should, I would also suggest that you take a look at a wrapper script that was created to make life a little bit easier for you called *oc cluster wrapper*.  This wrapper provides functionality such as the ability to have different profiles, persistent volume management and other great features.  You can find more information at the official git repository at https://github.com/openshift-evangelists/oc-cluster-wrapper
 
 
-### OpenShift Online Dev Preview 
+### OpenShift Online
 
-The OpenShift team provides a hosted environment that you is free to use for your own projects.  You can sign up at https://www.openshift.com/devpreview/register.html
+The OpenShift team provides a hosted environment which includes a free starter plan which you can use to develop and test applications for OpenShift. You can find details for OpenShift Online and sign up at https://www.openshift.com/pricing/index.html
 
 ### OpenShift Dedicated
 
-You can also let Red Hat host an OpenShift instance for you on a public cloud.  This is an ideal scenario for larger teams that don't want to deal with the operational aspects of running a full environment.  To find out more, visit https://www.openshift.com/dedicated/
-
+You can also let Red Hat host an OpenShift instance for you on a public cloud.  This is an ideal scenario for larger teams that doesn't want to deal with the operational aspects or running a full environment.  To find out more, visit https://www.openshift.com/dedicated/
