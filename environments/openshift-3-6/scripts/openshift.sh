@@ -18,9 +18,8 @@ curl -o oc.tar.gz -L https://github.com/openshift/origin/releases/download/$VERI
 tar -xvf oc.tar.gz
 rm oc.tar.gz
 
-mv openshift-origin-client-tools-$ARCH-64bit/oc /usr/local/bin/oc
+mv openshift-origin-client-tools-$ARCH-64bit/oc /usr/bin/oc
 rm -rf ~/*
-
 
 cat <<-EOF > /etc/systemd/system/origin.service
 [Unit]
