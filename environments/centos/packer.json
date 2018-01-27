@@ -15,7 +15,7 @@
       "iso_checksum_type": "md5",
       "net_device": "virtio-net",
       "output_directory": "output/",
-      "machine_type": "pc-i440fx-1.7",
+      "machine_type": "pc",
       "qemuargs": [
         [
           "-m", "1024"
