@@ -60,4 +60,6 @@ until $(rm -Rf /openshift\.*/); do
     sleep 5
 done
 
+/usr/bin/rm -rf /openshift.local.etcd/ /openshift.local.volumes/
+
 systemctl start docker
