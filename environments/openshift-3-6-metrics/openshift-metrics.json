@@ -5,7 +5,7 @@
     "builders":
     [
         {
-            "name": "openshift-36-metrics",
+            "name": "openshift-3-6-metrics",
 
             "type": "qemu",
             "format": "qcow2",
