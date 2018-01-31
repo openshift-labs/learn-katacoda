@@ -1,5 +1,5 @@
 ~/.launch.sh
-
+stty -echo
 echo "Configuring Metrics..."
 export OAVERSION=3.6.173.0.63-1
 sed -i '/ExecStartPre/d' /etc/systemd/system/origin.service
@@ -36,3 +36,4 @@ systemctl restart origin.service
 rm -Rf myinventory openshift-ansible-openshift-ansible-${OAVERSION}/
 
 echo "Metrics and OpenShift Ready"
+stty echo

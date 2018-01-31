@@ -60,6 +60,4 @@ until $(rm -Rf /openshift\.*/); do
     sleep 5
 done
 
-rm -rf /openshift.*
-
 systemctl start docker
