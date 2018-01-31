@@ -1,11 +1,12 @@
+clear
 ~/.launch.sh
 stty -echo
+export PS1=""
+clear
 echo "Configuring Metrics..."
 export OAVERSION=3.6.173.0.63-1
 sed -i '/ExecStartPre/d' /etc/systemd/system/origin.service
 systemctl daemon-reload
-
-echo "This may take a couple of moments"
 
 cat <<EOF > myinventory
 [OSEv3:children]
@@ -30,10 +31,15 @@ $(hostname) ansible_connection=local
 $(hostname) ansible_connection=local
 EOF
 
+echo "This may take a couple of moments"
+echo "Please wait until finished"
+
 ansible-playbook -i myinventory openshift-ansible-openshift-ansible-${OAVERSION}/playbooks/byo/openshift-cluster/openshift-metrics.yml -e "openshift_metrics_install_metrics=True" -e "openshift_metrics_hawkular_hostname=hawkular-metrics-$(awk '/subdomain/ { print $2 }' /etc/origin/master/master-config.yaml | sed 's/-80-/-443-/g')" > /dev/null 2>&1
 
 systemctl restart origin.service
 rm -Rf myinventory openshift-ansible-openshift-ansible-${OAVERSION}/
 
+clear
+export PS1="$ "
 echo "Metrics and OpenShift Ready"
 stty echo
