@@ -11,6 +11,7 @@ docker pull registry.access.redhat.com/jboss-datavirt-6/datavirt63-driver-opensh
 docker pull registry.access.redhat.com/jboss-amq-6/amq63-openshift
 docker pull registry.access.redhat.com/redhat-sso-7/sso71-openshift
 docker pull bucharestgold/centos7-s2i-nodejs
+docker pull fabric8/java-jboss-openjdk8-jdk:1.3.1
 
 
 # Requires RHEL subscription
