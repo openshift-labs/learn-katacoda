@@ -6,7 +6,7 @@ You will deploy and start a single instance of RHDG on OpenShift and subsequentl
 
 ## What is Red Hat Data Grid?
 
-![Logo](https://raw.githubusercontent.com/vblagoje/intro-katacoda/master/assets/middleware/rhoar-getting-started-jdg/jdg-logo.jpg)
+![Logo](https://raw.githubusercontent.com/vblagoje/intro-katacoda/master/assets/middleware/rhoar-getting-started-rhdg/rhdg-logo.jpg)
 
 
  Red Hat Data Grid (RHDG) is an open source in-memory data grid platform that offers multiple clustered modes, but its true value is observed while running in distributed mode where caches cluster together and expose a large memory heap.

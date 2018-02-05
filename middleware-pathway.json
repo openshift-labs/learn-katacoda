@@ -22,9 +22,9 @@
       "title": "WildFly Swarm development"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-jdg/",
-      "course_id": "rhoar-getting-started-jdg",
-      "title": "JBoss Data Grid development"
+      "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-rhdg/",
+      "course_id": "rhoar-getting-started-rhdg",
+      "title": "Red Hat Data Grid development"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-nodejs/",
