@@ -1,4 +1,4 @@
-ISTIO=0.4.0
+ISTIO=0.5.0
 BOOKINFO=0.2.8
 docker pull istio/istio-ca:$ISTIO
 docker pull istio/grafana:$ISTIO
