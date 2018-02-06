@@ -7,7 +7,7 @@ prevents unnecessary autoscaling during resource spikes, such as during start
 up.
 
 In OpenShift versions prior to 3.6, there was only CPU metrics support. Starting
-with {rhocp} version 3.6,  there are two metrics supported by the
+with OpenShift version 3.6,  there are two metrics supported by the
 `horizontal pod autoscaler`:
 
 * CPU requested
