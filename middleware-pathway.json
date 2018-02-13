@@ -1,6 +1,6 @@
 {
   "title": "Building Applications On OpenShift",
-  "courses": [
+  "courses": [ 
     {
       "external_link": "https://learn.openshift.com/middleware/fis-deploy-app/",
       "course_id": "fis-deploy-app",
@@ -35,6 +35,11 @@
       "external_link": "https://learn.openshift.com/middleware/java-batch-processing/",
       "course_id": "java-batch-processing",
       "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/resilient-apps/",
+      "course_id": "resilient-apps",
+      "title": "Using Istio to detect and prevent issues in a distributed system"
     }
   ]
 }
