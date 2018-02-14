@@ -22,3 +22,8 @@ data
 logs/
 tmp/
 .vscode/
+*ec2*
+*aws*
+*gcp*
+*azure*
+output*

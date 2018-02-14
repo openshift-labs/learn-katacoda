@@ -1,12 +1,11 @@
 {
-  "variables": {
-     "pwd": "{{ env `PWD` }}/../openshift-3-7"
-  },
+    "variables": {
+      "pwd": "{{ env `PWD` }}/../openshift-3-7"
+    },
     "builders":
     [
         {
             "name": "openshift-middleware",
-            "disk_size": 40000,
             "type": "qemu",
             "format": "qcow2",
             "accelerator": "kvm",
