@@ -24,7 +24,7 @@ situation if it is ever not right. You would be correct!
 Since we have two *Pods* running right now, let's see what happens if we
 "accidentally" kill one.
 
-Open one of the pods by clicking it's name in the list.
+Open one of the pods by clicking its name in the list.
 
 In the top right corner of the page there is _Actions_, when opened, there is _Delete_ action.
 
@@ -37,7 +37,7 @@ this time, there are three pods.
 
 The pod that we deleted is terminating, i.e. it is being cleaned up. And a new pod was created, because
 OpenShift will always make sure, that if one pod dies, there is going to be new pod created to
-fill it's place.
+fill its place.
 
 ### Exercise: Scale Down
 
