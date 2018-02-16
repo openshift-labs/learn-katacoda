@@ -41,4 +41,4 @@ You can find a summary of the key commands covered below, along with some relate
 
 ``oc adm policy add-role-to-user view <username> -n <project>``: Add another user to a project but such that they can only view what is in the project.
 
-``oc adm policy add-role-to-user admin <username> -n <project>``: Add another user to a project such that they are effecively a joint owner of the project and have administration rights over it, including the ability to delete the project.
+``oc adm policy add-role-to-user admin <username> -n <project>``: Add another user to a project such that they are effectively a joint owner of the project and have administration rights over it, including the ability to delete the project.
