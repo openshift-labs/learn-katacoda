@@ -23,9 +23,8 @@ on the JVM using **java -jar** For more details on various approaches to packagi
 applications,
 read [this blog post](https://developers.redhat.com/blog/2017/08/24/the-skinny-on-fat-thin-hollow-and-uber).
 
-WildFly Swarm is based on WildFly and it's compatible with 
-[Eclipse MicroProfile](https://microprofile.io), which is a community effort to standardized the subset of Java EE standards 
-such as JAX-RS, CDI and JSON-P that are useful for building microservices applications.
+WildFly Swarm is based on WildFly and it also implements [Eclipse MicroProfile](https://microprofile.io), which is a community-driven open source specification that optimizes Enterprise Java for a microservices architecture and delivers application portability across multiple MicroProfile runtimes.
+
 
 Since WildFly Swarm is based on Java EE standards, it significantly simplifies refactoring 
 existing Java EE application to microservices and allows much of existing code-base to be 
