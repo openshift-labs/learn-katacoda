@@ -39,6 +39,8 @@ Our decision table will consist of 4 *Condition* columns and one *Action* column
     - Operator: `less than or equal to`
     - Calculation Type: `Literal Value`
 
+    <img src="../../assets/middleware/dm7-loan-application/dm7-gdst-constraints.png" width="800" />
+
 Now that the *Condition* columns have been defined, we can work on the *Action* column.
 
 Our rule will contain a single *Action* column. This column basically sets the `approved` boolean field of the `Loan` fact to `true` or `false`. I.e. the action of the rule is to define whether the loan application has been approved.
