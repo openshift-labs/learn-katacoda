@@ -6,7 +6,7 @@ Open the Execution Servers via via *Menu -> Deploy -> Execution Server*. This wi
 
 <img src="../../assets/middleware/dm7-loan-application/dm7-execution-servers.png" width="800" />
 
-This view shows that we have one Execution Server template named `default-kie-server`. On this server template we've deployed one KIE Container, `loan-application_1.0.0`, which is the deployment of our Loan Application Demo KJAR. There is one Decision Server connected to our Decision Central environment, `default-kie-server@172....:8080`, which is the Decision Server POD running in our OpenShift instance.
+This view shows that we have one Execution Server template named `default-kie-server`. On this server template we've deployed one KIE Container, `loan-application_1.0.0`, which is the deployment of our Loan Application Demo KJAR. There is one Decision Server connected to our Decision Central environment, `default-kie-server@172.20.0.7:8080`, which is the Decision Server POD running in our OpenShift instance (the ip-address will obviously differ per environment).
 
 The user can perform more actions on this screen, for example starting and stopping existing KIE-Containers, deploying new KIE-Containers to existing templates (and thus deploying them to Decision Servers that are connected to the template) and upgrading existing KJARs deployed in KIE-Containers to newer versions.
 
