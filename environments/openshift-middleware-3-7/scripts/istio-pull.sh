@@ -1,4 +1,4 @@
-ISTIO=0.5.0
+ISTIO=0.6.0
 BOOKINFO=0.2.8
 docker pull istio/grafana:$ISTIO
 docker pull istio/istio-ca:$ISTIO
@@ -8,7 +8,6 @@ docker pull istio/proxy_debug:$ISTIO
 docker pull istio/proxy_init:$ISTIO
 docker pull istio/mixer:$ISTIO
 docker pull istio/servicegraph:$ISTIO
-docker pull istio/servicegraph:0.4.0
 docker pull openzipkin/zipkin:latest
 docker pull jaegertracing/all-in-one:latest
 docker pull prom/prometheus:v2.0.0
