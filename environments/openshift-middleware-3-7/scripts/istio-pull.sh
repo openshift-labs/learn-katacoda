@@ -1,5 +1,6 @@
 ISTIO=0.6.0
 BOOKINFO=0.2.8
+BOOKINFOv2=1.5.0
 docker pull istio/grafana:$ISTIO
 docker pull istio/istio-ca:$ISTIO
 docker pull istio/grafana:$ISTIO
@@ -19,3 +20,10 @@ docker pull istio/examples-bookinfo-reviews-v1:$BOOKINFO
 docker pull istio/examples-bookinfo-reviews-v3:$BOOKINFO
 docker pull istio/examples-bookinfo-details-v1:$BOOKINFO
 docker pull istio/examples-bookinfo-productpage-v1:$BOOKINFO
+
+docker pull istio/examples-bookinfo-ratings-v1:$BOOKINFOv2
+docker pull istio/examples-bookinfo-reviews-v2:$BOOKINFOv2
+docker pull istio/examples-bookinfo-reviews-v1:$BOOKINFOv2
+docker pull istio/examples-bookinfo-reviews-v3:$BOOKINFOv2
+docker pull istio/examples-bookinfo-details-v1:$BOOKINFOv2
+docker pull istio/examples-bookinfo-productpage-v1:$BOOKINFOv2
