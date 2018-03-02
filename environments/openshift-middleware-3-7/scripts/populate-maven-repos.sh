@@ -8,7 +8,7 @@
 # Entries are separated by spaces
 SOURCE_REPOS=( https://github.com/openshift-katacoda/rhoar-getting-started.git https://github.com/redhat-developer-demos/istio-tutorial.git )
 PROJECT_DIR=/root/projects
-SKIP_TESTS=true
+SKIP_TESTS=false
 SCRIPT_VERSION=0.7
 VERSION_LOG=~/.populate-maven-repos-version.log
 SCRIPT_LOG=~/.populate-maven-repos.log

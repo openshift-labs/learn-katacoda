@@ -14,4 +14,4 @@ mv apache-maven-3.3.9/ /usr/local/maven/
 alternatives --install /usr/bin/mvn mvn /usr/local/maven/apache-maven-3.3.9/bin/mvn 1
 
 mkdir -p /root/installation
-wget -c https://github.com/istio/istio/releases/download/0.5.0/istio-0.5.0-linux.tar.gz -P /root/installation
+wget -c https://github.com/istio/istio/releases/download/0.6.0/istio-0.6.0-linux.tar.gz -P /root/installation
