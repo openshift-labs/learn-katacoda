@@ -1,6 +1,6 @@
 With our Decision Server deployed, we can now test our rules. As our Decision Server provides a Swagger interface to interact with its RESTful API, we can simply test our rules via the web-interface provided by the Decision Server.
 
-The Decision Server's Swagger UI can be accessed at http://loan-demo-kieserver-loan-demo.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].openstack-environments.katacoda.com/docs/
+The Decision Server's Swagger UI can be accessed at http://loan-demo-kieserver-loan-demo.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].http-proxy.katacoda.com/docs/
 
 <img src="../../assets/middleware/dm7-loan-application/dm7-swagger-ui.png" width="800" />
 
