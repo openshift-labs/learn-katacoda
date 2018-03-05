@@ -224,4 +224,4 @@ Before moving on, in case your simulated user loads are still running, kill them
 ## More references
 
 * [Istio Documentation](https://istio.io/docs)
-* [Christian Post's Blog on Envoy and Circuit Breaking](http://blog.christianposta.com/microservices/01-microservices-patterns-with-envoy-proxy-part-i-circuit-breaking/)
+* [Christian Posta's Blog on Envoy and Circuit Breaking](http://blog.christianposta.com/microservices/01-microservices-patterns-with-envoy-proxy-part-i-circuit-breaking/)

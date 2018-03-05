@@ -49,7 +49,7 @@ versions of a service in a random fashion, and anytime you hit `v1` version you'
 
 First, let's set an environment variable to point to Istio:
 
-`export ISTIO_VERSION=0.5.0; export ISTIO_HOME=${HOME}/istio-${ISTIO_VERSION}; export PATH=${PATH}:${ISTIO_HOME}/bin; cd ${ISTIO_HOME}`{{execute T1}}
+`export ISTIO_VERSION=0.6.0; export ISTIO_HOME=${HOME}/istio-${ISTIO_VERSION}; export PATH=${PATH}:${ISTIO_HOME}/bin; cd ${ISTIO_HOME}`{{execute T1}}
 
 Now let's install a default set of routing rules which will direct all traffic to the `reviews:v1` service version:
 
