@@ -1,0 +1,45 @@
+{
+  "title": "Service Mesh with Istio",
+  "courses": [
+    {
+      "external_link": "https://www.katacoda.com/rafabene/courses/workshop/1-introduction",
+      "course_id": "1-introduction",
+      "title": "Istio Introduction"
+    },
+    {
+      "external_link": "https://www.katacoda.com/rafabene/courses/workshop/2-deploy-microservices",
+      "course_id": "2-deploy-microservices",
+      "title": "Deploy microservices"
+    },
+    {
+      "external_link": "https://www.katacoda.com/rafabene/courses/workshop/3-monitoring-tracing",
+      "course_id": "3-monitoring-tracing",
+      "title": "Monitoring and Tracing"
+    },
+    {
+      "external_link": "https://www.katacoda.com/rafabene/courses/workshop/4-simple-routerules",
+      "course_id": "4-simple-routerules",
+      "title": "Simple RouteRules"
+    },
+    {
+      "external_link": "https://www.katacoda.com/rafabene/courses/workshop/5-advanced-routerules",
+      "course_id": "5-advanced-routerules",
+      "title": "Advanced RouteRules"
+    },
+    {
+      "external_link": "https://www.katacoda.com/rafabene/courses/workshop/6-fault-injection",
+      "course_id": "6-fault-injection",
+      "title": "Fault Injection"
+    },
+    {
+      "external_link": "https://www.katacoda.com/rafabene/courses/workshop/7-circuit-breaker",
+      "course_id": "7-circuit-breaker",
+      "title": "Circuit Breaker"
+    },
+    {
+      "external_link": "https://www.katacoda.com/rafabene/courses/workshop/8-egress",
+      "course_id": "8-egress",
+      "title": "Extra scenario: Egress"
+    }
+  ]
+}
