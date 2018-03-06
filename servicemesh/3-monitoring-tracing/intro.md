@@ -1,0 +1,1 @@
+This scenario shows that you get out of the box monitoring via Prometheus and Grafana, and Tracing
