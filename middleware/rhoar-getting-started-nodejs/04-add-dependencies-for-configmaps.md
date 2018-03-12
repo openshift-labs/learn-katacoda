@@ -38,16 +38,16 @@ the sample app to separate its config using OpenShift ConfigMaps!
 **Add NPM modules for ConfigMap support**
 
 The [NPM package ecosystem](https://www.npmjs.com/) contains projects that help implement various functionality in Node apps. To enable our
-sample Node app to access OpenShift ConfigMaps, you'll need to declare a dependency on a couple of npm packages.
+sample Node app to access OpenShift ConfigMaps, you'll need to declare a dependency on a new package.
 
 Execute the following command to insert the new dependencies into the `package.json` file:
 
-```npm install "openshift-config-loader@^0.4.0" "openshift-rest-client@^0.7.0" --save-prod```{{execute}}
+```npm install "openshift-rest-client@^1.0.1" --save-prod```{{execute}}
 
-This will install the needed dependencies at their necessary versions and update
+This will download and install the needed dependency and update
 the `package.json` file. Close the file (click on the small 'X' near the filename)
-and then re-open the file (click here: `package.json`{{open}}) to see the additional dependencies added near the bottom of the file.
+and then re-open the file (click here: `package.json`{{open}}) to see the additional dependency added near the bottom of the file.
 
-By adding these dependencies the application will be able to access its configuration from OpenShift using a ConfigMap.
+Using this package the application will be able to access its configuration from OpenShift using a ConfigMap.
 But you still need to implement the logic behind that access, which you'll do next.
 
