@@ -38,7 +38,7 @@ Since this is a working application, run the application locally using `npm`:
 At this stage the application doesn't really do anything but after a while you will see:
 
 ```console
-> nodejs-configmap@1.0.2 start /root/projects/rhoar-getting-started/nodejs
+> nodejs-configmap@1.0.0 start /root/projects/rhoar-getting-started/nodejs
 > PORT=8080 node ./bin/www
 ```
 

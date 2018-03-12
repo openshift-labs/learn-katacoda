@@ -12,8 +12,7 @@ docker pull registry.access.redhat.com/jboss-amq-6/amq63-openshift
 docker pull registry.access.redhat.com/redhat-sso-7/sso71-openshift
 docker pull registry.access.redhat.com/rhdm-7/rhdm70-decisioncentral-openshift
 docker pull registry.access.redhat.com/rhdm-7/rhdm70-kieserver-openshift
-docker pull bucharestgold/centos7-s2i-nodejs
-
+docker pull registry.access.redhat.com/rhoar-nodejs/nodejs-8
 
 # Requires RHEL subscription
 # docker pull registry.access.redhat.com/jboss-fuse-6/fis-karaf-openshift
