@@ -1,0 +1,63 @@
+{
+    "icon": "fa-openshift",
+    "title": "Training Workshop",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "60 minutes",
+    "backend": {
+        "imageid": "openshift",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Exploring the CLI and Web Console",
+            "text": "01-exploring-the-cli-and-web-console.md"
+        }, {
+            "title": "Topic 2 - Deploying an Existing Container Image",
+            "text": "02-deploying-an-existing-container-image.md"
+        }, {
+            "title": "Topic 3 - Scaling and Self Healing of Pods",
+            "text": "03-scaling-and-self-healing-of-pods.md"
+        }, {
+            "title": "Topic 4 - Exposing an Application Via a Route",
+            "text": "04-exposing-an-application-via-a-route.md"
+        }, {
+            "title": "Topic 5 - Exploring the Application Logs",
+            "text": "05-exploring-the-application-logs.md"
+        }, {
+            "title": "Topic 6 - Granting Access to the REST API",
+            "text": "06-granting-access-to-the-rest-api.md"
+        }, {
+            "title": "Topic 7 - Deploying from Application Source",
+            "text": "07-deploying-from-application-source.md"
+        }, {
+            "title": "Topic 8 - Deploying the MongoDB Database",
+            "text": "08-deploying-the-mongodb-database.md"
+        }, {
+            "title": "Topic 9 - Adding Labels for Dynamic Discovery",
+            "text": "09-adding-labels-for-dynamic-discovery.md"
+        }, {
+            "title": "Topic 10 - Deploying Applications with Templates",
+            "text": "10-deploying-applications-with-templates.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "volumes.json", "target": "~/"}]
+        }
+    }
+}

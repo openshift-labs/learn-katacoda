@@ -1,0 +1,18 @@
+{
+  "title": "Learn.OpenShift.com",
+  "private": true,
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/introduction/",
+      "title": "Foundations of OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/",
+      "title": "Building Applications On OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/playgrounds/",
+      "title": "OpenShift Playgrounds"
+    }
+  ]
+}

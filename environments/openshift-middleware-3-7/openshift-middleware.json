@@ -1,0 +1,48 @@
+{
+    "variables": {
+      "pwd": "{{ env `PWD` }}/../openshift-3-7"
+    },
+    "builders":
+    [
+        {
+            "name": "openshift-middleware",
+            "type": "qemu",
+            "format": "qcow2",
+            "accelerator": "kvm",
+            "headless": true,
+      	    "disk_image": true,
+            "iso_url": "{{ user `pwd` }}/output-openshift/packer-openshift",
+            "iso_checksum_type": "none",
+            "iso_checksum": "",
+            "vnc_port_min": 5922,
+            "vnc_port_max": 5922,
+
+            "http_directory": "http",
+
+            "ssh_username": "root",
+            "ssh_password": "cent",
+            "ssh_wait_timeout": "30m",
+            "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -P now",
+
+            "boot_wait": "2s"
+        }
+    ],
+
+    "provisioners": [
+        {
+            "type": "shell",
+            "scripts": [
+                "scripts/middleware.sh",
+                "scripts/populate-maven-repos.sh",
+                "scripts/istio-pull.sh",
+                "scripts/middleware-pull.sh"
+            ]
+        },
+        {
+            "type": "shell",
+            "scripts": [
+                "scripts/zerodisk.sh"
+            ]
+        }
+    ]
+}

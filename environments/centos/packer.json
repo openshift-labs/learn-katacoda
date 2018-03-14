@@ -1,0 +1,57 @@
+{
+  "builders": [
+    {
+      "boot_command": [
+        "<tab> cmdline ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks.cfg<enter>"
+      ],
+      "boot_wait": "5s",
+      "disk_size": 40000,
+      "disk_interface": "virtio-scsi",
+      "format": "qcow2",
+      "headless": true,
+      "http_directory": "files",
+      "iso_urls": "CentOS-7-x86_64-NetInstall-1611.iso",
+      "iso_checksum": "06187f7485b8224f480b61962ddeae85",
+      "iso_checksum_type": "md5",
+      "net_device": "virtio-net",
+      "output_directory": "output/",
+      "machine_type": "pc-i440fx-1.7",
+      "qemuargs": [
+        [
+          "-m", "1024"
+        ]
+      ],
+      "shutdown_command": "shutdown -h now",
+      "ssh_password": "cent",
+      "ssh_username": "root",
+      "ssh_wait_timeout": "30m",
+      "type": "qemu",
+      "vm_name": "centos-7"
+    }
+  ],
+  "provisioners": [
+    {
+      "scripts": [
+        "scripts/base.sh",
+        "scripts/configure.sh",
+        "scripts/docker.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "scripts": [
+        "scripts/cleanup.sh"
+      ],
+      "environment_vars": [
+        "PROVISIONER={{user `PROVISIONER`}}"
+      ],
+      "pause_before": "30s",
+      "type": "shell"
+    },
+    {
+      "type": "file",
+      "source": "files/80-hotplug-cpu-mem.rules",
+      "destination": "/etc/udev/rules.d/80-hotplug-cpu-mem.rules"
+    }
+  ]
+}

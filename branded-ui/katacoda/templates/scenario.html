@@ -1,0 +1,16 @@
+{{ template "templates/header.html" . }}
+{{ template "templates/banner.html" . }}
+
+<section>
+  <div id="katacoda-scenario-1"
+      data-katacoda-id="openshift/courses/{{ .Course.Name }}/{{ .Name }}"
+      data-katacoda-ctatext="More Scenarios" data-katacoda-ctaurl="https://learn.openshift.com/{{ .Course.Name }}"
+      data-katacoda-color="1a1a1a"
+      data-katacoda-secondary="cc0000"
+      data-katacoda-font="Open Sans"
+      data-katacoda-fontheader="Open Sans"
+      style="height: calc(100vh - 130px);">
+  </div>
+</section>
+
+{{ template "templates/footer.html" . }}

@@ -1,0 +1,41 @@
+{
+  "pathwayTitle": "Service Mesh with Istio",
+  "title": "Deploy microservices",
+  "icon": "fa-openshift",
+  "description": "Deploy microserices on a Kubernetes Cluster",
+  "difficulty": "Basic",
+  "time": "30 minutes",
+  "environment": {
+      "showdashboard": true,
+      "dashboard": "Web Console",
+      "uilayout": "editor-terminal",
+      "uieditorpath": "/root/projects/istio-tutorial",
+      "uisettings": "java",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
+  },
+  "files": [
+
+  ],
+  "backend": {
+      "imageid": "openshift-middleware-3-7", "port": 8443
+  },
+  "details": {
+    "assets": {
+      "host01": [
+      ]
+    },
+    "intro": {
+        "text": "intro.md",
+        "credits": "http://developers.redhat.com",
+        "code": "set-env.sh",
+        "courseData": "run-init.sh"
+    },
+    "steps": [
+        { "title": "Create the Example project", "text": "1create-project.md" },
+        { "title": "Clone the Example project", "text": "2clone-project.md" },
+        { "title": "Deploy Customer microservice", "text": "3deploy-customer.md" },
+        { "title": "Deploy Preference microservice", "text": "4deploy-preference.md" },
+        { "title": "Deploy Recommendation microservice", "text": "5deploy-recommendation.md" }
+    ]
+  }
+}

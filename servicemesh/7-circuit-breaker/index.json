@@ -1,0 +1,40 @@
+{
+  "pathwayTitle": "Service Mesh with Istio",
+  "title": "Circuit Breaker",
+  "icon": "fa-openshift",
+  "description": "Fail Fast with Max Connections & Max Pending Requests",
+  "difficulty": "Advanced",
+  "time": "30 minutes",
+  "environment": {
+      "showdashboard": true,
+      "dashboard": "Web Console",
+      "uilayout": "editor-terminal",
+      "uieditorpath": "/root/projects/istio-tutorial",
+      "uisettings": "java",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "openshift-middleware-3-7", "port": 8443
+  },
+  "details": {
+    "assets": {
+      "host01": [
+          { "file": "recommendation-v2.diff", "target": "/root/" },
+          { "file": "install-microservices.sh", "target": "/root/", "chmod": "+x" }
+      ]
+    },
+    "intro": {
+      "text": "intro.md",
+      "credits": "http://developers.redhat.com",
+      "code": "set-env.sh",
+      "courseData": "run-init.sh"      
+    },
+    "steps": [
+        { "title": "Install microservices", "text": "0install-microservices.md" },
+        { "title": "Install Siege", "text": "1install-siege.md" },
+        { "title": "Fail Fast with Max Connections & Max Pending Requests", "text": "2fail-fast.md" },
+        { "title": "Pool Ejection", "text": "3pool-ejection.md" },
+        { "title": "Ultimate resilience with retries, circuit breaker, and pool ejection", "text": "4ultimate-resilience.md" }
+    ]
+  }
+}

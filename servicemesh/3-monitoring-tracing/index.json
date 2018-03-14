@@ -1,0 +1,37 @@
+{
+  "pathwayTitle": "Service Mesh with Istio",
+  "title": "Monitoring and Tracing",
+  "icon": "fa-openshift",
+  "description": "Shows out-of-box monitoring and tracing",
+  "difficulty": "Intermediate",
+  "time": "1 hour",
+  "environment": {
+      "showdashboard": true,
+      "dashboard": "Web Console",
+      "uilayout": "editor-terminal",
+      "uieditorpath": "/root/projects/istio-tutorial",
+      "uisettings": "java",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "openshift-middleware-3-7", "port": 8443
+  },
+  "details": {
+    "assets": {
+      "host01": [
+      ]
+    },
+    "intro": {
+      "text": "intro.md",
+      "credits": "http://developers.redhat.com",
+      "code": "set-env.sh",
+      "courseData": "run-init.sh"
+    },
+    "steps": [
+        { "title": "Monitoring", "text": "1monitoring.md" },
+        { "title": "Custom Metric", "text": "2custom-metric.md" },
+        { "title": "Tracing", "text": "3tracing.md" },
+        { "title": "Service Graph", "text": "4servicegraph.md" }
+    ]
+  }
+}
