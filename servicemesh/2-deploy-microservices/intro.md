@@ -1,0 +1,1 @@
+This scenario will deploy the microservices that we will use for this Workshop

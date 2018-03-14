@@ -1,0 +1,1 @@
+This scenario shows how Istio can be used to control route based on some simple rules.

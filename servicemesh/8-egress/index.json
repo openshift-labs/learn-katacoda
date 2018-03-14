@@ -1,0 +1,32 @@
+{
+  "pathwayTitle": "Service Mesh with Istio",
+  "title": "Egress",
+  "icon": "fa-openshift",
+  "description": "Egress routes allow you to apply rules to how internal services interact with external APIs/services",
+  "difficulty": "Advanced",
+  "time": "20 minutes",
+  "environment": {
+      "showdashboard": true,
+      "dashboard": "Web Console",
+      "uilayout": "editor-terminal",
+      "uieditorpath": "/root/projects/istio-tutorial",
+      "uisettings": "java",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "openshift-middleware-3-7", "port": 8443
+  },
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "credits": "http://developers.redhat.com",
+      "code": "set-env.sh",
+      "courseData": "run-init.sh"      
+    },
+    "steps": [
+        { "title": "Create HTTPBin Java App", "text": "1egress-httbin.md" },
+        { "title": "Create the Github Java App", "text": "2egress-github.md" },
+        { "title": "Istio-ize Egress", "text": "3istio-ize.md" }
+    ]
+  }
+}
