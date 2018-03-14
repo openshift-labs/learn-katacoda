@@ -5,6 +5,7 @@
   "description": "Shows out-of-box monitoring and tracing",
   "difficulty": "Intermediate",
   "time": "1 hour",
+  "files": [],
   "environment": {
       "showdashboard": true,
       "dashboard": "Web Console",
