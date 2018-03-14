@@ -5,6 +5,7 @@
   "description": "Apply some chaos engineering by throwing in some HTTP errors or network delays",
   "difficulty": "Advanced",
   "time": "1 hour",
+  "files": [],
   "environment": {
       "showdashboard": true,
       "dashboard": "Web Console",

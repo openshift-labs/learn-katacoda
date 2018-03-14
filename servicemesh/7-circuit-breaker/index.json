@@ -5,6 +5,7 @@
   "description": "Fail Fast with Max Connections & Max Pending Requests",
   "difficulty": "Advanced",
   "time": "30 minutes",
+  "files": [],
   "environment": {
       "showdashboard": true,
       "dashboard": "Web Console",

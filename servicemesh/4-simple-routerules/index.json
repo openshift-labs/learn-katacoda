@@ -5,6 +5,7 @@
   "description": "Shows how Istio can be used to control route based on some simple rules",
   "difficulty": "Intermediate",
   "time": "1 hour",
+  "files": [],  
   "environment": {
       "showdashboard": true,
       "dashboard": "Web Console",

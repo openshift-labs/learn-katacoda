@@ -5,6 +5,7 @@
   "description": "Advanced RouteRules with Istio",
   "difficulty": "Advanced",
   "time": "1 hour",
+  "files": [],
   "environment": {
       "showdashboard": true,
       "dashboard": "Web Console",

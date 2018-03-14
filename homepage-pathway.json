@@ -13,6 +13,10 @@
     {
       "external_link": "https://learn.openshift.com/playgrounds/",
       "title": "OpenShift Playgrounds"
+    },
+    {
+      "external_link": "https://learn.openshift.com/servicemesh/",
+      "title": "Service Mesh workshop with Istio"
     }
   ]
 }
