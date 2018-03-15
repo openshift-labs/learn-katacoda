@@ -1,0 +1,45 @@
+{
+    "icon": "fa-openshift",
+    "title": "Linux Container Internals: Lab 2: Container Images",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "Intermediate",
+    "time": "30-45 minutes",
+    "backend": {
+        "imageid": "openshift",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Image Layers and Repositories: inspecting base images, layers and history",
+            "text": "01-base-multi-layer-images.md"
+        }, {
+            "title": "Topic 2 - Image URLs: Mapping business requirements to the URL, Namespace, Repository and Tag",
+            "text": "02-image-urls.md"
+        }, {
+            "title": "Topic 3 - Image Internals: Inspecting the libraries, interpreters, and operating system components in a container image",
+            "text": "03-image-internals.md"
+        }, {
+            "title": "Topic 4 - Mapping Layers to Technical Requirements: using layers to meet the needs of everyone",
+            "text": "04-layers-technical-requirements.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "route.json", "target": "/root/"}]
+        }
+    }
+}
