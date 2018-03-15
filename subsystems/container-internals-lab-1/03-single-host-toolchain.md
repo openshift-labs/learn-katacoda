@@ -6,7 +6,7 @@ We call this a userspace toolchain because none of it lives in the kernel. The f
 
 These processes all work together to translate the user's intent to a set of system calls which create a container in the Linux kernel. Below are basic descriptions of each daemon/process:
 
-![Kernel & Containers](https://katacoda.com/fatherlinux/assets/intro-openshift/container-internals-lab-1/03-single-host-toolchain.png)
+![Kernel & Containers](https://katacoda.com/fatherlinux/assets/subsystems/container-internals-lab-1/03-single-host-toolchain.png)
 
 - **dockerd**: This is the main docker daemon. It handles all docker API calls (docker run, docker build, docker images) through either the unix socket /var/run/docker.sock or it can be configured to handle requests over TCP. This is the "main" daemon and it is started by systemd with the /usr/lib/systemd/system/docker.service unit file.
 - **docker-containerd**: Containerd was recently open sourced as a separate community project. The docker daemon talks to containerd when it needs to fire up a container. More and more plumbing is being added to containerd (such as storage).

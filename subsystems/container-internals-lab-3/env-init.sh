@@ -1,5 +1,5 @@
 ssh root@host01 'git clone https://github.com/fatherlinux/intro-katacoda.git'
-ssh root@host01 'ln -s ~/intro-katacoda/intro-openshift/container-internals-lab-3/assets ~/assets'
+ssh root@host01 'ln -s ~/intro-katacoda/subsystems/container-internals-lab-3/assets ~/assets'
 ssh root@host01 'cp ~/assets/exercise-01/mega-proc.sh /usr/bin/mega-proc.sh'
 ssh root@host01 'cp ~/assets/exercise-01/atomic-openshift-master.service /etc/systemd/system/atomic-openshift-master.service'
 ssh root@host01 'cp ~/assets/exercise-01/atomic-openshift-node.service /etc/systemd/system/atomic-openshift-node.service'
