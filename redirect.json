@@ -1,0 +1,4 @@
+[
+  {"course": "intro-openshift", "targetCourse": "introduction"},
+  {"course": "middleware", "scenario": "resilient-apps", "targetCourse": "servicemesh", "targetScenario": "istio-fasttrack"}
+]
