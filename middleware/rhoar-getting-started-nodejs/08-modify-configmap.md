@@ -10,7 +10,7 @@ Return to the OpenShift Web Console by clicking the tab:
 
 Select the example application as before to open the Overview page for the project:
 
-![Overview](../../assets/middleware/rhoar-getting-started-nodejs/overview.png)
+![Overview](../../assets/middleware/rhoar-getting-started-nodejs/overview-populated.png)
 
 From here, navigate to _Resources_ -> _Config Maps_ to display a list of ConfigMaps:
 
