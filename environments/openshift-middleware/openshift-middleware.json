@@ -1,6 +1,6 @@
 {
   "variables": {
-     "pwd": "{{ env `PWD` }}/../openshift"
+     "pwd": "{{ env `PWD` }}/../openshift-3-6"
   },
     "builders":
     [
