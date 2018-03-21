@@ -12,7 +12,7 @@ interface to work with applications deployed to the platform.
 In order to login, we will use the **oc** command and then specify the server that we
 want to authenticate to:
 
-```oc login```{{execute}}
+`oc login [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com --insecure-skip-tls-verify=true`{{execute}}
 
 Enter your username and password:
 * Username: **developer**
