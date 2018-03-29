@@ -31,7 +31,7 @@ ssh root@host01 "oc expose service customer -n tutorial"
 ssh root@host01 "mvn package -f /root/projects/istio-tutorial/preference/java/springboot -DskipTests"
 ssh root@host01 "docker build -t example/preference /root/projects/istio-tutorial/preference/java/springboot"
 ssh root@host01 "oc apply -f <(/root/installation/istio-0.6.0/bin/istioctl kube-inject -f /root/projects/istio-tutorial/preference/kubernetes/Deployment.yml) -n tutorial"
-ssh root@host01 "oc create -f /root/projects/istio-tutorial/preference/java/src/main/kubernetes/Service.yml -n tutorial"
+ssh root@host01 "oc create -f /root/projects/istio-tutorial/preference/kubernetes/Service.yml -n tutorial"
 
 ssh root@host01 "mvn package -f /root/projects/istio-tutorial/recommendation-v1/ -DskipTests"
 ssh root@host01 "docker build -t example/recommendation:v1 /root/projects/istio-tutorial/recommendation-v1/"
