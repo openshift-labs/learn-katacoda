@@ -1,6 +1,6 @@
 Tracing in Istio requires to pass a set of headers to outbound requests. It can be done manually or using OpenTracing framework instrumentations such as [opentracing-spring-cloud](https://github.com/opentracing-contrib/java-spring-cloud). Framework instrumentation automatically propagates tracing headers and also creates in-process spans to better understand what is happening inside the application.
 
-There are different ways to configure the tracer. The Customer Java service is using [tracerresolver](https://github.com/opentracing-contrib/java-tracerresolver) which does not require any code changes and the whole configuration is defined in environmental variables defined at `customer/java/Dockerfile`{{open}}. Whereas the Preference Java service is instantiating the tracer bean directly in Spring configuration class at `preference/java/src/main/java/com/redhat/developer/demos/preference/PreferencesApplication.java`{{open}}.
+There are different ways to configure the tracer. The Customer Java service is using [tracerresolver](https://github.com/jaegertracing/jaeger-client-java/tree/master/jaeger-tracerresolver) which does not require any code changes and the whole configuration is defined in environmental variables defined at `customer/java/springboot/Dockerfile`{{open}}. Whereas the Preference Java service is instantiating the tracer bean directly in Spring configuration class at `preference/java/springboot/src/main/java/com/redhat/developer/demos/preference/PreferencesApplication.java`{{open}}.
 
 
 ## Install Jaeger console
