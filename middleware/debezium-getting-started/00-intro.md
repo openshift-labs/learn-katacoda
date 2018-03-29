@@ -22,6 +22,6 @@ The minimum components required for skeleton deployment are
 
 The following diagram shows the minimal deployment
 
-![Minimal deployment](../../assets/intro-openshift/debezium-getting-started/minimal-deployment.png)
+![Minimal deployment](../../assets/middleware/debezium-getting-started/minimal-deployment.png)
 
 In the next steps we will deploy the components and get dataflow running from a MySQL database to a Kafka broker.
