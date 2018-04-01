@@ -27,3 +27,4 @@ tmp/
 *gcp*
 *azure*
 output*
+build.sh
