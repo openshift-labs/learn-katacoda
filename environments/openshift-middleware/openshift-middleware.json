@@ -6,7 +6,6 @@
     [
         {
             "name": "openshift-middleware",
-            "disk_size": 40000,
             "type": "qemu",
             "format": "qcow2",
             "accelerator": "kvm",

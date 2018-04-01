@@ -1,6 +1,5 @@
-set -e 
-export VERSION=v3.7.0
-export ARCH=v3.7.0-7ed6862-linux
+export VERSION=v3.9.0
+export ARCH=v3.9.0-191fece-linux
 export URL=https://github.com/openshift/origin/releases/download/$VERSION
 df -h
 setenforce 0
@@ -23,26 +22,25 @@ chmod +x /usr/bin/oc
 echo $PATH
 oc version
 
-ROUTERIMAGE=openshift/origin-haproxy-router:${VERSION}
-DEPLOYERIMAGE=openshift/origin-deployer:${VERSION}
-ORIGINIMAGE=openshift/origin:${VERSION}
-DOCKERREGISTRYIMAGE=openshift/origin-docker-registry:${VERSION}
-PODIMAGE=openshift/origin-pod:${VERSION}
-
-for IMAGE in $ROUTERIMAGE $DEPLOYERIMAGE $ORIGINIMAGE $DOCKERREGISTRYIMAGE $PODIMAGE
-do
-  docker pull ${IMAGE}
-done
+docker pull docker.io/openshift/origin-web-console:${VERSION}
+docker pull docker.io/openshift/origin-docker-registry:${VERSION}
+docker pull docker.io/openshift/origin-haproxy-router:${VERSION}
+docker pull docker.io/openshift/origin-deployer:${VERSION}
+docker pull docker.io/openshift/origin:${VERSION}
+docker pull docker.io/openshift/origin-service-catalog:${VERSION}
+docker pull docker.io/openshift/origin-template-service-broker:${VERSION}
+docker pull docker.io/openshift/origin-pod:${VERSION}
+docker pull quay.io/coreos/etcd
 
 mkdir -p /katacoda/{config,data,pv,volumes}
-yum install centos-release-openshift-origin origin-clients python2-ruamel-yaml -y
+yum install bash-completion centos-release-openshift-origin origin-clients -y
 
-oc cluster up --host-data-dir=/katacoda/data --host-config-dir=/katacoda/config --host-pv-dir=/katacoda/pv --host-volumes-dir=/katacoda/volumes --use-existing-config #--public-hostname="changeme.example.com" --routing-suffix="wildcard.changeme.example.com"
+oc cluster up --host-data-dir=/katacoda/data --host-config-dir=/katacoda/config --host-pv-dir=/katacoda/pv --host-volumes-dir=/katacoda/volumes --use-existing-config 
 
-oc --config=/katacoda/config/master/admin.kubeconfig scale dc router -n default --replicas=0
-oc --config=/katacoda/config/master/admin.kubeconfig scale dc docker-registry -n default  --replicas=0
+# oc --config=/katacoda/config/master/admin.kubeconfig scale dc router -n default --replicas=0
+# oc --config=/katacoda/config/master/admin.kubeconfig scale dc docker-registry -n default  --replicas=0
 
-sleep 60
+# sleep 60
 
 oc cluster down
 
@@ -83,25 +81,18 @@ echo '  sleep 1' >> ~/.launch.sh
 echo 'done' >> ~/.launch.sh
 echo 'echo "OpenShift started. "' >> ~/.launch.sh
 echo 'echo -n "Configuring... "' >> ~/.launch.sh
-echo 'for i in {1..10}; do oc adm registry -n default --config=/openshift.local.config/master/admin.kubeconfig > /dev/null 2>&1 && break || sleep 1; done' >> ~/.launch.sh
-echo 'for i in {1..10}; do oc adm policy add-scc-to-user hostnetwork -z router > /dev/null 2>&1 && break || sleep 1; done' >> ~/.launch.sh
-echo 'for i in {1..10}; do oc adm router > /dev/null 2>&1 && break || sleep 1; done' >> ~/.launch.sh
-echo 'until $(oc get svc router &> /dev/null); do' >> ~/.launch.sh
-  echo 'sleep 1' >> ~/.launch.sh
-echo 'done' >> ~/.launch.sh
-echo 'oc create namespace openshift > /dev/null 2>&1' >> ~/.launch.sh
-echo 'oc create -f /openshift/image-streams-centos7.json --namespace=openshift > /dev/null 2>&1' >> ~/.launch.sh
 echo 'echo "OpenShift Ready"' >> ~/.launch.sh
 
 chmod +x ~/.launch.sh
 
-echo 'echo 127.0.0.1 \$HOSTNAME >> /etc/hosts' >> /root/.set-hostname
+echo "echo 127.0.0.1 \$HOSTNAME >> /etc/hosts" >> /root/.set-hostname
 chmod +x /root/.set-hostname
 
 curl -Lk https://raw.githubusercontent.com/openshift/origin/master/examples/image-streams/image-streams-centos7.json -o /openshift/image-streams-centos7.json
 # oc create -f /openshift/image-streams-centos7.json --namespace=openshift
 # oc policy add-role-to-user system:masters developer
 
-echo 'export KUBECONFIG=/openshift.local.config/master/admin.kubeconfig' >> ~/.bashrc
-echo 'export CURL_CA_BUNDLE=/openshift.local.config/master/ca.crt' >> ~/.bashrc
+echo 'export KUBECONFIG=/katacoda/config/master/admin.kubeconfig' >> ~/.bashrc
+echo 'export CURL_CA_BUNDLE=/katacoda/config/master/ca.crt' >> ~/.bashrc
+echo 'source <( oc completion bash )' >> ~/.bashrc
 echo 'export PS1="$ "' >> ~/.bashrc

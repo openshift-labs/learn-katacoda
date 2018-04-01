@@ -31,6 +31,7 @@
 
     "provisioners": [
     { "type": "file", "destination": "/opt/fix_ocp_katacoda.py", "source": "./fix_ocp_katacoda.py" },
+    { "type": "file", "destination": "/opt/webconsole.yaml", "source": "./webconsole.yaml" },
     { "type": "file", "destination": "/opt/oc_cluster_up_start.sh", "source": "./oc_cluster_up_start.sh" },
         {
             "type": "shell",
@@ -44,7 +45,9 @@
             "type": "shell",
             "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
             "scripts": [
-                "scripts/openshift.sh"
+                "scripts/openshift.sh",
+                "scripts/pull.sh",
+                "scripts/zerodisk.sh"
             ]
         }
     ]
