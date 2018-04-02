@@ -44,7 +44,7 @@ to change to the project from the command line run the command:
 
 Persistent volumes have been pre-created in the playground environment.
 These will be used if you make persistent volume claims for an application.
-The volume sizes are defined as 10Gi each, however you are limited by how
+The volume sizes are defined as 100Gi each, however you are limited by how
 much disk space the host running the OpenShift environment has, which is
 much less.
 
