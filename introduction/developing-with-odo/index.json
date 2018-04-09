@@ -18,23 +18,26 @@
     },
     "details": {
         "steps": [{
-            "title": "Topic 1 - Creating an Application",
+            "title": "Creating an Application",
             "text": "01-creating-an-application.md"
         }, {
-            "title": "Topic 2 - Creating new binary component",
+            "title": "Creating new binary component",
             "text": "02-creating-new-binary-component.md"
         }, {
-            "title": "Topic 3 - Adding storage to component",
+            "title": "Adding storage to component",
             "text": "03-adding-storage-to-component.md"
         }, {
-            "title": "Topic 4 - Deploying component from source-code",
+            "title": "Deploying component from source-code",
             "text": "04-deploying-component-from-source-code.md"
         }, {
-            "title": "Topic 5 - Linking components",
+            "title": "Linking components",
             "text": "05-linking-components.md"
         }, {
-            "title": "Topic 6 - Exposing components to public",
+            "title": "Exposing components to public",
             "text": "06-exposing-components-to-public.md"
+        }, {
+            "title": "Making changes to source-code",
+            "text": "07-making-changes-to-source-code.md"
         }],
         "intro": {
             "courseData": "env-init.sh",

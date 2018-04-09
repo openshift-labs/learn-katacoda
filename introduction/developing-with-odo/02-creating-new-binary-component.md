@@ -14,15 +14,15 @@ The following components can be deployed:
 
 `cd ~/backend`{{execute}}
 
-In case we want o show binary deployment (**which is not yet implemented, so not usable ATM**)
+In case we go from source code
+
+`ocdev component create wildfly backend`{{execute}}
+
+on case we want o show binary deployment (**which is not yet implemented, so not usable ATM**)
 
 `mvn package`{{execute}}
 
 `ocdev component create wildfly backend --binary=target/backend-1.war`{{execute}}
-
-or in case we go from source code
-
-`ocdev component create wildfly backend`{{execute}}
 
 You will see
 
