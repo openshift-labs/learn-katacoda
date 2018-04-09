@@ -39,7 +39,7 @@ EOF
 mkdir -p /data/pv-$i
 chmod 0777 /data/pv-$i
 oc create -f tmp.json
-rm tmp.json
+rm -rf tmp.json
 done
 
 exec /bin/bash
