@@ -12,6 +12,34 @@ git clone https://github.com/marekjelen/katacoda-odo-frontend.git frontend
 
 oc adm policy add-cluster-role-to-user cluster-admin developer
 
-# CREATE A PV
+for i in {1..20}; do
+cat <<EOF > tmp.json
+{
+    "apiVersion": "v1",
+    "kind": "PersistentVolume",
+    "metadata": {
+        "name": "pv-${i}"
+    },
+    "spec": {
+        "accessModes": [
+            "ReadWriteOnce",
+            "ReadWriteMany",
+            "ReadOnlyMany"
+        ],
+        "capacity": {
+            "storage": "10Gi"
+        },
+        "hostPath": {
+            "path": "/data/pv-${i}"
+        },
+        "persistentVolumeReclaimPolicy": "Recycle"
+    }
+}
+EOF
+mkdir -p /data/pv-$i
+chmod 0777 /data/pv-$i
+oc create -f tmp.json
+rm tmp.json
+done
 
 exec /bin/bash
