@@ -12,4 +12,6 @@ git clone https://github.com/marekjelen/katacoda-odo-frontend.git frontend
 
 oc adm policy add-cluster-role-to-user cluster-admin developer
 
+# CREATE A PV
+
 exec /bin/bash
