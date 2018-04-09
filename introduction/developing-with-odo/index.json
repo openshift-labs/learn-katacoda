@@ -30,8 +30,11 @@
             "title": "Topic 4 - Deploying component from source-code",
             "text": "04-deploying-component-from-source-code.md"
         }, {
-            "title": "Topic 5 - Exposing application to public",
-            "text": "05-exposing-application-to-public.md"
+            "title": "Topic 5 - Linking components",
+            "text": "05-linking-components.md"
+        }, {
+            "title": "Topic 6 - Exposing components to public",
+            "text": "06-exposing-components-to-public.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
