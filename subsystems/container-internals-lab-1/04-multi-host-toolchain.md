@@ -10,7 +10,7 @@ Notice that, like docker, the openshift processes are just standard daemons runn
 
 The OpenShift/Kubernetes code is very modular. OpenShift compiles all of the functionality into a single binary. When starting this binary, the user determines which role the daemon will play with startup parameters. Depending on which installation method is chosen (single node, clustered, registry server only, manual, etc), the OpenShift binaries can be started in different ways.
 
-![Container Libraries](https://katacoda.com/fatherlinux/assets/subsystems/container-internals-lab-1/04-multi-host-toolchain.png)
+![Container Libraries](../../assets/subsystems/container-internals-lab-1/04-multi-host-toolchain.png)
 
 In a highly available, multi-master environment, you will see all of the following daemons running. On smaller installations, or all-in-one test installations, several or all of these roles may be consolidated to a single master daemon. In any Kubernetes distribution the api, and controllers functions can be run together or as separate processes on seaparate hosts.
 
