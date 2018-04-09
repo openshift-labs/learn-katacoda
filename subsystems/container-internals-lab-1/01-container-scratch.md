@@ -1,6 +1,6 @@
 First and foremost, you need to understand that THE INTERNET IS WRONG. If you just do a quick Google search, you will find architectural drawing after architectural drawing which depict things the wrong way or depict only part of the whole picture, rendering the viewer to come to the wrong conclusion about containers. One might suspect that the makers of many of these drawings have the wrong conclusion about how containers work. So, forget everything you think you know.
 
-![Containers Are Linux](https://katacoda.com/fatherlinux/assets/subsystems/container-internals-lab-1/01-google-wrong.png)
+![Containers Are Linux](../../assets/subsystems/container-internals-lab-1/01-google-wrong.png)
 
 What’s wrong? Two main things:
  
