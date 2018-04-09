@@ -9,7 +9,7 @@ In this course you learned:
 You can find a copy of the slides and GitHub repo that contains all of these commands so that you can run them yourself in your own environment:
 
 - [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
-- ![Presentation](../../assets/subsystems/ContainerInternalsLabPresentation.pdf)
+- [Presentation](../container-internals-lab-1/assets/ContainerInternalsLabPresentation.pdf)
 
 Also, if you have any questions tweet us at:
 
