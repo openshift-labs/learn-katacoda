@@ -12,5 +12,9 @@ The following components can be deployed:
 - wildfly
 ```
 
-`ocdev component create wildfly backend --binary=<path>`{{execute}}
+`cd ~/backend`{{execute}}
+
+`mvn package`{{execute}}
+
+`ocdev component create wildfly backend --binary=target/backend-1.war`{{execute}}
 
