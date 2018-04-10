@@ -45,6 +45,7 @@ func course(w http.ResponseWriter, r *http.Request) {
 	pageData := CoursePageData{Name: vestigo.Param(r, "course")}
 	renderTemplate(w, "templates/course.html", &pageData)
 }
+
 func scenario(w http.ResponseWriter, r *http.Request) {
 	redirect := getRedirectUrl(vestigo.Param(r, "course"), vestigo.Param(r, "scenario"))
 	if(redirect != "") {
@@ -53,6 +54,26 @@ func scenario(w http.ResponseWriter, r *http.Request) {
  	pageData := ScenarioPageData{Name: vestigo.Param(r, "scenario"), Course: CoursePageData{Name: vestigo.Param(r, "course")}}
 	renderTemplate(w, "templates/scenario.html", &pageData)
 }
+
+func trainingcourse(w http.ResponseWriter, r *http.Request) {
+	pageData := CoursePageData{Name: "training/" + vestigo.Param(r, "course")}
+	renderTemplate(w, "templates/course.html", &pageData)
+}
+
+func traininghome(w http.ResponseWriter, r *http.Request) {
+	pageData := CoursePageData{Name: "training" }
+	renderTemplate(w, "templates/course.html", &pageData)
+}
+
+func trainingscenario(w http.ResponseWriter, r *http.Request) {
+	redirect := getRedirectUrl(vestigo.Param(r, "course"), vestigo.Param(r, "scenario"))
+	if(redirect != "") {
+		http.Redirect(w, r, redirect, http.StatusTemporaryRedirect)
+	}
+ 	pageData := ScenarioPageData{Name: vestigo.Param(r, "scenario"), Course: CoursePageData{Name: vestigo.Param(r, "course")}}
+	renderTemplate(w, "templates/training-scenario.html", &pageData)
+}
+
 
 func index(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "templates/index.html", nil)
@@ -68,6 +89,10 @@ func main() {
 	router.Get("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))).ServeHTTP)
 	router.Get("/:course", course)
 	router.Get("/:course/", course)
+	router.Get("/training/", traininghome)
+	router.Get("/training/:course", trainingcourse)
+	router.Get("/training/:course/", trainingcourse)
+	router.Get("/training/:course/:scenario", trainingscenario)
 	router.Get("/:course/:scenario", scenario)
 	router.Get("/:course/:scenario/", scenario)
 
