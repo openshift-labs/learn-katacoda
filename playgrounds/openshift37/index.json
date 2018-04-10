@@ -6,6 +6,7 @@
     "difficulty": "beginner",
     "time": "60 minutes",
     "backend": {
+        "trainingid": "openshift-middleware-3-7",
         "imageid": "openshift-3-7",
         "port": 8443
     },
