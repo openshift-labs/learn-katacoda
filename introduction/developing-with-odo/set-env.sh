@@ -2,7 +2,8 @@
 
 export ODO_VERSION="0.0.3"
 
-curl -k -L "https://github.com/redhat-developer/ocdev/releases/download/v${ODO_VERSION}/ocdev-linux-amd64.gz" | gzip -d > /usr/local/bin/ocdev; chmod +x /usr/local/bin/ocdev
+curl -k -L "https://dl.bintray.com/ocdev/ocdev/latest/linux-amd64/:ocdev" > /usr/local/bin/ocdev; chmod +x /usr/local/bin/ocdev
+#curl -k -L "https://github.com/redhat-developer/ocdev/releases/download/v${ODO_VERSION}/ocdev-linux-amd64.gz" | gzip -d > /usr/local/bin/ocdev; chmod +x /usr/local/bin/ocdev
 echo 'source <(ocdev completion bash)' >> .bashrc
 
 yum install -y maven

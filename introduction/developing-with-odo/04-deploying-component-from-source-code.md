@@ -1,4 +1,4 @@
 
 `cd ~/frontend`{{execute}}
 
-`ocdev component create ruby frontend`{{execute}}
+`ocdev create ruby frontend`{{execute}}
