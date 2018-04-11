@@ -6,7 +6,7 @@ curl -k -L "https://dl.bintray.com/ocdev/ocdev/latest/linux-amd64/ocdev" > /usr/
 #curl -k -L "https://github.com/redhat-developer/ocdev/releases/download/v${ODO_VERSION}/ocdev-linux-amd64.gz" | gzip -d > /usr/local/bin/ocdev; chmod +x /usr/local/bin/ocdev
 echo 'source <(ocdev completion bash)' >> .bashrc
 
-yum install -y maven
+yum install -y maven bash-completion
 
 git clone https://github.com/marekjelen/katacoda-odo-backend.git backend
 git clone https://github.com/marekjelen/katacoda-odo-frontend.git frontend
