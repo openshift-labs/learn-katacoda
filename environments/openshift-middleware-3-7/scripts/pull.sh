@@ -45,4 +45,4 @@ docker pull strimzi/cluster-controller:${STRIMZI_VERSION}
 docker pull strimzi/kafka:${STRIMZI_VERSION}
 docker pull strimzi/zookeeper:${STRIMZI_VERSION}
 
-curl -o ~/openwhisk-template https://git.io/openwhisk-template
+curl -o /opt/openwhisk-template https://git.io/openwhisk-template
