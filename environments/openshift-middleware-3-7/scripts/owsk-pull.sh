@@ -20,3 +20,8 @@ docker pull projectodd/whisk_couchdb:${PROJECTODD_LEARN_TAG}
 docker pull projectodd/cluster-controller:${PROJECTODD_LEARN_TAG}
 docker pull projectodd/kafka:${PROJECTODD_LEARN_TAG}
 docker pull projectodd/zookeeper:${PROJECTODD_LEARN_TAG}
+
+# leave both in for now until the learn template gets merged
+# the scenarios can reference /opt/openwhisk-template in the meantime
+curl -o /opt/openwhisk-template https://raw.githubusercontent.com/projectodd/openwhisk-openshift/master/template.yml
+curl -o /opt/openwhisk-learn-template https://raw.githubusercontent.com/projectodd/openwhisk-openshift/master/learn-template.yml
