@@ -18,6 +18,9 @@
     },
     "details": {
         "steps": [{
+          "title": "Introduction",
+          "text": "01-introduction.md"
+        },{
             "title": "Creating an Application",
             "text": "01-creating-an-application.md"
         }, {

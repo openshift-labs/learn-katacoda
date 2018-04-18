@@ -1,3 +1,4 @@
+We start by listing all the possible components availbale ATM
 
 `odo catalog list`{{execute}}
 
@@ -12,19 +13,17 @@ The following components can be deployed:
 - wildfly
 ```
 
+Then we switch to backend source code repo
+
 `cd ~/backend`{{execute}}
 
-In case we go from source code
+create the component
 
 `odo create wildfly backend`{{execute}}
 
+and push the source code
+
 `odo push`{{execute}}
-
-on case we want o show binary deployment (**which is not yet implemented, so not usable ATM**)
-
-`mvn package`{{execute}}
-
-`odo create wildfly backend --binary=target/backend-1.war`{{execute}}
 
 You will see
 
@@ -47,3 +46,11 @@ will report there is one component
 You have deployed:
 backend using the wildfly component
 ``
+
+------ Below is not used ATM ------
+
+in case we want o show binary deployment (**which is not yet implemented, so not usable ATM**)
+
+`mvn package`{{execute}}
+
+`odo create wildfly backend --binary=target/backend-1.war`{{execute}}

@@ -1,4 +1,4 @@
-First we start the `odo` tool to watch our changes
+First we start the `odo` tool to watch for changes on the file system
 
 `odo watch &`{{execute}}
 
