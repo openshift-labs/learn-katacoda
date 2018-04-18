@@ -11,6 +11,13 @@ oc adm policy add-role-to-user admin developer -n faas
 
 oc process -f https://git.io/openwhisk-template | oc create -f -
 
+git clone https://github.com/apache/incubator-openwhisk-devtools /tmp/openwhisk-devtools
+
+cd /tmp/openwhisk-devtools/java-action-archetype \
+    && mvn -DskipTests clean install  \
+    && cd  \
+    && rm -rf /tmp/openwhisk-devtools
+
 while [ -z "`oc logs controller-0 -n faas 2>&1 | grep "invoker status changed"`" ]
 do
     echo "Waiting for OpenWhisk to finish initializing (`date`)"
