@@ -1,15 +1,15 @@
-Edit the file `views/index.erb`
+First we start the `odo` tool to watch our changes
 
-`sed -i "s/<h1 class=\"text-center\">/<h1 class=\"text-center\">Counter: /"l>$ cat views/index.erb`{{execute}}
+`odo watch &`{{execute}}
 
-and check the changes
+it will be started in background so we can keep using this terminal window
 
-`git diff`
+now, edit the file `index.php`
 
-and you will we have added the text `Counter: ` into the file.
+`sed -i "s/<h1 class=\"text-center\">/<h1 class=\"text-center\">Counter: /" index.php`{{execute}}
 
-Now, let's deploy the code into our app
+and wait a second, as we do just a very small change in a super-virtual environemnt there is a delay 
+for `odo` to pick up the change.
+However, one it sees the file changed, it will automatically push the changes to the container.
 
-`odo push`{{execute}}
-
-And once the command finishes, check the page with your counter to see the changes.
+Now you we can reload the page and there is going to be the text `Counter: `.

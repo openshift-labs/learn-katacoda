@@ -18,6 +18,8 @@ In case we go from source code
 
 `odo create wildfly backend`{{execute}}
 
+`odo push`{{execute}}
+
 on case we want o show binary deployment (**which is not yet implemented, so not usable ATM**)
 
 `mvn package`{{execute}}

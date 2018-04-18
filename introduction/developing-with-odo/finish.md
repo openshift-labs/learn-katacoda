@@ -6,7 +6,7 @@ As the goal of this tutorial was to introduce you to what we believe `odo` shoul
 feedback. We are curious to know if you liked what we plan or if the direction `odo` is driven to is not right. To do
 so we have prepared quick for that is hosted here, as part of your frontend application.
 
-**https://frontend-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com**.
+**https://frontend-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/form.php**.
 
 ## What's next?
 
