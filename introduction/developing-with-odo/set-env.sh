@@ -43,4 +43,6 @@ oc create -f tmp.json
 rm -rf tmp.json
 done
 
+oc project myproject
+
 exec /bin/bash
