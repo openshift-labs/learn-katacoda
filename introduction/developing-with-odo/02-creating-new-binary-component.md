@@ -1,5 +1,5 @@
 
-`ocdev catalog list`{{execute}}
+`odo catalog list`{{execute}}
 
 ```
 The following components can be deployed:
@@ -16,13 +16,13 @@ The following components can be deployed:
 
 In case we go from source code
 
-`ocdev create wildfly backend`{{execute}}
+`odo create wildfly backend`{{execute}}
 
 on case we want o show binary deployment (**which is not yet implemented, so not usable ATM**)
 
 `mvn package`{{execute}}
 
-`ocdev create wildfly backend --binary=target/backend-1.war`{{execute}}
+`odo create wildfly backend --binary=target/backend-1.war`{{execute}}
 
 You will see
 
@@ -37,7 +37,7 @@ finished it will show the build log and should end with
 Push successful
 ``
 
-`ocdev list`{{execute}}
+`odo list`{{execute}}
 
 will report there is one component
 

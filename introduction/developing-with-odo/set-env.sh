@@ -1,10 +1,10 @@
 ~/.launch.sh
 
-export ODO_VERSION="0.0.3"
+export ODO_VERSION="0.0.5"
 
-curl -k -L "https://dl.bintray.com/ocdev/ocdev/latest/linux-amd64/ocdev" > /usr/local/bin/ocdev; chmod +x /usr/local/bin/ocdev
-#curl -k -L "https://github.com/redhat-developer/ocdev/releases/download/v${ODO_VERSION}/ocdev-linux-amd64.gz" | gzip -d > /usr/local/bin/ocdev; chmod +x /usr/local/bin/ocdev
-echo 'source <(ocdev completion bash)' >> .bashrc
+curl -k -L "https://dl.bintray.com/odo/odo/latest/linux-amd64/odo" > /usr/local/bin/odo; chmod +x /usr/local/bin/odo
+#curl -k -L "https://github.com/redhat-developer/odo/releases/download/v${ODO_VERSION}/odo-linux-amd64.gz" | gzip -d > /usr/local/bin/odo; chmod +x /usr/local/bin/odo
+echo 'source <(odo completion bash)' >> .bashrc
 
 yum install -y maven bash-completion
 
@@ -43,6 +43,6 @@ oc create -f tmp.json
 rm -rf tmp.json
 done
 
-oc project myproject
+oc new-project myproject
 
 exec /bin/bash

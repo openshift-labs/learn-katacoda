@@ -10,6 +10,6 @@ and you will we have added the text `Counter: ` into the file.
 
 Now, let's deploy the code into our app
 
-`ocdev push`{{execute}}
+`odo push`{{execute}}
 
 And once the command finishes, check the page with your counter to see the changes.

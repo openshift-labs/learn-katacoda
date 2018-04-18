@@ -1,2 +1,2 @@
 
-`ocdev storage add backend --path=/data --size=1G`{{execute}}
+`odo storage add backend --path=/data --size=1G`{{execute}}

@@ -1,5 +1,5 @@
 
-`ocdev link frontend backend`{{execute}}
+`odo link frontend backend`{{execute}}
 
 defines two environment variables for the frontend application
 

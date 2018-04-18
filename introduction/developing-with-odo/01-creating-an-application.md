@@ -1,2 +1,2 @@
 
-`ocdev application create sample`{{execute}}
+`odo application create sample`{{execute}}

@@ -1,1 +1,1 @@
-`ocdev url create frontend`{{execute}}
+`odo url create frontend`{{execute}}
