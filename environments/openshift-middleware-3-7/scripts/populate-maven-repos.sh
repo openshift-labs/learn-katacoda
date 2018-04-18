@@ -237,3 +237,9 @@ done
 popd > /dev/null
 echo - DONE | tee -a $SCRIPT_LOG
 
+git clone https://github.com/apache/incubator-openwhisk-devtools /tmp/openwhisk-devtools
+
+cd /tmp/openwhisk-devtools/java-action-archetype \
+    && mvn -DskipTests clean install  \
+    && cd  \
+    && rm -rf /tmp/openwhisk-devtools
