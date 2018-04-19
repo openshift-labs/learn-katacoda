@@ -30,7 +30,7 @@
       "pathway_id": "openshift/middleware",
       "course_id": "debezium-getting-started",
       "id": "debezium-getting-started",
-      "title": "Debezium deployment"
+      "title": "Getting Started with Debezium"
     },
     {
       "pathway_id": "openshift/servicemesh",

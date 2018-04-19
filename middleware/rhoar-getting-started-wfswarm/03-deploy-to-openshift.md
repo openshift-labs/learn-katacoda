@@ -30,12 +30,12 @@ This sample project includes a simple UI that allows you to access the Greeting 
 [route URL](http://healthcheck-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 to access the sample UI.
 
-> You can also access the application through the link on the OpenShift Web Console Overview page. ![Overview link](../../assets/middleware/rhoar-getting-started-wfswarm/routelink.png)
+> You can also access the application through the link on the OpenShift Web Console Overview page. ![Overview link](/openshift/assets/middleware/rhoar-getting-started-wfswarm/routelink.png)
 
 Enter a name in the 'Name' field and click **Invoke** to test out the service. You should see a greeting returned in the
 result window:
 
-![Greeting](../../assets/middleware/rhoar-getting-started-wfswarm/greeting.png)
+![Greeting](/openshift/assets/middleware/rhoar-getting-started-wfswarm/greeting.png)
 
 Now click on **Stop Service**. This will invoke the `/api/stop` endpoint to disable the service. Once the service
 is killed, further attempts to invoke the service will fail with `503 Service Unavailable` yet OpenShift does not
@@ -43,17 +43,16 @@ know that the service is disabled. To verify this, return to the OpenShift Web C
 your new project.
 
 From the Overview page, navigate to _Applications->Deployments_ and then click on the numbered link below _Last Version_
-to see details on the currently deployed application. 
+to see details on the currently deployed application.
 
-![Deployments Details](../../assets/middleware/rhoar-getting-started-wfswarm/deployments.png)
+![Deployments Details](/openshift/assets/middleware/rhoar-getting-started-wfswarm/deployments.png)
 
 Notice OpenShift is warning you that the application has no health checks:
 
-![Health Check Warning](../../assets/middleware/rhoar-getting-started-wfswarm/warning.png)
+![Health Check Warning](/openshift/assets/middleware/rhoar-getting-started-wfswarm/warning.png)
 
 In the next steps you will enhance OpenShift's ability to manage the application lifecycle by implementing
 a _health check pattern_. By default, without health checks (or health _probes_) OpenShift considers services
 to be ready to accept service requests even before the application is truly ready or if the application is hung
 or otherwise unable to service requests. OpenShift must be _taught_ how to recognize that our app is alive and ready
-to accept requests. 
-
+to accept requests.

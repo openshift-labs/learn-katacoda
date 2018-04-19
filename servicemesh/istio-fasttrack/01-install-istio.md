@@ -49,7 +49,7 @@ The _control plane_ is responsible for managing and configuring proxies to route
 
 The following diagram shows the different components that make up each plane:
 
-![Istio Arch](../../assets/middleware/resilient-apps/arch.png)
+![Istio Arch](/openshift/assets/middleware/resilient-apps/arch.png)
 
 #### Istio Components
 

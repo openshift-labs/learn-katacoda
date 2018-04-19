@@ -69,7 +69,7 @@ and reload the bookinfo web page.
 
 You will see and feel that the webpage loads in about 6 seconds:
 
-![Delay](../../assets/middleware/resilient-apps/testuser-delay.png)
+![Delay](/openshift/assets/middleware/resilient-apps/testuser-delay.png)
 
 The reviews section will show: **Sorry, product reviews are currently unavailable for this book**:
 
@@ -90,4 +90,3 @@ and then confirm that the `productpage` returns its response without any errors.
 
 However, we already have this fix running in `v3` of the reviews service, so we can simply fix the
 problem by migrating all traffic to `reviews:v3`. We'll do this in the next step!
-

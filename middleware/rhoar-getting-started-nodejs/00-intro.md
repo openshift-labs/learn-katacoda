@@ -7,9 +7,9 @@ You will take an existing sample Node.js application and modify it to address mi
 understand its structure, deploy it to OpenShift and exercise the interfaces between Node.js apps,
 microservices, and OpenShift/Kubernetes.
 
-## What is Node.js? 
+## What is Node.js?
 
-![Logo](../../assets/middleware/rhoar-getting-started-nodejs/logo.png)
+![Logo](/openshift/assets/middleware/rhoar-getting-started-nodejs/logo.png)
 
 Node.js is based on the [V8 JavaScript engine](https://developers.google.com/v8/) from Google and allows you to write server-side JavaScript
 applications. It provides an I/O model based on events and non-blocking operations that enables you to
@@ -22,4 +22,3 @@ the advantages and conveniences of the OpenShift platform such as rolling update
 pipelines, service discovery, and canary deployments. OpenShift also makes it easier for your applications
 to implement common microservice patterns such as externalized configuration, health check, circuit
 breaker, and failover.
-

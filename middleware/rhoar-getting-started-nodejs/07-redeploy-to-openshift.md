@@ -13,7 +13,7 @@ To verify that everything is started, run the following command and wait for it 
 Once the application is re-deployed, re-visit the sample UI by clicking the
 [application link](http://nodejs-configmap-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
-> You can also access the application through the link on the OpenShift Web Console Overview page. ![Overview link](../../assets/middleware/rhoar-getting-started-nodejs/overview-link.png)
+> You can also access the application through the link on the OpenShift Web Console Overview page. ![Overview link](/openshift/assets/middleware/rhoar-getting-started-nodejs/overview-link.png)
 
 The application will now read the ConfigMap values and use them in place of the hard-coded default.
 
@@ -23,7 +23,7 @@ Enter a name in the 'Name' field and click **Invoke** to test out the service. Y
 now see the updated message `Hello, [name] from a ConfigMap !` indicating that the application
 successfully accessed the ConfigMap and used its value for the message.
 
-![New message](../../assets/middleware/rhoar-getting-started-nodejs/new-message.png)
+![New message](/openshift/assets/middleware/rhoar-getting-started-nodejs/new-message.png)
 
 In the final step, we'll modify the ConfigMap and verify that the application successfully
 picks up the changes automatically.

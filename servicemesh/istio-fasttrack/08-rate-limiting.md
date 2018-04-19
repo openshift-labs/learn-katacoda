@@ -37,12 +37,12 @@ the `ratings` service is subject to a 1qps rate limit. Verify this with Grafana:
 Scroll down to the `ratings` service and observe that you are seeing that some of the requests sent
 from `reviews:v3` service to the `ratings` service are returning HTTP Code 429 (Too Many Requests).
 
-![5xxs](../../assets/middleware/resilient-apps/ratings-overload.png)
+![5xxs](/openshift/assets/middleware/resilient-apps/ratings-overload.png)
 
 In addition, at the top of the dashboard, the '4xxs' report shows an increase in 4xx HTTP codes. We are being
 rate-limited to 1 query per second:
 
-![5xxs](../../assets/middleware/resilient-apps/ratings-4xxs.png)
+![5xxs](/openshift/assets/middleware/resilient-apps/ratings-4xxs.png)
 
 
 ## Inspect the rule
@@ -83,7 +83,7 @@ Verify that the rate limit is no longer in effect. Open the dashboard:
 
 Notice at the top that the `4xx`s dropped back down to zero.
 
-![5xxs](../../assets/middleware/resilient-apps/ratings-4xxs-gone.png)
+![5xxs](/openshift/assets/middleware/resilient-apps/ratings-4xxs-gone.png)
 
 ## Congratulations!
 

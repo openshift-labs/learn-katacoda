@@ -1,4 +1,4 @@
-The sample project shows the components of a Node.js project using Node.js and NPM best practices. 
+The sample project shows the components of a Node.js project using Node.js and NPM best practices.
 
 The app implements a simple RESTful microservice which implements a greeting service (that simply returns a
 Hello greeting).
@@ -8,7 +8,7 @@ Hello greeting).
 Click the links below to open each file and inspect its contents:
 
 * `package.json`{{open}} - Metadata about the project: name, version, dependencies, and other information needed to build and maintain the project.
-* `app.js`{{open}} - Main logic of the sample application defining REST endpoints and application runtime configuration. 
+* `app.js`{{open}} - Main logic of the sample application defining REST endpoints and application runtime configuration.
 * `app-config.yml`{{open}} - Content used to initially populate the OpenShift ConfigMap, which the sample app will access at runtime.
 * `public/index.html`{{open}} - Simple web UI to access the greeting service.
 
@@ -29,7 +29,7 @@ It will take a few seconds to download, and you should see a final report such a
 
 **3. Run the application**
 
-Before we add code to the project you should build and test that current application starts as it should. 
+Before we add code to the project you should build and test that current application starts as it should.
 
 Since this is a working application, run the application locally using `npm`:
 
@@ -46,16 +46,16 @@ At this stage the application doesn't really do anything but after a while you w
 
 To begin, click on the **Local Web Browser** tab in the console frame of this browser window. This will open the another tab or window of your browser pointing to port 8080 on your client.
 
-![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-nodejs/web-browser-tab.png)
+![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-nodejs/web-browser-tab.png)
 
 You should now see a html page that looks like this
 
-![App](../../assets/middleware/rhoar-getting-started-nodejs/app.png)
+![App](/openshift/assets/middleware/rhoar-getting-started-nodejs/app.png)
 
 This indicates that the app started up correctly. Type in your name into the Name field and click **Invoke**. The default
 hard-coded greeting is returned.
 
-![Hardcode](../../assets/middleware/rhoar-getting-started-nodejs/hardcode.png)
+![Hardcode](/openshift/assets/middleware/rhoar-getting-started-nodejs/hardcode.png)
 
 **4. Stop the application**
 
@@ -63,9 +63,8 @@ Before moving on, click in the terminal window and then press CTRL-C to stop the
 
 ## Congratulations
 
-You have now successfully executed the first step in this scenario. 
+You have now successfully executed the first step in this scenario.
 
 Now you've seen how you with a few lines of code one can create a simple RESTful HTTP Server capable of serving static content using Node.js.
 
 In next step of this scenario we will deploy our application to OpenShift Container Platform.
-

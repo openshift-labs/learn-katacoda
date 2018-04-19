@@ -1,5 +1,5 @@
 As we transition our applications towards a distributed architecture with microservices deployed across a distributed
-network, Many new challenges await us. 
+network, Many new challenges await us.
 
 Technologies like containers and container orchestration platforms like OpenShift solve the deployment of our distributed
 applications quite well, but are still catching up to addressing the service communication necessary to fully take advantage
@@ -26,7 +26,7 @@ a much more robust, reliable, and resilient application in the face of the new w
 
 ## What is Istio?
 
-![Logo](../../assets/middleware/resilient-apps/istio-logo.png)
+![Logo](/openshift/assets/middleware/resilient-apps/istio-logo.png)
 
 Istio is an open, platform-independent service mesh designed to manage communications between microservices and
 applications in a transparent way.It provides behavioral insights and operational control over the service mesh

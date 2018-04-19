@@ -22,7 +22,7 @@ There are 3 versions of the reviews microservice:
 
 The end-to-end architecture of the application is shown below.
 
-![Bookinfo Architecture](../../assets/middleware/resilient-apps/istio_bookinfo.png)
+![Bookinfo Architecture](/openshift/assets/middleware/resilient-apps/istio_bookinfo.png)
 
 ## Install Bookinfo
 
@@ -55,15 +55,15 @@ Open the application in your browser to make sure it's working:
 
 It should look something like:
 
-![Bookinfo App](../../assets/middleware/resilient-apps/bookinfo.png)
+![Bookinfo App](/openshift/assets/middleware/resilient-apps/bookinfo.png)
 
 Reload the page multiple times. The three different versions of the Reviews service
 show the star ratings differently - `v1` shows no stars at all, `v2` shows black stars,
 and `v3` shows red stars:
 
-* `v1`: ![no stars](../../assets/middleware/resilient-apps/stars-none.png)
-* `v2`: ![black stars](../../assets/middleware/resilient-apps/stars-black.png)
-* `v3`: ![red stars](../../assets/middleware/resilient-apps/stars-red.png)
+* `v1`: ![no stars](/openshift/assets/middleware/resilient-apps/stars-none.png)
+* `v2`: ![black stars](/openshift/assets/middleware/resilient-apps/stars-black.png)
+* `v3`: ![red stars](/openshift/assets/middleware/resilient-apps/stars-red.png)
 
 That's because there are 3 versions of reviews deployment for our reviews service. Istio’s
 load-balancer is using a _round-robin_ algorithm to iterate through the 3 instances of this service.
@@ -85,5 +85,3 @@ sidecar).
 
 Now that we have our application deployed and linked into the Istio service mesh, let's take a look at the
 immediate value we can get out of it without touching the application code itself!
-
-

@@ -1,5 +1,5 @@
 # Add health check
-One limitation of our current application is that we do not provide an away for OpenShift to correctly monitoring it. Optimally we should probably add a specific health check route so please check out the [health check mission](https://access.redhat.com/documentation/en-us/red_hat_openshift_application_runtimes/1/html/eclipse_vert.x_runtime_guide/missions-intro#mission-health-check-vertx) , but for the moment we will add a simple call to '/', just to check that the Vert.x instance is alive and responding. 
+One limitation of our current application is that we do not provide an away for OpenShift to correctly monitoring it. Optimally we should probably add a specific health check route so please check out the [health check mission](https://access.redhat.com/documentation/en-us/red_hat_openshift_application_runtimes/1/html/eclipse_vert.x_runtime_guide/missions-intro#mission-health-check-vertx) , but for the moment we will add a simple call to '/', just to check that the Vert.x instance is alive and responding.
 
 ## Health check warning
 
@@ -7,7 +7,7 @@ Open the [OpenShift webconsole Deployment config page](https://[[HOST_SUBDOMAIN]
 
 You will then see the following warning
 
-![Health Check Warning](../../assets/middleware/rhoar-getting-started-vertx/health-check-warning.png)
+![Health Check Warning](/openshift/assets/middleware/rhoar-getting-started-vertx/health-check-warning.png)
 
 This is just a warning, and your container might be working 100% correctly, but without a proper health-check configured there is no way for OpenShift to tell if the application is responding correctly or not.  
 
@@ -33,7 +33,7 @@ Redeploy the application by running the fabric8:deploy goal again.
 
 ``mvn fabric8:deploy -Popenshift``{{execute}}
 
-Wait for the rollout to finish. 
+Wait for the rollout to finish.
 
 ``oc rollout status dc/http-vertx``{{execute}}
 
@@ -45,7 +45,7 @@ Below is a rather complex command that does several steps in one. After the comm
 
 ``oc rsh $(oc get pods -o name | grep http-vertx | grep -v build) pkill java && oc get pods -w``{{execute}}
 
-`oc get pods -o name | grep http-vertx | grep -v build` will return the name of the running pod, which is different each time. 
+`oc get pods -o name | grep http-vertx | grep -v build` will return the name of the running pod, which is different each time.
 
 `oc rsh <pod> pkill java` stops the application.
 

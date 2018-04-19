@@ -1,6 +1,6 @@
-The sample project shows the components of 
-a WildFly Swarm project laid out in different subdirectories according to Maven best 
-practices. 
+The sample project shows the components of
+a WildFly Swarm project laid out in different subdirectories according to Maven best
+practices.
 
 **1. Run the following command to examine the Maven project structure.**
 
@@ -14,7 +14,7 @@ Click the links below to open each file and inspect its contents:
 * `pom.xml`{{open}} - Maven project file describing how to build the project
 * `src/main/java/com/example/ApplicationConfig.java`{{open}} - Declares the RESTful resource base path and a simple switch to toggle the application's ability to serve requests
 * `src/main/java/com/example/Greeting.java`{{open}} - POJO containing a message to send as a greeting
-* `src/main/java/com/example/GreetingResource.java`{{open}} -  Definition of the `/greeting` and `/stop` RESTful endpoints. 
+* `src/main/java/com/example/GreetingResource.java`{{open}} -  Definition of the `/greeting` and `/stop` RESTful endpoints.
 
 Review the content a bit and notice that there are some comments in the code. Do not remove them! The comments are used as marker and without them you will not be able finish the scenario.
 
@@ -25,7 +25,7 @@ later to simulate failure.
 
 **2. Compile and run the application**
 
-Before we add code to the project you should build and test that current application starts as it should. 
+Before we add code to the project you should build and test that current application starts as it should.
 
 Since this is already a working application you can already without any code changes run the application locally directly from `maven` using `wildfly-swarm:run` as the goal
 
@@ -43,13 +43,13 @@ INFO  [org.wildfly.swarm] (main) WFSWARM99999: WildFly Swarm is Ready
 
 To begin, click on the **Local Web Browser** tab in the console frame of this browser window. This will open another tab or window of your browser pointing to port 8080 on your client.
 
-![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-wfswarm/web-browser-tab.png)
+![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-wfswarm/web-browser-tab.png)
 
 > or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
 You should now see a html page that looks like this
 
-![App](../../assets/middleware/rhoar-getting-started-wfswarm/app.png)
+![App](/openshift/assets/middleware/rhoar-getting-started-wfswarm/app.png)
 
 **4. Stop the application**
 
@@ -65,9 +65,8 @@ This indicates the application is stopped.
 
 ## Congratulations
 
-You have now successfully executed the first step in this scenario. 
+You have now successfully executed the first step in this scenario.
 
 Now you've seen how you with a few lines of code one can create a simple RESTful HTTP Server capable of serving static content using WildFly Swarm.
 
 In next step of this scenario we will deploy our application to OpenShift Container Platform.
-

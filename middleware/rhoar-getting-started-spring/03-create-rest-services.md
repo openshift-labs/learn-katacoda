@@ -61,17 +61,17 @@ Run the application by executing the below command:
 
 ``mvn spring-boot:run -DskipTests``{{execute}}
 
->**NOTE:** We skip the tests to speed up the start and since we do not have any tests for the REST service. Please note that the `spring-boot-crud-booster` [here](https://github.com/snowdrop/spring-boot-crud-booster) has test cases for REST, please review them if interested. 
+>**NOTE:** We skip the tests to speed up the start and since we do not have any tests for the REST service. Please note that the `spring-boot-crud-booster` [here](https://github.com/snowdrop/spring-boot-crud-booster) has test cases for REST, please review them if interested.
 
 In the interest of time, we will skip creating test cases for the service and instead test it directly in our web browser.
 
 When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
-![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
+![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
 
 If everything works the web page should look something like this:
 
-![Fruit List](../../assets/middleware/rhoar-getting-started-spring/fruit-list.png)
+![Fruit List](/openshift/assets/middleware/rhoar-getting-started-spring/fruit-list.png)
 
 Press **CTRL+C** to stop the application.
 
@@ -144,10 +144,10 @@ Now that we have implemented all the services we are now able to see fruits on t
 
 When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
-![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
+![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
 
 ## Congratulations
 
-You have now learned how to how to create REST Services that access a database. 
+You have now learned how to how to create REST Services that access a database.
 
-In next step of this scenario, you will learn how to access and login to your openshift environment. 
+In next step of this scenario, you will learn how to access and login to your openshift environment.

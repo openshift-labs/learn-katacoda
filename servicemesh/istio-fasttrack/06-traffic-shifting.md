@@ -13,7 +13,7 @@ At this point, we are back to sending all traffic to `reviews:v1`. [Access the a
 and verify that no matter how many times you reload your browser, you'll always get no ratings stars, since
 `reviews:v1` doesn't ever access the `ratings` service:
 
-![no stars](../../assets/middleware/resilient-apps/stars-none.png)
+![no stars](/openshift/assets/middleware/resilient-apps/stars-none.png)
 
 Open the Grafana dashboard and verify that the ratings service is receiving no traffic at all:
 
@@ -22,14 +22,14 @@ Open the Grafana dashboard and verify that the ratings service is receiving no t
 Scroll down to the `reviews` service and observe that all traffic from `productpage` to to `reviews:v2` and
 `reviews:v3` have stopped, and that only `reviews:v1` is receiving requests:
 
-![no traffic](../../assets/middleware/resilient-apps/ratings-no-traffic.png)
+![no traffic](/openshift/assets/middleware/resilient-apps/ratings-no-traffic.png)
 
 In Grafana you can click on each service version below each graph to only show one graph at a time. Try it by
 clicking on `productpage.istio-system-v1 -> v1 : 200`. This shows a graph of all requests coming from
 `productpage` to `reviews` version `v1` that returned HTTP 200 (Success). You can then click on
 `productpage.istio-system-v1 -> v2 : 200` to verify no traffic is being sent to `reviews:v2`:
 
-![no traffic 2](../../assets/middleware/resilient-apps/ratings-no-traffic-v2.png)
+![no traffic 2](/openshift/assets/middleware/resilient-apps/ratings-no-traffic-v2.png)
 
 ## Migrate users to v3
 
@@ -61,7 +61,7 @@ Open the Grafana dashboard and verify this:
 Scroll down to the `reviews` service and observe that half the traffic goes to each of `v1` and `v3` and none goes
 to `v2`:
 
-![half traffic](../../assets/middleware/resilient-apps/reviews-v1-v3-half.png)
+![half traffic](/openshift/assets/middleware/resilient-apps/reviews-v1-v3-half.png)
 
 
 At this point, we see some traffic going to `v3` and are happy with the result. [Access the application](http://istio-ingress-istio-system.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/productpage)
@@ -77,7 +77,7 @@ Once again, open the Grafana dashboard and verify this:
 
 Scroll down to the `reviews` service and observe that all traffic is now going to `v3`:
 
-![all v3 traffic](../../assets/middleware/resilient-apps/reviews-v3-all.png)
+![all v3 traffic](/openshift/assets/middleware/resilient-apps/reviews-v3-all.png)
 
 Also, [Access the application](http://istio-ingress-istio-system.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/productpage)
 and verify that you always get _red_ ratings stars (`v3`).
