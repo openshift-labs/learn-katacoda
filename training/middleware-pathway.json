@@ -49,7 +49,7 @@
       "course_id": "debezium-getting-started",
       "id": "debezium-getting-started",
       "title": "Debezium deployment"
-    }
+    },
     {
       "pathway_id": "openshift/servicemesh",
       "course_id": "istio-fasttrack",
