@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 DEBEZIUM_TAG=0.7
-STRIMZI_VERSION=0.2.0
+STRIMZI_VERSION=0.3.0
 
 # Get Strimzi
 git clone -b $STRIMZI_VERSION https://github.com/strimzi/strimzi

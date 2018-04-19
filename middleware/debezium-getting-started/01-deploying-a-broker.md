@@ -1,5 +1,5 @@
 A fresh project named `debezium` is prepared with necessary resources required to execute deployment.
-There are multiple resources created for you in the home directoory, the project itself or configured in OpenShift
+There are multiple resources created for you in the home directory, the project itself or configured in OpenShift
 * a cloned [repository](https://github.com/strimzi/strimzi) of [Strimzi](http://strimzi.io) project
 * Strimzi Cluster Controller managing Kafka brokers
 * MySQL instance containing a small set of data to be streamed
@@ -30,7 +30,7 @@ The first component to deploy is a Kafka broker.
 
 ![Broker deployment](../../assets/middleware/debezium-getting-started/deployment-step-1.png)
 
-This task is delegated to [templates](https://github.com/strimzi/strimzi/tree/0.2.0/examples/templates/cluster-controller) and Cluster Controller provided by [Strimzi](http://strimzi.io/) project.
+This task is delegated to [templates](https://github.com/strimzi/strimzi/tree/0.3.0/examples/templates/cluster-controller) and Cluster Controller provided by [Strimzi](http://strimzi.io/) project.
 The templates are already present in the home directory in the cloned repository.
 
 The templates by default deploy Kafka broker and ZooKeeper in a high-available configuration with replication factor `3`.
