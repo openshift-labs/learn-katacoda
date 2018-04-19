@@ -4,12 +4,6 @@
   "courses": [
     {
       "pathway_id": "openshift/middleware",
-      "course_id": "fis-deploy-app",
-      "id": "fis-deploy-app",
-      "title": "OpenShift for Fuse Developers"
-    },
-    {
-      "pathway_id": "openshift/middleware",
       "course_id": "rhoar-getting-started-vertx",
       "id": "rhoar-getting-started-vertx",
       "title": "Eclipse Vert.x development"
@@ -31,18 +25,6 @@
       "course_id": "rhoar-getting-started-nodejs",
       "id": "rhoar-getting-started-nodejs",
       "title": "Node.js development"
-    },
-    {
-      "pathway_id": "openshift/middleware",
-      "course_id": "brms-loan-application",
-      "id": "brms-loan-application",
-      "title": "JBoss BRMS Loan Application demo"
-    },
-    {
-      "pathway_id": "openshift/middleware",
-      "course_id": "java-batch-processing",
-      "id": "java-batch-processing",
-      "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret"
     },
     {
       "pathway_id": "openshift/middleware",
