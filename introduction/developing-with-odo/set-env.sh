@@ -6,7 +6,7 @@ curl -k -L "https://dl.bintray.com/odo/odo/latest/linux-amd64/odo" > /usr/local/
 #curl -k -L "https://github.com/redhat-developer/odo/releases/download/v${ODO_VERSION}/odo-linux-amd64.gz" | gzip -d > /usr/local/bin/odo; chmod +x /usr/local/bin/odo
 echo 'source <(odo completion bash)' >> .bashrc
 
-yum install -y maven bash-completion
+yum install -y bash-completion
 
 git clone https://github.com/marekjelen/katacoda-odo-backend.git backend
 git clone https://github.com/marekjelen/katacoda-odo-frontend.git frontend
