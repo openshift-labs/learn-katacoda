@@ -4,4 +4,4 @@ Then we create an application
 
 and we list it
 
-`odo appplication list`{{execute}}
+`odo application list`{{execute}}
