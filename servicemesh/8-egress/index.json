@@ -15,6 +15,7 @@
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
   },
   "backend": {
+    "trainingid": "openshift-middleware-3-7", 
     "imageid": "openshift-middleware-3-7", "port": 8443
   },
   "details": {
@@ -22,7 +23,7 @@
       "text": "intro.md",
       "credits": "http://developers.redhat.com",
       "code": "set-env.sh",
-      "courseData": "run-init.sh"      
+      "courseData": "run-init.sh"
     },
     "steps": [
         { "title": "Create HTTPBin Java App", "text": "1egress-httbin.md" },
