@@ -1,4 +1,4 @@
-We start by listing all the possible components availbale ATM
+Working inside our `sample` application, we discover the components available on the cluster, referred to as the component or software *Catalog*, by listing the Catalog with odo:
 
 `odo catalog list`{{execute}}
 
@@ -13,21 +13,20 @@ The following components can be deployed:
 - wildfly
 ```
 
-Then we switch to backend source code repo
+In the command line environment, source code is already available for a simple Java backend for our sample application. Change directories into the source directory, `backend`:
 
 `cd ~/backend`{{execute}}
 
-there is a simple Java application, we need to build it to get the deployment
-artifact `ROOT.war`
+Build the `backend` source file with Maven to create the deployment artifact `ROOT.war`:
 
 `mvn package`{{execute}}
 
-Now, let's create the component
+With the backend's `.war` file built, we can use odo to deploy and run it atop a WildFly app server:
 
 `odo create wildfly backend --binary=target/ROOT.war`{{execute}}
 
-You will see no output while the platform is deploying your artifact, but
-eventually you will see
+You will see no output while the platform deploys your artifact, but
+eventually when the container create, push, and deploy steps are complete, output like the following will be displayed:
 
 ``
 Receiving source from STDIN as file ROOT.war
@@ -44,11 +43,7 @@ Pushed 0/12 layers, 2% complete
 Pushed 1/12 layers, 25% complete
 Pushed 2/12 layers, 17% complete
 Pushed 3/12 layers, 26% complete
-Pushed 4/12 layers, 34% complete
-Pushed 5/12 layers, 42% complete
-Pushed 6/12 layers, 51% complete
-Pushed 7/12 layers, 59% complete
-Pushed 8/12 layers, 68% complete
+[...]
 Pushed 9/12 layers, 90% complete
 Pushed 10/12 layers, 97% complete
 Pushed 11/12 layers, 98% complete
@@ -59,13 +54,13 @@ Component 'backend' was created.
 Component 'backend' is now set as active component.
 ``
 
-which means the application is successfully deployed in OpenShift.
+This means the application is successfully deployed on OpenShift. With a single `odo create` command, OpenShift has built our backend component's `.war` file into a container along with the WildFly server needed to run it. That container is then pushed into OpenShift's built-in container registry. From there, the container is deployed into a Pod on the OpenShift cluster.
 
-Not, let's verify by running
+Let's verify that by running:
 
 `odo list`{{execute}}
 
-which will report there is one component
+which should report one component, named `backend`:
 
 ``
 ACTIVE     NAME        TYPE

@@ -1,4 +1,4 @@
-In this self paced tutorial you will learn how to use the OpenShift Container Platform to build and deploy applications using the `odo` command line tool.
+In this self paced tutorial you will learn how to use the OpenShift Container Platform to build and deploy applications using the `odo` developer command line tool.
 
 ## Let's get started
 
@@ -12,22 +12,26 @@ In this tutorial we focus on the command line interface using the `odo` tool, ho
 
 ### Regular Command Line Interface
 
-The regular command line tool that we will be using as part of this training is called the *oc* tool.  This tool is written in the Go programming language and is a single executable that is provided for Windows, OS X, and the Linux Operating Systems.
+The regular command line tool that we will be using as part of this training is called *oc*.  *Oc* is written in the Go programming language and is a single executable provided for Windows, MacOS, and Linux operating systems.
+
+### Developer-Centric Command Line Interface
+
+This lesson introduces an additional command line tool, *odo*, that helps developers model applications in familiar ways while deploying them on OpenShift.
 
 ### Web Console
 
-OpenShift also provides a feature rich Web Console that provides a friendly graphical interface for interacting with the platform.
+OpenShift also provides a feature-rich Web Console with a friendly graphical interface for deploying and managing applications on the cluster.
 
 ### REST API
 
-Both the command line tool and the web console actually communicate to OpenShift via the same method, the REST API.  Having a robust API allows users to create their own scripts and automation depending on their specific requirements.  For detailed information about the REST API, check out the official documentation at: https://docs.openshift.org/latest/rest_api/index.html
+Both the command line tool and the web console communicate with OpenShift through the same REST API. Having a robust API allows users to create their own scripts and other automation depending on their specific requirements.  For detailed information about the REST API, check out the official documentation at: https://docs.openshift.org/latest/rest_api/index.html
 
-During this training, you will be using both the command line tool and the web console.  However, it should be noted that there are plugins for several integrated development environments as well.  For example, to use OpenShift from the Eclipse IDE, you would want to use the official [https://tools.jboss.org/features/openshift.html](JBoss Tools) plugin.
+During this training, you will be using both the command line tools and the web console.  However, it should be noted that there are plugins for several integrated development environments as well.  For example, to use OpenShift from the Eclipse IDE, you could use the official [https://tools.jboss.org/features/openshift.html](JBoss Tools) plugin.
 
 ### The Environment
 
 During this training course you will be using a hosted OpenShift environment that is created just for you.  This environment is not shared with other users of the system.  Because each user taking this training has their own environment, we had to make some concessions to ensure the overall platform is stable and used only for this training.  For that reason, your environment will only be active for a one hour period.  Keep this in mind before embarking on getting through the content.  Each time you start this training, a new environment will be created on the fly.
- 
-The OpenShift environment that has been created for you is running the latest version of our open source project called OpenShift Origin.  This deployment is a self contained environment that provides everything you need to be successful in learning the platform.  This includes such things as the command line, web console, public URLs and sample applications.
 
-With that being said, grab your favorite choice of beverage and let's do this!
+The OpenShift environment created for you is running the latest version of the open source OpenShift Origin. This deployment is a self-contained environment that provides everything you need to be successful learning the platform. This includes a command line environment, the OpenShift web console, public URLs, and sample applications.
+
+So grab your favorite beverage and let's do this!

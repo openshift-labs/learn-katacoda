@@ -1,24 +1,24 @@
-then deploy the frontend app
-
-switch to the repository
+With the `backend` component running and connected to persistent storage, we are ready to bring up the frontend component and connect it to the backend. Once again, source code for the component is already available in the command line environment. Change directories to the `frontend` directory.
 
 `cd ~/frontend`{{execute}}
 
-create the application using the PHP component
+Since our frontend is written in the interpreted PHP language, there is no build step analogous to the maven build required for the backend component. We can proceed directly to specifying the `php` environment from the cluster's Catalog, shown earlier when we ran `odo catalog list`.
+
+We give this php-based component the name `frontend`.
 
 `odo create php frontend`{{execute}}
 
-push the source code
+With the component named and created, we can `push` our PHP source code from the current directory, `frontend`.
 
 `odo push`{{execute}}
 
-you shall see
+`Odo` will announce the operation with output like:
 
 ```
 Pushing changes to component: frontend
 ```
 
-and then eventually the command will finish with
+until the push completes, when `odo` will print:
 
 ```
 changes successfully pushed to component: frontend

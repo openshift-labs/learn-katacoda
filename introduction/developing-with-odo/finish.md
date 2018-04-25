@@ -1,33 +1,32 @@
-Congratulations!  You just finished learning the basics of how to develop `odo` on the OpenShift Container Platform.  Feels good doesn't it?
+Congratulations! You just learned the basics of using the `odo` tool to manage application components on the OpenShift Container Platform.
 
 ## Feedback
 
-As the goal of this tutorial was to introduce you to what we believe `odo` should be, we would love you to provide us
-feedback. We are curious to know if you liked what we plan or if the direction `odo` is driven to is not right. To do
-so we have prepared quick for that is hosted here, as part of your frontend application.
+This tutorial introduces a tool under very active development. `Odo` intends to group underlying API and platform features into simple concepts and steps that match existing developer workflows. We'd love to know how you well you think `odo` meets those goals. If you'd like to provide feedback, we welcome your input and we've included a quick survey right inside your sample application's `frontend` component. You can access the survey at the URL:
 
 **https://frontend-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/form.php**.
 
 ## What's next?
 
-At this point you are probably itching to keep working with OpenShift as you have had a glimpse of the power this can bring to your own applications. There are other basic and advanced tutorials that are hosted here but in the meantime, you can certainly run your own version of OpenShift or use a hosted model.  You are welcome to use one of the following options:
+We hope `odo` helps you conveniently access all the power OpenShift has to offer, and that these first steps leave you eager to learn more. https://learn.openshift.com has other tutorials from basic to advanced that offer a real cluster to learn on, just like this scenario. It's also easy to run your own OpenShift cluster locally, or to leave infrastructure management to Red Hat experts by using a hosted OpenShift.
+
+Here are some of the ways you can get your own OpenShift cluster:
 
 ### Minishift
 
-Minishift is a complete OpenShift environment that you can run on your local machine.  The project supports Windows, OS X, and the Linux operating system.  To find more about minishift, visit http://www.openshift.org/vm
+Minishift is a complete OpenShift environment inside a virtual machine that runs on your local system. Minishift supports Windows, MacOS, and Linux operating systems. To find out more about minishift, visit http://www.openshift.org/vm.
 
 ### *oc cluster up*
 
-oc cluster up is a command provided by the oc client tool.  It configures and runs an openshift environment running inside of the native docker system for your operating system.  It supports Windows, OS X, and the Linux operating sytems.  For more information, visit https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md
+*oc cluster up* is a command provided by the `oc` OpenShift API client tool. It configures and runs an OpenShift environment on the Docker container runtime running on your operating system. It supports Windows, MacOS, and the Linux operating systems. For more information, visit https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md.
 
-If you decide to try out *oc cluster up*, and you should, I would also suggest that you take a look at a wrapper script that was created to make life a little bit easier for you called *oc cluster wrapper*.  This wrapper provides functionality such as the ability to have different profiles, persistent volume management and other great features.  You can find more information at the official git repository at https://github.com/openshift-evangelists/oc-cluster-wrapper
+Advance users of *oc cluster up* often drive it with the *oc cluster wrapper*, which provides profiles for managing multiple OpenShift environments, streamlined management of clusters' persistent volumes, and other features that simplifying creating useful OpenShift clusters.
+Check out the official git repository at https://github.com/openshift-evangelists/oc-cluster-wrapper for more information.
 
+### OpenShift Online
 
-### OpenShift Online 
-
-The OpenShift team provides a hosted environment which includes a free starter plan which you can use to develop and test applications for OpenShift. You can find details for OpenShift Online and sign up at https://www.openshift.com/pricing/index.html
+The OpenShift team provides a hosted, managed environment that frees developers from worrying about infrastructure. OpenShift Online includes a free *Starter* tier for developing and testing applications on OpenShift. OpenShift Online Pro provides scalability for production deployments at competitive monthly rates in a multi-tenant environment. Find details about OpenShift Online, and sign up for free, at https://www.openshift.com/pricing/.
 
 ### OpenShift Dedicated
 
-You can also let Red Hat host an OpenShift instance for you on a public cloud.  This is an ideal scenario for larger teams that doesn't want to deal with the operational aspects or running a full environment.  To find out more, visit https://www.openshift.com/dedicated/
-
+For the highest production requirements, Red Hat hosts and manages dedicated OpenShift instances available only to your organization. OpenShift Dedicated is ideal for larger teams that want the scale and velocity benefits of container cluster orchestration without having to sweat the details of deploying and maintaining secure, reliable infrastructure. To find out more, visit https://www.openshift.com/dedicated/.
