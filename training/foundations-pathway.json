@@ -83,41 +83,49 @@
     {
       "pathway_id": "openshift/servicemesh",
       "course_id": "1-introduction",
+      "id": "1-introduction",
       "title": "Istio workshop: Istio Introduction"
     },
     {
       "pathway_id": "openshift/servicemesh",
       "course_id": "2-deploy-microservices",
+      "id": "2-deploy-microservices",
       "title": "Istio workshop: Deploy microservices"
     },
     {
       "pathway_id": "openshift/servicemesh",
       "course_id": "3-monitoring-tracing",
+      "id": "3-monitoring-tracing",
       "title": "Istio workshop: Monitoring and Tracing"
     },
     {
       "pathway_id": "openshift/servicemesh",
       "course_id": "4-simple-routerules",
+      "id": "4-simple-routerules",
       "title": "Istio workshop: Simple RouteRules"
     },
     {
       "pathway_id": "openshift/servicemesh",
       "course_id": "5-advanced-routerules",
+      "id": "5-advanced-routerules",
       "title": "Istio workshop: Advanced RouteRules"
     },
     {
       "pathway_id": "openshift/servicemesh",
       "course_id": "6-fault-injection",
+      "id": "6-fault-injection",
       "title": "Istio workshop: Fault Injection"
     },
     {
       "pathway_id": "openshift/servicemesh",
       "course_id": "7-circuit-breaker",
+      "id": "7-circuit-breaker",
       "title": "Istio workshop: Circuit Breaker"
     },
     {
       "pathway_id": "openshift/servicemesh",
       "course_id": "8-egress",
+      "id": "8-egress",
       "title": "Workshop extra: Egress"
     }
 
