@@ -12,6 +12,7 @@ docker pull projectodd/action-nodejs-8:${PROJECTODD_VERSION}
 docker pull projectodd/action-php-7:${PROJECTODD_VERSION}
 docker pull projectodd/action-python-2:${PROJECTODD_VERSION}
 docker pull projectodd/action-python-3:${PROJECTODD_VERSION}
+docker pull projectodd/action-swift-3:${PROJECTODD_VERSION}
 docker pull projectodd/controller:${OPENWHISK_VERSION}
 docker pull projectodd/invoker:${OPENWHISK_VERSION}
 docker pull projectodd/whisk_alarms:${PROJECTODD_VERSION}
