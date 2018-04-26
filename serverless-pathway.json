@@ -1,0 +1,10 @@
+{
+  "title": "Serverless with OpenShift Cloud Functions",
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/serverless/1-simple-nodejs-greeting",
+      "course_id": "1-simple-nodejs-greeting",
+      "title": "Serverless: Simple Javascript Greeting Function"
+    }
+  ]
+}
