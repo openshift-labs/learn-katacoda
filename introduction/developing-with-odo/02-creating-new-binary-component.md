@@ -28,7 +28,7 @@ With the backend's `.war` file built, we can use odo to deploy and run it atop a
 You will see no output while the platform deploys your artifact, but
 eventually when the container create, push, and deploy steps are complete, output like the following will be displayed:
 
-``
+```
 Receiving source from STDIN as file ROOT.war
 Moving binaries in source directory into /wildfly/standalone/deployments for later deployment...
 Moving all war artifacts from /opt/app-root/src/. directory into /wildfly/standalone/deployments for later deployment...
@@ -52,7 +52,7 @@ Push successful
 Component 'backend' was created.
 
 Component 'backend' is now set as active component.
-``
+```
 
 This means the application is successfully deployed on OpenShift. With a single `odo create` command, OpenShift has built our backend component's `.war` file into a container along with the WildFly server needed to run it. That container is then pushed into OpenShift's built-in container registry. From there, the container is deployed into a Pod on the OpenShift cluster.
 
@@ -62,7 +62,7 @@ Let's verify that by running:
 
 which should report one component, named `backend`:
 
-``
+```
 ACTIVE     NAME        TYPE
 *          backend     wildfly
-``
+```
