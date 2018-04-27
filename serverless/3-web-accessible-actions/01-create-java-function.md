@@ -8,7 +8,7 @@ create a simple echo Action that simply returns whatever we send it.
 
 ``cd /root/projects``{{execute}}
 
-Create a Java action project called `my-echo`
+Create a Java Action project called `my-echo`
 
 ```
 mvn -q archetype:generate \
@@ -23,14 +23,14 @@ Move to the project directory
 
 ``cd my-echo``{{execute}}
 
-Let's open the Java source file `src/main/java/com/example/FunctionApp.java` to review its contents.  **Click the link** below
+Let's open the Java source file `src/main/java/com/example/FunctionApp.java` to review its contents.  Click the link below
 to open the source file in the editor:
 
 ``my-echo/src/main/java/com/example/FunctionApp.java``{{open}}
 
 All Java Action classes should have a `main` method with a signature that takes a `com.google.gson.JsonObject` as parameter
-and returns a `com.google.gson.JsonObject`.  We need to update the generated action with our desired behavior.  Update the
-FunctionApp class with this code by using the **Copy to Editor** button:
+and returns a `com.google.gson.JsonObject`.  We need to update the generated Action with our desired behavior.  Update the
+FunctionApp class with this code:
 
 <pre class="file" data-filename="my-echo/src/main/java/com/example/FunctionApp.java" data-target="replace">
 package com.example;
@@ -50,11 +50,11 @@ public class FunctionApp {
 }
 </pre>
 
-With the main action updated, now we need to update the tests.  Open the file by **clicking on the link below**:
+With the main Action updated, now we need to update the tests.
 
 ``my-echo/src/test/java/com/example/FunctionAppTest.java``{{open}}
 
-Update the FunctionAppTest class with this code by using the **Copy to Editor** button:
+Update the FunctionAppTest class with this code:
 
 <pre class="file" data-filename="my-echo/src/test/java/com/example/FunctionAppTest.java" data-target="replace">
 package com.example;
@@ -96,16 +96,16 @@ environment you then need to build and install from
 
 **2. Deploy the Action**
 
-Let's now create an action called `my-echo` in OpenWhisk:
+Let's now create a Action called `my-echo` in OpenWhisk:
 
 ``wsk -i action create --web=true my-echo target/my-echo.jar --main com.example.FunctionApp``{{execute}}
 
-When we create Java function the parameter `--main` is mandatory.  It defines which Java class will be called during OpenWhisk
-Action invocation.  The `--web=true` parameter indicates that this action will
+When we create Java Action the parameter `--main` is mandatory.  It defines which Java class will be called during OpenWhisk
+Action invocation.  The `--web=true` parameter indicates that this action should be exposed via an HTTP endpoint.
 
 **4. Verify the Action**
 
-Let's check if the action is created correctly:
+Let's check if the Action is created correctly:
 
 ``wsk -i action list | grep 'my-echo'``{{execute}}
 
@@ -158,8 +158,7 @@ Executing the above command will return a JSON payload something like this:
 }
 ```
 
-As you can see, we get returned to us the headers we send as part of the `GET` request.  It's hard to tell from the above 
-that's really doing what we want so let's add a little information to our request:
+As you can see, we get returned to us the headers we send as part of the `GET` request.  It's hard to tell from the above that's really doing what we want so let's add a little information to our request:
 
 ``curl -k $WEB_URL.json?key=value``{{execute}}
 

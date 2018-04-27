@@ -7,10 +7,10 @@ a JSON document containing the modified list.
 
 First, let's return to the root and create a new project to hold our Javascript Action:
 
-``
+```
 mkdir -p ~/projects/uppercase
 cd ~/projects/uppercase
-``{{execute}}
+```{{execute}}
 
 Now, **click on the link** to open ``uppercase/uppercase.js``{{open}} and **click on the Copy to Editor** button to create our
 uppercase Action:
