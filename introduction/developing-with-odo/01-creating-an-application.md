@@ -2,8 +2,10 @@ As mentioned before, applications often consist of two or more components that w
 
 First, we create an Application to work with. We name our Application `sample`:
 
-`odo application create sample`{{execute}}
+`odo app create sample`{{execute}}
 
 Now we can list the applications `odo` knows about:
 
-`odo application list`{{execute}}
+`odo app list`{{execute}}
+
+Since we began with an empty environment, only the `sample` application is listed.

@@ -2,7 +2,11 @@ With the `backend` component running and connected to persistent storage, we are
 
 `cd ~/frontend`{{execute}}
 
-Since our frontend is written in the interpreted PHP language, there is no build step analogous to the maven build required for the backend component. We can proceed directly to specifying the `php` environment from the cluster's Catalog, shown earlier when we ran `odo catalog list`.
+Listing the contents of this directory shows that `frontend` is a simple PHP application.
+
+`ls`{{execute}}
+
+Since `frontend` is written in an interpreted language, there is no build step analogous to the maven build we performed for the `backend` component. We can proceed directly to specifying the `php` environment from the cluster's Software Catalog, shown earlier when we ran `odo catalog list`.
 
 We give this php-based component the name `frontend`.
 
