@@ -36,7 +36,8 @@
                 "scripts/populate-maven-repos.sh",
                 "scripts/istio-pull.sh",
                 "scripts/middleware-pull.sh",
-                "scripts/owsk-pull.sh"
+                "scripts/owsk-pull.sh",
+                "scripts/owsk-install.sh"
             ]
         },
         {
