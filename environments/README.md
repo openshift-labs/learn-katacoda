@@ -46,8 +46,8 @@ packer build openshift-middleware.json
 This build extends the OpenShift Image with additional configuration and cached images to support Serverless.
 
 ```
-cd environments/openshift-ocf
-packer build openshift-ocf.json
+cd environments/openshift-3-7-ocf
+packer build openshift-3-7-ocf.json
 ```
 
 ### Packer Documentation
