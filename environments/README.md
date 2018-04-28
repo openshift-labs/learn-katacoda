@@ -32,13 +32,22 @@ cd environments/openshift
 packer build openshift.json
 ```
 
-### Build Openshift Middleware Image
+### Build OpenShift Middleware Image
 
 This build extends the OpenShift Image with additional configuration and cached images.
 
 ```
 cd environments/openshift-middleware
 packer build openshift-middleware.json
+```
+
+### Build OpenShift Cloud Functions Image
+
+This build extends the OpenShift Image with additional configuration and cached images to support Serverless.
+
+```
+cd environments/openshift-ocf
+packer build openshift-ocf.json
 ```
 
 ### Packer Documentation
