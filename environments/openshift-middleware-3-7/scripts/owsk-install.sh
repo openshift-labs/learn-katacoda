@@ -11,16 +11,3 @@ cd /tmp/openwhisk-devtools/java-action-archetype \
     && mvn -DskipTests clean install  \
     && cd  \
     && rm -rf /tmp/openwhisk-devtools
-
-#until $(oc status &> /dev/null); do sleep 1; done; oc adm policy add-cluster-role-to-user cluster-admin admin
-#oc new-project faas --display-name="FaaS - Apache OpenWhisk"
-#oc adm policy add-role-to-user admin developer -n faas
-#
-#oc process -f https://git.io/openwhisk-template | oc create -f -
-#while [ -z "`oc logs controller-0 -n faas 2>&1 | grep "invoker status changed"`" ]
-#do
-#    echo "Waiting for OpenWhisk to finish initializing (`date`)"
-#    sleep 10
-#done
-
-#oc patch route openwhisk --namespace faas -p '{"spec":{"tls": {"insecureEdgeTerminationPolicy": "Allow"}}}'
