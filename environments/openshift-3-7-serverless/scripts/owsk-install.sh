@@ -8,7 +8,7 @@ cd /tmp/openwhisk-devtools/java-action-archetype \
 
 until $(oc status &> /dev/null); do sleep 1; done; oc adm policy add-cluster-role-to-user cluster-admin admin
 
-mkdir -p /root/openwhisk/bin/"
+mkdir -p /root/openwhisk/bin/
 wget -c https://github.com/apache/incubator-openwhisk-cli/releases/download/latest/OpenWhisk_CLI-latest-linux-386.tgz -P /root/installation
 tar -zxvf /root/installation/OpenWhisk_CLI-latest-linux-386.tgz -C /root/openwhisk/bin/
 oc new-project faas --display-name='FaaS - OpenShift Cloud Functions'
