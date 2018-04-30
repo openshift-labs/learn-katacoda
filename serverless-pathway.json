@@ -5,6 +5,11 @@
       "external_link": "https://learn.openshift.com/serverless/1-simple-nodejs-greeting",
       "course_id": "1-simple-nodejs-greeting",
       "title": "Serverless: Simple Javascript Greeting Function"
+    },
+    {
+      "external_link": "https://learn.openshift.com/serverless/2-rules-triggers",
+      "course_id": "2-rules-triggers",
+      "title": "Serverless: Using Rules and Triggers"
     }
   ]
 }
