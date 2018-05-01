@@ -4,7 +4,7 @@ The application deployed in this lesson consists of two such components, a displ
 
 ## Backend
 
-The application backend is a JavaEE application that maintains a request count. Each request increments the count by one. The counter state is stored in a file. We attach persistent storage to the backend component so that the counter state is maintained when a containers are scaled or restarted.
+The application backend is a JavaEE application that maintains a request count. Each request increments the count by one. The counter state is stored in a file. We attach persistent storage to the backend component so that the counter state is maintained when containers are scaled or restarted.
 
 ## Frontend
 

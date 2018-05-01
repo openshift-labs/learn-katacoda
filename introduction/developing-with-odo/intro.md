@@ -2,11 +2,11 @@ In this self paced tutorial you will learn how to use the OpenShift Container Pl
 
 ## Let's get started
 
-If you are not familiar with the OpenShift Container Platform, it's worth taking a few minutes to understand the basics of the platform as well as the environment that you will be using for this self paced tutorial.
+If you are not familiar with the OpenShift Container Platform, it's worth taking a few minutes to understand the basics of the platform as well as the environment that you will be using for this self-paced tutorial.
 
-The goal of OpenShift is to provide a great experience for both Developers and System Administrators to develop, deploy, and run containerized applications.  Developers should love using OpenShift because it enables them to take advantage of both containerized applications and orchestration without having the know the details.  Developers are free to focus on their code instead of spending time writing Dockerfiles and running docker builds.
+The goal of OpenShift is to provide a great experience for both Developers and System Administrators to develop, deploy, and run containerized applications.  Developers love OpenShift because it enables them to take advantage of both containerized applications and orchestration without having to know the details. Developers are free to focus on application code and user's needs.
 
-OpenShift is a full platform that incorporates several upstream projects while also providing additional features and functionality to make those upstream projects easier to consume.  The core of the platform is containers and orchestration.  For the container side of the house, the platform uses images based upon the docker image format.  For the orchestration side, we have a put a lot of work into the upstream Kubernetes project.  Beyond these two upstream projects, we have created a set of additional Kubernetes objects such as routes and deployment configs that we will learn how to use during this course.
+OpenShift is a complete platform that incorporates several upstream projects while also providing additional features and functionality to make those upstream projects easier to use. OpenShift is built on containers and orchestration. For the container side of the house, the platform packages applications in container images based on the [Open Container Initiative (OCI) Image Specification][oci-img]. For the orchestration side, Red Hat's OpenShift team contributes intensively to the upstream Kubernetes project. OpenShift specifies a set of extended Kubernetes objects, such as Routes and Deployment Configs, that tie fundamental orchestration abstractions together in ways that are simple for developers to understand and manipulate.
 
 In this tutorial we focus on the command line interface using the `odo` tool, however, there are other methods to communicate with OpenShift.
 
@@ -35,3 +35,5 @@ During this training course you will be using a hosted OpenShift environment tha
 The OpenShift environment created for you is running the latest version of the open source OpenShift Origin. This deployment is a self-contained environment that provides everything you need to be successful learning the platform. This includes a command line environment, the OpenShift web console, public URLs, and sample applications.
 
 So grab your favorite beverage and let's do this!
+
+[oci-img]: https://github.com/opencontainers/image-spec
