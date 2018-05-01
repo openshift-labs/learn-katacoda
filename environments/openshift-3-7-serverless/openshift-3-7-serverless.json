@@ -32,6 +32,7 @@
         {
             "type": "shell",
             "scripts": [
+                "scripts/configure-java.sh",
                 "scripts/populate-maven-repos.sh",
                 "scripts/owsk-pull.sh",
                 "scripts/owsk-install.sh"
