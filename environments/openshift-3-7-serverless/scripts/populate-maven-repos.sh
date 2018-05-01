@@ -6,7 +6,7 @@
 
 # Add additional repos to use to pre-populate the local maven repostiory to the SOURCE_REPOS environment variable. 
 # Entries are separated by spaces
-SOURCE_REPOS=( https://github.com/openshift-katacoda/rhoar-getting-started.git https://github.com/redhat-developer-demos/istio-tutorial.git https://github.com/apache/incubator-openwhisk-devtools )
+SOURCE_REPOS=( https://github.com/openshift-katacoda/rhoar-getting-started.git https://github.com/redhat-developer-demos/istio-tutorial.git )
 PROJECT_DIR=/root/projects
 SKIP_TESTS=false
 SCRIPT_VERSION=0.7

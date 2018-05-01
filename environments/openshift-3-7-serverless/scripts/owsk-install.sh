@@ -5,7 +5,16 @@ cd /tmp/openwhisk-devtools/java-action-archetype \
     && mvn -DskipTests clean install  \
     && cd  \
     && rm -rf /tmp/openwhisk-devtools
-
+cd /tmp/
+mvn archetype:generate \
+-DarchetypeGroupId=org.apache.openwhisk.java \
+-DarchetypeArtifactId=java-action-archetype \
+-DarchetypeVersion=1.0-SNAPSHOT \
+-DgroupId=com.example \
+-DartifactId=temp
+cd temp
+mvn package    
+    
 until $(oc status &> /dev/null); do sleep 1; done; oc adm policy add-cluster-role-to-user cluster-admin admin
 
 mkdir -p /root/openwhisk/bin/
