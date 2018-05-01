@@ -10,7 +10,7 @@ In the Swagger UI:
 2. Expand the "GET" operation for resource "/server/containers"
 3. Click on "Try it out"
 4. Leave the parameters blank and click on "Execute"
-5. When asked for credentials use: Username: `kieserver`{{copy}}, Password: `kieserver1!`{{copy}}`
+5. When asked for credentials use: Username: `developer`{{copy}}, Password: `developer`{{copy}}`
 6. Observe the response, which lists the KIE Containers deployed on the server and their status (STARTED, STOPPED).
 
 
