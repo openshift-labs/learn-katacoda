@@ -1,0 +1,54 @@
+{
+  "variables": {
+     "pwd": "{{ env `PWD` }}/../centos"
+  },
+    "builders":
+    [
+        {
+            "name": "openshift",
+
+            "type": "qemu",
+            "format": "qcow2",
+            "accelerator": "kvm",
+            "headless": true,
+      	    "disk_image": true,
+            "iso_url": "{{ user `pwd` }}/output/centos-7",
+            "iso_checksum_type": "none",
+            "iso_checksum": "",
+            "vnc_port_min": 5922,
+            "vnc_port_max": 5922,
+
+            "http_directory": "http",
+
+            "ssh_username": "root",
+            "ssh_password": "cent",
+            "ssh_wait_timeout": "30m",
+            "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -P now",
+
+            "boot_wait": "2s"
+        }
+    ],
+
+    "provisioners": [
+    { "type": "file", "destination": "/opt/fix_ocp_katacoda.py", "source": "./fix_ocp_katacoda.py" },
+    { "type": "file", "destination": "/opt/webconsole.yaml", "source": "./webconsole.yaml" },
+    { "type": "file", "destination": "/opt/oc_cluster_up_start.sh", "source": "./oc_cluster_up_start.sh" },
+        {
+            "type": "shell",
+            "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+            "inline": [
+                "chmod +x /opt/fix_ocp_katacoda.py",
+                "chmod +x /opt/oc_cluster_up_start.sh"
+            ]
+        },
+        {
+            "type": "shell",
+            "execute_command": "echo '{{user `password`}}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+            "scripts": [
+                "scripts/openshift.sh",
+                "scripts/pull.sh",
+                "scripts/zerodisk.sh"
+            ]
+        }
+    ]
+}

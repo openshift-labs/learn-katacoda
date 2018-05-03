@@ -1,12 +1,12 @@
 Go to the source folder of `customer` microservice.
 
-Execute: `cd ~/projects/istio-tutorial/customer/java/`{{execute T1}}
+Execute: `cd ~/projects/istio-tutorial/customer/java/springboot`{{execute T1}}
 
 Now execute `mvn package`{{execute T1}} to create the `customer.jar` file.
 
 ## Create the customer docker image.
 
-We will now use the provided `/customer/java/Dockerfile`{{open}} to create a docker image.
+We will now use the provided `/customer/java/springboot/Dockerfile`{{open}} to create a docker image.
 
 This image will be called `example/customer`.
 
@@ -24,9 +24,9 @@ Also, make sure that you are using `tutorial` project. Execute `oc project tutor
 
 Now let's deploy the customer pod with its sidecar.
 
-Execute: `oc apply -f <(istioctl kube-inject -f src/main/kubernetes/Deployment.yml) -n tutorial`{{execute T1}}
+Execute: `oc apply -f <(istioctl kube-inject -f ../../kubernetes/Deployment.yml) -n tutorial`{{execute T1}}
 
-Also create a service: `oc create -f src/main/kubernetes/Service.yml`{{execute T1}} 
+Also create a service: `oc create -f ../../kubernetes/Service.yml`{{execute T1}} 
 
 Since customer is the forward most microservice (customer -> preference -> recommendation), let's add an OpenShift Route that exposes that endpoint.
 

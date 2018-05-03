@@ -1,6 +1,6 @@
 #!/bin/bash
 ssh root@host01 "git --work-tree=/root/projects/istio-tutorial/ --git-dir=/root/projects/istio-tutorial/.git pull"
-ssh root@host01 "cp -Rvf /root/projects/istio-tutorial/recommendation/java/ /root/projects/istio-tutorial/recommendation-v1"
+ssh root@host01 "cp -Rvf /root/projects/istio-tutorial/recommendation/java/vertx /root/projects/istio-tutorial/recommendation-v1"
 
 #Install Istio
 ssh root@host01 "wget -c https://github.com/istio/istio/releases/download/0.6.0/istio-0.6.0-linux.tar.gz -P /root/installation"
@@ -22,18 +22,18 @@ ssh root@host01 "oc expose svc istio-ingress -n istio-system"
 #Install Microservices
 ssh root@host01 "oc new-project tutorial ; oc adm policy add-scc-to-user privileged -z default -n tutorial"
 
-ssh root@host01 "mvn package -f /root/projects/istio-tutorial/customer/java/ -DskipTests"
-ssh root@host01 "docker build -t example/customer /root/projects/istio-tutorial/customer/java/"
-ssh root@host01 "oc apply -f <(/root/installation/istio-0.6.0/bin/istioctl kube-inject -f /root/projects/istio-tutorial/customer/java/src/main/kubernetes/Deployment.yml) -n tutorial"
-ssh root@host01 "oc create -f /root/projects/istio-tutorial/customer/java/src/main/kubernetes/Service.yml -n tutorial"
+ssh root@host01 "mvn package -f /root/projects/istio-tutorial/customer/java/springboot -DskipTests"
+ssh root@host01 "docker build -t example/customer /root/projects/istio-tutorial/customer/java/springboot"
+ssh root@host01 "oc apply -f <(/root/installation/istio-0.6.0/bin/istioctl kube-inject -f /root/projects/istio-tutorial/customer/kubernetes/Deployment.yml) -n tutorial"
+ssh root@host01 "oc create -f /root/projects/istio-tutorial/customer/kubernetes/Service.yml -n tutorial"
 ssh root@host01 "oc expose service customer -n tutorial"
 
-ssh root@host01 "mvn package -f /root/projects/istio-tutorial/preference/java/ -DskipTests"
-ssh root@host01 "docker build -t example/preference /root/projects/istio-tutorial/preference/java/"
-ssh root@host01 "oc apply -f <(/root/installation/istio-0.6.0/bin/istioctl kube-inject -f /root/projects/istio-tutorial/preference/java/src/main/kubernetes/Deployment.yml) -n tutorial"
-ssh root@host01 "oc create -f /root/projects/istio-tutorial/preference/java/src/main/kubernetes/Service.yml -n tutorial"
+ssh root@host01 "mvn package -f /root/projects/istio-tutorial/preference/java/springboot -DskipTests"
+ssh root@host01 "docker build -t example/preference /root/projects/istio-tutorial/preference/java/springboot"
+ssh root@host01 "oc apply -f <(/root/installation/istio-0.6.0/bin/istioctl kube-inject -f /root/projects/istio-tutorial/preference/kubernetes/Deployment.yml) -n tutorial"
+ssh root@host01 "oc create -f /root/projects/istio-tutorial/preference/kubernetes/Service.yml -n tutorial"
 
 ssh root@host01 "mvn package -f /root/projects/istio-tutorial/recommendation-v1/ -DskipTests"
 ssh root@host01 "docker build -t example/recommendation:v1 /root/projects/istio-tutorial/recommendation-v1/"
-ssh root@host01 "oc apply -f <(/root/installation/istio-0.6.0/bin/istioctl kube-inject -f /root/projects/istio-tutorial/recommendation-v1/src/main/kubernetes/Deployment.yml) -n tutorial"
-ssh root@host01 "oc create -f /root/projects/istio-tutorial/recommendation-v1/src/main/kubernetes/Service.yml -n tutorial"
+ssh root@host01 "oc apply -f <(/root/installation/istio-0.6.0/bin/istioctl kube-inject -f /root/projects/istio-tutorial/recommendation/kubernetes/Deployment.yml) -n tutorial"
+ssh root@host01 "oc create -f /root/projects/istio-tutorial/recommendation/kubernetes/Service.yml -n tutorial"

@@ -6,7 +6,7 @@ For educational purposes, this scenario uses one single Java class named `HttpAp
 
 ``src/main/java/com/example/HttpApplication.java``{{open}}
 
-As you review the content, you will notice that there are a lot of **TODO** comments. **Do not remove them!** These comments are used as a marker and without them, you will not be able to finish this scenario. 
+As you review the content, you will notice that there are a lot of **TODO** comments. **Do not remove them!** These comments are used as a marker and without them, you will not be able to finish this scenario.
 
 Notice that `HttpApplication` class extends another class called `AbstractVerticle`. Before we start implementing our logic, let's discuss a bit what a Verticle is.
 
@@ -19,8 +19,8 @@ In Java, a verticle is a class extending the Abstract Verticle class:
 
 ```java
     import io.vertx.core.AbstractVerticle;
-    
-    public class MyVerticle extends AbstractVerticle { 
+
+    public class MyVerticle extends AbstractVerticle {
         @Override
         public void start() throws Exception {
             // Executed when the verticle is deployed
@@ -29,7 +29,7 @@ In Java, a verticle is a class extending the Abstract Verticle class:
         @Override
         public void stop() throws Exception {
             // Executed when the verticle is un-deployed
-        } 
+        }
     }
 ```
 
@@ -37,7 +37,7 @@ In Java, a verticle is a class extending the Abstract Verticle class:
 
 **1. Compile and run the application Eclipse Vert.x application**
 
-Before we add code to create our web server you should build and test that current application starts as it should. 
+Before we add code to create our web server you should build and test that current application starts as it should.
 
 Since this is already a working application, you can run it without any code changes locally directly using `maven` with goal `vertx:run`
 
@@ -51,7 +51,7 @@ At this stage, the application doesn't do anything, but after a while, you shoul
 [INFO] Starting vert.x application...
 [INFO] THE HTTP APPLICATION HAS STARTED
 ```
->**NOTE:** The `"Starting vert.x application..."` line indicates that your application is starting and that the Verticles are triggered asynchronously. The message `"THE HTTP APPLICATION HAS STARTED"` that comes from a `System.out.println` in `HttpApplication.java` Verticle. 
+>**NOTE:** The `"Starting vert.x application..."` line indicates that your application is starting and that the Verticles are triggered asynchronously. The message `"THE HTTP APPLICATION HAS STARTED"` that comes from a `System.out.println` in `HttpApplication.java` Verticle.
 
 **2. Add a router that can serve static content**
 
@@ -67,7 +67,7 @@ We also need to tell the router to map incoming requests to files in the default
 
 <pre class="file" data-filename="src/main/java/com/example/HttpApplication.java" data-target="insert" data-marker="// TODO: Add a StaticHandler for accepting incoming requests">router.get("/*").handler(StaticHandler.create());</pre>
 
-Now we are ready to start the HTTP server, 
+Now we are ready to start the HTTP server,
 <pre class="file" data-filename="src/main/java/com/example/HttpApplication.java" data-target="insert" data-marker="// TODO: Create the HTTP server listening on port 8080">vertx.createHttpServer().requestHandler(router::accept).listen(8080);</pre>
 
 NOTE: As you may have noticed Vert.x will automatically detect when you change and files an immediately redeploy the changes. The automatic redeploy is very convenient for development purposes but can be turned off for production usage.
@@ -76,11 +76,11 @@ NOTE: As you may have noticed Vert.x will automatically detect when you change a
 
 To begin, click on the **Local Web Browser** tab in the console frame of this browser window, which will open another tab or window of your browser pointing to port 8080 on your client.
 
-![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-vertx/web-browser-tab.png)
+![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-vertx/web-browser-tab.png)
 
 You should now see an HTML page that looks like this:
 
-![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-vertx/web-page.png)
+![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-vertx/web-page.png)
 
 or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
@@ -88,13 +88,8 @@ or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.kat
 
 ## Congratulations
 
-You have now successfully executed the first step in this scenario. 
+You have now successfully executed the first step in this scenario.
 
 Now you've seen how you with basically three lines of code can create an HTTP Server that is capable of serving static content using the Vert.x Toolkit.
 
 In next step of this scenario, we will add server-side business logic to our application.
-
-
-
-
-

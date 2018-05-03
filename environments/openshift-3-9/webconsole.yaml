@@ -1,0 +1,35 @@
+apiVersion: v1
+data:
+  webconsole-config.yaml: |
+    apiVersion: webconsole.config.openshift.io/v1
+    clusterInfo:
+      consolePublicURL: https://2886795272-8443-kitek01.environments.katacoda.com:443/console/
+      loggingPublicURL: ""
+      logoutPublicURL: ""
+      masterPublicURL: https://2886795272-8443-kitek01.environments.katacoda.com
+      metricsPublicURL: ""
+    extensions:
+      properties: null
+      scriptURLs: []
+      stylesheetURLs: []
+    features:
+      clusterResourceOverridesEnabled: false
+      inactivityTimeoutMinutes: 0
+    kind: WebConsoleConfiguration
+    servingInfo:
+      bindAddress: 0.0.0.0:8443
+      bindNetwork: tcp4
+      certFile: /var/serving-cert/tls.crt
+      clientCA: ""
+      keyFile: /var/serving-cert/tls.key
+      maxRequestsInFlight: 0
+      namedCertificates: null
+      requestTimeoutSeconds: 0
+kind: ConfigMap
+metadata:
+  labels:
+    app: openshift-web-console
+  name: webconsole-config
+  namespace: openshift-web-console
+
+

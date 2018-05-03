@@ -15,6 +15,7 @@
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
   },
   "backend": {
+    "trainingid": "openshift-middleware-3-7", 
     "imageid": "openshift-middleware-3-7", "port": 8443
   },
   "details": {
@@ -27,7 +28,7 @@
     "steps": [
         { "title": "What is Service Mesh and why we need it?", "text": "1what-is-service-mesh.md" },
         { "title": "Istio Details", "text": "2details.md" },
-        { "title": "Istio installation", "text": "3installation.md" }          
+        { "title": "Istio installation", "text": "3installation.md" }
     ]
   }
 }

@@ -1,12 +1,12 @@
 Go to the source folder of `recommendation` microservice.
 
-Execute: `cd ~/projects/istio-tutorial/recommendation/java/`{{execute T1}}
+Execute: `cd ~/projects/istio-tutorial/recommendation/java/vertx`{{execute T1}}
 
 Now execute `mvn package`{{execute T1}} to create the `recommendations.jar` file.
 
 ## Create the recommendations docker image.
 
-We will now use the provided `/recommendation/java/Dockerfile`{{open}}to create a docker image.
+We will now use the provided `/recommendation/java/vertx/Dockerfile`{{open}}to create a docker image.
 
 This image will be called `example/recommendation:v1`.
 
@@ -20,9 +20,9 @@ You can check the image that was create by typing `docker images | grep recommen
 
 Now let's deploy the recommendations pod with its sidecar.
 
-Execute: `oc apply -f <(istioctl kube-inject -f src/main/kubernetes/Deployment.yml) -n tutorial`{{execute T1}}
+Execute: `oc apply -f <(istioctl kube-inject -f ../../kubernetes/Deployment.yml) -n tutorial`{{execute T1}}
 
-Also create a service: `oc create -f src/main/kubernetes/Service.yml`{{execute T1}}
+Also create a service: `oc create -f ../../kubernetes/Service.yml`{{execute T1}}
 
 To watch the creation of the pods, execute `oc get pods -w`{{execute T1}}
 

@@ -1,0 +1,42 @@
+{
+  "title": "OpenShift Workshop",
+  "description": "",
+  "courses": [
+    {
+      "pathway_id": "openshift/middleware",
+      "course_id": "rhoar-getting-started-vertx",
+      "id": "rhoar-getting-started-vertx",
+      "title": "Eclipse Vert.x development"
+    },
+    {
+      "pathway_id": "openshift/middleware",
+      "course_id": "rhoar-getting-started-spring",
+      "id": "rhoar-getting-started-spring",
+      "title": "Spring Boot development"
+    },
+    {
+      "pathway_id": "openshift/middleware",
+      "course_id": "rhoar-getting-started-wfswarm",
+      "id": "rhoar-getting-started-wfswarm",
+      "title": "WildFly Swarm development"
+    },
+    {
+      "pathway_id": "openshift/middleware",
+      "course_id": "rhoar-getting-started-nodejs",
+      "id": "rhoar-getting-started-nodejs",
+      "title": "Node.js development"
+    },
+    {
+      "pathway_id": "openshift/servicemesh",
+      "course_id": "istio-fasttrack",
+      "id": "istio-fasttrack",
+      "title": "Istio 60-minute Fast track (Bookinfo)"
+    },
+    {
+      "pathway_id": "openshift/playgrounds",
+      "course_id": "openshift37",
+      "id": "openshift37",
+      "title": "OpenShift 3.7 Playground"
+    }
+  ]
+}

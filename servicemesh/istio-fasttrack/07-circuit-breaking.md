@@ -85,11 +85,11 @@ open the Grafana console:
 
 Notice at the top, the increase in the number of **5xxs Responses** at the top right of the dashboard:
 
-![5xxs](../../assets/middleware/resilient-apps/5xxs.png)
+![5xxs](/openshift/assets/middleware/resilient-apps/5xxs.png)
 
 Below that, in the **Service Mesh** section of the dashboard observe that the services are returning 503 (Service Unavailable) quite a lot:
 
-![5xxs](../../assets/middleware/resilient-apps/5xxs-services.png)
+![5xxs](/openshift/assets/middleware/resilient-apps/5xxs-services.png)
 
 That's the circuit breaker in action, limiting the number of requests to the service. In practice your limits would be much higher
 
@@ -197,7 +197,7 @@ Then, click the Execute button.
 
 You should see a result of `1`:
 
-![5xxs](../../assets/middleware/resilient-apps/prom-outlier.png)
+![5xxs](/openshift/assets/middleware/resilient-apps/prom-outlier.png)
 
 In practice this means that the failing pod will not receive any traffic for the timeout period, giving it a chance
 to recover and not affect the user experience.

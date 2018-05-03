@@ -14,7 +14,7 @@ The Service Graph addon provides a visualization of the different services and h
 
 It should look like:
 
-![Dotviz graph](../../assets/middleware/resilient-apps/dotviz.png)
+![Dotviz graph](/openshift/assets/middleware/resilient-apps/dotviz.png)
 
 This shows you a graph of the services and how they are connected, with some basic access metrics like
 how many requests per second each service receives.
@@ -53,12 +53,12 @@ Then, click the **Execute** button.
 
 You should see a listing of each of the application's services along with a count of how many times it was accessed.
 
-![Prometheus console](../../assets/middleware/resilient-apps/prom.png)
+![Prometheus console](/openshift/assets/middleware/resilient-apps/prom.png)
 
 You can also graph the results over time by clicking on the _Graph_ tab (adjust the timeframe from 1h to 1minute for
 example):
 
-![Prometheus graph](../../assets/middleware/resilient-apps/promgraph.png)
+![Prometheus graph](/openshift/assets/middleware/resilient-apps/promgraph.png)
 
 Other expressions to try:
 
@@ -79,7 +79,7 @@ Open the Grafana Dashboard:
 
 * [Grafana Dashboard](http://grafana-istio-system.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/dashboard/db/istio-dashboard)
 
-![Grafana graph](../../assets/middleware/resilient-apps/grafana-dash.png)
+![Grafana graph](/openshift/assets/middleware/resilient-apps/grafana-dash.png)
 
 The Grafana Dashboard for Istio consists of three main sections:
 
@@ -89,7 +89,7 @@ The Grafana Dashboard for Istio consists of three main sections:
 
 Scroll down to the `ratings` service graph:
 
-![Grafana graph](../../assets/middleware/resilient-apps/grafana-ratings.png)
+![Grafana graph](/openshift/assets/middleware/resilient-apps/grafana-ratings.png)
 
 This graph shows which other services are accessing the `ratings` service. You can see that
 `reviews:v2` and `reviews:v3` are calling the `ratings` service, and each call is resulting in
@@ -102,4 +102,3 @@ For more on how to create, configure, and edit dashboards, please see the [Grafa
 As a developer, you can get quite a bit of information from these metrics without doing anything to the application
 itself. Let's use our new tools in the next section to see the real power of Istio to diagnose and fix issues in
 applications and make them more resilient and robust.
-

@@ -6,6 +6,7 @@
     "difficulty": "beginner",
     "time": "15-20 minutes",
     "backend": {
+        "trainingid": "openshift-3-6",
         "imageid": "openshift",
         "port": 8443
     },
@@ -46,9 +47,6 @@
         },
         "finish": {
             "text": "finish.md"
-        },
-        "assets": {
-          "host01": [{"file": "route.json", "target": "/root/"}]
         }
     }
 }

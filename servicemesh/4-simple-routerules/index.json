@@ -5,6 +5,7 @@
   "description": "Shows how Istio can be used to control route based on some simple rules",
   "difficulty": "Intermediate",
   "time": "1 hour",
+  "files": [],
   "environment": {
       "showdashboard": true,
       "dashboard": "Web Console",
@@ -14,6 +15,7 @@
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
   },
   "backend": {
+    "trainingid": "openshift-middleware-3-7", 
     "imageid": "openshift-middleware-3-7", "port": 8443
   },
   "details": {

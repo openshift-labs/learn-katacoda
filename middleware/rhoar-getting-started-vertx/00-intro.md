@@ -7,13 +7,13 @@ You will learn how to get started with building a reactive web application that 
 
 ## What is Eclipse Vert.x?
 
-![Local Web Browser Tab](../../assets/middleware/rhoar-getting-started-vertx/vertx-logo.png)
+![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-vertx/vertx-logo.png)
 
 Eclipse Vert.x is a reactive toolkit for the Java Virtual Machine that is polyglot (e.g., supports multiple programming languages).
 In this session, we will focus on Java, but it would be possible to build the same application in JavaScript, Groovy, Ruby, Ceylon, Scala, and Kotlin.
 
-Eclipse Vert.x is event-driven and non-blocking, which means that applications in Vert.x can handle a lot of concurrent requests using a small number of kernel threads. 
-Vert.x lets your app scale with minimal hardware. 
+Eclipse Vert.x is event-driven and non-blocking, which means that applications in Vert.x can handle a lot of concurrent requests using a small number of kernel threads.
+Vert.x lets your app scale with minimal hardware.
 
 Vert.x is incredibly flexible - whether it's network utilities, sophisticated modern web applications, HTTP/REST microservices, high volume event processing or a full-blown back-end message-bus application, Vert.x is a great fit.
 
@@ -29,4 +29,3 @@ Vert.x is fun - Enjoy being a developer again. Unlike restrictive traditional ap
 * Vert.x is modular - when you need more bits just add the bits you need and nothing more.
 * Vert.x is simple but not simplistic. Vert.x allows you to create powerful apps, simply.
 * Vert.x is an ideal choice for creating light-weight, high-performance, microservices.
-

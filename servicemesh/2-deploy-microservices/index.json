@@ -5,6 +5,7 @@
   "description": "Deploy microserices on a Kubernetes Cluster",
   "difficulty": "Basic",
   "time": "30 minutes",
+  "files": [],
   "environment": {
       "showdashboard": true,
       "dashboard": "Web Console",
@@ -13,10 +14,8 @@
       "uisettings": "java",
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
   },
-  "files": [
-
-  ],
   "backend": {
+      "trainingid": "openshift-middleware-3-7", 
       "imageid": "openshift-middleware-3-7", "port": 8443
   },
   "details": {

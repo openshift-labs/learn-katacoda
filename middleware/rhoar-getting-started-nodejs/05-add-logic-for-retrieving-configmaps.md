@@ -47,30 +47,26 @@ will need to return a _promise_ to call into OpenShift and retrieve the ConfigMa
 Click on **Copy To Editor** below to implement the logic in `app.js`{{open}}
 
 <pre class="file" data-filename="app.js" data-target="insert" data-marker="// TODO: Retrieve ConfigMap">
-
 // Find the Config Map
-function retrieveConfigMap () {
-  return openshiftConfigLoader().then((config) => {
-    const settings = {
-      request: {
-        strictSSL: false
-      }
-    };
+const openshiftRestClient = require('openshift-rest-client');
+function retrieveConfigMap() {
+  const settings = {
+    request: {
+      strictSSL: false
+    }
+  };
 
-    return openshiftRestClient(config, settings).then((client) => {
-      const configMapName = 'app-config';
-      return client.configmaps.find(configMapName).then((configMap) => {
-        const configMapParsed = jsyaml.safeLoad(configMap.data['app-config.yml']);
-        return configMapParsed;
-      });
+  return openshiftRestClient(settings).then((client) => {
+    const configMapName = 'app-config';
+    return client.configmaps.find(configMapName).then((configMap) => {
+      return jsyaml.safeLoad(configMap.data['app-config.yml']);
     });
   });
 }
-
 </pre>
 
 In this code we are returning yet another _promise_ which will be responsible for using
-the [openshift-config-loader](https://www.npmjs.com/package/openshift-config-loader) and [openshift-rest-client](https://www.npmjs.com/package/openshift-rest-client) module to make the call to the OpenShift REST API and retrieve the ConfigMap.
+the [openshift-rest-client](https://www.npmjs.com/package/openshift-rest-client) module to make the call to the OpenShift REST API and retrieve the ConfigMap.
 
 The use of promises and promise chaining may take a little getting used to, but ultimately it results in an ordered and well-defined
 process to retrieve the ConfigMap from OpenShift, parse it into a Javascript-friendly JSON object, and use it to override

@@ -1,6 +1,6 @@
 We can experiment with Istio routing rules by making a change to RecommendationsController.java.
 
-Open `/recommendation/java/src/main/java/com/redhat/developer/demos/recommendation/RecommendationVerticle.java`{{open}} in the editor. Now make the following modification.
+Open `/recommendation/java/vertx/src/main/java/com/redhat/developer/demos/recommendation/RecommendationVerticle.java`{{open}} in the editor. Now make the following modification.
 
 ```java
     private static final String RESPONSE_STRING_FORMAT = "recommendation v2 from '%s': %d\n";
@@ -9,7 +9,7 @@ Open `/recommendation/java/src/main/java/com/redhat/developer/demos/recommendati
 
 **Note:** The file is saved automatically. 
 
-Now go to the recommendations folder `cd ~/projects/istio-tutorial/recommendation/java/`{{execute T1}}
+Now go to the recommendations folder `cd ~/projects/istio-tutorial/recommendation/java/vertx`{{execute T1}}
 
 Make sure that the file has changed: `git diff`{{execute T1}}. To exit, hit `q`{{execute T1}}
 
@@ -29,7 +29,7 @@ You can check the image that was create by typing `docker images | grep recommen
 
 There is also a 2nd deployment.yml file to label things correctly
 
-Execute: `oc apply -f <(istioctl kube-inject -f src/main/kubernetes/Deployment-v2.yml) -n tutorial`{{execute T1}}
+Execute: `oc apply -f <(istioctl kube-inject -f ../../kubernetes/Deployment-v2.yml) -n tutorial`{{execute T1}}
 
 To watch the creation of the pods, execute `oc get pods -w`{{execute T1}}
 

@@ -1,0 +1,85 @@
+{
+  "title": "OpenShift Workshop",
+  "description": "",
+  "courses": [
+    {
+      "pathway_id": "openshift/introduction",
+      "id": "getting-started",
+      "course_id": "getting-started",
+      "title": "Getting Started with OpenShift for Developers"
+    },
+    {
+      "pathway_id": "openshift/introduction",
+      "id": "cluster-access",
+      "course_id": "cluster-access",
+      "title": "Logging in to an OpenShift Cluster"
+    },
+    {
+      "pathway_id": "openshift/introduction",
+      "id": "deploying-images",
+      "course_id": "deploying-images",
+      "title": "Deploying Applications From Images"
+    },
+    {
+      "pathway_id": "openshift/introduction",
+      "id": "deploying-python",
+      "course_id": "deploying-python",
+      "title": "Deploying Applications From Source"
+    },
+    {
+      "pathway_id": "openshift/introduction",
+      "id": "resource-objects",
+      "course_id": "resource-objects",
+      "title": "Using the CLI to Manage Resource Objects"
+    },
+    {
+      "pathway_id": "openshift/introduction",
+      "id": "port-forwarding",
+      "course_id": "port-forwarding",
+      "title": "Connecting to a Database Using Port Forwarding"
+    },
+    {
+      "pathway_id": "openshift/introduction",
+      "id": "transferring-files",
+      "course_id": "transferring-files",
+      "title": "Transferring Files in and out of Containers"
+    },
+    {
+      "pathway_id": "openshift/middleware",
+      "course_id": "rhoar-getting-started-vertx",
+      "id": "rhoar-getting-started-vertx",
+      "title": "Eclipse Vert.x development"
+    },
+    {
+      "pathway_id": "openshift/middleware",
+      "course_id": "rhoar-getting-started-spring",
+      "id": "rhoar-getting-started-spring",
+      "title": "Spring Boot development"
+    },
+    {
+      "pathway_id": "openshift/middleware",
+      "course_id": "rhoar-getting-started-wfswarm",
+      "id": "rhoar-getting-started-wfswarm",
+      "title": "WildFly Swarm development"
+    },
+    {
+      "pathway_id": "openshift/middleware",
+      "course_id": "rhoar-getting-started-nodejs",
+      "id": "rhoar-getting-started-nodejs",
+      "title": "Node.js development"
+    },
+    {
+      "pathway_id": "openshift/servicemesh",
+      "course_id": "istio-fasttrack",
+      "id": "istio-fasttrack",
+      "title": "Istio 60-minute Fast track (Bookinfo)"
+    },
+    {
+      "pathway_id": "openshift/playgrounds",
+      "course_id": "openshift37",
+      "id": "openshift37",
+      "title": "OpenShift 3.7 Playground"
+    }
+
+  ]
+}
