@@ -1,0 +1,48 @@
+{
+    "icon": "fa-openshift",
+    "title": "Linux Container Internals: Lab 1: Container Architecture",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "Intermediate",
+    "time": "30-45 minutes",
+    "backend": {
+        "imageid": "openshift",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Container Architecture: Starting From Scratch",
+            "text": "01-container-scratch.md"
+        }, {
+            "title": "Topic 2 - Containers Are Linux",
+            "text": "02-container-libraries.md"
+        }, {
+            "title": "Topic 3 - Single Host Toolchain",
+            "text": "03-single-host-toolchain.md"
+        }, {
+            "title": "Topic 4 - Multi-Host Toolchain",
+            "text": "04-multi-host-toolchain.md"
+        }, {
+            "title": "Topic 5 - Community Landscape",
+            "text": "05-community-landscape.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "route.json", "target": "/root/"}]
+        }
+    }
+}

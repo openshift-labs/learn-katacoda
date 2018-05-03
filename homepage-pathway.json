@@ -11,6 +11,10 @@
       "title": "Building Applications On OpenShift"
     },
     {
+      "external_link": "https://learn.openshift.com/subsystems/",
+      "title": "Subsystems, Components, and Internals"
+    },
+    {
       "external_link": "https://learn.openshift.com/playgrounds/",
       "title": "OpenShift Playgrounds"
     },

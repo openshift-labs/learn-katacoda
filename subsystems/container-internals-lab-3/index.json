@@ -1,0 +1,57 @@
+{
+    "icon": "fa-openshift",
+    "title": "Linux Container Internals: Lab 3: Container Runtime",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "Advanced",
+    "time": "20-30 minutes",
+    "backend": {
+        "imageid": "openshift",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Daemons & APIs: Docker, Kubernetes Master, Node, and their interaction with the Linux kernel",
+            "text": "01-daemons-apis.md"
+        }, {
+            "title": "Topic 2 - System Calls & Kernel Namespaces: How they work inside of a container",
+            "text": "02-system-calls.md"
+        }, {
+            "title": "Topic 3 - SELinux & sVirt: Dynamically generated contexts to protect your containers",
+            "text": "03-selinux-svirt.md"
+        }, {
+            "title": "Topic 4 - Cgroups: Dynamically created with container instantiation",
+            "text": "04-cgroups.md"
+        }, {
+            "title": "Topic 5 - SECCOMP: Limiting how a containerized process can interact with the kernel",
+            "text": "05-seccomp.md"
+        }, {
+            "title": "Topic 6 - Storage: How containers get local, copy on write storage",
+            "text": "06-storage.md"
+        }, {
+            "title": "Topic 7 - Pod Networking: How individual containers and pods connect to the network",
+            "text": "07-pod-networking.md"
+        }, {
+            "title": "Topic 8 - Cluster Networking: How clusters of hosts manage the connections of containerized processes",
+            "text": "08-cluster-networking.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "route.json", "target": "/root/"}]
+        }
+    }
+}

@@ -1,0 +1,20 @@
+[Unit]
+Description=Atomic OpenShift Node
+Documentation=https://github.com/openshift/origin
+After=etcd.service
+After=docker.target network.target
+Before=atomic-openshift-node.service
+Requires=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/var/lib/openshift/openshift start node --config=/openshift.local.config/node-%H/node-config.yaml
+NOFILE=131072
+LimitCORE=infinity
+WorkingDirectory=/var/lib/openshift
+SyslogIdentifier=atomic-openshift-node
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

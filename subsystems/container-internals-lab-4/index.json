@@ -1,0 +1,42 @@
+{
+    "icon": "fa-openshift",
+    "title": "Linux Container Internals: Lab 4: Container Orchestration",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "Intermediate",
+    "time": "30-45 minutes",
+    "backend": {
+        "imageid": "openshift",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Multi-Container Applications: The classic two-tiered, wordpress application",
+            "text": "01-multi-container-applications.md"
+        }, {
+            "title": "Topic 2 - Cluster Performance: Scaling applications horizontally with containers",
+            "text": "02-load-testing.md"
+        }, {
+            "title": "Topic 3 - Cluster Debuggin: Troubleshooting in a distributed systems environment",
+            "text": "03-troubleshooting-distributed-applications.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "route.json", "target": "/root/"}]
+        }
+    }
+}

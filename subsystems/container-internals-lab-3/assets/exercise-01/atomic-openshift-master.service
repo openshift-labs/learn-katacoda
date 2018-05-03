@@ -1,0 +1,24 @@
+[Unit]
+Description=Atomic OpenShift Master
+Documentation=https://github.com/openshift/origin
+After=network-online.target
+After=etcd.service
+After=docker.target network.target
+Before=atomic-openshift-node.service
+Requires=network-online.target
+
+[Service]
+Type=notify
+Environment=KUBECONFIG=/openshift.local.config/master/admin.kubeconfig
+Environment=CURL_CA_BUNDLE=/openshift.local.config/master/ca.crt
+ExecStart=/var/lib/openshift/openshift start master --config=/openshift.local.config/master/master-config.yaml --dns=tcp://0.0.0.0:8053
+NOFILE=131072
+LimitCORE=infinity
+WorkingDirectory=/var/lib/openshift
+SyslogIdentifier=atomic-openshift-master
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=atomic-openshift-node.service
