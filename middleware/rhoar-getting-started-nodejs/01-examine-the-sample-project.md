@@ -39,7 +39,7 @@ At this stage the application doesn't really do anything but after a while you w
 
 ```console
 > nodejs-configmap@1.0.0 start /root/projects/rhoar-getting-started/nodejs
-> PORT=8080 node ./bin/www
+> node .
 ```
 
 **3. Test the application**

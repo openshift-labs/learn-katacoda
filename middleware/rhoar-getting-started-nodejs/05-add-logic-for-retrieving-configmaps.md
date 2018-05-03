@@ -15,7 +15,7 @@ the variable. Click the **Copy to Editor** button below to place this code in `a
 
 <pre class="file" data-filename="app.js" data-target="insert" data-marker="// TODO: Periodic check for config map update">
 setInterval(() => {
-  retrieveConfigMap().then((config) => {
+  retrieveConfigMap().then(config => {
     if (!config) {
       message = null;
       return;
@@ -56,9 +56,9 @@ function retrieveConfigMap() {
     }
   };
 
-  return openshiftRestClient(settings).then((client) => {
+  return openshiftRestClient(settings).then(client => {
     const configMapName = 'app-config';
-    return client.configmaps.find(configMapName).then((configMap) => {
+    return client.configmaps.find(configMapName).then(configMap => {
       return jsyaml.safeLoad(configMap.data['app-config.yml']);
     });
   });
