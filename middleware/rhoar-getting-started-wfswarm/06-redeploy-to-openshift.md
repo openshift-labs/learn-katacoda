@@ -2,7 +2,7 @@
 
 With our health check in place, lets rebuild and redeploy using the same command as before:
 
-```mvn clean fabric8:deploy -Popenshift```{{execute}}
+```mvn fabric8:undeploy fabric8:deploy -Popenshift```{{execute}}
 
 You should see a **BUILD SUCCESS** at the end of the build output.
 
