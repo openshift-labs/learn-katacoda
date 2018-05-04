@@ -12,6 +12,10 @@ To get a feel for how the web console works, click on the "OpenShift Console" ta
 The first screen you will see is the authentication screen. Enter your username and password and
 then log in.
 
+> Your credentials are:
+> * **Username:** ``developer``
+> * **Password:** ``developer``
+
 ![Web Console Login](../../assets/middleware/amq-getting-started-broker/04-login.png)
 
 After you have authenticated to the web console, you will be presented with a
