@@ -2,6 +2,11 @@
   "title": "Building Applications On OpenShift",
   "courses": [
     {
+      "external_link": "https://learn.openshift.com/middleware/amq-getting-started-broker/",
+      "course_id": "amq-getting-started-broker",
+      "title": "Application Messaging with Openshift"
+    },
+    {
       "external_link": "https://learn.openshift.com/middleware/fis-deploy-app/",
       "course_id": "fis-deploy-app",
       "title": "OpenShift for Fuse Developers"
