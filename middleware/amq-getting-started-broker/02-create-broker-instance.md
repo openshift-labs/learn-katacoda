@@ -2,7 +2,7 @@ With the project space now available, let's create the broker instance.
 
 To allow ingress traffic to the messaging destinations, configure the required secrets with the following command:
 
-``oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.4.5/secrets/amq-app-secret.json -n messaging``{{execute}}
+``oc create sa amq-service-account``{{execute}}
 
 Add cluster capabilities to service account
 
