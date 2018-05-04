@@ -42,6 +42,14 @@
                 {
                     "file": "amq-7-image-streams.json",
                     "target": "/opt/"
+                },
+                {
+                    "file": "app.js",
+                    "target": "/root/projects/amq-examples/amq-js-demo"
+                },
+                {
+                    "file": "package.json",
+                    "target": "/root/projects/amq-examples/amq-js-demo"
                 }
             ]
         }
