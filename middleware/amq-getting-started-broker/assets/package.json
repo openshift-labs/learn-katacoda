@@ -1,0 +1,34 @@
+{
+    "name": "amq-js-demo",
+    "description": "AMQ Javascript Client",
+    "version": "1.0.0",
+    "author": "Red Hat, Inc.",
+    "license": "Apache-2.0",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app.js",
+        "producer": "node producer.js",
+        "consumer": "node consumer.js",
+        "openshift": "nodeshift --strictSSL=false --dockerImage=registry.access.redhat.com/rhoar-nodejs/nodejs-8 --tryServiceAccount=false --configLocation /openshift.local.config/master/admin.kubeconfig"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/hguerrero/amq-examples.git"
+    },
+    "bugs": {
+        "url": "https://developers.redhat.com"
+    },
+    "homepage": "https://developers.redhat.com/amq",
+    "keywords": [
+        "amqp",
+        "amq",
+        "rheajs"
+    ],
+    "dependencies": {
+        "rhea": "^0.2.9"
+    },
+    "devDependencies": {
+        "nodeshift": "^1.7.1"
+    }
+}
