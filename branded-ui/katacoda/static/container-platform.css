@@ -221,20 +221,50 @@ body {
 h2 {
   margin-top: 60px; }
 
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .masthead {
-  background-color: #373534;
-  background-position: center;
+  padding: 80px 0;
+  background-color: #f2f2f2;
+  background-position: center top;
   background-attachment: scroll;
   background-size: cover;
-  background-image: url("/static/bg-ocp-announce.png");
+  background-image: url("/static/bg_light-gray-dual-honeycombs.png");
   background-repeat: no-repeat;
-  color: #fff; }
+  color: #333;}
+
+  .masthead .h1, .masthead h1 {
+    margin: 0 0 20px 0;
+    font-family: "Overpass","Open Sans","Helvetica Neue",Arial,sans-serif !important;
+    font-weight: 800 !important;
+    line-height: 1.45;
+    font-size: 42px !important;
+    color: inherit;
+  }
+
+  .masthead .row {
+    display: flex !important;
+  }
+
+  .masthead .text-red {
+    color: #c00 !important;
+  }
+
+  .masthead p {
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    font-family: "Overpass","Open Sans","Helvetica Neue",Arial,sans-serif !important;
+  }
+
   @media (min-width: 768px) {
     .masthead {
       min-height: 350px; }
       .masthead .container {
         padding-top: 100px; } }
-  .navbar-openshift + .masthead {
+  nav#main + .masthead {
     margin-top: -20px; }
   .masthead h1, .masthead h2, .masthead .lead {
     color: inherit; }
@@ -262,110 +292,6 @@ h2 {
       background-position: right 50% top;
       background-repeat: no-repeat;
       background-size: cover; }
-      .masthead.masthead-overview .item.openshift3-speed {
-        background-color: #1b3962;
-        background-image: url("/images/ui/static/bg-ocp-announce.png"); }
-        .masthead.masthead-overview .item.openshift3-speed h1 {
-          text-shadow: none;
-          font-weight: 600; }
-        .masthead.masthead-overview .item.openshift3-speed .primary-message {
-          text-shadow: none; }
-        .masthead.masthead-overview .item.openshift3-speed .logo-ose {
-          filter: none;
-          -webkit-filter: none; }
-      .masthead.masthead-overview .item.commons-gathering {
-        background-color: #1b3962;
-        background-image: url("/images/ui/commons-full.jpg"); }
-        .masthead.masthead-overview .item.commons-gathering .title-inner {
-          text-align: center; }
-          .masthead.masthead-overview .item.commons-gathering .title-inner .primary-message {
-            margin-left: auto; }
-      .masthead.masthead-overview .item.devpreview {
-        background-color: #373534;
-        background-image: url("/static/bg-ocp-announce.png"); }
-        .masthead.masthead-overview .item.devpreview .title-inner {
-          text-align: center; }
-          .masthead.masthead-overview .item.devpreview .title-inner .primary-message {
-            margin-left: auto; }
-      .masthead.masthead-overview .item.hackathon {
-        background-color: #373534;
-        background-image: url("/images/ui/bg-hackathon.jpg"); }
-      .masthead.masthead-overview .item.online {
-        background-color: #1b3962;
-        background-image: url("/images/ui/bg-online-overview.jpg"); }
-        .masthead.masthead-overview .item.online .title-inner {
-          text-align: center; }
-          .masthead.masthead-overview .item.online .title-inner .primary-message {
-            margin-left: auto; }
-      .masthead.masthead-overview .item.dedicated {
-        background-color: #1b3962;
-        background-image: url("https://www.redhat.com/cms/public/Promo_Containers_Insight_0.jpg"); }
-        .masthead.masthead-overview .item.dedicated .title-inner {
-          text-align: center; }
-          .masthead.masthead-overview .item.dedicated .title-inner .primary-message {
-            margin-left: auto; }
-        @media (min-width: 992px) {
-          .masthead.masthead-overview .item.dedicated .lead {
-            max-width: 80%; } }
-      .masthead.masthead-overview .item.amadeus {
-        background-color: #1b3962;
-        background-image: url("/images/ui/bg-clouds-from-above.png");
-        /* background-position: left 50% top; */
-        color: #545454; }
-        .masthead.masthead-overview .item.amadeus h1 {
-          text-shadow: none;
-          font-weight: 600; }
-        .masthead.masthead-overview .item.amadeus .primary-message {
-          text-shadow: none; }
-        .masthead.masthead-overview .item.amadeus .logo-ose {
-          filter: none;
-          -webkit-filter: none; }
-      .masthead.masthead-overview .item.fico {
-        background-color: #1b3962;
-        background-image: url("https://www.redhat.com/cms/public/Homepage_FICO_2000x365_1.jpg");
-        background-position: left 50% top;
-        color: #545454; }
-        .masthead.masthead-overview .item.fico h1 {
-          text-shadow: none;
-          font-weight: 600; }
-        .masthead.masthead-overview .item.fico .primary-message {
-          text-shadow: none; }
-        .masthead.masthead-overview .item.fico .logo-ose {
-          filter: none;
-          -webkit-filter: none; }
-      .masthead.masthead-overview .item.innovation-labs {
-        background-color: #1b3962;
-        background-image: url("https://www.redhat.com/cms/managed-files/Promo_Product_Services_TypeD_2000x365_2.png");
-        background-position: left 50% top;
-        color: #545454; }
-        .masthead.masthead-overview .item.innovation-labs h1 {
-          text-shadow: none;
-          font-weight: 600; }
-        .masthead.masthead-overview .item.innovation-labs .primary-message {
-          text-shadow: none; }
-        .masthead.masthead-overview .item.innovation-labs .logo-ose {
-          filter: none;
-          -webkit-filter: none; }
-      .masthead.masthead-overview .item.openshift-31 {
-        background-color: #373534;
-        background-image: url("/images/ui/bg-masthead-train.jpg"); }
-        .masthead.masthead-overview .item.openshift-31 .title-inner {
-          text-align: center; }
-          .masthead.masthead-overview .item.openshift-31 .title-inner .primary-message {
-            margin-left: auto; }
-        .masthead.masthead-overview .item.openshift-31 .logo-ose {
-          margin: 20px 0 10px 0; }
-      @media (min-width: 768px) {
-        .masthead.masthead-overview .item {
-          background-position-x: 95%; } }
-      .masthead.masthead-overview .item .container {
-        padding-top: 70px;
-        padding-bottom: 60px; }
-      .masthead.masthead-overview .item .logo-ose, .masthead.masthead-overview .item .logo-oso, .masthead.masthead-overview .item .logo-osd {
-        margin-bottom: 10px;
-        height: 80px;
-        -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-        filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); }
       .masthead.masthead-overview .item h1 {
         font-size: 36px;
         text-transform: uppercase;
