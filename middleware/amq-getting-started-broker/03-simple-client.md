@@ -1,4 +1,4 @@
-The sample project in the upper right part side of the screen, shows the components of your sample Node.js project. You can learn more about Red Hat OpenShift Application Runtimes for Node.js in the following [link](https://learn.openshift.com/middleware/rhoar-getting-started-nodejs/).
+The sample project in the upper right part side of the screen, shows the components of your sample Node.js project. This project uses [Red Hat OpenShift Application Runtimes](http://developers.redhat.com/rhoar), a set of open source cloud native application runtimes for modern applications.
 
 The app implements a simple messaging greeting service that simply sends a Hello World! to a queue and the same application listens in the same queue for greeting messages. We use the Red Hat AMQ JavaScript Client to create a connection to the messaging broker to send and receive messages.
 
@@ -34,10 +34,8 @@ Build and deploy the project using the following command:
 
 ```npm run openshift```{{execute}}
 
-> This uses NPM and the [Nodeshift](https://github.com/bucharest-gold/nodeshift) project to build and deploy the sample
-application to OpenShift using the containerized Node.js runtime. Nodeshift uses the files in the `.nodeshift`
-directory of the sample project to create the necessary Kubernetes objects to cause the application to be deployed.
+> This uses NPM and the [Nodeshift](https://github.com/bucharest-gold/nodeshift) project to build and deploy the sample application to OpenShift using the containerized Node.js runtime.
 
-The build and deploy may take a minute or two. Wait for it to complete. 
+The build and deploy may take a minute or two. Wait for it to complete.
 
 You should see `INFO complete` at the end of the build output, and you should not see any obvious errors or failures. In the next step you will explore OpenShift's web console to check your application is running.
