@@ -2,13 +2,28 @@
   "title": "Serverless with OpenShift Cloud Functions",
   "courses": [
     {
+      "external_link": "https://learn.openshift.com/serverless/0-serverless-introduction",
+      "course_id": "0-serverless-introduction",
+      "title": "Serverless: Introduction to Concepts"
+    },
+    {
       "external_link": "https://learn.openshift.com/serverless/1-simple-nodejs-greeting",
       "course_id": "1-simple-nodejs-greeting",
       "title": "Serverless: Simple Javascript Greeting Function"
     },
     {
-      "external_link": "https://learn.openshift.com/serverless/2-rules-triggers",
-      "course_id": "2-rules-triggers",
+      "external_link": "https://learn.openshift.com/serverless/3-web-accessible-actions",
+      "course_id": "3-web-accessible-actions",
+      "title": "Serverless: Accessing Actions via HTTP Requests"
+    },
+    {
+      "external_link": "https://learn.openshift.com/serverless/4-chained-actions",
+      "course_id": "4-chained-actions",
+      "title": "Serverless: Chaining Actions via Sequences"
+    },
+    {
+      "external_link": "https://learn.openshift.com/serverless/5-rules-triggers",
+      "course_id": "5-rules-triggers",
       "title": "Serverless: Using Rules and Triggers"
     }
   ]
