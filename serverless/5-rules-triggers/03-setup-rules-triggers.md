@@ -14,21 +14,21 @@ wsk -i trigger create every-2-seconds \
     --feed  /whisk.system/alarms/alarm \
     --param cron '*/2 * * * * *' \
     --param maxTriggers 100
-``{{execute}}
+``{{execute T1}}
 
 **2. Create `invoke-periodically` Rule.**
 
-This rule shows how the `every-5-seconds` trigger can be declaratively mapped to the `timestamp.js` action. 
+This rule shows how the `every-2-seconds` trigger can be declaratively mapped to the `timestamp.js` action. 
 Notice that it's named somewhat abstractly so that if we wanted to use a different trigger 
 (perhaps something that fires every minute instead) we could still keep the logical name. To create the rule
-enter the folleing command:
+enter the following command:
 
 ``
 wsk -i rule create \
     invoke-periodically \
     every-2-seconds \
     timestamp
-``{{execute}}
+``{{execute T1}}
 
 At this point, you can click on the **Terminal 2 tab** to check the activation polling to confirm that the timestamp
 action is invoked by the trigger every 2 seconds.  You should see something like this:
@@ -46,6 +46,6 @@ Activation: 'timestamp' (78cc6219bf3544bb8c6219bf3514bbf6)
 ```
 Now click on the **first Terminal tab** and delete the `invoke-periodically` rule by doing:
 
-``wsk -i rule delete invoke-periodically``{{execute}}
+``wsk -i rule delete invoke-periodically``{{execute T1}}
 
 When you go back to the **Terminal 2 tab**, you will see that the action invocations have stopped.
