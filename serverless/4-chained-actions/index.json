@@ -1,0 +1,58 @@
+{
+  "pathwayTitle": "Chained Actions on OCF",
+  "icon": "fa-openshift",
+  "title": "Chained Actions on OCF",
+  "description": "Demonstrating the Chaining of Actions on OpenShift Cloud Functions",
+  "difficulty": "intermediate",
+  "time": "15 minutes",
+  "details": {
+    "assets": {
+      "host01": [
+        {"file": "setup-environment.sh", "target": "/root/", "chmod": "+x"}
+      ]
+    },
+    "intro": {
+      "text": "00-intro.md",
+      "credits": "http://developers.redhat.com",
+      "code": "set-env.sh"
+    },
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "01-create-package.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "02-create-split-function.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "03-create-sort-function.md"
+      },
+      {
+        "title": "Step 4",
+        "text": "04-create-uppercase-function.md"
+      },
+      {
+        "title": "Step 5",
+        "text": "05-create-sequence.md"
+      }
+    ],
+    "finish": {
+        "text": "99-outro.md"
+    }
+  },
+  "files": [],
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [],
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/projects",
+    "uisettings": "java",
+    "uimessage1": "\u001b[32mOpenShift Console.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "openshift-middleware-3-7",
+    "port": 8443
+  }
+}
