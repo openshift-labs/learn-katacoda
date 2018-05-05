@@ -8,13 +8,13 @@ To the immediate right of the terminal tab is a plus sign ![](openshift/assets/s
 plus and choose ``Open New Terminal`` to open a second terminal window.  Once the second terminal opens, enter a command to 
 set the path so the wsk command is accessible:
 
-``export PATH="${HOME}/openwhisk/bin:${PATH}"``{{execute}}
+``export PATH="${HOME}/openwhisk/bin:${PATH}"``{{execute T2}}
 
 **2. Start Activation Polling**
 
 Let's now use the OpenWhisk command to start activation polling in this second terminal:
 
-``wsk -i activation poll``{{execute}}
+``wsk -i activation poll``{{execute T2}}
 
 The polling should start in the second terminal.  It may or may not show "invokerHealthTestAction0" messages like:
 
@@ -28,7 +28,7 @@ Activation: 'invokerHealthTestAction0' (f5bca1d1ef334533bca1d1ef333533de)
 Now click on the **first Terminal tab** and invoke your timestamp function manually so we can verify that it shows up in the 
 activation polling in the second window:
 
-``wsk -i action invoke --blocking timestamp | grep message``{{execute}}
+``wsk -i action invoke --blocking timestamp | grep message``{{execute T1}}
 
 This will echo the resulting JSON message to the current window and log the activation in the other window.  We have
 grepped just the payload message so you should see something like this:
