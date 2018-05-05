@@ -46,12 +46,12 @@ Executing the above command should return us a JSON payload like:
 ```json
 {"payload": "Welcome to OpenShift Cloud Functions, Guest"}
 ```
-Now invoke the function by copying the line below and pasting it into the terminal window followed by your name.
+Now invoke the function by **copying the line below and pasting it into the terminal window followed by your name**.
 
 ``wsk -i action invoke --result greeter --param name ``
 
 You should get the same respone as before but with your name instead of 'Guest'.  Feel free to repeat this command
-several timeswith different names appended to the end.  
+several times with different names appended to the end.  
 
 Now, lets see how many times we have invoked this function by dumping the activation log with.  The activation log in 
 Apache OpenWhisk is designed with a lazy database view update mechanism that prioritizes invocations over activation

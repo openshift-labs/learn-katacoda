@@ -53,7 +53,7 @@ You can verify the settings via the command:
 
 Successful execution of the above command should display output like below:
 
-![OpenWhisk Default Catalog](../assets/ow_catalog_actions.png)
+![OpenWhisk Default Catalog](/openshift/assets/serverless/0-serverless-introduction/ow_catalog_actions.png)
 
 ## Congratulations
 
