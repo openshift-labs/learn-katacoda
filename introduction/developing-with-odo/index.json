@@ -7,7 +7,7 @@
     "time": "10-15 minutes",
     "embedded_survey_url": "https://goo.gl/forms/rrNpdFcjHTkkMA7g1?title=",
     "backend": {
-        "imageid": "openshift-middleware-3-7",
+        "imageid": "openshift-3-7-odo",
         "port": 8443
     },
     "environment": {
