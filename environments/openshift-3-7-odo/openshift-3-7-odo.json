@@ -27,12 +27,13 @@
     ],
 
     "provisioners": [
-        { "type": "file", "destination": "/opt/create-pv.sh", "source": "./create-pv.py" },
+        { "type": "file", "destination": "/opt/create-pv.sh", "source": "./scripts/create-pv.sh" },
         {
             "type": "shell",
             "scripts": [
                 "scripts/configure-java.sh",
-                "scripts/odo-config.sh",
+                "scripts/odo-pull.sh",
+                "scripts/odo-config.sh"
             ]
         },
         {

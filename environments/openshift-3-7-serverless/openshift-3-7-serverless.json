@@ -14,8 +14,6 @@
             "iso_url": "{{ user `pwd` }}/output-openshift/packer-openshift",
             "iso_checksum_type": "none",
             "iso_checksum": "",
-            "vnc_port_min": 5922,
-            "vnc_port_max": 5922,
 
             "http_directory": "http",
 
