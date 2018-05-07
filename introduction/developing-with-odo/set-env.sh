@@ -1,2 +1,3 @@
 ~/.launch.sh
-. ~/.configure.sh
+
+~/.configure-odo.sh

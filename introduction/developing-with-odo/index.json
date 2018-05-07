@@ -52,7 +52,7 @@
             "text": "finish.md"
         },
         "assets": {
-          "host01": [{"file": ".configure.sh", "target": "~/"}]
+          "host01": [{"file": ".configure-odo.sh", "target": "~/", "chmod": "+x"}]
         }
     }
 }
