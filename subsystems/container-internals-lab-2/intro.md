@@ -12,7 +12,7 @@ By the end of this lab you should be able to:
 ## Video
 This video will give you a background to all of the concepts in this lab
 
-<iframe width="640" height="480" src="https://www.youtube.com/embed/P5NaEXmJuWo" frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/P5NaEXmJuWo" frameborder="0" allowfullscreen  style="position: relative;"></iframe>
 
 ## Outline
 - Image Layers and Repositories: inspecting base images, layers and history
