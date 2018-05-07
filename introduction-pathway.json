@@ -40,6 +40,11 @@
       "external_link": "https://learn.openshift.com/introduction/using-metrics/",
       "course_id": "using-metrics",
       "title": "Exploring and using metrics and HPAs"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/developing-with-odo/",
+      "course_id": "developing-with-odo",
+      "title": "Developing with odo"
     }
   ]
 }
