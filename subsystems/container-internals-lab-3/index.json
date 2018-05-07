@@ -6,7 +6,8 @@
     "difficulty": "Advanced",
     "time": "20-30 minutes",
     "backend": {
-        "imageid": "openshift",
+      "trainingid": "openshift-3-6",
+      "imageid": "openshift-3-6",
         "port": 8443
     },
     "environment": {
