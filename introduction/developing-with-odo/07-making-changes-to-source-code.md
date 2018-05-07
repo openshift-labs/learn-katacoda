@@ -13,3 +13,7 @@ Let's add a label to the counter display. Edit the file `index.php` with a searc
 In the virtual environment, rather than your local disk, there may be a slight delay before `odo` recognizes the change. Once the change is recognized, `odo` will push the changes to the `frontend` component and print its status to the terminal.
 
 Once it does, refresh the application's page in the web browser. You will see the new label "Counter" that we added to the application's index file.
+
+NOTE: If you no longer have the the application page opened in a browser, you can recall the url by executing:
+
+`odo url list`{{execute}}

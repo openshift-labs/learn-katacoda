@@ -10,7 +10,7 @@ Source code for the backend of our `sample` application is available in the comm
 
 Take a look at the contents of the `backend` directory. It's a regular Java application using the Maven build system.
 
-`ls src/main`{{execute}}
+`ls`{{execute}}
 
 Build the `backend` source file with Maven to create the deployment artifact `ROOT.war`:
 
@@ -20,34 +20,19 @@ With the backend's `.war` file built, we can use `odo` to deploy and run it atop
 
 `odo create wildfly backend --binary target/ROOT.war`{{execute}}
 
-As the container create, push, and deploy steps happen, `odo` will print status like the following:
+As the container is created, `odo` will print status like the following:
 
 ```
-Receiving source from STDIN as file ROOT.war
-Moving binaries in source directory into /wildfly/standalone/deployments for later deployment...
-Moving all war artifacts from /opt/app-root/src/. directory into /wildfly/standalone/deployments for later deployment...
-'/opt/app-root/src/./ROOT.war' -> '/wildfly/standalone/deployments/ROOT.war'
-Moving all ear artifacts from /opt/app-root/src/. directory into /wildfly/standalone/deployments for later deployment...
-Moving all rar artifacts from /opt/app-root/src/. directory into /wildfly/standalone/deployments for later deployment...
-Moving all jar artifacts from /opt/app-root/src/. directory into /wildfly/standalone/deployments for later deployment...
-...done
-
-Pushing image 172.30.144.245:5000/myproject/backend:latest ...
-Pushed 0/12 layers, 2% complete
-Pushed 1/12 layers, 25% complete
-Pushed 2/12 layers, 17% complete
-[...]
-Pushed 11/12 layers, 98% complete
-Pushed 12/12 layers, 100% complete
-Push successful
+Please wait, creating backend component ...
 Component 'backend' was created.
+To push source code to the component run 'odo push'
 
 Component 'backend' is now set as active component.
 ```
 
-The application is successfully deployed on OpenShift. With a single `odo create` command, OpenShift has built our backend component's `.war` file into a container along with the WildFly server needed to run it. That container is then pushed into OpenShift's integrated container registry. From there, the container is deployed into a Pod running on the OpenShift cluster.
+The application is not yet deployed on OpenShift. With a single `odo create` command, OpenShift has created a container with the WildFly server ready to have your application deployed to it. This container is not pushed into OpenShift's integrated container registry as it will be used for developing your application in an iterative way. This container is deployed into a Pod running on the OpenShift cluster.
 
-Let's verify that by running:
+Let's verify that the component exists already on the platform and is ready for your application:
 
 `odo list`{{execute}}
 
@@ -58,12 +43,19 @@ ACTIVE     NAME        TYPE
 *          backend     wildfly
 ```
 
-Since `backend` is a binary component, as specified in the `odo create` command above, changes to the program's source code would be followed by another Maven build. After `mvn` compiled a new `ROOT.war` file, the updated program would be updated in the `backend` component with the `odo push` subcommand. We can emulate such a `push` right now:
+Since `backend` is a binary component, as specified in the `odo create` command above, changes to the program's source code should be followed by pushing the artifact to the running container. After `mvn` compiled a new `ROOT.war` file, the updated program would be updated in the `backend` component with the `odo push` subcommand. We can execute such a `push` right now:
 
 `odo push`{{execute}}
 
 When the push completes, `odo` will print:
 
 ```
+Pushing changes to component: backend
+Please wait, building component....
+...
+run: stopped
+run: started
 changes successfully pushed to component: backend
 ```
+
+As you would probably have noticed, the artifact has been pushed to the container running Wildfly and the Wildfly server has been restarted to acknowledge for the new application.

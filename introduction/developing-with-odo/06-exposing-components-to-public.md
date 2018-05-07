@@ -2,4 +2,6 @@ We have deployed our sample application's backend component and connected the fr
 
 `odo url create frontend`{{execute}}
 
-`Odo` will print the URL generated for the application. Click the URL to visit the request counter application in a web browser.
+`Odo` will print the URL generated for the application. 
+
+Click the URL to visit the request counter application in a web browser.
