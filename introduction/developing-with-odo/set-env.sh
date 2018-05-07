@@ -1,2 +1,2 @@
 ~/.launch.sh
-~/.configure.sh
+. ~/.configure.sh
