@@ -16,7 +16,7 @@ The regular command line tool that we will be using as part of this training is 
 
 ### Developer-Centric Command Line Interface
 
-This lesson introduces an additional command line tool, *odo*, that helps developers model applications in familiar ways while deploying them on OpenShift.
+This lesson introduces a prototype command line tool, *odo*, that helps developers model applications in familiar ways while deploying them on OpenShift. It intends both to introduce the `odo` tool, and gather your feedback about rough edges, unclear terms, and potential directions for future development of what is currently an alpha release. This scenario concludes with a brief survey as part of the application deployed, and we hope you'll share your thoughts about `odo` there.
 
 ### Web Console
 
