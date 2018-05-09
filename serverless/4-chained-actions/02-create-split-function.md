@@ -1,16 +1,16 @@
-# Create the Split Function
+# Create the Split Action
 
-For the first step in our sequence, we'll use a Java function to take in a comma delimited list of words and split it around those commas.
+For the first step in our sequence, we'll use a Java action to take in a comma delimited list of words and split it around those commas.
 
 
-**1. Create the Java function**
+**1. Create the Java Action**
 
-Next, it's time to create the Java Action to do the first step in our sequence.  This function can be created using the [Java Action 
+Next, it's time to create the Java Action to do the first step in our sequence.  This action can be created using the [Java Action 
 Maven Archetype](https://github.com/apache/incubator-openwhisk-devtools/tree/master/java-action-archetype).  
 
 ``cd /root/projects``{{execute}}
 
-Create a Java function project called `splitter`
+Create a Java Action project called `splitter`
 
 ```
 mvn archetype:generate \
@@ -25,12 +25,14 @@ Move to the project directory
 
 ``cd splitter``{{execute}}
 
-Let's open the Java source file `src/main/java/com/example/FunctionApp.java` to review its contents.  Click the link below to open the source file in the editor:
+Let's open the Java source file `src/main/java/com/example/FunctionApp.java` to review its contents.  **Click the link below**
+to open the source file in the editor:
 
 ``splitter/src/main/java/com/example/FunctionApp.java``{{open}}
 
-All OpenWhisk Java function classes should have a `main` method with a signature that takes a `com.google.gson.JsonObject` as parameter and returns a `com.google.gson.JsonObject`.
-We need to update the generated function with our desired behavior.  Update the FunctionApp class with this code:
+All OpenWhisk Java Action classes should have a `main` method with a signature that takes a `com.google.gson.JsonObject` as a
+parameter and returns a `com.google.gson.JsonObject`.  We need to update the generated action with our desired behavior.  Update
+the FunctionApp class with this code by clicking on the **Copy to Editor** button below:
 
 <pre class="file" data-filename="splitter/src/main/java/com/example/FunctionApp.java" data-target="replace">
 package com.example;
@@ -62,11 +64,11 @@ public class FunctionApp {
 }
 </pre>
 
-With the main function updated, now we need to update the tests.
+With the main Action updated, now we need to update the tests. **Click on the link below** to open the file in the editor:
 
 ``splitter/src/test/java/com/example/FunctionAppTest.java``{{open}}
 
-Update the FunctionAppTest class with this code:
+Update the FunctionAppTest class by clicking on the **Copy to Editor** button below:
 
 <pre class="file" data-filename="splitter/src/test/java/com/example/FunctionAppTest.java" data-target="replace">
 package com.example;
@@ -111,19 +113,21 @@ Build the project
 
 ``mvn clean package``{{execute}}
 
-`NOTE`: The Java Action maven archetype is not in maven central yet.  If you plan to use it in your local OpenWhisk environment you then need to build and install from [sources](https://github.com/apache/incubator-openwhisk-devtools/tree/master/java-action-archetype).
+`NOTE`: The Java Action maven archetype is not in maven central yet.  If you plan to use it in your local OpenWhisk environment you
+then need to build and install from [sources](https://github.com/apache/incubator-openwhisk-devtools/tree/master/java-action-archetype).
 
-**2. Deploy the function**
+**2. Deploy the Action**
 
-Let's now create a function called `splitter` in OpenWhisk:
+Let's now create an Action called `splitter` in OpenWhisk:
 
 ``wsk -i action create sequence/splitter target/splitter.jar --main com.example.FunctionApp``{{execute}}
 
-When we create Java function the parameter `--main` is mandatory.  It defines which Java class will be called during OpenWhisk Action invocation.
+When we create a Java Action the parameter `--main` is mandatory.  It defines which Java class will be called during OpenWhisk
+Action invocation.
 
-**4. Verify the function**
+**4. Verify the Action**
 
-Let's check if the function is created correctly:
+Let's check if the Action is created correctly:
 
 ``wsk -i action list | grep 'splitter'``{{execute}}
 
@@ -135,7 +139,7 @@ The output of the command should show something like:
 
 Now we can invoke the action and see that it's working:
 
-``wsk -i action invoke sequence/splitter --result --param text "zebra,cat,antelope"``{{execute}}
+``wsk -i action invoke sequence/splitter --result --param text "zebra,cat,antelope" | tee ~/split.json``{{execute}}
 
 Executing the above command should return us this JSON payload:
 
@@ -148,6 +152,8 @@ Executing the above command should return us this JSON payload:
     ]
 }
 ```
+
+Note that we have piped the results through the `tee` command so we can store the results to help us verify the next step in our chain.
 
 # Next
 

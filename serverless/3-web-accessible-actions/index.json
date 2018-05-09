@@ -33,10 +33,10 @@
     "uilayout": "editor-terminal",
     "uieditorpath": "/root/projects",
     "uisettings": "java",
-    "uimessage1": "\u001b[32mOpenShift Console.\u001b[m\r\n"
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "openshift-middleware-3-7",
+    "imageid": "openshift-3-7-serverless",
     "port": 8443
   }
 }
