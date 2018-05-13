@@ -17,38 +17,36 @@ This command will create a broker instance with the ``OpenWire`` and ``AMQP`` pr
 You should see the output:
 
 ```
---> Deploying template "openshift/amq63-basic" to project messaging
+--> Deploying template "openshift/amq-broker-71-basic" to project messaging
 
-     Red Hat JBoss A-MQ 6.3 (Ephemeral, no SSL)
+     JBoss AMQ Broker 7.1 (Ephemeral, no SSL)
      ---------
-     Application template for JBoss A-MQ brokers. These can be deployed as standalone or in a mesh. This template doesn't feature SSL support.
+     Application template for JBoss AMQ brokers. These can be deployed as standalone or in a mesh. This template doesn't feature SSL support.
 
-     A new messaging service has been created in your project. It will handle the protocol(s) "openwire,amqp,stomp". Theusername/password for accessing the service is amqUser/amqPassword.
+     A new messaging service has been created in your project. It will handle the protocol(s) "openwire,amqp,stomp,mqtt". The username/password for accessing the service is amquser/amqpassword.
 
      * With parameters:
         * Application Name=broker
-        * A-MQ Protocols=openwire,amqp,stomp
-        * Queues=myqueue
-        * Topics=mytopic
-        * A-MQ Serializable Packages=
-        * A-MQ Username=amqUser
-        * A-MQ Password=amqPassword
-        * A-MQ Mesh Discovery Type=kube
-        * A-MQ Storage Limit=100 gb
+        * AMQ Protocols=openwire,amqp,stomp,mqtt
+        * Queues=example
+        * Topics=
+        * AMQ Username=amquser
+        * AMQ Password=amqpassword
+        * AMQ Role=admin
+        * AMQ Name=broker
+        * AMQ Global Max Size=100 gb
         * ImageStream Namespace=openshift
 
 --> Creating resources ...
+    route "console" created
+    service "broker-amq-jolokia" created
     service "broker-amq-amqp" created
     service "broker-amq-mqtt" created
     service "broker-amq-stomp" created
     service "broker-amq-tcp" created
     deploymentconfig "broker-amq" created
 --> Success
-    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
-     'oc expose svc/broker-amq-amqp'
-     'oc expose svc/broker-amq-mqtt'
-     'oc expose svc/broker-amq-stomp'
-     'oc expose svc/broker-amq-tcp'
+    Access your application via route 'console-messaging.2886795275-80-kitek02.environments.katacoda.com'
     Run 'oc status' to view your app.
 ```
 
