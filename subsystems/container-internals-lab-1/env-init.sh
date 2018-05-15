@@ -10,6 +10,7 @@ ssh root@host01 'cp ~/labs/lab1-step3/mega-proc.sh /usr/bin/mega-proc.sh'
 
 # Lab 2
 ssh root@host01 'git clone -b centos7 https://github.com/fatherlinux/container-supply-chain.git ~/labs/lab2-step4/'
+ssh root@host01 'cd ~/labs/lab2-step4/; git checkout centos7'
 
 # Lab 3
 
