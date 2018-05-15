@@ -4,7 +4,7 @@ Before we do anything, we need some application images for MySQL and HTTPD/PHP. 
 
 ``make -C ~/labs/lab2-step4/``{{execute}}
 
-Now, tag the images so that the correct one get's used latter in the lab
+Now, tag the image so that the correct one get's used latter in the lab
 ``docker tag wordpress wordpress:csc``{{execute}}
 
 In Kuberntes/OpenShift, applications are defined with either JSON or YAML files - either file format can be imported or exported, even converting between the two. In this lab, we will use YAML files.
