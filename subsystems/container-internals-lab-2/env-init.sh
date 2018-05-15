@@ -13,14 +13,13 @@ ssh root@host01 'cp ~/labs/lab3-step1/atomic-openshift-master.service /etc/syste
 ssh root@host01 'cp ~/labs/lab3-step1/atomic-openshift-node.service /etc/systemd/system/atomic-openshift-node.service'
 ssh root@host01 'systemctl disable --now origin.service'
 ssh root@host01 'systemctl enable --now atomic-openshift-master.service; systemctl enable --now atomic-openshift-node.service'
-ssh root@host01 'yum install -y strace'
+ssh root@host01 'rpm -ivh http://mirror.centos.org/centos/7/os/x86_64/Packages/strace-4.12-6.el7.x86_64.rpm'
 
 # Lab 4
-ssh root@host01 'ln -s ~/intro-katacoda/subsystems/container-internals-lab-4/assets ~/assets'
 ssh root@host01 'git clone --depth 1 --single-branch --branch lab04-exercise01 https://github.com/fatherlinux/wordpress-demo.git ~/labs/lab4-step1'
 ssh root@host01 '~/labs/lab4-step1/create-pv.sh'
 ssh root@host01 'sed -i s/wpfrontend-wordpress.apps.example.com/`hostname`/ ~/labs/lab4-step1/wordpress-objects.yaml'
-ssh root@host01 'yum install -y links httpd-tools'
+ssh root@host01 'rpm -ivh http://mirror.centos.org/centos/7/os/x86_64/Packages/httpd-tools-2.4.6-80.el7.centos.x86_64.rpm'
 
 # Final Preparation
 ssh root@host01 'docker pull rhel7'
