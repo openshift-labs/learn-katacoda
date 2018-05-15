@@ -28,13 +28,13 @@ The application also needs storage for the MySQL tables, and Web Root for Apache
 
 ``cat ~/labs/lab4-step1/persistent-volumes.yaml``{{execute}}
 
-Notice that the persistent volumes are unbound. They are available and waiting, but will not be ustilized until you define an application which consumes storage. This is inline with the way Kubernetes constantly tries to drive the actual state toward the defined state. Currently, there is no definition to consume this storage: 
-
-``oc get pv``{{execute}}
-
 Now, let's instantiate some Persistent Volumes:
 
 ``oc create -f ~/labs/lab4-step1/persistent-volumes.yaml``{{execute}}
+
+Notice that the persistent volumes are unbound. They are available and waiting, but will not be ustilized until you define an application which consumes storage. This is inline with the way Kubernetes constantly tries to drive the actual state toward the defined state. Currently, there is no definition to consume this storage: 
+
+``oc get pv``{{execute}}
 
 ## Terminal 1 ##
 
