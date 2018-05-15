@@ -1,8 +1,8 @@
 # General Preparation
 ssh root@host01 'git clone https://github.com/fatherlinux/container-internals-lab.git ~/labs'
-ssh root@host01 'docker pull rhel7'
-ssh root@host01 'docker pull rhel7-atomic'
-ssh root@host01 'docker pull nate/dockviz'
+ssh root@host01 'docker pull rhel7 &'
+ssh root@host01 'docker pull rhel7-atomic &'
+ssh root@host01 'docker pull nate/dockviz &'
 ssh root@host01 '/var/lib/openshift/openshift admin policy add-cluster-role-to-user cluster-admin admin'
 
 # Lab 1
