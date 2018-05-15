@@ -4,14 +4,14 @@ We are going to simulate one of these problems by using a specially designed tes
 
 Inspect each of the files and try to understand them a bit:
 
-``cat ~/assets/exercise-03/Build.yaml``{{execute}}
+``cat ~/labs/lab4-step3/Build.yaml``{{execute}}
 
-``cat ~/assets/exercise-03/Run.yaml``{{execute}}
+``cat ~/labs/lab4-step3/Run.yaml``{{execute}}
 
 
 Build the test application. Wait for the build to successfully complete. You can watch the log output in the OpenShift web interface.
 
-``oc create -f ~/assets/exercise-03/Build.yaml``{{execute}}
+``oc create -f ~/labs/lab4-step3/Build.yaml``{{execute}}
 
 
 ``oc get builds``{{execute}}
@@ -19,11 +19,11 @@ Build the test application. Wait for the build to successfully complete. You can
 
 Before we define the applicaiton, we need to patch application defintion because each Katacoda environment is generated dynamically and is different:
 
-``sed -i s#172.30.170.9:5000/lab02-exercise04/goodbad#$(oc get is | grep goodbad | awk '{print $2}')# ~/assets/exercise-03/Run.yaml``{{execute}}
+``sed -i s#172.30.170.9:5000/lab02-exercise04/goodbad#$(oc get is | grep goodbad | awk '{print $2}')# ~/labs/lab4-step3/Run.yaml``{{execute}}
 
 Run the test application
 
-``oc create -f ~/assets/exercise-03/Run.yaml``{{execute}}
+``oc create -f ~/labs/lab4-step3/Run.yaml``{{execute}}
 
 
 Get the IP address for the goodbad service
@@ -47,9 +47,9 @@ ERROR``
 
 Take a look at the code. A random number is generated in the entrypoint and written to a file in /var/www/html/goodbad.txt:
 
-``cat ~/assets/exercise-03/index.php``{{execute}}
+``cat ~/labs/lab4-step3/index.php``{{execute}}
 
-``cat ~/assets/exercise-03/Dockerfile``{{execute}}
+``cat ~/labs/lab4-step3/Dockerfile``{{execute}}
 
 
 Troubleshoot the problem in a programatic way. Notice some pods have files which contain numbers that are lower than 7, this means the pod will return a bad response:

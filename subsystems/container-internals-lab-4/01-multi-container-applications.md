@@ -2,9 +2,9 @@ The goal of this exercise is to build a containerized two tier application in th
 
 Before we do anything, we need some application images for MySQL and HTTPD/PHP. To do this, we are going to build the supply chain again:
 
-``make -C ~/assets/exercise-01-a/``{{execute}}
+``make -C ~/labs/lab2-step4/``{{execute}}
 
-In Kuberntes/OpenShifti, applications are defined with either JSON or YAML files - either file format can be imported or exported, even converting between the two. In this lab, we will use YAML files.
+In Kuberntes/OpenShift, applications are defined with either JSON or YAML files - either file format can be imported or exported, even converting between the two. In this lab, we will use YAML files.
 
 Essentially, the appication definition files are a collection of software defined objects in Kuberntes. The objects in the file are imported and become defined state for the application. Important objects include:
 
@@ -19,12 +19,12 @@ Having of these objects defined in a single file makes sharing and deployment of
 
 Notice there are two Services defined - one for MySQL and one for Wordpress. This allows these two Services to scale independently. The front end can scale with web traffic demand. The MySQL service could also be made to scale with a technology like Galera, but would require special care. You may also notice that even though there are two Services, there is only a single Route in this definition. That's because Services are internal to the Kubernetes cluster, while Routes expose the service externally. We only want to expose our Web Server externally, not our Database:
 
-``cat ~/assets/exercise-01-b/wordpress-objects.yaml``{{execute}}
+``cat ~/labs/lab4-step1/wordpress-objects.yaml``{{execute}}
 
 
 Once the builds from above complete, let's create this two-tier application:
 
-``oc create -f ~/assets/exercise-01-b/wordpress-objects.yaml``{{execute}}
+``oc create -f ~/labs/lab4-step1/wordpress-objects.yaml``{{execute}}
 
 
 Look at the status of the application. The two pods that make up this application will remain in a "pending" state - why?
@@ -41,12 +41,12 @@ That's because Kubernetes/OpenShift can't make the defined state and actual stat
 
 The application needs storage for the MySQL tables, and Web Root for Apache. Let's inspect the YAML file which will create the storage. We will create four persistent volumes - two that have 1GB of storage and two that will have 2GB of storage. In this lab environment, these perisistent volumes will reside on the local all-in-one installation, but in a productoin environment they could reside on shared storage and be accessed from any node in the Kubernetes/OpenShift cluster. This could be Gluster, Ceph, AWS EBS Volumes, NFS, iSCSI, etc:
 
-``cat ~/assets/exercise-01-b/persistent-volumes.yaml``{{execute}}
+``cat ~/labs/lab4-step1/persistent-volumes.yaml``{{execute}}
 
 
 Instantiate the peristent volumes:
 
-``oc create -f ~/assets/exercise-01-b/persistent-volumes.yaml``{{execute}}
+``oc create -f ~/labs/lab4-step1/persistent-volumes.yaml``{{execute}}
 
 
 Now, the persistent volume claims for the application will become Bound and satisfy the storage requirements. Kubernetes/OpenShift will now start to converge the defined state and the actual state:
