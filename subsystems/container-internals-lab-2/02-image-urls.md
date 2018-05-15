@@ -22,7 +22,7 @@ You can run any of the following commands and you will get the exact same result
 
 Now, let's build another image, but give it a tag other than "latest":
 
-``docker build -t registry.access.redhat.com/rhel7/rhel:test ~/labs/lab1-step1/``{{execute}}
+``docker build -t registry.access.redhat.com/rhel7/rhel:test ~/labs/lab2-step1/``{{execute}}
 
 Now, notice there is another tag
 
