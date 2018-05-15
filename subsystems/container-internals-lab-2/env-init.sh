@@ -17,4 +17,5 @@ ssh root@host01 'git clone --depth 1 --single-branch --branch centos7 https://gi
 ssh root@host01 'docker pull rhel7'
 ssh root@host01 'docker pull rhel7-atomic'
 ssh root@host01 'docker pull nate/dockviz'
+ssh root@host01 'docker pull nate/centos'
 ssh root@host01 '/var/lib/openshift/openshift admin policy add-cluster-role-to-user cluster-admin admin'
