@@ -24,6 +24,6 @@ ssh root@host01 'rpm -ivh http://mirror.centos.org/centos/7/os/x86_64/Packages/h
 ssh root@host01 'docker pull rhel7'
 ssh root@host01 'docker pull rhel7-atomic'
 ssh root@host01 'docker pull nate/dockviz'
-ssh root@host01 'docker pull nate/centos'
+ssh root@host01 'docker pull centos'
 ssh root@host01 'docker pull openshift3/mysql-55-rhel7'
 ssh root@host01 '/var/lib/openshift/openshift admin policy add-cluster-role-to-user cluster-admin admin'
