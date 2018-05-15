@@ -24,9 +24,9 @@ corebuild                                                   latest              
 
 Now, initiate a distributed build on the OpenShift cluster. The yaml file below will create everything you need. Once the builds complete, the images will be placed in the OpenShift registry and are usable in the cluster:
 
-``oc new-project lab02-exercise04``{{execute}}
+``oc new-project lab2-step4``{{execute}}
 
-``oc create -f ~/assets/exercise-04/AutomaticSupplyChain.yaml``{{execute}}
+``oc create -f ~/labs/lab2-step4/AutomaticSupplyChain.yaml``{{execute}}
 
 Inspect the builds in the web interface. The build will start automatically after submitting the yaml file to the Kubernetes API daemon. Inspect the actual build by clicking on the "#1" then the "Logs" and "Events" sections. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster. Feel free to explore the different sections of the web interfece, especially the "Applications -> Pods" and "Builds -> Builds" sections.
 
