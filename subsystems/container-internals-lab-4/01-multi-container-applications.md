@@ -5,6 +5,8 @@ Before we do anything, we need some application images for MySQL and HTTPD/PHP. 
 ``make -C ~/labs/lab2-step4/
 docker tag wordpress wordpress:csc``{{execute}}
 
+## Terminal 2 ##
+
 In Kuberntes/OpenShift, applications are defined with either JSON or YAML files - either file format can be imported or exported, even converting between the two. In this lab, we will use YAML files.
 
 Essentially, the appication definition files are a collection of software defined objects in Kuberntes. The objects in the file are imported and become defined state for the application. Important objects include:
@@ -30,11 +32,13 @@ Notice that the persistent volumes are unbound. They are available and waiting, 
 
 ``oc get pv``{{execute}}
 
-Once you are done inspecting all of the objects from above, wait for the image builds to complete. Once the builds from above complete, instantiate the peristent volumes:
+Now, let's instantiate some Persistent Volumes:
 
 ``oc create -f ~/labs/lab4-step1/persistent-volumes.yaml``{{execute}}
 
-And, the two-tier application:
+## Terminal 1 ##
+
+Once you are done inspecting all of the objects from above, wait for the image builds to complete. Once the builds from above complete, instantiate the two-tier application:
 
 ``oc create -f ~/labs/lab4-step1/wordpress-objects.yaml``{{execute}}
 
