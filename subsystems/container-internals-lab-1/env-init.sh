@@ -9,8 +9,11 @@ ssh root@host01 '/var/lib/openshift/openshift admin policy add-cluster-role-to-u
 ssh root@host01 'cp ~/labs/lab1-step3/mega-proc.sh /usr/bin/mega-proc.sh'
 
 # Lab 2
+ssh root@host01 'git clone https://github.com/fatherlinux/container-supply-chain.git ~/labs/lab2-step4/'
+ssh root@host01 'cd ~/labs/lab1-step4/; git checkout centos7'
 
 # Lab 3
 
+
 # Lab 4
-ssh root@host01 'git clone https://github.com/fatherlinux/container-supply-chain.git ~/labs/e04/'
+ssh root@host01 'git clone https://github.com/fatherlinux/container-supply-chain.git ~/labs/lab4-step4/'

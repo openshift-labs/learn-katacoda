@@ -14,7 +14,7 @@ Now, let's take a look at the minimal base image from Red Hat, called the Red Ha
 
 Now, using a simple Dockerfile we created for you, build a multi-layered image:
 
-``docker build -t rhel7-change ~/assets/exercise-01/``{{execute}}
+``docker build -t rhel7-change ~/labs/lab2-step1/``{{execute}}
 
 Do you see the newly created rhel7-change tag?
 

@@ -10,7 +10,7 @@ This exercise has subdirectories which contain a Dockerfile for each layer. Take
 
 Initiate a single node build with all of the Dockerfiles using the Makefile. Watch the output - notice the yum updates and installs that are happening. Also, notice that the corebuild is built before any of the other layers:
 
-``make -C ~/assets/exercise-04/``{{execute}}
+``make -C ~/labs/lab2-step4/``{{execute}}
 
 Now, inspect the images which were built:
 
