@@ -17,9 +17,9 @@ ssh root@host01 'yum install -y strace'
 
 # Lab 4
 ssh root@host01 'ln -s ~/intro-katacoda/subsystems/container-internals-lab-4/assets ~/assets'
-ssh root@host01 'git clone --depth 1 --single-branch --branch lab04-exercise01 https://github.com/fatherlinux/wordpress-demo.git ~/labs/lab4-step1b'
-ssh root@host01 '~/labs/lab4-step1b/create-pv.sh'
-ssh root@host01 'sed -i s/wpfrontend-wordpress.apps.example.com/`hostname`/ ~/labs/lab4-step1b/wordpress-objects.yaml'
+ssh root@host01 'git clone --depth 1 --single-branch --branch lab04-exercise01 https://github.com/fatherlinux/wordpress-demo.git ~/labs/lab4-step1'
+ssh root@host01 '~/labs/lab4-step1/create-pv.sh'
+ssh root@host01 'sed -i s/wpfrontend-wordpress.apps.example.com/`hostname`/ ~/labs/lab4-step1/wordpress-objects.yaml'
 ssh root@host01 'yum install -y links httpd-tools'
 
 # Final Preparation
