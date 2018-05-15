@@ -8,7 +8,6 @@ ssh root@host01 'cp ~/labs/lab1-step3/mega-proc.sh /usr/bin/mega-proc.sh'
 ssh root@host01 'git clone --depth 1 --single-branch --branch centos7 https://github.com/fatherlinux/container-supply-chain.git ~/labs/lab2-step4/'
 
 # Lab 3
-ssh root@host01 'ln -s ~/intro-katacoda/subsystems/container-internals-lab-3/assets ~/assets'
 ssh root@host01 'cp ~/labs/lab3-step1/atomic-openshift-master.service /etc/systemd/system/atomic-openshift-master.service'
 ssh root@host01 'cp ~/labs/lab3-step1/atomic-openshift-node.service /etc/systemd/system/atomic-openshift-node.service'
 ssh root@host01 'systemctl disable --now origin.service'
