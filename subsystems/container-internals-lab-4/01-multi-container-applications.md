@@ -3,6 +3,7 @@ The goal of this exercise is to build a containerized two tier application in th
 Before we do anything, we need some application images for MySQL and HTTPD/PHP. To do this, we are going to build the supply chain again:
 
 ``make -C ~/labs/lab2-step4/``{{execute}}
+``docker tag wordpress wordpress:csc``{{execute}}
 
 In Kuberntes/OpenShift, applications are defined with either JSON or YAML files - either file format can be imported or exported, even converting between the two. In this lab, we will use YAML files.
 
