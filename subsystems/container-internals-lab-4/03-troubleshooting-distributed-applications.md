@@ -9,15 +9,20 @@ Inspect each of the files and try to understand them a bit:
 ``cat ~/labs/lab4-step3/Run.yaml``{{execute}}
 
 
-Build the test application. Wait for the build to successfully complete. You can watch the log output in the OpenShift web interface.
+Build the test application. **Wait** for the build to successfully complete. You can watch the log output in the OpenShift web interface.
 
 ``oc create -f ~/labs/lab4-step3/Build.yaml``{{execute}}
 
 
 ``oc get builds``{{execute}}
 
+``oc get pods``{{execute}}
 
-Before we define the applicaiton, we need to patch application defintion because each Katacoda environment is generated dynamically and is different:
+You can watch the logs like this:
+
+``oc logs goodbad-1-build``{{execute}}
+
+When the above build completes, move on. Before we define the application, we need to patch application defintion because each Katacoda environment is generated dynamically and is different:
 
 ``sed -i s#172.30.170.9:5000/lab02-exercise04/goodbad#$(oc get is | grep goodbad | awk '{print $2}')# ~/labs/lab4-step3/Run.yaml``{{execute}}
 
