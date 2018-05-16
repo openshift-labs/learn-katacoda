@@ -1,11 +1,13 @@
 The goal of this exercise is to build a containerized two tier application in the OpenShift cluster. This application will help you learn about clustered containers and distributed systems. It will teach you about Kubernetes and how it operates with the principles of "defined state" and "actual state" - it contantly monitors the environment and attempts to make the acual state match the defined state.
 
-Before we do anything, we need some application images for MySQL and HTTPD/PHP. To do this, we are going to build the supply chain again. While it's build, continue reading below and open a **new** terminal:
+## Terminal 2 ##
+
+Before we do anything, we need some application images for MySQL and HTTPD/PHP. To do this, we are going to build the supply chain again. Open a **second** teminal because this command will take a while to complete. While itbuilds, continue on using Terminal 1:
 
 ``make -C ~/labs/lab2-step4/
 docker tag wordpress wordpress:csc``{{execute}}
 
-## Terminal 2 ##
+## Terminal 1 ##
 
 In Kuberntes/OpenShift, applications are defined with either JSON or YAML files - either file format can be imported or exported, even converting between the two. In this lab, we will use YAML files.
 
@@ -38,7 +40,9 @@ Notice that the persistent volumes are unbound. They are available and waiting, 
 
 ## Terminal 1 ##
 
-Once you are done inspecting all of the objects from above, wait for the image builds to complete. Once the builds from above complete, instantiate the two-tier application:
+**Wait** for the builds in Terminal 2 to complete before moving on.
+
+Once the builds in Terminal 2 complete, instantiate the two-tier application:
 
 ``oc create -f ~/labs/lab4-step1/wordpress-objects.yaml``{{execute}}
 
