@@ -15,7 +15,7 @@ In terminal 1, let's inspect a containerized version of the same command. Use me
 
 The following command will attach strace to the process ID of containerd so that we can inspect what syscalls it is making:
 
-``strace -f -s4096 -e clone,getpid -p $(ps -ef | grep '/usr/bin/docker-containerd' | grep -v grep | awk '{print $2}')``{{execute}}
+``strace -f -s4096 -e clone,getpid -p $(ps -ef | grep '/usr/bin/docker-containerd' | grep contianerd.sock | grep -v grep | awk '{print $2}')``{{execute}}
 
 ## Terminal 2 ##
 In a second terminal, run some commands, and inspect what happens in terminal 1. You will what containerd fire off clone() system calls to the kernel and create the container. The different flags passed to clone() are what determine which kernel namespaces will be used (network, pid, uid, gid, etc):
