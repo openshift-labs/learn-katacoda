@@ -5,16 +5,19 @@ First, let's inspect the system calls that a common command makes. If you have d
 ``strace sleep 5``{{execute}}
 
 
-Now, let's inspect a containerized version of the same command. Use megaproc to get the PID and replace the -p argument:
+
+Now, let's start an exercise that will require two terminals:
+
+## Terminal 1 ##
+In terminal 1, let's inspect a containerized version of the same command. Use megaproc to get the PID and replace the -p argument:
 
 ``mega-proc.sh docker``{{execute}}
 
+The following command will attach strace to the process ID of containerd so that we can inspect what syscalls it is making:
 
-Prepare to inspect what containerd is doing. Replace the -p argument with the PID for containerd:
+``strace -f -s4096 -e clone,getpid -p $(ps -ef | grep '/usr/bin/dockerd-current' | grep -v grep | awk '{print $2}')``{{execute}}
 
-``strace -f -s4096 -e clone,getpid -p REPLACE_WITH_PID_OF_CONTAINERD``
-
-
+## Terminal 2 ##
 In a second terminal, run some commands, and inspect what happens in terminal 1. You will what containerd fire off clone() system calls to the kernel and create the container. The different flags passed to clone() are what determine which kernel namespaces will be used (network, pid, uid, gid, etc):
 
 ``docker run -it rhel7 bash``{{execute}}
