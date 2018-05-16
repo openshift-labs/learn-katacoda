@@ -1,14 +1,14 @@
 {
-  "pathwayTitle": "Chained Actions on OCF",
+  "pathwayTitle": "Creating and Using Packages on OCF",
   "icon": "fa-openshift",
-  "title": "Chained Actions on OCF",
-  "description": "Demonstrating the Chaining of Actions on OpenShift Cloud Functions",
+  "title": "Creating and Using Packages on OCF",
+  "description": "Creating and using packages to bundle and share Actions",
   "difficulty": "intermediate",
-  "time": "15 minutes",
+  "time": "10 minutes",
   "details": {
     "assets": {
       "host01": [
-        {"file": "setup-environment.sh", "target": "/root/", "chmod": "+x"}
+        { "file": "setup-environment.sh", "target": "/root/", "chmod": "+x"}
       ]
     },
     "intro": {
@@ -19,27 +19,27 @@
     "steps": [
       {
         "title": "Step 1",
-        "text": "01-create-package.md"
+        "text": "01-getting-started.md"
       },
       {
         "title": "Step 2",
-        "text": "02-create-split-function.md"
+        "text": "02-adding-functions.md"
       },
       {
         "title": "Step 3",
-        "text": "03-create-sort-function.md"
+        "text": "03-parameters.md"
       },
       {
         "title": "Step 4",
-        "text": "04-create-uppercase-function.md"
+        "text": "04-more-parameters.md"
       },
       {
         "title": "Step 5",
-        "text": "05-create-sequence.md"
+        "text": "05-sharing.md"
       }
     ],
     "finish": {
-        "text": "99-outro.md"
+      "text": "99-outro.md"
     }
   },
   "files": [],
@@ -52,7 +52,7 @@
     "uimessage1": "\u001b[32mOpenShift Console.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "openshift-3-7-serverless",
+    "imageid": "openshift-middleware-3-7",
     "port": 8443
   }
 }

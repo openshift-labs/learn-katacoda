@@ -1,11 +1,11 @@
 # Create the Split Action
 
-For the first step in our sequence, we'll use a Java action to take in a comma delimited list of words and split it around those commas.
+For the first step in our sequence, we'll use a Java Action to take in a comma delimited list of words and split it around those commas.
 
 
 **1. Create the Java Action**
 
-Next, it's time to create the Java Action to do the first step in our sequence.  This action can be created using the [Java Action 
+Next, it's time to create the Java Action to do the first step in our sequence.  This Action can be created using the [Java Action 
 Maven Archetype](https://github.com/apache/incubator-openwhisk-devtools/tree/master/java-action-archetype).  
 
 ``cd /root/projects``{{execute}}
@@ -13,7 +13,7 @@ Maven Archetype](https://github.com/apache/incubator-openwhisk-devtools/tree/mas
 Create a Java Action project called `splitter`
 
 ```
-mvn archetype:generate \
+mvn -q archetype:generate \
     -DarchetypeGroupId=org.apache.openwhisk.java \
     -DarchetypeArtifactId=java-action-archetype \
     -DarchetypeVersion=1.0-SNAPSHOT \
@@ -25,13 +25,13 @@ Move to the project directory
 
 ``cd splitter``{{execute}}
 
-Let's open the Java source file `src/main/java/com/example/FunctionApp.java` to review its contents.  **Click the link below**
-to open the source file in the editor:
+Let's open the Java source file `src/main/java/com/example/FunctionApp.java` to review its contents.  **Click 
+the link below** to open the source file in the editor:
 
 ``splitter/src/main/java/com/example/FunctionApp.java``{{open}}
 
 All OpenWhisk Java Action classes should have a `main` method with a signature that takes a `com.google.gson.JsonObject` as a
-parameter and returns a `com.google.gson.JsonObject`.  We need to update the generated action with our desired behavior.  Update
+parameter and returns a `com.google.gson.JsonObject`.  We need to update the generated Action with our desired behavior.  Update
 the FunctionApp class with this code by clicking on the **Copy to Editor** button below:
 
 <pre class="file" data-filename="splitter/src/main/java/com/example/FunctionApp.java" data-target="replace">
@@ -111,25 +111,25 @@ public class FunctionAppTest {
 
 Build the project
 
-``mvn clean package``{{execute}}
+``mvn -q package``{{execute}}
 
-`NOTE`: The Java Action maven archetype is not in maven central yet.  If you plan to use it in your local OpenWhisk environment you
-then need to build and install from [sources](https://github.com/apache/incubator-openwhisk-devtools/tree/master/java-action-archetype).
+`NOTE`: The Java Action maven archetype is not in maven central yet.  If you plan to use it in your local OpenWhisk environment
+you will need to build and install from [sources](https://github.com/apache/incubator-openwhisk-devtools/tree/master/java-action-archetype).
 
 **2. Deploy the Action**
 
-Let's now create an Action called `splitter` in OpenWhisk:
+Let's now create a Action called `splitter` in OpenWhisk:
 
 ``wsk -i action create sequence/splitter target/splitter.jar --main com.example.FunctionApp``{{execute}}
 
-When we create a Java Action the parameter `--main` is mandatory.  It defines which Java class will be called during OpenWhisk
+When we create Java Action the parameter `--main` is mandatory.  It defines which Java class will be called during OpenWhisk
 Action invocation.
 
 **4. Verify the Action**
 
 Let's check if the Action is created correctly:
 
-``wsk -i action list | grep 'splitter'``{{execute}}
+``wsk -i action list | grep sequence``{{execute}}
 
 The output of the command should show something like:
 

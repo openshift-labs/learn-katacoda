@@ -25,6 +25,11 @@
       "external_link": "https://learn.openshift.com/serverless/5-rules-triggers",
       "course_id": "5-rules-triggers",
       "title": "Serverless: Using Rules and Triggers"
+    },
+    {
+      "external_link": "https://learn.openshift.com/serverless/6-packages",
+      "course_id": "6-packages",
+      "title": "Serverless: Bundling Actions via Packages"
     }
   ]
 }
