@@ -6,11 +6,11 @@ To demonstrate the layered approach, we are going to inspect a simple three tier
 
 This exercise has subdirectories which contain a Dockerfile for each layer. Take a look at each one and notice the separation of concerns between development and operations. Pay particular attention to the FROM directive in each file:
 
-``for i in ~/assets/exercise-04/*/Dockerfile; do less $i; done``{{execute}}
+``for i in ~/labs/lab2-step4/*/Dockerfile; do less $i; done``{{execute}}
 
 Initiate a single node build with all of the Dockerfiles using the Makefile. Watch the output - notice the yum updates and installs that are happening. Also, notice that the corebuild is built before any of the other layers:
 
-``make -C ~/assets/exercise-04/``{{execute}}
+``make -C ~/labs/lab2-step4/``{{execute}}
 
 Now, inspect the images which were built:
 
@@ -24,9 +24,9 @@ corebuild                                                   latest              
 
 Now, initiate a distributed build on the OpenShift cluster. The yaml file below will create everything you need. Once the builds complete, the images will be placed in the OpenShift registry and are usable in the cluster:
 
-``oc new-project lab02-exercise04``{{execute}}
+``oc new-project lab2-step4``{{execute}}
 
-``oc create -f ~/assets/exercise-04/AutomaticSupplyChain.yaml``{{execute}}
+``oc create -f ~/labs/lab2-step4/AutomaticSupplyChain.yaml``{{execute}}
 
 Inspect the builds in the web interface. The build will start automatically after submitting the yaml file to the Kubernetes API daemon. Inspect the actual build by clicking on the "#1" then the "Logs" and "Events" sections. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster. Feel free to explore the different sections of the web interfece, especially the "Applications -> Pods" and "Builds -> Builds" sections.
 
