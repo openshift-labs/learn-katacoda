@@ -10,7 +10,7 @@ We will now use the provided `/preference/java/springboot/Dockerfile`{{open}} to
 
 This image will be called `example/preference`.
 
-To build a docker image type: `docker build -t example/preference .`{{execute T1}}
+To build a docker image type: `docker build -t example/preference:v1 .`{{execute T1}}
 
 You can check the image that was create by typing `docker images | grep preference`{{execute T1}}
 
