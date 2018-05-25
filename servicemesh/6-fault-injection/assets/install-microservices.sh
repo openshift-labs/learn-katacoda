@@ -15,7 +15,7 @@ oc apply -f <(/root/installation/istio-0.6.0/bin/istioctl kube-inject -f /root/p
 oc create -f /root/projects/istio-tutorial/customer/kubernetes/Service.yml -n tutorial
 
 mvn package -f /root/projects/istio-tutorial/preference/java/springboot -DskipTests
-docker build -t example/preference /root/projects/istio-tutorial/preference/java/springboot
+docker build -t example/preference:v1 /root/projects/istio-tutorial/preference/java/springboot
 oc apply -f <(/root/installation/istio-0.6.0/bin/istioctl kube-inject -f /root/projects/istio-tutorial/preference/kubernetes/Deployment.yml) -n tutorial
 oc create -f /root/projects/istio-tutorial/preference/kubernetes/Service.yml -n tutorial
 
