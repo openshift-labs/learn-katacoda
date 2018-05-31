@@ -1,10 +1,14 @@
 We are now ready to define the logic of our health check endpoint.
 
-**1. Create empty file and open it**
+**1. Create empty Java class**
 
-Click here to create the new file: `touch src/main/java/com/example/HealthChecks.java`{{execute}}
+The logic will be put into a new Java class.
 
-Now open the file: `src/main/java/com/example/HealthChecks.java`{{open}}
+Click this link to create and open the file which will contain the new class: `src/main/java/com/example/HealthChecks.java`{{open}}
+
+Methods in this new class will be annotated with both the JAX-RS annotations as well as
+[WildFly Swarm's `@Health` annotation](https://wildfly-swarm.gitbooks.io/wildfly-swarm-users-guide/content/advanced/monitoring.html),
+indicating it should be used as a health check endpoint.
 
 **2. Add logic**
 
