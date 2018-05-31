@@ -2,7 +2,7 @@
 
 With our health check in place, lets rebuild and redeploy using the same command as before:
 
-```mvn fabric8:undeploy fabric8:deploy -Popenshift```{{execute}}
+```mvn fabric8:deploy -Popenshift```{{execute}}
 
 You should see a **BUILD SUCCESS** at the end of the build output.
 
@@ -40,5 +40,10 @@ we don't have to wait 3 minutes for it to be activated. Use the **oc** command t
 probe to wait 20 seconds before starting to poll the probe:
 
 ```oc set probe dc/healthcheck --liveness --initial-delay-seconds=20```{{execute}}
+
+This will trigger another deployment. Wait for it to complete and report
+`replication controller "healthcheck-3" successfully rolled out`
+
+``oc rollout status dc/healthcheck``{{execute}}
 
 In the next step we'll exercise the probe and watch as it fails and OpenShift recovers the application.
