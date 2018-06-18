@@ -1,5 +1,5 @@
 _Services_ provide internal abstraction and load balancing within an
-OpenShift environment, sometimes clients (users, systems, devices, etc.)
+OpenShift environment, as sometimes clients (users, systems, devices, etc.)
 **outside** of OpenShift need to access an application. The way that external
 clients are able to access applications running in OpenShift is through the
 OpenShift routing layer. The data object behind that layer is a _Route_.

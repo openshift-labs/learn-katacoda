@@ -42,7 +42,7 @@ you also have new object types installed as part of Istio like `RouteRule`. Addi
 OpenShift cluster is how you configure routing rules for Istio.
 
 ## Install a default route rule
-Because the BookInfo sample deploys 3 versions of the reviews microservice, we need to set a default route.
+Because the Bookinfo sample deploys 3 versions of the reviews microservice, we need to set a default route.
 Otherwise if you access the application several times, you’ll notice that sometimes the output contains star
 ratings. This is because without an explicit default version set, Istio will route requests to all available
 versions of a service in a random fashion, and anytime you hit `v1` version you'll get no stars.
@@ -128,7 +128,7 @@ Grafana dashboard if you refresh quickly 5-10 times while logged in as the test 
 
 ## Congratulations!
 
-In this step, you used Istio to send 100% of the traffic to the v1 version of each of the BookInfo services.
+In this step, you used Istio to send 100% of the traffic to the v1 version of each of the Bookinfo services.
 You then set a rule to selectively send traffic to version v2 of the reviews service based on a header
 (i.e., a user cookie) in a request.
 

@@ -65,7 +65,7 @@ Now, [access the application](http://istio-ingress-istio-system.[[HOST_SUBDOMAIN
 If the application’s front page was set to correctly handle delays, we expect it to load within
 approximately 7 seconds. To see the web page response times, open the Developer Tools menu in
 IE, Chrome or Firefox (typically, key combination `Ctrl`+`Shift`+`I` or `Alt`+`Cmd`+`I`), tab Network,
-and reload the bookinfo web page.
+and reload the Bookinfo web page.
 
 You will see and feel that the webpage loads in about 6 seconds:
 
@@ -74,7 +74,7 @@ You will see and feel that the webpage loads in about 6 seconds:
 The reviews section will show: **Sorry, product reviews are currently unavailable for this book**:
 
 ## Use tracing to identify the bug
-The reason that the entire reviews service has failed is because our BookInfo application has
+The reason that the entire reviews service has failed is because our Bookinfo application has
 a bug. The timeout between the `productpage` and `reviews` service is less (3s times 2 retries == 6s total)
 than the timeout between the reviews and ratings service (10s). These kinds of bugs can occur in
 typical enterprise applications where different teams develop different microservices independently.

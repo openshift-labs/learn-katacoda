@@ -7,7 +7,7 @@ To get there we start with selecting the Applications menu on the left and then 
 
 ![Select Pods menu](../../assets/middleware/fis-deploy-app/04-step1-select-pod.png)
 
-You will be taken directly to the pod detail page. Below the *Template* section on the page you will find a link named "Open Java Console". Go ahead and click it
+You will be taken directly to the pod detail page. Below the *Template* section on the page you will find a link named "Open Java Console". Go ahead and click it.
 
 ![Select Java Console](../../assets/middleware/fis-deploy-app/04-select-java-console.png)
 

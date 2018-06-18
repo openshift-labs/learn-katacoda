@@ -58,7 +58,7 @@ As you can see, the trace is comprised of _spans_, where each span corresponds t
 microservice invoked during the execution of a `/productpage` request.
 
 The first line represents the external call to the entry point of our application controlled by
- `istio-ingress`. It in thrn calls the `productpage` service. Each line below
+ `istio-ingress`. It in then calls the `productpage` service. Each line below
 represents the internal calls to the other services to construct the result, including the
 time it took for each service to respond.
 

@@ -20,11 +20,11 @@
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/",
-      "title": "Service Mesh workshop with Istio"
+      "title": "Service Mesh Workshop with Istio"
     },
     {
       "external_link": "https://learn.openshift.com/serverless/",
-      "title": "Serverless scenarios with OpenShift Cloud Functions"
+      "title": "Serverless Scenarios with OpenShift Cloud Functions"
     }
   ]
 }
