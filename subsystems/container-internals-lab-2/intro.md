@@ -6,11 +6,11 @@ By the end of this lab you should be able to:
 - Internalize the difference between base images and multi-layered images
 - Understand the full URL to an image/repository
 - Command a complete understanding of what is inside of a container image
-- Use layers appropriately in your architecure and design
+- Use layers appropriately in your architecture and design
 
 
 ## Video
-This video will give you a background to all of the concepts in this lab
+This video will give you a background to all of the concepts in this lab.
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/P5NaEXmJuWo" frameborder="0" allowfullscreen  style="position: relative;"></iframe>
 
@@ -21,4 +21,4 @@ This video will give you a background to all of the concepts in this lab
 - Mapping Layers to Technical Requirements: using layers to meet the needs of everyone
 
 ## Start Scenario
-Once you have watched the background video, continue to the exercises
+Once you have watched the background video, continue to the exercises.

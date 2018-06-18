@@ -7,7 +7,7 @@ The sample application is called _Bookinfo_, a simple application that displays 
 book, similar to a single catalog entry of an online book store. Displayed on the page is a
 description of the book, book details (ISBN, number of pages, and so on), and a few book reviews.
 
-The BookInfo application is broken into four separate microservices:
+The Bookinfo application is broken into four separate microservices:
 
 * **productpage** - The productpage microservice calls the details and reviews microservices to populate the page.
 * **details** - The details microservice contains book information.
