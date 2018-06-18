@@ -2,7 +2,7 @@ _Services_ provide internal abstraction and load balancing within an
 OpenShift environment, sometimes clients (users, systems, devices, etc.)
 **outside** of OpenShift need to access an application. The way that external
 clients are able to access applications running in OpenShift is through the
-OpenShift routing layer. And the data object behind that is a _Route_.
+OpenShift routing layer. The data object behind that layer is a _Route_.
 
 The default OpenShift router (HAProxy) uses the HTTP header of the incoming
 request to determine where to proxy the connection. You can optionally define
