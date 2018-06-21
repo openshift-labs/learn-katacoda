@@ -50,6 +50,11 @@
       "external_link": "https://learn.openshift.com/middleware/debezium-getting-started/",
       "course_id": "debezium-getting-started",
       "title": "Debezium deployment"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/fuse-hello-world/",
+      "course_id": "fuse-hello-world",
+      "title": "Hello ! Fuse - Getting Started"
     }
   ]
 }
