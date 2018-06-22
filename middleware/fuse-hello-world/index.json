@@ -1,0 +1,44 @@
+{
+    "icon": "fa-openshift",
+    "title": "Hello! Fuse",
+    "description": "In this self paced tutorial you will get you started on Red Hat FUSE",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "10-16 minutes",
+    "backend": {
+        "imageid": "openshift-middleware",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Creating an Initial Project",
+            "text": "01-creating-an-initial-project.md"
+        }, {
+            "title": "Topic 2 - Build and Deployment",
+            "text": "02-deploying-first-fuse-application-on-openshift.md"
+        }, {
+            "title": "Topic 3 - Running application",
+            "text": "03-access-java-console.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+        	"host01": [
+        		{"file": "fgstemplate.yml", "target": "/root/"} 
+        	]
+        }
+    }
+}
