@@ -1,7 +1,8 @@
 #!/bin/bash
 ssh root@host01 "until (oc status &> /dev/null); do sleep 1; done"
 
-ssh root@host01 "git --work-tree=/root/projects/istio-tutorial/ --git-dir=/root/projects/istio-tutorial/.git pull"
+ssh root@host01 "git --work-tree=/root/projects/istio-tutorial/ --git-dir=/root/projects/istio-tutorial/.git fetch"
+ssh root@host01 "git --work-tree=/root/projects/istio-tutorial/ --git-dir=/root/projects/istio-tutorial/.git checkout katacoda"
 ssh root@host01 "cp -Rvf /root/projects/istio-tutorial/recommendation/java/vertx /root/projects/istio-tutorial/recommendation-v1"
 
 #Install Istio
