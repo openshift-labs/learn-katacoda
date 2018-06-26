@@ -10,7 +10,7 @@ Now examine the file that contains the requestcount quota `istiofiles/rate_limit
 
 To check the new behavior, try the microservice several times by typing `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .1; done`{{execute T1}}
 
-You should see some 429 errors:
+After some seconds, you should see some 429 errors:
 
 ```
 customer => preference => recommendation v2 from '2819441432-f4ls5': 108
@@ -34,7 +34,7 @@ Hit CTRL+C when you are satisfied.
 
 ## Clean up
 
-Execute `istioctl delete -f ~/projects/istio-tutorial/istiofiles/rate_limit_rule.yml`{{execute T1}}
+Execute `istioctl delete -f ~/projects/istio-tutorial/istiofiles/rate_limit_rule.yml`{{execute interrupt T1}}
 
 and 
 
