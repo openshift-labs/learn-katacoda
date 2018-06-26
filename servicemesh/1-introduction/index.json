@@ -19,6 +19,9 @@
     "imageid": "openshift-middleware-3-7", "port": 8443
   },
   "details": {
+    "finish": {
+        "text": "finish.md"
+    },
     "intro": {
         "text": "intro.md",
         "credits": "http://developers.redhat.com",
