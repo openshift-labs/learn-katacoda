@@ -25,6 +25,9 @@
           { "file": "install-microservices.sh", "target": "/root/", "chmod": "+x" }
       ]
     },
+    "finish": {
+        "text": "finish.md"
+    },
     "intro": {
       "text": "intro.md",
       "credits": "http://developers.redhat.com",

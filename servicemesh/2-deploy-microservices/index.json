@@ -23,6 +23,9 @@
       "host01": [
       ]
     },
+    "finish": {
+        "text": "finish.md"
+    },
     "intro": {
         "text": "intro.md",
         "credits": "http://developers.redhat.com",
