@@ -8,7 +8,7 @@ ssh root@host01 "cp -Rvf /root/projects/istio-tutorial/recommendation/java/vertx
 #Install Istio
 ssh root@host01 "wget -c https://github.com/istio/istio/releases/download/0.6.0/istio-0.6.0-linux.tar.gz -P /root/installation"
 
-ssh root@host01 "rm -rf /root/projects/rhoar-getting-started /root/temp-pom.xml"
+ssh root@host01 "rm -rf /root/projects/rhoar-getting-started /root/temp-pom.xml /root/projects/incubator-openwhisk-devtools"
 
 ssh root@host01 "tar -zxvf /root/installation/istio-0.6.0-linux.tar.gz -C /root/installation"
 
