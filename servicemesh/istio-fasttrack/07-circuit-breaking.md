@@ -25,7 +25,7 @@ max pending requests are not applicable.
 
 Each circuit breaking limit is configurable and tracked on a per upstream cluster and per priority basis.
 This allows different components of the distributed system to be tuned independently and have different limits.
-See the [Istio Circuit Breaker Spec](https://istio.io/docs/reference/config/traffic-rules/destination-policies.html#istio.proxy.v1.config.CircuitBreaker) for more details.
+See the [Istio Circuit Breaker Spec](https://istio.io/docs/tasks/traffic-management/circuit-breaking/) for more details.
 
 ## Enable Circuit Breaker
 Let's add a circuit breaker to the calls to the `ratings` service. Instead of using a _RouteRule_ object,
@@ -62,7 +62,7 @@ than 2 requests within a short period of time to the reviews service, 1 will go 
 and any additional requests will be denied until the pending request is processed. Furthermore, it will detect any hosts that
 return a server error (5XX) and eject the pod out of the load balancing pool for 15 minutes. You can visit
 here to check the
-[Istio spec](https://istio.io/docs/reference/config/traffic-rules/destination-policies.html#istio.proxy.v1.config.CircuitBreaker.SimpleCircuitBreakerPolicy)
+[Istio spec](https://istio.io/docs/concepts/traffic-management/rules-configuration/)
 for more details on what each configuration parameter does.
 
 ## Overload the service

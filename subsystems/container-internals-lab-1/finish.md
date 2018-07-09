@@ -13,4 +13,4 @@ You can find a copy of the slides and GitHub repo that contains all of these com
 
 Also, if you have any questions tweet us at:
 
-@OpenShift @RedHatAtomic @fatherlinux
+[@OpenShift](https://twitter.com/openshift) [@RedHatAtomic](https://twitter.com/RedHatAtomic) [@fatherlinux](https://twitter.com/fatherlinux)

@@ -1,8 +1,8 @@
 In this course you learned:
 
-- Multi-Container Applications: The classic two-tiered, wordpress application
+- Multi-Container Applications: The classic two-tiered, WordPress application
 - Cluster Performance: Scaling applications horizontally with containers
-- Cluster Debuggin: Troubleshooting in a distributed systems environment
+- Cluster Debugging: Troubleshooting in a distributed systems environment
 
 You can find a copy of the slides and GitHub repo that contains all of these commands so that you can run them yourself in your own environment:
 
@@ -11,4 +11,5 @@ You can find a copy of the slides and GitHub repo that contains all of these com
 
 Also, if you have any questions tweet us at:
 
-@OpenShift @RedHatAtomic @fatherlinux
+[@OpenShift](https://twitter.com/openshift) [@RedHatAtomic](https://twitter.com/RedHatAtomic) [@fatherlinux](https://twitter.com/fatherlinux)
+
