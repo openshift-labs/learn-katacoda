@@ -5,7 +5,7 @@ In this course you learned:
 - Understand how SELinux and sVirt secures containers
 - Command a conceptual understanding of how cgroups limit containers
 - Use SECCOMP to limit the system calls a container can make
-- Have a basic understanding of container storage and how it compares to normal Linux storage concepts
+- Gain a basic understanding of container storage and how it compares to normal Linux storage concepts
 - Gain a basic understanding of container networking and namespaces
 - Troubleshoot a basic Open vSwitch setup with Kubernetes/OpenShift
 

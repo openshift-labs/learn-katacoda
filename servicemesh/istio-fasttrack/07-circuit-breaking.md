@@ -1,4 +1,4 @@
-In this step you will configure an Istio Circuit Breaker to protect the calls from `reviews` to `ratings` service.
+In this step you will configure an Istio Circuit Breaker to protect the calls from the  `reviews` to `ratings` service.
 If the `ratings` service gets overloaded due to call volume, Istio (in conjunction with Kubernetes) will limit
 future calls to the service instances to allow them to recover.
 
@@ -23,7 +23,7 @@ scale cascading failure.
 > Note that HTTP 2 uses a single connection and never queues (always multiplexes), so max connections and
 max pending requests are not applicable.
 
-Each circuit breaking limit is configurable and tracked on a per upstream cluster and per priority basis.
+Each circuit-breaking limit is configurable and tracked on a per upstream cluster and per priority basis.
 This allows different components of the distributed system to be tuned independently and have different limits.
 See the [Istio Circuit Breaker Spec](https://istio.io/docs/tasks/traffic-management/circuit-breaking/) for more details.
 
@@ -65,7 +65,7 @@ here to check the
 [Istio spec](https://istio.io/docs/concepts/traffic-management/rules-configuration/)
 for more details on what each configuration parameter does.
 
-## Overload the service
+## Overload the Service
 Let's use some simple `curl` commands to send multiple concurrent requests to our application, and witness the
 circuit breaker kicking in opening the circuit.
 
@@ -93,7 +93,7 @@ Below that, in the **Service Mesh** section of the dashboard observe that the se
 
 That's the circuit breaker in action, limiting the number of requests to the service. In practice your limits would be much higher.
 
-### Stop overloading
+### Stop Overloading
 
 Before moving on, stop the traffic generator by clicking here to stop them:
 
