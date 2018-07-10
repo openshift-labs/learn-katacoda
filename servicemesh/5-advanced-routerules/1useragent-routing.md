@@ -2,7 +2,7 @@ What is your user-agent?
 
 <https://www.whoishostingthis.com/tools/user-agent/>
 
-**Note:** the "user-agent" header being forwarded in the Customer and Preferences controllers in order for route rule modications around recommendations.
+**Note:** the "user-agent" header is added to OpenTracing baggage in the Customer service. From there it is automatically propagated to all downstream services. To enable automatic baggage propagation all intermediate services have to be instrumented with OpenTracing. The baggage header for `user-agent` has the following form `baggage-user-agent: <value>`.
 
 Let's create a rule that points all request to v1 using the file `/istiofiles/route-rule-recommendation-v1.yml`{{open}}.
 
@@ -14,7 +14,7 @@ Hit CTRL+C when you are satisfied.
 
 Now check the file `/istiofiles/route-rule-safari-recommendation-v2.yml`{{open}}.
 
-Note that this `RouteRule` will only route request to `recommendations` that contains the label `version=v2` when the `request` contains a `header` where the `user-agent` value `matches` the `regex` expression to `".*Safari.*"`.
+Note that this `RouteRule` will only route request to `recommendations` that contains the label `version=v2` when the `request` contains a baggage header `baggage-user-agent` where the value `matches` the `regex` expression to `".*Safari.*"`.
 
 Let's apply this rule: `istioctl create -f ~/projects/istio-tutorial/istiofiles/route-rule-safari-recommendation-v2.yml -n tutorial`{{execute interrupt T1}}
 
