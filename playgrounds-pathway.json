@@ -10,6 +10,11 @@
       "external_link": "https://learn.openshift.com/playgrounds/openshift37/",
       "course_id": "openshift37",
       "title": "OpenShift 3.7 Playground"
+    },
+    {
+      "external_link": "https://learn.openshift.com/playgrounds/openshift39/",
+      "course_id": "openshift39",
+      "title": "OpenShift 3.9 Playground"
     }
   ]
 }
