@@ -10,8 +10,8 @@ docker pull registry.access.redhat.com/jboss-datavirt-6/datavirt63-openshift
 docker pull registry.access.redhat.com/jboss-datavirt-6/datavirt63-driver-openshift
 docker pull registry.access.redhat.com/jboss-amq-6/amq63-openshift
 docker pull registry.access.redhat.com/redhat-sso-7/sso71-openshift
-docker pull registry.access.redhat.com/rhdm-7/rhdm70-decisioncentral-openshift:1.0
-docker pull registry.access.redhat.com/rhdm-7/rhdm70-kieserver-openshift:1.0
+docker pull registry.access.redhat.com/rhdm-7/rhdm70-decisioncentral-openshift:1.1
+docker pull registry.access.redhat.com/rhdm-7/rhdm70-kieserver-openshift:1.1
 docker pull registry.access.redhat.com/rhoar-nodejs/nodejs-8
 docker pull fabric8/java-jboss-openjdk8-jdk:1.3.1
 
