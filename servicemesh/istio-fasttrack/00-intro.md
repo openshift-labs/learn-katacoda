@@ -1,5 +1,5 @@
 As we transition our applications towards a distributed architecture with microservices deployed across a distributed
-network, Many new challenges await us.
+network, many new challenges await us.
 
 Technologies like containers and container orchestration platforms like OpenShift solve the deployment of our distributed
 applications quite well, but are still catching up to addressing the service communication necessary to fully take advantage
@@ -13,10 +13,10 @@ of distributed applications, such as dealing with:
 
 Today, developers are responsible for taking into account these challenges, and do things like:
 
-* Circuit breaking and Bulkheading (e.g. with Netfix Hystrix)
+* Circuit breaking and Bulkheading (e.g. with Netflix Hystrix)
 * Timeouts/retries
 * Service discovery (e.g. with Eureka)
-* Client-side load balancing (e.g. with Netfix Ribbon)
+* Client-side load balancing (e.g. with Netflix Ribbon)
 
 Another challenge is each runtime and language addresses these with different libraries and frameworks, and in
 some cases there may be no implementation of a particular library for your chosen language or runtime.

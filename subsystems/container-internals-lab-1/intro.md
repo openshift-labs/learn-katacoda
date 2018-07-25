@@ -9,7 +9,7 @@ By the end of this lab you should be able to:
 
 
 ## Video
-This video will give you a background to all of the concepts in this lab
+This video will give you a background to all of the concepts in this lab.
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/gcfjWF_H5SU" frameborder="0" allowfullscreen style="position: relative;"></iframe>
 
@@ -21,4 +21,4 @@ This video will give you a background to all of the concepts in this lab
 - Community Landscape: Explains the basics of the upstream projects and how they are contributing
 
 ## Start Scenario
-Once you have watched the background video, continue to the exercises
+Once you have watched the background video, continue to the exercises.

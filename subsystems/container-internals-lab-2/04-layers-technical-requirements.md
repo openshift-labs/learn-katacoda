@@ -2,7 +2,7 @@ Using containers is as much a business advantage as a technical one.  When build
 
 The purpose of layering is to provide a thin level of abstraction above the previous layer to build something more complex.  Layers are logical units where the contents are the same type of object or perform a similar task. The right amount of layers will make your container easily consumable.  Too many layers will be too complex and too little, difficult to consume. The proper amount of layers for an application should reflect the complexity of your application.  The more complex the application, the more layers and vice versa. For example, if a Hello World container prints to stdout “Hello World” there’s no configuration, no process management, and no dependencies, so it’s a single layer.  However, if we expand the Hello World application to say hello to the user, we will need a second layer to gather input.
 
-To demonstrate the layered approach, we are going to inspect a simple three tier supply chain with a core build two different pieces of a middleware (Ruby and PHP) and an example application (wordpress). This will demonstrate how development and operations collaberate, yet maintain separatation of concerns, to build containers and make user space changes, over time, in the container image to deliver applications which can easily be updated when needed.
+To demonstrate the layered approach, we are going to inspect a simple three tier supply chain with a core build two different pieces of middleware (Ruby and PHP) and an example application (WordPress). This will demonstrate how development and operations collaborate, yet maintain separation of concerns, to build containers and make user space changes, over time, in the container image to deliver applications which can easily be updated when needed.
 
 This exercise has subdirectories which contain a Dockerfile for each layer. Take a look at each one and notice the separation of concerns between development and operations. Pay particular attention to the FROM directive in each file:
 
@@ -28,7 +28,7 @@ Now, initiate a distributed build on the OpenShift cluster. The yaml file below 
 
 ``oc create -f ~/labs/lab2-step4/AutomaticSupplyChain.yaml``{{execute}}
 
-Inspect the builds in the web interface. The build will start automatically after submitting the yaml file to the Kubernetes API daemon. Inspect the actual build by clicking on the "#1" then the "Logs" and "Events" sections. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster. Feel free to explore the different sections of the web interfece, especially the "Applications -> Pods" and "Builds -> Builds" sections.
+Inspect the builds in the web interface. The build will start automatically after submitting the yaml file to the Kubernetes API daemon. Inspect the actual build by clicking on the "#1" then the "Logs" and "Events" sections. Notice how the OpenShift BuildConfigs cause cascading builds to automatically happen and distributes the builds to the cluster. Feel free to explore the different sections of the web interface, especially the "Applications -> Pods" and "Builds -> Builds" sections.
 
 * Username: `admin`{{copy}}
 * Password: `admin`{{copy}}
