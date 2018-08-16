@@ -32,7 +32,8 @@
         "assets": {
           "host01": [
               {"file": "volumes.json", "target": "~/"},
-              {"file": "setup-templates.sh", "target": "~/", "chmod": "+x"}
+              {"file": ".setup-volumes", "target": "~/", "chmod": "+x"},
+              {"file": ".setup-templates", "target": "~/", "chmod": "+x"}
           ]
         }
     }

@@ -1,17 +1,24 @@
 #!/bin/bash
 
 {
-set -x
+    set -x
+    set -eo pipefail
+
+    # Ensure that 'openshift' project exists.
+
+    for i in {1..200}; do oc get project/openshift && break || sleep 1; done
+
+    # Load templates. The OpenShift image preloads the persistent templates
+    # for many databases, so only load emphemeral templates.
 
     oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/mariadb-ephemeral-template.json -n openshift
-    oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/mariadb-persistent-template.json -n openshift
     oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/mongodb-ephemeral-template.json -n openshift
-    oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/mongodb-persistent-template.json -n openshift
     oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/mysql-ephemeral-template.json -n openshift
-    oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/mysql-persistent-template.json -n openshift
     oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/postgresql-ephemeral-template.json -n openshift
-    oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/postgresql-persistent-template.json -n openshift
+
+    # The OpenShift image doesn't preload Redis templates though.
+
     oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/redis-ephemeral-template.json -n openshift
     oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/redis-persistent-template.json -n openshift
 
-} > /tmp/setup-templates.log 2>&1
+} > ~/.setup-templates.log 2>&1
