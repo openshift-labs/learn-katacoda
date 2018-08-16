@@ -14,4 +14,4 @@ set -x
     oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/redis-ephemeral-template.json -n openshift
     oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/redis-persistent-template.json -n openshift
 
-} > /tmp/setup-volumes.log 2>&1
+} > /tmp/setup-templates.log 2>&1
