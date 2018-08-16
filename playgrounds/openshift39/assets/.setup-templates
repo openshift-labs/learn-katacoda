@@ -21,4 +21,8 @@
     oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/redis-ephemeral-template.json -n openshift
     oc create -f https://github.com/openshift/origin/raw/release-3.9/examples/db-templates/redis-persistent-template.json -n openshift
 
+    # List all loaded templates.
+
+    oc get templates -n openshift -o name   
+
 } > ~/.setup-templates.log 2>&1
