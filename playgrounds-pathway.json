@@ -1,5 +1,6 @@
 {
   "title": "OpenShift Playgrounds",
+  "icon": "fa-openshift",
   "courses": [
     {
       "external_link": "https://learn.openshift.com/playgrounds/openshift36/",

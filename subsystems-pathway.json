@@ -1,5 +1,6 @@
 {
   "title": "Subsystems, Components, and Internals",
+  "icon": "fa-openshift",
   "courses": [
     {
       "external_link": "https://learn.openshift.com/subsystems/container-internals-lab-1/",

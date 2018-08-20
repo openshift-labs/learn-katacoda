@@ -1,5 +1,6 @@
 {
   "title": "Serverless with OpenShift Cloud Functions",
+  "icon": "fa-openshift",
   "courses": [
     {
       "external_link": "https://learn.openshift.com/serverless/0-serverless-introduction",

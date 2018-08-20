@@ -1,5 +1,6 @@
 {
   "title": "Service Mesh with Istio",
+  "icon": "fa-openshift",
   "courses": [
     {
       "external_link": "https://learn.openshift.com/servicemesh/istio-fasttrack/",

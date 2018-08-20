@@ -1,5 +1,6 @@
 {
   "title": "Building Applications On OpenShift",
+  "icon": "fa-openshift",
   "courses": [
     {
       "external_link": "https://learn.openshift.com/middleware/amq-getting-started-broker/",
