@@ -7,7 +7,7 @@ This Katacoda OpenShift environment has been provisioned with the required Image
 
 First install the JBoss ImageStreams:
 
-`oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/jboss-image-streams.json -n openshift`{{copy}}
+`oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/master/decisionserver/decisionserver64-image-stream.json -n openshift`{{copy}}
 
 Next, add the required template:
 
