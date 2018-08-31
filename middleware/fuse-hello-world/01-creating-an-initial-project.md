@@ -1,6 +1,6 @@
 Before we get started, please make sure that you have completed all steps of the Red Hat Fuse Hello World guide.  All set?  Let’s get your OpenShift environment up and running ..
 
-#Setup OpenShift
+# Setup OpenShift
 
 To login to the OpenShift use the following command in the **_Terminal_** frame:
 
