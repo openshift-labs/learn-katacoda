@@ -1,0 +1,307 @@
+nav#main {
+    background-color: #f6f6f6;
+    z-index: 9999;
+    position: relative
+}
+
+nav#main .navbar {
+    min-height: 55px;
+}
+
+nav#main .navbar.navbar-default.navbar-openshift {
+    background-color: transparent;
+    margin-bottom: 0;
+    box-shadow: none;
+    min-height: initial;
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav:after,
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav:before,
+nav#main .navbar.navbar-default.navbar-openshift:after,
+nav#main .navbar.navbar-default.navbar-openshift:before {
+    display: none
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-header {
+    float: none;
+    background-color: #000
+}
+
+
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-collapse {
+    width: 100%;
+    padding: 0
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-brand {
+    background: url(https://assets.openshift.net/content/subdomain/Logotype_RH_OpenShift_wLogo_RGB_White.svg) 100% no-repeat;
+    background-size: contain;
+    margin: 0 0 0 5px;
+    padding: 0;
+    width: 175px;
+    height: 55px
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-brand.brand-online {
+    background: url(https://assets.openshift.net/content/subdomain/Logotype_RH_OpenShiftOnline_wLogo_RGB_White.svg) 100% no-repeat;
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-brand.brand-dedicated {
+    background: url(https://assets.openshift.net/content/subdomain/Logotype_RH_OpenShiftDedicated_wLogo_RGB_White.svg) 100% no-repeat;
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-menu-toggle {
+    border-right: 0;
+    float: none;
+    padding: 14px 20px;
+    right: 0
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-menu-toggle .icon-bar {
+    background-color: #fff;
+    border-radius: 0;
+    margin-top: 6px
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-menu-toggle:hover {
+    background-color: transparent
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-menu-toggle:hover .icon-bar {
+    background-color: #ddd
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav {
+    margin: 0
+}
+
+
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav>li>a {
+    font-size: 18px;
+    padding: 20px 8px;
+    white-space: nowrap;
+    text-transform: initial;
+    font-weight: 600
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav>li>a:hover {
+    background: 0 0;
+    text-decoration: none;
+}
+
+
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav .dropdown-menu {
+    top: 50px;
+    min-width: 240px;
+    box-shadow: none;
+    border-top: 0
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav .dropdown-menu>li a {
+    font-size: 18px;
+    text-transform: initial;
+    font-weight: 600
+}
+
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav .dropdown-menu>li a:hover {
+    background-color: #fff;
+    text-decoration: none;
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav .dropdown-menu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    display: block
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav .dropdown-menu .dropdown-menu>li a {
+    padding-left: 30px
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav .dropdown-menu .dropdown-menu.product {
+    background-color: #fff;
+    padding: 25px;
+    display: none
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav .dropdown-menu .dropdown-menu:before {
+    display: none
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav li:last-child .dropdown-menu {
+    left: auto;
+    right: 0
+}
+
+nav#main .navbar.navbar-default.navbar-openshift .navbar-nav li:last-child .dropdown-menu:before {
+    left: auto;
+    right: 20px
+}
+
+
+
+
+
+
+
+footer#rh nav,
+footer#rh p {
+    padding-top: 10px
+}
+
+footer#rh nav a:last-child {
+    border: 0
+}
+
+footer#rh nav a,
+footer#rh p {
+    font-size: 1.3rem;
+    color: #6c6c6c
+}
+
+
+footer#rh {
+    background-color: #000;
+    padding: 10px 0;
+}
+
+footer#rh nav {
+    display: flex;
+    flex-direction: column;
+}
+
+footer#rh nav a {
+    padding-bottom: 6px;
+}
+
+@media (max-width:767px) {
+    body {
+        margin-bottom: 0 !important;
+    }
+}
+
+@media (min-width:768px) {
+    nav#main {
+        background-color: #000;
+        height: 70px;
+        display: flex;
+        align-items: center
+    }
+    nav#main .navbar.navbar-default.navbar-openshift {
+        display: flex;
+        justify-content: space-between;
+        align-items: center
+    }
+
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-nav>li>a {
+        padding: 10px 8px;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 300;
+        color: #fff
+    }
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-nav>li>a:hover {
+        color: #fff
+    }
+
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-header {
+        background-color: transparent;
+        margin-right: 40px
+    }
+
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-nav {
+        float: none;
+        margin: 0;
+        display: flex;
+        justify-content: space-between
+    }
+
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-nav>li a.nav-sign-up {
+        border: 1px solid rgba(255, 255, 255, .5);
+        border-top: 0;
+        border-bottom: 0
+    }
+
+    .navbar.navbar-default.navbar-openshift .navbar-nav>li a.nav-log-in .fa {
+        padding-left: 7px;
+    }
+
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-nav>li.open>a {
+        color: #fff;
+        background: 0 0
+    }
+
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-nav .dropdown-menu {
+        box-shadow: 1px 3px 3px rgba(0, 0, 0, .1)
+    }
+
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-nav .dropdown-menu:before {
+        content: " ";
+        display: table;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: -20px;
+        left: 20px;
+        border: 10px solid #f2f2f2;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-left-color: transparent
+    }
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-nav .dropdown-menu > li a {
+        font-size: 14px
+    }
+
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-nav .dropdown-menu .dropdown-menu {
+        display: none
+    }
+
+    footer#rh {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    footer#rh nav {
+        display: block;
+    }
+
+    footer#rh nav a {
+        padding: 0 .65rem;
+        border-right: 1px solid #6c6c6c;
+    }
+}
+
+@media (min-width:992px) {
+    nav#main {
+        height: 70px
+    }
+
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-header {
+        margin-right: 100px
+    }
+
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-brand {
+        width: 217px
+    }
+
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-nav>li>a {
+        font-size: 15px;
+        padding: 10px 15px
+    }
+
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-nav>li a.nav-sign-up {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (min-width:1200px) {
+    nav#main .navbar.navbar-default.navbar-openshift .navbar-header {
+        margin-right: 170px
+    }
+}
