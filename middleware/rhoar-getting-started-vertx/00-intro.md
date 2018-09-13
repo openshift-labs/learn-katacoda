@@ -3,7 +3,7 @@ In this scenario, you will learn more about [Eclipse Vert.x](https://vertx.io), 
 
 
 ## What you will learn
-You will learn how to get started with building a reactive web application that can serve static content as well as server-side business logic using Eclipse Vert.x
+You will learn how to get started with building a reactive web application that can serve static content as well as server-side business logic using Eclipse Vert.x.
 
 ## What is Eclipse Vert.x?
 
