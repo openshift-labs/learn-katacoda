@@ -2,18 +2,19 @@ To install Istio in the cluster, we need first to make sure that we are logged i
 
 To log in the OpenShift cluster, type `oc login -u system:admin`{{execute T1}}
 
-Now that you are logged in, it's time to extract the existing istio installation: `tar -zxvf istio-1.0.2-linux.tar.gz`{{execute T1}}
+Now that you are logged in, it's time to extract the existing istio installation: `tar -xvzf istio-1.0.2-linux.tar.gz`{{execute T1}}
 
 ## Before the installation
 
-Istio uses [Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions) like VirtualServices and DestinationRule.
+Istio uses [Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions) like `VirtualService`s and `DestinationRule`s.
 
-To allow OpenShift/Kubernetes to understand those values, we need first to install the 'CustomResourceDefinitions' file using the command `oc apply -f istio-1.0.2/install/kubernetes/helm/istio/templates/crds.yaml`{{execute T1}}
+To allow OpenShift/Kubernetes to understand those values, we first need to install the 'CustomResourceDefinitions' file using the command `oc apply -f istio-1.0.2/install/kubernetes/helm/istio/templates/crds.yaml`{{execute T1}}
+
 ## Continue the installation
 
 Istio provides a file `install/kubernetes/istio-demo.yaml` that contains the definition of all objects that needs to be created in the Kubernetes cluster.
 
-Let's apply these defintions to the cluster by executing `oc apply -f istio-1.0.2/install/kubernetes/istio-demo.yaml`{{execute T1}}
+Let's apply these definitions to the cluster by executing `oc apply -f istio-1.0.2/install/kubernetes/istio-demo.yaml`{{execute T1}}
 
 After the execution, Istio objects will be created.
 
