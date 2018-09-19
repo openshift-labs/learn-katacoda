@@ -5,47 +5,47 @@
     {
       "external_link": "https://learn.openshift.com/servicemesh/istio-fasttrack/",
       "course_id": "istio-fasttrack",
-      "title": "Istio 60-minute Fast track (Bookinfo)"
+      "title": "Istio 0.6.0 60-minute Fast track (Bookinfo)"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/1-introduction",
       "course_id": "1-introduction",
-      "title": "Istio workshop: Istio Introduction"
+      "title": "Istio 1.0.x workshop: Istio Introduction"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/2-deploy-microservices",
       "course_id": "2-deploy-microservices",
-      "title": "Istio workshop: Deploy microservices"
+      "title": "Istio 1.0.x workshop: Deploy microservices"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/3-monitoring-tracing",
       "course_id": "3-monitoring-tracing",
-      "title": "Istio workshop: Monitoring and Tracing"
+      "title": "Istio 1.0.x workshop: Monitoring and Tracing"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/4-simple-routerules",
       "course_id": "4-simple-routerules",
-      "title": "Istio workshop: Simple RouteRules"
+      "title": "Istio 1.0.x workshop: Simple RouteRules"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/5-advanced-routerules",
       "course_id": "5-advanced-routerules",
-      "title": "Istio workshop: Advanced RouteRules"
+      "title": "Istio 1.0.x workshop: Advanced RouteRules"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/6-fault-injection",
       "course_id": "6-fault-injection",
-      "title": "Istio workshop: Fault Injection"
+      "title": "Istio 1.0.x workshop: Fault Injection"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/7-circuit-breaker",
       "course_id": "7-circuit-breaker",
-      "title": "Istio workshop: Circuit Breaker"
+      "title": "Istio 1.0.x workshop: Circuit Breaker"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/8-egress",
       "course_id": "8-egress",
-      "title": "Workshop extra: Egress"
+      "title": "Istio 1.0.x Workshop extra: Egress"
     }
   ]
 }

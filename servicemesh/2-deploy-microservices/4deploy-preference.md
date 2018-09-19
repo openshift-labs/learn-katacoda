@@ -8,7 +8,9 @@ Now execute `mvn package`{{execute T1}} to create the `preference.jar` file.
 
 We will now use the provided `/preference/java/springboot/Dockerfile`{{open}} to create a docker image.
 
-This image will be called `example/preference`.
+This image will be called `example/preference:v1`.
+
+**Note:** The tag "v1" at the end of the image name is important.
 
 To build a docker image type: `docker build -t example/preference:v1 .`{{execute T1}}
 
