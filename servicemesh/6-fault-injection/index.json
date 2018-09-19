@@ -34,14 +34,12 @@
       "code": "set-env.sh",
       "courseData": "run-init.sh"
     },
-    "NOT WORKING": [
-      { "title": "Timeout", "text": "4timeout.md" }
-    ],
     "steps": [
         { "title": "Install microservices", "text": "0install-microservices.md" },
         { "title": "HTTP Error 503", "text": "1http-error-503.md" },
         { "title": "Delay", "text": "2delay.md" },
-        { "title": "Retry", "text": "3retry.md" }
+        { "title": "Retry", "text": "3retry.md" },
+        { "title": "Timeout", "text": "4timeout.md" }
     ]
   }
 }

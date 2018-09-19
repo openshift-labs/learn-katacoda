@@ -41,11 +41,6 @@
       "external_link": "https://learn.openshift.com/servicemesh/7-circuit-breaker",
       "course_id": "7-circuit-breaker",
       "title": "Istio 1.0.x workshop: Circuit Breaker"
-    },
-    {
-      "external_link": "https://learn.openshift.com/servicemesh/8-egress",
-      "course_id": "8-egress",
-      "title": "Istio 1.0.x Workshop extra: Egress"
     }
   ]
 }
