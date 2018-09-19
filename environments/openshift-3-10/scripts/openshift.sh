@@ -5,11 +5,6 @@ export ARCH=v3.10.0-dd10d17-linux
 export URL=https://github.com/openshift/origin/releases/download/$VERSION
 df -h
 setenforce 0
-cat <<EOF > /etc/selinux/config
-SELINUX=disabled
-SELINUXTYPE=targeted
-SETLOCALDEFS=0
-EOF
 
 mkdir -p /openshift
 yum remove NetworkManager -y
