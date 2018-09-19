@@ -117,7 +117,7 @@ echo 'echo "OpenShift Ready"' >> /usr/local/bin/launch.sh
 
 chmod +x /usr/local/bin/launch.sh
 
-echo "echo 127.0.0.1 \$HOSTNAME >> /etc/hosts; hostname -I | awk '{print \$1 " master"}' | tee -a /etc/hosts" >> /root/.set-hostname
+echo "echo 127.0.0.1 \$HOSTNAME >> /etc/hosts; hostname -I | awk '{print \$1 \" master\"}' | tee -a /etc/hosts" >> /root/.set-hostname
 chmod +x /root/.set-hostname
 
 curl -Lk https://raw.githubusercontent.com/openshift/origin/master/examples/image-streams/image-streams-centos7.json -o /openshift/image-streams-centos7.json
