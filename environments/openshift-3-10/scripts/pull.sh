@@ -1,6 +1,6 @@
 export V=v3.10
 
-
+docker pull quay.io/coreos/hyperkube:v1.7.6_coreos.0
 docker pull docker.io/openshift/origin-web-console:$V
 docker pull docker.io/openshift/origin-docker-registry:$V
 docker pull docker.io/openshift/origin-haproxy-router:$V

@@ -5,6 +5,11 @@ export ARCH=v3.10.0-dd10d17-linux
 export URL=https://github.com/openshift/origin/releases/download/$VERSION
 df -h
 setenforce 0
+cat <<EOF > /etc/selinux/config
+SELINUX=disabled
+SELINUXTYPE=targeted
+SETLOCALDEFS=0
+EOF
 
 mkdir -p /openshift
 yum remove NetworkManager -y
@@ -107,16 +112,17 @@ echo '  echo -n "."' >> /usr/local/bin/launch.sh
 echo '  sleep 1' >> /usr/local/bin/launch.sh
 echo 'done' >> /usr/local/bin/launch.sh
 echo 'echo "OpenShift started. "' >> /usr/local/bin/launch.sh
-echo 'echo "Configuring... "' >> /usr/local/bin/launch.sh
-echo 'while [ $(oc get pods -n openshift-web-console | wc -l ) -ne 2 ]; do' >> /usr/local/bin/launch.sh
+echo 'echo -n "Configuring... "' >> /usr/local/bin/launch.sh
+echo 'while [ $(oc get pods -n openshift-web-console 2> /dev/null | wc -l ) -ne 2 ]; do' >> /usr/local/bin/launch.sh
 echo '  echo -n "."' >> /usr/local/bin/launch.sh
 echo '  sleep 1' >> /usr/local/bin/launch.sh
 echo 'done' >> /usr/local/bin/launch.sh
+echo 'echo ""' >> /usr/local/bin/launch.sh
 echo 'echo "OpenShift Ready"' >> /usr/local/bin/launch.sh
 
 chmod +x /usr/local/bin/launch.sh
 
-echo "echo 127.0.0.1 \$HOSTNAME >> /etc/hosts" >> /root/.set-hostname
+echo "echo 127.0.0.1 \$HOSTNAME >> /etc/hosts; hostname -I | awk '{print \$1 " master"}' | tee -a /etc/hosts" >> /root/.set-hostname
 chmod +x /root/.set-hostname
 
 curl -Lk https://raw.githubusercontent.com/openshift/origin/master/examples/image-streams/image-streams-centos7.json -o /openshift/image-streams-centos7.json
