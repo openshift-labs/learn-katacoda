@@ -21,6 +21,11 @@
       "external_link": "https://learn.openshift.com/subsystems/container-internals-lab-4/",
       "course_id": "container-internals-lab-4",
       "title": "Linux Container Internals - Lab 4: Container Orchestration"
+    },
+    {
+      "external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2.0-part-1/",
+      "course_id": "container-internals-lab-2.0-part-2",
+      "title": "Linux Container Internals - Lab 1: Introduction to Containers"
     }
   ]
 }
