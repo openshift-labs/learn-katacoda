@@ -1,6 +1,6 @@
 {
     "icon": "fa-openshift",
-    "title": "Linux Container Internals - Lab 1: Introduction to Containers",
+    "title": "Linux Container Internals 2.0 - Lab 1: Introduction to Containers",
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "Easy",
@@ -23,16 +23,13 @@
             "text": "01-container-scratch.md"
         }, {
             "title": "Topic 2 - Containers Are Linux",
-            "text": "02-container-libraries.md"
+            "text": "02-community-landscape.md"
         }, {
             "title": "Topic 3 - Single Host Toolchain",
             "text": "03-single-host-toolchain.md"
         }, {
             "title": "Topic 4 - Multi-Host Toolchain",
             "text": "04-multi-host-toolchain.md"
-        }, {
-            "title": "Topic 5 - Community Landscape",
-            "text": "05-community-landscape.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
