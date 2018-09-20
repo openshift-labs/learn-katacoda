@@ -34,4 +34,4 @@ Preferences returns a value but also an error message based on the missing recom
 
 `customer => 503 preference => I/O error on GET request for "http://recommendation:8080": recommendation; nested exception is java.net.UnknownHostException: recommendation`
 
-This concludes the deployment of `preference` microservice.
+This concludes the deployment of the `preference` microservice.

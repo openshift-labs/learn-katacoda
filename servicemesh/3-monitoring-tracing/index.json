@@ -35,8 +35,7 @@
     "steps": [
         { "title": "Monitoring", "text": "1monitoring.md" },
         { "title": "Custom Metric", "text": "2custom-metric.md" },
-        { "title": "Tracing", "text": "3tracing.md" },
-        { "title": "Service Graph", "text": "4servicegraph.md" }
+        { "title": "Tracing", "text": "3tracing.md" }
     ]
   }
 }

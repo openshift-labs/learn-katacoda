@@ -25,7 +25,7 @@
     {
       "external_link": "https://learn.openshift.com/servicemesh/4-simple-routerules",
       "course_id": "4-simple-routerules",
-      "title": "Istio 1.0.x workshop: Simple RouteRules"
+      "title": "Istio 1.0.x workshop: Simple Routing"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/5-advanced-routerules",
