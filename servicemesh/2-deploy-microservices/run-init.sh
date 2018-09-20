@@ -1,16 +1,13 @@
 #!/bin/bash
-ssh root@host01 "rm -rf /root/projects/* /root/temp-pom.xml"
+rm -rf /root/temp-pom.xml /root/projects/*
 
-ssh root@host01 "wget -c https://github.com/istio/istio/releases/download/0.6.0/istio-0.6.0-linux.tar.gz -P /root/installation"
+#TEMPORARY FIX for this image
+hostname -I | tr ' ' '\n' | awk NF | awk '{print $1 " master"}' | tee -a /etc/hosts ; systemctl restart dnsmasq ; setenforce 0
 
-ssh root@host01 "tar -zxvf /root/installation/istio-0.6.0-linux.tar.gz -C /root/installation"
 
-ssh root@host01 "sleep 10; oc login -u system:admin; oc adm policy add-cluster-role-to-user cluster-admin admin"
+until (oc status &> /dev/null); do sleep 1; done
 
-ssh root@host01 "oc adm policy add-cluster-role-to-user cluster-admin developer"
-ssh root@host01 "oc adm policy add-scc-to-user anyuid -z istio-ingress-service-account -n istio-system"
-ssh root@host01 "oc adm policy add-scc-to-user anyuid -z default -n istio-system"
-
-ssh root@host01 "oc apply -f /root/installation/istio-0.6.0/install/kubernetes/istio.yaml"
-
-ssh root@host01 "oc expose svc istio-ingress -n istio-system"
+git --work-tree=/root/projects/istio-tutorial/ --git-dir=/root/projects/istio-tutorial/.git fetch
+git --work-tree=/root/projects/istio-tutorial/ --git-dir=/root/projects/istio-tutorial/.git checkout katacoda
+make -f /root/projects/istio-tutorial/Makefile cleanup istio
+rm -fR /root/projects/istio-tutorial

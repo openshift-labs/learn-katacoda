@@ -1,0 +1,58 @@
+{
+  "pathwayTitle": "Creating and Using Packages on OCF",
+  "icon": "fa-openshift",
+  "title": "Creating and Using Packages on OCF",
+  "description": "Creating and using packages to bundle and share Actions",
+  "difficulty": "intermediate",
+  "time": "10 minutes",
+  "details": {
+    "assets": {
+      "host01": [
+        { "file": "setup-environment.sh", "target": "/root/", "chmod": "+x"}
+      ]
+    },
+    "intro": {
+      "text": "00-intro.md",
+      "credits": "http://developers.redhat.com",
+      "code": "set-env.sh"
+    },
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "01-getting-started.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "02-adding-functions.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "03-parameters.md"
+      },
+      {
+        "title": "Step 4",
+        "text": "04-more-parameters.md"
+      },
+      {
+        "title": "Step 5",
+        "text": "05-sharing.md"
+      }
+    ],
+    "finish": {
+      "text": "99-outro.md"
+    }
+  },
+  "files": [],
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [],
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/projects",
+    "uisettings": "java",
+    "uimessage1": "\u001b[32mOpenShift Console.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "openshift-middleware-3-7",
+    "port": 8443
+  }
+}

@@ -30,7 +30,11 @@
             "text": "finish.md"
         },
         "assets": {
-          "host01": [{"file": "volumes.json", "target": "~/"}]
+          "host01": [
+              {"file": "volumes.json", "target": "~/"},
+              {"file": ".setup-volumes", "target": "~/", "chmod": "+x"},
+              {"file": ".setup-templates", "target": "~/", "chmod": "+x"}
+          ]
         }
     }
 }

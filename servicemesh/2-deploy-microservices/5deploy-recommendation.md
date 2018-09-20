@@ -10,7 +10,7 @@ We will now use the provided `/recommendation/java/vertx/Dockerfile`{{open}}to c
 
 This image will be called `example/recommendation:v1`.
 
-**Note:** The tag "v1" at the end of the image name is important. We will be creating a v2 version of recommendations later in this tutorial. Having both a v1 and v2 version of the recommendations code will allow us to exercise some interesting aspects of Istio's capabilities.
+**Note:** The tag `v1` at the end of the image name is important. We will be creating a `v2` version of `recommendation` later in this tutorial. Having both a `v1` and `v2` version of the `recommendation` code will allow us to exercise some interesting aspects of Istio's capabilities.
 
 To build a docker image type: `docker build -t example/recommendation:v1 .`{{execute T1}}
 
@@ -34,4 +34,4 @@ It returns:
 
 `customer => preference => recommendation v1 from '2039379827-rjnqj': 1`
 
-This concludes the deployment of `recommendation` microservice.
+This concludes the deployment of the `recommendation` microservice.

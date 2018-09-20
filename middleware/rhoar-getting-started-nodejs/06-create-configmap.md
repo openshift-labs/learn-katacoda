@@ -20,26 +20,28 @@ The name `app-config` is the same name as is used in the code in `app.js` to acc
 
 **3. Verify your ConfigMap configuration has been deployed**
 
-```oc get configmap app-config -o yaml```{{execute}}
+```oc describe cm app-config```{{execute}}
+
+> NOTE: `cm` is shorthand for `configmap`
 
 You should see the contents of the ConfigMap in the terminal window:
 
-```yaml
-apiVersion: v1
-data:
-  app-config.yml: |
-    message : "Hello, %s from a ConfigMap !"
-kind: ConfigMap
-metadata:
-  creationTimestamp: ...
-  name: app-config
-  namespace: example
-  resourceVersion: "..."
-  selfLink: /api/v1/namespaces/example/configmaps/app-config
-  uid: ...
+```console
+Name:           app-config
+Namespace:      example
+Labels:         <none>
+Annotations:    <none>
+
+Data
+====
+app-config.yml:
+----
+message : "Hello, %s from a ConfigMap !"
+
+Events: <none>
 ```
 
-The `data` field of the ConfigMap contains key/value pairs, in this case a key of `app-config.yml` (derived from the
+The `Data` values of the ConfigMap contains key/value pairs, in this case a key of `app-config.yml` (derived from the
 name of the file from which the ConfigMap was initialized) which contains
 the configuration values. At runtime, the code you wrote in the last step accesses the ConfigMap using these names
 to read the content (in this case, the `message` value that we use in the app to customize the returned message at

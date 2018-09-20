@@ -1,8 +1,8 @@
 {
   "pathwayTitle": "Service Mesh with Istio",
-  "title": "Simple RouteRules",
+  "title": "Simple Routing",
   "icon": "fa-openshift",
-  "description": "Shows how Istio can be used to control route based on some simple rules",
+  "description": "Shows how Istio can be used to control routing based on some simple rules",
   "difficulty": "Intermediate",
   "time": "1 hour",
   "files": [],
@@ -15,13 +15,16 @@
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
   },
   "backend": {
-    "trainingid": "openshift-middleware-3-7", 
-    "imageid": "openshift-middleware-3-7", "port": 8443
+    "trainingid": "openshift-3-10", 
+    "imageid": "openshift-3-10", "port": 8443
   },
   "details": {
     "assets": {
       "host01": [
       ]
+    },
+    "finish": {
+        "text": "finish.md"
     },
     "intro": {
       "text": "intro.md",
@@ -30,10 +33,10 @@
       "courseData": "run-init.sh"
     },
     "steps": [
-        { "title": "Modify Recommendations source code", "text": "1modify-recommendations.md" },
+        { "title": "Modify Recommendation source code", "text": "1modify-recommendation.md" },
         { "title": "All users to recommendation:v2", "text": "2all-usersv2.md" },
-        { "title": "All users to recommendations:v1", "text": "3all-usersv1.md" },
-        { "title": "All users to recommendations v1 and v2", "text": "4all-usersv12.md" },
+        { "title": "All users to recommendation:v1", "text": "3all-usersv1.md" },
+        { "title": "All users to recommendation v1 and v2", "text": "4all-usersv12.md" },
         { "title": "Canary deployment: Split traffic between v1 and v2", "text": "5canary-deployment.md" }
     ]
   }

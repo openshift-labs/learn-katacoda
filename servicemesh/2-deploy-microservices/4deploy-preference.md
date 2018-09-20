@@ -8,9 +8,11 @@ Now execute `mvn package`{{execute T1}} to create the `preference.jar` file.
 
 We will now use the provided `/preference/java/springboot/Dockerfile`{{open}} to create a docker image.
 
-This image will be called `example/preference`.
+This image will be called `example/preference:v1`.
 
-To build a docker image type: `docker build -t example/preference .`{{execute T1}}
+**Note:** The tag "v1" at the end of the image name is important.
+
+To build a docker image type: `docker build -t example/preference:v1 .`{{execute T1}}
 
 You can check the image that was create by typing `docker images | grep preference`{{execute T1}}
 
@@ -32,4 +34,4 @@ Preferences returns a value but also an error message based on the missing recom
 
 `customer => 503 preference => I/O error on GET request for "http://recommendation:8080": recommendation; nested exception is java.net.UnknownHostException: recommendation`
 
-This concludes the deployment of `preference` microservice.
+This concludes the deployment of the `preference` microservice.

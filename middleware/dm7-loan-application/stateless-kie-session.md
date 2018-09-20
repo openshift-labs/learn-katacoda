@@ -10,7 +10,7 @@ In this example we want to use a *Stateless Session*. We can configure such a se
 1. In the project's asset library view, click on *Settings*
 2. Click on *Project Settings: Project General Settings* and select *Knowledge bases and sessions*
 3. Click on *Add* (in the upper-left of the editor) and enter the name `loan-kbase`{{copy}} to add a new *KIE-Base* configuration (a *KIE-Base* is the entity that defines the rule-assets and configurations used by a session)
-4. Select the just created `default-kiebase` and click on *Make Default*
+4. Select the just created `loan-kbase` and click on *Make Default*
 4. Set *Equals Behaviour* to `Equality`
 5. Set *Event Processing Mode* to `Cloud`
 6. In the *Knowledge Session* section click on *Add*

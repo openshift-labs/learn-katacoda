@@ -40,8 +40,8 @@ Once that the customer pod READY column is 2/2, you can hit `CTRL+C`.
 
 Try the microservice by typing `curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute interrupt T1}}
 
-You should see the following error because `preference` is not yet deployed, so you only get a partial response of "C100" plus the error message
+You should see the following error because the services `preference` and `recommendation` are not yet deployed.
 
 `customer => I/O error on GET request for "http://preference:8080": preference; nested exception is java.net.UnknownHostException: preference`
 
-This concludes the deployment of `customer` microservice.
+This concludes the deployment of the `customer` microservice.

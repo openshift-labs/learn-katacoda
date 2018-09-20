@@ -23,7 +23,7 @@ Once the build begins for an application, a **_Builds_** frame will appear in th
 
 ![Overview Screen](../../assets/middleware/fis-deploy-app/03-3-overview-b.png) 
 
-> _Note: Generally, first time builds will take an additional few minutes to complete as Maven initializes the applications local repository._
+> _Note: Generally, first time builds will take an additional few minutes to complete as Maven initializes the application's local repository._
 
 
 At a quick glance, the build summary is more than helpful but what if we need to take a deeper look at the build output logs? Well, you have a couple ways available to view the full logs output in progress, the first of which is clicking on **_View Full Log_** (#3 above). This will bring you to the **_Logs_** tab of the **_Pod_** for the build which is running.

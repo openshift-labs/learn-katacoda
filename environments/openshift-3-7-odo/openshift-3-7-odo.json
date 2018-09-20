@@ -1,0 +1,46 @@
+{
+    "variables": {
+      "pwd": "{{ env `PWD` }}/../openshift-3-7"
+    },
+    "builders":
+    [
+        {
+            "name": "openshift-3-7-odo",
+            "type": "qemu",
+            "format": "qcow2",
+            "accelerator": "kvm",
+            "headless": true,
+      	    "disk_image": true,
+            "iso_url": "{{ user `pwd` }}/output-openshift/packer-openshift",
+            "iso_checksum_type": "none",
+            "iso_checksum": "",
+
+            "http_directory": "http",
+
+            "ssh_username": "root",
+            "ssh_password": "cent",
+            "ssh_wait_timeout": "30m",
+            "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -P now",
+
+            "boot_wait": "2s"
+        }
+    ],
+
+    "provisioners": [
+        { "type": "file", "destination": "/opt/create-pv.sh", "source": "./scripts/create-pv.sh" },
+        {
+            "type": "shell",
+            "scripts": [
+                "scripts/configure-java.sh",
+                "scripts/odo-pull.sh",
+                "scripts/odo-config.sh"
+            ]
+        },
+        {
+            "type": "shell",
+            "scripts": [
+                "scripts/zerodisk.sh"
+            ]
+        }
+    ]
+}

@@ -1,7 +1,12 @@
 #!/bin/bash
-ssh root@host01 "wget -c https://github.com/istio/istio/releases/download/0.6.0/istio-0.6.0-linux.tar.gz -P /root/installation"
+rm -rf /root/projects/* /root/temp-pom.xml
 
-ssh root@host01 "git --work-tree=/root/projects/istio-tutorial/ --git-dir=/root/projects/istio-tutorial/.git pull"
-ssh root@host01 "rm -rf /root/projects/* /root/temp-pom.xml"
-ssh root@host01 "until $(oc status &> /dev/null); do sleep 1; done; oc adm policy add-cluster-role-to-user cluster-admin admin"
+#TEMPORARY FIX for this image
+hostname -I | tr ' ' '\n' | awk NF | awk '{print $1 " master"}' | tee -a /etc/hosts ; systemctl restart dnsmasq ; setenforce 0
+
+wget -c https://github.com/istio/istio/releases/download/1.0.2/istio-1.0.2-linux.tar.gz -P /root/installation
+
+until $(oc status &> /dev/null); do sleep 1; done; 
+
+oc adm policy add-cluster-role-to-user cluster-admin admin
 

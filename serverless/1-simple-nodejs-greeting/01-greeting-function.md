@@ -46,22 +46,27 @@ Executing the above command should return us a JSON payload like:
 ```json
 {"payload": "Welcome to OpenShift Cloud Functions, Guest"}
 ```
-Now invoke the function by copying the line below and pasting it into the terminal window followed by your name.
+Now invoke the function by **copying the line below and pasting it into the terminal window followed by your name**.
 
 ``wsk -i action invoke --result greeter --param name ``
 
 You should get the same respone as before but with your name instead of 'Guest'.  Feel free to repeat this command
-several times.  Now, lets see how many times we have invoked this function by dumping the activation log with:
+several times with different names appended to the end.  
 
-``wsk -i activation list | grep greeter``{{execute}}
+Now, lets see how many times we have invoked this function by dumping the activation log with.  The activation log in 
+Apache OpenWhisk is designed with a lazy database view update mechanism that prioritizes invocations over activation
+logging.  This means that you currently often have to invoke the ``wsk -i activation list`` command twice with a
+pause in between.  So, we will do that with the command below:
 
-Now, let's pick an activation and look at it in detail.  First, copy the line below and paste it into the terminal
-window:
+``wsk -i activation list > /dev/nul 2>&1; sleep 1; wsk -i activation list | grep greeter``{{execute}}
+
+Now, let's pick an activation and look at it in detail.  First, **copy the line below and paste it into the terminal
+window**:
 
 ``wsk -i activation get ``
 
-Then, pick one of the activations displayed in your terminal window and copy the activation ID and paste it after the
-command above.  Hit Enter and you will see something like this:
+Then, pick one of the activations displayed in your terminal window and **copy the activation ID and paste it after the
+command above**.  Hit Enter and you will see something like this:
 
 ```sh
 ok: got activation 22cea08e45d147868ea08e45d1d78605

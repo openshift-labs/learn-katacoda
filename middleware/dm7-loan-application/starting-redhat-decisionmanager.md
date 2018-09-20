@@ -14,8 +14,8 @@ When the workbench is ready, it can be accessed at: http://loan-demo-rhdmcentr-l
 
 Use the following credentials to log in:
 
-- username: dmAdmin
-- password: redhatdm1!
+- username: developer
+- password: developer
 
 If all is well, you will be presented with the following screen:
 

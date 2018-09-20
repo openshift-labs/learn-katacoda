@@ -1,3 +1,5 @@
+**Important:** The Rate Limiting rules take some time to be applied and reflected. Be patient here!
+
 We can limit the request count rate in a specific microservice.
 
 Examine the file that contains the rate limit handler `istiofiles/recommendation_rate_limit_handler.yml`{{open}} and apply it
@@ -10,7 +12,7 @@ Now examine the file that contains the requestcount quota `istiofiles/rate_limit
 
 To check the new behavior, try the microservice several times by typing `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .1; done`{{execute T1}}
 
-You should see some 429 errors:
+After some seconds, you should see some 429 errors:
 
 ```
 customer => preference => recommendation v2 from '2819441432-f4ls5': 108
@@ -34,9 +36,5 @@ Hit CTRL+C when you are satisfied.
 
 ## Clean up
 
-Execute `istioctl delete -f ~/projects/istio-tutorial/istiofiles/rate_limit_rule.yml`{{execute T1}}
-
-and 
-
-`istioctl delete -f ~/projects/istio-tutorial/istiofiles/recommendation_rate_limit_handler.yml`{{execute T1}}
+Don't forget to remove the `rate limiting` by executing `oc delete -f projects/istio-tutorial/istiofiles/rate_limit_rule.yml`{{execute interrupt T1}}
 

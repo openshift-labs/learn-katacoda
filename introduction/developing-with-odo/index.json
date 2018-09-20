@@ -1,0 +1,58 @@
+{
+    "icon": "fa-openshift",
+    "title": "Developing with odo",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "10-15 minutes",
+    "embedded_survey_url": "https://goo.gl/forms/rrNpdFcjHTkkMA7g1?title=",
+    "backend": {
+        "imageid": "openshift-3-7-odo",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+          "title": "Introduction",
+          "text": "00-introduction.md"
+        },{
+            "title": "Creating an Application",
+            "text": "01-creating-an-application.md"
+        }, {
+            "title": "Creating new binary component",
+            "text": "02-creating-new-binary-component.md"
+        }, {
+            "title": "Adding storage to component",
+            "text": "03-adding-storage-to-component.md"
+        }, {
+            "title": "Deploying component from source-code",
+            "text": "04-deploying-component-from-source-code.md"
+        }, {
+            "title": "Linking components",
+            "text": "05-linking-components.md"
+        }, {
+            "title": "Exposing components to public",
+            "text": "06-exposing-components-to-public.md"
+        }, {
+            "title": "Making changes to source-code",
+            "text": "07-making-changes-to-source-code.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": ".configure-odo.sh", "target": "~/", "chmod": "+x"}]
+        }
+    }
+}
