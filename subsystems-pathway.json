@@ -24,7 +24,7 @@
     },
     {
       "external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2.0-part-1/",
-      "course_id": "container-internals-lab-2.0-part-2",
+      "course_id": "container-internals-lab-2.0-part-1",
       "title": "Linux Container Internals 2.0 - Lab 1: Introduction to Containers"
     }
   ]
