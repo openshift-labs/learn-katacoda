@@ -1,8 +1,8 @@
 Pool ejection or *outlier detection* is a resilience strategy that takes place whenever we have a pool of instances/pods to serve a client request. If the request is forwarded to a certain instance and it fails (e.g. returns a 50x error code), then Istio will eject this instance from the pool for a certain *sleep window*. In our example the sleep window is configured to be 15s. This increases the overall availability by making sure that only healthy pods participate in the pool of instances.
 
-First, you need to insure you have a routerule in place. Let's use a 50/50 split of traffic:
+First, you need to insure you have a `destinationrule` and `virtualservice` in place. Let's use a 50/50 split of traffic:
 
-`istioctl create -f ~/projects/istio-tutorial/istiofiles/route-rule-recommendation-v1_and_v2_50_50.yml -n tutorial`{{execute T1}}
+`istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation-v1-v2.yml -n tutorial; istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-v1_and_v2_50_50.yml -n tutorial`{{execute T1}}
 
 Scale number of instances of v2 deployment
 
@@ -69,11 +69,11 @@ customer => preference => recommendation v2 from '2036617847-hdjv2': 250
 
 Now let's add the pool ejection behavior:
 
-Check the file `/istiofiles/recommendation_cb_policy_pool_ejection.yml`{{open}}.
+Check the file `/istiofiles/destination-rule-recommendation_cb_policy_pool_ejection.yml`{{open}}.
 
 Now execute:
 
-`istioctl create -f ~/projects/istio-tutorial/istiofiles/recommendation_cb_policy_pool_ejection.yml -n tutorial`{{execute T1}}
+`istioctl replace -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation_cb_policy_pool_ejection.yml -n tutorial`{{execute T1}}
 
 Make sure that the following command is running on `Terminal 2` `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .1; done`{{execute T2}}
 

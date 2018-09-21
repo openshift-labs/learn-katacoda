@@ -1,42 +1,47 @@
 Instead of failing immediately, retry the Service N more times
 
-We will use Istio and return 503's about 50% of the time. Send `all users` to `v2`which will throw out some `503`'s.
+We will make pod recommendation-v2 fail 100% of the time. Get one of the pod names from your system and replace on the following command accordingly:
 
-`istioctl create -f ~/projects/istio-tutorial/istiofiles/route-rule-recommendation-v2_503.yml -n tutorial`{{execute T1}}
+`oc exec -it $(oc get pods|grep recommendation-v2|awk '{ print $1 }'|head -1) -c recommendation /bin/bash`{{execute T1}}
 
-Now, if you hit the customer endpoint several times, you should see some 503's
+You will be inside the application container of your pod recommendation-v2-2036617847-spdrb. Now execute:
 
-To check this behavior, send several requests to the microservices on `Terminal 2` to see their responses
-`while true; do time curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .5; done`{{execute T2 }}
+`curl localhost:8080/misbehave; exit`{{execute T1}}
 
-Now check the file `/istiofiles/route-rule-recommendation-v2_retry.yml`{{open}}.
+This is a special endpoint that will make our application return only `503`s.
 
-Note that this `RouteRule` provides `simpleRetry` that perform `3 attemps` on `recommendation` with a label `version=v2`, using a timeout of `2 seconds per try`.
+Now, if you hit the customer endpoint several times, you should see some 503’s
 
-Let's apply this rule: `istioctl create -f ~/projects/istio-tutorial/istiofiles/route-rule-recommendation-v2_retry.yml -n tutorial`{{execute T1}}
+`while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .5; done`{{execute T2}}
+
+Now, check the file `istiofiles/virtual-service-recommendation-v2_retry.yml`{{open}}. 
+
+Note that this `VirtualService` provides simpleRetry that perform 3 attemps on recommendation, using a timeout of 2 seconds per try.
+
+Let's apply this `VirtualService`: 
+
+`istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-v2_retry.yml -n tutorial`{{execute T1}}
 
 and after a few seconds, things will settle down and you will see it work every time.
 
-To check this behavior, send several requests to the microservices on `Terminal 2` to see their responses
-`while true; do time curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .5; done`{{execute T2}}
+To check this behavior, send several requests to the microservices on Terminal 2 to see their responses:
 
-**NOTE:** It might take a couple of seconds until you see the new behavior
+`while true; do time curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .5; done`{{execute interrupt T2}}
 
-You can see the active RouteRules via `istioctl get routerules`{{execute T1}}
+NOTE: You will see it work every time because Istio will retry the recommendation service and it will land on v1 only.
 
-Now, delete the retry rule and see the old behavior, some random 503s
+You can see the active Virtual Services via: `istioctl get virtualservices -n tutorial`{{execute T1}}
 
-`istioctl delete routerule recommendation-v2-retry -n tutorial`{{execute T1}}
+## Clean up
 
-To check the old 503 error behavior, send several requests to the microservices on `Terminal 2` to see their responses
-`while true; do time curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .5; done`{{execute T2}}
+Now, delete the retry rule and see the old behavior on Terminal 2, where v2 throws 503s: `istioctl delete virtualservice recommendation -n tutorial`{{execute T1}}
 
-**NOTE:** It might take a couple of seconds until you see the new behavior
+Now, make the pod v2 behave well again. Get one of the pod names from your system and replace on the following command accordingly:
 
-Hit CTRL+C when you are satisfied.
+`oc exec -it $(oc get pods|grep recommendation-v2|awk '{ print $1 }'|head -1) -c recommendation /bin/bash`{{execute T1}}
 
-Now, delete the 503 rule.
+You will be inside the application container of your pod recommendation-v2-2036617847-spdrb. Now execute:
 
-`istioctl delete routerule recommendation-v2-503 -n tutorial`{{execute T1}}
+`curl localhost:8080/behave; exit`{{execute T1}}
 
-To check if you have random load-balance without any `503` errors, try the microservice on `Terminal 2`: `while true; do time curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .5; done`{{execute T2}}
+The application is back to random load-balancing between v1 and v2. Check it at Terminal 2: `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .5; done`{{execute interrupt T2}}

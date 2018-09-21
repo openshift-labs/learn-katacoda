@@ -1,3 +1,5 @@
+**Important:** The Access Control rules take some time to be applied and reflected. Be patient here!
+
 ## White list
 
 We'll create a whitelist on the preference service to only allow requests from the recommendation service, which will make the preference service invisible to the customer service. Requests from the customer service to the preference service will return a 404 Not Found HTTP error code.

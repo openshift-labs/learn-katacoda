@@ -15,8 +15,8 @@
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
   },
   "backend": {
-    "trainingid": "openshift-middleware-3-7", 
-    "imageid": "openshift-middleware-3-7", "port": 8443
+    "trainingid": "openshift-3-10", 
+    "imageid": "openshift-3-10", "port": 8443
   },
   "details": {
     "assets": {
@@ -34,14 +34,12 @@
       "code": "set-env.sh",
       "courseData": "run-init.sh"
     },
-    "NOT WORKING": [
-      { "title": "Timeout", "text": "4timeout.md" }
-    ],
     "steps": [
         { "title": "Install microservices", "text": "0install-microservices.md" },
         { "title": "HTTP Error 503", "text": "1http-error-503.md" },
         { "title": "Delay", "text": "2delay.md" },
-        { "title": "Retry", "text": "3retry.md" }
+        { "title": "Retry", "text": "3retry.md" },
+        { "title": "Timeout", "text": "4timeout.md" }
     ]
   }
 }

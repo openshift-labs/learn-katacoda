@@ -1,2 +1,2 @@
-~/.launch.sh
-export PATH=$PATH:/root/installation/istio-0.6.0/bin/
+/usr/local/bin/launch.sh
+export PATH=$PATH:/root/installation/istio-1.0.2/bin/

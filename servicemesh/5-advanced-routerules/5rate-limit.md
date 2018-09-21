@@ -1,3 +1,5 @@
+**Important:** The Rate Limiting rules take some time to be applied and reflected. Be patient here!
+
 We can limit the request count rate in a specific microservice.
 
 Examine the file that contains the rate limit handler `istiofiles/recommendation_rate_limit_handler.yml`{{open}} and apply it
@@ -34,9 +36,5 @@ Hit CTRL+C when you are satisfied.
 
 ## Clean up
 
-Execute `istioctl delete -f ~/projects/istio-tutorial/istiofiles/rate_limit_rule.yml`{{execute interrupt T1}}
-
-and 
-
-`istioctl delete -f ~/projects/istio-tutorial/istiofiles/recommendation_rate_limit_handler.yml`{{execute T1}}
+Don't forget to remove the `virtualservice` and `destinationrule` executing `~/projects/istio-tutorial/scripts/clean.sh`{{execute interrupt T1}}
 

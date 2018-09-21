@@ -44,4 +44,4 @@ You should see the following error because `preference` is not yet deployed, so 
 
 `customer => I/O error on GET request for "http://preference:8080": preference; nested exception is java.net.UnknownHostException: preference`
 
-This concludes the deployment of `customer` microservice.
+This concludes the deployment of the `customer` microservice.

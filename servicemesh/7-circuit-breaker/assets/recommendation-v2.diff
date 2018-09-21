@@ -1,18 +1,20 @@
 --- a/recommendation-v2/src/main/java/com/redhat/developer/demos/recommendation/RecommendationVerticle.java
 +++ b/recommendation-v2/src/main/java/com/redhat/developer/demos/recommendation/RecommendationVerticle.java
-@@ -12,5 +12,5 @@ import io.vertx.ext.web.RoutingContext;
-
+@@ -15,7 +15,7 @@ import io.vertx.ext.web.codec.BodyCodec;
+ 
  public class RecommendationVerticle extends AbstractVerticle {
-
+ 
 -    private static final String RESPONSE_STRING_FORMAT = "recommendation v1 from '%s': %d\n";
 +    private static final String RESPONSE_STRING_FORMAT = "recommendation v2 from '%s': %d\n";
-
-@@ -37,7 +37,7 @@ public class RecommendationVerticle extends AbstractVerticle {
+     private static final String HTTP_NOW = "now.httpbin.org";
+ 
+     private static final String HOSTNAME = parseContainerIdFromHostname(
+@@ -45,7 +45,7 @@ public class RecommendationVerticle extends AbstractVerticle {
+     @Override
      public void start() throws Exception {
          Router router = Router.router(vertx);
 -//        router.get("/").handler(this::timeout);
 +        router.get("/").handler(this::timeout);
          router.get("/").handler(this::logging);
          router.get("/").handler(this::getRecommendations);
-         router.get("/misbehave").handler(this::misbehave);
-         router.get("/behave").handler(this::behave);
+ //        router.get("/").handler(this::getNow);

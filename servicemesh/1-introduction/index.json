@@ -15,8 +15,8 @@
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
   },
   "backend": {
-    "trainingid": "openshift-middleware-3-7", 
-    "imageid": "openshift-middleware-3-7", "port": 8443
+    "trainingid": "openshift-3-10", 
+    "imageid": "openshift-3-10", "port": 8443
   },
   "details": {
     "finish": {

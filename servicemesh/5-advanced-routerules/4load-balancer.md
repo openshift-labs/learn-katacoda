@@ -30,9 +30,9 @@ customer => preference => recommendation v2 from '2819441432-rg45q': 4
 customer => preference => recommendation v2 from '2819441432-bs5ck': 182
 ```
 
-Now, explore the file `istiofiles/recommendation_lb_policy_app.yml`{{open}}, and add the Random LB DestinationPolicy:
+Now, explore the file `istiofiles/destination-rule-recommendation_lb_policy_app.yml`{{open}}, and add the Random LB trafficPolicy defined in this `DestinationRule`:
 
-`istioctl create -f ~/projects/istio-tutorial/istiofiles/recommendation_lb_policy_app.yml -n tutorial`{{execute interrupt T1}}
+`istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation_lb_policy_app.yml -n tutorial`{{execute interrupt T1}}
 
 Make sure that the following command is running on `Terminal 2` `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .2; done`{{execute T2}}
 
@@ -40,7 +40,7 @@ After a while you should see a different pattern.
 
 ## Clean up
 
-Execute `istioctl delete -f ~/projects/istio-tutorial/istiofiles/recommendation_lb_policy_app.yml -n tutorial`{{execute T1}}
+Don't forget to remove the `virtualservice` and `destinationrule` executing `~/projects/istio-tutorial/scripts/clean.sh`{{execute interrupt T1}}
 
 and 
 
