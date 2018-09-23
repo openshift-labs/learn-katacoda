@@ -3,11 +3,6 @@
   "icon": "fa-openshift",
   "courses": [
     {
-      "external_link": "https://learn.openshift.com/servicemesh/istio-fasttrack/",
-      "course_id": "istio-fasttrack",
-      "title": "Istio 0.6.0 60-minute Fast track (Bookinfo)"
-    },
-    {
       "external_link": "https://learn.openshift.com/servicemesh/1-introduction",
       "course_id": "1-introduction",
       "title": "Istio 1.0.x workshop: Istio Introduction"
