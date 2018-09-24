@@ -6,15 +6,15 @@ To enable this S2I capability, you need to collect the following information and
 
 Right click on your project in the sidebar menu, select Run As > Run Configuration  
 
-![Choose run config wizard](../../assets/intro-openshift/fuse-hello-world/02-choos-run-configuration-wizard.png)
+![Choose run config wizard](../../assets/middleware/fuse-hello-world/02-choos-run-configuration-wizard.png)
 
 On the pop up sidebar menu under *Maven Build*, click on "Deploy *projectname* on OpenShift" to open the project's default run configuration. *projectname* will be replaced by your project name. Leave all of the default settings on the Main tab.
 
-![Run main](../../assets/intro-openshift/fuse-hello-world/02-run-main.png)
+![Run main](../../assets/middleware/fuse-hello-world/02-run-main.png)
 
 Select the JRE tab to access the VM arguments.
 
-![Before jre setting](../../assets/intro-openshift/fuse-hello-world/02-jre-setting-before.png)
+![Before jre setting](../../assets/middleware/fuse-hello-world/02-jre-setting-before.png)
 
 * Find the line that reads -Dkubernetes.namespace=test, and replace test with the project name you supplied when the project was created.
 
@@ -31,15 +31,15 @@ Select the JRE tab to access the VM arguments.
 	
 	``-Dkubernetes.auth.token={{YOUR_TOKEN}}``
 
-![After jre setting](../../assets/intro-openshift/fuse-hello-world/02-jre-setting-after.png)
+![After jre setting](../../assets/middleware/fuse-hello-world/02-jre-setting-after.png)
 
 Click **Apply** and then click **Run**.
 
 Your application is now being built locally on your machine. The first build may take some time. You can keep track of the progress in the **Console** view.
 
-![Deployment console view 01](../../assets/intro-openshift/fuse-hello-world/02-deployment-console-01.png)
+![Deployment console view 01](../../assets/middleware/fuse-hello-world/02-deployment-console-01.png)
 
-![Deployment console view 02](../../assets/intro-openshift/fuse-hello-world/02-deployment-console-02.png)
+![Deployment console view 02](../../assets/middleware/fuse-hello-world/02-deployment-console-02.png)
 
 
 WInterested in tracking progress of your deployment to OpenShift?  Click **_Continue_** on to see how.
