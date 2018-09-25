@@ -1,14 +1,25 @@
-Now that you have a basic understanding of how the container engine and kernel work together to build and manage containers, let's take a look at some of the standards that govern containers. Much like containers don't run on docker, we shouldn't call them docker containers, they're really OCI containers or Linux Containers. 
+At the most basic level, the container engine and kernel work together to build and run containers. Now, let's take a look at some of the standards that govern these interactions. Similar to the fact that containers don't run on docker, they aren't really "docker containers" either. They're actually OCI containers or Linux Containers. All of the major container engines (docker, CRI-O, containerd, podman, and others) comply with the [Open Containers Initiative (OCI)](https://www.opencontainers.org/) standards: 
 
 ![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/02-basic-standards.png)
 
-Like Red Hat Enterprise Linux before it, OpenShift is really a distribution of Kubernetes that includes a lot of upstream work from many different projects. OpenShift pulls all of this together because Kubernetes needs a container runtime, a Linux kernel, etc. Also, the best way to guarantee compatibility between all of the necessary pieces of software is to test and distribute all of these components together.
+There are five main governing standards that should be understood in this section:
+
+# **OCI Image Specification** - governs the on-disk format of container images. Essentially a group of tar files and some metadata in a json file.
+# **OCI Distribution Specification** - governs the interaction of any tool which communicates with a registry server. Typically this is a container engine, but can also be dedicated tools like [Skopeo](https://github.com/containers/skopeo).
+# **OCI Runtime Specification** - governs the communication between the container engine and the Linux kernel (or Windows). The OCI is also the home for the reference implementation of this code, called [runc](https://github.com/opencontainers/runc). Every major container engine mentioned above uses runc, so they basically all create the same kind of containers.
+
+These three basic standards govern the underlying building blocks of containers, but to run them in production at scale requires another layer called [Container Orchestration](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.6yt1ex5wfo66). Kubernetes is the most popular container orchestration software and what will be focused on in this lab. The following two standards enable modularity at the container orchestration layer within Kubernetes:
+
+# **Container Runtime Interface (CRI)** - governs the interaction between Kubernetes and container engines. This enables users to select any CRI compliant container engine they choose within Kubernetes.
+# **Container Network Interface (CNI)** - governs the interaction between the container engine and dedicated network plugins. The Kubelet can also interface directly with CNI. This enables complex network architectures using simple plugins.
+
+The OCI standards are governed under the Linux Foundation, and the Kubernetes standards are governed by the Kube community. Linux distributions like Fedora, RHEL, Debian, and Ubuntu are made up of a Linux kernel and a bunch of supporting software to provide a working system. Kubernetes also has distributions like OKD and OpenShift Container Platform which pull together Kubernetes (kernel) and a bunch of supporting software like a [Container Registry](), a [Container Engine](), a [Container Host](), [Operators](), certified [Container Images](), and a host of other supporting software like [Open Service Broker](), [Istio](), [Prometheus]() and others. Together all of these programs become a useable distribution of Kubernetes.
 
 ![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/02-community-landscape.png)
 
 
-As a final lesson, take a look at the all of the processes running on our test system. Notice the parent-child relationship between all of the daemons. Also, note that the OpenShift API, Controller and Node processes can actually be run as normal processes or docker containers. In RHEL and RHEL Atomic, there is an ongoing project to containerize all of the foundational daemons including the docker daemon itself. This demonstrates that even the daemons which help users easily run containers are just normal processes, and we now know that normal processes can be run as containerized processes, as long as we have a running kernel.
+As a final lesson, take a look at the all of the processes running on our test system. Notice the parent-child relationship between all of the daemons. Also, note that the OpenShift API, Controller and Node processes can actually be run as normal processes or docker containers. There are a tremendous amount of daemons, processes, and libraries working together to provide a functional container platform: 
 
 ``ps aux --forest``{{execute}}
 
-Looking at this all working together, it's important to realize that this entire toolchain is open source, but different components are driven by different communities. Red Hat leads in all of these communities and brings all of these pieces together with OpenShift.
+Looking at this all working together, it's important to realize that this entire toolchain is open source, but different components are driven by different communities. Red Hat leads in all of these communities and brings all of these pieces together with OpenShift. Each of these standards will be covered deeper in a later lab, but for now, understand that "containers don't run on docker' and they're not "docker containers" - they're OCI governed containers. And, to run containers in a cloud-native world, you need a contianer platform which utilizes container orchestration like Kubernetes.
