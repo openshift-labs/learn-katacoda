@@ -5,7 +5,7 @@ By the end of this lab you should be able to:
 - Draw a diagram showing how the Linux kernel, services and daemons work together to create and deploy containers
 - Internalize how the architecture of the kernel and supporting services affect security and performance
 - Explain the API interactions of daemons and the host kernel to create isolated processes
-- Command the nomenclature necessary to technically discuss container repositories, image layers, tags, registry server and other components
+- Command the nomenclature necessary to technically discuss the basics of the single and multi-host toolchain
 
 
 ## Outline
