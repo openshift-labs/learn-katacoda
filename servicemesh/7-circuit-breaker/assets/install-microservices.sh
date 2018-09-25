@@ -3,8 +3,8 @@ echo "Waiting istio installation to complete for this scenario"
 until $(oc get project istio-system &> /dev/null); do sleep 1; done
 
 mkdir -p /root/projects/istio-tutorial
-#TODO - Move to Katacoda branch
-git clone https://github.com/redhat-developer-demos/istio-tutorial /root/projects/istio-tutorial
+
+git clone https://github.com/redhat-developer-demos/istio-tutorial /root/projects/istio-tutorial -b katacoda
 
 cp -Rvf /root/projects/istio-tutorial/recommendation/java/vertx /root/projects/istio-tutorial/recommendation-v2
 git apply /root/recommendation-v2.diff --unsafe-paths --directory=/root/projects/istio-tutorial/
