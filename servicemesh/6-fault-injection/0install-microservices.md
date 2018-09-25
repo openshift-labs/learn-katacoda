@@ -10,7 +10,7 @@ There's a script called `install-microservices.sh` that will
 
 Execute this script: `./install-microservices.sh`{{execute T1}}
 
-> The script will take between 2-5 minutes to complete.
+> The script will take between 2-5 minutes to complete. Don't worry if you see error messages.
 
 When the scripts ends, watch the creation of the pods, execute `oc get pods -w`{{execute T1}}
 

@@ -20,7 +20,7 @@ Now that you know the URL of Prometheus, access it at http://prometheus-istio-sy
 
 Add the following metric:
 
-`round(increase(istio_recommendation_request_count{destination="recommendation.tutorial.svc.cluster.local" }[60m]))`
+`istio_requests_total{destination_service="recommendation.tutorial.svc.cluster.local"}`
 
 and select `Execute`:
 
