@@ -1,10 +1,10 @@
 #!/bin/bash
-until (oc status &> /dev/null); do sleep 1; done
+rm -rf /root/temp-pom.xml /root/projects/*
 
 #TEMPORARY FIX for this image
 hostname -I | tr ' ' '\n' | awk NF | awk '{print $1 " master"}' | tee -a /etc/hosts ; systemctl restart dnsmasq ; setenforce 0
 
-rm -rf /root/temp-pom.xml /root/projects/*
+until (oc status &> /dev/null); do sleep 1; done
 
 wget -c https://github.com/istio/istio/releases/download/1.0.2/istio-1.0.2-linux.tar.gz -P /root/installation
 

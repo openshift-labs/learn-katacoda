@@ -1,9 +1,9 @@
 #!/bin/bash
+rm -rf /root/temp-pom.xml /root/projects/*
 
 #TEMPORARY FIX for this image
 hostname -I | tr ' ' '\n' | awk NF | awk '{print $1 " master"}' | tee -a /etc/hosts ; systemctl restart dnsmasq ; setenforce 0
 
-rm -rf /root/temp-pom.xml /root/projects/*
 until (oc status &> /dev/null); do sleep 1; done
 
 
@@ -24,6 +24,3 @@ oc expose svc servicegraph -n istio-system
 oc expose svc grafana -n istio-system
 oc expose svc prometheus -n istio-system
 oc expose svc tracing -n istio-system
-
-git --work-tree=/root/projects/istio-tutorial/ --git-dir=/root/projects/istio-tutorial/.git fetch
-git --work-tree=/root/projects/istio-tutorial/ --git-dir=/root/projects/istio-tutorial/.git checkout katacoda
