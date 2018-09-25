@@ -1,11 +1,16 @@
 First and foremost, you need to understand that THE INTERNET IS WRONG. If you just do a quick Google search, you will find architectural drawing after architectural drawing which depict things the wrong way or depict only part of the whole picture, rendering the viewer to come to the wrong conclusion about containers. One might suspect that the makers of many of these drawings have the wrong conclusion about how containers work. So, forget everything you think you know.
 
-![Containers Are Linux](../../assets/subsystems/container-internals-lab-1/01-google-wrong.png)
+![Containers Are Linux](../../assets/subsystems/container-internals-lab-2.0-part-1/01-google-wrong.png)
 
 What’s wrong? Two main things:
  
-1. Most of the architectural drawings above show the docker daemon as a wide blue box stretched out over the container host. The containers are shown as if they are running on top of the docker daemon. This is incorrect - the containers are actually created and run by the Linux kernel.
-2. When the architectural drawings do actually show the right architecture between the docker daemon, libcontainer/lxc/etc and the kernel, they never show containers running side by side. This leaves the viewer to imagine #1.
+First, most of the architectural drawings above show the docker daemon as a wide blue box stretched out over the container host. The containers are shown as if they are running on top of the docker daemon. This is incorrect - the containers are actually created and run by the Linux kernel.
+
+![Containers Are Linux](../../assets/subsystems/container-internals-lab-2.0-part-1/01-not-on-docker.png)
+
+Second, when the architectural drawings do actually show the right architecture between the docker daemon, libcontainer/lxc/etc and the kernel, they never show containers running side by side. This leaves the viewer to imagine #1.
+
+![Containers Are Linux](../../assets/subsystems/container-internals-lab-2.0-part-1/01-not-the-whole-story.png)
  
 OK, let’s start from scratch. In the terminal, let's start with a simple experiment - start three containers which will all run the top command:
 
@@ -19,7 +24,9 @@ Now, let's inspect the process table of the underlying host:
 
 ``ps -efZ | grep top``{{execute}}
 
-Notice that even though we started each of the ``top`` commands in containers, they are still just a regular process which can be viewed with the trusty old ``ps`` command. That's because containerized processes are just [fancy Linux processes](http://sdtimes.com/guest-view-containers-really-just-fancy-files-fancy-processes/) with extra isolation from normal Linux processes. 
+Notice that even though we started each of the ``top`` commands in containers, they are still just a regular process which can be viewed with the trusty old ``ps`` command. That's because containerized processes are just [fancy Linux processes](http://sdtimes.com/guest-view-containers-really-just-fancy-files-fancy-processes/) with extra isolation from normal Linux processes. Hack around a bit, and notice that the docker daemon runs side by side with the containerized processes. A simplified drawing should really look something like this:
+
+![Containers Are Linux](../../assets/subsystems/container-internals-lab-2.0-part-1/01-single-node-toolchain.png) 
 
 In the kernel, there is no single data structure which represents what a container is. This has been debated back and forth for years - some people think there should be, others think there shouldn't. The current Linux kernel community philosophy is that the Linux kernel should provide a bunch of different technologies, ranging from experimental to very mature, enabling users to mix these technologies together in creative, new ways. And, that's exactly what a container engine (Docker, Podman, CRI-O) does - it leverages kernel technologies to create, what we humans call containers. The concept of a container is a user construct, not a kernel construct. This is a common pattern in Linux and Unix - this split between lower lovel (kernel) and higher level (userspace) technologies allows kernel developers to focus on enabling technologies, while users experiemnt with them and find out what works well.
  
