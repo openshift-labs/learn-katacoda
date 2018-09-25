@@ -1,14 +1,14 @@
-First and foremost, you need to understand that THE INTERNET IS WRONG. If you just do a quick Google search, you will find architectural drawing after architectural drawing which depict things the wrong way or depict only part of the whole picture, rendering the viewer to come to the wrong conclusion about containers. One might suspect that the makers of many of these drawings have the wrong conclusion about how containers work. So, forget everything you think you know.
+First and foremost, you need to understand that THE INTERNET IS WRONG. If you just do a quick Google search, you will find architectural drawing after architectural drawing which depict things the wrong way or depict only part of the whole picture, leading the viewer to come to the wrong conclusion about containers. One might suspect that the makers of many of these drawings have the wrong conclusion about how containers work. So, forget everything you think you know.
 
 ![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-1/01-google-wrong.png)
 
-What’s wrong? Two main things:
+How do people get it wrong? In two main ways:
  
-First, most of the architectural drawings above show the docker daemon as a wide blue box stretched out over the container host. The containers are shown as if they are running on top of the docker daemon. This is incorrect - [containers don't run on docker](http://crunchtools.com/containers-dont-run-on-docker/). The docker engine is a general purpose container engine. Humans talk to container engines and container engines talk to the kernel - the containers are actually created and run by the Linux kernel.
+First, most of the architectural drawings above show the docker daemon as a wide blue box stretched out over the container host. The containers are shown as if they are running on top of the docker daemon. This is incorrect - [containers don't run on docker](http://crunchtools.com/containers-dont-run-on-docker/). The docker engine is a general purpose container engine. Humans talk to container engines and container engines talk to the kernel - the containers are actually created and run by the Linux kernel. When drawings actually show the right architecture between the docker daemon and the kernel, they never show containers running side by side:
 
 ![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-1/01-not-on-docker.png)
 
-Second, when the architectural drawings do actually show the right architecture between the docker daemon, libcontainer/lxc/etc and the kernel, they never show containers running side by side. This leaves the viewer to imagine #1.
+Second, if they understand that containers are Linux processes, they never show the container engine side by side with the containers. This leads people to never think about these two things together, giving the viewer only part of the story:
 
 ![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-1/01-not-the-whole-story.png)
  
