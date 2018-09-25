@@ -1,10 +1,10 @@
-At the most basic level, the container engine and kernel work together to build and run containers. Now, let's take a look at some of the standards that govern these interactions. Similar to the fact that containers don't run on docker, they aren't really "docker containers" either. They're actually OCI containers or Linux Containers. All of the major container engines (docker, CRI-O, containerd, podman, and others) comply with the [Open Containers Initiative (OCI)](https://www.opencontainers.org/) standards: 
+At the most basic level, the [Container Engine](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.6yt1ex5wfo3l) and kernel work together to build and run [Containers](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.j2uq93kgxe0e). Now, let's take a look at some of the standards that govern these interactions. Similar to the fact that containers don't run on docker, they aren't really "docker containers" either. They're actually OCI containers or Linux Containers. All of the major container engines (docker, CRI-O, containerd, podman, and others) comply with the [Open Containers Initiative (OCI)](https://www.opencontainers.org/) standards: 
 
 ![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/02-basic-standards.png)
 
 There are five main governing standards that should be understood in this section:
 
-# **OCI Image Specification** - governs the on-disk format of container images. Essentially a group of tar files and some metadata in a json file.
+# **OCI Image Specification** - governs the on-disk [format](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.dgn6r69i32gs) of [Container Images](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.dqlu6589ootw). Essentially a group of tar files and some metadata in a json file.
 # **OCI Distribution Specification** - governs the interaction of any tool which communicates with a registry server. Typically this is a container engine, but can also be dedicated tools like [Skopeo](https://github.com/containers/skopeo).
 # **OCI Runtime Specification** - governs the communication between the container engine and the Linux kernel (or Windows). The OCI is also the home for the reference implementation of this code, called [runc](https://github.com/opencontainers/runc). Every major container engine mentioned above uses runc, so they basically all create the same kind of containers.
 
