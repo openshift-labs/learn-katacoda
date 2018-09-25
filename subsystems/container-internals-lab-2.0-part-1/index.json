@@ -19,7 +19,7 @@
     },
     "details": {
         "steps": [{
-            "title": "Topic 1 - Container Architecture: Starting From Scratch",
+            "title": "Topic 1 - Introduction to Containers",
             "text": "01-container-scratch.md"
         }, {
             "title": "Topic 2 - Containers Are Linux",
