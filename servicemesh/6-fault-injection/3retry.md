@@ -4,9 +4,13 @@ We will make pod recommendation-v2 fail 100% of the time. Get one of the pod nam
 
 `oc exec -it $(oc get pods|grep recommendation-v2|awk '{ print $1 }'|head -1) -c recommendation /bin/bash`{{execute T1}}
 
-You will be inside the application container of your pod recommendation-v2-2036617847-spdrb. Now execute:
+You will be inside the application container of your pod recommendation-v2-2036617847-spdrb. Now execute the following command inside the recommenation-v2 pod:
 
-`curl localhost:8080/misbehave; exit`{{execute T1}}
+`curl localhost:8080/misbehave`{{execute T1}}
+
+Now exit from the recommendation-v2 pod:
+
+`exit`{{execute T1}}
 
 This is a special endpoint that will make our application return only `503`s.
 
@@ -40,8 +44,12 @@ Now, make the pod v2 behave well again. Get one of the pod names from your syste
 
 `oc exec -it $(oc get pods|grep recommendation-v2|awk '{ print $1 }'|head -1) -c recommendation /bin/bash`{{execute T1}}
 
-You will be inside the application container of your pod recommendation-v2-2036617847-spdrb. Now execute:
+Now execute the following command inside the recommenation-v2 pod:
 
-`curl localhost:8080/behave; exit`{{execute T1}}
+`curl localhost:8080/behave`{{execute T1}}
+
+Now exit from the recommendation-v2 pod:
+
+`exit`{{execute T1}}
 
 The application is back to random load-balancing between v1 and v2. Check it at Terminal 2: `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .5; done`{{execute interrupt T2}}

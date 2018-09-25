@@ -44,9 +44,13 @@ Now we'll get into one the pods and add some erratic behavior on it.
 
 `oc exec -it $(oc get pods|grep recommendation-v2|awk '{ print $1 }'|head -1) -c recommendation  /bin/bash`{{execute T1}}
 
-You will be inside the application container of your pod. Now execute:
+You will be inside the application container of your pod. Now execute the following command inside the recommenation-v2 pod:
 
-`curl localhost:8080/misbehave && exit`{{execute T1}}
+`curl localhost:8080/misbehave`{{execute T1}}
+
+Now exit from the recommendation-v2 pod:
+
+`exit`{{execute T1}}
 
 This is a special endpoint that will make our application return only `503`s.
 
