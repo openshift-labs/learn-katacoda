@@ -1,7 +1,10 @@
 #!/bin/bash
-until (oc status &> /dev/null); do sleep 1; done
+rm -rf /root/temp-pom.xml /root/projects/*
 
-rm -rf /root/projects/* /root/temp-pom.xml /root/projects/incubator-openwhisk-devtools
+#TEMPORARY FIX for this image
+hostname -I | tr ' ' '\n' | awk NF | awk '{print $1 " master"}' | tee -a /etc/hosts ; systemctl restart dnsmasq ; setenforce 0
+
+until (oc status &> /dev/null); do sleep 1; done
 
 wget -c https://github.com/istio/istio/releases/download/1.0.2/istio-1.0.2-linux.tar.gz -P /root/installation
 
@@ -20,6 +23,3 @@ oc expose svc servicegraph -n istio-system
 oc expose svc grafana -n istio-system
 oc expose svc prometheus -n istio-system
 oc expose svc tracing -n istio-system
-
-#TEMPORARY FIX
-hostname -I | awk '{print $1,$2,$3" master"}' | tee -a /etc/hosts; systemctl restart dnsmasq; setenforce 0

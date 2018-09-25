@@ -35,7 +35,7 @@ You can describe the routerule to see its configuration: `istioctl get virtualse
 
 ## Remove 'Safari' rule.
 
-To remove the User-Agent behavior, simply delete this `routerule` by executing `istioctl delete virtualservice recommendation -n tutorial`{{execute T1}}
+To remove the User-Agent behavior, simply delete this `virtualservice` by executing `istioctl delete virtualservice recommendation -n tutorial`{{execute T1}}
 
 To check if you have all requests using `v1`, try the microservice several times by typing `curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute T1}}
 

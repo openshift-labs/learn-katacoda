@@ -36,5 +36,5 @@ Hit CTRL+C when you are satisfied.
 
 ## Clean up
 
-Don't forget to remove the `virtualservice` and `destinationrule` executing `~/projects/istio-tutorial/scripts/clean.sh`{{execute interrupt T1}}
+Don't forget to remove the `rate limiting` by executing `oc delete -f projects/istio-tutorial/istiofiles/rate_limit_rule.yml`{{execute interrupt T1}}
 
