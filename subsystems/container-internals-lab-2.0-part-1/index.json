@@ -19,10 +19,10 @@
     },
     "details": {
         "steps": [{
-            "title": "Topic 1 - Introduction to Containers",
+            "title": "Topic 1 - Containers Are Linux",
             "text": "01-container-scratch.md"
         }, {
-            "title": "Topic 2 - Containers Are Linux",
+            "title": "Topic 2 - Community Landscape",
             "text": "02-community-landscape.md"
         }, {
             "title": "Topic 3 - Single Host Toolchain",
