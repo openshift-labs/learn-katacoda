@@ -11,7 +11,8 @@ Now check the files `/istiofiles/destination-rule-recommendation.yml`{{open}} an
 
 Note that the `VirtualService` provides `httpFault` that will `abort` the request `50% of the time` with a `httpStatus=503` for the `subset: app-recommendation`.
 
-Let's apply these files: `istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation.yml -n tutorial; istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-503.yml -n tutorial`{{execute T1}}
+Let's apply these files: `istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation.yml -n tutorial; \
+istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-503.yml -n tutorial`{{execute T1}}
 
 To check the new behavior, make sure that the following command is running on `Terminal 2`:
 `while true; do time curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .5; done`{{execute T2}}

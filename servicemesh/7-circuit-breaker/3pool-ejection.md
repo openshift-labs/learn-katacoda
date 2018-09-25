@@ -2,7 +2,8 @@ Pool ejection or *outlier detection* is a resilience strategy that takes place w
 
 First, you need to insure you have a `destinationrule` and `virtualservice` in place. Let's use a 50/50 split of traffic:
 
-`istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation-v1-v2.yml -n tutorial; istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-v1_and_v2_50_50.yml -n tutorial`{{execute T1}}
+`istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation-v1-v2.yml -n tutorial; \
+istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-v1_and_v2_50_50.yml -n tutorial`{{execute T1}}
 
 Scale number of instances of v2 deployment
 
@@ -54,7 +55,7 @@ Now exit from the recommendation-v2 pod:
 
 This is a special endpoint that will make our application return only `503`s.
 
-Make sure that the following command is running on `Terminal 2` `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .1; done`{{execute T2}}
+Make sure that the following command is running on `Terminal 2` `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .1; done`{{execute interrupt T2}}
 
 You'll see that whenever the pod that you ran the command `curl localhost:8080/misbehave` receives a request, you get a 503 error:
 
@@ -79,7 +80,7 @@ Now execute:
 
 `istioctl replace -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation_cb_policy_pool_ejection.yml -n tutorial`{{execute T1}}
 
-Make sure that the following command is running on `Terminal 2` `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .1; done`{{execute T2}}
+Make sure that the following command is running on `Terminal 2` `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .1; done`{{execute interrupt T2}}
 
 You will see that whenever you get a failing request with 503 from the pod, it gets ejected from the pool, and it doesn't receive any more requests until the sleep window expires - which takes at least 15s.
 

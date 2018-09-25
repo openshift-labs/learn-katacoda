@@ -2,6 +2,8 @@
 echo "Waiting istio installation to complete for this scenario"
 until $(oc get project istio-system &> /dev/null); do sleep 1; done
 
+sleep 10
+
 mkdir -p /root/projects/istio-tutorial
 
 git clone https://github.com/redhat-developer-demos/istio-tutorial /root/projects/istio-tutorial -b katacoda

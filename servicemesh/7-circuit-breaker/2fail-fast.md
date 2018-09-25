@@ -1,6 +1,7 @@
 First, you need to insure you have a `destinationrule` and `virtualservice` in place. Let's use a 50/50 split of traffic:
 
-Execute `istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation-v1-v2.yml -n tutorial; istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-v1_and_v2_50_50.yml -n tutorial`{{execute T1}}
+Execute `istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation-v1-v2.yml -n tutorial; \
+istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-v1_and_v2_50_50.yml -n tutorial`{{execute T1}}
 
 ## Load test without circuit breaker
 

@@ -12,7 +12,7 @@ Execute:
 
 `istioctl replace -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-v1_and_v2_retry.yml -n tutorial`{{execute T1}}
 
-Make sure that the following command is running on `Terminal 2` `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .2; done`{{execute T2}}
+Make sure that the following command is running on `Terminal 2` `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .2; done`{{execute interrupt T2}}
 
 You won't receive 503s anymore. But the requests from recommendation v2 are still taking more time to get a response. Our misbehaving podnever shows up in the console, thanks to pool ejection and retry.
 
