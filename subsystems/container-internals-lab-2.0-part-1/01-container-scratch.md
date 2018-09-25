@@ -4,7 +4,7 @@ First and foremost, you need to understand that THE INTERNET IS WRONG. If you ju
 
 What’s wrong? Two main things:
  
-First, most of the architectural drawings above show the docker daemon as a wide blue box stretched out over the container host. The containers are shown as if they are running on top of the docker daemon. This is incorrect - the containers are actually created and run by the Linux kernel.
+First, most of the architectural drawings above show the docker daemon as a wide blue box stretched out over the container host. The containers are shown as if they are running on top of the docker daemon. This is incorrect - [containers don't run on docker](http://crunchtools.com/containers-dont-run-on-docker/). The docker engine is a general purpose container engine. Humans talk to container engines and container engines talk to the kernel - the containers are actually created and run by the Linux kernel.
 
 ![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-1/01-not-on-docker.png)
 
