@@ -7,9 +7,10 @@ In this course you learned:
 
 You can find a copy of the slides and GitHub repo that contains all of these commands so that you can run them yourself in your own environment:
 
+## Other Material
 - [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
-- [Presentation](https://docs.google.com/presentation/d/1S-JqLQ4jatHwEBRUQRiA5WOuCwpTUnxl2d1qRUoTz5g/edit#slide=id.g2065a112e4_1_36)
+- [Presentation](https://goo.gl/nmyUgn)
 
 Also, if you have any questions tweet us at:
 
-@OpenShift @RedHatAtomic @fatherlinux
+@RedHat @OpenShift @coreos @fatherlinux
