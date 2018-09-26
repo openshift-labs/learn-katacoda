@@ -11,13 +11,13 @@ By the end of this lab you should be able to:
 - Image URLs: Mapping business requirements to the URL, Namespace, Repository and Tag
 - Image Internals: Inspecting the libraries, interpreters, and operating system components in a container image
 
-## Video & Material
+## Other Material
 This video will give you a background to all of the concepts in this lab.
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/P5NaEXmJuWo" frameborder="0" allowfullscreen  style="position: relative;"></iframe>
 
 - [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
-- [Presentation](https://docs.google.com/presentation/d/1fC9cKR2-kFW5l-VEk0Z5_1vriYpROXOXM_5rhyVnBi4/edit#slide=id.g20639ff941_0_26)
+- [Presentation](https://goo.gl/wnB7JK)
 
 ## Start Scenario
 Once you have watched the background video, continue to the exercises.
