@@ -17,14 +17,14 @@ The full URL is:
 
 In the lab on Container Images, we learned how to break the URL down into registry server, namespace and repository. First, lets check the validity of the registry server:
 
-``curl -Ivv https://registry.fedoraproject.org``{{executue}}''
+``curl -Ivv https://registry.fedoraproject.org``{{execute}}
 
 Notice that the SSL cert looks trustworthy. The certicate is valid and managed by Red Hat. Now, we can pull the repository because we know its the official Fedora container repository on the official Fedora registry server:
 
-``docker pull https://registry.fedoraproject.org/fedora``{{executue}}''
+``docker pull https://registry.fedoraproject.org/fedora``{{execute}}
 
 We can do this same thing with Podman:
 
-``podman pull https://registry.fedoraproject.org/fedora``{{executue}}''
+``podman pull https://registry.fedoraproject.org/fedora``{{execute}}
 
 Now, lets move on to evaluate some trickier repositories...
