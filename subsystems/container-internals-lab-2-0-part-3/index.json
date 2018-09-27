@@ -19,8 +19,8 @@
     },
     "details": {
         "steps": [{
-            "title": "Topic 1 - Image Layers and Repositories: inspecting base images, layers and history",
-            "text": "01-base-multi-layer-images.md"
+            "title": "Understanding the Basics of Trust - Quality & Provenance",
+            "text": "01-basics-trust.md"
         }, {
             "title": "Topic 2 - Image URLs: Mapping business requirements to the URL, Namespace, Repository and Tag",
             "text": "02-image-urls.md"
