@@ -19,12 +19,8 @@ In the lab on Container Images, we learned how to break the URL down into regist
 
 ``curl -Ivv https://registry.fedoraproject.org``{{execute}}
 
-Notice that the SSL cert looks trustworthy. The certicate is valid and managed by Red Hat. Now, we can pull the repository because we know its the official Fedora container repository on the official Fedora registry server:
+Notice that the SSL cert fails to past muster. That is because this this lab is built on CentOS, and the DigiCert Root CA certificate is not in /etc/pki - but, I assure you on RHEL and Fedora this certficate is distributed by default and hence the SSL ceertificate for registry.fedoraproject.org passes muster. So, for this lab, you have to trust me :-) The certicate is valid and managed by Red Hat. Now, we can pull the repository because we know its the official Fedora container repository on the official Fedora registry server. Rememeber, it is the container engine's job to check these certificates:
 
-``docker pull https://registry.fedoraproject.org/fedora``{{execute}}
-
-We can do this same thing with Podman:
-
-``podman pull https://registry.fedoraproject.org/fedora``{{execute}}
+``docker pull registry.fedoraproject.org/fedora``{{execute}}
 
 Now, lets move on to evaluate some trickier repositories...
