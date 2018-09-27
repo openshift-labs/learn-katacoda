@@ -13,7 +13,7 @@ There are [plenty of examples](https://www.infoworld.com/article/3289790/applica
 
 The full URL is:
 
-``https:////registry.fedoraproject.org/fedora``
+``https://registry.fedoraproject.org/fedora``
 
 In the lab on Container Images, we learned how to break the URL down into registry server, namespace and repository. First, lets check the validity of the registry server:
 
@@ -21,10 +21,10 @@ In the lab on Container Images, we learned how to break the URL down into regist
 
 Notice that the SSL cert looks trustworthy. The certicate is valid and managed by Red Hat. Now, we can pull the repository because we know its the official Fedora container repository on the official Fedora registry server:
 
-``docker pull https:////registry.fedoraproject.org/fedora``{{executue}}
+``docker pull https://registry.fedoraproject.org/fedora``{{executue}}
 
 We can do this same thing with Podman:
 
-``podman pull https:////registry.fedoraproject.org/fedora``{{executue}}
+``podman pull https://registry.fedoraproject.org/fedora``{{executue}}
 
 Now, lets move on to evaluate some trickier repositories...
