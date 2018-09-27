@@ -9,11 +9,11 @@ Each of these is necesary, but neither alone is sufficient. This has been true s
 
 2. We determine if the source is trustworthy, by understanding the quality of its relationship with the trusted project - if we download something from the offical GitHub repo, we trust it more than from a fork by user Haxor5579.
 
-There are [plenty of examples](https://www.infoworld.com/article/3289790/application-security/deep-container-inspection-what-the-docker-hub-minor-virus-and-xcodeghost-breach-can-teach-about-con.html) where people ignore one of the above and get hacked. As a quick introduction, let's do a quick evaluation of the official fedora container image:
+There are [plenty of examples](https://www.infoworld.com/article/3289790/application-security/deep-container-inspection-what-the-docker-hub-minor-virus-and-xcodeghost-breach-can-teach-about-con.html) where people ignore one of the above and get hacked. As a quick introduction, lets do a quick evaluation of the official fedora container image:
 
 The full URL is:
 
-``https:////registry.fedoraproject.org/fedora```
+``https:////registry.fedoraproject.org/fedora``
 
 In the lab on Container Images, we learned how to break the URL down into registry server, namespace and repository. First, lets check the validity of the registry server:
 
