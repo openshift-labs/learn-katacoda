@@ -1,0 +1,12 @@
+{
+  "title": "OpenShift Decision Manager Workshop",
+  "description": "",
+  "courses": [
+    {
+      "pathway_id": "openshift/middleware",
+      "course_id": "dm7-loan-application",
+      "id": "dm7-loan-application",
+      "title": "Red Hat Decision Manager Loan Application on OpenShift"
+    }
+  ]
+}
