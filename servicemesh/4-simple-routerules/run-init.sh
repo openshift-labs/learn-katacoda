@@ -9,4 +9,4 @@ git --work-tree=/root/projects/istio-tutorial/ --git-dir=/root/projects/istio-tu
 git --work-tree=/root/projects/istio-tutorial/ --git-dir=/root/projects/istio-tutorial/.git checkout katacoda
 
 until (oc status &> /dev/null); do sleep 1; done
-make -i -f /root/projects/istio-tutorial/Makefile cleanup istioprojects/istio-tutorial/Makefile
+make -i -f /root/projects/istio-tutorial/Makefile cleanup istio
