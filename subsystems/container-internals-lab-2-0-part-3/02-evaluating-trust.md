@@ -2,7 +2,32 @@ The goal of this exercise is to learn how to evaluate a [Container Image](https:
 
 First, lets start what we already know, there is often a full functioning Linux distro inside a container image. That's because it's useful to leverage existing packages and the dependency tree already created for it. This is true whether running on bare metal, in a virtual machine, or in a container image. It's also important to consider the quality, frequency, and ease of consuming updates in the container image.
 
-To analyze the quality, we are going to leverage existing tools - which is another advantage of consuming a container image which leverages a Linux distro. To demonstrate, let's examine an old, old Red Hat Enterprise Linux image. The following command will show all errata which is available to be installed for this particular container image:
+To analyze the quality, we are going to leverage existing tools - which is another advantage of consuming a container image which leverages a Linux distro. To demonstrate, let's examine images from four different Linux distros - CentOS, Fedora, Ubuntu, and Red Hat Enterprise Linux. Each will have diffing levels of information:
+
+### CentOS
+``docker run -it centos:7.0.1406 yum updateinfo``{{execute}}
+
+### Fedora
+``docker run -it fedora dnf updateinfo``{{execute}}
+
+Results will vary on any given day, but the output will often look something like this:
+
+```
+Last metadata expiration check: 0:00:07 ago on Mon Oct  8 16:22:46 2018.
+Updates Information Summary: available
+    5 Security notice(s)
+        1 Moderate Security notice(s)
+        2 Low Security notice(s)
+    5 Bugfix notice(s)
+    2 Enhancement notice(s)
+```
+
+### Ubuntu
+``docker run -it ubuntu:trusty-20170330 /bin/bash -c "apt-get update && apt list --upgradable"``{{execute}}
+
+### Red Hat Enterprise Linux
+
+The following command will show all errata which is available to be installed for this particular container image:
 
 ``docker run -it registry.access.redhat.com/rhel7:7.4-105 yum updateinfo security``{{execute}}
 
