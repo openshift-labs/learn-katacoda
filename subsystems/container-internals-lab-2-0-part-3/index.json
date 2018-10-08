@@ -22,14 +22,11 @@
             "title": "Understanding the Basics of Trust - Quality & Provenance",
             "text": "01-basics-trust.md"
         }, {
-            "title": "Topic 2 - Image URLs: Mapping business requirements to the URL, Namespace, Repository and Tag",
-            "text": "02-image-urls.md"
+            "title": "Evaluating Trust - Images and Registry Servers",
+            "text": "02-evaluating-trust.md"
         }, {
-            "title": "Topic 3 - Image Internals: Inspecting the libraries, interpreters, and operating system components in a container image",
-            "text": "03-image-internals.md"
-        }, {
-            "title": "Topic 4 - Mapping Layers to Technical Requirements: using layers to meet the needs of everyone",
-            "text": "04-layers-technical-requirements.md"
+            "title": "Analyzing Storage and Graph Drivers",
+            "text": "03-analyzing-storage.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
