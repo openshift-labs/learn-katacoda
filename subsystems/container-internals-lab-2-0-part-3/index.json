@@ -1,7 +1,7 @@
 {
     "icon": "fa-openshift",
-    "title": "Linux Container Internals - Lab 2: Container Images",
-    "description": "",
+    "title": "Container Registries",
+    "description": "Linux Container Internals 2.0 - Lab 3: Container Registries",
     "pathwayTitle": "OpenShift",
     "difficulty": "Intermediate",
     "time": "30-45 minutes",
