@@ -1,5 +1,4 @@
 #!/bin/bash
-rm -rf /root/temp-pom.xml /root/projects/incubator-openwhisk-devtools /root/projects/rhoar-getting-started
 
 #TEMPORARY FIX for this image
 hostname -I | tr ' ' '\n' | awk NF | awk '{print $1 " master"}' | tee -a /etc/hosts ; systemctl restart dnsmasq ; setenforce 0
