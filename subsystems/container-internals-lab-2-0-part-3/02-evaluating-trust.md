@@ -11,7 +11,7 @@ Notice there are a bunch of unapplied security updates. Now, lets take a look at
 [Red Hat Enterprise Linux 7.4-105 Base Image](https://access.redhat.com/containers/#/registry.access.redhat.com/rhel7/images/7.4-105)
 
 IMAGE TBD
-![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-3/01-evaluating-trust.png)
+![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-3/02-evaluating-trust.png)
 
 Poke around in the Red Hat Container Catalog and notice how this particulare image has a warning associated. That's because container images age like cheese, not like wine. Trust is termporal and older container images age just like servers which are rarely or never patched. 
 
