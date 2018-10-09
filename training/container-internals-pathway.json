@@ -3,25 +3,25 @@
   "description": "",
   "courses": [
     {
-      "pathway_id": "openshift/subsystems",
+      "pathway_id": "fatherlinux/subsystems",
       "course_id": "container-internals-lab-1",
       "id": "container-internals-lab-1",
       "title": "Lab 1: Container Architecture"
     },
     {
-      "pathway_id": "openshift/subsystems",
+      "pathway_id": "fatherlinux/subsystems",
       "course_id": "container-internals-lab-2",
       "id": "container-internals-lab-2",
       "title": "Lab 2: Container Images"
     },
     {
-      "pathway_id": "openshift/subsystems",
+      "pathway_id": "fatherlinux/subsystems",
       "course_id": "container-internals-lab-3",
       "id": "container-internals-lab-3",
       "title": "Lab 3: Container Runtime"
     },
     {
-      "pathway_id": "openshift/subsystems",
+      "pathway_id": "fatherlinux/subsystems",
       "course_id": "container-internals-lab-4",
       "id": "container-internals-lab-4",
       "title": "Lab 4: Container Orchestration"
