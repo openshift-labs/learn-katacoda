@@ -1,5 +1,7 @@
 The goal of this exercise is to learn how to evaluate a [Container Image](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.dqlu6589ootw) and the [Registry Server](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.4cxnedx7tmvq) from which you get it. 
 
+# Evaluating Images
+
 First, lets start what we already know, there is often a full functioning Linux distro inside a container image. That's because it's useful to leverage existing packages and the dependency tree already created for it. This is true whether running on bare metal, in a virtual machine, or in a container image. It's also important to consider the quality, frequency, and ease of consuming updates in the container image.
 
 To analyze the quality, we are going to leverage existing tools - which is another advantage of consuming a container image which leverages a Linux distro. To demonstrate, let's examine images from four different Linux distros - CentOS, Fedora, Ubuntu, and Red Hat Enterprise Linux. Each will have diffing levels of information:
@@ -67,28 +69,30 @@ We should see something similar to:
 ![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-3/02-evaluating-trust.png)
 
 
+# Evaluating Registries
+
 Now, that we have taken a look at several container images, we are going to start to look at where they came from and how they were built - we are going to evaluate regsitry servers.
 
-## 
-- [registry.fedoraproject.org](https://registry.fedoraproject.org/)
+## Fedora Registry
+- Click: [registry.fedoraproject.org](https://registry.fedoraproject.org/)
+
+## DockerHub
+- Click: [https://hub.docker.com/_/centos/](https://hub.docker.com/_/centos/)
+
+## Bitnami
+- Click: [https://bitnami.com/containers](https://bitnami.com/containers)
+
+## Red Hat Container Catalog
+- Click: [Red Hat Enterprise Linux Base Image - All Tags](https://access.redhat.com/containers/?tab=tags#/registry.access.redhat.com/rhel7)
 
 Poke around in the Red Hat Container Catalog and notice how this particulare image has a warning associated. That's because container images age like cheese, not like wine. Trust is termporal and older container images age just like servers which are rarely or never patched. 
 
 Now take a look at the Container Health Index scoring for each tag that is available: 
 
-[Red Hat Enterprise Linux Base Image - All Tags](https://access.redhat.com/containers/?tab=tags#/registry.access.redhat.com/rhel7)
 
 Notice, that the newer the tag, the better the letter grade. The Red Hat Container Catalog and Container Health Index clearly show you that the newer images have a less vulnerabiliites and hence have a better letter grade. To fully understand the scoring criteria, check out [Knowledge Base Article](https://access.redhat.com/articles/2803031).
 
-Finally, let's do the same test we did before, but on a newer container image:
-
-``docker run -it registry.access.redhat.com/rhel7:7.4-105 yum updateinfo security``{{execute}}
-
-Notice that there are no available errata. Now, let's take a look at a couple of other registries:
-
-
-- [https://hub.docker.com/explore/](https://hub.docker.com/explore/)
-- [https://bitnami.com/containers](https://bitnami.com/containers)
+## Summary
 
 Knowing what you know now:
 - How would you rate your trust in these registries? By brand, tooling, image quality?
