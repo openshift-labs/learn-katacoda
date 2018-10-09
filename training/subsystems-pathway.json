@@ -9,27 +9,27 @@
     },
     {
       "course_id": "container-internals-lab-2-0-part-2",
-      pathway_id": "fatherlinux/subsystems",
+      "pathway_id": "fatherlinux/subsystems",
       "title": "Linux Container Internals 2.0 - Lab 2: Container Images"
     },
     {
       "course_id": "container-internals-lab-2-0-part-3",
-      pathway_id": "fatherlinux/subsystems",
+      "pathway_id": "fatherlinux/subsystems",
       "title": "Linux Container Internals 2.0 - Lab 3: Container Registries"
     },
     {
       "course_id": "container-internals-lab-2-0-part-4",
-      pathway_id": "fatherlinux/subsystems",
+      "pathway_id": "fatherlinux/subsystems",
       "title": "Linux Container Internals 2.0 - Lab 4: Container Hosts"
     },
     {
       "course_id": "container-internals-lab-2-0-part-5",
-      pathway_id": "fatherlinux/subsystems",
+      "pathway_id": "fatherlinux/subsystems",
       "title": "Linux Container Internals 2.0 - Lab 5: Container Orchestration"
     },
     {
       "course_id": "container-internals-lab-2-0-part-8",
-      pathway_id": "fatherlinux/subsystems",
+      "pathway_id": "fatherlinux/subsystems",
       "title": "Linux Container Internals 2.0 - Lab 8: Production Image Builds"
     }
   ]
