@@ -60,9 +60,9 @@ RHSA-2018:2285 Important/Sec. yum-utils-1.1.31-46.el7_5.noarch
 ```
 Even without a subscription, we can analyze the quality of a Red Hat image by looking at the Red Hat Container Cataog
 
-``Click: [Red Hat Enterprise Linux 7.4-105 Base Image](https://access.redhat.com/containers/#/registry.access.redhat.com/rhel7/images/7.4-105)``
+- Click: [Red Hat Enterprise Linux 7.4-105 Base Image](https://access.redhat.com/containers/#/registry.access.redhat.com/rhel7/images/7.4-105)
 
-We should see something similar to
+We should see something similar to:
 
 ![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-3/02-evaluating-trust.png)
 
