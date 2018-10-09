@@ -1,0 +1,36 @@
+{
+  "title": "Linux Container Internals Workshop",
+  "description": "",
+  "courses": [
+    {
+      "pathway_id": "fatherlinux/subsystems",
+      "course_id": "container-internals-lab-2-0-part-1",
+      "id": "container-internals-lab-2-0-part-1",
+      "title": "Lab 1: Introduction to Containers"
+    },
+    {
+      "pathway_id": "fatherlinux/subsystems",
+      "course_id": "container-internals-lab-2-0-part-2",
+      "id": "container-internals-lab-2-0-part-2",
+      "title": "Lab 2: Container Images"
+    },
+    {
+      "pathway_id": "fatherlinux/subsystems",
+      "course_id": "container-internals-lab-2-0-part-3",
+      "id": "container-internals-lab-2-0-part-3",
+      "title": "Lab 3: Container Registries"
+    },
+    {
+      "pathway_id": "fatherlinux/subsystems",
+      "course_id": "container-internals-lab-2-0-part-4",
+      "id": "container-internals-lab-2-0-part-4",
+      "title": "Lab 4: Container Host"
+    },
+    {
+      "pathway_id": "fatherlinux/subsystems",
+      "course_id": "container-internals-lab-2-0-part-5",
+      "id": "container-internals-lab-2-0-part-5",
+      "title": "Lab 5: Container Orchestration"
+    }
+  ]
+}
