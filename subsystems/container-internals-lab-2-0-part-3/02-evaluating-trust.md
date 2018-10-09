@@ -76,14 +76,21 @@ Now, that we have taken a look at several container images, we are going to star
 ## Fedora Registry
 - Click: [registry.fedoraproject.org](https://registry.fedoraproject.org/)
 
+The Fedora registry provides a very basic experience. You know that it is operated by the Fedora project, so the security should be pretty similar to the ISOs you download. That said, there are no older versions of images, and there is really no guarantee as to how often the images are patched.
+
+
 ## DockerHub
 - Click: [https://hub.docker.com/_/centos/](https://hub.docker.com/_/centos/)
+
+DockerHub provides "official" images for a lot of different pieces of software including things like CentOS, Ubuntu, Wordpress, and PHP. That said, there really isn't standard definition for what official means. Each team is left to create their own processes, rules, time lines, lifecycles, and testing. There really is no shared understanding what official images provide an end user. Users must evaluate each one themselves to see if they are getting what they want.
 
 ## Bitnami
 - Click: [https://bitnami.com/containers](https://bitnami.com/containers)
 
+
+
 ## Red Hat Container Catalog
-- Click: [Red Hat Enterprise Linux Base Image - All Tags](https://access.redhat.com/containers/?tab=tags#/registry.access.redhat.com/rhel7)
+- Click: [https://access.redhat.com/containers](https://access.redhat.com/containers/?tab=tags#/registry.access.redhat.com/rhel7)
 
 Poke around in the Red Hat Container Catalog and notice how this particulare image has a warning associated. That's because container images age like cheese, not like wine. Trust is termporal and older container images age just like servers which are rarely or never patched. 
 
