@@ -5,7 +5,7 @@ ssh root@host01 'git clone --depth 1 https://github.com/fatherlinux/container-in
 ssh root@host01 'cp ~/labs/lab1-step3/mega-proc.sh /usr/bin/mega-proc.sh'
 
 # Lab 2
-sh root@host01 'rpm -ivh http://cbs.centos.org/kojifiles/packages/podman/0.6.1/4.git3e0ff12.el7/x86_64/podman-0.6.1-4.git3e0ff12.el7.x86_64.rpm'
+ssh root@host01 'yum install -y podman buildah skopeo-containers'
 
 # Lab 3
 ssh root@host01 'rpm -ivh http://mirror.centos.org/centos/7/os/x86_64/Packages/tree-1.6.0-10.el7.x86_64.rpm'
