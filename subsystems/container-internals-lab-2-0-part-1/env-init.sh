@@ -8,7 +8,6 @@ ssh root@host01 'cp ~/labs/lab1-step3/mega-proc.sh /usr/bin/mega-proc.sh'
 # Lab 2
 
 # Lab 3
-ssh root@host01 'yum install '
 
 # Lab 4
 ssh root@host01 'cp ~/labs/lab3-step1/atomic-openshift-master.service /etc/systemd/system/atomic-openshift-master.service'
