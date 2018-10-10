@@ -17,6 +17,7 @@ First, you might be asking yourself, [what the heck is d_type?](https://linuxer.
 ``tree /var/lib/containers/storage``{{execute}}
 
 Now, pull an image and verify that the files are just mapped right into the filesystem:
+
 ``podman pull rhel7
 cat $(find /var/lib/containers/storage | grep redhat-release | tail -n 1)``{{execute}}
 
