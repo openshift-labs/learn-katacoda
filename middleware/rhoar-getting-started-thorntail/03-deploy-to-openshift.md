@@ -42,8 +42,7 @@ is killed, further attempts to invoke the service will fail with `503 Service Un
 know that the service is disabled. To verify this, return to the OpenShift Web Console and the Overview page for
 your new project.
 
-From the Overview page, navigate to _Applications->Deployments_ and then click on the numbered link below _Last Version_
-to see details on the currently deployed application.
+From the Overview page, click on the numbered link `#1` to see details on the currently deployed application.
 
 ![Deployments Details](/openshift/assets/middleware/rhoar-getting-started-thorntail/deployments.png)
 

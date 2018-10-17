@@ -22,9 +22,9 @@ An uberjar is useful for many continuous integration and continuous deployment (
 in which a single executable binary artifact is produced and moved through the testing, validation, and
 production environments in your organization.
             
-** 2. Add `monitor` fraction**
+** 2. Add `microprofile-healthcheck` fraction**
 
-Since Thorntail implements MicroProfile, in particular the [MicroProfile Healt API](https://microprofile.io/project/eclipse/microprofile-health), it includes the `microprofile-health` fraction which automatically adds health check infrastructure to your
+Since Thorntail implements MicroProfile, in particular the [MicroProfile Health API](https://microprofile.io/project/eclipse/microprofile-health), it includes the `microprofile-health` fraction which automatically adds health check infrastructure to your
 application when it is included as a fraction in the project. Open the `pom.xml`{{open}} file and click **Copy To Editor** to insert the new dependencies
 into the `pom.xml`{{open}} file:
 
