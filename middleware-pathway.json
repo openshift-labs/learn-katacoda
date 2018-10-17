@@ -23,9 +23,9 @@
       "title": "Spring Boot development"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-wfswarm/",
-      "course_id": "rhoar-getting-started-wfswarm",
-      "title": "WildFly Swarm development"
+      "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-thorntail/",
+      "course_id": "rhoar-getting-started-thorntail",
+      "title": "Thorntail development"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-nodejs/",

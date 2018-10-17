@@ -1,5 +1,5 @@
 The sample project shows the components of
-a WildFly Swarm project laid out in different subdirectories according to Maven best
+a Thorntail project laid out in different subdirectories according to Maven best
 practices.
 
 **1. Run the following command to examine the Maven project structure.**
@@ -27,29 +27,29 @@ later to simulate failure.
 
 Before we add code to the project you should build and test that current application starts as it should.
 
-Since this is already a working application you can already without any code changes run the application locally directly from `maven` using `wildfly-swarm:run` as the goal
+Since this is already a working application you can already without any code changes run the application locally directly from `maven` using `thorntail:run` as the goal
 
-``mvn wildfly-swarm:run``{{execute HOST1}}  
+``mvn thorntail:run``{{execute HOST1}}  
 
 Since this is the first time we run maven may have to pull down some dependencies (we have tried to prepopulate most for you), but subsequent runs should go really fast.
 
 At this stage the application doesn't really do anything but after a while you will see:
 
 ```console
-INFO  [org.wildfly.swarm] (main) WFSWARM99999: WildFly Swarm is Ready
+INFO  ... THORN99999: Thorntail is Ready
 ```
 
 **3. Test the application**
 
 To begin, click on the **Local Web Browser** tab in the console frame of this browser window. This will open another tab or window of your browser pointing to port 8080 on your client.
 
-![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-wfswarm/web-browser-tab.png)
+![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-thorntail/web-browser-tab.png)
 
 > or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
 You should now see a html page that looks like this
 
-![App](/openshift/assets/middleware/rhoar-getting-started-wfswarm/app.png)
+![App](/openshift/assets/middleware/rhoar-getting-started-thorntail/app.png)
 
 **4. Stop the application**
 
@@ -58,7 +58,7 @@ Before moving on, click in the terminal window and then press CTRL-C to stop the
 You should see this:
 
 ```console
-INFO  [org.jboss.as] (MSC service thread 1-3) WFLYSRV0050: WildFly Swarm 2017.10.0 (WildFly Core 2.2.1.Final) stopped in 51ms
+INFO ... THORN0027: Shutdown requested
 ```
 
 This indicates the application is stopped.
@@ -67,6 +67,6 @@ This indicates the application is stopped.
 
 You have now successfully executed the first step in this scenario.
 
-Now you've seen how you with a few lines of code one can create a simple RESTful HTTP Server capable of serving static content using WildFly Swarm.
+Now you've seen how you with a few lines of code one can create a simple RESTful HTTP Server capable of serving static content using Thorntail.
 
 In next step of this scenario we will deploy our application to OpenShift Container Platform.
