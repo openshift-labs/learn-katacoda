@@ -19,13 +19,13 @@
     },
     "details": {
         "steps": [{
-            "title": "Podman, familiar territory",
+            "title": "Podman: Familiar Territory",
             "text": "01-podman.md"
         }, {
-            "title": "Buildah, granularity & control",
+            "title": "Buildah: Granularity & Control",
             "text": "02-buildah.md"
         }, {
-            "title": "Skopeo, moving containers with ease",
+            "title": "Skopeo: Moving & Sharing",
             "text": "03-skopeo.md"
         }],
         "intro": {

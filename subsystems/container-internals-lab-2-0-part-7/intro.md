@@ -1,22 +1,19 @@
 ## Background
-This lab is focused on understanding how container images are built, tagged, organized and leveraged to deliver software in a range of use cases.
+This lab will help give you a basic understanding of how to use some other OCI compliant tools such as Podman, Buildah, and Skopeo.
 
 By the end of this lab you should be able to:
-- Understand the uses of multi-container applications
-- Internalize the difference between orchestration and application definition
-- Command basic container scaling principles
-- Use tools to troubleshoot containers in a clustered environment
-
-
-## Video
-This video will give you a background to all of the concepts in this lab
-
-<iframe width="640" height="480" src="https://www.youtube.com/embed/6IYTYV8DuXc" frameborder="0" allowfullscreen style="position: relative;"></iframe>
+- FIND, RUN, BUILD, and SHARE containers using OCI compliant tools
+- Solve real technical problems by using a small set of daemonless tools
+- Be comfortable using with the basics of an alternative set of tools to Docker
 
 ## Outline
-- Multi-Container Applications: The classic two-tiered, wordpress application
-- Cluster Performance: Scaling applications horizontally with containers
-- Cluster Debuggin: Troubleshooting in a distributed systems environment
+- Podman: Familiar Territory: Learning the basics of how to use podman
+- Buildah: Granularity & Control: Understanding how a container image is really built
+- Skopeo: Moving & Sharing: Simplicity in inspecting, and moving container images around
+
+## Other Material
+- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
+- [Presentation](https://goo.gl/h4VK7j)
 
 ## Start Scenario
 Once you have watched the background video, continue to the exercises
