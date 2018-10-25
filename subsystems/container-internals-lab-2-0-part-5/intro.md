@@ -7,8 +7,12 @@ By the end of this lab you should be able to:
 - Command basic container scaling principles
 - Use tools to troubleshoot containers in a clustered environment
 
+## Outline
+- Multi-Container Applications: The classic two-tiered, wordpress application
+- Cluster Performance: Scaling applications horizontally with containers
+- Cluster Debuggin: Troubleshooting in a distributed systems environment
 
-## Video
+## Other Material
 This video will give you a background to all of the concepts in this lab
 
 <iframe width="640" height="480" src="https://www.youtube.com/embed/6IYTYV8DuXc" frameborder="0" allowfullscreen style="position: relative;"></iframe>
