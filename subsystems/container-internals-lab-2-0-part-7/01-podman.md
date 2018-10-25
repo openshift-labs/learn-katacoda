@@ -16,7 +16,7 @@ Start a container and run bash interactively in the local terminal. When ready, 
 
 List running containers: 
 
-``podman ps -ef``{{execute}}
+``podman ps -a``{{execute}}
 
 Advanced list of running containers. This is much more robust than what most tools can do and quite useful when using User Namespaces. First, create a running container. Then, inspect notice the USER, GROUP, HPID (host process identifier), SECCOMP, and LABEL fields. Very cool stuff:
 
@@ -33,26 +33,33 @@ Now, stop all of the running containers. No more one liners, it's just built in 
 
 ``podman stop -all``{{execute}}
 
-Delete all of the actively defined containers. It should be noted that this might be described as deleted the copy-on-write layer, config.json (commonly referred to as the Config Bundle) as well as any state data (whether the container is defined, running, etc):
+Remove all of the actively defined containers. It should be noted that this might be described as deleting the copy-on-write layer, config.json (commonly referred to as the Config Bundle) as well as any state data (whether the container is defined, running, etc):
 
-``podman delete -all``{{execute}}
+``podman rm -all``{{execute}}
 
 We can even delete all of the locally cached images with a single command:
 
 ``podman rmi -all``{{execute}}
 
-The above commands show how easy and elegant podman is to use. Now, lets analyse a couple of intersting things that makes Podman different than Docker. First, it doesn't use a client server model:
+The above commands show how easy and elegant podman is to use. Now, lets analyse a couple of intersting things that makes Podman different than Docker - it doesn't use a client server model, which is useful for wireing it into CI/CD systems, and other schedulers like Yarn:
+
+## Terminal 1
+
+Cache the Fedora Toolbox image:
+
+``podman pull registry.fedoraproject.org/f28/fedora-toolbox``{{execute}}
 
 ## Terminal 2
 
 Run a container:
 
-``podman run -it centos top``{{execute}}
+``podman run -it fedora-toolbox top``{{execute}}
 
 
 ##Terminal 1
 
-pstree 
+Inspect the process tree on the system: 
+
 ``pstree -Slnc``{{execute}}
 
 You should see something similar to:
@@ -80,6 +87,6 @@ Or like this with Docker engine:
 
 ``systemd -> dockerd -> containerd -> docker-shim -> runc -> bash``
 
-The conmon utility and docker-shim both serve the same purpose. When the first conmon finishes calling the second, it exits. This disconnects the second conmon and all of its chil processes from the container engine, podman. The secondary conmon is then inherited by init (systemd), the first process running on when the system boots.
+The conmon utility and docker-shim both serve the same purpose. When the first conmon finishes calling the second, it exits. This disconnects the second conmon and all of its child processes from the container engine, podman. The secondary conmon is then inherited by init (systemd), the first process running on when the system boots. This simplified, daemonless model with podman can be quite useufl when wiring it into other larger systems, like CI/CD, scripts, etc.
 
 Alright, now that we know how to run containers, lets move on to building...
