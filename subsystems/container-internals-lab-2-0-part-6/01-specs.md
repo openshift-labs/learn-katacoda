@@ -49,9 +49,7 @@ The runc tool, which is the OCI reference implementation of a [Container Runtime
 ``runc spec
 cat config.json``{{execute}}
 
-Now, lets steal a more complex file from podman:
-
-Create a long running container (aka like a daemon or service):
+Now, lets steal a more complex file from podman. Create a long running container (aka like a daemon or service):
 
 ``podman run -dt fedora bash``{{execute}}
 
