@@ -11,12 +11,6 @@ By the end of this lab you should be able to:
 - Gain a basic understanding of container networking and namespaces
 - Troubleshoot a basic Open vSwitch setup with Kubernetes/OpenShift
 
-
-## Video
-This video will give you a background to all of the concepts in this lab
-
-<iframe width="640" height="480" src="https://www.youtube.com/embed/_R0kvlALF6s" frameborder="0" allowfullscreen style="position: relative;"></iframe>
-
 ## Outline
 - Daemons & APIs: Docker, Kubernetes Master, Node, and their interaction with the Linux kernel
 - System Calls & Kernel Namespaces: How they work inside of a container
@@ -26,6 +20,14 @@ This video will give you a background to all of the concepts in this lab
 - Storage: How containers get local, copy on write storage
 - Pod Networking: How individual containers and pods connect to the network
 - Cluster Networking: How clusters of hosts manage the connections of containerized processes
+
+## Other Material
+This video will give you a background to all of the concepts in this lab
+
+<iframe width="640" height="480" src="https://www.youtube.com/embed/_R0kvlALF6s" frameborder="0" allowfullscreen style="position: relative;"></iframe>
+
+- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
+- [Presentation](https://goo.gl/UNnLkH)
 
 ## Start Scenario
 Once you have watched the background video, continue to the exercises
