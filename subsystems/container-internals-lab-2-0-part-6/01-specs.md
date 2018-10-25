@@ -1,23 +1,17 @@
-The goal of this lab is to get a basic understanding of the three Open Containers Initiative (OCI) specificaitons that govern finding, running, building and sharing container - image, runtime, and distribution. At the highest level, containers are two things - files and processes - at rest and running. First, we will take a look at what makes up a [Container Repository[(https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.20722ydfjdj8) on disk, then we will look at what directives are defined to create a running [Container](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.j2uq93kgxe0e).
+The goal of this lab is to get a basic understanding of the three Open Containers Initiative (OCI) specificaitons that govern finding, running, building and sharing container - image, runtime, and distribution. At the highest level, containers are two things - files and processes - at rest and running. First, we will take a look at what makes up a [Container Repository](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.20722ydfjdj8) on disk, then we will look at what directives are defined to create a running [Container](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.j2uq93kgxe0e).
 
 If you are interested in a slightly deeper understanding, take a few minutes to look at the OCI  work, it's all publicly available in GitHub repositories:
 
-The Image Spec overview:
-https://github.com/opencontainers/image-spec/blob/master/spec.md#overview
-
-The Runtime Spec abstract:
-https://github.com/opencontainers/runtime-spec/blob/master/spec.md
-
-The Distributions Spec use cases:
-https://github.com/opencontainers/distribution-spec/blob/master/spec.md#use-cases
+- [The Image Specification Overview](//github.com/opencontainers/image-spec/blob/master/spec.md#overview)
+- [The Runtime Specification Abstract](//github.com/opencontainers/runtime-spec/blob/master/spec.md)
+- [The Distributions Specification Use Cases](https://github.com/opencontainers/distribution-spec/blob/master/spec.md#use-cases)
 
 Now, lets run some experiments to better understand these specifications.
 
 ## The Image Specification
 
-First, lets take a quick look at the contents of a container repository once it's uncompressed. We will use a utility you may have seen before called Podman. The syntax is nearly identical to Docker:
+First, lets take a quick look at the contents of a container repository once it's uncompressed. We will use a utility you may have seen before called Podman. The syntax is nearly identical to Docker. Create a working directory for our experiment, then make sure the fedora image is cached locally:
 
-Create a working directory for our experiment, then make sure the fedora image is cached locally:
 ``mkdir fedora
 cd fedora
 podman pull fedora``{{execute}}
@@ -32,27 +26,28 @@ Finally, let's take a look at three important parts of the container repository 
 2. Config - Config file which is consumed by the container engine. This config file is combined with engine defaults and user inputs (command line options to th engine) to create the runtime Config.json which is eventually handed to the continer runtime (runc)
 3. Image Layers - tar files, typically gzipped which when merged together create a root file system which is mounted at container creation
 
-For fun, lets look at the manifest. You should see one or more Config and Layers entries:
+In the Manifest, you should see one or more Config and Layers entries:
 
 ``cat manifest.json``{{execute}}
 
-Now, lets look at the config.json file. Notice all of the meta data that looks strikingly similar to command line options in Docker & Podman:
+In the Config file, notice all of the meta data that looks strikingly similar to command line options in Docker & Podman:
 
 ``cat $(cat manifest.json | awk -F 'Config' '{print $2}' | awk -F '["]' '{print $3}')``{{execute}}
 
-Finally, lets inspect an image layer. Each layer is just a tar file. When all of the necessary tar files are extracted into a single directory, they can be mounted into a container's mount namespace:
+Each Image Layer is just a tar file. When all of the necessary tar files are extracted into a single directory, they can be mounted into a container's mount namespace:
 
 ``tar tvf $(cat manifest.json | awk -F 'Layers' '{print $2}' | awk -F '["]' '{print $3}')``{{execute}}
 
-Containers Images/Repositories are really just the wittiest use of tarballs ever invented...
+The take away from inspecting the three major parts of a container repository is that they are really just the wittiest use of tarballs ever invented. Now, that we understand what is on disk, lets move onto the runtime.
 
 # The Runtime Specification
 
-This is the file that is passed to runc when it fires up a conainer. Typically, this file is constructed by a container engine such as CRI-O, Podmn, or Docker. These files can be created manually, but it's a tedious process. Instead, we are going to do couple of experiments so that you can get a feel for this file. The [Container Runtime](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.6yt1ex5wfo55) used by 99% of the container engines out there, has the ability to create a very simple 
+This specification governs the format of the file that is passed to container runtime. This is typically runc, but every OCI compliant runtime will accept this file format (Examples: Kata, gVisor, etc). Typically, this file is constructed by a container engine such as CRI-O, Podman, or the Docker engine. These files can be created manually, but it's a tedious process. Instead, we are going to do couple of experiments so that you can get a feel for this file without having to create one manually. 
 
+The runc tool, which is the OCI reference implementation of a [Container Runtime](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.6yt1ex5wfo55), has the ability to create a very simple spec file. Create one and take a quick look at the fairly simple set of directives:
 
-``runc spec``
-cat config.json``{{Execute}}
+``runc spec
+cat config.json``{{execute}}
 
 Now, lets steal a more complex file from podman:
 
