@@ -1,48 +1,16 @@
-In this exercise, you will scale and load test a distributed application.
+The goal of this lab is to learn how to use the container runtime  to communicate with the Linux kernel to start a container. You will build a simple set of metadata, and start a container. This will give you insight into what the [Container Engine](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.6yt1ex5wfo3l) is actually doing every time you run a command.
 
-First, lets set up a variable so that we have the site name saved:
+To get runc to start a new container we need two main things:
 
-``export SITE="http://$(oc get svc | grep wpfrontend | awk '{print $2}')/wp-admin/install.php"``{{execute}}
+1. A filesystem to mount (often called a RootFS)
 
-Test with AB before we scale the application to get a base line. Take note of the "Time taken for tests" section:
+2. A config.json file
 
-``ab -n10 -c 3 -k -H "Accept-Encoding: gzip, deflate" $SITE``{{execute}}
+First, lets get ourselves a RootFS, which is really nothing more than a Linux Distro uncompressed into a directory. Podman makes this rediculously easy to to do. The following command will fire up a container, get the ID, then rsync the filesystem contents out of it into a directory:
 
+``rsync -av $(podman mount $(podman run -dt fedora bash))/ /root/fedora/``{{execute}}
 
-Take not of the following sections in the output:
+Now, we have ourselves a directory to work with, check it out:
 
-- Time taken for tests
-- Requests per second
-- Percentage of the requests served within a certain time (ms)
+``ls -alh /root/fedora``{{execute}}
 
-
-Go to the web interface. Scale the Wordpress Deployment up to three containers. Click the up arrow:
-
-- Applications -> Deployments -> wordpress -> Up Arrow
-
-
-Test with AB again. How did this affect our bencchmarking and why?
-
-``ab -n10 -c 3 -k -H "Accept-Encoding: gzip, deflate" $SITE``{{execute}}
-
-
-Now lets scale up more with command line instead of the web interface:
-
-``oc scale --replicas=5 rc/wordpress``{{execute}}
-
-
-Test with AB. How did this affect our bencchmarking and why?
-
-``ab -n10 -c 3 -k -H "Accept-Encoding: gzip, deflate" $SITE``{{execute}}
-
-
-Scale the application back down to one pod:
-
-``oc scale --replicas=1 rc/wordpress``{{execute}}
-
-Test with AB. How did this affect our bencchmarking and why?
-
-``ab -n10 -c 3 -k -H "Accept-Encoding: gzip, deflate" $SITE``{{execute}}
-
-
-Sometimes horizontal scaling can have counter intuitive effects. Sometimes great care must be taken with applications to get the performance characteristics that we need. The world of container orchestration opens up an entirely new kind of performance tuning and you will need new skills to tackle this challenge.
