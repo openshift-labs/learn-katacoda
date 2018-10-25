@@ -1,0 +1,43 @@
+{
+    "icon": "fa-openshift",
+    "title": "Linux Container Internals 2.0 - Lab 7: Container Tools Ecosystem",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "Intermediate",
+    "time": "20-25 minutes",
+    "backend": {
+      "trainingid": "openshift-3-6",
+      "imageid": "openshift-3-6",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Podman, familiar territory",
+            "text": "01-podman.md"
+        }, {
+            "title": "Buildah, granularity & control",
+            "text": "02-buildah.md"
+        }, {
+            "title": "Skopeo, moving containers with ease",
+            "text": "03-skopeo.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "route.json", "target": "/root/"}]
+        }
+    }
+}
