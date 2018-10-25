@@ -64,16 +64,16 @@ Inspect the process tree on the system:
 
 You should see something similar to:
 
-``├─sshd─┬─sshd───sshd───bash───podman───11*[{podman}]
-        │      ├─sshd───sshd───bash───pstree
-        │      └─sshd───sshd───bash───podman───10*[{podman}]``
+``├─sshd─┬─sshd───bash
+│      ├─sshd───bash───pstree
+│      ├─sshd───bash
+│      ├─sshd
+│      ├─sshd───podman─┬─{podman}``
 
 and:
 
-``├─conmon─┬─{conmon}
-        │        └─bash(ipc,mnt,net,pid,uts)───top
-        └─conmon─┬─{conmon}
-                 └─top(ipc,mnt,net,pid,uts) ``
+``└─conmon─┬─{conmon}
+         └─top(ipc,mnt,net,pid,uts)``
 
 Lets explain this a bit. What many people don't know is that the container disconnects from the parent process. This is done so that the running containers don't die when the engine exits (Podman doesn't run as a daemon) or is restarted (CRI-O daemon, Docker Engine). There is utility that runs between podman and runc called conmon (Container Monitor). The connmon utility disconnects the container from the engine by doing a double fork(). That means, the execution chain looks something like this with Podman:
 
