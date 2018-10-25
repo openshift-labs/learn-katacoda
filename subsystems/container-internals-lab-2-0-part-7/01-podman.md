@@ -51,7 +51,7 @@ Cache the Fedora Toolbox image:
 
 ## Terminal 2
 
-Run a container:
+In a second terminal (plus sign), run a container:
 
 ``podman run -it fedora-toolbox top``{{execute}}
 
