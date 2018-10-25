@@ -53,6 +53,11 @@
       "title": "Linux Container Internals 2.0 - Lab 6: Container Standards"
     },
     {
+      "external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2-0-part-7/",
+      "course_id": "container-internals-lab-2-0-part-7",
+      "title": "Linux Container Internals 2.0 - Lab 7: Container Tools Ecosystem"
+    },
+    {
       "external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2-0-part-8/",
       "course_id": "container-internals-lab-2-0-part-8",
       "title": "Linux Container Internals 2.0 - Lab 8: Production Image Builds"
