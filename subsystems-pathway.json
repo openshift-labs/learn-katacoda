@@ -48,6 +48,11 @@
       "title": "Linux Container Internals 2.0 - Lab 5: Container Orchestration"
     },
     {
+      "external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2-0-part-6/",
+      "course_id": "container-internals-lab-2-0-part-6",
+      "title": "Linux Container Internals 2.0 - Lab 6: Container Standards"
+    },
+    {
       "external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2-0-part-8/",
       "course_id": "container-internals-lab-2-0-part-8",
       "title": "Linux Container Internals 2.0 - Lab 8: Production Image Builds"
