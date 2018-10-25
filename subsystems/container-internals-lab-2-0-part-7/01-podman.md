@@ -56,7 +56,7 @@ Run a container:
 ``podman run -it fedora-toolbox top``{{execute}}
 
 
-##Terminal 1
+## Terminal 1
 
 Inspect the process tree on the system: 
 
