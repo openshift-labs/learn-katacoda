@@ -1,0 +1,1 @@
+In this scenario you will learn more about developing Spring Boot applications using the [Red Hat OpenShift Application Runtimes](https://developers.redhat.com/products/rhoar) platform. You will learn about how OpenShift uses monitoring tools to keep your application running / notify you when something unrecoverable happens through the use of *probes* .
