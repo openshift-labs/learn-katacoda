@@ -3,6 +3,13 @@
   "icon": "fa-openshift",
   "courses": [
     {
+      "action": "Start Course",
+      "count": 11,
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/",
+      "course_id": "middleware-spring-boot",
+      "title": "Spring and Spring Boot development"
+    },
+    {
       "external_link": "https://learn.openshift.com/middleware/amq-getting-started-broker/",
       "course_id": "amq-getting-started-broker",
       "title": "Application Messaging with Openshift"
@@ -16,11 +23,6 @@
       "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-vertx/",
       "course_id": "rhoar-getting-started-vertx",
       "title": "Eclipse Vert.x development"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-spring/",
-      "course_id": "rhoar-getting-started-spring",
-      "title": "Spring Boot development"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-thorntail/",
