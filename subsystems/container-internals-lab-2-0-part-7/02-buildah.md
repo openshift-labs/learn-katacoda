@@ -68,9 +68,57 @@ Verify that there is nothing in the directory:
 
 Now, lets install some basic tools:
 
-yum install --installroot $WORKING_MOUNT bash coreutils --releasever 7 --setopt install_weak_deps=false -y
-yum clean all -y --installroot $WORKING_MOUNT --releasever 7
+``yum install --installroot $WORKING_MOUNT bash coreutils --releasever 7 --setopt install_weak_deps=false -y
+yum clean all -y --installroot $WORKING_MOUNT --releasever 7``{{execute}}
+
+Verify that some files have been added:
+
+``ls -alh $WORKING_MOUNT``{{execute}}
+
+Now, commit the copy-on-write layer as a new container image layer:
+
+``buildah commit working-container minimal``{{execute}}
+
+Now, test the new image layer, by creating a container:
+
+``podman run -it minimal bash``{{execute}}
+
+``exit``{{execute}}
+
+Clean things up for our next experiment:
+
+``buildah delete -a``{{execute}}
+
+We have just created a container image layer from scratch without ever installing RPM or YUM. This same pattern can be used to solve countless problems. Makefiles often have the option of specifying the output directory, etc. This can be used to build a C program without ever installing the C toolchain in a container image layer. This is best for production security where we don't want the build tools laying around in the container.
 
 ## External Build Time Mounts
 
+As a final example, lets use a build time mount to show how we can pull data in. This will represent some sort of cached data that we are using outside of the container. This could be a repository of Ansible Playbooks, or even Database test data:
 
+``mkdir /data
+dd if=/dev/zero of=/data/test.bin bs=1MB count=100
+ls -alh /data/test.bin``{{execute}}
+
+Now, lets fire up a working container:
+
+``buildah from fedora
+buildah mount fedora-working-container``{{execute}}
+
+To consume the data within the container, we use the buildah-run subcommand. Notice that it takes the -v option just like "run" in podman. We also use the Z option to relable the data for SELinux. The dd command simply represents consuming some smaller portion of the data during the build process:
+
+``buildah run -v /data:/data:Z fedora-working-container dd if=/data/test.bin of=/etc/small-test.bin bs=100 count=2``{{execute}}
+
+Commit the new image layer and clean things up:
+
+``buildah commit fedora-working-container fedora-data
+buildah delete -a``{{execute}}
+
+Test it and note that we only kept the pieces of the data that we wanted. This is just an example, but imagine using this with a Makefile cache, or Ansible playbooks, or even a copy of production database data which needs to be used to test the image build or do a schema upgrade, which must be accessed during the image build process. There are tons of places where you need to access data, only at build time, but don't want it during production deployment:
+
+``podman run -it fedora-data ls -alh /etc/small-test.bin``{{execute}}
+
+## Conclusion
+
+Now, you have a pretty good understanding of the cases where Buildah really shines. You can start from scratch, or an existing image, use tools outside the container, and move data around as needed. This is a very flexible tool that should fit quite nicely in your toolbelt.
+
+Now, lets move on to sharing containers with Skopeo...
