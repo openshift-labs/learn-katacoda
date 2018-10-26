@@ -49,6 +49,8 @@ Cache the Fedora Toolbox image:
 
 ``podman pull registry.fedoraproject.org/f28/fedora-toolbox``{{execute}}
 
+Wait for the image pull to complete, then move on...
+
 ## Terminal 2
 
 In a second terminal (plus sign), run a container:

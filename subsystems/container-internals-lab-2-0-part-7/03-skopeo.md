@@ -30,11 +30,11 @@ The Config and Image Layers are there, but remember we need to rely on a [Graph 
 
 Now, lets look at moving images between Podman and Docker. Once, we have the image stored locally, this is trivial:
 
-``skopeo copy containers-storage:registry.fedoraproject.org/fedora docker-daemon:fedora:latest``{{execute}}
+``skopeo copy containers-storage:registry.fedoraproject.org/fedora docker-daemon:registry.fedoraproject.org/fedora:latest``{{execute}}
 
 Verify that the repository is now in the Docker Engine cache:
 
-``docker images | grep registry.fedoraproject.org``
+``docker images | grep registry.fedoraproject.org``{{execute}}
 
 This can be useful when testing and getting comfortable with other OCI complaint tools like Podman, Buildah, and Skopeo. Someitmes, you aren't quite ready to let go of what you know.
 
@@ -43,6 +43,8 @@ This can be useful when testing and getting comfortable with other OCI complaint
 Finally, lets copy from one registry to another. I have set up a writeable repository under my username (fatherlinux) on quay.io. To do this, you have to use the credentials provided below. Notice, that we use the "--dest-creds" option to authenticate. We can also use the "--source-cred" option to pull from a registry which requires authentication. This tool is very flexible. Designed by engineers, for engineers.
 
 ``skopeo copy containers-storage:registry.fedoraproject.org/fedora docker://quay.io/fatherlinux/fedora --dest-creds fatherlinux+fedora:5R4YX2LHHVB682OX232TMFSBGFT350IV70SBLDKU46LAFIY6HEGN4OYGJ2SCD4HI``{{execute}}
+
+This command just synchronized the fedora repository from the Fedora Registry to Quay.io without ever caching it in the local container storage. Very cool right?
 
 ## Conclusion
 
