@@ -1,40 +1,39 @@
 {
-  "title": "LISA 18 - Subsystems, Components, and Internals",
-  "icon": "fa-openshift",
-  "courses": [
-    {
-      "course_id": "container-internals-lab-2-0-part-1",
-      "pathway_id": "fatherlinux/subsystems",
-      "title": "Linux Container Internals 2.0 - Lab 1: Introduction to Containers"
-    },
-    {
-      "course_id": "container-internals-lab-2-0-part-2",
-      "pathway_id": "fatherlinux/subsystems",
-      "title": "Linux Container Internals 2.0 - Lab 2: Container Images"
-    },
-    {
-      "course_id": "container-internals-lab-2-0-part-3",
-      "pathway_id": "fatherlinux/subsystems",
-      "title": "Linux Container Internals 2.0 - Lab 3: Container Registries"
-    },
-    {
-      "course_id": "container-internals-lab-2-0-part-4",
-      "pathway_id": "fatherlinux/subsystems",
-      "title": "Linux Container Internals 2.0 - Lab 4: Container Hosts"
-    },
-    {
-      "course_id": "container-internals-lab-2-0-part-5",
-      "pathway_id": "fatherlinux/subsystems",
-      "title": "Linux Container Internals 2.0 - Lab 5: Container Orchestration"
-    {
-      "external_link": "container-internals-lab-2-0-part-6",
-      "course_id": "container-internals-lab-2-0-part-6",
-      "title": "Linux Container Internals 2.0 - Lab 6: Container Standards"
-    },
-    {
-      "external_link": "hcontainer-internals-lab-2-0-part-7",
-      "course_id": "container-internals-lab-2-0-part-7",
-      "title": "Linux Container Internals 2.0 - Lab 7: Container Tools Ecosystem"
-    }
-  ]
+	"title": "LISA 18 - Subsystems, Components, and Internals",
+	"icon": "fa-openshift",
+	"courses": [{
+			"course_id": "container-internals-lab-2-0-part-1",
+			"pathway_id": "fatherlinux/subsystems",
+			"title": "Linux Container Internals 2.0 - Lab 1: Introduction to Containers"
+		},
+		{
+			"course_id": "container-internals-lab-2-0-part-2",
+			"pathway_id": "fatherlinux/subsystems",
+			"title": "Linux Container Internals 2.0 - Lab 2: Container Images"
+		},
+		{
+			"course_id": "container-internals-lab-2-0-part-3",
+			"pathway_id": "fatherlinux/subsystems",
+			"title": "Linux Container Internals 2.0 - Lab 3: Container Registries"
+		},
+		{
+			"course_id": "container-internals-lab-2-0-part-4",
+			"pathway_id": "fatherlinux/subsystems",
+			"title": "Linux Container Internals 2.0 - Lab 4: Container Hosts"
+		},
+		{
+			"course_id": "container-internals-lab-2-0-part-5",
+			"pathway_id": "fatherlinux/subsystems",
+			"title": "Linux Container Internals 2.0 - Lab 5: Container Orchestration" 
+		},
+			"external_link": "container-internals-lab-2-0-part-6",
+			"course_id": "container-internals-lab-2-0-part-6",
+			"title": "Linux Container Internals 2.0 - Lab 6: Container Standards"
+		},
+		{
+			"external_link": "hcontainer-internals-lab-2-0-part-7",
+			"course_id": "container-internals-lab-2-0-part-7",
+			"title": "Linux Container Internals 2.0 - Lab 7: Container Tools Ecosystem"
+		}
+	]
 }
