@@ -24,8 +24,9 @@
 		{
 			"course_id": "container-internals-lab-2-0-part-5",
 			"pathway_id": "fatherlinux/subsystems",
-			"title": "Linux Container Internals 2.0 - Lab 5: Container Orchestration" 
+			"title": "Linux Container Internals 2.0 - Lab 5: Container Orchestration"
 		},
+		{
 			"external_link": "container-internals-lab-2-0-part-6",
 			"course_id": "container-internals-lab-2-0-part-6",
 			"title": "Linux Container Internals 2.0 - Lab 6: Container Standards"
