@@ -54,7 +54,7 @@ Wait the second `recommendation:v2` pod to become available, execute `oc get pod
 
 Once that the recommendation pod READY column is 2/2, you can hit `CTRL+C`. 
 
-Make sure that the following command is running on `Terminal 2` `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .5; done`{{execute T2}}
+Make sure that the following command is running on `Terminal 2` `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .5; done`{{execute interrupt T2}}
 
 You will see two requests for `v2` for each one of `v1`.
 

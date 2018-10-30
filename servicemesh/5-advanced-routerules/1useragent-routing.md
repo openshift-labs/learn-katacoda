@@ -6,7 +6,8 @@ What is your user-agent?
 
 Let's create a rule that points all request to v1 using the files `/istiofiles/destination-rule-recommendation-v1-v2.yml`{{open}} and `/istiofiles/virtual-service-recommendation-v1.yml`{{open}}.
 
-`istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation-v1-v2.yml -n tutorial; istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-v1.yml -n tutorial`{{execute T1}}
+`istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation-v1-v2.yml -n tutorial; \
+istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-v1.yml -n tutorial`{{execute T1}}
 
 Check this behavior trying the microservice several times by typing `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .1; done`{{execute T1}}
 

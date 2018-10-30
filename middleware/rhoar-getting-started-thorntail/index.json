@@ -1,8 +1,8 @@
 {
     "pathwayTitle": "Intro to Red Hat OpenShift Application Runtimes",
     "icon": "fa-java",
-    "title": "Getting Started with WildFly Swarm on OpenShift",
-    "description": "In this scenario you will learn more about WildFly Swarm, one of the runtimes included in Red Hat OpenShift Application Runtimes.",
+    "title": "Getting Started with Thorntail on OpenShift",
+    "description": "In this scenario you will learn more about Thorntail, one of the runtimes included in Red Hat OpenShift Application Runtimes.",
     "difficulty": "intermediate",
     "time": "20-30 minutes",
     "details": {
@@ -51,7 +51,7 @@
     "environment": {
         "uilayout": "editor-terminal",
         "uisettings": "java",
-        "uieditorpath": "/root/projects/rhoar-getting-started/wildfly-swarm",
+        "uieditorpath": "/root/projects/rhoar-getting-started/thorntail",
         "showdashboard": true,
         "hideintro": false,
         "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],

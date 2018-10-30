@@ -6,7 +6,8 @@ Check the files `istiofiles/destination-rule-recommendation-v1-v2.yml`{{open}} a
 
 Note that the `virtualservice` routes the requests to `recommendation`, `subset: version-v1`. However, it also `mirror` these requests to `recommendation`, `subset: version-v2`.
 
-Let's apply these files: `istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation-v1-v2.yml -n tutorial; istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-v1-mirror-v2.yml -n tutorial`{{execute T1}}
+Let's apply these files: `istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation-v1-v2.yml -n tutorial; \
+istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-v1-mirror-v2.yml -n tutorial`{{execute T1}}
 
 Now, send several requests to the microservices on `Terminal 2` to see their responses
 `while true; do curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com; sleep .5; done`{{execute T2}}

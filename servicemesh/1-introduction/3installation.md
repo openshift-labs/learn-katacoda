@@ -22,6 +22,18 @@ To watch the creation of the pods, execute `oc get pods -w -n istio-system`{{exe
 
 Once that they are all `Running`, you can hit `CTRL+C`. This concludes this scenario.
 
+## Create external routes
+
+OpenShift uses the concept of Routes to expose HTTP services outside the cluster.
+
+Let's create routes to external services like `Grafana`, `Prometheus`, `Tracing`, etc using the following command:
+
+`oc expose svc istio-ingressgateway -n istio-system; \
+oc expose svc servicegraph -n istio-system; \
+oc expose svc grafana -n istio-system; \
+oc expose svc prometheus -n istio-system; \
+oc expose svc tracing -n istio-system`{{execute interrupt T1}}
+
 ## Add Istio to the path
 
 Now we need to add `istioctl` to the path.
