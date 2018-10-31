@@ -9,3 +9,4 @@ git --work-tree=/root/projects/istio-tutorial/ --git-dir=/root/projects/istio-tu
 
 until (oc status &> /dev/null); do sleep 1; done
 make -i -f /root/projects/istio-tutorial/Makefile cleanup istio
+rm -rf /root/projects/istio-tutorial/
