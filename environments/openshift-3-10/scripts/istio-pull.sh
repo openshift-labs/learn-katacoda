@@ -1,6 +1,7 @@
 ISTIO=1.0.2
 BOOKINFO=1.6.0
 BOOKINFOv2=1.8.0
+KIALI=v0.9.0
 docker pull istio/grafana:$ISTIO
 docker pull istio/istio-ca:$ISTIO
 docker pull istio/grafana:$ISTIO
@@ -41,3 +42,5 @@ docker pull istio/examples-bookinfo-reviews-v1:$BOOKINFOv2
 docker pull istio/examples-bookinfo-reviews-v3:$BOOKINFOv2
 docker pull istio/examples-bookinfo-details-v1:$BOOKINFOv2
 docker pull istio/examples-bookinfo-productpage-v1:$BOOKINFOv2
+
+docker pull kiali/kiali:$KIALI
