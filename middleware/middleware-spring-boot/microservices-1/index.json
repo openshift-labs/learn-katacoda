@@ -27,7 +27,7 @@
     "uilayout": "editor-terminal",
     "uisettings": "java",
     "hideintro": false,
-    "uieditorpath": "/root/projects/rhoar-getting-started/spring",
+    "uieditorpath": "/root/projects/rhoar-getting-started/spring/microservices-externalized-config",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
