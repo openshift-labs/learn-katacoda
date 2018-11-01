@@ -1,5 +1,5 @@
 #!/bin/bash
-cd projects/rhoar-getting-started/spring/spring-monitoring
+cd projects/rhoar-getting-started/spring
 ~/.launch.sh
 
 oc login [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com --insecure-skip-tls-verify=true -u developer -p developer

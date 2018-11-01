@@ -26,7 +26,7 @@
     "uilayout": "editor-terminal",
     "uisettings": "java",
     "hideintro": false,
-    "uieditorpath": "/root/projects/rhoar-getting-started/spring/arquillian-cube",
+    "uieditorpath": "/root/projects/rhoar-getting-started/spring",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {

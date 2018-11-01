@@ -1,4 +1,4 @@
 #!/bin/bash
-cd projects/rhoar-getting-started/spring/microservices-circuit-breaking
+cd projects/rhoar-getting-started/spring
 ~/.launch.sh
 

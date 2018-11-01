@@ -1,4 +1,4 @@
 #!/bin/bash
-cd projects/rhoar-getting-started/spring/arquillian-cube
+cd projects/rhoar-getting-started/spring
 ~/.launch.sh
 
