@@ -41,6 +41,11 @@
       "external_link": "https://learn.openshift.com/servicemesh/8-egress",
       "course_id": "8-egress",
       "title": "Istio 1.0.x workshop: Egress"
+    },
+    {
+      "external_link": "https://learn.openshift.com/servicemesh/adv1-kiali",
+      "course_id": "adv1-kiali",
+      "title": "Istio 1.0.x Advanced: Observing microservice meshes with Kiali"
     }
   ]
 }
