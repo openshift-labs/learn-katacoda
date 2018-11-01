@@ -24,7 +24,7 @@ If you see this then you've successfully set up the application! If not check th
 
 **2. Stop the application**
 
-Before moving on, click in the terminal window and then press **CTRL-C** to stop the running application!
+Before moving on, click in the terminal window and then press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the running application!
 
 ## Congratulations
 

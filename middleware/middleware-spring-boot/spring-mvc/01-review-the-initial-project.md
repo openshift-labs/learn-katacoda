@@ -41,7 +41,7 @@ To begin with, click on the **Local Web Browser** tab in the console frame of th
 
 **At the moment this link should return a HTTP 404**. But more importantly it returns what's called a *Spring White-label* page. In the absence of custom error pages Spring will return a White-label page with some error information. In some cases this can be a stack trace or an explicit error message. Because of this it's typically recommended to provide your own error pages. We will do this in the next step.
 
-Before moving on, click in the terminal window and then press **CTRL-C** to stop the running application!
+Before moving on, click in the terminal window and then press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the running application!
 
 ## Congratulations
 

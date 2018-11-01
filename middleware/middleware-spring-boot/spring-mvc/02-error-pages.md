@@ -70,7 +70,7 @@ If you click on the **Local Web Browser** tab again in the console frame of this
 
 **4. Stop the application**
 
-Before moving on, click in the terminal window and then press **CTRL-C** to stop the running application!
+Before moving on, click in the terminal window and then press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the running application!
 
 ## Congratulations
 

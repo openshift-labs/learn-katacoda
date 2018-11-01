@@ -100,7 +100,7 @@ As you can probably guess by now the application we are building is a Fruit repo
 
 **4. Stop the application**
 
-Before moving on, click in the terminal window and then press **CTRL-C** to stop the running application!
+Before moving on, click in the terminal window and then press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the running application!
 
 ## Congratulations
 

@@ -71,7 +71,7 @@ Now that we have a client registered to the Eureka-Server instance, we can inter
 
 This call will return information from the Eureka-Service about the Eureka-Client instance we have registered. 
 
-Stop both applications with **CTRL-C** before continuing.
+Stop both applications with <kbd>CTRL</kbd>+<kbd>C</kbd> before continuing.
 
 ## Congratulations
 

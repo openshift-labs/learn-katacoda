@@ -30,7 +30,7 @@ Just a simple sub-text under the header!
 
 **3. Re-deploy the Application**
 
-Before re-deploying we want to verify locally that our changes are correct. Run ``mvn spring-boot:run``{{execute}}. When the console reports that the app is up and running access the web page by using [this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/fruits). If you type `Apple` and click `Save` twice it should only show one entry for Apple. If all is working locally press **CTRL-C** to stop the running application.
+Before re-deploying we want to verify locally that our changes are correct. Run ``mvn spring-boot:run``{{execute}}. When the console reports that the app is up and running access the web page by using [this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/fruits). If you type `Apple` and click `Save` twice it should only show one entry for Apple. If all is working locally press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the running application.
 
 All that's left now is to re-run the `fabric8:deploy` command to re-deploy the application to OpenShift:
 

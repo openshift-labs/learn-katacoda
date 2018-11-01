@@ -192,7 +192,7 @@ You should now see an HTML page with an `Add a Fruit` textbox on the left and a 
 
 **4. Stop the application**
 
-Before moving on, click in the terminal window and then press **CTRL-C** to stop the running application!
+Before moving on, click in the terminal window and then press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the running application!
 
 ## Congratulations
 

@@ -13,7 +13,7 @@ To login, we will use the `oc` command and then specify username and password li
 Congratulations, you are now authenticated to the OpenShift server.
 
 >**IMPORTANT:** If the above `oc login` command doesn't seem to do anything, you may have forgotten to stop the application from the previous
-step. Click on the terminal and press **CTRL-C** to stop the application and try the above `oc login` command again!
+step. Click on the terminal and press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application and try the above `oc login` command again!
 
 **2. Create project**
 
