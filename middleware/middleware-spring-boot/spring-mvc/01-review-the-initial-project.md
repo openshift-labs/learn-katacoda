@@ -10,7 +10,7 @@ Since our application will be a web application we need to use a servlet contain
 
 Spring Boot has a pre-packaged POM (called a Starter POM) for the Spring MVC dependencies. This POM bundles everything you need to work with Spring MVC in a Boot application including an embedded Tomcat container. To add Spring MVC to our project, add the following lines in the ``pom.xml``{{open}} (If you left the TODO comments in you can click the `Copy to Editor` button to do this automatically)
 
-<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add web dependencies here -->">
+<pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add web (tomcat) dependency here -->">
     &lt;dependency&gt;
       &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
       &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
