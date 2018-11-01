@@ -1,0 +1,43 @@
+{
+    "icon": "fa-openshift",
+    "title": "Container Registries",
+    "description": "Linux Container Internals 2.0 - Lab 3: Container Registries",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "Intermediate",
+    "time": "30-45 minutes",
+    "backend": {
+      "trainingid": "openshift-3-6",
+      "imageid": "openshift-3-6",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Understanding the Basics of Trust - Quality & Provenance",
+            "text": "01-basics-trust.md"
+        }, {
+            "title": "Evaluating Trust - Images and Registry Servers",
+            "text": "02-evaluating-trust.md"
+        }, {
+            "title": "Analyzing Storage and Graph Drivers",
+            "text": "03-analyzing-storage.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "route.json", "target": "/root/"}]
+        }
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "icon": "fa-openshift",
+    "title": "Linux Container Internals 2.0 - Lab 6: Container Standards",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "Intermediate",
+    "time": "20-25 minutes",
+    "backend": {
+      "trainingid": "openshift-3-6",
+      "imageid": "openshift-3-6",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "The OCI Specifications",
+            "text": "01-specs.md"
+        }, {
+            "title": "The OCI Runtime Reference Implementation",
+            "text": "02-runc.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "route.json", "target": "/root/"}]
+        }
+    }
+}

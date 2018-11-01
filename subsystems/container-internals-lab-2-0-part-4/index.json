@@ -1,0 +1,59 @@
+{
+    "icon": "fa-openshift",
+    "title": "Linux Container Internals 2.0 - Lab 4: Container Host",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "Advanced",
+    "time": "20-30 minutes",
+    "backend": {
+      "trainingid": "openshift-3-6",
+      "imageid": "openshift-3-6",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+	"terminals": [{"name": "T1", "target": "host01"}, {"name": "T2", "target": "host01"}],
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Daemons & APIs: Docker, Kubernetes Master, Node, and their interaction with the Linux kernel",
+            "text": "01-daemons-apis.md"
+        }, {
+            "title": "System Calls & Kernel Namespaces: How they work inside of a container",
+            "text": "02-system-calls.md"
+        }, {
+            "title": "SELinux & sVirt: Dynamically generated contexts to protect your containers",
+            "text": "03-selinux-svirt.md"
+        }, {
+            "title": "Cgroups: Dynamically created with container instantiation",
+            "text": "04-cgroups.md"
+        }, {
+            "title": "SECCOMP: Limiting how a containerized process can interact with the kernel",
+            "text": "05-seccomp.md"
+        }, {
+            "title": "Storage: How containers get local, copy on write storage",
+            "text": "06-storage.md"
+        }, {
+            "title": "Pod Networking: How individual containers and pods connect to the network",
+            "text": "07-pod-networking.md"
+        }, {
+            "title": "Cluster Networking: How clusters of hosts manage the connections of containerized processes",
+            "text": "08-cluster-networking.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "route.json", "target": "/root/"}]
+        }
+    }
+}
