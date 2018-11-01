@@ -1,4 +1,4 @@
 #!/bin/bash
-cd projects/rhoar-getting-started/spring/spring-rhoar-intro
+cd projects/rhoar-getting-started/spring
 ~/.launch.sh
 
