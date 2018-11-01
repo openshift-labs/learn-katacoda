@@ -193,7 +193,7 @@ When the console reports that Spring is up and running access the web page by ei
 
 If everything works you should see a web page with a description banner, a `Count:` column, and a `Last 5 Messages:` column. The count column is the total number of pings while the `Last 5 Messages` column is exactly as the name implies. If you refresh the page these values should change every 3 seconds to reflect the Producer firing.
 
-Press **CTRL+C** to stop the application.
+Press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application.
 
 ## Congratulations
 

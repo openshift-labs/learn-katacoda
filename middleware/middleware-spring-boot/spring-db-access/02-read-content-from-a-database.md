@@ -124,7 +124,7 @@ Take a bit of time and review the tests. The `testGetAll` test will return all f
 We can now test that our `FruitRepository` can connect to the data source, retrieve data and 
 Run the application by executing the below command:
 
-``mvn verify``{{execute}}
+``mvn verify``{{execute interrupt}}
 
 In the console you should now see the following (if the output is too noisy the first time around because of downloads simply run the command again):
 

@@ -78,7 +78,7 @@ These values are seeded values we've added to the project for you. What is impor
 
 You can also try adding a `/1` to the end of the browser URL. It should just return `{"name":"Cherry"}`. 
 
-Press **CTRL+C** to stop the application when you are done.
+Press **<kbd>CTRL</kbd>+<kbd>C</kbd>** to stop the application when you are done.
 
 **4. Add POST Mapping**
 
@@ -97,7 +97,7 @@ Run the application again by executing the ``mvn spring-boot:run``{{execute}} co
 
 >**NOTE:** You can also click the `Local Browser` tab in the right-hand terminal to access the web UI.
 
-Press **CTRL+C** to stop the application.
+Press **<kbd>CTRL</kbd>+<kbd>C</kbd>** to stop the application.
 
 **5. Add PUT Mapping**
 
@@ -115,7 +115,7 @@ Just like the `@GetMapping` above this PUT handler handles requests to a path se
 
 Run the application again by executing the ``mvn spring-boot:run``{{execute}} command. Again we will use the included [web application](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)(click here) to edit existing Fruits with a HTTP PUT to the application. Click the `Edit` button on one of the Fruits. It's name will populate the `Add a Fruit` text box. Change it to something else and click the `Save` button. If all is well it should show up in the right-hand `Fruits List` view with the new name.
 
-Press **CTRL+C** to stop the application.
+Press **<kbd>CTRL</kbd>+<kbd>C</kbd>** to stop the application.
 
 **6. Add DELETE Mapping**
 
@@ -134,7 +134,7 @@ Run the application once more by executing the ``mvn spring-boot:run``{{execute}
 
 >**NOTE**: Do not blindly accept IDs like this in your path for deletion in production applications! Make sure there is some level of security to ensure this functionality cannot be abused.
 
-Press **CTRL+C** to stop the application.
+Press **<kbd>CTRL</kbd>+<kbd>C</kbd>** to stop the application.
 
 ## Congratulations
 

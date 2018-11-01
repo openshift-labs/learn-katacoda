@@ -8,7 +8,7 @@ OpenShift also ships with a feature rich web console as well as command line too
 
 To login, we will use the `oc` command and then specify username and password like this:
 
-`oc login [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com -u developer -p developer --insecure-skip-tls-verify=true`{{execute}}
+`oc login [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com -u developer -p developer --insecure-skip-tls-verify=true`{{execute interrupt}}
 
 Congratulations, you are now authenticated to the OpenShift server.
 
@@ -31,7 +31,7 @@ works, click on the "OpenShift Console" tab next to the "Local Web Browser" tab.
 
 ![OpenShift Console Tab](/openshift/assets/middleware/rhoar-getting-started-spring/openshift-console-tab.png)
 
-The first screen you will see is the authentication screen. Enter your username and password and
+The first screen you will see is the authentication screen. Enter your username (developer) and password (developer) and
 then login:
 
 ![Web Console Login](/openshift/assets/middleware/rhoar-getting-started-spring/login.png)

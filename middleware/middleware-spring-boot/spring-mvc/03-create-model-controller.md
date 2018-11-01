@@ -98,7 +98,7 @@ When the console reports that Spring is up and running access the web page by us
 
 While the application should come up the `Save` button should not work yet. We'll make that work next.
 
-Press **CTRL+C** to stop the application.
+Press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application.
 
 **4. Add the POST Handler**
 

@@ -22,7 +22,7 @@ Run the application by executing the following command (it should exit automatic
 
 ``mvn spring-boot:run``{{execute}}
 
-You should eventually see a log line like `Started Application in 4.497 seconds (JVM running for 9.785)`. Open the application by clicking on the **Local Web Browser** tab or clicking [here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/). Then stop the application by pressing **Ctrl+C**.
+You should eventually see a log line like `Started Application in 4.497 seconds (JVM running for 9.785)`. Open the application by clicking on the **Local Web Browser** tab or clicking [here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/). Then stop the application by pressing **<kbd>CTRL</kbd>+<kbd>C</kbd>**.
 
 ## Congratulations
 

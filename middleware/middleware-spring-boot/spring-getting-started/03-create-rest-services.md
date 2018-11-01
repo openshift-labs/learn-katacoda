@@ -73,7 +73,7 @@ If everything works the web page should look something like this:
 
 ![Fruit List](/openshift/assets/middleware/rhoar-getting-started-spring/fruit-list.png)
 
-Press **CTRL+C** to stop the application.
+Press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application.
 
 **3. Create additional service for update, create and delete**
 
