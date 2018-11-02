@@ -11,9 +11,7 @@
       "dashboards": [
                {"name": "Web Console", "port": 8443},
                {"name": "Kiali Dashboard", "href": "http://kiali-istio-system.[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
-      "uilayout": "editor-terminal",
-      "uieditorpath": "/root/projects/istio-tutorial",
-      "uisettings": "java",
+      "uilayout": "terminal",
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
   },
   "backend": {
