@@ -36,7 +36,7 @@ Installing Kiali may take a minute or two. You can use the following commands to
 
 Wait until the status for Kiali is Running and there are 1/1 pods in the Ready column. To exit, press Ctrl+C.
 
-So now we can access Kiali at https://kiali-istio-system.[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com
+So now we can access Kiali at http://kiali-istio-system.[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com
 
 ![](../../assets/servicemesh/kiali/kiali-login.png)
 
