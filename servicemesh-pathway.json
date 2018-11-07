@@ -48,7 +48,7 @@
       "title": "Istio 1.0.x Advanced: Observing with Kiali"
     },
     {
-      "external_link": "https://learn.openshift.com/servicemesh/adv2-mTLS",
+      "external_link": "https://learn.openshift.com/servicemesh/adv2-mtls",
       "course_id": "adv2-mTLS",
       "title": "Istio 1.0.x Advanced: Mutual TLS"
     }
