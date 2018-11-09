@@ -84,7 +84,7 @@ Click the **OpenShift Console** tab and select our `amq-demo` project. Then sele
 
 We should now see a form accepting multiple parameters for generating the template. The only ones we have to change are the `Queues`, `A-MQ Username`, and `A-MQ Password`.
 
-Enter `boot.q` in the `Queue` field
+Enter `boot.q` in the `Queues` field
 
 ![Messaging](/openshift/assets/middleware/rhoar-messaging/queues.png)
 
@@ -134,4 +134,4 @@ You should see the same web application as before. The scheduled Producer will c
 
 You have now learned how to deploy a Spring Boot JMS application and a JBoss AMQ resource to the OpenShift Container Platform.
 
-Click Summary for more details and suggested next steps.
+In the final step you'll verify AMQ is receiving messages properly.
