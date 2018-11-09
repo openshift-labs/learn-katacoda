@@ -6,6 +6,11 @@ pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trus
 pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org --upgrade setuptools
 pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org --ignore-installed ipaddress openshift
 
+#install ansible runner -> this will be used for operator-sdk local installs
+yum install python-devel -y
+pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org ansible-runner
+pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org ansible-runner-http
+
 #setup GoLang Environment
 yum install go -y
 echo "export GOPATH=$HOME/tutorial/go" >> ~/.bashrc
