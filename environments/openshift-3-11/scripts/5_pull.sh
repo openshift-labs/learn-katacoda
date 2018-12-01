@@ -1,5 +1,7 @@
 export V=v3.11
 
+docker pull ansibleplaybookbundle/origin-ansible-service-broker:$V
+
 docker pull quay.io/coreos/hyperkube:v1.7.6_coreos.0
 docker pull docker.io/openshift/origin-web-console:$V
 docker pull docker.io/openshift/origin-docker-registry:$V

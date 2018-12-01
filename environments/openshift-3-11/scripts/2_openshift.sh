@@ -10,7 +10,7 @@ mkdir -p /openshift
 yum remove NetworkManager -y
 yum install NetworkManager -y
 yum install epel-release -y
-yum install ca-certificates git nfs-utils bash-completion ansible docker java-1.8.0-openjdk-headless -y
+yum install ca-certificates git nfs-utils bash-completion ansible docker java-1.8.0-openjdk-headless htop -y
 yum -y install python-pip
 pip install ansible==2.7.1
 ansible --version
