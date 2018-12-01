@@ -10,7 +10,7 @@ Now, for troubleshooting purposes, imagine that we want to see which volume of s
 ``docker inspect $(docker ps | grep haproxy | cut -d" " -f1) | grep GraphDriver -A7``{{execute}}
 
 
-Device Mapper is the default storage configuration for RHEL7 and Atomic Host. You can use the demsetup command to find out storage information for all the running containers with the following command: 
+Device Mapper is the default storage configuration for RHEL7 and Atomic Host. You can use the dmsetup command to find out storage information for all the running containers with the following command: 
 
 ``dmsetup ls --tree -o inverted``{{execute}}
 
