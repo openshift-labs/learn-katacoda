@@ -1,56 +1,42 @@
-**Red Hat OpenShift Container Platform** is the preferred runtime for Red Hat Data Grid.
-OpenShift Container Platform is based on **Kubernetes** which is the most used Orchestration for containers running in production. We assume you understand the basics of OpenShift, if not, please complete [Introduction to OpenShift]( https://learn.openshift.com/introduction/) course and come back here.
+**Red Hat OpenShift Container Platform** is the preferred runtime for Red Hat Data Grid and is based on the **Kubernetes** container-orchestration system.
+
+If you are new to OpenShift, you should complete [Introduction to OpenShift]( https://learn.openshift.com/introduction/) before you start this tutorial.
 
 
-**1. Login to OpenShift Container Platform**
+**1. Logging in to OpenShift**
 
-In order to login, we will use the **oc** command and then specify the server that we
-want to authenticate to:
+Run the **oc login** command as follows:
 
-```oc login```{{execute}}
+`oc login -u developer -p developer`{{execute}}
 
-Enter your username and password:
+This command authenticates you to OpenShift with the following credentials:
 * Username: **developer**
 * Password: **developer**
 
-Congratulations, you are now authenticated to the OpenShift server.
+**2. Creating a project**
 
-> If the above `oc login` command doesn't seem to do anything, you may have forgotten to stop the application from the previous
-step. Click in the terminal and press CTRL-C to stop the application and try to `oc login` again!
+Create a [project](https://docs.openshift.com/container-platform/3.6/architecture/core_concepts/projects_and_users.html#projects) for your RHDG application as follows:
 
-**2. Create project**
+`oc new-project example --display-name="Simple RHDG REST App"`{{execute}}
 
-[Projects](https://docs.openshift.com/container-platform/3.6/architecture/core_concepts/projects_and_users.html#projects)
-are a top level concept to help you organize your deployments.
+**3. Opening the OpenShift console**
 
-For this scenario, let's create a project that you will use to house your JDG application.
+OpenShift provides a console that lets you work with application deployments from a browser window.
 
-```
-oc new-project example --display-name="Simple RHDG REST App"
-```{{execute}}
-
-**3. Open the OpenShift Web Console**
-
-As you probably know, OpenShift ships with a web-based console that will allow users to
-perform various tasks via a browser. To get a feel for how the web console
-works, click on the "OpenShift Console" tab next to the "Local Web Browser" tab.
-
+1. Select the "OpenShift Console" tab to launch the console in your browser.
++
 ![OpenShift Console Tab](https://raw.githubusercontent.com/vblagoje/intro-katacoda/master/assets/middleware/rhoar-getting-started-rhdg/openshift-console-tab.png)
 
-The first screen you will see is the authentication screen. Enter your username and password and
-then log in:
-
+2. Enter your credentials when prompted to authenticate and then select "Log in".
++
 ![Web Console Login](https://raw.githubusercontent.com/vblagoje/intro-katacoda/master/assets/middleware/rhoar-getting-started-rhdg/login.png)
-
-After you have authenticated to the web console, you will be presented with a
-list of projects that your user has permission to work with.
-
++
+The console displays the projects that you can work with.
++
 ![Web Console Projects](https://raw.githubusercontent.com/vblagoje/intro-katacoda/master/assets/middleware/rhoar-getting-started-rhdg/projects.png)
 
-Click on your new project name to be taken to the project overview page
-which will list all of the routes, services, deployments, and pods that you have
-running as part of your project:
-
+3. Select the "Simple RHDG REST App" project that you created to view all of the resources available in your project:
++
 ![Web Console Overview](https://raw.githubusercontent.com/vblagoje/intro-katacoda/master/assets/middleware/rhoar-getting-started-rhdg/overview.png)
 
-There's nothing there now, but that's about to change.
+At the moment your project does not have any available applications or resources. Proceed to the next section and start creating a deployment.
