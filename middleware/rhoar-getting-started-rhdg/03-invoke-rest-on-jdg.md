@@ -1,22 +1,19 @@
-After we've deployed, started, and exposed RHDG instance on OpenShift platform, let's invoke simple cache
-put/get/delete operations over REST.
+Red Hat Data Grid (RHDG) supports REST out of the box so you can invoke cache operations with these HTTP methods:
 
-REST support comes out-of-the-box with RHDG instance. We can invoke cache operations with appropriate HTTP methods:
+* `GET`: retrieves cache entries.
+* `POST`: creates new cache entries under specified keys.
+* `DELETE`: deletes cache entries.
+* `PUT`: updates cache entries.
 
-* GET: retrieves a cache entry
-* POST: creates a new cache entry under a specified key  
-* DELETE: deletes a cache entry
-* PUT: updates a cache entry  
+The URLs through which you invoke cache operations contain cache and key namesIn addition, the invocation URL contains cache name and key name in its address. You'll see this encoding method in the examples below.
 
-In addition, the invocation URL contains cache name and key name in its address. You'll see this encoding method in the examples below. Ok, let's go over all these operations one-by-one.
+**1. Retrieving cache entries**
 
-**1. Invoke cache get operation**
+Invoke a `GET` operation on the key named "a" in the cache named "default" with the following command:
 
-We'll invoke get cache operation on cache default with the key "a" with the following curl command
+`curl -i -H "Accept:application/json" http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a`{{execute}}
 
-```curl -i -H "Accept:application/json" http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a```{{execute}}
-
-As expected, we don't have any value under key "a" in cache named default and therefore we'll get HTTP 404 error. You should see the following output after the above invocation:
+As expected, key "a" does not exist in the default cache and the command returns a `404` HTTP error:
 
 ```console
 HTTP/1.1 404 Not Found
@@ -27,40 +24,42 @@ Content-Length: 0
 Connection: keep-alive
 ```
 
-**2. Invoke cache put operation**
+**2. Inserting entries into the cache**
 
-Let's change that and insert JSON entry {"name":"Red Hat Data Grid"} under the key "a" in cache default:
+Insert a JSON entry `{"name":"Red Hat Data Grid"}` as the value for the key named "a" in the default cache with the following command:
 
-```curl -X POST -i -H "Content-type:application/json" -d "{\"name\":\"Red Hat Data Grid\"}"  http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a```{{execute}}
+`curl -X POST -i -H "Content-type:application/json" -d "{\"name\":\"Red Hat Data Grid\"}"  http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a`{{execute}}
 
-Now that we've inserted the JSON value under the key "a" let's invoke get cache operation on cache default with key "a" once again:
+Now key "a" exists in the default cache and has a JSON value. If you retrieve the entry again, it is successful:
 
-```curl -i -H "Accept:application/json" http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a```{{execute}}
+`curl -i -H "Accept:application/json" http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a`{{execute}}
 
-**3. Invoke cache replace operation**
+**3. Updating cache entries**
 
-Let's update our cache entry and replace value under key "a" with value {"name":"Infinispan"}.
+Update the cache entry and replace the value of key "a" with a different JSON entry `{"name":"Infinispan"}` with the following command:
 
-```curl -X PUT -i -H "Content-type:application/json" -d "{\"name\":\"Infinispan\"}"  http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a```{{execute}}
+`curl -X PUT -i -H "Content-type:application/json" -d "{\"name\":\"Infinispan\"}"  http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a`{{execute}}
 
-And verify that we've indeed replaced value {"name":"Red Hat Data Grid"} with {"name":"Infinispan"}.
+Retrieve the entry again to verify the updated value:
 
-```curl -i -H "Accept:application/json" http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a```{{execute}}
+`curl -i -H "Accept:application/json" http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a`{{execute}}
 
-**4. Invoke cache delete operation**
+**4. Deleting cache entries**
 
-We can also delete cache entries. Let's delete entry under key "a"
+Delete key "a" from the default cache with the following command:
 
-```curl -X DELETE -i http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a```{{execute}}
+`curl -X DELETE -i http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a`{{execute}}
 
-And verify that we've indeed deleted the entry by invoking get operation again:
+Attempt to retrieve the entry to verify that it is deleted:
 
-```curl -i -H "Accept:application/json" http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a```{{execute}}
+`curl -i -H "Accept:application/json" http://rhdgroute-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/rest/default/a`{{execute}}
 
-That's all, it's really that simple and easy to invoke cache operations over REST on RHDG.
+A `404` HTTP error is returned because you deleted the entry from the cache.
 
 ## Congratulations
 
-You have now successfully executed all steps in this scenario. However, we've just scratched the surface of REST and RHDG
-capabilities in this tutorial. For more details on REST interface and code samples in multiple languages see
-[The REST interface](https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/6/html/developer_guide/chap-the_rest_interface) documentation.
+Now that you've successfully completed this tutorial you're ready to start learning more about RHDG capabilities.
+
+Head over to the [Quickstarts on GitHub](https://github.com/jboss-developer/jboss-jdg-quickstarts) where you can find code examples with how-to and best practice demonstrations for running RHDG on OpenShift.
+
+You can also find lots of information in the [Red Hat Data Grid documentation](https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid).
