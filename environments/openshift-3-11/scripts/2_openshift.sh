@@ -68,6 +68,10 @@ chmod +x /usr/bin/oc
 echo $PATH
 oc version
 
+curl -sL -o /opt/lets-encrypt-x3-cross-signed.pem https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem
+oc config set-cluster local  --server https://master:8443  --certificate-authority /opt/lets-encrypt-x3-cross-signed.pem
+oc config set-context local --cluster local; oc config use-context local; 
+
 # yum install bash-completion centos-release-openshift-origin origin-clients -y
 
 # oc cluster up --base-dir=/katacoda/ --enable=[*] 
