@@ -14,7 +14,7 @@ Take a look at all of the libraries curl is linked against:
 
 ``ldd /usr/bin/curl``{{execute}}
 
-Let's see what packages deliver those libraries? Both, OpenSSL, and the Network Security Services libraries. When there is a new CVE discovered in either nss or oepnssl, a new container image will need built to patch it.
+Let's see what packages deliver those libraries? Both, OpenSSL, and the Network Security Services libraries. When there is a new CVE discovered in either nss or openssl, a new container image will need built to patch it.
 
 ``rpm -qf /lib64/libssl.so.10``{{execute}}
 
