@@ -1,0 +1,26 @@
+{
+  "title": "Ansible Operator and the Operator SDK",
+  "icon": "fa-openshift",
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/ansibleop/ansible-refresher/",
+      "course_id": "ansible-refresher",
+      "title": "Ansible Refresher"
+    },
+    {
+      "external_link": "https://learn.openshift.com/ansibleop/ansible-k8s-modules/",
+      "course_id": "ansible-k8s-modules",
+      "title": "Ansible Kubernetes Modules"
+    },
+    {
+      "external_link": "https://learn.openshift.com/ansibleop/ansible-operator-overview/",
+      "course_id": "ansible-op-overview",
+      "title": "Ansible Operator Overview"
+    },
+    {
+      "external_link": "https://learn.openshift.com/ansibleop/operator-sdk-playground/",
+      "course_id": "operator-sdk-playground",
+      "title": "Operator SDK Playground"
+    }
+  ]
+}

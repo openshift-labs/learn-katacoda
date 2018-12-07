@@ -1,0 +1,7 @@
+-
+  name: Execute a command on localhost
+  hosts: localhost
+  tasks:
+    -
+      name: Execute a command on localhost
+      command: touch names
