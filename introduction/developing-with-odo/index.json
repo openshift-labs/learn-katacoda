@@ -5,9 +5,8 @@
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
     "time": "10-15 minutes",
-    "embedded_survey_url": "https://goo.gl/forms/rrNpdFcjHTkkMA7g1?title=",
     "backend": {
-        "imageid": "openshift-3-7-odo",
+        "imageid": "openshift-3-11",
         "port": 8443
     },
     "environment": {
@@ -19,17 +18,17 @@
     },
     "details": {
         "steps": [{
-          "title": "Introduction",
-          "text": "00-introduction.md"
+          "title": "Application Overview",
+          "text": "00-application-overview.md"
+        },{
+            "title": "Creating an Initial Project",
+            "text": "01-creating-initial-project.md"
         },{
             "title": "Creating an Application",
-            "text": "01-creating-an-application.md"
-        }, {
+            "text": "02-creating-an-application.md"
+        },{
             "title": "Creating new binary component",
-            "text": "02-creating-new-binary-component.md"
-        }, {
-            "title": "Adding storage to component",
-            "text": "03-adding-storage-to-component.md"
+            "text": "03-creating-new-binary-component.md"
         }, {
             "title": "Deploying component from source-code",
             "text": "04-deploying-component-from-source-code.md"
@@ -50,9 +49,9 @@
         },
         "finish": {
             "text": "finish.md"
-        },
-        "assets": {
-          "host01": [{"file": ".configure-odo.sh", "target": "~/", "chmod": "+x"}]
-        }
+        }, "assets": {
+            "host01": [{"file": "volumes.json", "target": "~/"}]
+          }
+
     }
 }

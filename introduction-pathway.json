@@ -9,6 +9,11 @@
     },
     {
       "external_link": "https://learn.openshift.com/introduction/cluster-access/",
+      "course_id": "developing-with-odo",
+      "title": "Developing with odo"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/developing-with-odo/",
       "course_id": "cluster-access",
       "title": "Logging in to an OpenShift Cluster"
     },
