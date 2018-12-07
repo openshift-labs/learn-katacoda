@@ -12,7 +12,7 @@ To add Spring JMS to our project all we have to do is to add the following line 
     &lt;dependency&gt;
       &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
       &lt;artifactId&gt;spring-boot-starter-activemq&lt;/artifactId&gt;
-      &lt;version&gt;1.5.15.RELEASE&lt;/version&gt;
+      &lt;version&gt;1.5.16.RELEASE&lt;/version&gt;
     &lt;/dependency&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;

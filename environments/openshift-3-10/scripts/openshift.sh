@@ -12,6 +12,10 @@ yum install NetworkManager -y
 yum install epel-release -y
 yum install ca-certificates git nfs-utils bash-completion ansible docker java-1.8.0-openjdk-headless -y
 
+yum -y install python-pip
+pip install ansible==2.7.1
+ansible --version
+
 hostnamectl set-hostname master
 
 function atoi
@@ -41,9 +45,13 @@ sed -i s/KATACODA_HOST/$KATACODA_HOST/g inventory/hosts.localhost
 cat inventory/hosts.localhost
 
 sudo ansible-playbook -i inventory/hosts.localhost playbooks/prerequisites.yml
-sudo ansible-playbook -i inventory/hosts.localhost playbooks/deploy_cluster.yml
-sudo ansible-playbook -i inventory/hosts.localhost playbooks/adhoc/uninstall.yml
+# sudo ansible-playbook -i inventory/hosts.localhost playbooks/deploy_cluster.yml
+# sudo ansible-playbook -i inventory/hosts.localhost playbooks/adhoc/uninstall.yml
 cd -
+
+systemctl restart NetworkManager
+iptables --flush
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
 
 # curl -o openshift.tar.gz -L $URL/openshift-origin-server-$ARCH-64bit.tar.gz

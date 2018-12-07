@@ -30,6 +30,11 @@
       "title": "Thorntail development"
     },
     {
+      "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-rhdg/",
+      "course_id": "rhoar-getting-started-rhdg",
+      "title": "Red Hat Data Grid development"
+    },
+    {
       "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-nodejs/",
       "course_id": "rhoar-getting-started-nodejs",
       "title": "Node.js development"
