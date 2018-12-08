@@ -13,6 +13,11 @@
       "title": "Logging in to an OpenShift Cluster"
     },
     {
+      "external_link": "https://learn.openshift.com/introduction/developing-with-odo/",
+      "course_id": "developing-with-odo",
+      "title": "Developing with odo"
+    },
+    {
       "external_link": "https://learn.openshift.com/introduction/deploying-images/",
       "course_id": "deploying-images",
       "title": "Deploying Applications From Images"

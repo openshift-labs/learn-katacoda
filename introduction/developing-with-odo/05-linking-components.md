@@ -1,5 +1,7 @@
-With both components of our sample application running on the cluster, we need to connect them so they can communicate. OpenShift provides mechanisms to publish communication bindings from a program to its clients. `Odo` expresses these connections with the `link` subcommand.
+With both components of our application running on the cluster, we need to connect them so they can communicate. OpenShift provides mechanisms to publish communication bindings from a program to its clients. This is referred to as linking.
 
-The `odo link` subcommand takes the name of a *target* component, then of a *source* component. The *target*'s connection information is injected into the *source*'s deployment configuration in the form of environment variables. Try it out to see how host and port information for connecting to the `backend` is given to the `frontend`.
+To link the current `frontend` component to the `backend` you can run:
 
-`odo link backend --component frontend`{{execute}}
+`odo link backend --component frontend --port 8080`{{execute}}
+
+This will inject configuration information into the frontend about the backend and then restart the frontend.
