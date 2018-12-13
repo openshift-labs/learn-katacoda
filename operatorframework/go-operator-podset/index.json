@@ -35,7 +35,8 @@
       "text": "finish.md"
     },
     "assets": {
-      "host01": []}
+      "host01": [{"file": ".init.sh", "target": "~/", "chmod": "+x"},{"file": "op-sdk-setup.sh", "target": "~/", "chmod": "+x"}]
+    }
   },
   "files": [],
   "environment": {
