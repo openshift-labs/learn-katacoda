@@ -23,11 +23,8 @@
 			"title": "Customize the Operator Logic",
 			"text": "step5.md"
     },{
-			"title": "Customize the Operator Logic",
-			"text": "step6.md"
-    },{
 			"title": "Running the Operator Locally (Inside the Cluster)",
-			"text": "step7.md"
+			"text": "step6.md"
     }],
     "intro": {
       "code": "set-env.sh",
