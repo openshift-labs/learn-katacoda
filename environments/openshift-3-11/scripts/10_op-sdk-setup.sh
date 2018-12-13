@@ -28,9 +28,9 @@ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 mkdir -p $GOPATH/{src,pkg,bin}
 
 echo "install Operator sdk"
-mkdir -p $GOPATH/bin/github.com/operator-framework
-cd $GOPATH/bin/github.com/operator-framework
-wget https://github.com/operator-framework/operator-sdk/releases/download/v0.2.0/operator-sdk-v0.2.0-x86_64-linux-gnu -O operator-sdk
+mkdir -p $GOPATH/bin
+cd $GOPATH/bin
+wget https://github.com/operator-framework/operator-sdk/releases/download/v0.2.1/operator-sdk-v0.2.1-x86_64-linux-gnu -O operator-sdk
 chmod +x operator-sdk
 git config --global user.email "operator-sdk@example.com"
 git config --global user.name "OperatorSDK Katacoda"
