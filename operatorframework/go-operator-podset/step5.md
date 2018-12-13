@@ -150,7 +150,7 @@ func (r *ReconcilePodSet) Reconcile(request reconcile.Request) (reconcile.Result
 	if numAvailable > podSet.Spec.Replicas {
 		reqLogger.Info("Scaling down pods", "Currently available", numAvailable, "Required replicas", podSet.Spec.Replicas)
 		diff := numAvailable - podSet.Spec.Replicas
-		dpods := podList.Items[:diff]
+		dpods := available[:diff]
 		for _, dpod := range dpods {
 			err = r.client.Delete(context.TODO(), &dpod)
 			if err != nil {
