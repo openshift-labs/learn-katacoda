@@ -28,24 +28,6 @@
     },{
 			"title": "Running the Operator Locally (Inside the Cluster)",
 			"text": "step7.md"
-    },{
-			"title": "Creating the Service Account and RBAC Rules",
-			"text": "step8.md"
-    },{
-			"title": "Building the Operator & Pushing to the Registry",
-      "text": "step9.md"
-    },{
-      "title": "Deploying the Operator",
-      "text": "step10.md"
-    },{
-      "title": "Creating the Memcached Custom Resource",
-      "text": "step11.md"
-    },{
-      "title": "Updating the Size",
-      "text": "step12.md"
-    },{
-      "title": "Clean Up",
-      "text": "step13.md"
     }],
     "intro": {
       "code": "set-env.sh",
