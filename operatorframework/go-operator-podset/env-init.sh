@@ -7,9 +7,6 @@ ssh root@host01 'oc policy add-role-to-user registry-editor developer --as syste
 #Save the existing system:admin .kube/config for up local
 ssh root@host01 'mkdir -p ~/backup/.kube'
 ssh root@host01 'cp -r ~/.kube/config ~/backup/.kube/'
-ssh root@host01 `curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh`
-ssh root@host01 `mv /root/tutorial/go/src/github.com/operator-framework/operator-sdk /root/tutorial/go/bin/operator-sdk`
 
 #Remove the existing ~/.kube/config -> this addresses a untrusted cert issue
 #ssh root@host01 'rm -rf ~/.kube/config  >> /dev/null'
-
