@@ -15,4 +15,5 @@ Serve up the Operator-centric Origin console locally.
 ./operator-lifecycle-manager/scripts/run_console_local.sh
 ```{{execute}}
 <br>
-To access the UI, select the **+** button in the terminal, select `Select port to view on Host 1`, and enter port `9000`.
+
+To access the UI, visit https://[[HOST_SUBDOMAIN]]-9000-[[KATACODA_HOST]].environments.katacoda.com
