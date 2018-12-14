@@ -23,3 +23,20 @@ Deploy your PodSet Custom Resource to the live OpenShift Cluster:
 oc create -f deploy/crds/app_v1alpha1_podset_cr.yaml
 ```{{execute}}
 <br>
+Verify the PodSet operator has created 3 pods:
+
+```
+oc get pods
+```
+
+Verify that status shows the name of the pods currently owned by the PodSet:
+
+```
+oc get podset example-podset -o yaml
+```
+
+Increase the number of replicas owned by the PodSet:
+
+```
+oc patch podset example-podset --type='json' -p '[{"op": "replace", "path": "/spec/replicas", "value":5}]'
+```
