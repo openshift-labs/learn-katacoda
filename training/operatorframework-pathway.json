@@ -25,6 +25,12 @@
       "course_id": "operator-lifecycle-manager",
       "id": "operator-lifecycle-manager",
       "title": "Operator Lifecycle Manager"
+    },
+    {
+      "pathway_id": "openshift/ansibleop",
+      "course_id": "ansible-operator-overviewr",
+      "id": "ansible-operator-overview",
+      "title": "Ansible Operator Overview"
     }
   ]
 }
