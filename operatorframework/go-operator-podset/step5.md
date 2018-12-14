@@ -135,8 +135,7 @@ func (r *ReconcilePodSet) Reconcile(request reconcile.Request) (reconcile.Result
 
 	// Update the status if necessary
 	status := appv1alpha1.PodSetStatus{
-		PodNames:          availableNames,
-		AvailableReplicas: numAvailable,
+		PodNames: availableNames,
 	}
 	if !reflect.DeepEqual(podSet.Status, status) {
 		podSet.Status = status
