@@ -1,6 +1,7 @@
 In a new terminal, inspect the Custom Resource manifest:
 
 ```
+cd tutorial/go/src/github.com/redhat/podset-operator/
 cat deploy/crds/app_v1alpha1_podset_cr.yaml
 ```{{execute}}
 <br>
