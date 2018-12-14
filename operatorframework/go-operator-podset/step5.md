@@ -7,13 +7,14 @@ package podset
 
 import (
 	"context"
+	"reflect"
 
 	appv1alpha1 "github.com/redhat/podset-operator/pkg/apis/app/v1alpha1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/labels"
 	"k8s.io/apimachinery/pkg/runtime"
-	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/controller"
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
@@ -91,8 +92,8 @@ func (r *ReconcilePodSet) Reconcile(request reconcile.Request) (reconcile.Result
 	reqLogger.Info("Reconciling PodSet")
 
 	// Fetch the PodSet instance
-	instance := &appv1alpha1.PodSet{}
-	err := r.client.Get(context.TODO(), request.NamespacedName, instance)
+	podSet := &appv1alpha1.PodSet{}
+	err := r.client.Get(context.TODO(), request.NamespacedName, podSet)
 	if err != nil {
 		if errors.IsNotFound(err) {
 			// Request object not found, could have been deleted after reconcile request.
@@ -104,95 +105,91 @@ func (r *ReconcilePodSet) Reconcile(request reconcile.Request) (reconcile.Result
 		return reconcile.Result{}, err
 	}
 
-	// Define a new Pod object
-	pod := newPodForCR(instance)
-
-	// Set PodSet instance as the owner and controller
-	if err := controllerutil.SetControllerReference(instance, pod, r.scheme); err != nil {
-		return reconcile.Result{}, err
+	// List all pods owned by this PodSet instance
+	podList := &corev1.PodList{}
+	lbs := map[string]string{
+		"app":     podSet.Name,
+		"version": "v0.1",
 	}
-
-    // Check if any pods with these labels already exist
-    podList := &corev1.PodList{}
-    lbs := map[string]string{
-	    "app":     instance.Name,
-	    "version": "v0.1",
-    }
 	labelSelector := labels.SelectorFromSet(lbs)
-
-	listOps := &client.ListOptions{Namespace: instance.Namespace, LabelSelector: labelSelector}
+	listOps := &client.ListOptions{Namespace: podSet.Namespace, LabelSelector: labelSelector}
 	if err = r.client.List(context.TODO(), listOps, podList); err != nil {
 		return reconcile.Result{}, err
 	}
 
-
-	lpods := len(podList.Items)
+	// Count the pods that are pending or running as available
+	var available []corev1.Pod
 	for _, pod := range podList.Items {
 		if pod.ObjectMeta.DeletionTimestamp != nil {
-			lpods = lpods - 1
+			continue
 		}
-		switch pod.Status.Phase {
-		case corev1.PodSucceeded:
-			lpods = lpods - 1
-		case corev1.PodFailed:
-			lpods = lpods - 1
+		if pod.Status.Phase == corev1.PodRunning || pod.Status.Phase == corev1.PodPending {
+			available = append(available, pod)
 		}
-
+	}
+	numAvailable := int32(len(available))
+	availableNames := []string{}
+	for _, pod := range available {
+		availableNames = append(availableNames, pod.ObjectMeta.Name)
 	}
 
-
-
-	instance.Status.AvailableReplicas = lpods
-	PodNames := []string{}
-	for _, pod := range podList.Items {
-		PodNames = append(PodNames, pod.ObjectMeta.Name)
+	// Update the status if necessary
+	status := appv1alpha1.PodSetStatus{
+		PodNames: availableNames,
 	}
-	instance.Status.PodNames = PodNames
-
-	log.Printf("# of pods %v, # of replicas required %v\n", lpods, instance.Spec.Replicas)
-
-	if lpods > instance.Spec.Replicas {
-		diff := lpods - instance.Spec.Replicas
-		dpods := podList.Items[:diff]
-		for _, dpod := range dpods {
-			err = r.client.Delete(context.TODO(), &dpod)
-			if err != nil {
-				log.Println(err)
-				return reconcile.Result{}, err
-			}
-		}
-		_ = r.client.Update(context.TODO(), instance)
-		return reconcile.Result{Requeue: true}, nil
-	}
-
-	if lpods < instance.Spec.Replicas {
-		log.Print("You need more replicas")
-		_ = r.client.Update(context.TODO(), instance)
-		err = r.client.Create(context.TODO(), pod)
+	if !reflect.DeepEqual(podSet.Status, status) {
+		podSet.Status = status
+		err = r.client.Update(context.TODO(), podSet)
 		if err != nil {
-			log.Println(err)
+			reqLogger.Error(err, "Failed to update PodSet status")
 			return reconcile.Result{}, err
 		}
 	}
 
+	if numAvailable > podSet.Spec.Replicas {
+		reqLogger.Info("Scaling down pods", "Currently available", numAvailable, "Required replicas", podSet.Spec.Replicas)
+		diff := numAvailable - podSet.Spec.Replicas
+		dpods := available[:diff]
+		for _, dpod := range dpods {
+			err = r.client.Delete(context.TODO(), &dpod)
+			if err != nil {
+				reqLogger.Error(err, "Failed to delete pod", "pod.name", dpod.Name)
+				return reconcile.Result{}, err
+			}
+		}
+		return reconcile.Result{Requeue: true}, nil
+	}
 
+	if numAvailable < podSet.Spec.Replicas {
+		reqLogger.Info("Scaling up pods", "Currently available", numAvailable, "Required replicas", podSet.Spec.Replicas)
+		// Define a new Pod object
+		pod := newPodForCR(podSet)
+		// Set PodSet instance as the owner and controller
+		if err := controllerutil.SetControllerReference(podSet, pod, r.scheme); err != nil {
+			return reconcile.Result{}, err
+		}
+		err = r.client.Create(context.TODO(), pod)
+		if err != nil {
+			reqLogger.Error(err, "Failed to delete pod", "pod.name", pod.Name)
+			return reconcile.Result{}, err
+		}
+		return reconcile.Result{Requeue: true}, nil
+	}
 
-	// Pod already exists - don't requeue
-	reqLogger.Info("Skip reconcile: Pod already exists", "Pod.Namespace", found.Namespace, "Pod.Name", found.Name)
 	return reconcile.Result{}, nil
 }
 
 // newPodForCR returns a busybox pod with the same name/namespace as the cr
 func newPodForCR(cr *appv1alpha1.PodSet) *corev1.Pod {
 	labels := map[string]string{
-		"app": cr.Name,
+		"app":     cr.Name,
 		"version": "v0.1",
 	}
 	return &corev1.Pod{
 		ObjectMeta: metav1.ObjectMeta{
-			GenerateName:      cr.Name + "-pod",
-			Namespace: cr.Namespace,
-			Labels:    labels,
+			GenerateName: cr.Name + "-pod",
+			Namespace:    cr.Namespace,
+			Labels:       labels,
 		},
 		Spec: corev1.PodSpec{
 			Containers: []corev1.Container{

@@ -52,8 +52,8 @@ oc -n openshift-operator-lifecycle-manager get deploy
 Verify the CatalogSource and CatalogSource ConfigMap exist:
 
 ```
-oc get -n openshift-operator-lifecycle-manager get catalogsource
+oc get -n openshift-operator-lifecycle-manager catalogsource
 ```{{execute}}
 ```
-oc get -n openshift-operator-lifecycle-manager get configmap
+oc get -n openshift-operator-lifecycle-manager configmap
 ```{{execute}}
