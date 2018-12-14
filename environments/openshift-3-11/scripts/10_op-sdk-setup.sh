@@ -15,9 +15,9 @@ pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trus
 echo "setup GoLang Environment"
 wget https://dl.google.com/go/go1.10.linux-amd64.tar.gz -P /tmp
 tar -C /usr/local -xzf /tmp/go1.10.linux-amd64.tar.gz
-echo "export GOPATH=$HOME/tutorial/go" >> ~/.bashrc
+echo "export GOPATH=\$HOME/tutorial/go" >> ~/.bashrc
 echo "export GOROOT=/usr/local/go" >> ~/.bashrc
-echo "export GOBIN=$GOPATH/bin" >> ~/.bashrc
+echo "export GOBIN=\$GOPATH/bin" >> ~/.bashrc
 echo "export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin" >> ~/.bashrc
 . ~/.bashrc
 
