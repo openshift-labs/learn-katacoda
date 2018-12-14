@@ -28,16 +28,16 @@ Verify the PodSet operator has created 3 pods:
 
 ```
 oc get pods
-```
-
+```{{execute}}
+<br>
 Verify that status shows the name of the pods currently owned by the PodSet:
 
 ```
 oc get podset example-podset -o yaml
-```
-
+```{{execute}}
+<br>
 Increase the number of replicas owned by the PodSet:
 
 ```
 oc patch podset example-podset --type='json' -p '[{"op": "replace", "path": "/spec/replicas", "value":5}]'
-```
+```{{execute}}
