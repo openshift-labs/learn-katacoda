@@ -14,7 +14,6 @@ kind: PodSet
 metadata:
   name: example-podset
 spec:
-  # Add fields here
   replicas: 3
 </pre>
 
