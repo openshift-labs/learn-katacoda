@@ -8,6 +8,7 @@ pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trus
 pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org --ignore-installed ipaddress openshift
 
 echo "install ansible runner -> this will be used for operator-sdk local installs"
+yum install gcc -y
 yum install python-devel -y
 yum remove python-requests -y
 pip uninstall requests -y
