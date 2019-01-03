@@ -11,11 +11,3 @@ ssh root@host01 'cp -r ~/.kube/config ~/backup/.kube/'
 
 #Remove the existing ~/.kube/config -> this addresses a untrusted cert issue
 ssh root@host01 'rm -rf ~/.kube/config  >> /dev/null'
-
-#This is Temporary until we get the env issues addressed:
-#install ansible runner -> this will be used for operator-sdk local installs
-ssh root@host01 'yum install python-devel -y'
-ssh root@host01 'yum remove python-requests -y'
-ssh root@host01 'pip uninstall requests -y'
-ssh root@host01 'yum install gcc -y'
-ssh root@host01 'pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org requests ansible-runner ansible-runner-http idna==2.7'
