@@ -1,9 +1,6 @@
-Modify `example-role/tasks/main.yml` with desired Ansible logic. For this
-example we will create and delete a namespace with the switch of a variable:
+For this example we will *create and delete a namespace* with the switch of an Ansible variable.
 
-**Note:** You must have the target file open and the active tab in the edit pane in order for the
-*copy to editor* button to work properly.
-
+###### **1. Modify `example-role/tasks/main.yml` to contain the Ansible shown below.**
 <pre class="file" data-filename="/root/tutorial/example-role/tasks/main.yml" data-target="replace">
 ---
 - name: set test namespace to {{ state }}
@@ -16,11 +13,12 @@ example we will create and delete a namespace with the switch of a variable:
 
 </pre>
 
-**note:** *Setting ignore_errors: true is done so that deleting a nonexistent
-project doesn't error out.*
+**Step 1 Notes:** 
+ - You *must* have the target file open and the active tab in the edit pane in order for the *copy to editor* button to work properly.
+ - Set *ignore_errors: true* so that attempting deletion of a nonexistent
+project doesn't error out.
 
-Modify `example-role/defaults/main.yml` to set `state` to `present` by default.
-
+###### **2. Modify `example-role/defaults/main.yml`, setting `state` to `present` by default.**
 <pre class="file"
  data-filename="/root/tutorial/example-role/defaults/main.yml"
   data-target="replace">
@@ -29,12 +27,11 @@ state: present
 
 </pre>
 
-Run the playbook:
+###### **3. Run playbook.yml, which will run *example-role*.**
 
 `ansible-playbook -i myhosts playbook.yml`{{execute}}
 
-Check that the namespace was created:
-
+###### **4 Check that the namespace `test` was created.**
 
 $ `oc get projects`{{execute}}
 
