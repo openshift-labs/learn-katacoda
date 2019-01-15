@@ -1,4 +1,4 @@
-Create the `EtcdCluster` Custom Resource (CR):
+Create an Etcd cluster by referring to the new Custom Resource, `EtcdCluster`, defined in the Custom Resource Definition on Step 1:
 
 ```
 cat > etcd-operator-cr.yaml<<EOF
