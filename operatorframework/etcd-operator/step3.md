@@ -53,7 +53,7 @@ oc get deploy
 Verify the Etcd Operator Deployment pods are running:
 
 ```
-oc get deploy
+oc get pods
 ```{{execute}}
 <br>
 Open a new terminal window to follow Etcd Operator logs in real-time:
