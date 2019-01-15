@@ -13,10 +13,12 @@ For this example we will *create and delete a namespace* with the switch of an A
 
 </pre>
 
-**Step 1 Notes:** 
+**Notes:** 
  - You *must* have the target file open and the active tab in the edit pane in order for the *copy to editor* button to work properly.
  - Set *ignore_errors: true* so that attempting deletion of a nonexistent
 project doesn't error out.
+
+---
 
 ###### **2. Modify `example-role/defaults/main.yml`, setting `state` to `present` by default.**
 <pre class="file"
@@ -27,9 +29,13 @@ state: present
 
 </pre>
 
+---
+
 ###### **3. Run playbook.yml, which will run *example-role*.**
 
 `ansible-playbook -i myhosts playbook.yml`{{execute}}
+
+---
 
 ###### **4 Check that the namespace `test` was created.**
 

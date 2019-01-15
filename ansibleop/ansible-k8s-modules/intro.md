@@ -4,7 +4,7 @@ The k8s module allows you to:
  - Leverage your existing Kubernetes resource files (written in YAML) 
  - Express Kubernetes lifecycle management actions in native Ansible.
 
-One great benefit of using Ansible in conjunction with existing Kubernetes resource files is the ability to use Ansible's built-in [Jinja templating](https://docs.ansible.com/ansible/latest/user_guide/playbooks_templating.html) engine to customize deployments by simply setting Ansible variables.
+One of the biggest benefits of using Ansible in conjunction with existing Kubernetes resource files is the ability to use Ansible's built-in [Jinja templating](https://docs.ansible.com/ansible/latest/user_guide/playbooks_templating.html) engine to customize deployments by simply setting Ansible variables.
 
 ---
 
