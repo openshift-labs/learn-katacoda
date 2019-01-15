@@ -1,3 +1,9 @@
+Let's begin my creating a new project called `myproject`.
+
+```
+oc new-project myproject
+```{{execute}}
+<br>
 Create a Subscription manifest for the Etcd Operator. Ensure the Approval is set to `Manual`.
 
 ```
