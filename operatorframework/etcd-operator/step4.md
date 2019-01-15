@@ -8,7 +8,7 @@ metadata:
   name: example-etcd-cluster
 spec:
   size: 3
-  version: 3.2.13
+  version: 3.1.10
 EOF
 ```{{execute}}
 <br>
