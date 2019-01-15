@@ -1,0 +1,41 @@
+{
+  "pathwayTitle": "Intro to Citrus Integration-Testing Framework",
+  "title": "Citrus Introduction",
+  "description": "A brief introduction about testing distributed systems with Citrus Testing Framework",
+  "difficulty": "easy",
+  "time": "5 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md",
+        "verify": "step1-verify.sh"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md",
+        "code": "step2-setup.sh"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4",
+        "text": "step4.md" 
+      }
+    ],   
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal"
+  },
+  "backend": {
+    "imageid": "3-11-cluster"
+  }
+}
