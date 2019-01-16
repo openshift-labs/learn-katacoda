@@ -1,8 +1,8 @@
-This section will give a brief overview of the Ansible Operator with a step-by-step example of developing an Ansible Operator using [Operator SDK](https://github.com/operator-framework/operator-sdk).
+This section will give a brief overview of the *Ansible Operator* with a step-by-step example of developing an Ansible Operator using [Operator SDK](https://github.com/operator-framework/operator-sdk).
 
 The reader is expected to have a basic understanding of the *Operator pattern*. 
  - **Ansible Operator is an Operator which is _powered by [Ansible](https://www.ansible.com/)_**. 
- - [Custom Resource](https://learn.openshift.com/ansibleop/ansible-operator-overview/) events trigger Ansible tasks as opposed to the traditional approach of handling these events with Go code.
+ - [Custom Resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) events trigger Ansible tasks as opposed to the traditional approach of handling these events with Go code.
 
 Ansible Operator development and testing is fully supported as a first-class citizen within the Operator SDK. Operator SDK can be used to create new Operator projects, test existing Operator projects, build Operator images, and generate new Custom Resource Definitions for an Operator.
 
