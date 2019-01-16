@@ -53,13 +53,13 @@ oc get deploy
 Verify the Etcd Operator Deployment pods are running:
 
 ```
-oc get deploy
+oc get pods
 ```{{execute}}
 <br>
 Open a new terminal window to follow Etcd Operator logs in real-time:
 
 ```
-export ETCD_OPERATOR_POD=$(oc get pods -l name=etcd-operator -o jsonpath='{.items[0].metadata.name}' -o jsonpath='{.items[0].metadata.name}')
+export ETCD_OPERATOR_POD=$(oc get pods -l name=etcd-operator -o jsonpath='{.items[0].metadata.name}')
 oc logs $ETCD_OPERATOR_POD -f
 ```{{execute}}
 <br>
