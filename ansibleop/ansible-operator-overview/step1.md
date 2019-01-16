@@ -20,14 +20,14 @@ Ansible Operator is one of the available type of Operators that Operator SDK is 
 
 ## How do I use it?
 
-Build your Ansible code on top of a provided base image along with some metadata to map Kubernetes events to Ansible playbooks or roles.
+Build your Ansible code on top of a provided base image along with some metadata to map Kubernetes events to Ansible Playbooks or Roles.
 
 ![Ansible Operator Flow](https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-operator-overview/assets/images/ansible-op-flow.png)
 
 The following workflow is for a new **Ansible** operator:
 
 1. Create a new operator project using the Operator SDK Command Line Interface (CLI)
-2. Write the reconciling logic for your object using ansible playbooks and roles
+2. Write the reconciling logic for your object using Ansible Playbooks and Roles
 3. Use the SDK CLI to build and generate the operator deployment manifests
 4. Optionally add additional CRD's using the SDK CLI and repeat steps 2 and 3
 
