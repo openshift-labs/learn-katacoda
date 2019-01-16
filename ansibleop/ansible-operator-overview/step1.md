@@ -22,7 +22,7 @@ Ansible Operator is one of the available type of Operators that Operator SDK is 
 
 Build your Ansible code on top of a provided base image along with some metadata to map Kubernetes events to Ansible playbooks or roles.
 
-![Ansible Operator Flow](https://raw.githubusercontent.com/tsanders-rh/learn-katacoda/master/ansibleop/ansible-op-overview/assets/images/ansible-op-flow.png)
+![Ansible Operator Flow](https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-operator-overview/assets/images/ansible-op-flow.png)
 
 The following workflow is for a new **Ansible** operator:
 
