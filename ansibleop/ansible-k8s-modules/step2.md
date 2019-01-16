@@ -1,4 +1,4 @@
-Now we'll use the Ansible k8s module to leverage existing Kubernetes and OpenShift Resource files. Let's take the **[nginx deployment example](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)**
+Next, we'll use the Ansible k8s module to leverage existing Kubernetes and OpenShift Resource files. Let's take the **[nginx deployment example](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)**
  from the Kubernetes docs.  
 
  **Note**: *We've modified the resource file slightly as we will be deploying
@@ -11,8 +11,9 @@ Now we'll use the Ansible k8s module to leverage existing Kubernetes and OpenShi
  `cp nginx-deployment.yml ./example-role/files/`{{execute}}
 
  ```
- $ cat ./example-role/files/nginx-deployment.yml
- kind: DeploymentConfig
+$ cat ./example-role/files/nginx-deployment.yml
+
+kind: DeploymentConfig
 apiVersion: v1
 metadata:
   name: nginx-deployment

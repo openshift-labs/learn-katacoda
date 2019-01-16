@@ -1,5 +1,7 @@
 For this example we will *create and delete a namespace* with the switch of an Ansible variable.
 
+---
+
 ###### **a. Modify `example-role/tasks/main.yml` to contain the Ansible shown below.**
 <pre class="file" data-filename="/root/tutorial/example-role/tasks/main.yml" data-target="replace">
 ---
@@ -14,7 +16,7 @@ For this example we will *create and delete a namespace* with the switch of an A
 </pre>
 
 **Notes:** 
- - You *must* have the target file open and the active tab in the edit pan e in order for the *copy to editor* button to work properly.
+ - You *must* have the target file open and the active tab in the edit pane in order for the *copy to editor* button to work properly.
  - Set *ignore_errors: true* so that attempting deletion of a nonexistent
 project doesn't error out.
 
