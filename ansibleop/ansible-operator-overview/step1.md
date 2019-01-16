@@ -11,7 +11,7 @@ The Operator SDK is a framework that uses the controller-runtime library to make
 
 ## What is an Ansible Operator?
 
-Collection of building blocks from Operator SDK that enables Ansible to handle the reconciliation logic for an Operator.
+A collection of building blocks from Operator SDK that enables Ansible to handle the reconciliation logic for an Operator.
 
 ## Included in Operator Framework
 
@@ -26,7 +26,7 @@ Build your Ansible code on top of a provided base image along with some metadata
 
 The following workflow is for a new **Ansible** operator:
 
-1. Create a new operator project using the SDK Command Line Interface(CLI)
+1. Create a new operator project using the Operator SDK Command Line Interface (CLI)
 2. Write the reconciling logic for your object using ansible playbooks and roles
 3. Use the SDK CLI to build and generate the operator deployment manifests
 4. Optionally add additional CRD's using the SDK CLI and repeat steps 2 and 3
