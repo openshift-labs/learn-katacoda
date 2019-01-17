@@ -75,6 +75,6 @@ You can see the `test` namespace created and the `nginx` deployment created in t
 
 Remove your nginx deployment from OpenShift by running the playbook again.
 
-For this playbook run, we'll override the `state` variable to contain `state=absent` using the `-e` (extra vars) flag. 
+For this playbook run, we'll override the `state` variable to contain `state=absent` using the [`-e / --extra-vars`](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#passing-variables-on-the-command-line) flag. 
 
-`ansible-playbook -i myhosts playbook.yml -e state=absent`{{execute}}
+`ansible-playbook -i myhosts playbook.yml --extra-vars state=absent`{{execute}}
