@@ -66,6 +66,6 @@ COPY playbook.yaml ${HOME}/playbook.yaml
 
 ## Preconfiguration for using a Playbook (instead of a Role)
 
-If you know from the start that you want your Operator to use a Playbook instead of a Role, you can generate your project skeleton with the `--generate-playbook` flag:
+If you know from the start that you want your Operator to use a Playbook instead of a Role, you can generate your project scaffolding with the `--generate-playbook` flag:
 
 `operator-sdk new --type ansible --kind Foo --api-version foo.example.com/v1alpha1 foo-operator --generate-playbook --skip-git-init`
