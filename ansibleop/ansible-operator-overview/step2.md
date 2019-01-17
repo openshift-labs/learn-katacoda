@@ -1,3 +1,5 @@
+_This step doesn't require changes to the interactive environment, but feel free to explore._
+
 Now that we have demonstrated the Ansible k8s modules, we want to trigger this Ansible logic when a *Custom Resource* changes. The Ansible Operator uses a Watches file (`watches.yaml`), written in YAML, which holds the mapping between Custom Resources and Ansible Roles/Playbooks.
 
 **NOTE**: It is incredibly important that the Ansible Roles/Playbooks packaged into an Ansible Operator are **_[idempotent](https://docs.ansible.com/ansible/latest/reference_appendices/glossary.html#term-idempotency)_**, as these tasks will be executed frequently to ensure the application is in its proper state.

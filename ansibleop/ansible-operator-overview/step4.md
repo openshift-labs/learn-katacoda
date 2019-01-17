@@ -1,6 +1,8 @@
+_This step doesn't require changes to the interactive environment, but feel free to explore._
+
 To pass `extra-vars` to the Playbooks/Roles being run by the Operator, you can embed key-value pairs in the `spec` section of the *Custom Resource (CR)*.
 
-This is equivalent to how [*--extra-vars*](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#passing-variables-on-the-command-line) are passed in to `ansible-playbook`.
+This is equivalent to how [*--extra-vars*](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#passing-variables-on-the-command-line) can be passed into the  `ansible-playbook` command.
 
 ## Example CR with extra-vars
 

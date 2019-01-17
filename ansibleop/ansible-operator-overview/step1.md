@@ -1,4 +1,6 @@
 ***
+_This step doesn't require changes to the interactive environment, but feel free to explore._
+
 ## Why an Operator?
 
 Operators make it easy to manage complex stateful applications on top of Kubernetes. However writing an operator today can be difficult because of challenges such as using low level APIs, writing boilerplate, and a lack of modularity which leads to duplication.
