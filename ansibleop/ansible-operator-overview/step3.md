@@ -1,22 +1,31 @@
-The Custom Resource file format is a Kubernetes resource file. The object has mandatory fields:
+Using Ansible Operator, *Custom Resource (CR)* state change signals to the Operator that certain Playbooks/Roles should be executed. So what does a Custom Resource look like?
 
-* **apiVersion**: The version of the Custom Resource that will be created.
+As a creator/user of an Ansible Operator, you'll create CRs to test that your Operator has the expected response to each CR trigger.
 
-* **kind**: The kind of the Custom Resource that will be created
+## Structure of a Custom Resource 
 
-* **metadata**: Kubernetes specific metadata to be created
+The Custom Resource takes the format of a Kubernetes resource. The object definition has _mandatory_ fields:
 
-* **spec**: This is the key-value list of variables which are passed to Ansible. This field is optional and will be empty by default.
+### Mandatory Fields
 
-* **annotations**: Kubernetes specific annotations to be appended to the CR. See the below section for Ansible Operator specific annotations.
+* **apiVersion**: Version of the Custom Resource that will be created
 
-**Ansible Operator annotations**
+* **kind**: Kind of the Custom Resource that will be created
 
-This is the list of CR annotations which will modify the behavior of the operator:
+* **metadata**: Kubernetes metadata that will be created
 
-* **ansible.operator-sdk/reconcile-period**: Used to specify the reconciliation interval for the CR. This value is parsed using the standard Golang package time. Specifically ParseDuration is used which will use the default of s suffix giving the value in seconds.
+* **spec**: Key-value list of variables which are passed to Ansible. *Optional* and will be empty by default.
 
-Example:
+* **annotations**: Kubernetes annotations to be appended to the CR. See the below section for Ansible Operator specific annotations.
+
+### Annotations
+Custom Resource annotations can be applied to modify Ansible Operator behavior:
+
+* **ansible.operator-sdk/reconcile-period**: Used to specify the reconciliation interval for the CR. 
+  * This value is parsed using the standard Golang package time. Specifically, ParseDuration is used which will use the default of an 's' suffix giving the value in seconds (e.g. "30" would become "30s" as shown below).
+
+## Custom Resource Example
+If an Ansible Operator was watching for events from `kind: Foo` with `apiVersion: foo.example.com/v1alpha1`, an Ansible Playbook/Role could be triggered in response to creation of the resource shown below.
 
 ```yaml
 apiVersion: "foo.example.com/v1alpha1"
