@@ -3,7 +3,7 @@ is stored and returned on request. After that, we'll delete the todo.
 
 To test such complex use cases efficiently, some additional Citrus concepts and features are useful to keep the test
 code clean and understandable. Therefore we've prepared a implementation example in
-`LifecycleTestReview.java`[editor](/open?file=samples/LifecycleTestReview.java).
+``citrus-sample/src/test/java/org/citrus/samples/TodoAppLifecycleIT.java``{{open}}
 Let's review that code in the editor before we execute it, to understand how it works.
 
 The test consists of three variable definitions and five steps that send or receive messages to or from the todo app.
@@ -42,3 +42,7 @@ In this step, we delete the todo entry we used for our tests
 
 6. Ensure that the deletion was successful.  
 In this step we just validate the HTTP response code again to ensure that no error occurred in the backend.
+
+So if you like you can now run the test again:
+
+`mvn clean verify -f citrus-sample/pom.xml`{{execute}}

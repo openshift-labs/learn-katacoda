@@ -30,3 +30,5 @@ public class TodoAppIT extends TestNGCitrusTestDesigner {
 }
 
 EOM
+
+clear

@@ -22,7 +22,8 @@
       },
       {
         "title": "Step 4",
-        "text": "step4.md" 
+        "text": "step4.md",
+        "code": "step4-setup.sh"
       }
     ],   
     "intro": {
