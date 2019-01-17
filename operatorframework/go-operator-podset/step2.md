@@ -4,7 +4,7 @@ Add a new Custom Resource Definition(CRD) API called PodSet, with APIVersion `ap
 operator-sdk add api --api-version=app.example.com/v1alpha1 --kind=PodSet
 ```{{execute}}
 <br>
-This will scaffold the PodSet resource API under `pkg/apis/cache/v1alpha1/...`.
+This will scaffold the PodSet resource API under `pkg/apis/app/v1alpha1/...`.
 
 The Operator-SDK automatically creates the following manifests for you under the `/deploy` directory.
 
