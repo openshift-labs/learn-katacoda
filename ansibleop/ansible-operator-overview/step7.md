@@ -10,7 +10,7 @@ This will log you in using the credentials:
 Use the same credentials to log into the web console.
 
 In order that you can still run commands from the command line as a cluster
-admin, the ``sudoer`` role has been enabled for the ``developer`` account.
+admin, the ``sudoer`` Role has been enabled for the ``developer`` account.
 To execute a command as a cluster admin use the ``--as system:admin`` option
 to the command.
 

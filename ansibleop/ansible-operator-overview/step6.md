@@ -1,8 +1,8 @@
 Thus far, we have created the memcached-operator project specifically for watching the
 Memcached resource with APIVersion `cache.example.com/v1apha1` and Kind
-`Memcached`.  Now it's time to define the operator logic.
+`Memcached`.  Now it's time to define the Operator logic.
 
-## Customize the operator logic
+## Customize the Operator logic
 
 For this example the memcached-operator will execute the following
 reconciliation logic for each `Memcached` Custom Resource (CR):
@@ -10,11 +10,11 @@ reconciliation logic for each `Memcached` Custom Resource (CR):
 - Ensure that the Deployment size is the same as specified by the `Memcached`
 CR
 
-## Installing an existing role from Ansible Galaxy
+## Installing an existing Role from Ansible Galaxy
 
-To speed things up, we can reuse a role that has been written inside of our
-operator. The role we will use is
-[dymurray.memcached_operator_role][memcached_galaxy]. The section at the bottom
+To speed things up, we can reuse a Role that has been written inside of our
+operator. The Role we will use is
+[dymurray.memcached_operator_role](https://galaxy.ansible.com/dymurray/memcached_operator_role). The section at the bottom
 of this document will also show the reader how to create that Ansible Role from
 scratch. To get started, install the Ansible Role inside of the project:
 
@@ -24,12 +24,12 @@ scratch. To get started, install the Ansible Role inside of the project:
 $ ls roles/
 dymurray.memcached_operator_role Memcached
 ```
-# Delete generated scaffolding role
+# Delete generated scaffolding Role
 `rm -rf ./roles/Memcached`{{execute}}
 
-This role provides the user with a variable `size` which is an integer to
+This Role provides the user with a variable `size` which is an integer to
 control the number of replicas to create. You can find the default for this
-variable in the role defaults:
+variable in the Role defaults:
 
 ```
 $ cat roles/dymurray.memcached_operator_role/defaults/main.yml
@@ -40,10 +40,10 @@ size: 1
 
 The reader can also take note of the tasks file which uses the Kubernetes
 Ansible module to create a deployment of memcached if it does not exist. Again,
-see below for a deep dive into each portion of the role.
+see below for a deep dive into each portion of the Role.
 
 It is important that we modify the necessary files to ensure that our operator
-is using this role instead of the generated scaffolding role. Let's
+is using this Role instead of the generated scaffolding Role. Let's
 modify `watches.yaml`.
 
 ### Watches File

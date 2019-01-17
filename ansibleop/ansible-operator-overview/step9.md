@@ -2,9 +2,9 @@ In order to speed up deployment and testing, the SDK provides a mechanism to Run
 the Operator outside of a cluster. This method is preferred during the
 development cycle to speed up deployment and testing.
 
-It is also important that the role path referenced in watches.yaml exists on
+It is also important that the Role path referenced in watches.yaml exists on
 your machine. Since we are normally used to using a container where the Role is
-put on disk for us, we need to manually copy our role to the configured Ansible
+put on disk for us, we need to manually copy our Role to the configured Ansible
 Roles path (e.g /etc/ansible/roles).
 
 `cp -r ~/tutorial/memcached-operator/roles/dymurray.memcached_operator_role /opt/ansible/roles/`{{execute}}

@@ -1,5 +1,4 @@
 ## Learning how to use 'operator-sdk new'
-
 Next, we'll learn how to use the operator-sdk CLI to create an Ansible Operator project with the 'new' command.
 
 A basic (but incomplete) 'new' command looks like this:
@@ -23,7 +22,7 @@ Putting it all together, we end up with a command that looks like this:
 $ operator-sdk new my-project --type=ansible --api-version=myapi.example.com/v1alpha1 --kind=MyOperatedApp
 [...]
 
-# See if you can spot similarities between command arguments provided above and filenames shown below.
+# See if you can spot similarities between command args and generated scaffolding.
 
 $ tree my-project/
 
@@ -72,7 +71,7 @@ Memcached resource with APIVersion 'cache.example.com/v1apha1' and Kind
 
 ## Inspecting 'operator-sdk new' results
 
-Inspect the memcached-operator directory structure for yourself, and then change into it.
+Inspect the memcached-operator directory structure for yourself with 'tree', and then 'cd' into it.
 
 `tree memcached-operator`{{execute}}
 
