@@ -4,7 +4,7 @@ then been injected into the **TodoAppIT.java** via Springs **@Autowired** annota
 Citrus provides a Java fluent API for writing integration tests. This API is automatically available as we extended our
 class from **TestNGCitrusTestDesigner**. 
 
-_Please note that you could also use JUnit in combination with Citrus._
+_Note that you could also use JUnit in combination with Citrus._
 
 At first, lets test whether the TodoApp is responsive, by requesting the list of current todo entries from the apps API. 
 <pre class="file" data-filename="citrus-sample/src/test/java/org/citrus/samples/TodoAppIT.java" data-target="insert" data-marker="// TODO: implement testGet">
