@@ -12,3 +12,5 @@ ssh root@host01 'cp -r ~/.kube/config ~/backup/.kube/'
 #ssh root@host01 'rm -rf ~/.kube/config  >> /dev/null'
 
 ssh root@host01 'yum install jq -y'
+
+ssh root@host01 'curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh'
