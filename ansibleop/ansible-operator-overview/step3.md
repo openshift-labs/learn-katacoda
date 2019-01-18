@@ -1,6 +1,6 @@
 _This step doesn't require changes to the interactive environment, but feel free to explore._
 
-Using Ansible Operator, *Custom Resource (CR)* state change signals to the Operator that certain Playbooks/Roles should be executed. So what does a Custom Resource look like?
+Using Ansible Operator, a _change in the state_ of a Custom Resource (CR) signals to the Operator that certain Playbooks/Roles should be executed. So what does a Custom Resource look like?
 
 As a creator/user of an Ansible Operator, you'll create CRs to test that your Operator has the expected response to each CR trigger.
 

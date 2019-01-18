@@ -28,7 +28,7 @@ Build your Ansible code on top of a provided base image along with some metadata
 
 The following workflow is for a new **Ansible** operator:
 
-1. Create a new operator project using the Operator SDK Command Line Interface (CLI)
+1. Create a new Operator project using the Operator SDK Command Line Interface (CLI)
 2. Write the reconciling logic for your object using Ansible Playbooks and Roles
 3. Use the SDK CLI to build and generate the operator deployment manifests
 4. Optionally add additional CRD's using the SDK CLI and repeat steps 2 and 3
