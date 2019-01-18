@@ -1,8 +1,8 @@
 The scenario is composed of two OpenShift clusters:
 
-* `cluster1`, acting as Host Cluster (top half of the screen)
+* `cluster1`, acting as Host Cluster (Terminal Host 1 Tab)
 
-* `cluster2`, acting as Member Cluster (bottom half of the screen)
+* `cluster2`, acting as Member Cluster (Terminal Host 2 Tab)
 
 You will have access to two terminals, however most of the work will be done on the `cluster1` terminal.
 
