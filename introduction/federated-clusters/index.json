@@ -13,7 +13,6 @@
         "showdashboard": true,
         "dashboard": "Dashboard",
         "uilayout": "terminal-terminal",
-        "terminals": [{"name": "Cluster 1", "target": "host01"}, {"name": "Cluster 2", "target": "host02"}],
         "hideintro": false,
         "hidefinish": false
     },
