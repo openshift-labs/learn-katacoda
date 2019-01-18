@@ -85,16 +85,19 @@ The commands below will change the Deployment 'image' and 'imagePullPolicy' resp
 ### Creating the Operator from deploy manifests
 Now, we are ready to deploy the memcached-operator:
 
+Create a Project for the Operator to run in
+`oc new-project tutorial`{{execute}}
+
 Create Service Account
 `oc create -f deploy/service_account.yaml`{{execute}}
 
-Create Role
+Create OpenShift Role
 `oc create -f deploy/role.yaml --as system:admin`{{execute}}
 
-Create Role Binding
+Create OpenShift Role Binding
 `oc create -f deploy/role_binding.yaml --as system:admin`{{execute}}
 
-Create Operator<br>
+Create Operator Deployment<br>
 `oc create -f deploy/operator.yaml`{{execute}}
 
 *Note:* role.yaml and role_binding.yaml describe cluster-wide
