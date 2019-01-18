@@ -21,19 +21,7 @@ resource definition the operator will be watching.
 
 `oc create -f deploy/crds/cache_v1alpha1_memcached_crd.yaml --as system:admin`{{execute}}
 
-By running this command, we are creating a new resource type, `memcached`, on the cluster. Although no resources of this new type have been created yet, it's still possible to see that OpenShift has registered the CRD successfully.
-
-`oc get memcached --as system:admin`{{execute}}
-
-Note the difference in error messages:
-
-```
-$ oc get memcached --as system:admin
-No resources found.
-
-$ oc get MyFakeResourceType --as system:admin
-error: the server doesn't have a resource type "MyFakeResourceType"
-```
+By running this command, we are creating a new resource type, `memcached`, on the cluster. We will interact with our Operator by creating resources of this type.
 
 ## Run the Operator
 
@@ -97,7 +85,7 @@ Create OpenShift Role
 Create OpenShift Role Binding
 `oc create -f deploy/role_binding.yaml --as system:admin`{{execute}}
 
-Create Operator Deployment<br>
+Create Operator Deployment Object
 `oc create -f deploy/operator.yaml`{{execute}}
 
 *Note:* role.yaml and role_binding.yaml describe cluster-wide
