@@ -1,0 +1,49 @@
+{
+    "icon": "fa-openshift",
+    "title": "Getting Started With Federation V2",
+    "description": "Learn how to federate multiple OpenShift Clusters",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "intermediate",
+    "time": "20-30 minutes",
+    "backend": {
+        "imageid": "openshift-3-11-cluster",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-terminal",
+        "terminals": [{"name": "Cluster 1", "target": "host01"}, {"name": "Cluster 2", "target": "host02"}],
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Step 1 - Introducing Federation V2",
+            "text": "01-introducing-federation-v2.md"
+        }, {
+            "title": "Step 2 - Deploying Federation's Control Plane",
+            "text": "02-deploying-federation-control-plane.md"
+        }, {
+            "title": "Step 3 - Registering Clusters into the Cluster Registry",
+            "text": "03-registering-clusters-into-the-cluster-registry.md"
+        }, {
+            "title": "Step 4 - Deploying a Federated APP",
+            "text": "04-deploying-a-federated-app.md"
+        }, {
+            "title": "Step 5 - Federation Objects",
+            "text": "05-federation-objects.md"
+        }, {
+            "title": "Step 6 - Modifying Application's Placement",
+            "text": "06-modifying-application-placement.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    }
+}
