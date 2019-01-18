@@ -12,28 +12,19 @@ Roles path (e.g /etc/ansible/roles).
 `cp -r ~/tutorial/memcached-operator/roles/dymurray.memcached_operator_role /opt/ansible/roles/`{{execute}}
 
 ## Running with 'operator-sdk up local'
-Run the Operator locally with the default kubernetes config file present
-at $HOME/.kube/config:
 
+### Sample Commands
+Running `operator-sdk up local` to run an Operator locally requires a KUBECONFIG value to connect with the cluster. Some sample commands are shown below.
 ```sh
-$ operator-sdk up local
-INFO[0000] Go Version: go1.10
-INFO[0000] Go OS/Arch: darwin/amd64
-INFO[0000] operator-sdk Version: 0.0.5+git
+$ operator-sdk up local # default, KUBECONFIG=$HOME/.kube/config
+```
+```sh
+$ operator-sdk up local --kubeconfig=/tmp/config # KUBECONFIG='/tmp/config'
 ```
 
-Run the operator locally with a provided kubernetes config file:
+For this scenario, there is a properly permissioned KUBECONFIG at ~/backup/.kube/config.  We'll run the command below to use it.
 
-```sh
-$ operator-sdk up local --kubeconfig=config
-INFO[0000] Go Version: go1.10
-INFO[0000] Go OS/Arch: darwin/amd64
-INFO[0000] operator-sdk Version: 0.0.5+git
-```
-
-There is a properly permissioned kubeconfig at ~/backup/.kube/config.  To run
-Operator locally run:
-
+### Start the Operator
 `operator-sdk up local --kubeconfig=/root/backup/.kube/config --namespace tutorial`{{execute}}
 
 Next open a 2nd terminal window, using the "+" tab and navigate to our Operator.
@@ -50,7 +41,7 @@ Ensure that the memcached-operator creates the deployment for the CR:
 
 <small>
 ```sh
-$ oc get deployment --as system:admin
+$ oc get deployment
 NAME               DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
 example-memcached  4       4       4          4         34s
 ```

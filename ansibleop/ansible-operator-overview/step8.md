@@ -37,7 +37,7 @@ Ensure that the memcached-operator creates the deployment for the CR:
 
 <small>
 ```sh
-$ oc get deployment --as system:admin
+$ oc get deployment
 NAME                 DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
 memcached-operator   1       1       1          1         2m
 example-memcached    3       3       3          3         1m
@@ -79,9 +79,10 @@ Confirm that the operator changes the deployment size:
 
 <small>
 ```sh
-$ oc get deployment --as system:admin
-NAME               DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
-example-memcached  4       4       4          4         5m
+$ oc get deployment
+NAME                DESIRED CURRENT  UP-TO-DATE  AVAILABLE  AGE
+example-memcached   4       4        4           4          53s
+memcached-operator  1       1        1           1          5m
 ```
 </small>
 
