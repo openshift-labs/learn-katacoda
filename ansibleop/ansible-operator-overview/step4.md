@@ -1,9 +1,12 @@
-The extravars that are sent to Ansible are predefined and managed by the
-operator. The `spec` section will pass along the key-value pairs as extra vars.
-This is equivalent to how above extra vars are passed in to `ansible-playbook`.
+_This step doesn't require changes to the interactive environment, but feel free to explore._
 
-For the CR example:
+To pass `extra-vars` to the Playbooks/Roles being run by the Operator, you can embed key-value pairs in the `spec` section of the *Custom Resource (CR)*.
 
+This is equivalent to how [*--extra-vars*](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#passing-variables-on-the-command-line) can be passed into the  `ansible-playbook` command.
+
+## Example CR with extra-vars
+
+The CR snippet below shows two `extra-vars` being passed in via `spec` to be included in the Playbook/Role that the Operator will run.
 ```yaml
 apiVersion: "app.example.com/v1alpha1"
 kind: "Database"
@@ -14,7 +17,8 @@ spec:
   newParameter: "newParam"
 ```
 
-The structure is:
+
+### JSON Structure
 
 ```json
 { "meta": {
@@ -29,12 +33,15 @@ The structure is:
 }
 ```
 
-*Note:* The resulting JSON structure that is passed in as extra vars are
-autoconverted to snake-case. newParameter becomes `new_parameter`.
+*Note:* The resulting JSON structure that is passed in as extra vars is
+auto-converted to _snake-case_. As an example, `newParameter` becomes `new_parameter`.
 
-`message` and `newParameter` are set in the top level as extra variables and
-`meta` provides the relevant metadata for the Custom Resource as defined in the
-operator. The `meta` fields can be access via dot notation in Ansible as so:
+ - `message` and `newParameter` are set as `extra-vars`
+ - `meta` provides the relevant metadata for the CR as defined in the
+Operator. 
+
+## Accessing CR Meta Fields
+The `meta` fields can be accessed via dot notation in Ansible.
 
 ```yaml
 ---

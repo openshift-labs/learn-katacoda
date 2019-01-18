@@ -6,7 +6,7 @@ Next, we'll use the Ansible k8s module to leverage existing Kubernetes and OpenS
 
 ---
 
- ###### **a. Copy `nginx-deployment.yml` into `example-role/files`**
+ ###### **a. Copy the nginx deployment definition `nginx-deployment.yml` into `example-role/files`**
 
  `cp nginx-deployment.yml ./example-role/files/`{{execute}}
 
@@ -35,7 +35,7 @@ spec:
 ---
 
 
- ###### **b. Update `example-role/tasks/main.yml`**
+ ###### **b. Update tasks file `example-role/tasks/main.yml` to create the nginx deployment using the k8s module**
 
  <pre class="file"
   data-filename="/root/tutorial/example-role/tasks/main.yml"
@@ -57,7 +57,9 @@ spec:
 
 ---
 
-###### **c. Run the playbook to deploy nginx**
+###### **c. Run the playbook to deploy nginx onto OpenShift**
+
+Running the playbook with the command below will read the `state` variable defined in `example-role/defaults/main.yml`
 
  `ansible-playbook -i myhosts playbook.yml`{{execute}}
 
@@ -71,6 +73,8 @@ You can see the `test` namespace created and the `nginx` deployment created in t
 ---
 ###### **e. Revert changes made by playbook**
 
-Remove your nginx deployment by running the playbook again with `state=absent` as an *extra var* with the `-e` flag.
+Remove your nginx deployment from OpenShift by running the playbook again.
 
-`ansible-playbook -i myhosts playbook.yml -e state=absent`{{execute}}
+For this playbook run, we'll override the `state` variable to contain `state=absent` using the [`-e / --extra-vars`](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#passing-variables-on-the-command-line) flag. 
+
+`ansible-playbook -i myhosts playbook.yml --extra-vars state=absent`{{execute}}
