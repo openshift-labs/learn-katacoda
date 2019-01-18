@@ -1,15 +1,18 @@
-In order to speed up deployment and testing, the SDK provides a mechanism to Run
+In order to speed up deployment and testing, the SDK provides a mechanism to run
 the Operator outside of a cluster. This method is preferred during the
 development cycle to speed up deployment and testing.
 
-It is also important that the Role path referenced in watches.yaml exists on
+
+## Copying Roles for local development
+It is important that the Role path referenced in watches.yaml exists on
 your machine. Since we are normally used to using a container where the Role is
 put on disk for us, we need to manually copy our Role to the configured Ansible
 Roles path (e.g /etc/ansible/roles).
 
 `cp -r ~/tutorial/memcached-operator/roles/dymurray.memcached_operator_role /opt/ansible/roles/`{{execute}}
 
-Run the operator locally with the default kubernetes config file present
+## Running with 'operator-sdk up local'
+Run the Operator locally with the default kubernetes config file present
 at $HOME/.kube/config:
 
 ```sh
@@ -29,11 +32,11 @@ INFO[0000] operator-sdk Version: 0.0.5+git
 ```
 
 There is a properly permissioned kubeconfig at ~/backup/.kube/config.  To run
-operator locally run:
+Operator locally run:
 
 `operator-sdk up local --kubeconfig=/root/backup/.kube/config --namespace tutorial`{{execute}}
 
-Next open a 2nd terminal window, using the "+" tab and navigate to our operator.
+Next open a 2nd terminal window, using the "+" tab and navigate to our Operator.
 
 `cd ~/tutorial/memcached-operator`{{execute}}
 
@@ -48,8 +51,8 @@ Ensure that the memcached-operator creates the deployment for the CR:
 <small>
 ```sh
 $ oc get deployment --as system:admin
-NAME                         DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
-example-memcached-memcached  4       4       4          4         34s
+NAME               DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
+example-memcached  4       4       4          4         34s
 ```
 </small>
 
@@ -58,11 +61,11 @@ Check the pods to confirm 4 replicas were created:
 <small>
 ```sh
 $ oc get pods
-NAME                                         READY STATUS   RESTARTS AGE
-example-memcached-memcached-6cc844747c-dp8sx 1/1   Running  0        1m
-example-memcached-memcached-6cc844747c-hk52c 1/1   Running  0        1m
-example-memcached-memcached-6cc844747c-q75m4 1/1   Running  0        1m
-example-memcached-memcached-6cc844747c-xp8qp 1/1   Running  0        1m
+NAME                               READY STATUS   RESTARTS AGE
+example-memcached-6cc844747c-dp8sx 1/1   Running  0        1m
+example-memcached-6cc844747c-hk52c 1/1   Running  0        1m
+example-memcached-6cc844747c-q75m4 1/1   Running  0        1m
+example-memcached-6cc844747c-xp8qp 1/1   Running  0        1m
 ```
 </small>
 
