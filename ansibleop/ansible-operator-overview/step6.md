@@ -12,8 +12,7 @@ CR
 
 ## Installing an existing Role from Ansible Galaxy
 
-To speed development of our Operator up, we can reuse an existing Role inside of our
-operator. We will install a Role from Ansible Galaxy into our Operator: 
+To speed development of our Operator up, we can reuse an existing Role. We will install a Role from Ansible Galaxy into our Operator: 
 
 [dymurray.memcached_operator_role (galaxy.ansible.com)](https://galaxy.ansible.com/dymurray/memcached_operator_role)
 
