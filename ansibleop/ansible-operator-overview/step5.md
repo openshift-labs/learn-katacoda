@@ -1,4 +1,3 @@
-## Learning how to use 'operator-sdk new'
 Next, we'll learn how to use the operator-sdk CLI to create an Ansible Operator project with the 'new' command.
 
 A basic (but incomplete) 'new' command looks like this:
@@ -13,7 +12,7 @@ _However_, we need to add a few more required arguments via flags before running
  - `--kind` 
    - Kubernetes Custom Resource kind (e.g MyOperatedApp)
 
-These flags are used by the CLI tool to generate:
+These flags are used by operator-sdk to generate:
  - Custom Resource files customized according to flag arguments
  - An Ansible Role whose name matches the input for '--kind'. 
 
@@ -56,10 +55,13 @@ my-project/
 │       └── vars
 │           └── main.yml
 └── watches.yaml
+
 ```
 
-## Running 'operator-sdk new'
+# Running 'operator-sdk new'
+***
 __Now it's your turn!__ We'll be building a [__Memcached__](https://memcached.org/) Ansible Operator for the remainder of this scenario. 
+***
 
 Go ahead and run the command below to generate the Ansible Operator project scaffolding.
 
