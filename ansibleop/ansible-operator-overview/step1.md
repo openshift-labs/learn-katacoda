@@ -1,5 +1,8 @@
 ***
+
 _This step doesn't require changes to the interactive environment, but feel free to explore._
+
+***
 
 ## Why an Operator?
 

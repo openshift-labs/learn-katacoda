@@ -1,8 +1,12 @@
-_This step doesn't require changes to the interactive environment, but feel free to explore._
+***
 
-Now that we have demonstrated the Ansible k8s modules, we want to trigger this Ansible logic when a *Custom Resource* changes. The Ansible Operator uses a Watches file (`watches.yaml`), written in YAML, which holds the mapping between Custom Resources and Ansible Roles/Playbooks.
+*This step doesn't require changes to the interactive environment, but feel free to explore.*
 
-**NOTE**: It is incredibly important that the Ansible Roles/Playbooks packaged into an Ansible Operator are **_[idempotent](https://docs.ansible.com/ansible/latest/reference_appendices/glossary.html#term-idempotency)_**, as these tasks will be executed frequently to ensure the application is in its proper state.
+***
+
+Now that we have demonstrated the Ansible k8s modules, we want to trigger this Ansible logic when a *Custom Resource* changes. The Ansible Operator uses a *Watches file*, written in YAML, which holds the mapping between Custom Resources and Ansible Roles/Playbooks.
+
+**NOTE**: It is incredibly important that the Ansible Roles/Playbooks packaged into an Ansible Operator are **[idempotent](https://docs.ansible.com/ansible/latest/reference_appendices/glossary.html#term-idempotency)**, as these tasks will be executed frequently to ensure the application is in its proper state.
 
 ## Structure of a *Watches file*
 
@@ -10,30 +14,31 @@ The **Watches file** contains a list of mappings from Custom Resources, identifi
 
 Each listing within the mapping file has mandatory fields:
 
-* **group**: The group of the Custom Resource that you will be watching.
+* **group**: Group of the Custom Resource that you will be watching.
 
-* **version**: The version of the Custom Resource that you will be watching.
+* **version**: Version of the Custom Resource that you will be watching.
 
-* **kind**: The kind of the Custom Resource that you will be watching.
+* **kind**: Kind of the Custom Resource that you will be watching.
 
-* **role** (default): This is the path to the role that you have added to the container. For example if your roles directory is at `/opt/ansible/roles/` and your role is named `busybox`, this value will be `/opt/ansible/roles/busybox`. This field is mutually exclusive with the "playbook" field.
+* **role** (_default_): Path to the Role that should be run by the Operator for a particular Group-Version-Kind (GVK). This field is mutually exclusive with the "playbook" field.
 
-* **playbook**: This is the path to the Playbook that you have added to the container. This Playbook is expected to be simply a way to call Roles. This field is mutually exclusive with the "role" field.
+* **playbook** (_optional_): Path to the Playbook that should be run by the Operator for a particular Group-Version-Kind (GVK). This Playbook can be a composition of Roles. This field is mutually exclusive with the "role" field.
 
-## Sample *watches.yaml*
+__Sample watches.yaml__
 
 ```yaml
 ---
 - version: v1alpha1
   group: foo.example.com
   kind: Foo
-  # associating a Custom Resource GVK with a Role
+  # associates GVK with Role
   role: /opt/ansible/roles/Foo
+
 ```
 
-By default, `operator-sdk new --type ansible <project-name>` creates `watches.yaml` configured to *execute a role* in response to a *Custom Resource* event. 
+By default, `operator-sdk new --type ansible` creates 'watches.yaml' configured to *execute a role* in response to a *Custom Resource* event. 
 
-This works well for smaller projects, but for more complex  Ansible code we might not want all of our logic in a single role. 
+This works well for smaller projects, but for more complex Ansible we might not want all of our logic in a single role. 
 
 ## Triggering a Playbook instead of a Role
 
@@ -48,13 +53,16 @@ To use a Playbook in your operator, you would modify `watches.yaml` as shown bel
   kind: Foo
   # associating a Custom Resource GVK with a Playbook
   playbook: /opt/ansible/playbook.yaml
-```
-
-Before this will fully work, we need to copy `playbook.yaml` into the container image.
-
-You would accomplish this by modifying `<project-name>/build/Dockerfile` to *COPY* `playbook.yaml` into the container as shown below:
 
 ```
+
+For this to work, we would need to copy `playbook.yaml` into the container image.
+
+You would accomplish this by modifying the Operator Dockerfile to *COPY* 'playbook.yaml' into the container as shown below:
+
+```
+# Dockerfile at <project-name>/build/Dockerfile
+
 FROM quay.io/water-hole/ansible-operator
 
 COPY roles/ ${HOME}/roles
@@ -62,10 +70,13 @@ COPY watches.yaml ${HOME}/watches.yaml
 
 # New 'COPY' build step for playbook.yaml
 COPY playbook.yaml ${HOME}/playbook.yaml
+
 ```
 
-## Preconfiguration for using a Playbook (instead of a Role)
+## Preconfiguration for a Playbook
 
 If you know from the start that you want your Operator to use a Playbook instead of a Role, you can generate your project scaffolding with the `--generate-playbook` flag:
 
-`operator-sdk new --type ansible --kind Foo --api-version foo.example.com/v1alpha1 foo-operator --generate-playbook --skip-git-init`
+```
+operator-sdk new --type ansible --kind Foo --api-version foo.example.com/v1alpha1 foo-operator --generate-playbook --skip-git-init
+```
