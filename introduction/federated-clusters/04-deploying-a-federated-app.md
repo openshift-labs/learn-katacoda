@@ -29,7 +29,7 @@ At this point we are ready to deploy the application. This sample application in
 
 *NOTE:* A sample ConfigMap, Secret and ServiceAccount are also created to illustrate how federation would assist with more complex applications but will not be used in this scenario.
 
-The [sample-app directory](./sample-app) included in the Git repostiroy, contains definitions to deploy these resources. For each of them there is a resource template and a placement policy, and some of them also have overrides. For example: the [sample nginx deployment template](./sample-app/federateddeployment-template.yaml) specifies 3 replicas, but there is also [an override](./sample-app/federateddeployment-override.yaml) that sets the replicas to 5 on `cluster2`.
+The [sample-app directory](https://github.com/openshift/federation-dev/tree/v0.0.4/sample-app) included in the Git repository, contains definitions to deploy these resources. For each of them there is a resource template and a placement policy, and some of them also have overrides. For example: the [sample nginx deployment template](https://github.com/openshift/federation-dev/blob/v0.0.4/sample-app/federateddeployment-template.yaml) specifies 3 replicas, but there is also [an override](https://github.com/openshift/federation-dev/blob/v0.0.4/sample-app/federateddeployment-override.yaml) that sets the replicas to 5 on `cluster2`.
 
 Overrides can be used to specify different values for some attributes across clusters, in this course we use an override to control the replicas over the different clusters as explained above. Imagine you want your application running on-premise to have 3 replicas and 5 replicas for the application running on the cloud, you will use an override for that.
 
