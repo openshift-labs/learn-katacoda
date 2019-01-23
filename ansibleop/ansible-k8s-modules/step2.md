@@ -57,24 +57,15 @@ spec:
 
 ---
 
-###### **c. Run the playbook to deploy nginx onto OpenShift**
+###### **c. Run the Playbook to deploy nginx onto OpenShift**
 
-Running the playbook with the command below will read the `state` variable defined in `example-role/defaults/main.yml`
+Running the Playbook with the command below will read the `state` variable defined in `example-role/defaults/main.yml`
 
  `ansible-playbook -i myhosts playbook.yml`{{execute}}
 
 ---
 
-###### **d. Examine playbook results**
+###### **d. Examine Playbook results**
 You can see the `test` namespace created and the `nginx` deployment created in the new namespace.
 
 `oc get all -n test`{{execute}}
-
----
-###### **e. Revert changes made by playbook**
-
-Remove your nginx deployment from OpenShift by running the playbook again.
-
-For this playbook run, we'll override the `state` variable to contain `state=absent` using the [`-e / --extra-vars`](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#passing-variables-on-the-command-line) flag. 
-
-`ansible-playbook -i myhosts playbook.yml --extra-vars state=absent`{{execute}}
