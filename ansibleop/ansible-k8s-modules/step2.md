@@ -6,12 +6,12 @@ Next, we'll use the Ansible k8s module to leverage existing Kubernetes and OpenS
 
 ---
 
- ###### **a. Copy the nginx deployment definition `nginx-deployment.yml` into `example-role/templates`**
+ ###### **a. Copy the nginx deployment definition `nginx-deployment.yml` into `example-role/templates`, adding a .j2 extension**
 
- `cp nginx-deployment.yml ./example-role/templates/`{{execute}}
+ `cp nginx-deployment.yml ./example-role/templates/nginx-deployment.yml.j2`{{execute}}
 
  ```
-$ cat ./example-role/templates/nginx-deployment.yml
+$ cat ./example-role/templates/nginx-deployment.yml.j2
 
 kind: DeploymentConfig
 apiVersion: v1
@@ -51,7 +51,7 @@ spec:
 - name: set nginx deployment to {{ state }}
   k8s:
    state: "{{ state }}"
-   definition: "{{ lookup('template', 'nginx-deployment.yml') }}"
+   definition: "{{ lookup('template', 'nginx-deployment.yml.j2') }}"
    namespace: test
  </pre>
 

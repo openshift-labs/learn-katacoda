@@ -15,10 +15,10 @@ nginx_replicas: 2
 
 ---
 
-###### **b. Modify nginx deployment definition `nginx-deployment.yml` to read `replicas` from the `nginx_replicas` variable**
+###### **b. Modify nginx deployment definition `nginx-deployment.yml.j2` to read `replicas` from the `nginx_replicas` variable**
 
  <pre class="file"
-  data-filename="/root/tutorial/example-role/templates/nginx-deployment.yml"
+  data-filename="/root/tutorial/example-role/templates/nginx-deployment.yml.j2"
    data-target="replace">
 kind: DeploymentConfig
 apiVersion: v1
@@ -50,7 +50,7 @@ Running the Playbook again will read the variable `nginx_replicas` and use the p
 
 ---
 
-###### **d. Examine playbook results**
+###### **d. Examine Playbook results**
 After running the Playbook, the cluster will scale down one of the nginx pods to meet the new requested replica count of 2. 
 
 `oc get pods -n test`{{execute}}

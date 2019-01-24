@@ -40,7 +40,7 @@ Variables passed in through the CR spec are made available at the top-level to b
 
 ```
 
-Did you notice anything strange about the snippet above? The 'newParameter' variable that we set on our CR spec was accessed as 'new_parameter'. Keep this automatic conversion in mind, as it will happen to all 'extra vars' passed into the CR spec.
+Did you notice anything strange about the snippet above? The 'newParameter' variable that we set on our CR spec was accessed as 'new_parameter'. Keep this automatic conversion from camelCase to snake_case in mind, as it will happen to all 'extra vars' passed into the CR spec.
 
 Refer to the next section for further info on reaching into the JSON structure exposed in the Ansible Operator runtime environment.
 
