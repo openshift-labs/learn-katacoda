@@ -10,7 +10,7 @@ This is equivalent to how [*--extra-vars*](https://docs.ansible.com/ansible/late
 
 ## Example CR with extra-vars
 
-The CR snippet below shows two 'extra vars' (_message, newParamater)_ being passed in via `spec` to be included in the Playbook/Role that the Operator will run.
+The CR snippet below shows two 'extra vars' (_message, newParamater)_ being passed in via `spec`. Passing 'extra vars' through the CR allows for customization of Ansible logic based on the contents of each CR instance.
 ```yaml
 # Sample CR definition where some 
 # 'extra vars' are passed via the spec
@@ -25,7 +25,32 @@ spec:
 ```
 
 
-### JSON Structure
+## Accessing CR Fields
+
+Now that you've passed 'extra vars' to your Playbook through the CR `spec`, we need to read them from the Ansible logic that makes up your Operator.
+
+Variables passed in through the CR spec are made available at the top-level to be read from Jinja templates. For the CR example above, we could read the vars 'message' and 'newParameter' from a Playbook like so:
+
+```
+- debug:
+    msg: "message value from CR spec: {{ message }}"
+
+- debug:
+    msg: "newParameter value from CR spec: {{ new_parameter }}"  
+
+```
+
+Did you notice anything strange about the snippet above? The 'newParameter' variable that we set on our CR spec was accessed as 'new_parameter'. Keep this automatic conversion from camelCase to snake_case in mind, as it will happen to all 'extra vars' passed into the CR spec.
+
+Refer to the next section for further info on reaching into the JSON structure exposed in the Ansible Operator runtime environment.
+
+### JSON Structure 
+
+When a reconciliation job runs, the content of the associated CR is made available as variables in the Ansible runtime environment.
+
+The JSON below is an example of what gets passed into ansible-runner (the Ansible Operator runtime). 
+
+Note that vars added to the 'spec' section of the CR ('message' and 'new_parameter') are placed at the top-level of this structure for easy access. 
 
 ```json
 { "meta": {
@@ -41,19 +66,12 @@ spec:
 
 ```
 
-*Note:* the resulting JSON structure that is passed in as extra vars is
-auto-converted to _snake-case_. 
+### Accessing CR metadata
 
-As an example, passing _newParameter_ as an 'extra var' will become _new_parameter_ in the JSON representation.
-
- - `message` and `newParameter` are set as 'extra vars'
- - `meta` provides the relevant metadata for the CR as defined in the
-Operator. 
-
-## Accessing CR Meta Fields
-The `meta` fields can be accessed via dot notation in Ansible.
+The `meta` fields provide the CR 'name' and 'namespace' associated with a reconciliation job. These and other nested fields can be accessed with dot notation in Ansible.
 
 ```
 - debug:
-    msg: "name: {{ meta.name }}, {{ meta.namespace }}"
+    msg: "name: {{ meta.name }}, namespace: {{ meta.namespace }}"
+
 ```
