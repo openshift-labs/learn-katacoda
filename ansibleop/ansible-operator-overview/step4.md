@@ -70,8 +70,10 @@ Note that vars added to the 'spec' section of the CR ('message' and 'new_paramet
 
 The `meta` fields provide the CR 'name' and 'namespace' associated with a reconciliation job. These and other nested fields can be accessed with dot notation in Ansible.
 
-```
+```yaml
 - debug:
     msg: "name: {{ meta.name }}, namespace: {{ meta.namespace }}"
 
 ```
+
+In the next step, we'll use `operator-sdk` to generate our Operator project scaffolding.

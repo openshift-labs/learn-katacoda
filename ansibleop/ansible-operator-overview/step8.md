@@ -1,4 +1,4 @@
-Now that we have deployed our operator, let's create a CR and deploy an instance
+Now that we have deployed our Operator, let's create a CR and deploy an instance
 of memcached.
 
 There is a sample CR in the scaffolding created as part of the Operator SDK:
@@ -14,7 +14,7 @@ spec:
 ```
 
 Let's go ahead and apply this in our Tutorial project to deploy 3 memcached pods,
-using our operator:
+using our Operator:
 
 ## Create a Memcached CR instance
 
@@ -59,7 +59,7 @@ memcached-operator-68b5b558c5-dxjwh 1/1   Running  0        2m
 
 ## Change the Memcached CR to deploy 4 replicas
 
-Change the `spec.size` field in the memcached CR from 3 to 4 and apply the
+Change the `spec.size` field in `deploy/crds/cache_v1alpha1_memcached_cr.yaml` from 3 to 4 and apply the
 change:
 
 <pre class="file"
@@ -75,7 +75,7 @@ spec:
 
 `oc apply -f deploy/crds/cache_v1alpha1_memcached_cr.yaml --as system:admin`{{execute}}
 
-Confirm that the operator changes the deployment size:
+Confirm that the Operator changes the deployment size:
 
 <small>
 ```sh
@@ -86,17 +86,11 @@ memcached-operator  1       1        1           1          5m
 ```
 </small>
 
-Inspect the list of 'memcached' resources in your project:
+Inspect the YAML list of 'memcached' resources in your project, noting that the 'spec.size' field is now set to 4.
 
-`oc get memcached --as system:admin`{{execute}}
-
-Then view the YAML defining our 4 replica 'memcached' instance, noting the 'size' field:
-
-`oc get memcached example-memcached -o yaml --as system:admin`{{execute}}
+`oc get memcached  -o yaml --as system:admin`{{execute}}
 
 ## Removing Memcached from the cluster 
-
-Clean up the resources:
 
 First, delete the 'memcached' CR, which will remove the 4 Memcached pods and the associated deployment.
 
@@ -110,11 +104,11 @@ memcached-operator-7cc7cfdf86-vvjqk  1/1   Running 0        8m
 ```
 </small>
 
-Then, delete the memcached-operator.
+Then, delete the memcached-operator deployment.
 
 `oc delete -f deploy/operator.yaml`{{execute}}
 
-Verify that the memcached-operator is no longer running:
+Finally, verify that the memcached-operator is no longer running.
 
 `oc get deployment`{{execute}}
 

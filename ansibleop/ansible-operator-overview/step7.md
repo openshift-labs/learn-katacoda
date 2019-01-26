@@ -11,19 +11,19 @@ Use the same credentials to log into the web console.
 
 In order that you can still run commands from the command line as a cluster
 admin, the ``sudoer`` Role has been enabled for the ``developer`` account.
-To execute a command as a cluster admin use the ``--as system:admin`` option
+To execute a command as a cluster admin add the ``--as system:admin`` option
 to the command.
 
-Before running the operator, Kubernetes needs to know about the new custom
-resource definition the operator will be watching.
+Before running the Operator, Kubernetes needs to know about the new custom
+resource definition the Operator will be watching.
 
 ### Deploy the Memcached Custom Resource Definition (CRD):
 
 `oc create -f deploy/crds/cache_v1alpha1_memcached_crd.yaml --as system:admin`{{execute}}
 
-By running this command, we are creating a new resource type, `memcached`, on the cluster. We will interact with our Operator by creating resources of this type.
+By running this command, we are creating a new resource type, `memcached`, on the cluster. __We will give our Operator work to do by creating and modifying resources of this type.__
 
-## Run the Operator
+## Ways to Run an Operator
 
 Once the CRD is registered, there are two ways to run the Operator:
 
@@ -76,13 +76,13 @@ Now, we are ready to deploy the memcached-operator:
 Create a Project for the Operator to run in
 `oc new-project tutorial`{{execute}}
 
-Create Service Account
+Create Service Account for Operator to run as
 `oc create -f deploy/service_account.yaml`{{execute}}
 
-Create OpenShift Role
+Create OpenShift Role specifying Operator Permissions
 `oc create -f deploy/role.yaml --as system:admin`{{execute}}
 
-Create OpenShift Role Binding
+Create OpenShift Role Binding assigning Permissions to Service Account
 `oc create -f deploy/role_binding.yaml --as system:admin`{{execute}}
 
 Create Operator Deployment Object
