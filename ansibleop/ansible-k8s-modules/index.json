@@ -13,6 +13,9 @@
 		}, {
 			"title": "Leveraging existing k8s Resource Files inside of Ansible",
 			"text": "step2.md"
+    }, {
+			"title": "Customizing k8s Resource files with Ansible",
+			"text": "step3.md"
     }],
     "intro": {
       "code": "set-env.sh",
