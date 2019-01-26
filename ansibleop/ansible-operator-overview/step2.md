@@ -14,21 +14,15 @@ The **Watches file** maps Custom Resources (identified by Group, Version, and Ki
 
 Each mapping within the Watches file has mandatory fields:
 
----
-
 * **group**: Group of the Custom Resource that you will be watching.
 
 * **version**: Version of the Custom Resource that you will be watching.
 
 * **kind**: Kind of the Custom Resource that you will be watching.
 
----
-
 * **role** (_default_): Path to the Role that should be run by the Operator for a particular Group-Version-Kind (GVK). This field is mutually exclusive with the "playbook" field.
 
 * **playbook** (_optional_): Path to the Playbook that should be run by the Operator for a particular Group-Version-Kind (GVK). This Playbook can be a composition of Roles. This field is mutually exclusive with the "role" field.
-
----
 
 __Sample watches.yaml__
 
