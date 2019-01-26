@@ -1,20 +1,22 @@
-In order to speed up deployment and testing, the SDK provides a mechanism to run
-the Operator outside of a cluster. This method is preferred during the
-development cycle to speed up deployment and testing.
+In order to speed up Operator deployment and testing, `operator-sdk` provides a mechanism to run the Operator outside of a cluster.
 
 
 ## Copying Roles for local development
 It is important that the Role path referenced in watches.yaml exists on
-your machine. Since we are normally used to using a container where the Role is
-put on disk for us, we need to manually copy our Role to the configured Ansible
-Roles path (e.g /etc/ansible/roles).
+your machine. 
+
+We previously ran our Ansible Operator from a container where the Role was
+copied to a known location specified by the Dockerfile.
+
+To run our Operator locally, we will manually copy any Roles used by our Operator to a configured Ansible
+Roles path for our local machine (e.g /etc/ansible/roles).
 
 `cp -r ~/tutorial/memcached-operator/roles/dymurray.memcached_operator_role /opt/ansible/roles/`{{execute}}
 
 ## Running with 'operator-sdk up local'
 
 ### Sample Commands
-Running `operator-sdk up local` to run an Operator locally requires a KUBECONFIG value to connect with the cluster. Some sample commands are shown below.
+Running `operator-sdk up local` to run an Operator locally requires a KUBECONFIG value to connect with a cluster. Some sample commands are shown below.
 ```sh
 $ operator-sdk up local # default, KUBECONFIG=$HOME/.kube/config
 ```

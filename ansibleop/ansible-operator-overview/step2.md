@@ -10,9 +10,11 @@ Now that we have demonstrated the Ansible k8s modules, we want to trigger this A
 
 ## Structure of a *Watches file*
 
-The **Watches file** contains a list of mappings from Custom Resources, identified by it's Group, Version, and Kind (GVK), to an Ansible Role or Playbook. The Operator expects this mapping file in a predefined location: `/opt/ansible/watches.yaml`
+The **Watches file** maps Custom Resources (identified by Group, Version, and Kind [GVK]) to Ansible Roles and Playbooks. The Operator expects this mapping file in a predefined location: `/opt/ansible/watches.yaml`
 
-Each listing within the mapping file has mandatory fields:
+Each mapping within the Watches file has mandatory fields:
+
+---
 
 * **group**: Group of the Custom Resource that you will be watching.
 
@@ -20,9 +22,13 @@ Each listing within the mapping file has mandatory fields:
 
 * **kind**: Kind of the Custom Resource that you will be watching.
 
+---
+
 * **role** (_default_): Path to the Role that should be run by the Operator for a particular Group-Version-Kind (GVK). This field is mutually exclusive with the "playbook" field.
 
 * **playbook** (_optional_): Path to the Playbook that should be run by the Operator for a particular Group-Version-Kind (GVK). This Playbook can be a composition of Roles. This field is mutually exclusive with the "role" field.
+
+---
 
 __Sample watches.yaml__
 
