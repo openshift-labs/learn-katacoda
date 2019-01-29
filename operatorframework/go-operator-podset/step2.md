@@ -32,4 +32,3 @@ Confirm the CRD was successfully created:
 ```
 oc get crd
 ```{{execute}}
-<br>
