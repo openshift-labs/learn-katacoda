@@ -7,6 +7,10 @@
   "details": {
     "steps": [
       {
+        "title": "Setup System under Test",
+        "text": "step0.md"
+      },
+      {
         "title": "Step 1",
         "text": "step1.md",
         "verify": "step1-verify.sh"
@@ -37,6 +41,7 @@
     "uilayout": "editor-terminal"
   },
   "backend": {
-    "imageid": "3-11-cluster"
+    "imageid": "openshift",
+    "port": 8443
   }
 }

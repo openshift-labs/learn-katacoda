@@ -8,15 +8,16 @@ _Note that you could also use JUnit in combination with Citrus._
 
 At first, lets test whether the TodoApp is responsive, by requesting the list of current todo entries from the apps API. 
 <pre class="file" data-filename="citrus-sample/src/test/java/org/citrus/samples/TodoAppIT.java" data-target="insert" data-marker="// TODO: implement testGet">
-http()
+http(http -> http
            .client(todoClient)
            .send()
-           .get("/api/todolist/");
+           .get("/api/todolist/"));
 
-        http()
+        http(http -> http
            .client(todoClient)
            .receive()
-           .response(HttpStatus.OK);
+           .response(HttpStatus.OK));
+
 
 </pre>
 
