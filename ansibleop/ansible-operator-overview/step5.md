@@ -65,7 +65,7 @@ __Now it's your turn!__ We'll be building a [__Memcached__](https://memcached.or
 
 Go ahead and run the command below to generate the Ansible Operator project scaffolding.
 
-`operator-sdk new memcached-operator --type=ansible --api-version=cache.example.com/v1alpha1 --kind=Memcached`{{execute}}
+`operator-sdk new memcached-operator --type=ansible --api-version=cache.example.com/v1alpha1 --kind=Memcached --skip-git-init`{{execute}}
 
 This creates a new memcached-operator project specifically for watching the
 Memcached resource with APIVersion 'cache.example.com/v1apha1' and Kind
