@@ -33,9 +33,3 @@ Confirm the CRD was successfully created:
 oc get crd
 ```{{execute}}
 <br>
-Verify there are no current PodSets created:
-
-```
-oc get podset
-```{{execute}}
-<br>
