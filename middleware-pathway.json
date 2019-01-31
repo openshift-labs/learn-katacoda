@@ -10,6 +10,12 @@
       "title": "Spring and Spring Boot development"
     },
     {
+      "external_link": "https://learn.openshift.com/middleware/middleware-javaee8/",
+      "count": 1,
+      "course_id": "middleware-javaee8",
+      "title": "Java EE 8 Development"
+    },
+    {
       "external_link": "https://learn.openshift.com/middleware/amq-getting-started-broker/",
       "course_id": "amq-getting-started-broker",
       "title": "Application Messaging with Openshift"
