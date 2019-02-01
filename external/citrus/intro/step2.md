@@ -20,7 +20,7 @@ Now, add the new HTTP client bean to the the EndpointConfig class:
     public HttpClient todoClient() {
         return CitrusEndpoints.http()
             .client()
-            .requestUrl("http://todo-app.paas.consol.de")
+            .requestUrl("http://todo-api-todo-api-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com")
             .build();
     }
 </pre>
