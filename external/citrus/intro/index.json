@@ -8,11 +8,12 @@
     "steps": [
       {
         "title": "Setup System under Test",
-        "text": "step0.md"
+        "text": "step0.md",
+        "code": "install-java-mvn.sh"
       },
       {
         "title": "Step 1",
-        "text": "step1.md",
+        "text": "step1.md"
       },
       {
         "title": "Step 2",

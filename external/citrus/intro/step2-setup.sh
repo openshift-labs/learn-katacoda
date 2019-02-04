@@ -1,18 +1,18 @@
 #!/bin/bash
 
-rm /home/scrapbook/tutorial/citrus-sample/src/test/java/org/citrus/samples/SampleJavaIT.java
-rm /home/scrapbook/tutorial/citrus-sample/src/test/java/org/citrus/samples/SampleXmlIT.java
-rm /home/scrapbook/tutorial/citrus-sample/src/test/resources/citrus-context.xml
-rm -rf /home/scrapbook/tutorial/citrus-sample/src/test/resources/org/
+rm /root/citrus-sample/src/test/java/org/citrus/samples/SampleJavaIT.java
+rm /root/citrus-sample/src/test/java/org/citrus/samples/SampleXmlIT.java
+rm /root/citrus-sample/src/test/resources/citrus-context.xml
+rm -rf /root/citrus-sample/src/test/resources/org/
 
-touch /home/scrapbook/tutorial/citrus-sample/src/test/resources/citrus-application.properties
-cat > /home/scrapbook/tutorial/citrus-sample/src/test/resources/citrus-application.properties << EOM 
+touch /root/citrus-sample/src/test/resources/citrus-application.properties
+cat > /root/citrus-sample/src/test/resources/citrus-application.properties << EOM 
 citrus.spring.java.config=org.citrus.samples.EndpointConfig
 EOM
 
 
-touch /home/scrapbook/tutorial/citrus-sample/src/test/java/org/citrus/samples/EndpointConfig.java
-cat > /home/scrapbook/tutorial/citrus-sample/src/test/java/org/citrus/samples/EndpointConfig.java << EOM
+touch /root/citrus-sample/src/test/java/org/citrus/samples/EndpointConfig.java
+cat > /root/citrus-sample/src/test/java/org/citrus/samples/EndpointConfig.java << EOM
 package org.citrus.samples;
 
 import com.consol.citrus.dsl.endpoint.CitrusEndpoints;
@@ -29,8 +29,8 @@ public class EndpointConfig {
 }
 EOM
 
-touch /home/scrapbook/tutorial/citrus-sample/src/test/java/org/citrus/samples/TodoAppIT.java
-cat > /home/scrapbook/tutorial/citrus-sample/src/test/java/org/citrus/samples/TodoAppIT.java << EOM
+touch /root/citrus-sample/src/test/java/org/citrus/samples/TodoAppIT.java
+cat > /root/citrus-sample/src/test/java/org/citrus/samples/TodoAppIT.java << EOM
 package org.citrus.samples;
 
 import com.consol.citrus.annotations.CitrusTest;

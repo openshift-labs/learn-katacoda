@@ -1,7 +1,7 @@
 #!/bin/bash
 
-touch /home/scrapbook/tutorial/citrus-sample/src/test/java/org/citrus/samples/TodoAppLifecycleIT.java
-cat > /home/scrapbook/tutorial/citrus-sample/src/test/java/org/citrus/samples/TodoAppLifecycleIT.java << EOM
+touch /root/citrus-sample/src/test/java/org/citrus/samples/TodoAppLifecycleIT.java
+cat > /root/citrus-sample/src/test/java/org/citrus/samples/TodoAppLifecycleIT.java << EOM
 package org.citrus.samples;
 
 import org.testng.annotations.Test;
