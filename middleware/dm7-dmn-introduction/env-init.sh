@@ -3,8 +3,11 @@ ssh root@host01 'echo "Importing Red Hat Decision Manager 7 Image Streams into O
 ssh root@host01 'for i in {1..200}; do oc create -f https://raw.githubusercontent.com/jboss-container-images/rhdm-7-openshift-image/7.2.0.GA/rhdm72-image-streams.yaml -n openshift && break || sleep 2; done'
 ssh root@host01 'echo "Importing Red Hat Decision Manager 7 templates into OpenShift." >> script.log'
 # Patching Image streams
+ssh root@host01 'echo "Patching ImageStreams." >> script.log'
 ssh root@host01 'for i in {1..200}; do oc patch is/rhdm72-decisioncentral-openshift --type=json -p '\''[{"op": "replace", "path": "/spec/tags/0/from/name", "value": "registry.access.redhat.com/rhdm-7/rhdm72-decisioncentral-openshift:1.0"}'\'''
-ssh root@host01 'for i in {1..200}; oc patch is/rhdm72-kieserver-openshift --type=json -p '\''[{"op": "replace", "path": "/spec/tags/0/from/name", "value": "registry.access.redhat.com/rhdm-7/rhdm72-kieserver-openshift:1.0"}]'\'''
+ssh root@host01 'echo "Patching ImageStreams 2." >> script.log'
+ssh root@host01 'for i in {1..200}; do oc patch is/rhdm72-kieserver-openshift --type=json -p '\''[{"op": "replace", "path": "/spec/tags/0/from/name", "value": "registry.access.redhat.com/rhdm-7/rhdm72-kieserver-openshift:1.0"}]'\'''
+ssh root@host01 'echo "Image Streams patched." >> script.log'
 # Importing the templates
 ssh root@host01 'for i in {1..200}; do oc create -f https://raw.githubusercontent.com/jboss-container-images/rhdm-7-openshift-image/7.2.0.GA/templates/rhdm72-trial-ephemeral.yaml -n openshift && break || sleep 2; done'
 ssh root@host01 'echo "Logging into OpenShift as developer." >> script.log'
