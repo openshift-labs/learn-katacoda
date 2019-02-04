@@ -51,6 +51,11 @@
       "title": "Red Hat Decision Manager Loan Application demo"
     },
     {
+      "external_link": "https://learn.openshift.com/middleware/dm7-dmn-introduction/",
+      "course_id": "dm7-dmnn-introduction",
+      "title": "Red Hat Decision Manager DMN Introduction"
+    },
+    {
       "external_link": "https://learn.openshift.com/middleware/java-batch-processing/",
       "course_id": "java-batch-processing",
       "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret"
