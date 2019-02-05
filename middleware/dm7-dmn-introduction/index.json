@@ -9,8 +9,9 @@
       { "title": "Starting the Decision Central workbench", "text": "starting-redhat-decisionmanager.md" },
       { "title": "Creating the DMN project", "text": "create-dmn-project.md" },
       { "title": "Enable the DMN editor", "text": "enable-dmn-editor.md" },
-      { "title": "The Decision Model", "text": "decision-model.md" },
-      { "title": "Implementing the Decison Table", "text": "decision-table.md" },
+      { "title": "Creating the Decision Model", "text": "decision-model.md" },
+      { "title": "Implementing the Decision Model", "text": "implement-decision-model.md" },
+      { "title": "Implementing the Decison Table", "text": "implementing-decision-table.md" },
       { "title": "Deploying the Decision Service", "text": "deploy-decision-service.md" },
       { "title": "Testing the Decision Service", "text": "testing-the-service.md" }
     ],
