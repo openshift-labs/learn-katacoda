@@ -9,7 +9,7 @@ To model the 2 data inputs, we add 2 DMN `Input Data` nodes to our model. We nam
 <img src="../../assets/middleware/dm7-dmn-introduction/dmn-model-input-data
 .png" width="300"/>
 
-DMN defines various out-of-the-box datatypes that we can use in our models. To define the datatype of an Input Data node, click on the node and open its properties by clicking on the pencil icon in the upper right corner of the editor. In the properties panel, set the "Output data type" to `number`:
+DMN defines various out-of-the-box datatypes that we can use in our models. To define the datatype of the `Age` Input Data node, click on the node and open its properties by clicking on the pencil icon in the upper right corner of the editor. In the properties panel, set the "Output data type" to `number`:
 
 <img src="../../assets/middleware/dm7-dmn-introduction/dmn-input-data-properties.png" width="450"/>
 
