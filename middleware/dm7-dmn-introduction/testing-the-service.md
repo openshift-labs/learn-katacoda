@@ -1,6 +1,6 @@
-With our Decision Server deployed, we can now test our rules. As our Decision Server provides a Swagger interface to interact with its RESTful API, we can simply test our rules via the web-interface provided by the Decision Server.
+With our Decision Service deployed, we can now test our DMN model. As our Decision Server provides a Swagger interface to interact with its RESTful API, we can simply test our rules via the web-interface provided by the Decision Server.
 
-The Decision Server's Swagger UI can be accessed at http://loan-demo-kieserver-loan-demo.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].http-proxy.katacoda.com/docs/
+The Decision Server's Swagger UI can be accessed at http://dmn-demo-kieserver-dmn-demo.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].http-proxy.katacoda.com/docs/
 
 <img src="../../assets/middleware/dm7-loan-application/dm7-swagger-ui.png" width="800" />
 
@@ -14,101 +14,58 @@ In the Swagger UI:
 6. Observe the response, which lists the KIE Containers deployed on the server and their status (STARTED, STOPPED).
 
 
-We can use the Swagger UI to test our Loan Approval Decision Service. In the Swagger UI:
-1. Navigate to "Rules evalutation :: BRM"
-2. Expand the "POST" operation for resource "/server/containers/instances/{id}"
+We can use the Swagger UI to test our Insurance Premium DMN Decision Service. In the Swagger UI:
+1. Navigate to "Decision Service :: DMN"
+2. Expand the "POST" operation for resource "/server/containers/{id}/dmn"
 3. Click on "Try it out"
-4. Set the "id" parameter to the name of the KIE Container that hosts our rules, in this case loan-application_1.0.0.
+4. Set the "id" parameter to the name of the KIE Container that hosts our DMN model, in this case `dmn-decision-service_1.0.0`{{copy}}
 5. Set "Parameter content type" to application/json.
 6. Set "Response content type" to application/json
-7. Use the following request as the "body" parameter. Note that the `Loan` object has its `approved` attribute set to false:
+7. Use the following request as the "body" parameter. Please change the value of the `namespace` field to the value of your specific model, the value we copied in one of the previous steps:
 
     ```
 {
-    "lookup":"loan-stateless-ksession",
-    "commands":[
-        {
-            "insert":{
-                "object":{
-                    "com.myteam.loan_application.Applicant":{
-                        "creditScore":230,
-                        "name":"Jim Whitehurst"
-                    }
-                },
-                "out-identifier":"applicant"
-            }
-        },
-        {
-            "insert":{
-                "object":{
-                    "com.myteam.loan_application.Loan":{
-                        "amount":2500,
-                        "approved":false,
-                        "duration":24,
-                        "interestRate":1.5
-                    }
-                },
-                "out-identifier":"loan"
-            }
-        },
-        {
-            "fire-all-rules":{
-            }
-        }
-    ]
+  "model-namespace":"https://github.com/kiegroup/drools/kie-dmn/_C8668BD2-4F07-4150-9580-1D88EFC398F8",
+  "model-name":"insurance-premium",
+  "decision-name":null,
+  "decision-id":null,
+  "dmn-context":{
+     "Had previous incidents":false,
+     "Age":23
+  }
 }
     ```
-    This JSON request is the representation of a Decision Manager “BatchExecutionCommand” in which we insert 2 objects (facts) into the rules engine, `Applicant` and `Loan`, after which we give the command to fire the rules. The response will look like this:
-
-8. Observe the result. The Loan Application rules have fired and determined that, based on the credit score of the application, and the amount of the loan, the loan can be approved. The `approved` attribute of the `Loan` has been set to true.
+    This JSON request is the representation of a Decision Manager DMN request in which we insert 2 input data values, `Age` and `Had previous incidents`. We also define the DMN model that we wan to evaluate through its namespace and nameThe response will look like this:
 
 ```
 {
   "type": "SUCCESS",
-  "msg": "Container loan-application_1.0.0 successfully called.",
+  "msg": "OK from container 'dmn-decision-service'",
   "result": {
-    "execution-results": {
-      "results": [
-        {
-          "value": {
-            "com.myteam.loan_application.Loan": {
-              "amount": 2500,
-              "duration": 24,
-              "interestRate": 1.5,
-              "approved": true
-            }
-          },
-          "key": "loan"
-        },
-        {
-          "value": {
-            "com.myteam.loan_application.Applicant": {
-              "name": "Jim Whitehurst",
-              "creditScore": 230
-            }
-          },
-          "key": "applicant"
+    "dmn-evaluation-result": {
+      "messages": [],
+      "model-namespace": "https://github.com/kiegroup/drools/kie-dmn/_C8668BD2-4F07-4150-9580-1D88EFC398F8",
+      "model-name": "insurance-premium",
+      "decision-name": null,
+      "dmn-context": {
+        "Insurance Premium": 2000,
+        "Had previous incidents": false,
+        "Age": 23
+      },
+      "decision-results": {
+        "_B5A49030-4DEA-4D8A-8E97-9E36EE50B351": {
+          "messages": [],
+          "decision-id": "_B5A49030-4DEA-4D8A-8E97-9E36EE50B351",
+          "decision-name": "Insurance Premium",
+          "result": 2000,
+          "status": "SUCCEEDED"
         }
-      ],
-      "facts": [
-        {
-          "value": {
-            "org.drools.core.common.DefaultFactHandle": {
-              "external-form": "0:2:1617049150:1617049150:2:DEFAULT:NON_TRAIT:com.myteam.loan_application.Loan"
-            }
-          },
-          "key": "loan"
-        },
-        {
-          "value": {
-            "org.drools.core.common.DefaultFactHandle": {
-              "external-form": "0:1:2101504172:2101504172:1:DEFAULT:NON_TRAIT:com.myteam.loan_application.Applicant"
-            }
-          },
-          "key": "applicant"
-        }
-      ]
+      }
     }
   }
 }
 ```
+
+8. Observe the result. The DMN model has been evaluated, and based on the given input, the result of the `Insurance Premium` decision is the value 2000. We can also see that the status of the evaluation is _SUCCEEDED_.
+
+This concludes the testing of our model. Feel free to test your model with different inputs to assess if all your decisions are evaluated correctly.
