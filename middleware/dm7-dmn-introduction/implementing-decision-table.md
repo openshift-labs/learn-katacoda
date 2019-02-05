@@ -18,13 +18,13 @@ Select the `Decision Table` to open the DMN Decision Table editor.
 
 The first decision/rule that we want to define is that a driver with an age between 18 and 25, and who has had incidents in the past, has to pay a premium of 3000.
 
-The first requirement, an age between 18 and 25, can be expressed with a FEEL expression. FEEL stands for Friendly Enough Expression Language, and is an expression language focussed at business users. The idea behind FEEL is that any user who can write expressions in a spreadsheet should be able to write expressions in FEEL. We can write the requirement as a inclusive range in FEEL using the following syntax `[18..25]`{{copy}}.
+The first requirement, an age between 18 and 25, can be expressed with a FEEL expression. FEEL stands for Friendly Enough Expression Language, and is an expression language focussed at business users. The idea behind FEEL is that any user who can write expressions in a spreadsheet should be able to write expressions in FEEL. We can write the requirement as an inclusive range in FEEL using the following syntax `[18..25]`{{copy}}.
 
 The second requirement is simply the boolean expression `true`{{copy}}. Hence the decision can be defined as such:
 
 <img src="../../assets/middleware/dm7-dmn-introduction/decision-table-first-rule.png" width="450"/>
 
-Apart from inclusive ranges, FEEL also supports exclusive ranges (e.g. [18..25), which excludes the value 25 from the range), comparisons (less than, greater than, equal to), negations, disjunctions, etc.
+Apart from inclusive ranges, FEEL also supports exclusive ranges (e.g. `[18..25)`, which excludes the value 25 from the range), comparisons (less than, greater than, equal to), negations, disjunctions, etc.
 
 The table below provides an overview of all the rules/decisions we want to define in this example.
 
