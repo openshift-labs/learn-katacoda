@@ -41,7 +41,7 @@
     "hidefinish": false
   },
   "backend": {
-    "imageid": "openshift-middleware-3.7",
+    "imageid": "openshift-middleware-3-7",
     "port": 8443
   },
   "environmentsprotocol": "http",
