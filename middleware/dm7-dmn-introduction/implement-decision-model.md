@@ -15,7 +15,7 @@ DMN defines various out-of-the-box datatypes that we can use in our models. To d
 
 Set the "Output data type" of `Had previous incidents` to `boolean`. Save the model by clicking on the _Save_ button at the top of the editor.
 
-Next, we want to define our _Decision Node_. Input data can either come from an _Input Data_ node, or can be the result (or output) of another _Decision Node_. In DMN, the output of a _Decision Node_ is always (in contrast to, for example, Drools DRL rules that can take actions as a result of a decision).
+Next, we want to define our _Decision Node_. Input data can either come from an _Input Data_ node, or can be the result (or output) of another _Decision Node_. In DMN, the output of a _Decision Node_ is always a value (in contrast to, for example, Drools DRL rules, that can take actions as a result of a decision).
 
 In this tutorial, the decision node is responsible for determining the premium of the insurance based on the data coming from our 2 input data nodes.
 
