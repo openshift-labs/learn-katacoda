@@ -26,4 +26,4 @@ A DMN DRD, or Decision Requirements Diagram, supports various modeling construct
 | Business Knowledge Model | Reusable function with one or more decision elements. Decisions that have the same logic but depend on different sub-input data or sub-decisions use business knowledge models to determine which procedure to follow. | ![](../../assets/middleware/dm7-dmn-introduction/dmn-bkm-node.png) |
 | Decision | Node where one or more input elements determine an output based on defined decision logic. | ![](../../assets/middleware/dm7-dmn-introduction/dmn-decision-node.png) |
 
-In this introduction we will use the DMN `Input Data`, `Decision` and `Text Annotation` nodes.
+In this introduction we will use the DMN `Input Data` and `Decision` nodes.
