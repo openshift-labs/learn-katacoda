@@ -6,21 +6,24 @@ Decision Central provides a number of different Decision Manager functionalities
 
 Click on the *Design* button in the homescreen of Decision Manager to open the design perspective.
 
-We can now create our first rules project. A Red Hat Decision Manager project can contain various types of rule assets:
+We can now create our firstproject. A Red Hat Decision Manager project can contain various types of rule assets:
 
 1. DRL: Rule definitions written in the *Drools Rule Language*
 2. Guided Rules: rules written in a more business friendly language, including a business friendly editor
 3. Guided Decision Tables: rules written in the form of a decision table.
+4. Decison Model & Notation (DMN) models.
 4. etc.
+
+In this course we will focus on the DMN functionality of Red Hat Decision Manager.
 
 To create the project, perform the following steps:
 1. Click on the "Add Project" button in the design perspective.
 
-    <img src="../../assets/middleware/dm7-loan-application/dm7-add-project.png" width="400" />
+    <img src="../../assets/middleware/dm7-dmn-introduction/dm7-add-project.png" width="400" />
 
 2. Provide the following details:
-    - Name: `loan-application`{{copy}}
-    - Description: `Loan Application Demo`{{copy}}
+    - Name: `dmn-decision-service`{{copy}}
+    - Description: `DMN Decision Service`{{copy}}
 3. Click on the *Finish* button
 
-We've now created our first Red Hat Decision Manager 7 project and can now start creating rules assets. We will begin with creating our domain-model.
+We've now created our first Red Hat Decision Manager 7 project and can now start creating our DMN model.
