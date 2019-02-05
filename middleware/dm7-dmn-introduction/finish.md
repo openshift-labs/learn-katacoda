@@ -1,8 +1,8 @@
-In this scenario you've learned how to build a Red Hat Decision Manager Micro-Rules service on OpenShift.
+In this scenario you've learned how to build a DMN-based Decision Service on OpenShift.
 
-We started by defining our project in the Red Hat Decision Manager web-based workbench *Decision Central*. Next, we created our fist data-model and decision-table representing our facts and rules.
+We started by defining our project in the Red Hat Decision Manager web-based workbench *Decision Central*. Next, we created our fist DMN DRD model, in which we defined our data input and decision nodes. We've use a DMN Decision Table to implement the logic of our decision node.
 
-Using the *Build & Deploy* functionality in Decision Central, we were able to compile and package our rules in a KJAR and deploy the KJAR onto the Decision Server running in OpenShift
+Using the *Deployment* functionality in Decision Central, we were able to compile and package our DMN model in a Deployment Unit (KJAR) and deploy it on a Decision Server running in OpenShift
 
 Finally we tested our rules using the Swagger UI provided by the Decision Server.
 
