@@ -1,0 +1,2 @@
+~/.launch.sh
+cd ~/projects/
