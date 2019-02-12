@@ -1,0 +1,11 @@
+{
+    "title": "Use tehnoloiges from our Partners in OpenShift",
+    "icon": "fa-openshift",
+    "courses": [
+        {
+            "action": "Start Course",
+            "external_link": "https://learn.openshift.com/external/citrus",
+            "title": "Testing services in OpenShift with Citrus"
+          }
+    ]
+}
