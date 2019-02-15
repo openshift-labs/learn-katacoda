@@ -1,10 +1,3 @@
-#Save the existing system:admin .kube/config for up local
-ssh root@host01 'mkdir -p ~/backup/.kube'
-ssh root@host01 'cp -r ~/.kube/config ~/backup/.kube/'
-
-#Remove the existing ~/.kube/config -> this addresses a untrusted cert issue
-ssh root@host01 'rm -rf ~/.kube/config  >> /dev/null'
-
 ssh root@host01 'echo "Importing Red Hat Decision Manager 7 Image Streams into OpenShift." >> script.log'
 # Create the ImageStreams
 ssh root@host01 'for i in {1..200}; do oc create -f https://raw.githubusercontent.com/jboss-container-images/rhdm-7-openshift-image/7.2.0.GA/rhdm72-image-streams.yaml -n openshift && break || sleep 2; done'
@@ -17,7 +10,7 @@ ssh root@host01 'echo "Image Streams patched." >> script.log'
 ssh root@host01 'echo "Importing Red Hat Decision Manager 7 templates into OpenShift." >> script.log'
 ssh root@host01 'for i in {1..200}; do oc create -f https://raw.githubusercontent.com/jboss-container-images/rhdm-7-openshift-image/7.2.0.GA/templates/rhdm72-trial-ephemeral.yaml -n openshift && break || sleep 2; done'
 ssh root@host01 'echo "Logging into OpenShift as developer." >> script.log'
-ssh root@host01 'for i in {1..200}; do oc login -u developer -p developer && break || sleep 2; done'
+ssh root@host01 'for i in {1..200}; do oc login -u developer -p developer --insecure-skip-tls-verify=true --certificate-authority=/etc/origin/master/admin.crt && break || sleep 2; done'
 # Creating the project
 ssh root@host01 'echo "Creating new dmn-demo project in OpenShift." >> script.log'
 ssh root@host01 'for i in {1..200}; do oc new-project dmn-demo --display-name="DMN Demo" --description="Red Hat Decision Manager 7 - DMN Demo" && break || sleep 2; done'
