@@ -1,5 +1,5 @@
 #/bin/bash
-echo "Initialing environment... This may take a couple of moments."
+echo "Initializing environment... This may take a couple of moments."
 echo
 
 #Wait for Decision Central OpenShift deployment
