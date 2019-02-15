@@ -1,3 +1,10 @@
+#Save the existing system:admin .kube/config for up local
+ssh root@host01 'mkdir -p ~/backup/.kube'
+ssh root@host01 'cp -r ~/.kube/config ~/backup/.kube/'
+
+#Remove the existing ~/.kube/config -> this addresses a untrusted cert issue
+ssh root@host01 'rm -rf ~/.kube/config  >> /dev/null'
+
 ssh root@host01 'echo "Importing Red Hat Decision Manager 7 Image Streams into OpenShift." >> script.log'
 # Create the ImageStreams
 ssh root@host01 'for i in {1..200}; do oc create -f https://raw.githubusercontent.com/jboss-container-images/rhdm-7-openshift-image/7.2.0.GA/rhdm72-image-streams.yaml -n openshift && break || sleep 2; done'
