@@ -50,7 +50,7 @@ Click the `+` sign next to our OpenShift console and select `Open New Terminal`.
 
 Run the following commands to navigate to our client project and build it locally
 
-``cd code``{{execute}}
+``cd projects/rhoar-getting-started/spring/service-discovery``{{execute}}
 
 ``mvn -f eureka-client spring-boot:run``{{execute}}
 
