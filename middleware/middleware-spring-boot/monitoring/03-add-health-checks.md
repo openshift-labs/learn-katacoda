@@ -25,7 +25,7 @@ Since we have a Spring Boot application we have an easy option for implementatio
 
 **2. Add Health Checks with Actuator**
 
-Spring Actuator is a project which exposes health data under the API path `/health` that is collected during application runtime automatically. All we need to do to enable this feature is to add the following dependency to ``pom.xml``{{open}} at the **TODO** comment..
+Spring Actuator is a project which exposes health data under the API path `/actuator/health` that is collected during application runtime automatically. All we need to do to enable this feature is to add the following dependency to ``pom.xml``{{open}} at the **TODO** comment..
 
 <pre class="file" data-filename="pom.xml" data-target="insert" data-marker="<!-- TODO: Add Actuator dependency here -->">
     &lt;dependency&gt;
@@ -38,9 +38,9 @@ Notice how the error message from before is no longer present in Applications =>
 
 Run the following command again to re-deploy the application to OpenShift:
 
-``mvn package fabric8:deploy -Popenshift``{{execute}}
+``mvn package fabric8:undeploy fabric8:deploy -Popenshift``{{execute}}
 
-Now that we've added Spring Actuator, we're able to hit their provided `/health` endpoint. We can navigate to it by either adding `/health` to our landing page, or by clicking [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/health) 
+Now that we've added Spring Actuator, we're able to hit their provided `/actuator/health` endpoint. We can navigate to it by either adding `/actuator/health` to our landing page, or by clicking [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/actuator/health) 
 
 We should now see the following response, confirming that our application is up and running properly:
 
@@ -52,31 +52,32 @@ OpenShift will now continuously poll this endpoint to determine if any action is
 
 **3.Other Spring Actuator endpoints for monitoring**
 
-The `/health` endpoint isn't the only endpoint that Spring Actuator provides out of the box. We're going to take a closer look at a few of the different endpoints so we can see how they help us with monitoring our newly deployed application, specifically the `/metrics` and `/beans` endpoints. A list of all other Spring Actuator endpoints can be found [here](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html).
+The `/actuator/health` endpoint isn't the only endpoint that Spring Actuator provides out of the box. We're going to take a closer look at a few of the different endpoints so we can see how they help us with monitoring our newly deployed application, specifically the `/metrics` and `/beans` endpoints. A list of all other Spring Actuator endpoints can be found [here](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html).
 
-Unlike the `/health` endpoint some of these endpoints can return sensitive information and require authentication. For simplicity purposes we will be removing this security requirement in order to hit the endpoints, but this is not recommended for a production environment with sensitive data. Pull up the application.properties file ``src/main/resources/application.properties``{{open}} and add this code to disable endpoint security.
+Unlike the `/actuator/health` endpoint some of these endpoints can return sensitive information and require authentication. For simplicity purposes we will be removing this security requirement in order to hit the endpoints, but this is not recommended for a production environment with sensitive data. Pull up the application.properties file ``src/main/resources/application.properties``{{open}} and add this code to disable endpoint security.
 
 <pre class="file" data-filename="src/main/resources/application.properties" data-target="insert" data-marker="# TODO: Add Security preference here">
-management.security.enabled=false
+management.endpoints.web.exposure.include=*  
 </pre>
 
 If we redeploy the application again with: 
 
-``mvn package fabric8:deploy -Popenshift``{{execute}} 
+``mvn package fabric8:undeploy fabric8:deploy -Popenshift``{{execute}} 
 
-We can hit the `/health` endpoint again [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/health) and we'll notice some differences. Since we've removed the security we should be getting a new response with much more content that looks something like:
-
-```json
-{"status":"UP","diskSpace":{"status":"UP","total":10725883904,"free":10131124224,"threshold":10485760}}
-```
-
-Navigating to the `/metrics` endpoint [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/metrics) will display different types of metric data about the application including memory usage, heap, processors, threads, classes loaded, and some HTTP metrics in a response that looks like:
+Now we can hit the `/actuator/metrics` endpoint [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/actuator/metrics) and get a list of metrics types accessible to us:
 
 ```json
-{"mem":429321,"mem.free":306191,"processors":4,"instance.uptime":49984,"uptime":55113,"systemload.average":0.45,"heap.committed":372224,"heap.init":63488,"heap.used":66032,"heap":899584,"nonheap.committed":59328,"nonheap.init":2496,"nonheap.used":57098,"nonheap":0,"threads.peak":26,"threads.daemon":22,"threads.totalStarted":31,"threads":24,"classes":6994,"classes.loaded":6994,"classes.unloaded":0,"gc.ps_scavenge.count":14,"gc.ps_scavenge.time":141,"gc.ps_marksweep.count":2,"gc.ps_marksweep.time":130,"httpsessions.max":-1,"httpsessions.active":0,"gauge.response.health":2.0,"counter.status.200.health":5}
+{"names":["jvm.memory.max","jvm.threads.states","process.files.max","jvm.gc.memory.promoted","system.load.average.1m","jvm.memory.used","jvm.gc.max.data.size","jvm.memory.committed","system.cpu.count","logback.events","http.server.requests","tomcat.global.sent","jvm.buffer.memory.used","tomcat.sessions.created","jvm.threads.daemon","system.cpu.usage","jvm.gc.memory.allocated","tomcat.global.request.max","tomcat.global.request","tomcat.sessions.expired","jvm.threads.live","jvm.threads.peak","tomcat.global.received","process.uptime","tomcat.sessions.rejected","process.cpu.usage","tomcat.threads.config.max","jvm.classes.loaded","jvm.classes.unloaded","tomcat.global.error","tomcat.sessions.active.current","tomcat.sessions.alive.max","jvm.gc.live.data.size","tomcat.threads.current","process.files.open","jvm.buffer.count","jvm.gc.pause","jvm.buffer.total.capacity","tomcat.sessions.active.max","tomcat.threads.busy","process.start.time"]}
 ```
 
-In addition to the different monitoring endpoints we also have informational endpoints like the `/beans` endpoint [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/beans), which will show all of the configured beans in the application. Spring Actuator provides multiple informational endpoints on top of the monitoring endpoints that can prove useful for information gathering about your deployed Spring application and can be helpful while debugging your applications in OpenShift.
+We can then navigate to `/acutuator/metrics/[metric-name]`. For example, click this link: [JVM Memory Usage](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/actuator/metrics/jvm.memory.max).
+This will display different types of metric data about the JVM Metrics:
+
+```json
+{"name":"jvm.memory.max","description":"The maximum amount of memory in bytes that can be used for memory management","baseUnit":"bytes","measurements":[{"statistic":"VALUE","value":2.543321088E9}],"availableTags":[{"tag":"area","values":["heap","nonheap"]},{"tag":"id","values":["Compressed Class Space","PS Survivor Space","PS Old Gen","Metaspace","PS Eden Space","Code Cache"]}]}
+```
+
+In addition to the different monitoring endpoints we also have informational endpoints like the `/actuator/beans` endpoint [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/actuator/beans), which will show all of the configured beans in the application. Spring Actuator provides multiple informational endpoints on top of the monitoring endpoints that can prove useful for information gathering about your deployed Spring application and can be helpful while debugging your applications in OpenShift.
 
 ## Congratulations
 
