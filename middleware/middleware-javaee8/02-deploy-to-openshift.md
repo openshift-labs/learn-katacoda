@@ -125,4 +125,6 @@ Weight:         100 (100%)
 Endpoints:      172.20.0.3:8080, 172.20.0.3:8443, 172.20.0.3:8778
 ```
 
-Now, try to access the service by calling going to the OpenShift console and click on the route link or use [this](http://weather-app-my-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/) link.
+**NOTE**: The country selector flag will not work yet - we will develop that in the next step!
+
+Now, try to access the service by calling going to the OpenShift console and click on the route link or use [this](http://weather-app-my-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/) link. You won't yet be able to select different country flags (you'll get an error popup) - this we will fix in the next step.
