@@ -24,15 +24,20 @@ oc new-project my-project --display-name="Weather App"
 
 As you probably know, OpenShift ships with a web-based console that will allow users to perform various tasks via a browser. To get a feel for how the web console works, click on the "OpenShift Console" tab next to the "Local Web Browser" tab.
 
-![OpenShift Console Tab](../../assets/middleware/rhoar-getting-started-eap/openshift-console-tab.png)
+![OpenShift Console Tab](/openshift/assets/middleware/rhoar-getting-started-spring/openshift-console-tab.png)
 
 The first screen you will see is the authentication screen. Enter your username and password and
 then login:
 
-![Web Console Login](../../assets/middleware/rhoar-getting-started-eap/login.png)
+![Web Console Login](/openshift/assets/middleware/rhoar-getting-started-spring/login.png)
+
+* Username: `developer`
+* Password: `developer`
 
 After you have authenticated to the web console, you will be presented with a
-list of projects that your user has permission to work with.
+list of projects (on the right side of the screen) that your user has permission to work with.
+
+Click on your new project name to be taken to the project overview page which will list all of the routes, services, deployments, and pods that you will create as part of your project.
 
 There's nothing there now, but that's about to change.
 
