@@ -26,7 +26,7 @@ Since we have two *Pods* running right now, let's see what happens if we
 
 On the same page where you viewed the list of pods after scaling to 2 replicas, open one of the pods by clicking its name in the list.
 
-In the top right corner of the page there is _Actions_ tab. When opened, there is the _Delete_ action.
+In the top right corner of the page, there is _Actions_ tab. When opened, there is the _Delete_ action.
 
 ![Delete action](../../assets/introduction/getting-started/4scaling-actions.png)
 
