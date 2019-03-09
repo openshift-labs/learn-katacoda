@@ -24,7 +24,7 @@ situation if it is ever not right. You would be correct!
 Since we have two *Pods* running right now, let's see what happens if we
 "accidentally" kill one.
 
-Open one of the pods by clicking its name in the list.
+On the same page where you viewed the list of pods after scaling to 2 replicas, open one of the pods by clicking its name in the list.
 
 In the top right corner of the page there is _Actions_, when opened, there is _Delete_ action.
 
