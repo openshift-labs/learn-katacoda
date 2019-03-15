@@ -1,0 +1,57 @@
+{
+  "pathwayTitle": "Vert.x on RHOAR",
+  "icon": "fa-openshift",
+  "title": "MicroTrader Part 4: Audit Service",
+  "description": "In this scenario you will build a component for the MicroTrader example application for Vert.x.",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "details": {
+    "intro": {
+      "text": "00-intro.md",
+      "code": "env-init.sh"
+    },
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "01-audit-verticle.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "02-vertx-web.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "03-async-jdbc.md"
+      },
+      {
+        "title": "Step 4",
+        "text": "04-async-jdbc-with-callback.md"
+      },
+      {
+        "title": "Step 5",
+        "text": "05-deploy-to-openshift.md"
+      },
+      {
+        "title": "Step 6",
+        "text": "06-managing-secrets.md"
+      }
+    ],
+    "finish": {
+      "text": "99-outro.md"
+    }
+  },
+  "files": [],
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
+    "uilayout": "editor-terminal",
+    "uisettings": "java",
+    "hideintro": false,
+    "uieditorpath": "/root/code",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "openshift-middleware-3-7",
+    "port": 8443
+  }
+}
