@@ -1,0 +1,49 @@
+{
+  "pathwayTitle": "Vert.x on RHOAR",
+  "icon": "fa-openshift",
+  "title": "MicroTrader Part 2: Portfolio Service",
+  "description": "In this scenario you will build a component for the MicroTrader example application for Vert.x.",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "details": {
+    "intro": {
+      "text": "00-intro.md",
+      "code": "env-init.sh"
+    },
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "01-async-service-interface.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "02-data-objects.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "03-implement-service.md"
+      },
+      {
+        "title": "Step 4",
+        "text": "04-deploy-to-openshift.md"
+      }
+    ],
+    "finish": {
+      "text": "99-outro.md"
+    }
+  },
+  "files": [],
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
+    "uilayout": "editor-terminal",
+    "uisettings": "java",
+    "hideintro": false,
+    "uieditorpath": "/root/code",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "openshift-middleware-3-7",
+    "port": 8443
+  }
+}
