@@ -16,11 +16,6 @@
       "external_link": "https://learn.openshift.com/ansibleop/ansible-operator-overview/",
       "course_id": "ansible-operator-overview",
       "title": "Ansible Operator Overview"
-    },
-    {
-      "external_link": "https://learn.openshift.com/ansibleop/operator-sdk-playground/",
-      "course_id": "operator-sdk-playground",
-      "title": "Operator SDK Playground"
     }
   ]
 }
