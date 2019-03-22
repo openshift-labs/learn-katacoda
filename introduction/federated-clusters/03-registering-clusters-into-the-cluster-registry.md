@@ -40,11 +40,11 @@ Spec:
   Cluster Ref:
     Name:  cluster1
   Secret Ref:
-    Name:  cluster1-rrlzf
+    Name:  cluster1-9tkn2
 Status:
   Conditions:
-    Last Probe Time:       2019-01-30T11:11:55Z
-    Last Transition Time:  2019-01-30T11:09:55Z
+    Last Probe Time:       2019-03-22T16:23:02Z
+    Last Transition Time:  2019-03-22T16:23:02Z
     Message:               /healthz responded with ok
     Reason:                ClusterReady
     Status:                True
@@ -55,11 +55,11 @@ Spec:
   Cluster Ref:
     Name:  cluster2
   Secret Ref:
-    Name:  cluster2-h5xgh
+    Name:  cluster2-plw85
 Status:
   Conditions:
-    Last Probe Time:       2019-01-30T11:11:55Z
-    Last Transition Time:  2019-01-30T11:11:15Z
+    Last Probe Time:       2019-03-22T16:23:02Z
+    Last Transition Time:  2019-03-22T16:23:02Z
     Message:               /healthz responded with ok
     Reason:                ClusterReady
     Status:                True
