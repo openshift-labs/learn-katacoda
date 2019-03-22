@@ -28,6 +28,10 @@ Once the repository has been cloned, change directory into the new directory:
 
 ``cd federation-dev``{{execute HOST1}}
 
+Checkout the v0.0.7 tag:
+
+``git checkout v0.0.7``{{execute HOST1}}
+
 You might want to review some configurations already present on the environment:
 
 * Contexts created: You should see cluster1 and cluster2 contexts already present on the configuration, these contexts will be used during the course.
