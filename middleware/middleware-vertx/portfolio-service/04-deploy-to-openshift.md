@@ -6,7 +6,7 @@ Now that you've logged into OpenShift, let's deploy our new micro-trader Vert.x 
 
 We have already deployed our `quote-generator` and `micro-trader-dashboard` microservices on OpenShift. In this step we will deploy our new portfolio microservice. We will continue with the same OpenShift project to house this service and other microservices.
 
-`oc project vertx-kubernetes-workshop``{{execute}}
+`oc project vertx-kubernetes-workshop`{{execute}}
 
 As you know, Red Hat OpenShift Application Runtimes include a powerful maven plugin that can take an
 existing Eclipse Vert.x application and generate the necessary Kubernetes configuration.

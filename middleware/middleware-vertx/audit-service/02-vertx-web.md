@@ -10,7 +10,7 @@ Take a look at the `configureTheHTTPServer` method. In this method we are going 
 
 In the same `io.vertx.workshop.audit.impl.AuditVerticle` class, add the below content to the matching `// TODO: configureTheHTTPServer` statement (or use the `Copy to Editor` button):
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/audit/impl/AuditVerticle.java" data-target="insert" data-marker="// TODO: configureTheHTTPServer">
+<pre class="file" data-filename="audit-service/src/main/java/io/vertx/workshop/audit/impl/AuditVerticle.java" data-target="insert" data-marker="// TODO: configureTheHTTPServer">
 Router router = Router.router(vertx);
 router.get("/").handler(this::retrieveOperations);
 router.get("/health").handler(rc -> {

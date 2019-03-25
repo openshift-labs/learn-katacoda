@@ -39,6 +39,10 @@ In Java, a verticle is a class extending the Abstract Verticle class:
 
 Before we add code to create our web server you should build and test that current application starts as it should.
 
+First, switch to the project directory:
+
+`cd /root/projects/rhoar-getting-started/vertx/vertx-intro`{{execute}}
+
 Since this is already a working application, you can run it without any code changes locally directly using `maven` with goal `vertx:run`
 
 ``mvn compile vertx:run``{{execute}}
