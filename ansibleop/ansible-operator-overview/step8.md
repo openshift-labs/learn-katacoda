@@ -30,7 +30,7 @@ spec:
   size: 3
 ```
 
-`oc create -f deploy/crds/cache_v1alpha1_memcached_cr.yaml --as system:admin`{{execute}}
+`oc create -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
 
 ## Check that the Memcached Operator works as intended 
 Ensure that the memcached-operator creates the deployment for the CR:
@@ -73,7 +73,7 @@ spec:
   size: 4
 </pre>
 
-`oc apply -f deploy/crds/cache_v1alpha1_memcached_cr.yaml --as system:admin`{{execute}}
+`oc apply -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
 
 Confirm that the Operator changes the deployment size:
 
@@ -88,13 +88,13 @@ memcached-operator  1       1        1           1          5m
 
 Inspect the YAML list of 'memcached' resources in your project, noting that the 'spec.size' field is now set to 4.
 
-`oc get memcached  -o yaml --as system:admin`{{execute}}
+`oc get memcached  -o yaml`{{execute}}
 
 ## Removing Memcached from the cluster 
 
 First, delete the 'memcached' CR, which will remove the 4 Memcached pods and the associated deployment.
 
-`oc delete -f deploy/crds/cache_v1alpha1_memcached_cr.yaml --as system:admin`{{execute}}
+`oc delete -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
 
 <small>
 ```sh
