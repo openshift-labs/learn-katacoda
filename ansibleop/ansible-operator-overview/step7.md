@@ -1,25 +1,9 @@
-Login to OpenShift as the developer user:
-
-`oc login -u developer -p developer [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com`{{execute}}
-
-This will log you in using the credentials:
-
-* **Username:** ``developer``
-* **Password:** ``developer``
-
-Use the same credentials to log into the web console.
-
-In order that you can still run commands from the command line as a cluster
-admin, the ``sudoer`` Role has been enabled for the ``developer`` account.
-To execute a command as a cluster admin add the ``--as system:admin`` option
-to the command.
-
 Before running the Operator, Kubernetes needs to know about the new custom
 resource definition the Operator will be watching.
 
 ### Deploy the Memcached Custom Resource Definition (CRD):
 
-`oc create -f deploy/crds/cache_v1alpha1_memcached_crd.yaml --as system:admin`{{execute}}
+`oc create -f deploy/crds/cache_v1alpha1_memcached_crd.yaml`{{execute}}
 
 By running this command, we are creating a new resource type, `memcached`, on the cluster. __We will give our Operator work to do by creating and modifying resources of this type.__
 
@@ -80,10 +64,10 @@ Create Service Account for Operator to run as
 `oc create -f deploy/service_account.yaml`{{execute}}
 
 Create OpenShift Role specifying Operator Permissions
-`oc create -f deploy/role.yaml --as system:admin`{{execute}}
+`oc create -f deploy/role.yaml`{{execute}}
 
 Create OpenShift Role Binding assigning Permissions to Service Account
-`oc create -f deploy/role_binding.yaml --as system:admin`{{execute}}
+`oc create -f deploy/role_binding.yaml`{{execute}}
 
 Create Operator Deployment Object
 `oc create -f deploy/operator.yaml`{{execute}}
