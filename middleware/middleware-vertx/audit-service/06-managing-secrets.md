@@ -67,8 +67,6 @@ return new JsonObject()
 
 And redeploy your service using: 
 
-`mvn fabric8:undeploy`{{execute}}
-
-`mvn fabric8:deploy`{{execute}}
+`mvn fabric8:undeploy fabric8:deploy`{{execute}}
 
 Voilà! we have externalized the credentials from the application.

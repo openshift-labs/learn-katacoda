@@ -2,7 +2,7 @@
 
 To create an async RPC service, or event bus service, or service proxies, you first need a Java interface declaring the async methods. 
 
-Open the ``io.vertx.workshop.portfolio.PortfolioService`` class
+Open the ``io.vertx.workshop.portfolio.PortfolioService`` class by clicking the link:
 
 ``portfolio-service/src/main/java/io/vertx/workshop/portfolio/PortfolioService.java``{{open}}
 

@@ -21,14 +21,14 @@ Then, copy the below content to the matching `// TODO` statements (or use the `C
 
 Extract the body of the message using `.map(msg -> {})`
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/quote/RestQuoteAPIVerticle.java" data-target="insert" data-marker="// TODO: Extract the body of the message">
+<pre class="file" data-filename="quote-generator/src/main/java/io/vertx/workshop/quote/RestQuoteAPIVerticle.java" data-target="insert" data-marker="// TODO: Extract the body of the message">
 .map(Message::body)  
 </pre>
 
 For each message, populate the `quotes` map with the received quote. Use `.doOnNext(json -> {})` 
 Quotes are json objects you can retrieve from the message body. The map is structured as follows: name -> quote
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/quote/RestQuoteAPIVerticle.java" data-target="insert" data-marker="// TODO: For each message, populate the quotes map with the received quote.">
+<pre class="file" data-filename="quote-generator/src/main/java/io/vertx/workshop/quote/RestQuoteAPIVerticle.java" data-target="insert" data-marker="// TODO: For each message, populate the quotes map with the received quote.">
 .doOnNext(json -> {
     quotes.put(json.getString("name"), json); // 2
 })
@@ -47,7 +47,7 @@ Write the content of the request handler to respond to the request:
 if the company name is set, return the stored quote or a 404 response if the company is unknown
 Copy the following to the matching `// TODO: Handle the HTTP request` statement
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/quote/RestQuoteAPIVerticle.java" data-target="insert" data-marker="// TODO: Handle the HTTP request">
+<pre class="file" data-filename="quote-generator/src/main/java/io/vertx/workshop/quote/RestQuoteAPIVerticle.java" data-target="insert" data-marker="// TODO: Handle the HTTP request">
 String company = request.getParam("name");
 if (company == null) {
     String content = Json.encodePrettily(quotes);

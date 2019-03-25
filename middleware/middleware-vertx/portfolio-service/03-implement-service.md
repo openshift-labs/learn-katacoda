@@ -20,7 +20,7 @@ Open the file in the editor:
 
 Then, copy the below content to the matching `// TODO: getPortfolio` statement (or use the `Copy to Editor` button):
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/portfolio/impl/PortfolioServiceImpl.java" data-target="insert" data-marker="// TODO: getPortfolio">
+<pre class="file" data-filename="portfolio-service/src/main/java/io/vertx/workshop/portfolio/impl/PortfolioServiceImpl.java" data-target="insert" data-marker="// TODO: getPortfolio">
 resultHandler.handle(Future.succeededFuture(portfolio));
 </pre>
 
@@ -58,7 +58,7 @@ Write the body of the `sendActionOnTheEventBus` method in order to publish a mes
 
 Copy the following to the matching `// TODO: sendActionOnTheEventBus` statement
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/portfolio/impl/PortfolioServiceImpl.java" data-target="insert" data-marker="// TODO: sendActionOnTheEventBus">
+<pre class="file" data-filename="portfolio-service/src/main/java/io/vertx/workshop/portfolio/impl/PortfolioServiceImpl.java" data-target="insert" data-marker="// TODO: sendActionOnTheEventBus">
 vertx.eventBus().publish(EVENT_ADDRESS, new JsonObject()
     .put("action", action)
     .put("quote", quote)
@@ -86,7 +86,7 @@ Fill the evaluate method to retrieve the quotes service. You can retrieve Http s
 
 Copy the following to the matching `// TODO: evaluate` statement in the evaluate method
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/portfolio/impl/PortfolioServiceImpl.java" data-target="insert" data-marker="// TODO: evaluate">
+<pre class="file" data-filename="portfolio-service/src/main/java/io/vertx/workshop/portfolio/impl/PortfolioServiceImpl.java" data-target="insert" data-marker="// TODO: evaluate">
 quotes.subscribe((client, err) -> {
  if (err != null) {
      resultHandler.handle(Future.failedFuture(err));
@@ -133,7 +133,7 @@ This method returns a Single<Double> emitting the numberOfShares * bid result. W
 
 Copy the following to the matching `// TODO: getValueForCompany` statement in the getValueForCompany method 
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/portfolio/impl/PortfolioServiceImpl.java" data-target="insert" data-marker="// TODO: getValueForCompany">
+<pre class="file" data-filename="portfolio-service/src/main/java/io/vertx/workshop/portfolio/impl/PortfolioServiceImpl.java" data-target="insert" data-marker="// TODO: getValueForCompany">
  return client.get("/?name=" + encode(company))
      .as(BodyCodec.jsonObject())
      .rxSend()
