@@ -18,21 +18,21 @@ oc adm policy add-scc-to-user privileged -z default -n tutorial
 
 mvn package -f /root/projects/istio-tutorial/customer/java/springboot -DskipTests
 docker build -t example/customer /root/projects/istio-tutorial/customer/java/springboot
-oc apply -f <(/root/installation/istio-1.0.2/bin/istioctl kube-inject -f /root/projects/istio-tutorial/customer/kubernetes/Deployment.yml) -n tutorial
+oc apply -f <(/root/installation/istio-1.0.5/bin/istioctl kube-inject -f /root/projects/istio-tutorial/customer/kubernetes/Deployment.yml) -n tutorial
 oc create -f /root/projects/istio-tutorial/customer/kubernetes/Service.yml -n tutorial 2> /dev/null || echo "Customer Service already exists"
 
 mvn package -f /root/projects/istio-tutorial/preference/java/springboot -DskipTests
 docker build -t example/preference:v1 /root/projects/istio-tutorial/preference/java/springboot
-oc apply -f <(/root/installation/istio-1.0.2/bin/istioctl kube-inject -f /root/projects/istio-tutorial/preference/kubernetes/Deployment.yml) -n tutorial
+oc apply -f <(/root/installation/istio-1.0.5/bin/istioctl kube-inject -f /root/projects/istio-tutorial/preference/kubernetes/Deployment.yml) -n tutorial
 oc create -f /root/projects/istio-tutorial/preference/kubernetes/Service.yml -n tutorial 2> /dev/null || echo "Preference Service already exists"
 
 mvn package -f /root/projects/istio-tutorial/recommendation/java/vertx -DskipTests
 docker build -t example/recommendation:v1 /root/projects/istio-tutorial/recommendation/java/vertx
-oc apply -f <(/root/installation/istio-1.0.2/bin/istioctl kube-inject -f /root/projects/istio-tutorial/recommendation/kubernetes/Deployment.yml) -n tutorial
+oc apply -f <(/root/installation/istio-1.0.5/bin/istioctl kube-inject -f /root/projects/istio-tutorial/recommendation/kubernetes/Deployment.yml) -n tutorial
 oc create -f /root/projects/istio-tutorial/recommendation/kubernetes/Service.yml -n tutorial 2> /dev/null || echo "Recommendation V1 already exists"
 
 mvn package -f /root/projects/istio-tutorial/recommendation-v2/ -DskipTests
 docker build -t example/recommendation:v2 /root/projects/istio-tutorial/recommendation-v2/
-oc apply -f <(/root/installation/istio-1.0.2/bin/istioctl kube-inject -f /root/projects/istio-tutorial/recommendation/kubernetes/Deployment-v2.yml) -n tutorial
+oc apply -f <(/root/installation/istio-1.0.5/bin/istioctl kube-inject -f /root/projects/istio-tutorial/recommendation/kubernetes/Deployment-v2.yml) -n tutorial
 
 oc expose service customer -n tutorial 2> /dev/null || echo "Route already exists"
