@@ -1,5 +1,5 @@
-Thank you for taking a closer look at the *Operator SDK's Helm-based Operator*.  For more
-Information, check out the links below:
+Thank you for taking a closer look at the **Operator SDK's Helm-based Operator**.  For more
+information, check out the links below:
 
 ## Git Hub
  * Helm Operator Getting Started guide: https://github.com/operator-framework/operator-sdk/blob/master/doc/helm/user-guide.md
