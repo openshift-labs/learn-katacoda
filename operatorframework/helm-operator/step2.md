@@ -16,7 +16,7 @@ Unpack the Cockroachdb Helm chart to the current directory:
 tar -xvzf cockroachdb-2.1.1.tgz
 ```{{execute}}
 <br>
-Update the watches.yaml file to the path of the current chart:
+Update the `watches.yaml` file at `go/src/github.com/cockroachdb-operator/watches.yaml` to reflect the path to the top-level Cockroachdb Helm chart directory:
 
 <pre class="file"
  data-filename="/root/tutorial/go/src/github.com/cockroachdb-operator/watches.yaml"

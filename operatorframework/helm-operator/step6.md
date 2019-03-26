@@ -1,4 +1,4 @@
-You can now start talking to the Cockroachdb cluster by connecting to the public service from within the cluster. CockroachDB is PostgreSQL wire protocol compatible so there's a wide variety of supported clients. For the sake of example, we'll open up a SQL shell using CockroachDB's built-in shell and play around with it a bit.
+Let's talk to the CockroachDB cluster by connecting to the service from within the cluster. CockroachDB is PostgreSQL wire protocol compatible so there's a wide variety of supported clients. For the sake of example, we'll open up a SQL shell using CockroachDB's built-in shell and play around with it a bit.
 
 ```
 oc run -it --rm cockroach-client --image=cockroachdb/cockroach --restart=Never --command -- ./cockroach sql --insecure --host $COCKROACHDB_PUBLIC_SERVICE
@@ -11,7 +11,7 @@ Once you see the SQL prompt, run the following to show the default databases:
 SHOW DATABASES;
 ```{{execute}}
 <br>
-Create a new database called `bank` and populate a table with values:
+Create a new database called `bank` and populate a table with arbitrary values:
 
 ```
 CREATE DATABASE bank;
@@ -27,5 +27,6 @@ SELECT * FROM bank.accounts;
 <br>
 Exit the SQL prompt:
 ```
-/q
+\q
 ```{{execute}}
+
