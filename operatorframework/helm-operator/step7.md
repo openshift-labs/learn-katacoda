@@ -1,0 +1,55 @@
+Let's now update the Cockroachdb `example` Custom Resource and increase the desired number of replicas to `3`:
+
+```
+oc patch cockroachdb example --type='json' -p '[{"op": "replace", "path": "/spec/Replicas", "value":3}]'
+```{{execute}}
+<br>
+Verify that the Cockroachdb StatefulSet is creating two additional pods:
+
+```
+oc get pods -l
+
+
+
+
+```
+cd tutorial/go/src/github.com/redhat/podset-operator/
+cat deploy/crds/app_v1alpha1_podset_cr.yaml
+```{{execute}}
+<br>
+Ensure your `kind: PodSet` Custom Resource (CR) is updated with `spec.replicas`:
+
+<pre class="file"
+ data-filename="/root/tutorial/go/src/github.com/podset-operator/deploy/crds/app_v1alpha1_podset_cr.yaml"
+  data-target="replace">
+apiVersion: app.example.com/v1alpha1
+kind: PodSet
+metadata:
+  name: example-podset
+spec:
+  replicas: 3
+</pre>
+
+Deploy your PodSet Custom Resource to the live OpenShift Cluster:
+
+```
+oc create -f deploy/crds/app_v1alpha1_podset_cr.yaml
+```{{execute}}
+<br>
+Verify the PodSet operator has created 3 pods:
+
+```
+oc get pods
+```{{execute}}
+<br>
+Verify that status shows the name of the pods currently owned by the PodSet:
+
+```
+oc get podset example-podset -o yaml
+```{{execute}}
+<br>
+Increase the number of replicas owned by the PodSet:
+
+```
+oc patch podset example-podset --type='json' -p '[{"op": "replace", "path": "/spec/replicas", "value":5}]'
+```{{execute}}
