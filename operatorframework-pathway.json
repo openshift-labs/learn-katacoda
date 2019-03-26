@@ -38,9 +38,9 @@
       "title": "Ansible Operator Overview"
     },
     {
-      "external_link": "https://learn.openshift.com/ansibleop/operator-sdk-playground/",
-      "course_id": "operator-sdk-playground",
-      "title": "Operator SDK Playground"
+      "external_link": "https://learn.openshift.com/operatorframework/helm-operator/",
+      "course_id": "helm-operator-cockroachdb",
+      "title": "Operator SDK with Helm (CockroachDB)"
     }
   ]
 }
