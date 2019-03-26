@@ -1,16 +1,10 @@
-Thank you for taking a closer look at the *Go Operator*.  For more
+Thank you for taking a closer look at the *Operator SDK's Helm-based Operator*.  For more
 Information, check out the links below:
 
 ## Git Hub
+ * Helm Operator Getting Started guide: https://github.com/operator-framework/operator-sdk/blob/master/doc/helm/user-guide.md
  * Operator-Framework: https://github.com/operator-framework
  * Operator-SDK: https://github.com/operator-framework/operator-sdk/
-
-## YouTube
-* Memcached Ansible Operator Demo: https://www.youtube.com/watch?v=Smk9oQp7YMY
-* OpenShift Commons Briefing Ansible Operator - Operator Framework SIG: https://www.youtube.com/watch?v=YFTQJI6foGc
-
-## Samples
-* Sample Operators using Ansible: https://github.com/operator-framework/operator-sdk-samples/tree/master/ansible
 
 ## Chat
 * Kubernetes Slack Chat (upstream): #kubernetes-operators at https://kubernetes.slack.com/

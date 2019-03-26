@@ -1,55 +1,28 @@
-Let's now update the Cockroachdb `example` Custom Resource and increase the desired number of replicas to `3`:
+If any CockroachDB member fails it gets restarted or recreated automatically by the Kubernetes infrastructure, and will rejoin the cluster automatically when it comes back up. You can test this scenario by killing any of the pods:
 
 ```
-oc patch cockroachdb example --type='json' -p '[{"op": "replace", "path": "/spec/Replicas", "value":3}]'
+oc delete pods -l chart=cockroachdb-2.1.1
 ```{{execute}}
 <br>
-Verify that the Cockroachdb StatefulSet is creating two additional pods:
+Watch the pods respawn:
 
 ```
-oc get pods -l
-
-
-
+oc get pods -l chart=cockroachdb-2.1.1
+```
+<br>
+Confirm that the contents of the database still persist by connecting to the database cluster:
 
 ```
-cd tutorial/go/src/github.com/redhat/podset-operator/
-cat deploy/crds/app_v1alpha1_podset_cr.yaml
+oc run -it --rm cockroach-client --image=cockroachdb/cockroach --restart=Never --command -- ./cockroach sql --insecure --host $COCKROACHDB_PUBLIC_SERVICE
 ```{{execute}}
 <br>
-Ensure your `kind: PodSet` Custom Resource (CR) is updated with `spec.replicas`:
-
-<pre class="file"
- data-filename="/root/tutorial/go/src/github.com/podset-operator/deploy/crds/app_v1alpha1_podset_cr.yaml"
-  data-target="replace">
-apiVersion: app.example.com/v1alpha1
-kind: PodSet
-metadata:
-  name: example-podset
-spec:
-  replicas: 3
-</pre>
-
-Deploy your PodSet Custom Resource to the live OpenShift Cluster:
+Once you see the SQL prompt, run the following to confirm the database contents are still present:
 
 ```
-oc create -f deploy/crds/app_v1alpha1_podset_cr.yaml
+SELECT * FROM bank.accounts;
 ```{{execute}}
 <br>
-Verify the PodSet operator has created 3 pods:
-
+Exit the SQL prompt:
 ```
-oc get pods
-```{{execute}}
-<br>
-Verify that status shows the name of the pods currently owned by the PodSet:
-
-```
-oc get podset example-podset -o yaml
-```{{execute}}
-<br>
-Increase the number of replicas owned by the PodSet:
-
-```
-oc patch podset example-podset --type='json' -p '[{"op": "replace", "path": "/spec/replicas", "value":5}]'
+\q
 ```{{execute}}
