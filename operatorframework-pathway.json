@@ -39,8 +39,8 @@
     },
     {
       "external_link": "https://learn.openshift.com/operatorframework/helm-operator/",
-      "course_id": "helm-operator-cockroachdb",
-      "title": "Operator SDK with Helm (CockroachDB)"
+      "course_id": "helm-operator",
+      "title": "Operator SDK"
     }
   ]
 }
