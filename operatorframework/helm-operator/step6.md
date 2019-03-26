@@ -4,7 +4,6 @@ Let's talk to the CockroachDB cluster by connecting to the service from within t
 oc run -it --rm cockroach-client --image=cockroachdb/cockroach --restart=Never --command -- ./cockroach sql --insecure --host $COCKROACHDB_PUBLIC_SERVICE
 ```{{execute}}
 <br>
-
 Once you see the SQL prompt, run the following to show the default databases:
 
 ```
@@ -29,4 +28,3 @@ Exit the SQL prompt:
 ```
 \q
 ```{{execute}}
-

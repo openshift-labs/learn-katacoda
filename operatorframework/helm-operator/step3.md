@@ -1,4 +1,4 @@
-Apply the Cockroachdb Custom Resource Definition to the cluster:
+Apply the CockroachDB Custom Resource Definition to the cluster:
 
 ```
 oc apply -f deploy/crds/db_v1alpha1_cockroachdb_crd.yaml

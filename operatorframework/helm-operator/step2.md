@@ -4,13 +4,13 @@ The `watches.yaml` file maps a Group, Version, and Kind to a specific Helm Chart
 cat watches.yaml
 ```{{execute}}
 <br>
-Fetch the Cockroachdb Helm chart:
+Fetch the CockroachDB Helm chart:
 
 ```
 wget https://storage.googleapis.com/kubernetes-charts/cockroachdb-2.1.1.tgz
 ```{{execute}}
 <br>
-Unpack the Cockroachdb Helm chart to the current directory:
+Unpack the CockroachDB Helm chart to the current directory:
 
 ```
 tar -xvzf cockroachdb-2.1.1.tgz

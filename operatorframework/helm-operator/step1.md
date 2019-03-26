@@ -16,7 +16,7 @@ Navigate to the directory:
 cd $GOPATH/src/github.com/redhat/
 ```{{execute}}
 <br>
-Create a new Helm-based Operator SDK project for the Cockroachdb Operator:
+Create a new Helm-based Operator SDK project for the CockroachDB Operator:
 
 ```
 operator-sdk new cockroachdb-operator --api-version=db.example.org/v1alpha1 --kind=Cockroachdb --type=helm --skip-git-init

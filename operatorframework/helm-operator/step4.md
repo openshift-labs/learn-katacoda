@@ -3,7 +3,7 @@ Open a new terminal window and navigate to the `cockroachdb-operator` top-level 
 ```
 cd $GOPATH/src/github.com/redhat/cockroachdb-operator
 ```{{execute}}
-Before applying the Cockroachdb Custom Resource, observe the CockroachDB Helm Chart `values.yaml`:
+Before applying the CockroachDB Custom Resource, observe the CockroachDB Helm Chart `values.yaml`:
 
 [CockroachDB Helm Chart Values.yaml file](https://github.com/helm/charts/blob/master/stable/cockroachdb/values.yaml)
 
@@ -50,7 +50,7 @@ Confirm that the Stateful Set's pod is currently running:
 oc get pods -l chart=cockroachdb-2.1.1
 ```{{execute}}
 <br>
-Confirm that the Cockroachdb Internal and "public" ClusterIP Service were created:
+Confirm that the CockroachDB Internal and "public" ClusterIP Service were created:
 
 ```
 oc get services

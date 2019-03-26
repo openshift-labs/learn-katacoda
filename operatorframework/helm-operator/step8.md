@@ -8,7 +8,7 @@ Watch the pods respawn:
 
 ```
 oc get pods -l chart=cockroachdb-2.1.1
-```
+```{{execute}}
 <br>
 Confirm that the contents of the database still persist by connecting to the database cluster:
 
