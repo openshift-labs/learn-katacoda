@@ -1,11 +1,10 @@
-Cleanup the Helm-based Cockroachdb Operator by deleting the Custom Resource:
+Delete the Cockroach DB cluster and all associated resources by  deleting the `example` Custom Resource:
 
 ```
 oc delete cockroachdb example
 ```
 
-This will automatically remove the Cockroachdb Statefulset and associated Services:
-
+Verify that the Stateful Set, pods, and services are removed:
 ```
 oc get statefulset
 oc get pods
