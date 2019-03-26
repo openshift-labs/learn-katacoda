@@ -1,4 +1,4 @@
-Verify that you can access the Cockroachdb Web UI by first exposing the Cockroachdb Service as a publically accessible OpenShift Route:
+Verify that you can access the CockroachDB Web UI by first exposing the CockroachDB Service as a publicly accessible OpenShift Route:
 
 ```
 COCKROACHDB_PUBLIC_SERVICE=`oc get svc -o jsonpath={$.items[1].metadata.name}`
