@@ -1,35 +1,35 @@
 {
   "icon": "fa-openshift",
-  "title": "Operator SDK with Helm (CockroachDB)",
-  "description": "Operator SDK with Helm (CockroachDB)",
+  "title": "Operator SDK with Helm",
+  "description": "Operator SDK with Helm",
   "pathwayTitle": "OpenShift",
   "difficulty": "beginner",
   "time": "30 minutes",
   "details": {
     "steps": [
     {
-    	"title": "Initializing the Helm-based CockroachDB Operator Project",
+    	"title": "Initialize the Project",
     	"text": "step1.md"
     },{
-			"title": "Fetching the CockroachDB Helm Chart and Updating the Watches File",
+			"title": "Update the Watches File",
 			"text": "step2.md"
 		},{
-			"title": "Applying the CockroachDB Custom Resource Definition the Cluster and Starting the Operator",
+			"title": "Apply the CockroachDB Custom Resource Definition",
 			"text": "step3.md"
     },{
-			"title": "Applying the CockroachDB Custom Resource to the Cluster",
+			"title": "Apply the CockroachDB Custom Resource",
 			"text": "step4.md"
     },{
-			"title": "Accessing the CockroachDB Web UI",
+			"title": "Access the CockroachDB Web UI",
 			"text": "step5.md"
     },{
-			"title": "Connecting to the CockroachDB Cluster",
+			"title": "Connect to the CockroachDB Cluster",
 			"text": "step6.md"
     },{
-      "title": "Updating the CockroachDB Custom Resource",
+      "title": "Update the CockroachDB Custom Resource",
       "text": "step7.md"
     },{
-      "title": "Testing CockroachDB Cluster Failover",
+      "title": "Test CockroachDB Cluster Failover",
       "text": "step8.md"
     },{
       "title": "Clean Up",
