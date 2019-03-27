@@ -5,7 +5,7 @@ subdirectories according to Maven best practices.
 
 Switch to the `quote-generator` project
 
-`cd quote-generator`{{execute}}
+`cd /root/code/quote-generator`{{execute}}
 
 Let’s have a look at the project, as every other project are structured the same way.
 

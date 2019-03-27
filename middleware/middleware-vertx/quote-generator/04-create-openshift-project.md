@@ -32,4 +32,9 @@ OpenShift ships with a web-based console that will allow users to perform variou
 
 ![OpenShift Console Tab](/openshift/assets/middleware/rhoar-getting-started-vertx/openshift-console-tab.png)
 
+Login with the following credentials:
+
+* Username: `developer`
+* Password: `developer`
+  
 You should see the newly created project. Click on it. It’s empty, so let’s deploy our first application.

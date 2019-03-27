@@ -37,7 +37,7 @@ When the company verticles are deployed, we deploy another verticle providing an
 
 Add the below content to the matching `// TODO: RestQuoteAPIVerticle` statement (or use the `Copy to Editor` button):
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/quote/GeneratorConfigVerticle.java" data-target="insert" data-marker="// TODO: RestQuoteAPIVerticle">
+<pre class="file" data-filename="quote-generator/src/main/java/io/vertx/workshop/quote/GeneratorConfigVerticle.java" data-target="insert" data-marker="// TODO: RestQuoteAPIVerticle">
 .flatMap(l -> vertx.rxDeployVerticle(RestQuoteAPIVerticle.class.getName()))
 </pre>
 

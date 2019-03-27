@@ -6,7 +6,7 @@ Some k8s objects are required:
 
 * A k8s `Namespace`, `test-namespace`
 
-* A `FederatedNamespacePlacement` which will instruct the `Federation Control Plane` to replicate the `test-namespace` across the clusters defined within the `FederatedNamespacePlacement` custom resource
+* A `FederatedNamespace` which will instruct the `Federation Control Plane` to replicate the `test-namespace` across the clusters defined within the `Placement` policy defined in the `FederatedNamespace` custom resource
 
 For your convenience a `yaml` file with both definitions is already created.
 
@@ -14,7 +14,7 @@ For your convenience a `yaml` file with both definitions is already created.
 
 ``oc --context=cluster1 create -f /var/tmp/namespace.yaml``{{execute HOST1}}
 
-Note: The file `namespace.yaml` defining a `FederatedNamespacePlacement` must be created against the cluster running the Federation Control Plane. In this case `cluster1` as this cluster is the one who knows about those CRDs.
+Note: The file `namespace.yaml` defining a `FederatedNamespace` must be created against the cluster running the Federation Control Plane. In this case `cluster1` as this cluster is the one who knows about those CRDs.
 
 You can verify that the namespace is created on both clusters:
 
@@ -29,7 +29,7 @@ At this point we are ready to deploy the application. This sample application in
 
 *NOTE:* A sample ConfigMap, Secret and ServiceAccount are also created to illustrate how federation would assist with more complex applications but will not be used in this scenario.
 
-The [sample-app directory](https://github.com/openshift/federation-dev/tree/v0.0.4/sample-app) included in the Git repository, contains definitions to deploy these resources. For each of them there is a resource template and a placement policy, and some of them also have overrides. For example: the [sample nginx deployment template](https://github.com/openshift/federation-dev/blob/v0.0.4/sample-app/federateddeployment-template.yaml) specifies 3 replicas, but there is also [an override](https://github.com/openshift/federation-dev/blob/v0.0.4/sample-app/federateddeployment-override.yaml) that sets the replicas to 5 on `cluster2`.
+The [sample-app directory](https://github.com/openshift/federation-dev/tree/v0.0.7/sample-app) included in the Git repository, contains definitions to deploy these resources. For each of them there is a resource template which includes a placement policy, and some of them also have overrides. For example: the [sample nginx deployment template](https://github.com/openshift/federation-dev/blob/v0.0.7/sample-app/federateddeployment.yaml) specifies 3 replicas, but there is also [an override](https://github.com/openshift/federation-dev/blob/v0.0.7/sample-app/federateddeployment.yaml#L28-L32) that sets the replicas to 5 on `cluster2`.
 
 Overrides can be used to specify different values for some attributes across clusters, in this course we use an override to control the replicas over the different clusters as explained above. Imagine you want your application running on-premise to have 3 replicas and 5 replicas for the application running on the cloud, you will use an override for that.
 

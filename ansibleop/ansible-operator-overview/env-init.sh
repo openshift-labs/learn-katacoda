@@ -10,6 +10,6 @@ ssh root@host01 'mkdir -p ~/backup/.kube'
 ssh root@host01 'cp -r ~/.kube/config ~/backup/.kube/'
 
 #Remove the existing ~/.kube/config -> this addresses a untrusted cert issue
-ssh root@host01 'rm -rf ~/.kube/config  >> /dev/null'
+#ssh root@host01 'rm -rf ~/.kube/config  >> /dev/null'
 
 ssh root@host01 'yum install jq -y'

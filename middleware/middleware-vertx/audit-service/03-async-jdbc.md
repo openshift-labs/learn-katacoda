@@ -19,7 +19,7 @@ Look at the `initializeDatabase` method in the `AuditVerticle` class
 
 Add the below content to the matching `// TODO: retrieveConnection` statement in the `initializeDatabase` method (or use the `Copy to Editor` button):
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/audit/impl/AuditVerticle.java" data-target="insert" data-marker="// TODO: retrieveConnection">
+<pre class="file" data-filename="audit-service/src/main/java/io/vertx/workshop/audit/impl/AuditVerticle.java" data-target="insert" data-marker="// TODO: retrieveConnection">
 Single&lt;SQLConnection&gt; connectionRetrieved = jdbc.rxGetConnection();
 </pre>
 
@@ -31,7 +31,7 @@ Then, we need compose the Single with the flatMap operator that is taking a SQLC
 
 So, insert into the matching `// TODO: executeBatch` statement in the `initializeDatabase` method
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/audit/impl/AuditVerticle.java" data-target="insert" data-marker="// TODO: executeBatch">
+<pre class="file" data-filename="audit-service/src/main/java/io/vertx/workshop/audit/impl/AuditVerticle.java" data-target="insert" data-marker="// TODO: executeBatch">
 return connectionRetrieved
     .flatMap(conn -> {
         // When the connection is retrieved
@@ -57,6 +57,6 @@ The previous statement return a Single&lt;List&lt;Integer&gt;&gt; but we need a 
 
 So, insert into the matching `// TODO: returnResult` statement in the `initializeDatabase` method
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/audit/impl/AuditVerticle.java" data-target="insert" data-marker="// TODO: returnResult">
+<pre class="file" data-filename="audit-service/src/main/java/io/vertx/workshop/audit/impl/AuditVerticle.java" data-target="insert" data-marker="// TODO: returnResult">
 .map(list -> client);
 </pre>

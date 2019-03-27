@@ -17,4 +17,7 @@ alternatives --install /usr/bin/mvn mvn /usr/local/maven/apache-maven-3.6.0/bin/
 
 yum install wget -y
 sudo mkdir -p /root/installation
-sudo wget -c https://github.com/istio/istio/releases/download/1.0.2/istio-1.0.2-linux.tar.gz -P /root/installation
+sudo wget -c https://github.com/istio/istio/releases/download/1.0.5/istio-1.0.5-linux.tar.gz -P /root/installation
+
+yum install dnsmasq -y;
+systemctl restart dbus dnsmasq; systemctl restart systemd-logind;

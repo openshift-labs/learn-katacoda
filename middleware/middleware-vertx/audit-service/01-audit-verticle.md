@@ -18,7 +18,7 @@ So, it’s clearly 3 independent actions, but the audit service is started only 
 
 Replace the matching  `// TODO: retrieveSingles` block with code below
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/audit/impl/AuditVerticle.java" data-target="insert" data-marker="// TODO: retrieveSingles">
+<pre class="file" data-filename="audit-service/src/main/java/io/vertx/workshop/audit/impl/AuditVerticle.java" data-target="insert" data-marker="// TODO: retrieveSingles">
 Single&lt;JDBCClient&gt; databaseReady = jdbc
     .flatMap(client -> initializeDatabase(client, true));
 Single&lt;HttpServer&gt; httpServerReady = configureTheHTTPServer();

@@ -3,8 +3,8 @@ clear
 stty -echo
 echo "export HOST1_IP=[[HOST_IP]]; export HOST2_IP=[[HOST2_IP]]" >> ~/.env; source ~/.env
 export PS1=""
-export KUBEFED_VERSION='v0.0.4'
-export FEDERATION_DEV_TAG='v0.0.4'
+export KUBEFED_VERSION='v0.0.7'
+export FEDERATION_DEV_TAG='v0.0.7'
 clear
 echo "Configuring required tools for Federation V2..."
 curl -LOs https://github.com/kubernetes-sigs/federation-v2/releases/download/${KUBEFED_VERSION}/kubefed2.tar.gz &> /dev/null
@@ -28,11 +28,12 @@ if [[ "$HOST_IP" == "$HOST1_IP" ]]; then
   cd federation-v2 &> /dev/null
   oc create ns federation-system &> /dev/null
   oc create ns kube-multicluster-public &> /dev/null
+  sed -i "s/federation-v2:latest/federation-v2:v0.0.7/g" hack/install-latest.yaml &> /dev/null
   oc -n federation-system apply --validate=false -f hack/install-latest.yaml &> /dev/null
   oc apply --validate=false -f vendor/k8s.io/cluster-registry/cluster-registry-crd.yaml &> /dev/null
-  for filename in ./config/federatedirectives/*.yaml
+  for filename in ./config/enabletypedirectives/*.yaml
   do
-    kubefed2 federate enable -f "${filename}" --federation-namespace=federation-system &> /dev/null
+    kubefed2 enable -f "${filename}" --federation-namespace=federation-system &> /dev/null
   done
   cd ../..
   rm -rf federation-dev/ &> /dev/null
@@ -44,15 +45,16 @@ items:
   kind: Namespace
   metadata:
     name: test-namespace
-- apiVersion: primitives.federation.k8s.io/v1alpha1
-  kind: FederatedNamespacePlacement
+- apiVersion: types.federation.k8s.io/v1alpha1
+  kind: FederatedNamespace
   metadata:
     name: test-namespace
     namespace: test-namespace
   spec:
-    clusterNames:
-    - cluster1
-    - cluster2
+    placement:
+      clusterNames:
+      - cluster1
+      - cluster2
 EOF
 fi
 if [[ "$HOST_IP" == "$HOST2_IP" ]]; then

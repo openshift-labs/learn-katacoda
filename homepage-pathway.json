@@ -23,10 +23,6 @@
       "title": "Service Mesh Workshop with Istio"
     },
     {
-      "external_link": "https://learn.openshift.com/serverless/",
-      "title": "Serverless Scenarios with OpenShift Cloud Functions"
-    },
-    {
       "external_link": "https://learn.openshift.com/operatorframework/",
       "title": "Building Operators on OpenShift"
     }

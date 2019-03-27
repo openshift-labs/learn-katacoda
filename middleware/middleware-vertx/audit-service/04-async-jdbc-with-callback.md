@@ -12,7 +12,7 @@ The step (1) and (2) are asynchronous. (5) is asynchronous too, but we don’t h
 
 Add the below content to the matching `// TODO: retrieveOperations` statement in the `retrieveOperations` method of the `AuditVerticle` class (or use the `Copy to Editor` button):
 
-<pre class="file" data-filename="src/main/java/io/vertx/workshop/audit/impl/AuditVerticle.java" data-target="insert" data-marker="// TODO: retrieveOperations">
+<pre class="file" data-filename="audit-service/src/main/java/io/vertx/workshop/audit/impl/AuditVerticle.java" data-target="insert" data-marker="// TODO: retrieveOperations">
  // 1. Get the connection
  jdbc.getConnection(ar -> {
      SQLConnection connection = ar.result();
