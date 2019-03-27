@@ -50,7 +50,7 @@ Confirm that the Stateful Set's pod is currently running:
 oc get pods -l chart=cockroachdb-2.1.1
 ```{{execute}}
 <br>
-Confirm that the CockroachDB Internal and "public" ClusterIP Service were created:
+Confirm that the CockroachDB "internal" and "public" ClusterIP Service were created:
 
 ```
 oc get services
