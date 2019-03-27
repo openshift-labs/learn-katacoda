@@ -1,4 +1,4 @@
-Thank you for taking a closer look at the **Operator SDK's Helm Operator**.  For more
+Thank you for taking a closer look at **Operator SDK's Helm Operator**.  For more
 information, check out the links below:
 
 ## GitHub
