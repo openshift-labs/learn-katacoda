@@ -13,6 +13,7 @@ oc get pods -l chart=cockroachdb-2.1.1
 Confirm that the contents of the database still persist by connecting to the database cluster:
 
 ```
+COCKROACHDB_PUBLIC_SERVICE=`oc get svc -o jsonpath={$.items[1].metadata.name}`
 oc run -it --rm cockroach-client --image=cockroachdb/cockroach --restart=Never --command -- ./cockroach sql --insecure --host $COCKROACHDB_PUBLIC_SERVICE
 ```{{execute}}
 <br>
