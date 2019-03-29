@@ -4,6 +4,12 @@
   "courses": [
     {
       "action": "Start Course",
+      "count": 1,
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/",
+      "course_id": "middleware-quarkus",
+      "title": "Developing with Quarkus"
+    },
+    {
       "count": 5,
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-vertx/",
       "course_id": "middleware-vertx",
