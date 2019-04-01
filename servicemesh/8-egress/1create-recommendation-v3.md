@@ -5,7 +5,7 @@ Open `/recommendation/java/vertx/src/main/java/com/redhat/developer/demos/recomm
 ```java
     private static final String RESPONSE_STRING_FORMAT = "recommendation v3 from '%s': %d\n";
 ```    
-The second change is to change the default output to make a call to http://now.httpbin.org.
+The second change is to change the default output to make a call to http://worldclockapi.com.
 
 Comment the call to get the recommendations.
 
