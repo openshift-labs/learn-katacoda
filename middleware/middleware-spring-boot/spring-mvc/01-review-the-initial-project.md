@@ -18,7 +18,7 @@ Spring Boot has a pre-packaged POM (called a Starter POM) for the Spring MVC dep
     &lt;dependency&gt;
       &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
       &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
-      &lt;version&gt;1.5.15.RELEASE&lt;/version&gt;
+      &lt;version&gt;2.1.3.RELEASE&lt;/version&gt;
     &lt;/dependency&gt;
 </pre>
 
