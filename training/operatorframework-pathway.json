@@ -31,6 +31,12 @@
       "course_id": "ansible-operator-overview",
       "id": "ansible-operator-overview",
       "title": "Ansible Operator Overview"
+    },
+    {
+      "pathway_id": "openshift/operatorframework",
+      "course_id": "helm-operator",
+      "id": "helm-operator",
+      "title": "Operator SDK with Helm"
     }
   ]
 }
