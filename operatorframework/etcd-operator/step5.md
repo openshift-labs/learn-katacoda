@@ -7,7 +7,7 @@ oc run etcdclient --image=busybox busybox --restart=Never -- /usr/bin/tail -f /d
 Access the pod:
 
 ``` 
-kubectl exec -it etcdclient /bin/sh
+oc rsh etcdclient
 ```{{execute}}
 <br>
 

@@ -1,5 +1,6 @@
 [
   {"course": "intro-openshift", "targetCourse": "introduction"},
   {"course": "middleware", "scenario": "resilient-apps", "targetCourse": "servicemesh", "targetScenario": "istio-fasttrack"},
-  {"course": "middleware", "scenario": "rhoar-getting-started-spring", "targetCourse": "middleware", "targetScenario": "middleware-spring-boot/spring-getting-started"}
+  {"course": "middleware", "scenario": "rhoar-getting-started-spring", "targetCourse": "middleware", "targetScenario": "middleware-spring-boot/spring-getting-started"},
+  {"course": "middleware", "scenario": "rhoar-getting-started-vertx", "targetCourse": "middleware", "targetScenario": "middleware-vertx/getting-started-vertx"}
 ]

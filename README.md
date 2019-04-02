@@ -14,6 +14,10 @@ For each scenario, please do the following:
 1. Next, get two reviews/thumbs up from team members (mention @mhausenblas on your issue if you do't see activity within a day)
 1. Once your scenario has been reviewed, we will merge it and it will appear on learn.openshift.com
 
+## Delivering a workshop?
+
+**IMPORTANT:** If you are delivering a workshop please ensure that you have alerted @mhausenblas and the Katacoda team a minimum of **48 hours** before the start of the event. Without this, we cannot guarantee capacity for everyone.
+
 ## Content
 
 ### Categories

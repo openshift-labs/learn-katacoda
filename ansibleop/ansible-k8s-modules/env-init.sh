@@ -16,3 +16,5 @@ ssh root@host01 'yum install python-pip -y'
 ssh root@host01 'pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org --upgrade pip'
 ssh root@host01 'pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org --upgrade setuptools'
 ssh root@host01 'pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org --ignore-installed ipaddress openshift'
+
+ssh root@host01 'yum install jq -y'

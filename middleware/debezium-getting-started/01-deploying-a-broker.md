@@ -71,7 +71,9 @@ New services are available
 
 **3. Verify the broker is up and running.**
 
-A successful attempt to send a message to
+> Note: The complete initialization of all components can take a couple of minutes. Please make sure that all pods are in *Running* state and are *Ready* before you try the next steps.
+
+A successful attempt to send a message to (no output expected here)
 
 ``echo "Hello world" | oc exec -i my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test``{{execute}}
 

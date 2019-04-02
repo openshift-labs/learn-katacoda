@@ -8,13 +8,16 @@ touch /etc/rhsm/ca/redhat-uep.pem
 # ln -s /etc/rhsm/ca/redhat-uep.pem /etc/docker/certs.d/registry.access.redhat.com/redhat-ca.crt
 
 yum install java-1.8.0-openjdk-devel tree -y
-wget http://www.eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
-tar xzf apache-maven-3.3.9-bin.tar.gz
-rm -rf apache-maven-3.3.9-bin.tar.gz
+wget http://www.eu.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+tar xzf apache-maven-3.6.0-bin.tar.gz
+rm -rf apache-maven-3.6.0-bin.tar.gz
 mkdir /usr/local/maven
-mv apache-maven-3.3.9/ /usr/local/maven/
-alternatives --install /usr/bin/mvn mvn /usr/local/maven/apache-maven-3.3.9/bin/mvn 1
+mv apache-maven-3.6.0/ /usr/local/maven/
+alternatives --install /usr/bin/mvn mvn /usr/local/maven/apache-maven-3.6.0/bin/mvn 1
 
 yum install wget -y
 sudo mkdir -p /root/installation
-sudo wget -c https://github.com/istio/istio/releases/download/1.0.2/istio-1.0.2-linux.tar.gz -P /root/installation
+sudo wget -c https://github.com/istio/istio/releases/download/1.0.5/istio-1.0.5-linux.tar.gz -P /root/installation
+
+yum install dnsmasq -y;
+systemctl restart dbus dnsmasq; systemctl restart systemd-logind;

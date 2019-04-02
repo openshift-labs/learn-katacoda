@@ -41,15 +41,6 @@ cd environments/openshift-middleware
 packer build openshift-middleware.json
 ```
 
-### Build OpenShift Serverless Image
-
-This build extends the OpenShift Image with additional configuration and cached images to support Serverless.
-
-```
-cd environments/openshift-3-7-serverless
-packer build openshift-3-7-serverless.json
-```
-
 ### Packer Documentation
 
 https://www.packer.io/docs/builders/qemu.html

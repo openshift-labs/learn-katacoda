@@ -1,4 +1,4 @@
-Now that we have deployed our operator, let's create a CR and deploy an instance
+Now that we have deployed our Operator, let's create a CR and deploy an instance
 of memcached.
 
 There is a sample CR in the scaffolding created as part of the Operator SDK:
@@ -14,28 +14,30 @@ spec:
 ```
 
 Let's go ahead and apply this in our Tutorial project to deploy 3 memcached pods,
-using our operator:
+using our Operator:
 
-## Create a Memcached CR
+## Create a Memcached CR instance
 
-Modify `deploy/crds/cache_v1alpha1_memcached_cr.yaml` as shown and create a `Memcached` custom resource:
+Inspect `deploy/crds/cache_v1alpha1_memcached_cr.yaml`, and then use it to create a `Memcached` custom resource:
 
-<pre class="file" data-filename="/root/tutorial/memcached-operator/deploy/crds/cache_v1alpha1_memcached_cr.yaml" data-target="replace">
+```yaml
+# deploy/crds/cache_v1alpha1_memcached_cr.yaml
 apiVersion: cache.example.com/v1alpha1
 kind: Memcached
 metadata:
   name: example-memcached
 spec:
   size: 3
-</pre>
+```
 
-`oc create -f deploy/crds/cache_v1alpha1_memcached_cr.yaml --as system:admin`{{execute}}
+`oc create -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
 
+## Check that the Memcached Operator works as intended 
 Ensure that the memcached-operator creates the deployment for the CR:
 
 <small>
 ```sh
-$ oc get deployment --as system:admin
+$ oc get deployment
 NAME                 DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
 memcached-operator   1       1       1          1         2m
 example-memcached    3       3       3          3         1m
@@ -47,17 +49,17 @@ Check the pods to confirm 3 replicas were created:
 <small>
 ```sh
 $ oc get pods
-NAME                                 READY STATUS  RESTARTS AGE
-example-memcached-6fd7c98d8-7dqdr    1/1   Running 0        1m
-example-memcached-6fd7c98d8-g5k7v    1/1   Running 0        1m
-example-memcached-6fd7c98d8-m7vn7    1/1   Running 0        1m
-memcached-operator-7cc7cfdf86-vvjqk  1/1   Running 0        2m
+NAME                                READY STATUS   RESTARTS AGE
+example-memcached-6cc844747c-2hbln  1/1   Running  0        1m
+example-memcached-6cc844747c-54q26  1/1   Running  0        1m
+example-memcached-6cc844747c-7jfhc  1/1   Running  0        1m
+memcached-operator-68b5b558c5-dxjwh 1/1   Running  0        2m
 ```
 </small>
 
-## Update the size
+## Change the Memcached CR to deploy 4 replicas
 
-Change the `spec.size` field in the memcached CR from 3 to 4 and apply the
+Change the `spec.size` field in `deploy/crds/cache_v1alpha1_memcached_cr.yaml` from 3 to 4 and apply the
 change:
 
 <pre class="file"
@@ -71,28 +73,43 @@ spec:
   size: 4
 </pre>
 
-`oc apply -f deploy/crds/cache_v1alpha1_memcached_cr.yaml --as system:admin`{{execute}}
+`oc apply -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
 
-Confirm that the operator changes the deployment size:
+Confirm that the Operator changes the deployment size:
 
 <small>
 ```sh
-$ oc get deployment --as system:admin
-NAME               DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
-example-memcached  4       4       4          4         5m
+$ oc get deployment
+NAME                DESIRED CURRENT  UP-TO-DATE  AVAILABLE  AGE
+example-memcached   4       4        4           4          53s
+memcached-operator  1       1        1           1          5m
 ```
 </small>
 
-### Cleanup
+Inspect the YAML list of 'memcached' resources in your project, noting that the 'spec.size' field is now set to 4.
 
-Clean up the resources:
+`oc get memcached  -o yaml`{{execute}}
 
-`oc delete -f deploy/crds/cache_v1alpha1_memcached_cr.yaml --as system:admin`{{execute}}
+## Removing Memcached from the cluster 
+
+First, delete the 'memcached' CR, which will remove the 4 Memcached pods and the associated deployment.
+
+`oc delete -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
+
+<small>
+```sh
+$ oc get pods
+NAME                                 READY STATUS  RESTARTS AGE
+memcached-operator-7cc7cfdf86-vvjqk  1/1   Running 0        8m
+```
+</small>
+
+Then, delete the memcached-operator deployment.
 
 `oc delete -f deploy/operator.yaml`{{execute}}
 
-Verify that the memcached-operator is no longer running:
+Finally, verify that the memcached-operator is no longer running.
 
 `oc get deployment`{{execute}}
 
-Now let's take a look at using the built-in local install functionality of the SDK.  
+Now let's take a look at using the built-in 'local install' functionality of the SDK.  

@@ -3,7 +3,8 @@ echo "Configuring scenario"
 
 curl -LO https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem > /dev/null 2>&1
 oc login -u developer -p developer https://master:8443 --certificate-authority=lets-encrypt-x3-cross-signed.pem --insecure-skip-tls-verify=true > /dev/null 2>&1
-oc apply -f https://gist.githubusercontent.com/jorgemoralespou/033c27a354406d7c5111711346e79b01/raw/000e26a7e736313716e46a11a710fbe2c0cbb791/java-is-insecure.json -n openshift --as system:admin
+# java-is-insecure.json
+curl -kL https://gist.github.com/jorgemoralespou/033c27a354406d7c5111711346e79b01/raw 2> /dev/null | oc apply -n openshift --as system:admin -f -
 
 clear
 
@@ -16,8 +17,8 @@ clear
 
 odo utils config set UpdateNotification false > /dev/null 2>&1
 oc create -f volumes.json --as system:admin
-oc import-image -n openshift java 1> /dev/null --as system:admin
-oc import-image -n openshift nodejs 1> /dev/null --as system:admin
+oc import-image -n openshift java --as system:admin 1> /dev/null 
+oc import-image -n openshift nodejs --as system:admin 1> /dev/null 
 
 clear
 

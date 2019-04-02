@@ -1,13 +1,13 @@
 Delete your Etcd cluster:
 
 ```
-kubectl delete etcdcluster example-etcd-cluster
+oc delete etcdcluster example-etcd-cluster
 ```{{execute}}
 <br>
 Delete the Etcd Operator:
 
 ```
-kubectl delete deployment etcd-operator
+oc delete deployment etcd-operator
 ```{{execute}}
 <br>
 Delete the Etcd CRD:

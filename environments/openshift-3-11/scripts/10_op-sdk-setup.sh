@@ -2,6 +2,7 @@
 
 echo "install openshift client"
 yum --enablerepo=extras install epel-release -y
+yum install jq -y
 yum install python-pip -y
 pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org --upgrade pip
 pip install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org --upgrade setuptools

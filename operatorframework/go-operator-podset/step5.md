@@ -139,7 +139,7 @@ func (r *ReconcilePodSet) Reconcile(request reconcile.Request) (reconcile.Result
 	}
 	if !reflect.DeepEqual(podSet.Status, status) {
 		podSet.Status = status
-		err = r.client.Update(context.TODO(), podSet)
+		err = r.client.Status().Update(context.TODO(), podSet)
 		if err != nil {
 			reqLogger.Error(err, "Failed to update PodSet status")
 			return reconcile.Result{}, err
@@ -170,7 +170,7 @@ func (r *ReconcilePodSet) Reconcile(request reconcile.Request) (reconcile.Result
 		}
 		err = r.client.Create(context.TODO(), pod)
 		if err != nil {
-			reqLogger.Error(err, "Failed to delete pod", "pod.name", pod.Name)
+			reqLogger.Error(err, "Failed to create pod", "pod.name", pod.Name)
 			return reconcile.Result{}, err
 		}
 		return reconcile.Result{Requeue: true}, nil

@@ -40,8 +40,3 @@ Verify the CRD was successfully created.
 ```
 oc get crd
 ```{{execute}}
-<br>
-```
-oc get etcdcluster
-```{{execute}}
-<br>

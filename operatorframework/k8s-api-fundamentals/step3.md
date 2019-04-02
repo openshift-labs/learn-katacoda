@@ -1,7 +1,7 @@
-Get a list of all pods in the default namespace:
+Get a list of all pods in the `myproject` Namespace:
 
 ```
-oc get pods
+oc get pods -n myproject
 ```{{execute}}
 <br>
 Create a ReplicaSet object manifest file:

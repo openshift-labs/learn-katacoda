@@ -1,39 +1,35 @@
-In order to speed up deployment and testing, the SDK provides a mechanism to Run
-the Operator outside of a cluster. This method is preferred during the
-development cycle to speed up deployment and testing.
+In order to speed up Operator deployment and testing, `operator-sdk` provides a mechanism to run the Operator outside of a cluster.
 
-It is also important that the role path referenced in watches.yaml exists on
-your machine. Since we are normally used to using a container where the Role is
-put on disk for us, we need to manually copy our role to the configured Ansible
-Roles path (e.g /etc/ansible/roles).
+
+## Copying Roles for local development
+It is important that the Role path referenced in watches.yaml exists on
+your machine. 
+
+We previously ran our Ansible Operator from a container where the Role was
+copied to a known location specified by the Dockerfile.
+
+To run our Operator locally, we will manually copy any Roles used by our Operator to a configured Ansible
+Roles path for our local machine (e.g /etc/ansible/roles).
 
 `cp -r ~/tutorial/memcached-operator/roles/dymurray.memcached_operator_role /opt/ansible/roles/`{{execute}}
 
-Run the operator locally with the default kubernetes config file present
-at $HOME/.kube/config:
+## Running with 'operator-sdk up local'
 
+### Sample Commands
+Running `operator-sdk up local` to run an Operator locally requires a KUBECONFIG value to connect with a cluster. Some sample commands are shown below.
 ```sh
-$ operator-sdk up local
-INFO[0000] Go Version: go1.10
-INFO[0000] Go OS/Arch: darwin/amd64
-INFO[0000] operator-sdk Version: 0.0.5+git
+$ operator-sdk up local # default, KUBECONFIG=$HOME/.kube/config
+```
+```sh
+$ operator-sdk up local --kubeconfig=/tmp/config # KUBECONFIG='/tmp/config'
 ```
 
-Run the operator locally with a provided kubernetes config file:
+For this scenario, there is a properly permissioned KUBECONFIG at ~/backup/.kube/config.  We'll run the command below to use it.
 
-```sh
-$ operator-sdk up local --kubeconfig=config
-INFO[0000] Go Version: go1.10
-INFO[0000] Go OS/Arch: darwin/amd64
-INFO[0000] operator-sdk Version: 0.0.5+git
-```
-
-There is a properly permissioned kubeconfig at ~/backup/.kube/config.  To run
-operator locally run:
-
+### Start the Operator
 `operator-sdk up local --kubeconfig=/root/backup/.kube/config --namespace tutorial`{{execute}}
 
-Next open a 2nd terminal window, using the "+" tab and navigate to our operator.
+Next open a 2nd terminal window, using the "+" tab and navigate to our Operator.
 
 `cd ~/tutorial/memcached-operator`{{execute}}
 
@@ -47,9 +43,9 @@ Ensure that the memcached-operator creates the deployment for the CR:
 
 <small>
 ```sh
-$ oc get deployment --as system:admin
-NAME                         DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
-example-memcached-memcached  4       4       4          4         34s
+$ oc get deployment
+NAME               DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
+example-memcached  4       4       4          4         34s
 ```
 </small>
 
@@ -58,11 +54,11 @@ Check the pods to confirm 4 replicas were created:
 <small>
 ```sh
 $ oc get pods
-NAME                                         READY STATUS   RESTARTS AGE
-example-memcached-memcached-6cc844747c-dp8sx 1/1   Running  0        1m
-example-memcached-memcached-6cc844747c-hk52c 1/1   Running  0        1m
-example-memcached-memcached-6cc844747c-q75m4 1/1   Running  0        1m
-example-memcached-memcached-6cc844747c-xp8qp 1/1   Running  0        1m
+NAME                               READY STATUS   RESTARTS AGE
+example-memcached-6cc844747c-dp8sx 1/1   Running  0        1m
+example-memcached-6cc844747c-hk52c 1/1   Running  0        1m
+example-memcached-6cc844747c-q75m4 1/1   Running  0        1m
+example-memcached-6cc844747c-xp8qp 1/1   Running  0        1m
 ```
 </small>
 

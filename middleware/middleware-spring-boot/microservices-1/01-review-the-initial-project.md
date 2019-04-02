@@ -14,14 +14,13 @@ String message = String.format(properties.getMessage(), name);
 If we take a closer look at this `properties` object, we see that it's of type `MessageProperties`. When we look at that file ``greeting-service/src/main/java/io/openshift/booster/service/MessageProperties.java``{{open}} we see an annotation linking to a configuration file, `@ConfigurationProperties("greeting")`, which is pointing to our ``greeting-service/src/main/resources/application-local.properties``{{open}} file.
 
 Our `application-local.properties` file contains only one property, `greeting.message`. This is the message that we return and display to the user. In order to get an understanding of the flow, let's run the application locally. First cd into the project directory and build the project:  
-``cd greeting-service``{{execute}}  
+``mvn -f greeting-service spring-boot:run``{{execute}}  
   
 ``mvn spring-boot:run``{{execute}}
 
 When the application finishes building click the **local web browser** or click [here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/). You should see the same message that is in the `application-local.properties` file.
 
-Be sure to stop the application with `ctrl-c` and `cd` back into the main directory before we continue.
-``cd ../``{{execute}}
+Be sure to stop the application with `ctrl-c`.
 
 ## Congratulations
 

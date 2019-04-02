@@ -1,0 +1,49 @@
+{
+  "title": "DMN with Red Hat Decision Manager on OpenShift",
+  "description": "Learn how to create a DMN demo project in Red Hat Decision Manager running on OpenShift Container Platform.",
+  "pathwayTitle": "Decision Model & Notation (DMN) with Red Hat Decision Manager on OpenShift",
+  "difficulty": "beginner",
+  "time": "30-60 minutes",
+  "details": {
+    "steps": [
+      { "title": "Starting the Decision Central workbench", "text": "starting-redhat-decisionmanager.md" },
+      { "title": "Creating the DMN project", "text": "create-dmn-project.md" },
+      { "title": "Enable the DMN editor", "text": "enable-dmn-editor.md" },
+      { "title": "Creating the Decision Model", "text": "decision-model.md" },
+      { "title": "Implementing the Decision Model", "text": "implement-decision-model.md" },
+      { "title": "Implementing the Decison Table", "text": "implementing-decision-table.md" },
+      { "title": "Deploying the Decision Service", "text": "deploy-decision-service.md" },
+      { "title": "Testing the Decision Service", "text": "testing-the-service.md" }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "set-env.sh",
+      "courseData": "env-init.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01" : [
+        {
+          "file": "init-scenario.sh",
+          "target": "~/.init/",
+          "chmod": "+x"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [{"name":"OpenShift Console","port":8443}],
+    "uilayout": "terminal",
+    "hideintro": false,
+    "hidefinish": false
+  },
+  "backend": {
+    "imageid": "openshift-3-11",
+    "port": 8443
+  },
+  "environmentsprotocol": "http",
+  "environmentsdomain": ".http-proxy.katacoda.com"
+}

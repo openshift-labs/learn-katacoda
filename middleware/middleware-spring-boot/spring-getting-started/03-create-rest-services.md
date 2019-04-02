@@ -94,7 +94,7 @@ Add the following methods to the Fruit Controller at the TODO marker.
     public Fruit get(@PathVariable("id") Integer id) {
         verifyFruitExists(id);
 
-        return repository.findOne(id);
+        return repository.findById(id).orElse(null);
     }
 
     @ResponseBody
@@ -113,11 +113,11 @@ Add the following methods to the Fruit Controller at the TODO marker.
     public void delete(@PathVariable("id") Integer id) {
         verifyFruitExists(id);
 
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
     private void verifyFruitExists(Integer id) {
-        if (!repository.exists(id)) {
+        if (!repository.existsById(id)) {
             throw new RuntimeException(String.format("Fruit with id=%d was not found", id));
         }
     }

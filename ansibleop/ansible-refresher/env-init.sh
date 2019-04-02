@@ -6,3 +6,5 @@ ssh root@host01 "chmod og-wx /home/cent/.ssh/authorized_keys"
 ssh root@host01 "echo "[[HOST_IP]]  host01" >> /etc/hosts"
 ssh root@host01 "ssh-keyscan host01 >> ~/.ssh/known_hosts"
 ssh root@host01 "ssh-keyscan [[HOST_IP]] >> ~/.ssh/known_hosts"
+
+ssh root@host01 'yum install jq -y'
