@@ -32,7 +32,7 @@ mkdir -p $GOPATH/{src,pkg,bin}
 
 echo "install Operator sdk"
 cd $GOPATH/bin
-https://github.com/operator-framework/operator-sdk/releases/download/v0.6.0/operator-sdk-v0.6.0-x86_64-linux-gnu
+wget https://github.com/operator-framework/operator-sdk/releases/download/v0.6.0/operator-sdk-v0.6.0-x86_64-linux-gnu -O operator-sdk
 chmod +x operator-sdk
 git config --global user.email "operator-sdk@example.com"
 git config --global user.name "OperatorSDK Katacoda"
