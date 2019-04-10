@@ -2,6 +2,10 @@ In this step, you will start with a simple RESTful application generated from th
 
 # Inspect project
 
+Make sure you're in the right project directory by clicking:
+
+`cd /root/projects/rhoar-getting-started/quarkus/panache`{{execute}}
+
 Initially, the project is almost empty and doesn't do anything. Start by reviewing the content by executing a `tree`{{execute}} in your terminal.
 
 As you can see, there are some files that we have prepared for you in the project. Under `src/main/resources/index.html` we have for example prepared an html file for you, and some skeletal model files and utilities. This matches what you might get when generating sample projects [using the Quarkus Maven plugin](https://quarkus.io/guides/getting-started-guide).
