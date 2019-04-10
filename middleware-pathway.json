@@ -4,7 +4,7 @@
   "courses": [
     {
       "action": "Start Course",
-      "count": 1,
+      "count": 2,
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/",
       "course_id": "middleware-quarkus",
       "title": "Developing with Quarkus"
