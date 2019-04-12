@@ -1,7 +1,7 @@
 {
   "icon": "fa-openshift",
-  "title": "Operator SDK with Go (PodSet)",
-  "description": "Operator SDK with Go (PodSet)",
+  "title": "Operator SDK with Go",
+  "description": "Operator SDK with Go",
   "pathwayTitle": "OpenShift",
   "difficulty": "beginner",
   "time": "30 minutes",
