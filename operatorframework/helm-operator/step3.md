@@ -1,7 +1,7 @@
 Apply the CockroachDB Custom Resource Definition to the cluster:
 
 ```
-oc apply -f deploy/crds/db_v1alpha1_cockroachdb_crd.yaml
+oc apply -f deploy/crds/charts_v1alpha1_cockroachdb_crd.yaml
 ```{{execute}}
 <br>
 Now we can run our Helm-based Operator from outside the cluster via our `kubeconfig` credentials.
