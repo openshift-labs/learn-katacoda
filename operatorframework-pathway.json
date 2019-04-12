@@ -15,7 +15,7 @@
     {
       "external_link": "https://learn.openshift.com/operatorframework/go-operator-podset/",
       "course_id": "go-operator-podset",
-      "title": "Operator SDK with Go (PodSet)"
+      "title": "Operator SDK with Go"
     },
     {
       "external_link": "https://learn.openshift.com/operatorframework/operator-lifecycle-manager/",
