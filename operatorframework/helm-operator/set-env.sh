@@ -1,3 +1,10 @@
+# Install Helm client
+wget https://storage.googleapis.com/kubernetes-helm/helm-v2.13.1-linux-amd64.tar.gz
+tar -zxvf helm-v2.13.1-linux-amd64.tar.gz
+mv linux-amd64/helm /usr/local/bin/helm
+helm init --client-only
+
+# Setup persistent volumes
 for num in {01..03}; do mkdir -p /tmp/pv$num; done;
 for num in {01..03}; do
 cat > pv$num.yaml <<EOF
@@ -24,7 +31,12 @@ spec:
           - master
 EOF
 oc apply -f pv$num.yaml; done;
+
+# Set GOBIN
 export GOBIN=/root/tutorial/go/bin
+
+# Install dep
 curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-#switch user to tutorial directory
+
+# Switch user to tutorial directory
 cd ~/tutorial
