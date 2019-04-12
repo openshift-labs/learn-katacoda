@@ -4,26 +4,9 @@ The `watches.yaml` file maps a Group, Version, and Kind to a specific Helm Chart
 cat watches.yaml
 ```{{execute}}
 <br>
-Fetch the CockroachDB Helm chart:
+Create a symlink that targets the Cockroachdb Helm chart in the cockroachdb-operator project directory.
 
 ```
-wget https://storage.googleapis.com/kubernetes-charts/cockroachdb-2.1.1.tgz
+mkdir -p /opt/helm/helm-charts/cockroachdb
+ln -s /root/tutorial/go/src/github.com/redhat/cockroachdb-operator/helm-charts/cockroachdb/ /opt/helm/helm-charts/cockroachdb
 ```{{execute}}
-<br>
-Unpack the CockroachDB Helm chart to the current directory:
-
-```
-tar -xvzf cockroachdb-2.1.1.tgz
-```{{execute}}
-<br>
-Update the `watches.yaml` file at `go/src/github.com/redhat/cockroachdb-operator/watches.yaml` to reflect the path to the top-level Cockroachdb Helm chart directory:
-
-<pre class="file"
- data-filename="/root/tutorial/go/src/github.com/redhat/cockroachdb-operator/watches.yaml"
-  data-target="replace">
----
-- version: v1alpha1
-  group: db.example.org
-  kind: Cockroachdb
-  chart: /root/tutorial/go/src/github.com/redhat/cockroachdb-operator/cockroachdb
-</pre>
