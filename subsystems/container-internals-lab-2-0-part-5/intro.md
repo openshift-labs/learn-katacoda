@@ -15,7 +15,7 @@ By the end of this lab you should be able to:
 ## Other Material
 This video will give you a background to all of the concepts in this lab
 
-<iframe width="640" height="480" src="https://www.youtube.com/embed/6IYTYV8DuXc" frameborder="0" allowfullscreen style="position: relative;"></iframe>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/973NBq7AnUTTWA" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 
 ## Outline
 - Multi-Container Applications: The classic two-tiered, wordpress application
