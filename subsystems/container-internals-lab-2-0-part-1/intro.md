@@ -13,6 +13,11 @@ By the end of this lab you should be able to:
 - Single Host Toolchain: Includes Docker runtime, Systemd, runc, and Libcontainer
 - Multi-Host Toolchain: Includes Kubernetes/OpenShift
 
+## Presentation
+This presentation will give you a background to all of the concepts in this lab.
+<iframe src="https://www.slideshare.net/fatherliux/slideshelf" width="615px" height="470px" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:none;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+
+
 ## Other Material
 - [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 - [Presentation](https://goo.gl/nmyUgn)
