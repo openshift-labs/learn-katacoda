@@ -9,7 +9,7 @@ By the end of this lab you should be able to:
 
 
 ## Presentation
- This presentation will give you a background to all of the concepts in this lab.
+This presentation will give you a background to all of the concepts in this lab.
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/IP8llTLJKCRo3Z" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/fatherliux/linux-container-internals-20-container-images" title="Linux container internals 2.0 container images" target="_blank">Linux container internals 2.0 container images</a> </strong> from <strong><a href="https://www.slideshare.net/fatherliux" target="_blank">fatherliux</a></strong> </div>
 
 
