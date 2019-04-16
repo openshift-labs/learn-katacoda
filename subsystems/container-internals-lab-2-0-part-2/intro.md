@@ -15,6 +15,7 @@ By the end of this lab you should be able to:
 This presentation will give you a background to all of the concepts in this lab.
 
 <iframe src="https://www.slideshare.net/fatherliux/slideshelf" width="615px" height="470px" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:none;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/IP8llTLJKCRo3Z" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 
 - [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 - [Presentation](https://goo.gl/wnB7JK)
