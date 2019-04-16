@@ -12,9 +12,9 @@ By the end of this lab you should be able to:
 - Image Internals: Inspecting the libraries, interpreters, and operating system components in a container image
 
 ## Other Material
-This video will give you a background to all of the concepts in this lab.
+This presentation will give you a background to all of the concepts in this lab.
 
-<iframe width="640" height="480" src="https://www.youtube.com/embed/P5NaEXmJuWo" frameborder="0" allowfullscreen  style="position: relative;"></iframe>
+<iframe src="https://www.slideshare.net/fatherliux/slideshelf" width="615px" height="470px" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:none;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 
 - [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 - [Presentation](https://goo.gl/wnB7JK)
