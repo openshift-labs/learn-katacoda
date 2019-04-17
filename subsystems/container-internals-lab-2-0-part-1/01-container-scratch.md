@@ -1,4 +1,10 @@
-First and foremost, you need to understand that THE INTERNET IS WRONG. If you just do a quick Google search, you will find tons of architectural drawings which depict things the wrong way or only tell part of the story. This leads the innocent viewer to come to the wrong conclusion about containers. One might suspect that even the makers of these drawings have the wrong conclusion about how containers work and hence propogate bad information. So, forget everything you think you know.
+First and foremost, let's dispell some fallacies. You need to understand that THE INTERNET IS WRONG :-)
+
+1. Containers don't run on Docker or any other container engine, they run on a Linux kernel
+2. Docker containers is a colloquial saying, but they are actuall [OCI|https://www.opencontainers.org/] containers, or Linux containers
+3. Docker registry is another colloquial saying, but they are actually OCI container registries
+
+If you just do a quick Google search, you will find tons of architectural drawings which depict things the wrong way or only tell part of the story. This leads the innocent viewer to come to the wrong conclusion about containers. One might suspect that even the makers of these drawings have the wrong conclusion about how containers work and hence propogate bad information. So, forget everything you think you know.
 
 ![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-1/01-google-wrong.png)
 
