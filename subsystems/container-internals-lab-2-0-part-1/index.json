@@ -7,13 +7,13 @@
     "time": "20 minutes",
     "backend": {
         "trainingid": "openshift-3-6",
-        "imageid": "openshift-3-6",
+        "imageid": "rhel8",
         "port": 8443
     },
     "environment": {
         "showdashboard": true,
         "dashboard": "Dashboard",
-        "uilayout": "terminal-iframe",
+        "uilayout": "terminal-terminal",
         "hideintro": false,
         "hidefinish": false
     },
