@@ -6,7 +6,7 @@ But let's dig into three concepts a little deeper:
 
 1. Portability - since the OCI standard governs the images specification, a container image can be created with Podman, pushed to almost any container registry to be shared with the world, and pulled down with almost any container engine in the world including Docker, RKT, CRI-O, containerd, and of course Podman. Standardizing on this image format let's us build infrastructure like registry servers which can be used for any container images be them RHEL 6, RHEL 7, RHEL8, Fedora, or even Windows container images.
 
-`podman pull fedora`{{execute Terminal2}}''
+`podman pull fedora`{{execute Terminal2}}
 
 2. Compatibility - this addressses the content inside the container image. No matter how hard you try, ARM binaries in a container image will not run on POWER container hosts. Containers do not offer compatability guarantees, only virtualization can offer that. This compatibility problem extends to processor architecture, and also versions of the operating system. Try running RHEL 8 binaries in a container image on RHEL 4 container hosts. That isn't going to work.
 
