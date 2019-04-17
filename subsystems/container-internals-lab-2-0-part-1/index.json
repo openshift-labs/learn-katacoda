@@ -14,7 +14,6 @@
         "showdashboard": true,
         "dashboard": "Dashboard",
         "uilayout": "terminal-iframe",
-	"terminals": [{"name": "Terminal2", "target": "host01"}],
         "hideintro": false,
         "hidefinish": false
     },
