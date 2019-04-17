@@ -6,15 +6,15 @@ But let's dig into three concepts a little deeper:
 
 1. Portability - since the OCI standard governs the images specification, a container image can be created with Podman, pushed to almost any container registry to be shared with the world, and pulled down with almost any container engine in the world including Docker, RKT, CRI-O, containerd, and of course Podman. Standardizing on this image format let's us build infrastructure like registry servers which can be used for any container images be them RHEL 6, RHEL 7, RHEL8, Fedora, or even Windows container images.
 
-``podman pull fedora``{{execute Terminal}}
+``podman pull fedora``{{execute Terminal2}}''
 
 2. Compatibility - this addressses the content inside the container image. No matter how hard you try, ARM binaries in a container image will not run on POWER container hosts. Containers do not offer compatability guarantees, only virtualization can offer that. This compatibility problem extends to processor architecture, and also versions of the operating system. Try running RHEL 8 binaries in a container image on RHEL 4 container hosts. That isn't going to work.
 
-``podman run -t fedora cat /etc/redhat-release``{{execute Terminal}}
+``podman run -t fedora cat /etc/redhat-release``{{execute Terminal}}''
 
 3. Supportability: is what vendors choose to support. This is about investing in testing, security, performance, and architecture of the way binaries are compiled. For example, in RHEL 8, Red Hat Supports RHEL 6, UBI 7, and UBI 8 container images on both RHEL 7 and RHEL 8 based (including CoreOS) container hosts.
 
-``podman run -t rhel7 cat /etc/redhat-release``{{execute Terminal}}
+``podman run -t rhel7 cat /etc/redhat-release``{{execute Terminal}}''
 
 
 Analyzing portability, compatibility, and supportability, we can deduce that a RHEL 7 image will work on RHEL 7 host perfectly. The code in both were designed, compiled, and tested together. The Product Security Team at Red Hat is analyzing CVEs for this combination, performance teams are testing RHEL 7 web servers, with a RHEL 7 kernel, etc, etc.
