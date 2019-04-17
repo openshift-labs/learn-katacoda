@@ -20,17 +20,23 @@
     },
     "details": {
         "steps": [{
-            "title": "Topic 1 - Containers Are Linux",
-            "text": "01-container-scratch.md"
+            "title": "Introduction to Containers",
+            "text": "01-introduction.md"
         }, {
-            "title": "Topic 2 - Community Landscape",
-            "text": "02-community-landscape.md"
+            "title": "Contianer Images",
+            "text": "02-images.md"
         }, {
-            "title": "Topic 3 - Single Host Toolchain",
-            "text": "03-single-host-toolchain.md"
+            "title": "Container Registries",
+            "text": "03-registries.md"
         }, {
-            "title": "Topic 4 - Multi-Host Toolchain",
-            "text": "04-multi-host-toolchain.md"
+            "title": "Container Hosts",
+            "text": "04-hosts.md"
+        }, {
+            "title": "Container Orchestration",
+            "text": "05-orchestration.md"
+        }, {
+            "title": "Closing",
+            "text": "06-closing.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
