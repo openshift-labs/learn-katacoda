@@ -1,6 +1,6 @@
 Container images are really just tar files. Seriously, they are tar files, and an associated json file. Together we call these an Image Bundle and the on-disk format is defined by the [OCI Image Specification](https://github.com/opencontainers/image-spec). All major container engines including Podman, Docker, RKT, CRI-O and containerd consume them.
 
-![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/02-basic-container-image.png)
+![Container Images](../../assets/subsystems/container-internals-lab-2-0-part-1/02-basic-container-image.png)
 
 But let's dig into three concepts a little deeper:
 
