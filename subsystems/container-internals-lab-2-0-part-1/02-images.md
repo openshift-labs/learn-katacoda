@@ -14,7 +14,7 @@ But let's dig into three concepts a little deeper:
 
 3. Supportability: is what vendors choose to support. This is about investing in testing, security, performance, and architecture of the way binaries are compiled. For example, in RHEL 8, Red Hat Supports RHEL 6, UBI 7, and UBI 8 container images on both RHEL 7 and RHEL 8 based (including CoreOS) container hosts.
 
-`podman run -t rhel7 cat /etc/redhat-release`{{execute}}
+`podman run -t registry.access.redhat.com/ubi7/ubi cat /etc/redhat-release`{{execute}}
 
 Analyzing portability, compatibility, and supportability, we can deduce that a RHEL 7 image will work on RHEL 7 host perfectly. The code in both were designed, compiled, and tested together. The Product Security Team at Red Hat is analyzing CVEs for this combination, performance teams are testing RHEL 7 web servers, with a RHEL 7 kernel, etc, etc.
 
