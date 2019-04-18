@@ -4,4 +4,4 @@ yum install -y podman buildah skopeo skopeo-containers tree httpd-tools strace
 
 # Lab 1
 podman pull registry.access.redhat.com/ubi7/ubi
-podman pull registry.access.redhat.com/ubi7/ubi-minimal
+echo "Container host is now ready."
