@@ -13,7 +13,8 @@
     "environment": {
         "showdashboard": true,
         "dashboard": "Dashboard",
-        "uilayout": "terminal-iframe",
+        "uilayout": "terminal-terminal",
+	"terminals": [{"name": "Terminal 2", "target": "host01"}]
         "hideintro": false,
         "hidefinish": false
     },
