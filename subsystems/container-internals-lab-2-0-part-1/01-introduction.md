@@ -7,4 +7,4 @@ If you understand Linux, you probably already no 85% of what you need to know to
 
 All of the things that you know today still apply, from security & performance, to storage & networking, the same concepts apply. Now, let's lightly dig into each of the four new primitives...
 
-![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/02-container-image-host-supportability.png) 
+![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/02-new-primitives.png) 
