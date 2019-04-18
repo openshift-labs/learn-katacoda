@@ -1,67 +1,39 @@
-## Copy to Clipboard
+Registries are really just fancy file servers that help users share container images with each other. The magic of containers is really the ability to find, run, build, share and collaborate with a new packaging format that groups applications and all of their dependencies together.
 
-This extension will copy the command or text to the clipboard.
+![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/03-basic-container-registry.png)
 
-Markdown: 
-<pre>`echo "Copy to Clipboard"`{{copy}}</pre>
+Container images make it easy for software builders to package software, as well as guidlines on how to run it. Using metadata, software builders can communicate how users *can* and *should* run their software, while providing the flexibility to also build off of it.
 
-Results:
-`echo "Copy to Clipboard"`{{copy}}
+Registry servers just make it easy to share this work with other users. Builders can push an image once allowing users and even automation like CI/CD systems to pull it down and use it thousands or millions of times. As an example, lets pull down a softare image that was designed and built for this lab. 
 
-## Execute in Terminal
+First, pull the image:
 
-Katacoda has integration to automatically execute the commands for the terminal.
+`podman pull quay.io/fatherlinux/linux-container-internals-2-0-introduction`{{execute}}
 
-This is done by adding `execute` to the markdown code block, for example:
-<pre>`echo "Run in Terminal"`{{execute}}</pre>
+Now, run this database similuation:
 
-This creates:
-`echo "Run in Terminal"`{{execute}}
+`podman run -it -d -p 3306:3306 quay.io/fatherlinux/linux-container-internals-2-0-introduction bash -c 'while true; do /usr/bin/nc -l -p 3306 < /etc/redhat-release; done'`{{execute}}
 
-## Interrupt
+Now, poll the simulated database with our very simple client, curl:
 
-When the user has long running commands, such as a watch, it can be useful to ensure that this is stopped but the user runs the next command. 
+`curl localhost:3306`{{execute}}
 
-<pre>`echo "Send Ctrl+C before running Terminal"`{{execute interrupt}}</pre>
+This image was built with an extremely simple build file:
 
-`echo "Send Ctrl+C before running Terminal"`{{execute interrupt}}
+`#
+# Version 1
 
-## Keyboard Icons
+# Pull from fedora Base Image
+FROM registry.access.redhat.com/ubi7-dev-preview/ubi-minimal
 
-This can also be helped by using Keyboard symbols to show users to use <kbd>Ctrl</kbd>+<kbd>C</kbd>
+MAINTAINER Scott McCarty smccarty@redhat.com
 
-The Markdown is:
-<pre>
-&#x3C;kbd&#x3E;Ctrl&#x3C;/kbd&#x3E;+&#x3C;kbd&#x3E;C&#x3C;/kbd&#x3E;
-</pre>
+# Update the image
+RUN yum -y install nmap-ncat
 
-## Execute on different hosts 
+# Output
+# ENTRYPOINT tail /var/log/yum.log`
 
-When using the `terminal-terminal` layout and multiple hosts within the cluster, you can have commands executed on which host is required. This is used within our [Kubernetes scenarios](https://www.katacoda.com/courses/kubernetes/getting-started-with-kubeadm).
+Realizing how easy it is to build and share using registry servers is the goal of this lab. Notice that you can embed logic of how to start the container image in the build file, thereby communicating not just *what* to run, but also *how*.
 
-<pre>
-`echo "Run in Terminal Host 1"`{{execute HOST1}}
-
-`echo "Run in Terminal Host 2"`{{execute HOST2}}
-</pre>
-
-`echo "Run in Terminal Host 1"`{{execute HOST1}}
-
-`echo "Run in Terminal Host 2"`{{execute HOST2}}
-
-## Execute in different Terminal windows
-
-When explaining complex systems, it can be useful to run commands in a separate terminal window. This can be run automatically by including the target Terminal number. 
-
-If the terminal is not open, it will launch and the command will be executed. 
-
-<pre>
-`echo "Run in Terminal 1"`{{execute T1}}
-
-`echo "Open and Execute in Terminal 2"`{{execute T2}}
-
-</pre>
-
-`echo "Run in Terminal 1"`{{execute T1}}
-
-`echo "Open and Execute in Terminal 2"`{{execute T2}}
+Now, lets move on to container hosts...
