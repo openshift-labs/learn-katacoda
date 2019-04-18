@@ -4,7 +4,7 @@ Container images are really just tar files. Seriously, they are tar files, and a
 
 But let's dig into three concepts a little deeper:
 
-1. Portability - since the OCI standard governs the images specification, a container image can be created with Podman, pushed to almost any container registry to be shared with the world, and pulled down with almost any container engine in the world including Docker, RKT, CRI-O, containerd, and of course Podman. Standardizing on this image format let's us build infrastructure like registry servers which can be used for any container images be them RHEL 6, RHEL 7, RHEL8, Fedora, or even Windows container images. Notice, you can pull a fedora image down on a CentOS container host:
+1. Portability - since the OCI standard governs the images specification, a container image can be created with Podman, pushed to almost any container registry to be shared with the world, and pulled down with almost any container engine in the world including Docker, RKT, CRI-O, containerd, and of course Podman. Standardizing on this image format let's us build infrastructure like registry servers which can be used for any container images be them RHEL 6, RHEL 7, RHEL8, Fedora, or even Windows container images. Notice, the podman can pull a fedora image down, uncompress it, and store it in the local /var/lib/containers image storage even though this is a CentOS container host:
 
 `podman pull fedora`{{execute}}
 
@@ -12,7 +12,7 @@ But let's dig into three concepts a little deeper:
 
 `podman run -t fedora cat /etc/redhat-release`{{execute}}
 
-3. Supportability: is what vendors choose to support. This is about investing in testing, security, performance, and architecture of the way binaries are compiled. For example, in RHEL 8, Red Hat Supports RHEL 6, UBI 7, and UBI 8 container images on both RHEL 7 and RHEL 8 based (including CoreOS) container hosts. Now, run a Red Hat Universal Base Image on this host. If this was a RHEL host, this would be completely supported:
+3. Supportability: is what vendors choose to support. This is about investing in testing, security, performance, and architecture of the way binaries are compiled. For example, in RHEL 8, Red Hat Supports RHEL 6, UBI 7, and UBI 8 container images on both RHEL 7 and RHEL 8 based (including CoreOS) container hosts. Now, run a Red Hat Universal Base Image on this host. If this was a RHEL container host, this would be completely supported (sorry, only CentOS hosts available for this lab environment):
 
 `podman run -t registry.access.redhat.com/ubi7/ubi cat /etc/redhat-release`{{execute}}
 
