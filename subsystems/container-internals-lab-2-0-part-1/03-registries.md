@@ -4,7 +4,9 @@ Registries are really just fancy file servers that help users share container im
 
 Container images make it easy for software builders to package software, as well as guidlines on how to run it. Using metadata, software builders can communicate how users *can* and *should* run their software, while providing the flexibility to also build off of it.
 
-Registry servers just make it easy to share this work with other users. Builders can push an image once allowing users and even automation like CI/CD systems to pull it down and use it thousands or millions of times. As an example, lets pull down a softare image that was designed and built for this lab. 
+Registry servers just make it easy to share this work with other users. Builders can push an image once allowing users and even automation like CI/CD systems to pull it down and use it thousands or millions of times. Some registries like the [Red Hat Container Catalog](https://access.redhat.com/containers/) offer images which are highly curated, well tested, and released with enterprise grade. Others, like [Quay.io](http://quay.io) are cloud based registries that give individual users public and private spaces to push and share images. Each have use cases which they are good for.
+
+As an example which demonstrates the power of quay.io, lets pull down a softare image that was designed and built for this lab. 
 
 First, pull the image:
 
