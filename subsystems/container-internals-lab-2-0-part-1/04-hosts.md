@@ -17,5 +17,13 @@ The kernel is responsible for the last mile of container creation, as well as re
 ![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-1/04-simple-container-engine.png)
 
  
-Running containers are just regular Linux processes that were started by a container runtime instead of a shell. All Linux processes live side by side, whether they are daemons, batch jobs, interactive commands in a shell, the container engine, the contianer runtime, or containers which are child processes of the runtime. All of these processe make requests to the Linux kernel for protected resources like memory, RAM, TCP sockets, etc. We will explore this deeper in later labs, but for now, commit this to memory...
+Running containers are just regular Linux processes that were started by a container runtime instead of a shell. All Linux processes live side by side, whether they are daemons, batch jobs, interactive commands in a shell, the container engine, the contianer runtime, or containers which are child processes of the runtime. All of these processe make requests to the Linux kernel for protected resources like memory, RAM, TCP sockets, etc. 
+
+Execute a few commands with podman and notice the process IDs, and namespace IDs. Containers are just regular processes:
+
+`podman ps -ns`{{execute}}
+`podman top -l huser user hpid pid %C etime tty time args`{{execute}}
+`ps -ef | grep 3306`
+
+We will explore this deeper in later labs, but for now, commit this to memory, containers are linux...
 
