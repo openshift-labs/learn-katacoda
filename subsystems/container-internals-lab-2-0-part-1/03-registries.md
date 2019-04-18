@@ -20,7 +20,8 @@ Now, poll the simulated database with our very simple client, curl:
 
 This image was built with an extremely simple build file:
 
-`#
+~~~~
+#
 # Version 1
 
 # Pull from fedora Base Image
@@ -32,7 +33,8 @@ MAINTAINER Scott McCarty smccarty@redhat.com
 RUN yum -y install nmap-ncat
 
 # Output
-# ENTRYPOINT tail /var/log/yum.log`
+# ENTRYPOINT tail /var/log/yum.log
+~~~~
 
 Realizing how easy it is to build and share using registry servers is the goal of this lab. Notice that you can embed logic of how to start the container image in the build file, thereby communicating not just *what* to run, but also *how*.
 
