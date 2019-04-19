@@ -1,10 +1,21 @@
-If you understand Linux, you probably already no 85% of what you need to know to understand containers. If you understand how processes (ps), mounts (mount), networks (ip addr), shells (bash) and daemons (httpd, mysqld) work then you just need to understand a few extra primitives to get you over the line to truly architecting solutions with containers. After teaching this for years, we have boiled this down to an analysis of four new basic primitives:
+If you understand Linux, you probably already have 85% of the knowledge you need to understand containers. If you understand how processes, mounts, networks , shells and daemons work - command slike ps, mount, ip addr, bash, httpd and mysqld - then you just need to understand a few extra primitives to become an expert with containers. Remember that all of the things that you already know today still apply, from security & performance, to storage & networking, containers are just a different way of packaging and delivering Linux applications. There are four basic primitives to learn to get you from Linux administrator to feeling comfortable with containers:
 
 * [Container Images](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.dqlu6589ootw)
 * [Container Registres](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.4cxnedx7tmvq)
 * [Container Hosts](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.8tyd9p17othl)
 * [Container Orchestration](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.6yt1ex5wfo66)
 
-All of the things that you know today still apply, from security & performance, to storage & networking, the same concepts apply. Now, let's lightly dig into each of the four new primitives...
+Once, you understand the basic four primitives, there are some advanced concepts that will be covered in future labs including:
+
+* Container Standards: Understanding OCI, CRI, CNI, and more
+* Container Tools Ecosystem - Podman, Buildah, Skopeo, cloud registries, etc
+* Production Image Builds: Sharing and collaborating between technical specialists (performance, network, security, databases, etc)
+* Intermediat Architecture: Production environemnts
+* Advanced Architecture: Building in resiliance
+* Container History: Context for where we are at today 
+
+Covering all of this material is beyond the scope of any live training, but we will cover the basics, and students can move on to other labs not covered in the classroom. These labs are available online at http://learn.openshift.com. 
+
+Now, lets start with the introducotry lab, which covers these four basic primitives:
 
 ![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/01-new-primitives.png) 
