@@ -28,7 +28,7 @@ In the "database" we are opening a file and using netcat to ship it over port 33
 
 Wait for the cheese-pizza and pepperoni pizza pods to start:
 
-`for i in {1..3}; do oc get pods;sleep 3; done`{{execute}}
+`for i in {1..5}; do oc get pods;sleep 3; done`{{execute}}
 
 When the pods are done being created, pull some data from our newly created "web app."  Notice that we get back the contents of a file which resides on the the database server, not the web server:
 
