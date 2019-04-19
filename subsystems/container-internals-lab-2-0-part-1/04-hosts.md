@@ -23,7 +23,7 @@ Execute a few commands with podman and notice the process IDs, and namespace IDs
 
 `podman ps -ns`{{execute}}
 `podman top -l huser user hpid pid %C etime tty time args`{{execute}}
-`ps -ef | grep 3306`
+`ps -ef | grep 3306`{{execute}}
 
 We will explore this deeper in later labs, but for now, commit this to memory, containers are linux...
 
