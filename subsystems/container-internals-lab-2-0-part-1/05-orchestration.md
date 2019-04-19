@@ -29,11 +29,11 @@ In reality we are just using netcat to push some text over the associated ports.
 
 Pull some data from our newly created "web app."  Notice that we get back our /etc/redhat-release file from the database server, not the web server:
 
-`curl `kubectl get svc pepperoni-pizza -o yaml | grep ip | awk '{print $3}'``{{execute}}
+`curl $(kubectl get svc pepperoni-pizza -o yaml | grep ip | awk '{print $3}')`{{execute}}
 
 Now, let's pull data directly from the "database."  It's the same file as we would expect, but this time coming back over port 3306:
 
-`curl `kubectl get svc pepperoni-pizza -o yaml | grep ip | awk '{print $3}'``{{execute}}
+`curl $(kubectl get svc pepperoni-pizza -o yaml | grep ip | awk '{print $3}')`{{execute}}
 
 Hopefully, this demonstrates how powerful container orchestration is. Note that we could fire up 50 copies of this application in Kubernetes with 49 more commands. It's that easy
 
