@@ -14,8 +14,8 @@ Once, you understand the basic four primitives, there are some advanced concepts
 * Advanced Architecture: Building in resiliance
 * Container History: Context for where we are at today 
 
-Covering all of this material is beyond the scope of any live training, but we will cover the basics, and students can move on to other labs not covered in the classroom. These labs are available online at http://learn.openshift.com. 
+Covering all of this material is beyond the scope of any live training, but we will cover the basics, and students can move on to other labs not covered in the classroom. These labs are available online at http://learn.openshift.com/subsystems. 
 
 Now, lets start with the introducotry lab, which covers these four basic primitives:
 
-![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/01-new-primitives.png) 
+![New Primitives](../../assets/subsystems/container-internals-lab-2-0-part-1/01-new-primitives.png) 

@@ -18,14 +18,14 @@ But let's dig into three concepts a little deeper:
 
 Analyzing portability, compatibility, and supportability, we can deduce that a RHEL 7 image will work on RHEL 7 host perfectly. The code in both were designed, compiled, and tested together. The Product Security Team at Red Hat is analyzing CVEs for this combination, performance teams are testing RHEL 7 web servers, with a RHEL 7 kernel, etc, etc. The entire machine of software creation and testing does it's work in this configuration with programs and kernels compiled, buit and tested together. Matching versions of container images and hosts inherit all of this work:
 
-![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/02-rhel7-image-rhel7-host.png)
+![Matching Container Image and Host](../../assets/subsystems/container-internals-lab-2-0-part-1/02-rhel7-image-rhel7-host.png)
 
 But, there are limits. Red Hat can't guarantee that RHEL 5, Fedora, and Alpine images will work like they were intended to on a RHEL 7 host. The container image standards guarantee that the container engine will be able to ingest the images, pulling them down and caching them locally. But, nobody can guarantee that the binaries in the container images will work correctly. Nobody can guarantee that there won't be strange CVEs that show up because of the version combinations (yeah, that's "a thing"), and of course, nobody can guarantee the performance of the binaries running on a kernel for which it wasn't compiled. That said, many times, these binaries will appear to just work.
 
-![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/02-container-image-host-mismatch.png)
+![Mismatching Container Image and Host](../../assets/subsystems/container-internals-lab-2-0-part-1/02-container-image-host-mismatch.png)
 
 This leads us to supportability as a concept seperate from portability and compatibility. This is the ability to guarantee to some level that certain images will work on certain hosts. Red Hat can do this between selected major versions of RHEL for the same reason that we can do it with the [RHEL Application Compatability Guide](https://access.redhat.com/articles/rhel-abi-compatibility). We take special precautions to compile our programs in a way that doesn't break compatibility, we analyze CVEs, and we test performance. A bare minimum of testing, security, and performance can go a long way in ensureing supportability between versions of Linux, but there are limits. One should not expect that container images from RHEL 9, 10, or 11 will run on RHEL 8 hosts.
 
-![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/02-container-image-host-supportability.png)
+![Container Image & Host Supportability](../../assets/subsystems/container-internals-lab-2-0-part-1/02-container-image-host-supportability.png)
 
 Alright, now that we have sorted out the basics of container images, let's move on to registries...

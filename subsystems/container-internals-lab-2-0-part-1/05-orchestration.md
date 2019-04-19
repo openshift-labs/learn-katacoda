@@ -7,7 +7,7 @@ Container Orchestration is the next logical progression after you become comfort
 * Operational Automation - The [Kubernetes Operator Framework](https://coreos.com/operators/) can be thought of as a robot systems administrator deployed side by side with applications managing mundane and complex tasks for the application (backups, restores, etc)
 * Higher Level Frameworks - Once you adopt Kubernetes orchestration, you gain access to an innovative ecosystem of tools like Istio, Knative, and the previously mentioned Operator Framework
 
-![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-1/05-simple-orchestration-node.png)
+![Orchestration Node](../../assets/subsystems/container-internals-lab-2-0-part-1/05-simple-orchestration-node.png)
 
 
 To demonstrate, all we need is bash, curl, and netcat which let's us pipe text across a TCP port. If you are familiar with basic bash scripting this tiny lab teases apart the value of the orchestration, versus the application itself. This application doesn't do much, but it does demonstrate the power of a two-tier application running in containers with both a database and a web front end. In this lab, we use the same container image from before, but this time we embed the *how* to run logic in the Kubernetes YAML. Here's a simple representation of what our application does:

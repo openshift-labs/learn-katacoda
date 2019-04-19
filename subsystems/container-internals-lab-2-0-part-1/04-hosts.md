@@ -14,7 +14,7 @@ A container runtime is a small tool that expects to be handed two things - a dir
 The kernel is responsible for the last mile of container creation, as well as resource management during it's running lifecycle. The container runtime talks to the kernel to create the new container with a special kernel function called clone(). The runtime also handles talking to the kernel to configure things like cgroups, SELinux, and SECCOMP (more on these later). The combination of kernel technologies invoked are defined by the container runtime, but there are very recent [efforts to standardize this in the kernel](https://lwn.net/Articles/780364/).
 
 
-![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-1/04-simple-container-engine.png)
+![Container Engine](../../assets/subsystems/container-internals-lab-2-0-part-1/04-simple-container-engine.png)
 
  
 Containers are just regular Linux processes that were started as child processes of a container runtime instead of by a user running commands in a shell. All Linux processes live side by side, whether they are daemons, batch jobs, and user command - the container engine, container runtime, and containers (child processes of the container runtime) are no different. All of these processes make requests to the Linux kernel for protected resources like memory, RAM, TCP sockets, etc. 

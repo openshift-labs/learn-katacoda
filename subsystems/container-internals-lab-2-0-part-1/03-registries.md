@@ -1,6 +1,6 @@
 Registries are really just fancy file servers that help users share container images with each other. The magic of containers is really the ability to find, run, build, share and collaborate with a new packaging format that groups applications and all of their dependencies together.
 
-![Container Libraries](../../assets/subsystems/container-internals-lab-2-0-part-1/03-basic-container-registry.png)
+![Container Registry](../../assets/subsystems/container-internals-lab-2-0-part-1/03-basic-container-registry.png)
 
 Container images make it easy for software builders to package software, as well as provide information about how to run it. Using metadata, software builders can communicate how users *can* and *should* run their software, while providing the flexibility to also build new things off of it.
 
