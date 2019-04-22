@@ -1,5 +1,5 @@
 ## Background
-In this self paced tutorial you will gain a basic understanding of the moving parts that make up the typical container architecture.  This will cover container images, registries, hosts, and orchestration.
+In this self-paced tutorial, you will gain a basic understanding of the moving parts that make up the typical container architecture.  This will cover container images, registries, hosts, and orchestration.
 
 By the end of this lab you should be able to:
 - Draw a diagram showing how the Linux kernel, services and daemons work together to create and deploy containers
@@ -11,7 +11,7 @@ By the end of this lab you should be able to:
 ## Outline
 - Container Images: made up of underlying operating system components like libraries and programming languages
 - Container Registries: Fancy file servers that help users share container images
-- Contianer Hosts: Includes Podman (or Docker) runtime, Systemd, runc, and Libcontainer
+- Container Hosts: Includes Podman (or Docker) runtime, Systemd, runc, and Libcontainer
 - Container Orchestration: Includes Kubernetes/OpenShift
 
 ## Other Material
