@@ -11,7 +11,7 @@ Now, let's take a look at the minimal base image which is part of the Red Hat Un
 
 Now, using a simple Dockerfile we created for you, build a multi-layered image:
 
-`podman build -t ubi7-change ~/labs/lab2-step1/`{{execute}}
+`podman build -t ubi7-change -f ~/labs/lab2-step1/Dockerfile`{{execute}}
 
 Do you see the newly created ubi7-change tag?
 
