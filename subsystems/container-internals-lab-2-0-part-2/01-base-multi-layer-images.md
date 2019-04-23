@@ -21,4 +21,4 @@ Can you see all of the layers that make up the new image/repository/tag? This co
 
 `podman history ubi7-change`{{execute}}
 
-Remember, it is important to build on a trusted base image from a trusted source (aka have provenance or maintain chain of custody). Container repositories are made up of layers, but we often refer to them simply as "container images" or containers. When architecting systems, we must be precise with our language or we will cause confusion to our end users.
+Notice that that the first image ID (bottom) listed in the output matches the registry.access.redhat.com/ubi7/ubi image. Remember, it is important to build on a trusted base image from a trusted source (aka have provenance or maintain chain of custody). Container repositories are made up of layers, but we often refer to them simply as "container images" or containers. When architecting systems, we must be precise with our language or we will cause confusion to our end users.
