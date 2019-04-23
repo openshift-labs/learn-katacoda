@@ -32,5 +32,5 @@ It failed, but why? Try again with a more complete URL:
 
 `podman inspect ubi7/ubi:test`{{execute}}
 
-Notice that the DNS-like resolution only works with the latest tag. You have to specify the namespace and the repository with other tags. If you test long enough, you will find many other caveats to namespace, repository and tag resolution, so be careful. Typically, it's best to use the full URL. Remember this when building scripts. Containers seem deceptively easy, but you need to pay attention to details.
+Notice that podman resolves container images similar to DNS resolution. Each container engine is different and Docker will actually resolve some things podman doesn't because there is no standard on how image URIs are resolve. If you test long enough, you will find many other caveats to namespace, repository, and tag resolution. Generally, it's best to allways use the full URI, specifying the server, namespace, repository and tag. Remember this when building scripts. Containers seem deceptively easy, but you need to pay attention to details.
 
