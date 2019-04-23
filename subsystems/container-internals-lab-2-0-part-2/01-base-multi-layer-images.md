@@ -3,15 +3,11 @@ The goal of this exercise is to understand the difference between base images an
 
 Let's take a look at some base images. We will use the podman history command to inspect all of the layers in these repositories. Notice that these container images have no parent layers. These are base images and they are designed to be built upon. First, let's look at the full ubi7 base image:
 
-``podman pull registry.access.redhat.com/ubi7/ubi:latest``{{execute}}
-
-``podman history ubi7``{{execute}}
+`podman history registry.access.redhat.com/ubi7/ubi:latest`{{execute}}
 
 Now, let's take a look at the minimal base image which is part of the Red Hat Universal Base Image (UBI) collection. Notice that it's quite a bit smaller:
 
-``podman pull registry.access.redhat.com/ubi7-minimal:latest``{{execute}}
-
-``podman history ubi7-minimal``{{execute}}
+`podman history registry.access.redhat.com/ubi7-minimal:latest``{{execute}}
 
 Now, using a simple Dockerfile we created for you, build a multi-layered image:
 
