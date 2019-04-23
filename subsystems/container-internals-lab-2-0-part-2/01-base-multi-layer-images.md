@@ -21,8 +21,4 @@ Can you see all of the layers that make up the new image/repository/tag? This co
 
 `podman history ubi7-change`{{execute}}
 
-Now run the "dockviz" command. What does this command show you? What's the parent image of the ubi7-change image? 
-
-`podman run --rm --privileged -v /var/run/podman.sock:/var/run/podman.sock nate/dockviz images -t`{{execute}}
-
-Notice that with the dockviz command we can trace back to the ubi7 base image. Remember, it is important to build on a trusted base image from a trusted source (aka have provenance or maintain chain of custody). Container repositories are made up of layers, but we often refer to them simply as "container images" or containers. When architecting systems, we must be precise with our language or we will cause confusion to our end users.
+Remember, it is important to build on a trusted base image from a trusted source (aka have provenance or maintain chain of custody). Container repositories are made up of layers, but we often refer to them simply as "container images" or containers. When architecting systems, we must be precise with our language or we will cause confusion to our end users.
