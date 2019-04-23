@@ -7,7 +7,7 @@ Let's take a look at some base images. We will use the podman history command to
 
 Now, let's take a look at the minimal base image which is part of the Red Hat Universal Base Image (UBI) collection. Notice that it's quite a bit smaller:
 
-`podman history registry.access.redhat.com/ubi7-minimal:latest`{{execute}}
+`podman history registry.access.redhat.com/ubi7/ubi-minimal:latest`{{execute}}
 
 Now, using a simple Dockerfile we created for you, build a multi-layered image:
 
