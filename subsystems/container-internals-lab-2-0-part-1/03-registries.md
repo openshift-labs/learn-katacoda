@@ -2,11 +2,11 @@ Registries are really just fancy file servers that help users share container im
 
 ![Container Registry](../../assets/subsystems/container-internals-lab-2-0-part-1/03-basic-container-registry.png)
 
-Container images make it easy for software builders to package software, as well as provide information about how to run it. Using metadata, software builders can communicate how users *can* and *should* run their software, while providing the flexibility to also build new things off of it.
+Container images make it easy for software builders to package software, as well as provide information about how to run it. Using metadata, software builders can communicate how users *can* and *should* run their software, while providing the flexibility to also build new things based on existing software.
 
-Registry servers just make it easy to share this work with other users. Builders can push an image to a registry, allowing users and even automation like CI/CD systems to pull it down and use it thousands or millions of times. Some registries like the [Red Hat Container Catalog](https://access.redhat.com/containers/) offer images which are highly curated, well tested, and enterprise grade. Others, like [Quay.io](http://quay.io) are cloud based registries that give individual users public and private spaces to push their own images and share them with others. Curated registries are good for partners who want to deliver solutions together (eg. Red Hat and CrunchyDB), while cloud based registries are good for end users collaborating on work.
+Registry servers just make it easy to share this work with other users. Builders can push an image to a registry, allowing users and even automation like CI/CD systems to pull it down and use it thousands or millions of times. Some registries like the [Red Hat Container Catalog](https://access.redhat.com/containers/) offer images which are highly curated, well tested, and enterprise grade. Others, like [Quay.io](http://quay.io), are cloud-based registries that give individual users public and private spaces to push their own images and share them with others. Curated registries are good for partners who want to deliver solutions together (eg. Red Hat and CrunchyDB), while cloud-based registries are good for end users collaborating on work.
 
-As an example which demonstrates the power of sharing with quay.io, lets pull a container image that was designed and built for this lab:
+As an example which demonstrates the power of sharing with quay.io, let's pull a container image that was designed and built for this lab:
 
 `podman pull quay.io/fatherlinux/linux-container-internals-2-0-introduction`{{execute}}
 
@@ -39,4 +39,4 @@ ENTRYPOINT bash -c 'while true; do /usr/bin/nc -l -p 3306 < /etc/redhat-release;
 
 Realizing how easy it is to build and share using registry servers is the goal of this lab. You can embed the runtime logic into the container image using a build file, thereby communicating not just *what* to run, but also *how*. You can share the container image making it easier for others to use. You can also share the build file using something like GitHub to make it easy for others to build off of your work (open source for the win).
 
-Now, lets move on to container hosts...
+Now, let's move on to container hosts...

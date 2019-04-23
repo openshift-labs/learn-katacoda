@@ -23,7 +23,7 @@
             "title": "Introduction to Containers",
             "text": "01-introduction.md"
         }, {
-            "title": "Contianer Images",
+            "title": "Container Images",
             "text": "02-images.md"
         }, {
             "title": "Container Registries",
