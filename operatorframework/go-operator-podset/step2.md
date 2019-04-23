@@ -20,15 +20,3 @@ Inspect the Custom Resource Definition manifest:
 ```
 cat deploy/crds/app_v1alpha1_podset_crd.yaml
 ```{{execute}}
-<br>
-Deploy your PodSet Custom Resource Definition to the live OpenShift Cluster:
-
-```
-oc create -f deploy/crds/app_v1alpha1_podset_crd.yaml
-```{{execute}}
-<br>
-Confirm the CRD was successfully created:
-
-```
-oc get crd
-```{{execute}}
