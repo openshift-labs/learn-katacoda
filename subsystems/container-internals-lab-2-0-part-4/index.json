@@ -37,12 +37,6 @@
         }, {
             "title": "Storage: How containers get local, copy on write storage",
             "text": "06-storage.md"
-        }, {
-            "title": "Pod Networking: How individual containers and pods connect to the network",
-            "text": "07-pod-networking.md"
-        }, {
-            "title": "Cluster Networking: How clusters of hosts manage the connections of containerized processes",
-            "text": "08-cluster-networking.md"
         }],
         "intro": {
             "courseData": "background.sh",
