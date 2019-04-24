@@ -8,7 +8,7 @@ Notice that dynamic scripting languages are also compiled and linked against sys
 
 Inspecting a common tool like "curl" demonstrates how many libraries are used from the operating system. First, start the RHEL Tools container. This is a special image which Red Hat releases with all of the tools necessary for troubleshooting in a containerized environment. It's rather large, but quite convenient:
 
-``podman run -it rhel7/rhel-tools bash``{{execute}}
+``podman run -it registry.access.redhat.com/rhel7/rhel-tools bash``{{execute}}
 
 Take a look at all of the libraries curl is linked against:
 
