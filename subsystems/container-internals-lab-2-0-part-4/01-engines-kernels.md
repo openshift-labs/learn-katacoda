@@ -1,6 +1,6 @@
 If you just do a quick Google search, you will find tons of architectural drawings which depict things the wrong way or only tell part of the story. This leads the innocent viewer to come to the wrong conclusion about containers. One might suspect that even the makers of these drawings have the wrong conclusion about how containers work and hence propogate bad information. So, forget everything you think you know.
 
-![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-1/01-google-wrong.png)
+![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-4/01-google-wrong.png)
 
 How do people get it wrong? In two main ways:
  

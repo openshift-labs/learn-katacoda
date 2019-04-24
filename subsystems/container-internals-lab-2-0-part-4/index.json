@@ -20,8 +20,8 @@
     },
     "details": {
         "steps": [{
-            "title": "Daemons & APIs: Docker, Kubernetes Master, Node, and their interaction with the Linux kernel",
-            "text": "01-daemons-apis.md"
+            "title": "Container Engines & The Linux Kernel",
+            "text": "01-engines-kernel.md"
         }, {
             "title": "System Calls & Kernel Namespaces: How they work inside of a container",
             "text": "02-system-calls.md"
