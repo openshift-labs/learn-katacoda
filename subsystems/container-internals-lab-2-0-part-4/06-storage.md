@@ -2,7 +2,7 @@ The goal of this exercise is to gain a basic understanding of storage.
 
 First, lets take a look at which Graph Driver is used by the Docker daemon:
 
-``docker info | grep "Storage Driver"``{{execute}}
+`podman info | grep GraphDriverName`{{execute}}
 
 
 Now, for troubleshooting purposes, imagine that we want to see which volume of storage is used by the haproxy container. Using "docker inspect" you can find the layers used in a particular container by looking at the GraphDriver -> Data.
