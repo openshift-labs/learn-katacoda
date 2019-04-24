@@ -18,7 +18,7 @@ You can run any of the following commands and you will get the exact same result
 
 Now, let's build another image, but give it a tag other than "latest":
 
-`podman build -t registry.access.redhat.com/ubi7/ubi:test -f ~/labs/lab2-step1/Dockerfile`{{execute}}
+`podman build -t ubi7-change:test -f ~/labs/lab2-step1/Dockerfile`{{execute}}
 
 Now, notice there is another tag
 
