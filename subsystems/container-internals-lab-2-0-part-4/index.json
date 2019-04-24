@@ -6,8 +6,8 @@
     "difficulty": "Advanced",
     "time": "20-30 minutes",
     "backend": {
-      "trainingid": "openshift-3-6",
-      "imageid": "openshift-3-6",
+      "trainingid": "openshift-3-11",
+      "imageid": "openshift-3-11",
         "port": 8443
     },
     "environment": {
@@ -45,8 +45,8 @@
             "text": "08-cluster-networking.md"
         }],
         "intro": {
-            "courseData": "env-init.sh",
-            "code": "set-env.sh",
+            "courseData": "background.sh",
+            "code": "foreground.sh",
             "text": "intro.md"
         },
         "finish": {

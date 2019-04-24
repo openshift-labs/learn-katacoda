@@ -1,4 +1,4 @@
-The goal of this exercise is to gain a basic understanding of the APIs (Kubernetes/OpenShift, Docker, Linux kernel). First let's inspect the daemons which are running on the master nodes.
+The goal of this exercise is to gain a basic understanding of the APIs (Kubernetes/OpenShift, Docker, Linux kernel) in a default OCP 3.11 environment. First let's inspect the daemons which are running on the master nodes.
 
 ``mega-proc.sh docker``{{execute}}
 
