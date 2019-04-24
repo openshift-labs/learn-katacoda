@@ -25,7 +25,7 @@ Now, let's inspect the process table of the underlying host:
 
 `ps -efZ | grep top`{{execute}}
 
-Notice that even though we started each of the ``top`` commands in containers, they are still just a regular process which can be viewed with the trusty old ``ps`` command. That's because containerized processes are just [fancy Linux processes](http://sdtimes.com/guest-view-containers-really-just-fancy-files-fancy-processes/) with extra isolation from normal Linux processes. Hack around a bit, and notice that the docker daemon runs side by side with the containerized processes. A simplified drawing should really look something like this:
+Notice that even though we started each of the ``top`` commands in containers. We started two with docker, and one with podman, but they are still just a regular process which can be viewed with the trusty old ``ps`` command. That's because containerized processes are just [fancy Linux processes](http://sdtimes.com/guest-view-containers-really-just-fancy-files-fancy-processes/) with extra isolation from normal Linux processes. Hack around a bit, and notice that the docker daemon runs side by side with the containerized processes. A simplified drawing should really look something like this:
 
 ![Containers Are Linux](../../assets/subsystems/container-internals-lab-2-0-part-4/01-single-node-toolchain.png) 
 
