@@ -14,15 +14,16 @@ Second, when drawings show containers are Linux processes, they never show the c
  
 For this lab, let’s start from scratch. In the terminal, let's start with a simple experiment - start three containers which will all run the top command:
 
-``docker run -td rhel7 top``{{execute}}''
 
-``docker run -td rhel7 top``{{execute}}''
+`docker run -td registry.access.redhat.com/ubi7/ubi top`{{execute}}
 
-``docker run -td rhel7 top``{{execute}}''
+`docker run -td registry.access.redhat.com/ubi7/ubi top`{{execute}}
+
+`podman run -td registry.access.redhat.com/ubi7/ubi top`{{execute}}
 
 Now, let's inspect the process table of the underlying host:
 
-``ps -efZ | grep top``{{execute}}
+`ps -efZ | grep top`{{execute}}
 
 Notice that even though we started each of the ``top`` commands in containers, they are still just a regular process which can be viewed with the trusty old ``ps`` command. That's because containerized processes are just [fancy Linux processes](http://sdtimes.com/guest-view-containers-really-just-fancy-files-fancy-processes/) with extra isolation from normal Linux processes. Hack around a bit, and notice that the docker daemon runs side by side with the containerized processes. A simplified drawing should really look something like this:
 
