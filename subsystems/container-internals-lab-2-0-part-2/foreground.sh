@@ -1,6 +1,6 @@
 # General Preparation
 git clone --depth 1 https://github.com/fatherlinux/container-internals-lab.git ~/labs
-yum install -y podman buildah skopeo skopeo-containers tree httpd-tools strace &
+yum install -y podman buildah skopeo skopeo-containers tree httpd-tools strace
 
 # Lab 2
 yum install -y podman buildah skopeo
