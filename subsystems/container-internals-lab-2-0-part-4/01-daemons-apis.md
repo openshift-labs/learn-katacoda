@@ -2,7 +2,6 @@ The goal of this exercise is to gain a basic understanding of the APIs (Kubernet
 
 ``mega-proc.sh docker``{{execute}}
 
-
 Pay attention to the following proecesses and daemons running. You may notice that all of the docker commands and daemons have the "-current" extension - this is a methodology Red Hat uses to specify which version of the tools are installed. Red Hat supports two versions - a fast moving version with the -latest extension and a stable version targetted for OpenShift with the -current extension.
 
 These processes all work together to create a container in the Linux kernel. The following is a basic description of their purpose:
