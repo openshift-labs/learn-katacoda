@@ -7,11 +7,11 @@ In this step, we are going to investigate the basic construction of a container.
 
 ## Pull/Expand/Mount Image
 
-Let's create a container from scratch and investigate each step using podman. Podman makes it easy to break down each step of the construction for learning. First, let's pull the image, expand it, and create a new overlay layer for read/write in the container:
+Let's use podman to create a container from scratch. Podman makes it easy to break down each step of the container construction for learning purposes. First, let's pull the image, expand it, and create a new overlay filesystem layer as the read/write root filesystem for the container. To do this, we will use a specially constructed container image which lets us break down the steps instead of starting all at once:
 
-`podman create -dt --name on-off-container -v /mnt:/mnt:Z registry.access.redhat.com/ubi7/ubi bash -c 'if [ -f /mnt/on ]; then top; fi'`{{execute}}
+`podman create -dt --name on-off-container -v /mnt:/mnt:Z quay.io/fatherlinux/on-off-container`{{execute}}
 
-OK, we have storage created. Notice the "Created" status of the container:
+After running the above command we have storage created. Notice the "Created" status of the container:
 
 `podman ps -a`{{execute}}
 
@@ -19,71 +19,65 @@ Try to look at the storage with the mount command (hint, you won't be able to fi
 
 `mount`{{execute}}
 
-OK, hopefully you didn't look for too long, because you can't see it with the mount command. That's because this storage has been "mounted" in what's called a mount namespace. To see the storage from outside the container, podman has a cool feature called podman-mount. Let's play with it a hair:
+Hopefully you didn't look for too long because you can't see it with the mount command. That's because this storage has been "mounted" in what's called a mount namespace. You can only see the mount from inside the container. To see the mount from outside the container, podman has a cool feature called podman-mount. This command will return the path of a directory which you can poke around in:
 
 `podman mount on-off-container`{{execute}}
 
 The directory you get back is a system level mount point into the overlay filesystem which is used by the container. You can literally change anything in the container's filesystem now. Run a few commands to poke around:
 
 `mount`{{execute}}
-`ls $(podman mount on-off-container)`{{execute}}
-`touch $(podman mount on-off-container)/test`{{execute}}
+
 `ls $(podman mount on-off-container)`{{execute}}
 
-See the test file there. That would be in our container, should we fire it up. OK, we have storage, let's move on to the spec file...
+`touch $(podman mount on-off-container)/test`{{execute}}
+
+`ls $(podman mount on-off-container)`{{execute}}
+
+See the test file there. You will see this file in our container later when we start it and create a shell inside of it. Let's move on to the spec file...
 
 ## Create Spec File
 
-At this point the container image has been cached locally and mounted, but we don't actually have a spec file for runc yet. The container engine will automatically create this, and any OCI compliant runtime can consume it (runc, crun, katacontainers, gvisor, etc). Let's run some experiments to show when it's created. We will use some simple bash scripting to get at the config.json (spec file passed to runc) file as it's created by podman:
+At this point the container image has been cached locally and mounted, but we don't actually have a spec file for runc yet. Creating a spec file from hand is quite tedious because they are made up of complex JSON with a lot of different options (governed by the OCI runtime spec). Luckily for us, the container engine will create one for us. This exact same spec file can be used by any OCI compliant runtime can consume it (runc, crun, katacontainers, gvisor, etc). Let's run some experiments to show when it's created. First let's inspect the place where it should be:
 
 `tail /var/lib/containers/storage/overlay-containers/$(podman ps -l -q --no-trunc)/userdata/config.json|jq .`{{execute}}
+
+The above command errors out because the container engine hasn't created the config.json file yet. We will initiate the creation of this file by using podman combined with a specially constructed container image:
+
 `podman start on-off-container`{{execute}}
+
+Now, the config.json file has been created. Check it out:
+
 `tail /var/lib/containers/storage/overlay-containers/$(podman ps -l -q --no-trunc)/userdata/config.json|jq .`{{execute}}
 
-We used the -l (last container run) option to get the container ID, then used it as the directory name under /var/lib/containers/storage. This is the location for all of the storage with podman, CRI-O, buildah, etc. We also used the jq command to prettify the JSON in the spec file. Notice the spec file was not created until we actually started the container. Since we never passed the container a "command" to run, it immediatedly exited:
+But, notice that podman has not started a container. Podman created the config.json and immediately exited:
 
-`podman ps -l`{{execute}}
+`podman ps -a`{{execute}}
 
-Now, let's delete our storage and config.json
-
-`podman kill -l
-podman rm -l`{{execute}}
-
-OK, let's move on to calling runc...
+In the next step, we will create a running container with runc...
 
 ## Call Runtime
 
-Now that we have storage and a config.json, let's complete the circuit and create a containerized process with this config.json. We have wired the command passed to this container, to only start top if the file /mnt/on exists. Once we create the file, it gets passed through to the container, and read on start:
+Now that we have storage and a config.json, let's complete the circuit and create a containerized process with this config.json. We have constructed a container image, which only starts a process in the container if the /mnt/on file exists. Let's create the file, and start the container again:
 
-`touch /mnt/on`
-`podman start on-off-container`{{execute}}
-
-This time it's in the running state:
-
-`podman ps -l`{{execute}}
-
-This time, let's start the container and let it run:
+`touch /mnt/on`{{execute}}
 
 `podman start on-off-container`{{execute}}
 
-This time it's runnig the top command:
+When podman started the container this time, it fired up top. This time it's in the running state:
 
 `podman ps -l`{{execute}}
 
-The config.json file has been created as we would expect:
+Now, let's fire up a shell inside of our running container:
 
-`tail /var/lib/containers/storage/overlay-containers/$(podman ps -l -q --no-trunc)/userdata/config.json|jq .`{{execute}}
+`podman exec -it on-off-container bash`{{execute}}
 
-And, we 
+Now, look for the test file we created before we started the container:
 
-We have storage, and we have a config.json file, now we can have the container engine, podman, fire up runc, or we can do it ourselve manually.
+`ls -alh /test`{{execute}}
 
+The file is there like we would expect. You have just created a container in three basic steps. Did you known and understand that all of this was happening every time you ran a podman or docker command? Now, clean up your work:
 
+`exit`{{execute}}
 
-The container image has been used as a base layer, and an overlay layer has been created. Check out the volume with the podman mount command:
-
-podman mount on-off-container
-
-
-
-podman exec -it on-off-container bash
+`podman kill -a
+podman rm -a`{{execute}}
