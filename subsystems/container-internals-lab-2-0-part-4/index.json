@@ -23,8 +23,8 @@
             "title": "Container Engines & The Linux Kernel",
             "text": "01-engines-kernel.md"
         }, {
-            "title": "System Calls & Kernel Namespaces: How they work inside of a container",
-            "text": "02-system-calls.md"
+            "title": "Step by step creation of a container",
+            "text": "02-create-container.md"
         }, {
             "title": "SELinux & sVirt: Dynamically generated contexts to protect your containers",
             "text": "03-selinux-svirt.md"
@@ -34,9 +34,6 @@
         }, {
             "title": "SECCOMP: Limiting how a containerized process can interact with the kernel",
             "text": "05-seccomp.md"
-        }, {
-            "title": "Storage: How containers get local, copy on write storage",
-            "text": "06-storage.md"
         }],
         "intro": {
             "courseData": "background.sh",
