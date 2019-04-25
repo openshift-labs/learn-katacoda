@@ -29,8 +29,8 @@
             "text": "03-analyzing-storage.md"
         }],
         "intro": {
-            "courseData": "env-init.sh",
-            "code": "set-env.sh",
+            "courseData": "background.sh",
+            "code": "foreground.sh",
             "text": "intro.md"
         },
         "finish": {
