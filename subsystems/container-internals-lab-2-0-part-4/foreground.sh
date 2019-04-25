@@ -7,9 +7,9 @@ cp ~/labs/lab1-step3/mega-proc.sh /usr/bin/mega-proc.sh
 podman pull registry.access.redhat.com/ubi7/ubi
 podman pull quay.io/fatherlinux/on-off-container
 skopeo copy containers-storage:registry.access.redhat.com/ubi7/ubi:latest docker-daemon:registry.access.redhat.com/ubi7/ubi:latest
-cp ~/labs/lab3-step1/atomic-openshift-master.service /etc/systemd/system/atomic-openshift-master.service
-cp ~/labs/lab3-step1/atomic-openshift-node.service /etc/systemd/system/atomic-openshift-node.service
-systemctl disable --now origin.service
-systemctl enable --now atomic-openshift-master.service; systemctl enable --now atomic-openshift-node.service
+#cp ~/labs/lab3-step1/atomic-openshift-master.service /etc/systemd/system/atomic-openshift-master.service
+#cp ~/labs/lab3-step1/atomic-openshift-node.service /etc/systemd/system/atomic-openshift-node.service
+#systemctl disable --now origin.service
+#systemctl enable --now atomic-openshift-master.service; systemctl enable --now atomic-openshift-node.service
 
-# Final Preparation
+echo "Container host is now ready."
