@@ -8,13 +8,13 @@ To analyze the quality, we are going to leverage existing tools - which is anoth
 
 ### CentOS
 
-``podman run -it centos:7.0.1406 yum updateinfo``{{execute}}
+``podman run -it docker.io/centos:7.0.1406 yum updateinfo``{{execute}}
 
 CentOS does not provide Errata for package updates, so this command will not show any information. This makes it difficult to map CVEs to RPM packages. This, in turn, makes it difficult to update the packages which are affected by a CVE. Finally, this lack of information makes it difficult to score a container image for quality. A basic workaround is to just update everything, but even then, you are not 100% sure which CVEs you patched.
 
 ### Fedora
 
-``podman run -it fedora dnf updateinfo``{{execute}}
+``podman run -it registry.fedoraproject.org/fedora dnf updateinfo``{{execute}}
 
 Fedora provides decent meta data about package updates, but does not map them to CVEs either. Results will vary on any given day, but the output will often look something like this:
 
@@ -30,7 +30,7 @@ Updates Information Summary: available
 
 ### Ubuntu
 
-``podman run -it ubuntu:trusty-20170330 /bin/bash -c "apt-get update && apt list --upgradable"``{{execute}}
+``podman run -it docker.io/ubuntu:trusty-20170330 /bin/bash -c "apt-get update && apt list --upgradable"``{{execute}}
 
 Ubuntu provides information at a similar quality to Fedora, but again does not map updates to CVEs easily. The results for this specific image should always be the same because we are purposefully pulling an old tag for demonstration purposes.
 
