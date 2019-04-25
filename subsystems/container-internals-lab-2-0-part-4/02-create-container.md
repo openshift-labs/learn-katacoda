@@ -11,7 +11,7 @@ Let's use podman to create a container from scratch. Podman makes it easy to bre
 
 `podman create -dt --name on-off-container -v /mnt:/mnt:Z quay.io/fatherlinux/on-off-container`{{execute}}
 
-After running the above command we have storage created. Notice the "Created" status of the container:
+After running the above command we have storage created. Notice under the STATUS column, the container is the "Created" state. This is not a running container, just the first step in creation has been executed:
 
 `podman ps -a`{{execute}}
 
@@ -39,17 +39,21 @@ See the test file there. You will see this file in our container later when we s
 
 At this point the container image has been cached locally and mounted, but we don't actually have a spec file for runc yet. Creating a spec file from hand is quite tedious because they are made up of complex JSON with a lot of different options (governed by the OCI runtime spec). Luckily for us, the container engine will create one for us. This exact same spec file can be used by any OCI compliant runtime can consume it (runc, crun, katacontainers, gvisor, etc). Let's run some experiments to show when it's created. First let's inspect the place where it should be:
 
-`tail /var/lib/containers/storage/overlay-containers/$(podman ps -l -q --no-trunc)/userdata/config.json|jq .`{{execute}}
+`cat /var/lib/containers/storage/overlay-containers/$(podman ps -l -q --no-trunc)/userdata/config.json|jq .`{{execute}}
 
 The above command errors out because the container engine hasn't created the config.json file yet. We will initiate the creation of this file by using podman combined with a specially constructed container image:
 
 `podman start on-off-container`{{execute}}
 
-Now, the config.json file has been created. Check it out:
+Now, the config.json file has been created. Inspect it for a while. Notice that there are options in there that are strikingly similar to the command line options of podman. The spec file really highlights the API:
 
-`tail /var/lib/containers/storage/overlay-containers/$(podman ps -l -q --no-trunc)/userdata/config.json|jq .`{{execute}}
+`cat /var/lib/containers/storage/overlay-containers/$(podman ps -l -q --no-trunc)/userdata/config.json|jq . | less`{{execute}}
 
-But, notice that podman has not started a container. Podman created the config.json and immediately exited:
+Now, exit:
+
+`q`{{execute}}
+
+Podman has not started a container, just created the config.json and immediately exited. Notice under the STATUS column, that the container is now in the Exited state:
 
 `podman ps -a`{{execute}}
 
@@ -63,9 +67,9 @@ Now that we have storage and a config.json, let's complete the circuit and creat
 
 `podman start on-off-container`{{execute}}
 
-When podman started the container this time, it fired up top. This time it's in the running state:
+When podman started the container this time, it fired up top. Notice under the STATUS column, that the container is now in the Up state::
 
-`podman ps -l`{{execute}}
+`podman ps -a`{{execute}}
 
 Now, let's fire up a shell inside of our running container:
 
