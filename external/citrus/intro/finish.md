@@ -3,5 +3,5 @@ tested a more complex workflow consisting of various steps to ensure that the sy
 
 ## Congratulations! You've completed the tutorial!
 
-If you are interested in more Citurs examples, please visit the 
+If you are interested in more Citrus examples, please visit the 
 [citrus-samples](https://github.com/christophd/citrus-samples) repository on GitHub.
