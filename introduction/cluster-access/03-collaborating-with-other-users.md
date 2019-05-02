@@ -10,7 +10,7 @@ This is the first time this user has logged in, so if you run:
 
 ``oc get projects``{{execute}}
 
-you should see that he has access to no projects.
+you should see that the user has access to no projects.
 
 To grant this user access to your project, go to the list of projects in the web console and select on the drop down menu to the right of the project name and select on _View Membership_.
 
