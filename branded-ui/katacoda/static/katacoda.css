@@ -27,3 +27,290 @@
 p.lead.intro {
     padding-top: 60px;
 }
+.btn-openshift {
+  background: #e00;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase; }
+  .btn-openshift:active {
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+  .btn-openshift:hover, .btn-openshift:focus {
+    background: #bf0000;
+    color: #fff; }
+  .list-inline .btn-openshift {
+    margin-bottom: 10px; }
+  .bg-gray-dark .btn-openshift, .bg-gray-dark-circle .btn-openshift, .masthead .btn-openshift {
+    color: #fff; }
+    .bg-gray-dark .btn-openshift:hover, .bg-gray-dark .btn-openshift:focus, .bg-gray-dark-circle .btn-openshift:hover, .bg-gray-dark-circle .btn-openshift:focus, .masthead .btn-openshift:hover, .masthead .btn-openshift:focus {
+      background: #bf0000;
+      color: #fff; }
+
+.btn-basic {
+  background: #e7e7e7;
+  border: 0;
+  color: #404040; }
+  .btn-basic:hover, .btn-basic:focus {
+    background: #bdbdbd;
+    color: #404040; }
+
+body {
+  margin-bottom: 60px; }
+
+.bg-gray {
+  background-color: #e7e7e7; }
+
+.bg-gray-circle {
+  background-image: url("/images/ui/bg-circle-gradient.png");
+  background-repeat: repeat-x;
+  background-color: #e7e7e7; }
+
+.bg-gray-dark-circle {
+  background-image: url("/images/ui/bg-circle-gradient-dark.png");
+  background-repeat: repeat-x;
+  background-color: #191919;
+  color: #fff; }
+  .bg-gray-dark-circle * {
+    color: inherit; }
+  .bg-gray-dark-circle a {
+    color: #7dc3e8; }
+    .bg-gray-dark-circle a:hover, .bg-gray-dark-circle a:focus {
+      color: #88c8ea; }
+
+.bg-gray-dark {
+  background-color: #373534;
+  color: #fff;
+  font-weight: 300; }
+  .bg-gray-dark * {
+    color: inherit; }
+  .bg-gray-dark a {
+    color: #7dc3e8; }
+    .bg-gray-dark a:hover, .bg-gray-dark a:focus {
+      color: #88c8ea; }
+  .bg-gray-dark ul {
+    color: #989A9B; }
+    .bg-gray-dark ul a:hover {
+      color: #bfc0c1;
+      text-decoration: none; }
+
+.bg-green {
+  background-color: #3F9C35;
+  color: #fff; }
+  .bg-green * {
+    color: inherit; }
+
+h2 {
+  margin-top: 60px; }
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.masthead {
+  padding: 80px 0;
+  background-color: #f2f2f2;
+  background-position: center top;
+  background-attachment: scroll;
+  background-size: cover;
+  background-image: url("/static/bg_light-gray-dual-honeycombs.png");
+  background-repeat: no-repeat;
+  color: #333;}
+
+  .masthead .h1, .masthead h1 {
+    margin: 0 0 20px 0;
+    font-family: "RedHatText", Overpass, "Open Sans", Helvetica, Arial, sans-serif !important;
+    font-weight: 800 !important;
+    line-height: 1.45;
+    font-size: 42px !important;
+    color: inherit;
+  }
+
+  .masthead .row {
+    display: flex !important;
+  }
+
+  .masthead .text-red {
+    color: #e00 !important;
+  }
+
+  .masthead p {
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    font-family: "RedHatText", Overpass, "Open Sans", Helvetica, Arial, sans-serif !important;
+  }
+
+  @media (min-width: 768px) {
+    .masthead {
+      min-height: 350px; }
+      .masthead .container {
+        padding-top: 100px; } }
+  nav#main + .masthead {
+    margin-top: -20px; }
+  .masthead h1, .masthead h2, .masthead .lead {
+    color: inherit; }
+  .masthead h1 {
+    font-size: 33px;
+    margin-bottom: 20px; }
+  .masthead h2 {
+    margin-top: 20px; }
+  .masthead .lead {
+    font-size: 18px;
+    margin-bottom: 30px; }
+    @media (min-width: 992px) {
+      .masthead .lead {
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto; } }
+  .masthead a {
+    color: #7dc3e8; }
+    .masthead a:hover, .masthead a:focus {
+      color: #88c8ea; }
+  .masthead.masthead-overview {
+    background-image: none; }
+    .masthead.masthead-overview .item {
+      height: 405px;
+      background-position: right 50% top;
+      background-repeat: no-repeat;
+      background-size: cover; }
+      .masthead.masthead-overview .item h1 {
+        font-size: 36px;
+        text-transform: uppercase;
+        font-weight: normal;
+        text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.45); }
+      .masthead.masthead-overview .item .primary-message {
+        font-size: 20px;
+        margin-left: 0;
+        text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.65); }
+      .masthead.masthead-overview .item .title-inner {
+        text-align: left; }
+    .masthead.masthead-overview .carousel-indicators li {
+      background: #ccc;
+      border-color: #ccc;
+      margin: 0 3px; }
+    .masthead.masthead-overview .carousel-indicators .active {
+      background: #3F9C35;
+      border-color: #3F9C35;
+      height: 10px;
+      width: 10px; }
+  @media (min-width: 768px) {
+    .masthead.masthead-logo {
+      min-height: 350px; }
+      .masthead.masthead-logo .container {
+        padding-top: 20px; } }
+  .masthead.masthead-logo .logo-ose, .masthead.masthead-logo .logo-oso, .masthead.masthead-logo .logo-osd {
+    margin: 40px 0 0 0;
+    height: 70px;
+    -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3)); }
+
+.masthead-secondary {
+  background-color: #414142;
+  color: #fff; }
+  .masthead-secondary .nav > li > a {
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.2857;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase; }
+    @media (min-width: 992px) {
+      .masthead-secondary .nav > li > a {
+        padding-bottom: 30px;
+        padding-top: 20px; } }
+    .masthead-secondary .nav > li > a:hover, .masthead-secondary .nav > li > a:focus, .masthead-secondary .nav > li > a.active {
+      background-color: #49494a;
+      border-radius: 0;
+      color: #fff; }
+  .masthead-secondary .nav > li .fa,
+  .masthead-secondary .nav > li .rh {
+    color: #92D400; }
+  .masthead-secondary .nav > li + li {
+    margin-left: 0; }
+
+.section-footer {
+  padding-bottom: 20px; }
+  .section-footer .footer-learn-more {
+    margin-left: 30px; }
+    @media (max-width: 767px) {
+      .section-footer .footer-learn-more {
+        margin: 0 20px; } }
+    .section-footer .footer-learn-more ul {
+      margin-top: 30px; }
+      .section-footer .footer-learn-more ul li {
+        margin: 20px 0;
+        font-size: 14px;
+        font-weight: 300; }
+        .section-footer .footer-learn-more ul li strong {
+          font-size: 16px;
+          font-weight: normal; }
+        .section-footer .footer-learn-more ul li a {
+          color: #e7e7e7;
+          text-transform: none; }
+          .section-footer .footer-learn-more ul li a:hover {
+            color: white; }
+  .section-footer h2 {
+    margin-top: 21px; }
+    .section-footer h2.bg-green {
+      padding: 21px;
+      margin-top: 0; }
+  .section-footer .bg-gray-dark {
+    padding: 25px; }
+  .section-footer dt {
+    margin-top: 10px; }
+    .section-footer dt:first-child {
+      margin-top: 0; }
+
+.container-platform_contact .masthead, .container-platform_features .masthead, .container-platform_customers .masthead, .container-platform_resources .masthead, .container-platform_trial .masthead, .container-platform_middleware_services .masthead, .container-platform_whats-new .masthead, .container-platform_kubernetes .masthead, .container-platform_containers .masthead, .container-platform_app-automation .masthead, .container-platform_analyst-reports .masthead, .container-platform_compare-openshift .masthead, .container-platform_middleware-services .masthead {
+  background-color: #373534;
+  background-image: image-url("/bg-masthead-train.jpg"); }
+  .container-platform_contact .masthead .title-inner, .container-platform_features .masthead .title-inner, .container-platform_customers .masthead .title-inner, .container-platform_resources .masthead .title-inner, .container-platform_trial .masthead .title-inner, .container-platform_middleware_services .masthead .title-inner, .container-platform_whats-new .masthead .title-inner, .container-platform_kubernetes .masthead .title-inner, .container-platform_containers .masthead .title-inner, .container-platform_app-automation .masthead .title-inner, .container-platform_analyst-reports .masthead .title-inner, .container-platform_compare-openshift .masthead .title-inner, .container-platform_middleware-services .masthead .title-inner {
+    text-align: center; }
+    .container-platform_contact .masthead .title-inner .primary-message, .container-platform_features .masthead .title-inner .primary-message, .container-platform_customers .masthead .title-inner .primary-message, .container-platform_resources .masthead .title-inner .primary-message, .container-platform_trial .masthead .title-inner .primary-message, .container-platform_middleware_services .masthead .title-inner .primary-message, .container-platform_whats-new .masthead .title-inner .primary-message, .container-platform_kubernetes .masthead .title-inner .primary-message, .container-platform_containers .masthead .title-inner .primary-message, .container-platform_app-automation .masthead .title-inner .primary-message, .container-platform_analyst-reports .masthead .title-inner .primary-message, .container-platform_compare-openshift .masthead .title-inner .primary-message, .container-platform_middleware-services .masthead .title-inner .primary-message {
+      margin-left: auto; }
+
+
+.bg-gray-dark .fa, .bg-gray-dark
+.rh {
+  color: #92D400; }
+.bg-green .fa, .bg-green
+.rh {
+  color: #ffffff; }
+
+.container-platform_resources .bg-gray-dark ul {
+  font-size: 13px;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  padding-left: 20px;
+  font-weight: normal; }
+  .container-platform_resources .bg-gray-dark ul li {
+    margin-bottom: 10px; }
+    .container-platform_resources .bg-gray-dark ul li a {
+      color: #989A9B; }
+      .container-platform_resources .bg-gray-dark ul li a:hover {
+        color: #bfc0c1;
+        text-decoration: none; }
+
+h2 {
+  font-size: 26px; }
+
+h3 {
+  color: #3F9C35;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase; }
+  .bg-gray-dark h3 {
+    color: #92D400; }
+
+.lead {
+  margin-bottom: 75px; }
+  @media (min-width: 768px) {
+    .lead {
+      font-size: 18px; } }
+  .contact .lead {
+    margin-bottom: inherit; }
