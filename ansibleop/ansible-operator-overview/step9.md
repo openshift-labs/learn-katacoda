@@ -37,7 +37,7 @@ Next open a 2nd terminal window, using the "+" tab and navigate to our Operator.
 
 Create the example Memcached CR that was generated at deploy/crds/cache_v1alpha1_memcached_cr.yaml:
 
-`oc create -f deploy/crds/cache_v1alpha1_memcached_cr.yaml --as system:admin`{{execute}}
+`oc create -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
 
 Ensure that the memcached-operator creates the deployment for the CR:
 
@@ -66,7 +66,7 @@ example-memcached-6cc844747c-xp8qp 1/1   Running  0        1m
 
 Clean up the resources:
 
-`oc delete -f deploy/crds/cache_v1alpha1_memcached_cr.yaml --as system:admin`{{execute}}
+`oc delete -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
 
 `oc delete -f deploy/role_binding.yaml`{{execute}}
 
@@ -74,4 +74,4 @@ Clean up the resources:
 
 `oc delete -f deploy/service_account.yaml`{{execute}}
 
-`oc delete -f deploy/crds/cache_v1alpha1_memcached_crd.yaml --as system:admin`{{execute}}
+`oc delete -f deploy/crds/cache_v1alpha1_memcached_crd.yaml`{{execute}}
