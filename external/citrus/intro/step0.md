@@ -9,7 +9,7 @@ Thanks to Openshifts capabilites to deploy applications from a Dockerfile this r
 First of all you need a Openshift Project, so login to the OpenShift cluster:
 
 `
-oc login -u developer -p developer
+oc login -u developer -p developer [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com
 `{{execute}}
 
 This will log you in using the credentials:
