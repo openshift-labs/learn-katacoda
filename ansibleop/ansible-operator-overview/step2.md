@@ -22,7 +22,7 @@ Each mapping within the Watches file has mandatory fields:
 
 * **role** (_default_): Path to the Role that should be run by the Operator for a particular Group-Version-Kind (GVK). This field is mutually exclusive with the "playbook" field.
 
-* **playbook** (_optional_): Path to the Playbook that should be run by the Operator for a particular Group-Version-Kind (GVK). This Playbook can be a composition of Roles. This field is mutually exclusive with the "role" field.
+* **playbook** (_optional_): Path to the Playbook that should be run by the Operator for a particular Group-Version-Kind (GVK). A Playbook can be used to invoke multiple Roles. This field is mutually exclusive with the "role" field.
 
 __Sample watches.yaml__
 
@@ -63,7 +63,7 @@ You would accomplish this by modifying the Operator Dockerfile to *COPY* 'playbo
 ```
 # Dockerfile at <project-name>/build/Dockerfile
 
-FROM quay.io/water-hole/ansible-operator
+FROM quay.io/operator-framework/ansible-operator
 
 COPY roles/ ${HOME}/roles
 COPY watches.yaml ${HOME}/watches.yaml

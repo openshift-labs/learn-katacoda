@@ -10,7 +10,7 @@ This is equivalent to how [*--extra-vars*](https://docs.ansible.com/ansible/late
 
 ## Example CR with extra-vars
 
-The CR snippet below shows two 'extra vars' (_message, newParamater)_ being passed in via `spec`. Passing 'extra vars' through the CR allows for customization of Ansible logic based on the contents of each CR instance.
+The CR snippet below shows two 'extra vars' (`message` and `newParamater`) being passed in via `spec`. Passing 'extra vars' through the CR allows for customization of Ansible logic based on the contents of each CR instance.
 ```yaml
 # Sample CR definition where some 
 # 'extra vars' are passed via the spec
