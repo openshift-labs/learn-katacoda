@@ -14,13 +14,13 @@ You should see an error messsage: `curl: (28) Operation timed out after 5000 mil
 
 Let’s fix it by registering a service entry to allow access to httpbin.
 
-Open the file `istiofiles/service-entry-egress-httpbin.yml`{{open}}.
+Open the file `istiofiles/service-entry-egress-worldclockapi.yml`{{open}}.
 
 Note that this `ServiceEntry` allows you to access the host `now.httpbin.org` in the port `80`.
 
 Applye this file executing the following command:
 
-`istioctl create -f ~/projects/istio-tutorial/istiofiles/service-entry-egress-httpbin.yml -n tutorial`{{execute T1}}
+`istioctl create -f ~/projects/istio-tutorial/istiofiles/service-entry-egress-worldclockapi.yml -n tutorial`{{execute T1}}
 
 Now you can execute `curl http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute T1}}
 

@@ -7,16 +7,16 @@ Before applying the CockroachDB Custom Resource, observe the CockroachDB Helm Ch
 
 [CockroachDB Helm Chart Values.yaml file](https://github.com/helm/charts/blob/master/stable/cockroachdb/values.yaml)
 
-Update the CockroachDB Custom Resource at `go/src/github.com/redhat/cockroachdb-operator/deploy/crds/db_v1alpha1_cockroachdb_cr.yaml` with the following values:
+Update the CockroachDB Custom Resource at `go/src/github.com/redhat/cockroachdb-operator/deploy/crds/charts_v1alpha1_cockroachdb_cr.yaml` with the following values:
 
 * `spec.Replicas: 1`
 * `spec.Storage: 1Gi`
 * `spec.StorageClass: local-storage`
 
 <pre class="file"
- data-filename="/root/tutorial/go/src/github.com/redhat/cockroachdb-operator/deploy/crds/db_v1alpha1_cockroachdb_cr.yaml"
+ data-filename="/root/tutorial/go/src/github.com/redhat/cockroachdb-operator/deploy/crds/charts_v1alpha1_cockroachdb_cr.yaml"
   data-target="replace">
-apiVersion: db.example.org/v1alpha1
+apiVersion: charts.helm.k8s.io/v1alpha1
 kind: Cockroachdb
 metadata:
   name: example
@@ -29,7 +29,7 @@ spec:
 After updating the CockroachDB Custom Resource with our desired spec, apply it to the cluster:
 
 ```
-oc apply -f deploy/crds/db_v1alpha1_cockroachdb_cr.yaml
+oc apply -f deploy/crds/charts_v1alpha1_cockroachdb_cr.yaml
 ```{{execute}}
 <br>
 Confirm that the Custom Resource was created:

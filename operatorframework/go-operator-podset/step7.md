@@ -8,7 +8,7 @@ cat deploy/crds/app_v1alpha1_podset_cr.yaml
 Ensure your `kind: PodSet` Custom Resource (CR) is updated with `spec.replicas`:
 
 <pre class="file"
- data-filename="/root/tutorial/go/src/github.com/podset-operator/deploy/crds/app_v1alpha1_podset_cr.yaml"
+ data-filename="/root/tutorial/go/src/github.com/redhat/podset-operator/deploy/crds/app_v1alpha1_podset_cr.yaml"
   data-target="replace">
 apiVersion: app.example.com/v1alpha1
 kind: PodSet

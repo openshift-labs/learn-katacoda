@@ -1,6 +1,6 @@
 # OpenShift learning on Katacoda
 
-This is the content that appears on learn.openshift.com. If you have any questions ping Michael Hausenblas or raise an issue here.
+This is the content that appears on learn.openshift.com. If you have any questions raise an issue here.
 
 ## Contributions
 
@@ -16,7 +16,7 @@ For each scenario, please do the following:
 
 ## Delivering a workshop?
 
-**IMPORTANT:** If you are delivering a workshop please ensure that you have alerted @mhausenblas and the Katacoda team a minimum of **48 hours** before the start of the event. Without this, we cannot guarantee capacity for everyone.
+**IMPORTANT:** If you are delivering a workshop please ensure that you have alerted the Katacoda team a minimum of **48 hours** before the start of the event. Without this, we cannot guarantee capacity for everyone.
 
 ## Content
 

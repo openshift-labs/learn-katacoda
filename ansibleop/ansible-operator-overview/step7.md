@@ -50,9 +50,9 @@ spec:
 
 The commands below will change the Deployment 'image' and 'imagePullPolicy' respectively.
 
-`sed -i 's|REPLACE_IMAGE|memcached-operator:v0.0.1|g' deploy/operator.yaml`{{execute}}
+`sed -i 's|{{ REPLACE_IMAGE }}|memcached-operator:v0.0.1|g' deploy/operator.yaml`{{execute}}
 
-`sed -i 's|Always|Never|g' deploy/operator.yaml`{{execute}}
+`sed -i "s|{{ pull_policy\|default('Always') }}|Never|g" deploy/operator.yaml`{{execute}}
 
 ### Creating the Operator from deploy manifests
 Now, we are ready to deploy the memcached-operator:
