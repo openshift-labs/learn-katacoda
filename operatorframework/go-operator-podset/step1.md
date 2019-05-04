@@ -1,4 +1,4 @@
-Let's begin my creating a new project called `myproject`:
+Let's begin by creating a new project called `myproject`:
 
 ```
 oc new-project myproject
