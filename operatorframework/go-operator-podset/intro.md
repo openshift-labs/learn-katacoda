@@ -12,7 +12,7 @@ The Operator SDK is a framework that uses the controller-runtime library to make
 
 ## How do I use it?
 
-The following is the workflow is for a new **Go-based** Operator with the Operator SDK:
+The following is the workflow for a new **Go-based** Operator with the Operator SDK:
 
 1. Create a new Operator project using the SDK CLI.
 2. Create a new Custom Resource Definition API Type using the SDK CLI.
