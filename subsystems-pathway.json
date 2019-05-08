@@ -12,9 +12,29 @@
 			"title": "Linux Container Internals 2.0 - Lab 2: Container Images"
 		},
 		{
+			"external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2-0-part-3",
+			"course_id": "container-internals-lab-2-0-part-3",
+			"title": "Linux Container Internals 2.0 - Lab 3: Container Registries"
+		},
+		{
 			"external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2-0-part-4",
 			"course_id": "container-internals-lab-2-0-part-4",
 			"title": "Linux Container Internals 2.0 - Lab 4: Container Hosts"
+		},
+		{
+			"external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2-0-part-5",
+			"course_id": "container-internals-lab-2-0-part-5",
+			"title": "Linux Container Internals 2.0 - Lab 5: Container Orchestration"
+		},
+		{
+			"external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2-0-part-6",
+			"course_id": "container-internals-lab-2-0-part-6",
+			"title": "Linux Container Internals 2.0 - Lab 6: Container Standards"
+		},
+		{
+			"external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2-0-part-7",
+			"course_id": "container-internals-lab-2-0-part-7",
+			"title": "Linux Container Internals 2.0 - Lab 7: Container Tools Ecosystem"
 		}
 	]
 }
