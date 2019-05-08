@@ -1,0 +1,42 @@
+{
+  "title": "Operator Framework Training",
+  "icon": "fa-openshift",
+  "courses": [
+    {
+      "pathway_id": "openshift/operatorframework",
+      "course_id": "k8s-api-fundamentals",
+      "id": "k8s-api-fundamentals",
+      "title": "Kubernetes API Fundamentals"
+    },
+    {
+      "pathway_id": "openshift/operatorframework",
+      "course_id": "etcd-operator",
+      "id": "etcd-operator",
+      "title": "Etcd Operator"
+    },
+    {
+      "pathway_id": "openshift/operatorframework",
+      "course_id": "go-operator-podset",
+      "id": "go-operator-podset",
+      "title": "Operator SDK with Go (PodSet)"
+    },
+    {
+      "pathway_id": "openshift/operatorframework",
+      "course_id": "operator-lifecycle-manager",
+      "id": "operator-lifecycle-manager",
+      "title": "Operator Lifecycle Manager"
+    },
+    {
+      "pathway_id": "openshift/ansibleop",
+      "course_id": "ansible-operator-overview",
+      "id": "ansible-operator-overview",
+      "title": "Ansible Operator Overview"
+    },
+    {
+      "pathway_id": "openshift/operatorframework",
+      "course_id": "helm-operator",
+      "id": "helm-operator",
+      "title": "Operator SDK with Helm"
+    }
+  ]
+}

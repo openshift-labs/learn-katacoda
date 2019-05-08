@@ -1,0 +1,46 @@
+{
+  "title": "Operator Framework Training",
+  "icon": "fa-openshift",
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/operatorframework/k8s-api-fundamentals/",
+      "course_id": "k8s-api-fundamentals",
+      "title": "Kubernetes API Fundamentals"
+    },
+    {
+      "external_link": "https://learn.openshift.com/operatorframework/etcd-operator/",
+      "course_id": "etcd-operator",
+      "title": "Etcd Operator"
+    },
+    {
+      "external_link": "https://learn.openshift.com/operatorframework/go-operator-podset/",
+      "course_id": "go-operator-podset",
+      "title": "Operator SDK with Go"
+    },
+    {
+      "external_link": "https://learn.openshift.com/operatorframework/operator-lifecycle-manager/",
+      "course_id": "operator-lifecycle-manager",
+      "title": "Operator Lifecycle Manager"
+    },
+    {
+      "external_link": "https://learn.openshift.com/ansibleop/ansible-refresher/",
+      "course_id": "ansible-refresher",
+      "title": "Ansible Refresher"
+    },
+    {
+      "external_link": "https://learn.openshift.com/ansibleop/ansible-k8s-modules/",
+      "course_id": "ansible-k8s-modules",
+      "title": "Ansible Kubernetes Modules"
+    },
+    {
+      "external_link": "https://learn.openshift.com/ansibleop/ansible-operator-overview/",
+      "course_id": "ansible-operator-overview",
+      "title": "Ansible Operator Overview"
+    },
+    {
+      "external_link": "https://learn.openshift.com/operatorframework/helm-operator/",
+      "course_id": "helm-operator",
+      "title": "Operator SDK with Helm"
+    }
+  ]
+}

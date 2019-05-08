@@ -2,5 +2,4 @@ web:
   build: .
   environment:
     VIRTUAL_HOST: 'openshift.katacoda.com,learn.openshift.com'
-    CERT_NAME: 'shared'
   restart: always

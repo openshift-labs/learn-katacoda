@@ -1,40 +1,36 @@
 Now we are going to inspect the different parts of the URL that you pull. The most common command is something like this, where only the repository name is specified:
 
-``docker inspect rhel7``{{execute}}
+`podman inspect ubi7/ubi`{{execute}}
 
-But, what's really going on? Well, similar to DNS, the docker command line is resolving the full URL and TAG of the repository on the registry server. The following command will give you the exact same results:
+But, what's really going on? Well, similar to DNS, the podman command line is resolving the full URL and TAG of the repository on the registry server. The following command will give you the exact same results:
 
-``docker inspect registry.access.redhat.com/rhel7/rhel:latest``{{execute}}
+`podman inspect registry.access.redhat.com/ubi7/ubi:latest`{{execute}}
 
 You can run any of the following commands and you will get the exact same results as well:
 
-``docker inspect registry.access.redhat.com/rhel7/rhel:latest``{{execute}}
+`podman inspect registry.access.redhat.com/ubi7/ubi:latest`{{execute}}
 
-``docker inspect registry.access.redhat.com/rhel7/rhel``{{execute}}
+`podman inspect registry.access.redhat.com/ubi7/ubi`{{execute}}
 
-``docker inspect registry.access.redhat.com/rhel7:latest``{{execute}}
+`podman inspect ubi7/ubi:latest`{{execute}}
 
-``docker inspect registry.access.redhat.com/rhel7``{{execute}}
-
-``docker inspect rhel7/rhel:latest``{{execute}}
-
-``docker inspect rhel7/rhel``{{execute}}
+`podman inspect ubi7/ubi`{{execute}}
 
 Now, let's build another image, but give it a tag other than "latest":
 
-``docker build -t registry.access.redhat.com/rhel7/rhel:test ~/labs/lab2-step1/``{{execute}}
+`podman build -t ubi7:test -f ~/labs/lab2-step1/Dockerfile`{{execute}}
 
 Now, notice there is another tag
 
-``docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t``{{execute}}
+`podman images`{{execute}}
 
 Now try the resolution trick again. What happened?
 
-``docker inspect rhel7:test``{{execute}}
+`podman inspect ubi7`{{execute}}
 
 It failed, but why? Try again with a more complete URL:
 
-``docker inspect rhel7/rhel:test``{{execute}}
+`podman inspect ubi7:test`{{execute}}
 
-Notice that the DNS-like resolution only works with the latest tag. You have to specify the namespace and the repository with other tags. If you test long enough, you will find many other caveats to namespace, repository and tag resolution, so be careful. Typically, it's best to use the full URL. Remember this when building scripts. Containers seem deceptively easy, but you need to pay attention to details.
+Notice that podman resolves container images similar to DNS resolution. Each container engine is different and Docker will actually resolve some things podman doesn't because there is no standard on how image URIs are resolved. If you test long enough, you will find many other caveats to namespace, repository, and tag resolution. Generally, it's best to allways use the full URI, specifying the server, namespace, repository and tag. Remember this when building scripts. Containers seem deceptively easy, but you need to pay attention to details.
 

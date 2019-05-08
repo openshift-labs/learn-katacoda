@@ -3,8 +3,8 @@
   "title": "Egress",
   "icon": "fa-openshift",
   "description": "Egress routes allow you to apply rules to how internal services interact with external APIs/services",
-  "difficulty": "Advanced",
-  "time": "20 minutes",
+  "difficulty": "Intermediate",
+  "time": "10 minutes",
   "files": [],
   "environment": {
       "showdashboard": true,
@@ -15,10 +15,16 @@
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
   },
   "backend": {
-    "trainingid": "openshift-3-10", 
-    "imageid": "openshift-3-10", "port": 8443
+    "trainingid": "openshift-3-11", 
+    "imageid": "openshift-3-11", "port": 8443
   },
   "details": {
+    "assets": {
+      "host01": [
+          { "file": "recommendation-v2.diff", "target": "/root/" },
+          { "file": "install-microservices.sh", "target": "/root/", "chmod": "+x" }
+      ]
+    },
     "finish": {
         "text": "finish.md"
     },
@@ -29,9 +35,9 @@
       "courseData": "run-init.sh"
     },
     "steps": [
-        { "title": "Create HTTPBin Java App", "text": "1egress-httbin.md" },
-        { "title": "Create the Github Java App", "text": "2egress-github.md" },
-        { "title": "Istio-ize Egress", "text": "3istio-ize.md" }
+        { "title": "Install microservices", "text": "0install-microservices.md" },
+        { "title": "Create recommendation:v3", "text": "1create-recommendation-v3.md" },
+        { "title": "Istio-ize Egress", "text": "2istioize-egress.md" }
     ]
   }
 }

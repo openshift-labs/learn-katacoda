@@ -6,8 +6,8 @@
     "difficulty": "Intermediate",
     "time": "30-45 minutes",
     "backend": {
-      "trainingid": "openshift-3-6",
-      "imageid": "openshift-3-6",
+      "trainingid": "openshift-3-11",
+      "imageid": "openshift-3-11",
         "port": 8443
     },
     "environment": {
@@ -29,8 +29,8 @@
             "text": "03-image-internals.md"
         }],
         "intro": {
-            "courseData": "env-init.sh",
-            "code": "set-env.sh",
+            "courseData": "background.sh",
+            "code": "foreground.sh",
             "text": "intro.md"
         },
         "finish": {

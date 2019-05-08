@@ -1,15 +1,15 @@
 In this course you learned:
 
-- Containers Are Linux: Userspace libraries interact with the kernel to isolate processes
-- Community Landscape: Explains the basics of the upstream projects and how they are contributing
-- Single Host Toolchain: Includes Docker runtime, Systemd, and LibContainer
-- Multi-Host Toolchain: Includes Kubernetes/OpenShift
+- Container Images: made up of underlying operating system components like libraries and programming languages
+- Container Registries: Fancy file servers that help users share container images
+- Contianer Hosts: Includes Podman (or Docker) runtime, Systemd, runc, and Libcontainer
+- Container Orchestration: Includes Kubernetes/OpenShift
 
-You can find a copy of the slides and GitHub repo that contains all of these commands so that you can run them yourself in your own environment:
+You can find a copy of the slides and GitHub repo that contains all of the open source code from these labs:
 
 ## Other Material
 - [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
-- [Presentation](https://goo.gl/nmyUgn)
+- [Presentation](http://bit.ly/2V18QCg)
 
 Also, if you have any questions tweet us at:
 

@@ -3,29 +3,45 @@
   "icon": "fa-openshift",
   "courses": [
     {
+      "action": "Start Course",
+      "count": 2,
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/",
+      "course_id": "middleware-quarkus",
+      "title": "Developing with Quarkus"
+    },
+    {
+      "count": 5,
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-vertx/",
+      "course_id": "middleware-vertx",
+      "title": "Eclipse Vert.x development"
+    },
+    {
+      "action": "Start Course",
+      "count": 11,
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/",
+      "course_id": "middleware-spring-boot",
+      "title": "Spring and Spring Boot development"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/middleware-javaee8/",
+      "count": 1,
+      "course_id": "middleware-javaee8",
+      "title": "Java EE 8 Development"
+    },
+    {
       "external_link": "https://learn.openshift.com/middleware/amq-getting-started-broker/",
       "course_id": "amq-getting-started-broker",
       "title": "Application Messaging with Openshift"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/fis-deploy-app/",
-      "course_id": "fis-deploy-app",
-      "title": "OpenShift for Fuse Developers"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-vertx/",
-      "course_id": "rhoar-getting-started-vertx",
-      "title": "Eclipse Vert.x development"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-spring/",
-      "course_id": "rhoar-getting-started-spring",
-      "title": "Spring Boot development"
-    },
-    {
       "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-thorntail/",
       "course_id": "rhoar-getting-started-thorntail",
       "title": "Thorntail development"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-rhdg/",
+      "course_id": "rhoar-getting-started-rhdg",
+      "title": "Red Hat Data Grid development"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-nodejs/",
@@ -41,6 +57,11 @@
       "external_link": "https://learn.openshift.com/middleware/dm7-loan-application/",
       "course_id": "dm7-loan-application",
       "title": "Red Hat Decision Manager Loan Application demo"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/dm7-dmn-introduction/",
+      "course_id": "dm7-dmn-introduction",
+      "title": "Red Hat Decision Manager DMN Introduction"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/java-batch-processing/",

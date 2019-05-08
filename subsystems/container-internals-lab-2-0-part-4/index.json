@@ -6,8 +6,8 @@
     "difficulty": "Advanced",
     "time": "20-30 minutes",
     "backend": {
-      "trainingid": "openshift-3-6",
-      "imageid": "openshift-3-6",
+      "trainingid": "openshift-3-11",
+      "imageid": "openshift-3-11",
         "port": 8443
     },
     "environment": {
@@ -20,11 +20,11 @@
     },
     "details": {
         "steps": [{
-            "title": "Daemons & APIs: Docker, Kubernetes Master, Node, and their interaction with the Linux kernel",
-            "text": "01-daemons-apis.md"
+            "title": "Container Engines & The Linux Kernel",
+            "text": "01-engines-kernel.md"
         }, {
-            "title": "System Calls & Kernel Namespaces: How they work inside of a container",
-            "text": "02-system-calls.md"
+            "title": "Step by step creation of a container",
+            "text": "02-create-container.md"
         }, {
             "title": "SELinux & sVirt: Dynamically generated contexts to protect your containers",
             "text": "03-selinux-svirt.md"
@@ -34,19 +34,10 @@
         }, {
             "title": "SECCOMP: Limiting how a containerized process can interact with the kernel",
             "text": "05-seccomp.md"
-        }, {
-            "title": "Storage: How containers get local, copy on write storage",
-            "text": "06-storage.md"
-        }, {
-            "title": "Pod Networking: How individual containers and pods connect to the network",
-            "text": "07-pod-networking.md"
-        }, {
-            "title": "Cluster Networking: How clusters of hosts manage the connections of containerized processes",
-            "text": "08-cluster-networking.md"
         }],
         "intro": {
-            "courseData": "env-init.sh",
-            "code": "set-env.sh",
+            "courseData": "background.sh",
+            "code": "foreground.sh",
             "text": "intro.md"
         },
         "finish": {

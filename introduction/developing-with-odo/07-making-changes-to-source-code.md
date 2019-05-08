@@ -1,19 +1,26 @@
-We've deployed the first version of our sample application and tested it by visiting it with a browser. Let's look at how OpenShift and `odo` help make it easier to iterate on that app once it's running.
+We've deployed the first version of our application and tested it by visiting it with a browser. Let's look at how OpenShift and `odo` help make it easier to iterate on that app once it's running.
 
-First, we start the `odo` tool to `watch` for changes on the file system in the background:
+First, make sure you are still in the `frontend` directory:
+
+`cd ~/frontend`{{execute}}
+
+Now, we will tell `odo` to `watch` for changes on the file system in the background:
 
 `odo watch &`{{execute}}
 
-Since we backgrounded the execution of `odo` with the `&` symbol, we can continue to work in the same terminal window. Our current working directory remains the `frontend` component's source code directory.
+Let's change the displayed name for our wild west game. Currently, the title is "Wild West Shoot 'em Up!" We will change this to "My App Shoot 'em Up!"
 
-Let's add a label to the counter display. Edit the file `index.php` with a search-and-replace one-liner performed with the Unix stream editor, `sed`(1):
+![Application Title](../../assets/introduction/developing-with-odo/app-name.png)
 
-`sed -i "s/<h1 class=\"text-center\">/<h1 class=\"text-center\">Counter: /" index.php`{{execute}}
+Edit the file `index.html` with a search-and-replace one-liner performed with the Unix stream editor, `sed`:
 
-In the virtual environment, rather than your local disk, there may be a slight delay before `odo` recognizes the change. Once the change is recognized, `odo` will push the changes to the `frontend` component and print its status to the terminal.
+`sed -i "s/Wild West/My App/" index.html`{{execute}}
 
-Once it does, refresh the application's page in the web browser. You will see the new label "Counter" that we added to the application's index file.
+There may be a slight delay before `odo` recognizes the change. Once the change is recognized, `odo` will push the changes to the `frontend` component and print its status to the terminal.
+
+Once it does, refresh the application's page in the web browser. You will see the new name in the web interface for the application.
 
 NOTE: If you no longer have the the application page opened in a browser, you can recall the url by executing:
 
 `odo url list`{{execute}}
+

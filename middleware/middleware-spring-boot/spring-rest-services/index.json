@@ -1,0 +1,37 @@
+{
+  "pathwayTitle": "RHOARSpringBoot",
+  "icon": "fa-openshift",
+  "title": "Spring Boot RESTful APIs",
+  "description": "In this scenario you will learn more about building RESTful Web APIs in Spring Boot",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "details": {
+    "intro": {
+      "text": "00-intro.md",
+      "courseData": "env-init.sh",
+      "code": "set-env.sh"
+    },
+    "steps": [
+      { "title": "Step 1", "text": "01-review-the-initial-project.md" },
+      { "title": "Step 2", "text": "02-create-rest-services.md" },
+      { "title": "Step 3", "text": "03-login-to-openshift.md" }
+    ],
+    "finish": {
+      "text": "99-outro.md"
+    }
+  },
+  "files": [],
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
+    "uilayout": "editor-terminal",
+    "uisettings": "java",
+    "hideintro": false,
+    "uieditorpath": "/root/projects/rhoar-getting-started/spring/spring-rest-services",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "openshift-middleware-3-7",
+    "port": 8443
+  }
+}

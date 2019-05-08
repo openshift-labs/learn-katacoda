@@ -1,0 +1,19 @@
+{
+  "title": "Developing with Quarkus",
+  "description": "",
+  "paid": false,
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/getting-started",
+      "course_id": "getting-started",
+      "title": "Getting Started with Quarkus",
+      "description": "Supersonic, Subatomic Java with Quarkus"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/panache",
+      "course_id": "panache",
+      "title": "Effective Data with Hibernate and Panache",
+      "description": "Making entities trivial and fun to write in Quarkus"
+    }
+  ]
+}
