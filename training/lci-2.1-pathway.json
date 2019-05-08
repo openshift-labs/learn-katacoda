@@ -1,0 +1,20 @@
+{
+	"title": "Subsystems, Components, and Internals",
+	"icon": "fa-openshift",
+	"courses": [{
+			"external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2-0-part-1",
+			"course_id": "container-internals-lab-2-0-part-1",
+			"title": "Linux Container Internals 2.0 - Lab 1: Introduction to Containers"
+		},
+		{
+			"external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2-0-part-2",
+			"course_id": "container-internals-lab-2-0-part-2",
+			"title": "Linux Container Internals 2.0 - Lab 2: Container Images"
+		},
+		{
+			"external_link": "https://learn.openshift.com/subsystems/container-internals-lab-2-0-part-4",
+			"course_id": "container-internals-lab-2-0-part-4",
+			"title": "Linux Container Internals 2.0 - Lab 4: Container Hosts"
+		}
+	]
+}
