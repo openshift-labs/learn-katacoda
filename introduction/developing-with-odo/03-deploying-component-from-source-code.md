@@ -15,19 +15,16 @@ We give this Node.js component the name `frontend`.
 `odo` will update you on the progress of creating the component, and you should see output similar to this:
 
 ```
- ✓   Checking component
- ✓   Checking component version
- ✓   Creating component frontend
- OK  Component 'frontend' was created and port 8080/TCP was opened
- OK  Component 'frontend' is now set as active component
-To push source code to the component run 'odo push'
+✓  Checking component
+✓  Checking component version
+Please use `odo push` command to create the component with source deployed
 ```
 
 When we created the backend component, we viewed the logs via the terminal. You can also follow the status of your container creation in the web console. Click the Dashboard tab and make sure you're in the project named "myproject". Click **Overview** in the left navigation to go to the Overview section, where you should see the following:
 
 ![OKD Web Console](../../assets/introduction/developing-with-odo/frontend-console.png)
 
-Once the deployment finishes, you'll see the pod become available. Now let's go back to the terminal so we can push our code. 
+Once the deployment finishes, you'll see the pod become available. Now let's go back to the terminal so we can push our code.
 
 With the component named and created, we can `push` Node.js source code from the current directory, `frontend`.
 
@@ -36,9 +33,18 @@ With the component named and created, we can `push` Node.js source code from the
 You should see output similar to this:
 
 ```
-Pushing changes to component: frontend
- ✓   Waiting for pod to start
- ✓   Copying files to pod
- ✓   Building component
- OK  Changes successfully pushed to component: frontend
+✓  Checking component
+✓  Checking component version
+✓  Creating nodejs component with name frontend
+✓  Initializing 'frontend' component
+✓  Creating component frontend
+✓  Successfully created component frontend
+✓  Applying component settings to component: frontend
+✓  The component frontend was updated successfully
+✓  Successfully updated component with name: frontend
+✓  Pushing changes to component: frontend of type local
+✓  Waiting for component to start
+✓  Copying files to component
+✓  Building component
+✓  Changes successfully pushed to component: frontend
 ```

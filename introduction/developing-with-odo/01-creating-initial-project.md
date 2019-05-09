@@ -13,7 +13,7 @@ This will log you in using the credentials:
 You should see the output:
 
 ```
-Login successful.
+✓  Login successful.
 
 You have one project on this server: "default"
 
@@ -22,7 +22,7 @@ Using project "default".
 
 Rather than using this default project, we will create a new one by running:
 
-``odo project create myproject``{{execute}}
+`odo project create myproject`{{execute}}
 
 You should see the following output:
 
@@ -49,13 +49,10 @@ After logging in to the web console, click on the kebab (three squares) next to 
 
 ![View Membership](../../assets/introduction/developing-with-odo/view-membership.png)
 
-On the Membership page, click **Service Accounts**, and then **Edit Membership**.
+On the Membership page, click **Service Accounts** and then **Edit Membership**.
 
-In the select boxes at the bottom, choose **myproject / default** and **view** for the role. Then click the **Add** button next to the role, and finally, click **Done Editing** at the top of the page.
+In the select boxes at the bottom, choose **myproject / default** and **view** for the role. Then click the **Add** button next to the role, and, finally, click **Done Editing** at the top of the page.
 
 ![Edit Roles](../../assets/introduction/developing-with-odo/membership.png)
 
-Now the service account that the backend uses has view access, so it can both retrieve objects via the API. Note that you could choose **edit** access instead, and that would allow the the backend to both retrieve and modify or delete objects. If you do that, you can end up destroying certain resources in the game that are not recoverable, which is why we are choosing **view** access for the scenario.
-
-
-
+Now the service account that the backend uses has view access so it can retrieve objects via the API. Note that you could choose **edit** access instead. That would allow the the backend to both retrieve and modify or delete objects. If you do that, you can end up destroying certain resources in the game that are not recoverable, which is why we are choosing **view** access for this scenario.

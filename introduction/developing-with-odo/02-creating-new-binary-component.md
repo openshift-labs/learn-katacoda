@@ -1,8 +1,10 @@
+As mentioned, applications often consist of two or more components that work together to implement the overall application. OpenShift helps organize these modular applications with a concept called, appropriately enough, the application. An OpenShift application represents all of an app's components in a logical management unit. The `odo` tool helps you manage that group of components and link them together, as an application.
+
 A selection of runtimes, frameworks, and other components is available on an OpenShift cluster for building your applications. This list is referred to as the *Software Catalog*. List the supported component types in the catalog, run:
 
 `odo catalog list components`{{execute}}
 
-Sites can configure the software catalog, so the list will vary on different OpenShift clusters. For this scenario, the cluster's catalog list must include `java` and `nodejs`.
+Administrators can configure the software catalog, so the list will vary on different OpenShift clusters. For this scenario, the cluster's catalog list must include `java` and `nodejs`.
 
 Source code for the backend of our `wildwest` application is available in the command line environment. Change directories into the source directory, `backend`:
 
@@ -18,7 +20,7 @@ Build the `backend` source files with Maven to create a JAR:
 
 Since this is the first time running this build, it may take 30-45 seconds to complete. Subsequent builds will run much more quickly.
 
-With the backend's `.jar` file built, we can use `odo` to deploy and run it atop the Java application server we saw earlier in the software catalog. This creates a *component* named `backend`, of *component-type* `java`.
+With the backend's `.jar` file built, we can use `odo` to deploy and run it atop the Java application server we saw earlier in the software catalog. This creates a *component* named `backend` of *component-type* `java`.
 
 `odo create java backend --binary target/wildwest-1.0.jar`{{execute}}
 
@@ -37,7 +39,7 @@ The application is not yet deployed on OpenShift. With a single `odo create` com
 
 If you want to check on the status of an action in `odo`, you can use the `log` command. Let's run that now to follow the progress of our `create` command:
 
-``odo log -f``{{execute}}
+`odo log -f`{{execute}}
 
 You should see the following:
 
@@ -50,11 +52,13 @@ Followed shortly by:
 --> Success
 ```
 
-You can enter `Ctrl+C` if you want to exit the log before it completes.
+If you want to exit the log before it completes, run the following:
+
+``<ctrl+c>``{{execute}}
 
 Since `backend` is a binary component, as specified in the `odo create` command above, changes to the component's source code should be followed by pushing the jar file to the running container. After `mvn` compiled a new `wildwest-1.0.jar` file, the updated program would be updated in the `backend` component with the `odo push` command. We can execute such a `push` right now:
 
-``odo push``{{execute}}
+`odo push`{{execute}}
 
 As the push is progressing, `odo` will print:
 

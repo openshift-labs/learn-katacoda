@@ -20,7 +20,6 @@ There may be a slight delay before `odo` recognizes the change. Once the change 
 
 Once it does, refresh the application's page in the web browser. You will see the new name in the web interface for the application.
 
-NOTE: If you no longer have the the application page opened in a browser, you can recall the url by executing:
+__NOTE__: If you no longer have the the application page opened in a browser, you can recall the url by executing:
 
 `odo url list`{{execute}}
-
