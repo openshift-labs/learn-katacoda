@@ -22,7 +22,9 @@ Containers are just regular Linux processes that were started as child processes
 Execute a few commands with podman and notice the process IDs, and namespace IDs. Containers are just regular processes:
 
 `podman ps -ns`{{execute}}
+
 `podman top -l huser user hpid pid %C etime tty time args`{{execute}}
+
 `ps -ef | grep 3306`{{execute}}
 
 We will explore this deeper in later labs but, for now, commit this to memory, containers are simply Linux ...
