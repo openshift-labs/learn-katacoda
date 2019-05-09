@@ -36,7 +36,7 @@ When the pods are done being created, pull some data from our newly created "web
 
 Now, let's pull data directly from the "database."  It's the same file as we would expect, but this time coming back over port 3306:
 
-`curl $(kubectl get svc pepperoni-pizza -o yaml | grep ip | awk '{print $3}')`{{execute}}
+`curl $(kubectl get svc cheese-pizza -o yaml | grep clusterIP | awk '{print $2}'):3306`{{execute}}
 
 Take a moment to note that we could fire up 50 copies of this same application in Kubernetes with 49 more commands (in different projects). It's that easy.
 
