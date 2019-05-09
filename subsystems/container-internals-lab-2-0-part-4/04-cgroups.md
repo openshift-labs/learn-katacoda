@@ -1,6 +1,11 @@
-The goal of this exercise is to gain a basic understanding of cgroups. Run two separate containerized sleep processes. Notice how each are put in their own cgroups. Copy and paste all four lines below, into a terminal:
+The goal of this exercise is to gain a basic understanding of how containers prevent using each other's reserved resources. The Linux kernel has a feature called cgroups (abbreviated from control groups) which limits, accounts for, and isolates the resource usage (CPU, memory, disk I/O, network, etc.) of processes. Normally, these control groups would be setup up by a systems administrtor (with cgexec), or configured with systemd (systemd-run --slice), but with a container engine, this configuration is handled automatically. 
 
-``docker run -t rhel7 sleep 10 &
-docker run -t rhel7 sleep 10 &
+To demonstrate, run two separate containerized sleep processes: 
+
+`podman run -dt registry.access.redhat.com/ubi7/ubi sleep 10
+podman run -dt registry.access.redhat.com/ubi7/ubi sleep 10
 sleep 3
-for i in `docker ps | grep sleep | awk '{print $1}' | grep [0-9]`; do find /sys/fs/cgroup/ | grep $i; done``{{execute}}
+for i in $(podman ps | grep sleep | awk '{print $1}' | grep [0-9]); do find /sys/fs/cgroup/ | grep $i; done`{{execute}}
+
+Notice how each contianerized process is put into its own cgroup by the container engine. This is quite convenient, similar to sVirt.
+

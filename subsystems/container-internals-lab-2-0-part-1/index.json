@@ -6,34 +6,41 @@
     "difficulty": "Easy",
     "time": "20 minutes",
     "backend": {
-        "trainingid": "openshift-3-6",
-        "imageid": "openshift-3-6",
+        "trainingid": "openshift-3-11",
+        "imageid": "openshift-3-11",
         "port": 8443
     },
     "environment": {
         "showdashboard": true,
         "dashboard": "Dashboard",
         "uilayout": "terminal-iframe",
+	"terminals": [{"name": "Terminal 2", "target": "host01"}],
         "hideintro": false,
         "hidefinish": false
     },
     "details": {
         "steps": [{
-            "title": "Topic 1 - Containers Are Linux",
-            "text": "01-container-scratch.md"
+            "title": "Introduction to Containers",
+            "text": "01-introduction.md"
         }, {
-            "title": "Topic 2 - Community Landscape",
-            "text": "02-community-landscape.md"
+            "title": "Container Images",
+            "text": "02-images.md"
         }, {
-            "title": "Topic 3 - Single Host Toolchain",
-            "text": "03-single-host-toolchain.md"
+            "title": "Container Registries",
+            "text": "03-registries.md"
         }, {
-            "title": "Topic 4 - Multi-Host Toolchain",
-            "text": "04-multi-host-toolchain.md"
+            "title": "Container Hosts",
+            "text": "04-hosts.md"
+        }, {
+            "title": "Container Orchestration",
+            "text": "05-orchestration.md"
+        }, {
+            "title": "Closing",
+            "text": "06-closing.md"
         }],
         "intro": {
-            "courseData": "env-init.sh",
-            "code": "set-env.sh",
+            "courseData": "background.sh",
+            "code": "foreground.sh",
             "text": "intro.md"
         },
         "finish": {
