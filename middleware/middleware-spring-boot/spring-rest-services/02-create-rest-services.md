@@ -52,7 +52,7 @@ At the moment our Controller doesn't actually do any work. We need to add some h
 
         @GetMapping("/{id}")
         public Fruit getFruit(@PathVariable("id") Long id) {
-            return repository.findOne(id);
+            return repository.findById(id).orElse(null);
         }
 </pre>
 
@@ -124,7 +124,7 @@ Finally, let's add a handler for accepting HTTP DELETE requests to delete existi
 <pre class="file" data-filename="src/main/java/com/example/service/FruitController.java" data-target="insert" data-marker="// TODO DELETE mapping">
         @DeleteMapping("/{id}")
         public void delete(@PathVariable("id") Long id) {
-            repository.delete(id);
+            repository.deleteById(id);
         }
 </pre>
 
