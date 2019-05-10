@@ -1,0 +1,53 @@
+@font-face {
+	font-family: "RedHatDisplay";
+	src: url(https://assets.openshift.net/content/RedHatDisplay/RedHatDisplay-Regular.eot);
+	src: url(https://assets.openshift.net/content/RedHatDisplay/RedHatDisplay-Regular.eot?#iefix) format("embedded-opentype"), url(https://assets.openshift.net/content/RedHatDisplay/RedHatDisplay-Regular.woff) format("woff");
+	font-style: normal;
+	font-weight: 300;
+	text-rendering: optimizeLegibility
+}
+
+@font-face {
+	font-family: "RedHatDisplay";
+	src: url(https://assets.openshift.net/content/RedHatDisplay/RedHatDisplay-Medium.eot);
+	src: url(https://assets.openshift.net/content/RedHatDisplay/RedHatDisplay-Medium.eot?#iefix) format("embedded-opentype"), url(https://assets.openshift.net/content/RedHatDisplay/RedHatDisplay-Medium.woff) format("woff");
+	font-style: normal;
+	font-weight: 400;
+	text-rendering: optimizeLegibility
+}
+
+@font-face {
+	font-family: "RedHatDisplay";
+	src: url(https://assets.openshift.net/content/RedHatDisplay/RedHatDisplay-Bold.eot);
+	src: url(https://assets.openshift.net/content/RedHatDisplay/RedHatDisplay-Bold.eot?#iefix) format("embedded-opentype"), url(https://assets.openshift.net/content/RedHatDisplay/RedHatDisplay-Bold.woff) format("woff");
+	font-style: normal;
+	font-weight: 700;
+	text-rendering: optimizeLegibility
+}
+
+@font-face {
+	font-family: "RedHatText";
+	src: url(https://assets.openshift.net/content/RedHatText/RedHatText-Regular.eot);
+	src: url(https://assets.openshift.net/content/RedHatText/RedHatText-Regular.eot?#iefix) format("embedded-opentype"), url(https://assets.openshift.net/content/RedHatText/RedHatText-Regular.woff) format("woff");
+	font-style: normal;
+	font-weight: 400;
+	text-rendering: optimizeLegibility
+}
+
+@font-face {
+	font-family: "RedHatText";
+	src: url(https://assets.openshift.net/content/RedHatText/RedHatText-Medium.eot);
+	src: url(https://assets.openshift.net/content/RedHatText/RedHatText-Medium.eot?#iefix) format("embedded-opentype"), url(https://assets.openshift.net/content/RedHatText/RedHatText-Medium.woff) format("woff");
+	font-style: normal;
+	font-weight: 700;
+	text-rendering: optimizeLegibility
+}
+
+
+body {
+  font-family: "RedHatText",Overpass,"Open Sans",Helvetica,Arial,sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: "RedHatText",Overpass,"Open Sans",Helvetica,Arial,sans-serif;
+}
