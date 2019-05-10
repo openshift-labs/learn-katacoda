@@ -27,12 +27,9 @@ With the backend's `.jar` file built, we can use `odo` to deploy and run it atop
 As the container is created, `odo` will print status like the following:
 
 ```
- ✓   Checking component
- ✓   Checking component version
- ✓   Creating component backend
- OK  Component 'backend' was created and ports 8080/TCP,8443/TCP,8778/TCP were opened
- OK  Component 'backend' is now set as active component
-To push source code to the component run 'odo push'
+✓  Checking component
+✓  Checking component version
+Please use `odo push` command to create the component with source deployed
 ```
 
 The application is not yet deployed on OpenShift. With a single `odo create` command, OpenShift has created a container with the server ready to have your application deployed to it. This container is deployed into a Pod running on the OpenShift cluster.
@@ -63,11 +60,20 @@ Since `backend` is a binary component, as specified in the `odo create` command 
 As the push is progressing, `odo` will print:
 
 ```
-Pushing changes to component: backend
- ✓   Waiting for pod to start
- ✓   Copying files to pod
- ✓   Building component
- OK  Changes successfully pushed to component: backend
+✓  Checking component
+✓  Checking component version
+✓  Creating java component with name backend
+✓  Initializing 'backend' component
+✓  Creating component backend
+✓  Successfully created component backend
+✓  Applying component settings to component: backend
+✓  The component backend was updated successfully
+✓  Successfully updated component with name: backend
+✓  Pushing changes to component: backend of type binary
+✓  Waiting for component to start
+✓  Copying files to component
+✓  Building component
+✓  Changes successfully pushed to component: backend
 ```
 
 The jar file has now been pushed to the container, and the process in that container restarted.
