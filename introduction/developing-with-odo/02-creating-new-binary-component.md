@@ -38,7 +38,7 @@ The component is not yet deployed on OpenShift. With an `odo create` command, a 
 
 View the contents of `config.yaml` by running the following:
 
-`cat .odo/config.yaml`{{execute}}
+`odo config view`{{execute}}
 
 Since `backend` is a binary component, as specified in the `odo create` command above, changes to the component's source code should be followed by pushing the jar file to the running container. After `mvn` compiled a new `wildwest-1.0.jar` file, the updated program would be updated in the `backend` component with the `odo push` command. We can execute such a `push` right now:
 

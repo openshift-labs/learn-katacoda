@@ -4,13 +4,9 @@ First, make sure you are still in the `frontend` directory:
 
 `cd ~/frontend`{{execute}}
 
-Now, we will tell `odo` to `watch` for changes on the file system in the background:
+Now, we will tell `odo` to `watch` for changes on the file system in the background. Note that the `&` is included to run `odo watch` in the background for this tutorial, but it is usually just run as `odo watch` and can be terminated using a `ctrl+c`.
 
 `odo watch &`{{execute}}
-
-Exit the `odo watch` command in your terminal. It will still be watching in the background for changes:
-
-`<ctrl+c>`{{execute}}
 
 Let's change the displayed name for our wild west game. Currently, the title is "Wild West Shoot 'em Up!" We will change this to "My App Shoot 'em Up!"
 
@@ -28,10 +24,6 @@ Pushing files...
  ✓  Copying files to component
  ✓  Building component
 ```
-
-Exit the `odo watch` command in your terminal:
-
-`<ctrl+c>`{{execute}}
 
 After exiting `odo watch`, refresh the application's page in the web browser. You will see the new name in the web interface for the application.
 
