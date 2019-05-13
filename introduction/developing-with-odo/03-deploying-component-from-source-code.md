@@ -20,12 +20,6 @@ We give this Node.js component the name `frontend`.
 Please use `odo push` command to create the component with source deployed
 ```
 
-When we created the backend component, we viewed the logs via the terminal. You can also follow the status of your container creation in the web console. Click the Dashboard tab and make sure you're in the project named "myproject". Click **Overview** in the left navigation to go to the Overview section, where you should see the following:
-
-![OKD Web Console](../../assets/introduction/developing-with-odo/frontend-console.png)
-
-Once the deployment finishes, you'll see the pod become available. Now let's go back to the terminal so we can push our code.
-
 With the component named and created, we can `push` Node.js source code from the current directory, `frontend`.
 
 `odo push`{{execute}}
@@ -48,3 +42,9 @@ You should see output similar to this:
 ✓  Building component
 ✓  Changes successfully pushed to component: frontend
 ```
+
+When we created the backend component, we viewed the logs via the terminal. You can also follow the status of your container creation in the web console. Click the Dashboard tab and make sure you're in the project named "myproject". Click **Overview** in the left navigation to go to the Overview section, where you should see the following:
+
+![OKD Web Console](../../assets/introduction/developing-with-odo/frontend-console.png)
+
+Once the deployment finishes, you'll see the pod become available. The `frontend` component has now been deployed and is running on a container on OpenShift.

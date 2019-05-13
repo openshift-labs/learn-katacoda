@@ -1,6 +1,8 @@
-As mentioned, applications often consist of two or more components that work together to implement the overall application. OpenShift helps organize these modular applications with a concept called, appropriately enough, the application. An OpenShift application represents all of an app's components in a logical management unit. The `odo` tool helps you manage that group of components and link them together, as an application.
+As mentioned, applications often consist of two or more components that work together to implement the overall application. OpenShift helps organize these modular applications with a concept called, appropriately enough, the application. An OpenShift application represents all of an app's components in a logical management unit. The `odo` tool helps you manage that group of components and link them together as an application.
 
-A selection of runtimes, frameworks, and other components is available on an OpenShift cluster for building your applications. This list is referred to as the *Software Catalog*. List the supported component types in the catalog, run:
+A selection of runtimes, frameworks, and other components are available on an OpenShift cluster for building your applications. This list is referred to as the *Software Catalog*.
+
+List the supported component types in the catalog by running:
 
 `odo catalog list components`{{execute}}
 
@@ -32,26 +34,11 @@ As the container is created, `odo` will print status like the following:
 Please use `odo push` command to create the component with source deployed
 ```
 
-The application is not yet deployed on OpenShift. With a single `odo create` command, OpenShift has created a container with the server ready to have your application deployed to it. This container is deployed into a Pod running on the OpenShift cluster.
+The component is not yet deployed on OpenShift. With an `odo create` command, a configuration file called `config.yaml` has been created that contains information about the component to be deployed to a container on OpenShift.
 
-If you want to check on the status of an action in `odo`, you can use the `log` command. Let's run that now to follow the progress of our `create` command:
+View the contents of `config.yaml` by running the following:
 
-`odo log -f`{{execute}}
-
-You should see the following:
-
-```
---> Scaling backend-wildwest-1 to 1
-```
-
-Followed shortly by:
-```
---> Success
-```
-
-If you want to exit the log before it completes, run the following:
-
-``<ctrl+c>``{{execute}}
+`cat .odo/config.yaml`{{execute}}
 
 Since `backend` is a binary component, as specified in the `odo create` command above, changes to the component's source code should be followed by pushing the jar file to the running container. After `mvn` compiled a new `wildwest-1.0.jar` file, the updated program would be updated in the `backend` component with the `odo push` command. We can execute such a `push` right now:
 
@@ -76,4 +63,16 @@ As the push is progressing, `odo` will print:
 ✓  Changes successfully pushed to component: backend
 ```
 
-The jar file has now been pushed to the container, and the process in that container restarted.
+Using `odo push`, OpenShift has created a container with the server ready to have your application deployed to it, deployed the container into a Pod running on the OpenShift cluster, and deployed the `backend` component to the container. The backend component is started up after its deployment.
+
+If you want to check on the status of an action in `odo`, you can use the `log` command. Let's run that now to follow the progress of our `push` command:
+
+`odo log -f`{{execute}}
+
+You should see output similar to the following to confirm the `backend` is running on a container in a Pod in the OpenShift environment:
+
+```
+2019-05-13 12:32:15.986  INFO 729 --- [           main] c.o.wildwest.WildWestApplication         : Started WildWestApplication in 6.337 seconds (JVM running for 7.779)
+```
+
+The jar file has now been pushed to the container and is running.
