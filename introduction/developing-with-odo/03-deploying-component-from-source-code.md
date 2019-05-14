@@ -1,4 +1,4 @@
-With the `backend` component running and connected to persistent storage, we are ready to bring up the frontend component and connect it to the backend. Once again, source code for the component is already available in the command line environment. Change directories to the `frontend` directory.
+With the `backend` component running and connected to persistent storage, we are ready to bring up the `frontend` component and connect it to the `backend`. Once again, source code for the component is already available in the command line environment. Change directories to the `frontend` directory.
 
 `cd ~/frontend`{{execute interrupt}}
 
@@ -8,11 +8,11 @@ Listing the contents of this directory shows that `frontend` is a Node.js applic
 
 Since `frontend` is written in an interpreted language, there is no build step analogous to the maven build we performed for the `backend` component. We can proceed directly to specifying the `nodejs` environment from the cluster's software catalog.
 
-We give this Node.js component the name `frontend`.
+We give this Node.js component the name `frontend`:
 
 `odo create nodejs frontend`{{execute}}
 
-`odo` will create a `config.yaml` just like with the `backend` component, and you should see output similar to this:
+`odo` will create a `config.yaml` just like with the `backend` component, and you should see the following output:
 
 ```
 ✓  Checking component
@@ -20,11 +20,11 @@ We give this Node.js component the name `frontend`.
 Please use `odo push` command to create the component with source deployed
 ```
 
-With the component named and the the config file created, we can `push` Node.js source code from the current directory, `frontend`.
+With the component named and the the config file created, we can push the Node.js source code from the current directory:
 
 `odo push`{{execute}}
 
-You should see output similar to this:
+`odo push` should produce the following output:
 
 ```
 ✓  Checking component
