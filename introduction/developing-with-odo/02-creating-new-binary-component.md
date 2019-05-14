@@ -26,7 +26,7 @@ With the backend's `.jar` file built, we can use `odo` to deploy and run it atop
 
 `odo create java backend --binary target/wildwest-1.0.jar`{{execute}}
 
-As the container is created, `odo` will print status like the following:
+As the component configuration is created, `odo` will print the following:
 
 ```
 ✓  Checking component
@@ -79,4 +79,4 @@ The jar file has now been pushed to the container and is running.
 
 Exit the logs by running the following:
 
-`<ctrl+c>`{{execute}}
+`some-command`{{execute interrupt}}

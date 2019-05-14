@@ -27,7 +27,7 @@ Pushing files...
 
 Kill the `odo watch`:
 
-`<ctrl+c>`{{execute}}
+`some-command`{{execute interrupt}}
 
 After exiting `odo watch`, refresh the application's page in the web browser. You will see the new name in the web interface for the application.
 
