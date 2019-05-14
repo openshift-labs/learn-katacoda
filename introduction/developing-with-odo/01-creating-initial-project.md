@@ -30,7 +30,6 @@ You should see the following output:
 ✓  New project created and now using project : myproject
 ```
 
-
 ## Creating a Service Account
 The backend of our application uses the OpenShift REST API. In order for the backend to access the API, we need to grant access to the service account that the backend is using. We will do this in the web console.
 
