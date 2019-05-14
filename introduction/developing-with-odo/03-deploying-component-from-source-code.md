@@ -1,6 +1,6 @@
 With the `backend` component running and connected to persistent storage, we are ready to bring up the frontend component and connect it to the backend. Once again, source code for the component is already available in the command line environment. Change directories to the `frontend` directory.
 
-`cd ~/frontend`{{execute}}
+`cd ~/frontend`{{execute interrupt}}
 
 Listing the contents of this directory shows that `frontend` is a Node.js application.
 

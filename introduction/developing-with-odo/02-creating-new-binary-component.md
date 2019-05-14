@@ -76,7 +76,3 @@ You should see output similar to the following to confirm the `backend` is runni
 ```
 
 The jar file has now been pushed to the container and is running.
-
-Exit the logs by running the following:
-
-`ctrl+c`{{execute interrupt}}

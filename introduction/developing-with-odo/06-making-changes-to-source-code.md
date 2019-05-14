@@ -25,12 +25,8 @@ Pushing files...
  ✓  Building component
 ```
 
-Kill the `odo watch`:
-
-`ctrl+c`{{interrupt}}
-
 After exiting `odo watch`, refresh the application's page in the web browser. You will see the new name in the web interface for the application.
 
 __NOTE__: If you no longer have the the application page opened in a browser, you can recall the url by executing:
 
-`odo url list`{{execute}}
+`odo url list`{{execute interrupt}}
