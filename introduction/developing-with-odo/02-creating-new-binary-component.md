@@ -79,4 +79,4 @@ The jar file has now been pushed to the container and is running.
 
 Exit the logs by running the following:
 
-{{execute interrupt}}
+`ctrl+c`{{execute interrupt}}
