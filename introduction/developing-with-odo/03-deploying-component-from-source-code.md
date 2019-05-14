@@ -12,7 +12,7 @@ We give this Node.js component the name `frontend`.
 
 `odo create nodejs frontend`{{execute}}
 
-`odo` will update you on the progress of creating the component, and you should see output similar to this:
+`odo` will create a `config.yaml` just like with the `backend` component, and you should see output similar to this:
 
 ```
 ✓  Checking component
@@ -20,7 +20,7 @@ We give this Node.js component the name `frontend`.
 Please use `odo push` command to create the component with source deployed
 ```
 
-With the component named and created, we can `push` Node.js source code from the current directory, `frontend`.
+With the component named and the the config file created, we can `push` Node.js source code from the current directory, `frontend`.
 
 `odo push`{{execute}}
 
@@ -43,7 +43,7 @@ You should see output similar to this:
 ✓  Changes successfully pushed to component: frontend
 ```
 
-When we created the backend component, we viewed the logs via the terminal. You can also follow the status of your container creation in the web console. Click the Dashboard tab and make sure you're in the project named "myproject". Click **Overview** in the left navigation to go to the Overview section, where you should see the following:
+When we created the `backend` component, we viewed the logs via the terminal. You can also follow the status of your container creation in the web console. Click the Dashboard tab and make sure you're in the project named "myproject". Click **Overview** in the left navigation to go to the Overview section, where you should see the following:
 
 ![OKD Web Console](../../assets/introduction/developing-with-odo/frontend-console.png)
 

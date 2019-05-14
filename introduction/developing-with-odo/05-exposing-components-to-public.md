@@ -1,4 +1,4 @@
-We have deployed our application's `backend` component and connected the `frontend` component to it. Let's create an external URL for our application so we can see it in action:
+We have deployed our application's `backend` component and updated both component's configurations to connect the `frontend` component to the `backend`. Let's create an external URL for our application so we can see it in action:
 
 `odo url create frontend --port 8080`{{execute}}
 
@@ -14,7 +14,7 @@ The changes can now be pushed:
 
 `odo push`{{execute}}
 
-`odo` will print the URL generated for the application. It should be located in the middle of the output from `odo push`:
+`odo` will print the URL generated for the application. It should be located in the middle of the output from `odo push` similar to the output below:
 
 ```
 ✓  Checking component

@@ -1,6 +1,6 @@
 The application you will be deploying is a wild west shooter style game.
 
-Applications are often divided into components based on a logical division of labor. For example, an application might consist of a data-storage "backend" component that performs the application's primary work and stores the results that is paired with a user interface "frontend" component that accesses the backend to retrieve data and displays it to a user.
+Applications are often divided into components based on a logical division of labor. For example, an application might consist of a data-storage, backend component that performs the application's primary work and stores the results. The backend component is paired with a user interface, frontend component that accesses the backend to retrieve data and displays it to a user.
 
 The application deployed in this tutorial consists of two such components.
 

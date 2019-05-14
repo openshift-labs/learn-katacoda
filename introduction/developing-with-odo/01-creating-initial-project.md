@@ -3,7 +3,7 @@
 Before we get started, you need to log in to OpenShift. To log in to the OpenShift cluster used for this scenario from the _Terminal_,
 run:
 
-``odo login -u developer -p developer``{{execute}}
+`odo login -u developer -p developer`{{execute}}
 
 This will log you in using the credentials:
 
@@ -36,9 +36,10 @@ The backend of our application uses the OpenShift REST API. In order for the bac
 
 Click the **Dashboard** tab in the console frame of this window. This opens the OpenShift web console.
 
-You should see an **OKD** window with **Username** and **Password** fields, similar to this one:
+You should see an **OKD** window with **Username** and **Password** fields, which is similar to this one:
 
 ![OKD Web Console](../../assets/introduction/developing-with-odo/okd-login.png)
+
 For this scenario, start by entering the following:
 
 **Username:** ``developer``{{copy}}

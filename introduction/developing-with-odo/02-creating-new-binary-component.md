@@ -16,7 +16,7 @@ Take a look at the contents of the `backend` directory. It's a regular Java Spri
 
 `ls`{{execute}}
 
-Build the `backend` source files with Maven to create a JAR:
+Build the `backend` source files with Maven to create a jar file:
 
 `mvn package`{{execute}}
 
@@ -34,13 +34,13 @@ As the container is created, `odo` will print status like the following:
 Please use `odo push` command to create the component with source deployed
 ```
 
-The component is not yet deployed on OpenShift. With an `odo create` command, a configuration file called `config.yaml` has been created that contains information about the component to be deployed to a container on OpenShift.
+The component is not yet deployed on OpenShift. With an `odo create` command, a configuration file called `config.yaml` has been created that contains information about the component to be deployed and the container the component will be hosted on.
 
 View the contents of `config.yaml` by running the following:
 
 `odo config view`{{execute}}
 
-Since `backend` is a binary component, as specified in the `odo create` command above, changes to the component's source code should be followed by pushing the jar file to the running container. After `mvn` compiled a new `wildwest-1.0.jar` file, the updated program would be updated in the `backend` component with the `odo push` command. We can execute such a `push` right now:
+Since `backend` is a binary component, as specified in the `odo create` command above, changes to the component's source code should be followed by pushing the jar file to a running container. After `mvn` compiled a new `wildwest-1.0.jar` file, the program would be deployed to OpenShift with the `odo push` command. We can execute such a `push` right now:
 
 `odo push`{{execute}}
 
@@ -76,3 +76,7 @@ You should see output similar to the following to confirm the `backend` is runni
 ```
 
 The jar file has now been pushed to the container and is running.
+
+Exit the logs by running the following:
+
+`<ctrl+c>`{{execute}}
