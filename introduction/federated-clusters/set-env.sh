@@ -1,15 +1,26 @@
+function timeout() {
+  SECONDS=0; TIMEOUT=$1; shift
+  until eval $*; do
+    sleep 5
+    [[ $SECONDS -gt $TIMEOUT ]] && echo "ERROR: Timed out" && exit -1
+  done
+}
+
+function wait_for_all_pods {
+  timeout 300 "oc get pods -n $1 && [[ \$(oc get pods -n $1 -o jsonpath='{.items[*].status.containerStatuses[*].ready}' | grep -c 'false') -eq 0 ]]" 
+}
 clear
 /usr/local/bin/launch.sh
 stty -echo
 echo "export HOST1_IP=[[HOST_IP]]; export HOST2_IP=[[HOST2_IP]]" >> ~/.env; source ~/.env
 export PS1=""
-export KUBEFED_VERSION='v0.0.7'
-export FEDERATION_DEV_TAG='v0.0.7'
+export KUBEFED_VERSION='v0.0.10'
+export FEDERATION_DEV_TAG='v0.0.10'
 clear
-echo "Configuring required tools for Federation V2..."
-curl -LOs https://github.com/kubernetes-sigs/federation-v2/releases/download/${KUBEFED_VERSION}/kubefed2.tar.gz &> /dev/null
-tar xzf kubefed2.tar.gz -C /usr/local/bin &> /dev/null
-rm -f kubefed2.tar.gz &> /dev/null
+echo "Configuring required tools for Kubefed..."
+curl -LOs https://github.com/kubernetes-sigs/kubefed/releases/download/${KUBEFED_VERSION}/kubefedctl.tgz &> /dev/null
+tar xzf kubefedctl.tgz -C /usr/local/bin &> /dev/null
+rm -f kubefedctl.tgz &> /dev/null
 echo "Configuring required contexts and users..."
 HOST_IP=$(/sbin/ip -o -4 addr list eth0 | awk '{print $4}' | awk -F "/" '{print $1}')
 if [[ "$HOST_IP" == "$HOST1_IP" ]]; then
@@ -21,41 +32,19 @@ if [[ "$HOST_IP" == "$HOST1_IP" ]]; then
   oc config use cluster1 &> /dev/null
   # Wait for terminal2 to finish its tasks
   sleep 5 &> /dev/null
-  echo "Deploying Federation V2 Control Plane on Cluster1..."
-  oc create clusterrolebinding federation-admin --clusterrole="cluster-admin" --serviceaccount="federation-system:default" &> /dev/null
-  git clone --recurse-submodules https://github.com/openshift/federation-dev.git &> /dev/null
+  echo "Deploying OLM on Cluster1..."
+  git clone https://github.com/openshift/federation-dev.git &> /dev/null
   cd federation-dev/ && git checkout $FEDERATION_DEV_TAG &> /dev/null
-  cd federation-v2 &> /dev/null
-  oc create ns federation-system &> /dev/null
-  oc create ns kube-multicluster-public &> /dev/null
-  sed -i "s/federation-v2:latest/federation-v2:v0.0.7/g" hack/install-latest.yaml &> /dev/null
-  oc -n federation-system apply --validate=false -f hack/install-latest.yaml &> /dev/null
-  oc apply --validate=false -f vendor/k8s.io/cluster-registry/cluster-registry-crd.yaml &> /dev/null
-  for filename in ./config/enabletypedirectives/*.yaml
-  do
-    kubefed2 enable -f "${filename}" --federation-namespace=federation-system &> /dev/null
-  done
-  cd ../..
-  rm -rf federation-dev/ &> /dev/null
-  cat > /var/tmp/namespace.yaml << EOF
-apiVersion: v1
-kind: List
-items:
-- apiVersion: v1
-  kind: Namespace
-  metadata:
-    name: test-namespace
-- apiVersion: types.federation.k8s.io/v1alpha1
-  kind: FederatedNamespace
-  metadata:
-    name: test-namespace
-    namespace: test-namespace
-  spec:
-    placement:
-      clusterNames:
-      - cluster1
-      - cluster2
-EOF
+  oc create -f olm/01-olm.yaml &> /dev/null
+  sleep 3 &> /dev/null
+  oc create -f olm/02-olm.yaml &> /dev/null
+  echo "Wait for OLM to be up and running"
+  sleep 3 &> /dev/null
+  wait_for_all_pods olm
+  echo "Deploying Kubefed Control Plane on Cluster1..."
+  oc create -f olm/kubefed.yaml &> /dev/null
+  sleep 10 &> /dev/null
+  wait_for_all_pods test-namespace
 fi
 if [[ "$HOST_IP" == "$HOST2_IP" ]]; then
   oc adm policy add-cluster-role-to-user cluster-admin admin &> /dev/null
@@ -67,5 +56,5 @@ if [[ "$HOST_IP" == "$HOST2_IP" ]]; then
 fi
 clear
 export PS1="$ "
-echo "Federation V2 tools and OpenShift Ready"
+echo "Kubefed tools and OpenShift Ready"
 stty echo

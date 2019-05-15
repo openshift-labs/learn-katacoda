@@ -50,7 +50,7 @@
     {
       "external_link": "https://learn.openshift.com/introduction/federated-clusters/",
       "course_id": "federated-clusters",
-      "title": "Introduction to Federation V2"
+      "title": "Introduction to Federated Clusters with Kubefed"
     }
   ]
 }

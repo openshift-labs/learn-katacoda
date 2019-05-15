@@ -1,7 +1,9 @@
 Congratulations!  You just finished learning the basics on OpenShift Container Platform Federation. Feels good doesn't it?
 
-If you are curious enough, see [the official repo](https://github.com/kubernetes-sigs/federation-v2) where you can find 
+If you are curious enough, see [the official repo](https://github.com/kubernetes-sigs/kubefed) where you can find 
 the most updated information about federation.
+
+We also have the [federation-dev repository](https://github.com/openshift/federation-dev) with demos, labs and examples of the use of Kubefed.
 
 ## What's next?
 

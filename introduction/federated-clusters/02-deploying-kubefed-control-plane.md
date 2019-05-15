@@ -8,7 +8,7 @@ You will have access to two terminals, however most of the work will be done on 
 
 An `admin` user with `cluster-admin` privileges has been created in each cluster for your convenience.
 
-*NOTE:* The current Federation Control Plane deployment requires cluster-admin privileges. This requirement could be addressed in upcoming releases, so specific roles will be available for the Federation Control Plane.
+*NOTE:* The current Kubefed Control Plane deployment requires cluster-admin privileges. This requirement could be addressed in upcoming releases, so specific roles will be available for the Federation Control Plane.
 
 You should be already logged as admin. In order to verify it:
 
@@ -22,15 +22,15 @@ You should be already logged as admin. In order to verify it:
 
 Next step is cloning the Git repository hosting the code used in this course. From the `cluster1` _Terminal_, run the following command:
 
-``git clone --recurse-submodules https://github.com/openshift/federation-dev.git``{{execute HOST1}}
+``git clone https://github.com/openshift/federation-dev.git``{{execute HOST1}}
 
 Once the repository has been cloned, change directory into the new directory:
 
 ``cd federation-dev``{{execute HOST1}}
 
-Checkout the v0.0.7 tag:
+Checkout the v0.0.10 tag:
 
-``git checkout v0.0.7``{{execute HOST1}}
+``git checkout v0.0.10``{{execute HOST1}}
 
 You might want to review some configurations already present on the environment:
 
@@ -44,12 +44,12 @@ You might want to review some configurations already present on the environment:
 
   ``oc config get-contexts``{{execute HOST2}}
 
-* Kubefed2 tool already downloaded: You should see the version output for the Kubefed2 tool.
+* Kubefedctl tool already downloaded: You should see the version output for the Kubefedctl tool.
 
   **Cluster 1**
 
-  ``kubefed2 version``{{execute HOST1}}
+  ``kubefedctl version``{{execute HOST1}}
 
   **Cluster 2**
 
-  ``kubefed2 version``{{execute HOST2}}
+  ``kubefedctl version``{{execute HOST2}}
