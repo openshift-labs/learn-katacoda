@@ -1,6 +1,6 @@
 {
     "icon": "fa-openshift",
-    "title": "Getting Started With Federation V2",
+    "title": "Getting Started With Kubefed",
     "description": "Learn how to federate multiple OpenShift Clusters",
     "pathwayTitle": "OpenShift",
     "difficulty": "intermediate",
@@ -18,20 +18,20 @@
     },
     "details": {
         "steps": [{
-            "title": "Step 1 - Introducing Federation V2",
-            "text": "01-introducing-federation-v2.md"
+            "title": "Step 1 - Introducing Kubefed",
+            "text": "01-introducing-kubefed.md"
         }, {
-            "title": "Step 2 - Deploying Federation's Control Plane",
-            "text": "02-deploying-federation-control-plane.md"
+            "title": "Step 2 - Deploying Kubefed Control Plane",
+            "text": "02-deploying-kubefed-control-plane.md"
         }, {
-            "title": "Step 3 - Registering Clusters into the Cluster Registry",
-            "text": "03-registering-clusters-into-the-cluster-registry.md"
+            "title": "Step 3 - Registering Clusters",
+            "text": "03-registering-clusters.md"
         }, {
             "title": "Step 4 - Deploying a Federated APP",
             "text": "04-deploying-a-federated-app.md"
         }, {
-            "title": "Step 5 - Federation Objects",
-            "text": "05-federation-objects.md"
+            "title": "Step 5 - Kubefed Objects",
+            "text": "05-kubefed-objects.md"
         }, {
             "title": "Step 6 - Modifying Application's Placement",
             "text": "06-modifying-application-placement.md"
