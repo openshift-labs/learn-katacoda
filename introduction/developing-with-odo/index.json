@@ -20,10 +20,10 @@
         "steps": [{
           "title": "Application Overview",
           "text": "00-application-overview.md"
-        },{
+        }, {
             "title": "Creating an Initial Project",
             "text": "01-creating-initial-project.md"
-        },{
+        }, {
             "title": "Creating new binary component",
             "text": "02-creating-new-binary-component.md"
         }, {
