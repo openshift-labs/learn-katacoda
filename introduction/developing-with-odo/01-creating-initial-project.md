@@ -55,4 +55,4 @@ In the select boxes at the bottom, choose **myproject / default** and **view** f
 
 ![Edit Roles](../../assets/introduction/developing-with-odo/membership.png)
 
-Now the service account that the backend uses has view **access** so it can retrieve objects via the API. Note that you could choose **edit** access instead. That would allow the the backend to both retrieve and modify or delete objects. If you do that, you can end up destroying certain resources in the game that are not recoverable, which is why we are choosing **view** access for this scenario.
+Now the service account that the backend uses has **view** access so it can retrieve objects via the API. Note that you could choose **edit** access instead. That would allow the the backend to both retrieve and modify or delete objects. If you do that, you can end up destroying certain resources in the game that are not recoverable, which is why we are choosing **view** access for this scenario.

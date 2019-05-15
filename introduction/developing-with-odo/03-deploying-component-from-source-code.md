@@ -49,4 +49,4 @@ When we created the `backend` component, we viewed the logs via the terminal. Yo
 
 ![OKD Web Console](../../assets/introduction/developing-with-odo/frontend-console.png)
 
-Once the deployment finishes, you'll see the pod become available. The `frontend` component has now been deployed and is running on a container on OpenShift.
+Once the deployment finishes, you'll see the pod become available. When the pod becomes available, the `frontend` component has now been deployed and is running on a container on OpenShift.

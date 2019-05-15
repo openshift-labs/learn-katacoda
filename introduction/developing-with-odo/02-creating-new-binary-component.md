@@ -65,7 +65,7 @@ As the push is progressing, `odo` will print:
 
 Using `odo push`, OpenShift has created a container to host the `backend` component, deployed the container into a pod running on the OpenShift cluster, and started up the `backend` component.
 
-If you want to check on the status of an action in `odo`, you can use the `odo log` command. Let's run that now to follow the progress of our `odo push` command:
+If you want to check on the status of an action in `odo`, you can use the `odo log` command. When `odo push` is finished, let's run `odo log` to follow the progress of the `backend` component deployment:
 
 `odo log -f`{{execute}}
 
