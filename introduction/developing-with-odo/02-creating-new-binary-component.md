@@ -6,13 +6,13 @@ List the supported component types in the catalog by running:
 
 `odo catalog list components`{{execute}}
 
-Administrators can configure the software catalog, so the list will vary on different OpenShift clusters. For this scenario, the cluster's catalog list must include `java` and `nodejs`.
+Administrators can configure the software catalog to determine what components are available in the catalog, so the list will vary on different OpenShift clusters. For this scenario, the cluster's catalog list must include `java` and `nodejs`.
 
 Source code for the backend of our `wildwest` application is available in the command line environment. Change directories into the source directory, `backend`:
 
 `cd ~/backend`{{execute}}
 
-Take a look at the contents of the `backend` directory. It's a regular Java Spring Boot application using the Maven build system.
+Take a look at the contents of the `backend` directory. It's a regular Java Spring Boot application using the Maven build system:
 
 `ls`{{execute}}
 
@@ -34,7 +34,7 @@ As the component configuration is created, `odo` will print the following:
 Please use `odo push` command to create the component with source deployed
 ```
 
-The component is not yet deployed on OpenShift. With an `odo create` command, a configuration file called `config.yaml` has been created that contains information about the component to be deployed.
+The component is not yet deployed on OpenShift. With an `odo create` command, a configuration file called `config.yaml` has been created in the local directory of the `backend` component that contains information about the component for deployment.
 
 To see the configuration settings of the `backend` component in `config.yaml`, `odo` has a command to display this information:
 
@@ -63,16 +63,16 @@ As the push is progressing, `odo` will print:
 ✓  Changes successfully pushed to component: backend
 ```
 
-Using `odo push`, OpenShift has created a container to host the `backend` component, deployed the container into a Pod running on the OpenShift cluster, and started up the `backend` component.
+Using `odo push`, OpenShift has created a container to host the `backend` component, deployed the container into a pod running on the OpenShift cluster, and started up the `backend` component.
 
 If you want to check on the status of an action in `odo`, you can use the `odo log` command. Let's run that now to follow the progress of our `odo push` command:
 
 `odo log -f`{{execute}}
 
-You should see output similar to the following to confirm the `backend` is running on a container in a Pod in the OpenShift environment:
+You should see output similar to the following to confirm the `backend` is running on a container in a pod in the OpenShift environment:
 
 ```
 2019-05-13 12:32:15.986  INFO 729 --- [           main] c.o.wildwest.WildWestApplication         : Started WildWestApplication in 6.337 seconds (JVM running for 7.779)
 ```
 
-The jar file has now been pushed to the container, and the `backend` component is running.
+The `backend` jar file has now been pushed, and the `backend` component is running.

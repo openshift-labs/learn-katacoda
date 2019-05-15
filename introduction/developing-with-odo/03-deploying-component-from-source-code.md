@@ -1,4 +1,6 @@
-With the `backend` component running and connected to persistent storage, we are ready to bring up the `frontend` component and connect it to the `backend`. Once again, source code for the component is already available in the command line environment. Change directories to the `frontend` directory.
+With the `backend` component running and connected to persistent storage, we are ready to bring up the `frontend` component and connect it to the `backend`. Once again, source code for the component is already available in the command line environment.
+
+Change directories to the `frontend` directory:
 
 `cd ~/frontend`{{execute interrupt}}
 
@@ -6,7 +8,7 @@ Listing the contents of this directory shows that `frontend` is a Node.js applic
 
 `ls`{{execute}}
 
-Since `frontend` is written in an interpreted language, there is no build step analogous to the maven build we performed for the `backend` component. We can proceed directly to specifying the `nodejs` environment from the cluster's software catalog.
+Since `frontend` is written in an interpreted language, there is no build step analogous to the Maven build we performed for the `backend` component. We can proceed directly to specifying the `nodejs` environment from the cluster's software catalog.
 
 We give this Node.js component the name `frontend`:
 
@@ -43,7 +45,7 @@ With the component named and the the config file created, we can push the Node.j
 ✓  Changes successfully pushed to component: frontend
 ```
 
-When we created the `backend` component, we viewed the logs via the terminal. You can also follow the status of your container creation in the web console. Click the Dashboard tab and make sure you're in the project named "myproject". Click **Overview** in the left navigation to go to the Overview section, where you should see the following:
+When we created the `backend` component, we viewed the logs via the terminal. You can also follow the status of your container creation in the web console. Click the Dashboard tab and make sure you're in the project named `myproject`. Click **Overview** in the left navigation to go to the Overview section, where you should see the following:
 
 ![OKD Web Console](../../assets/introduction/developing-with-odo/frontend-console.png)
 

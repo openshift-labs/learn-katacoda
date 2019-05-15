@@ -10,7 +10,7 @@ This will log you in using the credentials:
 * **Username:** ``developer``
 * **Password:** ``developer``
 
-You should see the output:
+You should see the output below:
 
 ```
 ✓  Login successful.
@@ -20,11 +20,11 @@ You have one project on this server: "default"
 Using project "default".
 ```
 
-Rather than using this default project, we will create a new one by running:
+Rather than using this default project, we will create a new one by running `odo project create`:
 
 `odo project create myproject`{{execute}}
 
-You should see the following output:
+You should see the following output confirming the creation of a new OpenShift project called `myproject` and that `odo` is now using `myproject`:
 
 ```
 ✓  New project created and now using project : myproject
@@ -55,4 +55,4 @@ In the select boxes at the bottom, choose **myproject / default** and **view** f
 
 ![Edit Roles](../../assets/introduction/developing-with-odo/membership.png)
 
-Now the service account that the backend uses has view access so it can retrieve objects via the API. Note that you could choose **edit** access instead. That would allow the the backend to both retrieve and modify or delete objects. If you do that, you can end up destroying certain resources in the game that are not recoverable, which is why we are choosing **view** access for this scenario.
+Now the service account that the backend uses has view **access** so it can retrieve objects via the API. Note that you could choose **edit** access instead. That would allow the the backend to both retrieve and modify or delete objects. If you do that, you can end up destroying certain resources in the game that are not recoverable, which is why we are choosing **view** access for this scenario.

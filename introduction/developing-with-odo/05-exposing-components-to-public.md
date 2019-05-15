@@ -32,4 +32,4 @@ The changes can now be pushed:
 ✓  Changes successfully pushed to component: frontend
 ```
 
-Visit the URL in your browser to view the application.
+Visit the URL in your browser to view the application once the `odo push` command finishes.
