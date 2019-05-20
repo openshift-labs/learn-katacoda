@@ -51,7 +51,7 @@ This should display the same list of resources as when ``oc get all -o name`` wa
 
 ``oc get all --selector app=blog -o name``{{execute}}
 
-In this case, because there are no resources with the label ``app=blog``, the result will be ``No resources found``.
+In this case, because there are no resources with the label ``app=blog``, the result will be empty.
 
 Having a way of selecting just the resources for the one application, you can now schedule them for deletion by running the command:
 
