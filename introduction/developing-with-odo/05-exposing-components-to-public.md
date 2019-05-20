@@ -19,11 +19,10 @@ The changes can now be pushed:
 ```
 ✓  Checking component
 ✓  Checking component version
+◑  Applying component settings to component: frontend ✓  Checking URL frontend
+◒  Applying component settings to component: frontend ✓  Successfully created URL for component: frontend
+✓  http://frontend-app-myproject.2886795296-80-rhsummit1.environments.katacoda.com
 ✓  Applying component settings to component: frontend
-✓  Checking URL frontend
-✓  Successfully created URL for component: frontend
-✓  http://frontend-app-myproject.192.168.64.2.nip.io
-✓  The component frontend was updated successfully
 ✓  Successfully updated component with name: frontend
 ✓  Pushing changes to component: frontend of type local
 ✓  Waiting for component to start

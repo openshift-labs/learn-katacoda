@@ -54,7 +54,6 @@ As the push is progressing, `odo` will print:
 ✓  Creating component backend
 ✓  Successfully created component backend
 ✓  Applying component settings to component: backend
-✓  The component backend was updated successfully
 ✓  Successfully updated component with name: backend
 ✓  Pushing changes to component: backend of type binary
 ✓  Waiting for component to start

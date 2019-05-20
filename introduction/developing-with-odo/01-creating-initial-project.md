@@ -13,7 +13,7 @@ This will log you in using the credentials:
 You should see the output below:
 
 ```
-✓  Login successful.
+Login successful.
 
 You have one project on this server: "default"
 
@@ -27,7 +27,7 @@ Rather than using this default project, we will create a new one by running `odo
 You should see the following output confirming the creation of a new OpenShift project called `myproject` and that `odo` is now using `myproject`:
 
 ```
-✓  New project created and now using project : myproject
+ ✓  New project created and now using project : myproject
 ```
 
 ## Creating a Service Account

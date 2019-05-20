@@ -36,7 +36,6 @@ With the component named and the the config file created, we can push the Node.j
 ✓  Creating component frontend
 ✓  Successfully created component frontend
 ✓  Applying component settings to component: frontend
-✓  The component frontend was updated successfully
 ✓  Successfully updated component with name: frontend
 ✓  Pushing changes to component: frontend of type local
 ✓  Waiting for component to start

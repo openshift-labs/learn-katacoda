@@ -19,6 +19,8 @@ Edit the file `index.html` with a search-and-replace one-liner performed with th
 There may be a slight delay before `odo` recognizes the change. Once the change is recognized, `odo` will push the changes to the `frontend` component and print its status to the terminal:
 
 ```
+File /root/frontend/index.html changed
+File  changed
 Pushing files...
  ✓  Waiting for component to start
  ✓  Copying files to component
