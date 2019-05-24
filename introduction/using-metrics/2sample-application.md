@@ -42,7 +42,7 @@ to build a new example application in Ruby.
 
 We will deploy a sample application:
 
-``oc new-app kubernetes/guestbook``{{execute}}
+``oc new-app --docker-image="docker.io/kubernetes/guestbook:latest"``{{execute}}
 
 Once the pod has been created, the metrics components will start to gather
 information. To check the metrics using ``oc``, it is required to be
