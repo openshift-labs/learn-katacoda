@@ -6,7 +6,7 @@ In Step 1 you learned how to get started with our project. In this step, we will
 
 Since our applications (like most) will need to access a database to read retrieve and store fruits entries, we need to add Java Persistence API to our project. 
 
-The default implementation is Spring Boot is Hibernate, and that has also been tested and verified as part of the OpenShift Application Runtimes.
+The default implementation in Spring Boot is Hibernate which has been tested as part of the OpenShift Application Runtimes.
 
 >**NOTE:** Hibernate is another Open Source project that is maintained by Red Hat and it will soon be productized (as in fully supported) in OpenShift Application Runtimes. 
 
@@ -82,7 +82,7 @@ public class Fruit {
 
  **3.Create a repository class for our content**
 
-The repository should provide with methods for insert, update, select and delete Fruits from the database. We are going to use Spring Data for this which already provides us with a lot of the boilerplate code, so all we have to do is to add an interface that extends the `CrudRepository<Fruit, Integer>` interface provided by Spring Data.
+The repository should provide methods for insert, update, select and delete operations on Fruits from the database. We use Spring Data which provides us with lots of boilerplate code. All we have to do is to add an interface that extends the `CrudRepository<Fruit, Integer>` interface provided by Spring Data.
 
 First, we need to create the java class file. For that, you need to click on the following link, which open the empty file in the editor: ``src/main/java/com/example/service/FruitRepository.java``{{open}}
 
@@ -99,7 +99,7 @@ public interface FruitRepository extends CrudRepository&lt;Fruit, Integer&gt; {
 
 **4. Populate the database with initial content**
 
-To pre-populate the database with content, Hibernate offers a nifty feature where we can provide an SQL file that populates the content.
+To pre-populate the database with content, Hibernate offers a nifty feature where we can provide a SQL file that populates the content.
 
 First, we need to create the SQL  file. For that, you need to click on the following link, which open the empty file in the editor: ``src/main/resources/import.sql``{{open}}
 
@@ -112,9 +112,9 @@ insert into fruit (name) values ('Banana');
 </pre>
 
 **5. Add a test class**
-To verifies that we can use the `FruitRepository` for retrieving and storing Fruit objects, we are going to create a test class.
+Verify that we can use the `FruitRepository` for retrieving and storing Fruit objects by creating a test class.
 
-First, we need to create the java class file. For that, you need to click on the following link, which open the empty file in the editor: ``src/test/java/com/example/ApplicationTest.java``{{open}}
+First, we need to create the java class file. Click on the following link to open an empty file in the editor: ``src/test/java/com/example/ApplicationTest.java``{{open}}
 
 Then, copy the below content into the file (or use the `Copy to editor` button):
 
@@ -185,9 +185,9 @@ public class ApplicationTest {
 }
 </pre>
 
-Take a bit of time and review the tests. The `testGetAll` test will return all fruits in the repository, which should be three because of what the content in `import.sql`. The `getOne` test will retrieve the fruit with id 1 (e.g., the Cherry) and then check that it's not null. The `getWrongId` check that if we try to retrieve a fruit id that doesn't exist and check that fruitRepository return null.
+Take some time to review the tests. The `testGetAll` test returns all fruits in the repository, which should be three because of what the content in `import.sql`. The `getOne` test will retrieve the fruit with id 1 (e.g., the Cherry) and then check that it's not null. The `getWrongId` check that if we try to retrieve a fruit id that doesn't exist and check that fruitRepository return null.
 
-**5. Run and verify**
+**6. Run and verify**
 
 We can now test that our `FruitRepository` can connect to the data source, retrieve data and 
 Run the application by executing the below command:
@@ -205,4 +205,4 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 
 ## Congratulations
 
-You have now learned how to create and test a data repository that can create, read, update and delete content from a database. We have so far been testing this with an in-memory database, but later we will replace this with a full blow SQL server running on OpenShift, but first, we should create REST services that the web page can use to update content.
+You have learned how to create and test a data repository that can create, read, update and delete content from a database. We have been testing this with an in-memory database, but later we will replace this with a full blow SQL server running on OpenShift, but first, we should create REST services that the web page can use to update content.
