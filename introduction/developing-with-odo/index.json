@@ -20,27 +20,24 @@
         "steps": [{
           "title": "Application Overview",
           "text": "00-application-overview.md"
-        },{
+        }, {
             "title": "Creating an Initial Project",
             "text": "01-creating-initial-project.md"
-        },{
-            "title": "Creating an Application",
-            "text": "02-creating-an-application.md"
-        },{
+        }, {
             "title": "Creating new binary component",
-            "text": "03-creating-new-binary-component.md"
+            "text": "02-creating-new-binary-component.md"
         }, {
             "title": "Deploying component from source-code",
-            "text": "04-deploying-component-from-source-code.md"
+            "text": "03-deploying-component-from-source-code.md"
         }, {
             "title": "Linking components",
-            "text": "05-linking-components.md"
+            "text": "04-linking-components.md"
         }, {
             "title": "Exposing components to public",
-            "text": "06-exposing-components-to-public.md"
+            "text": "05-exposing-components-to-public.md"
         }, {
             "title": "Making changes to source-code",
-            "text": "07-making-changes-to-source-code.md"
+            "text": "06-making-changes-to-source-code.md"
         }],
         "intro": {
             "courseData": "env-init.sh",

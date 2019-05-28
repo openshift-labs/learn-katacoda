@@ -2,14 +2,13 @@ Congratulations! You just learned the basics of using the `odo` tool to manage a
 
 ## What's next?
 
-We hope `odo` helps you conveniently access all the power OpenShift has to offer, and that these first steps leave you eager to learn more. https://learn.openshift.com has other tutorials from basic to advanced that offer a real cluster to learn on, just like this scenario. It's also easy to run your own OpenShift cluster locally, or to leave infrastructure management to Red Hat experts by using a hosted OpenShift.
+We hope `odo` helps you conveniently access all the power OpenShift has to offer, and that these first steps leave you eager to learn more. https://learn.openshift.com has other tutorials from basic to advanced that offer a real cluster to learn on, just like this scenario. It's also easy to run your own OpenShift cluster locally or to leave infrastructure management to Red Hat experts by using a hosted OpenShift.
 
 Here are some of the ways you can get your own OpenShift cluster:
 
 ### Minishift
 
-Minishift is a complete OpenShift environment inside a virtual machine that runs on your local system. Minishift supports Windows, MacOS, and Linux operating systems. To find out more about minishift, visit http://www.openshift.org/vm.
-
+Minishift is a complete OpenShift environment inside a virtual machine that runs on your local system. Minishift supports Windows, MacOS, and Linux operating systems. To find out more about minishift, visit https://www.okd.io/minishift/.
 
 ### OpenShift Online
 
