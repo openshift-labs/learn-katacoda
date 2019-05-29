@@ -8,7 +8,7 @@ First, you want to fork this repo and sign up at [Katacoda](https://katacoda.com
 
 For each scenario, please do the following:
 
-1. Create a card on the respective [Trello board](https://trello.com/b/4uOCyBJp/katacoda-red-hat)
+1. Create a card on the respective [Trello board](https://trello.com/b/4uOCyBJp/katacoda-red-hat). Please contact @BenHall for details on how to access.
 1. Work on the scenario, try it out in your own environment `https://www.katacoda.com/$GITHUBHANDLE`
 1. When you're satisfied, send in a pull request mentioning the issue you created in the first step.
 1. Next, get two reviews/thumbs up from team members (mention @mhausenblas on your issue if you do't see activity within a day)
