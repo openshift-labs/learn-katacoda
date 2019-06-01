@@ -16,7 +16,7 @@ In this tutorial you have access to one host named `host01`. To let Ansible know
 
 2\. Then, add the host to the group, while also passing the username to use for SSH access, as an inventory parameter.
 
-`echo "host01 ansible_ssh_user=cent" >> myhosts`{{execute}}
+`echo "host01 ansible_user=cent" >> myhosts`{{execute}}
 
 3\. You can use your terminal to verify that `myhosts` has been created: `cat myhosts`{{execute}}
 
