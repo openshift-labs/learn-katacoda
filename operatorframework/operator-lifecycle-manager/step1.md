@@ -28,7 +28,7 @@ git clone https://github.com/operator-framework/operator-lifecycle-manager
 Create the dedicated `openshift-operator-lifecycle-manager` Namespace:
 
 ```
-oc create -f operator-lifecycle-manager/deploy/okd/manifests/0.7.2/0000_30_00-namespace.yaml
+oc create -f operator-lifecycle-manager/deploy/ocp/manifests/0.7.2/0000_30_00-namespace.yaml
 ```{{execute}}
 <br>
 Verify the Namespace was successfully created:
@@ -40,7 +40,7 @@ oc get namespaces openshift-operator-lifecycle-manager
 Create the `olm-operator-serviceaccount` Service Account, `system:controller:operator-lifecycle-manager` ClusterRole, and `olm-operator-binding-openshift-operator-lifecycle-manager` ClusterRoleBinding:
 
 ```
-oc create -f operator-lifecycle-manager/deploy/okd/manifests/0.7.2/0000_30_01-olm-operator.serviceaccount.yaml
+oc create -f operator-lifecycle-manager/deploy/ocp/manifests/0.7.2/0000_30_01-olm-operator.serviceaccount.yaml
 ```{{execute}}
 <br>
 
@@ -59,7 +59,7 @@ oc get clusterrolebinding olm-operator-binding-openshift-operator-lifecycle-mana
 Create the OLM Custom Resource Definitions (`Subscription`, `InstallPlan`, `CatalogSource`, `ClusterServiceVersion`):
 
 ```
-for num in {02..05}; do oc create -f operator-lifecycle-manager/deploy/okd/manifests/0.7.2/0000_30_$num*; done
+for num in {02..05}; do oc create -f operator-lifecycle-manager/deploy/ocp/manifests/0.7.2/0000_30_$num*; done
 ```{{execute}}
 <br>
 Verify all four OLM CRDs are present:
@@ -71,7 +71,7 @@ oc get crds
 Create the internal `rh-operators` CatalogSource and `rh-operators` ConfigMap which contains manifests for some popular Operators:
 
 ```
-for num in {06,09}; do oc create -f operator-lifecycle-manager/deploy/okd/manifests/0.7.2/0000_30_$num*; done
+for num in {06,09}; do oc create -f operator-lifecycle-manager/deploy/ocp/manifests/0.7.2/0000_30_$num*; done
 ```{{execute}}
 <br>
 Verify the CatalogSource and ConfigMap were successfully created:
@@ -86,7 +86,7 @@ oc -n openshift-operator-lifecycle-manager get configmap rh-operators
 Create the remaining OLM objects including OLM, Catalog, and Package Deployments:
 
 ```
-for num in {10..13}; do oc create -f operator-lifecycle-manager/deploy/okd/manifests/0.7.2/0000_30_$num*; done
+for num in {10..13}; do oc create -f operator-lifecycle-manager/deploy/ocp/manifests/0.7.2/0000_30_$num*; done
 ```{{execute}}
 <br>
 Verify all three OLM deployments were successfully created:
