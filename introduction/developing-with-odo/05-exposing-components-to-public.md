@@ -1,4 +1,4 @@
-We have deployed our application's `backend` component and updated both components' configurations to connect the `frontend` component to the `backend`. Let's create an external URL for our application so we can see it in action:
+We have updated `frontend` to be linked with `backend` to allow our application's components to communicate. Let's now create an external URL for our application so we can see it in action:
 
 `odo url create frontend --port 8080`{{execute}}
 
@@ -10,7 +10,7 @@ Once the URL has been created in the `frontend` component's configuration, you w
 To create URL on the OpenShift cluster, please run `odo push`
 ```
 
-The changes can now be pushed:
+The change can now be pushed:
 
 `odo push`{{execute}}
 

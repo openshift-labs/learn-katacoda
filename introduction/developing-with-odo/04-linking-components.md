@@ -4,12 +4,14 @@ To link the current `frontend` component to the `backend`, you can run:
 
 `odo link backend --component frontend --port 8080`{{execute}}
 
-This will inject configuration information into the `frontend` about the `backend` and then restart the `frontend` upon running an `odo push`.
+This will inject configuration information into the `frontend` about the `backend` and then restart the `frontend` component.
 
-The following output will be displayed to confirm the linking information has been added to the configuration of the `frontend` and `backend` components:
+The following output will be displayed to confirm the linking information has been added to the `frontend` component:
 
 ```
  ✓  Component backend has been successfully linked from the component frontend
 ```
 
-Before we push the linking updates, let's make some other changes in `frontend`'s configuration.
+This change will cause the `frontend` component to be restarted so that the linking information will now be used by `frontend`.
+
+Now that the `frontend` component has been linked with the `backend` component, let's make `frontend` publicly accessible.
