@@ -12,6 +12,4 @@ The following output will be displayed to confirm the linking information has be
  ✓  Component backend has been successfully linked from the component frontend
 ```
 
-This change will cause the `frontend` component to be restarted so that the linking information will now be used by `frontend`.
-
 Now that the `frontend` component has been linked with the `backend` component, let's make `frontend` publicly accessible.
