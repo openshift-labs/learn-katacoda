@@ -28,6 +28,12 @@
     },
     {
       "pathway_id": "openshift/ansibleop",
+      "course_id": "ansible-k8s-modules",
+      "id": "ansible-k8s-modules",
+      "title": "Ansible Kubernetes Modules"
+    },
+    {
+      "pathway_id": "openshift/ansibleop",
       "course_id": "ansible-operator-overview",
       "id": "ansible-operator-overview",
       "title": "Ansible Operator Overview"
