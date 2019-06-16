@@ -11,7 +11,7 @@ For each scenario, please do the following:
 1. Create a card on the respective [Trello board](https://trello.com/b/4uOCyBJp/katacoda-red-hat). Please contact @BenHall for details on how to access.
 1. Work on the scenario, try it out in your own environment `https://www.katacoda.com/$GITHUBHANDLE`
 1. When you're satisfied, send in a pull request mentioning the issue you created in the first step.
-1. Next, get two reviews/thumbs up from team members (mention @mhausenblas on your issue if you do't see activity within a day)
+1. Next, get two reviews/thumbs up from team members (mention @BenHall and @jorgemoralespou on your issue if you do't see activity within a couple of days)
 1. Once your scenario has been reviewed, we will merge it and it will appear on learn.openshift.com
 
 ## Delivering a workshop?
@@ -52,5 +52,5 @@ To add a new category create a pathway/scenario folder structure similar to intr
 
 ## Resources
 
-* [Katacoda docs](https://www.katacoda.com/docs)
+* [Katacoda Examples](https://katacoda.com/scenario-examples)
 * [Status page](https://openshift.status.katacoda.com/)
