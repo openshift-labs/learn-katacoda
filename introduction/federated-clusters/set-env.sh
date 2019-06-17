@@ -15,7 +15,13 @@ stty -echo
 echo "export HOST1_IP=[[HOST_IP]]; export HOST2_IP=[[HOST2_IP]]" >> ~/.env; source ~/.env
 export PS1=""
 export FEDERATION_DEV_TAG='v0.0.10'
+export KUBEFED_VERSION='v0.0.10'
 clear
+echo "Configuring required tools for Kubefed..."
+curl -LOs https://github.com/kubernetes-sigs/kubefed/releases/download/${KUBEFED_VERSION}/kubefedctl.tgz &> /dev/null
+tar xzf kubefedctl.tgz -C /usr/local/bin &> /dev/null
+rm -f kubefedctl.tgz &> /dev/null
+
 # KubeFed download is not here anymore, now it's included in the cluster image, so we don't have to rely on GitHub's downloads.
 # learn-katacoda/environments/openshift-3-11/scripts/13_kubefed.sh
 echo "Configuring required contexts and users..."
