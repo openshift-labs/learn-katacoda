@@ -14,7 +14,7 @@ chmod 0777 /data/pv-*; chcon -t svirt_sandbox_file_t /data/pv-*;
 
 clear
 
-odo utils config set UpdateNotification false > /dev/null 2>&1
+odo preference set UpdateNotification false > /dev/null 2>&1
 oc create -f volumes.json --as system:admin
 oc import-image -n openshift java --as system:admin 1> /dev/null
 oc import-image -n openshift nodejs --as system:admin 1> /dev/null
