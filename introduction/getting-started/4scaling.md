@@ -4,7 +4,7 @@ the *Pod* in the OpenShift web console on the overview page.
 ![Scaling using arrows](../../assets/introduction/getting-started/4scaling-arrows.png)
 
 To verify that we changed the number of replicas, click the pods number in the circle next to the arrows.
-You should see a list with your pods similar to the following:
+You should see a list with your pods similar to the following by scrolling to the bottom of the web console:
 
 ![List of pods](../../assets/introduction/getting-started/4scaling-pods.png)
 
@@ -18,7 +18,7 @@ is already cached on the node.
 ### Application "Self Healing"
 
 Because OpenShift's *DeploymentConfigs* are constantly monitoring to see that the desired number
-of *Pods* is actually running, you might also expect that OpenShift will "fix" the
+of *Pods* is actually running, you might also expect that OpenShift will fix the
 situation if it is ever not right. You would be correct!
 
 Since we have two *Pods* running right now, let's see what happens if we
@@ -26,17 +26,16 @@ Since we have two *Pods* running right now, let's see what happens if we
 
 On the same page where you viewed the list of pods after scaling to 2 replicas, open one of the pods by clicking its name in the list.
 
-In the top right corner of the page, there is _Actions_ tab. When opened, there is the _Delete_ action.
+In the top right corner of the page, there is an _Actions_ tab. When opened, there is the _Delete_ action.
 
 ![Delete action](../../assets/introduction/getting-started/4scaling-actions.png)
 
-**Click it!** And confirm the dialog. And you will be taken back to the page listing pods, however
-this time, there are three pods.
+Click _Delete_ and confirm the dialog. You will be taken back to the page listing pods, however, this time, there are three pods.
 
 ![List of pods](../../assets/introduction/getting-started/4scaling-terminating.png)
 
-The pod that we deleted is terminating, i.e. it is being cleaned up. And a new pod was created, because
-OpenShift will always make sure, that if one pod dies, there is going to be new pod created to
+The pod that we deleted is terminating (i.e., it is being cleaned up). A new pod was created because
+OpenShift will always make sure that, if one pod dies, there is going to be new pod created to
 fill its place.
 
 ### Exercise: Scale Down

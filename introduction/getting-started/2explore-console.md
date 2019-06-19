@@ -13,7 +13,7 @@ For this scenario, log in by entering the following:
 
 **Password:** `developer`{{copy}}
 
-After logging in to the web console, you'll see a blue button labeled **Create Project** in the top right corner of your screen that is shown below. Click this button to get started.
+After logging in to the web console, you'll see a blue button labeled *Create Project* in the top right corner of your screen that is shown below. Click this button to get started.
 
 ![Create Project Button](../../assets/introduction/getting-started/2create-project-button.png)
 
@@ -21,13 +21,11 @@ You should now see a page for creating your first project in web console. Fill i
 
 ![Create Project](../../assets/introduction/getting-started/2create-project.png)
 
-The rest of the form is optional and up to you to fill in or ignore.
+The rest of the form is optional and up to you to fill in or ignore. Click *Create* to continue.
 
 After your project is created, your project will appear under **My Projects** and you can click on `myproject` to access your newly created project.
 
 ## Task 2
-
-There is a dropdown in the right corner of the project that says **Add to Project**. We'll be using that in the next task.
 
 Notice the menu on the left. You're now currently on the **Overview** screen. The tools that you'll need for building and deploying your application can also be found here on the left, as well as setting access controls.
 
