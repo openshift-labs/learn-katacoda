@@ -17,13 +17,13 @@ After logging in to the web console, you'll see a blue button labeled *Create Pr
 
 ![Create Project Button](../../assets/introduction/getting-started/2create-project-button.png)
 
-You should now see a page for creating your first project in web console. Fill in the _Name_ field as `myproject`{{copy}}.
+You should now see a page for creating your first project in the web console. Fill in the _Name_ field as `myproject`{{copy}}.
 
 ![Create Project](../../assets/introduction/getting-started/2create-project.png)
 
 The rest of the form is optional and up to you to fill in or ignore. Click *Create* to continue.
 
-After your project is created, your project will appear under **My Projects** and you can click on `myproject` to access your newly created project.
+After your project is created, your project will appear under **My Projects**, and you can click on `myproject` to access your newly created project.
 
 ## Task 2
 

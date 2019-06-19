@@ -4,7 +4,7 @@ In this lab, you are going to deploy the front end component of an application c
 
 The simplest way to deploy an application in OpenShift is to take an existing Docker-formatted image and run it. We are going to use the OpenShift web console to do this, so ensure you have the OpenShift web console open and that you are in the project called `myproject`.
 
-The OpenShift web console provides various options to deploy an application to a project. For this lab, we are going to use the *Deploy Image* method. As the project is empty at this point, the *Overview* page should display the following options: *Browse Catalog*, *Deploy Image*, and *Select from Project*. Choose the *Deploy Image* button.
+The OpenShift web console provides various options to deploy an application to a project. For this lab, we are going to use the *Deploy Image* method. As the project is empty at this point, the *Overview* page should display the following options: *Browse Catalog*, *Deploy Image*, *Import YAML or JSON*, and *Select from Project*. Choose the *Deploy Image* button.
 
 ![Add to Project](../../assets/introduction/getting-started/3add-to-empty-project.png)
 
@@ -18,7 +18,7 @@ Press enter or click on the magnifying glass icon to the right of the text entry
 
 ![Deploy Image](../../assets/introduction/getting-started/3deploy-parksmap-image.png)
 
-At this point OpenShift will pull down and display key information about the image and the pending deployment, as well as populate the *Name* field with `parksmap-katacoda`. This name will be what is used for your application and the various components created that relate to it. Leave this as the generated value as steps given in the upcoming sections will use this name.
+At this point, OpenShift will pull down and display key information about the image and the pending deployment, as well as populate the *Name* field with `parksmap-katacoda`. This name will be what is used for your application and the various components created that relate to it. Leave this as the generated value as steps given in the upcoming sections will use this name.
 
 You are ready to deploy the existing Docker-formatted image. Hit the blue *Deploy* button at the bottom of the screen, and, in the subsequent page, click the *Continue to the project overview* link. This should bring you back to the *Overview* page where summary information about the application you just deployed will be displayed.
 
