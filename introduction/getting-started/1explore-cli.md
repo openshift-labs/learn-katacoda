@@ -2,11 +2,11 @@ The OpenShift CLI is accessed using the command _oc_. From here, you can adminis
 
 The CLI exposes the underlying Kubernetes orchestration system with the enhancements made by OpenShift. Users familiar with Kubernetes will be able to adapt to OpenShift quickly. The CLI is ideal in situations where you are:
 
-1) Working directly with project source code.
+1) Working directly with project source code
 
-2) Scripting OpenShift operations.
+2) Scripting OpenShift operations
 
-3) Restricted by bandwidth resources and cannot use the web console.
+3) Restricted by bandwidth resources and cannot use the web console
 
 For this section, our task is going to be creating our first project.
 
@@ -20,7 +20,7 @@ To contain your application, we use projects. The reason for having a project to
 More technically, it's a visualization of the Kubernetes namespace based on the developer access controls.
 
 ## Command Line Interface (CLI)
-In this course, we're not focusing on CLI, but we want you to be aware of it in case using the command line is your thing. Check out our other courses which go into the use of the CLI in more depth. Now, we're just going to practice logging in so you can get some experience with how the CLI works.
+In this course, we're not focusing on CLI, but we want you to be aware of it in case using the command line is your thing. You can check out our other courses that go into the use of the CLI in more depth. Now, we're just going to practice logging in so you can get some experience with how the CLI works.
 
 ## Task
 Let's get started by logging in. Your task is to enter the following into the console:
