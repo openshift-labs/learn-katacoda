@@ -29,17 +29,17 @@ Let's get started by logging in. Your task is to enter the following into the co
 
 When prompted, enter the following username and password:
 
-**Username:** ``developer``{{execute}}
+**Username:** `developer`{{execute}}
 
-**Password:** ``developer``{{execute}}
+**Password:** `developer`{{execute}}
 
 Next, you can check if it was successful:
 
 `oc whoami`{{execute}}
 
-Should return a response of:
+`oc whoami` should return a response of:
 
-``developer``
+`developer`
 
 That's it!
 
