@@ -20,7 +20,7 @@ To contain your application, we use projects. The reason for having a project to
 More technically, it's a visualization of the Kubernetes namespace based on the developer access controls.
 
 ## Command Line Interface (CLI)
-In this course, we're not focusing on CLI, but we want you to be aware of it in case using the command line is your thing. You can check out our other courses that go into the use of the CLI in more depth. Now, we're just going to practice logging in so you can get some experience with how the CLI works.
+In this course, we're not focusing on the OpenShift CLI, but we want you to be aware of it in case using the command line is your thing. You can check out our other courses that go into the use of the CLI in more depth. Now, we're just going to practice logging in so you can get some experience with how the CLI works.
 
 ## Task
 Let's get started by logging in. Your task is to enter the following into the console:
