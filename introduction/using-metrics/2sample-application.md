@@ -44,6 +44,11 @@ We will deploy a sample application:
 
 ``oc new-app kubernetes/guestbook``{{execute}}
 
+It is requied to modify the deploymentconfig to force to use the cached image
+instead pulling it again:
+
+``oc patch dc guestbook -p '{"spec":{"template":{"spec":{"containers":[{"imagePullPolicy":"IfNotPresent","name":"guestbook"}]}}}}'``{{execute}}
+
 Once the pod has been created, the metrics components will start to gather
 information. To check the metrics using ``oc``, it is required to be
 `system:admin` again:
