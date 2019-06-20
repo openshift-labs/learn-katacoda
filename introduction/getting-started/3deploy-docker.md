@@ -1,16 +1,16 @@
-In this lab, you are going to deploy the front end component of an application called **parksmap**. The web application will display an interactive map, which will be used to display the location of major national parks from all over the world.
+In this section, you are going to deploy the front end component of an application called **parksmap**. The web application will display an interactive map, which will be used to display the location of major national parks from all over the world.
 
 # Exercise: Deploying your first Image
 
 The simplest way to deploy an application in OpenShift is to take an existing Docker-formatted image and run it. We are going to use the OpenShift web console to do this, so ensure you have the OpenShift web console open and that you are in the project called `myproject`.
 
-The OpenShift web console provides various options to deploy an application to a project. For this lab, we are going to use the *Deploy Image* method. As the project is empty at this point, the *Overview* page should display the following options: *Browse Catalog*, *Deploy Image*, *Import YAML/JSON*, and *Select from Project*. Choose the *Deploy Image* button.
+The OpenShift web console provides various options to deploy an application to a project. For this section, we are going to use the *Deploy Image* method. As the project is empty at this point, the *Overview* page should display the following options: *Browse Catalog*, *Deploy Image*, *Import YAML/JSON*, and *Select from Project*. Choose the *Deploy Image* button.
 
 ![Add to Project](../../assets/introduction/getting-started/3add-to-empty-project.png)
 
-You could also have selected the *Add to Project* drop down menu in the top right corner of the project and selected _Deploy Image_ to go directly to the required tab.
+You could also have selected the *Add to Project* drop down menu in the top right corner of the project and selected _Deploy Image_ to go directly to the required tab. We'll use the *Add to Project* option in later sections.
 
-Within the *Deploy Image* page, choose the *Image Name* option. This will be used to reference an existing Docker-formatted image hosted on a Docker Hub Registry. For the name of the image enter:
+Within the *Deploy Image* page, choose the *Image Name* option. This will be used to reference an existing Docker-formatted image hosted on a Docker Hub Registry. For the name of the image, enter the following:
 
 `openshiftroadshow/parksmap-katacoda:1.0.0`{{copy}}
 

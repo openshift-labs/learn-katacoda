@@ -1,7 +1,7 @@
 While the command line tool is awesome, for this course we are going to focus on the web console, which is equally awesome.
 
 ## Task 1
-To begin, click on the **Dashboard** tab in the console frame of this browser window. This will open the web console link in another tab or window of your browser.
+To begin, click on the **Dashboard** tab on your screen. This will open the web console on your browser.
 
 You should see an **OpenShift Origin** window with **Username** and **Password** forms as shown below:
 
@@ -31,4 +31,4 @@ Notice the menu on the left. You're now currently on the **Overview** screen. Th
 
 Take a quick look around these, clicking on **Applications**, **Builds**, and **Resources** to see more options. There won't be much there for now as we have nothing in our project.
 
-We'll get into those in future sections, but go ahead and explore to see what's possible! Don't spend too much time on that now as you will get to use a lot of those in the upcoming sections.
+We'll get into those in future sections, but go ahead and explore to see what's possible! Don't spend too much time on these now as you will get to use a lot of these features in the upcoming sections.
