@@ -11,7 +11,7 @@ The CLI exposes the underlying Kubernetes orchestration system with the enhancem
 For this section, our task is going to be creating our first project.
 
 ## What is a project? Why does it matter?
-The goal of this scenario is to get a project created and running, which you'll be doing with the **web console** in the next section.
+The goal of this section is to get a project created and running, which you'll be doing with the **web console** in the next section.
 
 OpenShift is often referred to as a container application platform in that it is a platform designed for the development and deployment of containers.
 
