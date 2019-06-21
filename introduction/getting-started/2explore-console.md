@@ -27,7 +27,7 @@ After your project is created, your project will appear under **My Projects**, a
 
 ## Task 2
 
-Notice the menu on the left. You're now currently on the **Overview** screen. The tools that you'll need for building and deploying your application can also be found here on the left, as well as setting access controls.
+Notice the menu on the left. You're now currently on the **Overview** screen. The tools that you'll need for building and deploying your application can also be found here on the left.
 
 Take a quick look around these, clicking on **Applications**, **Builds**, and **Resources** to see more options. There won't be much there for now as we have nothing in our project.
 
