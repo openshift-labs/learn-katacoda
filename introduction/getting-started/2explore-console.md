@@ -3,9 +3,9 @@ While the command line tool is awesome, for this course we are going to focus on
 ## Task 1
 To begin, click on the **Dashboard** tab on your screen. This will open the web console on your browser.
 
-You should see an **OpenShift Origin** window with **Username** and **Password** forms as shown below:
+You should see an **OKD** window with **Username** and **Password** forms as shown below:
 
-![OpenShift Origin Web Console](../../assets/introduction/getting-started/ocp-login.png)
+![OKD Web Console](../../assets/introduction/getting-started/ocp-login.png)
 
 For this scenario, log in by entering the following:
 
