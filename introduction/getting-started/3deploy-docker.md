@@ -12,7 +12,7 @@ You could also have selected the *Add to Project* drop down menu in the top righ
 
 Within the *Deploy Image* page, choose the *Image Name* option. This will be used to reference an existing Docker-formatted image hosted on a Docker Hub Registry. For the name of the image, enter the following:
 
-`openshiftroadshow/parksmap-katacoda:1.0.0`{{copy}}
+`openshiftroadshow/parksmap-katacoda:1.2.0`{{copy}}
 
 Press enter or click on the magnifying glass icon to the right of the text entry box to be presented with information about the image:
 
