@@ -31,15 +31,15 @@ bash      root   root    1     ?      filter    system_u:system_r:container_t:s0
 
 Now, stop all of the running containers. No more one liners, it's just built in with Podman:
 
-``podman stop -all``{{execute}}
+``podman stop --all``{{execute}}
 
 Remove all of the actively defined containers. It should be noted that this might be described as deleting the copy-on-write layer, config.json (commonly referred to as the Config Bundle) as well as any state data (whether the container is defined, running, etc):
 
-``podman rm -all``{{execute}}
+``podman rm --all``{{execute}}
 
 We can even delete all of the locally cached images with a single command:
 
-``podman rmi -all``{{execute}}
+``podman rmi --all``{{execute}}
 
 The above commands show how easy and elegant podman is to use. Now, lets analyse a couple of intersting things that makes Podman different than Docker - it doesn't use a client server model, which is useful for wireing it into CI/CD systems, and other schedulers like Yarn:
 
