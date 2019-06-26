@@ -89,6 +89,6 @@ Or like this with Docker engine:
 
 ``systemd -> dockerd -> containerd -> docker-shim -> runc -> bash``
 
-The conmon utility and docker-shim both serve the same purpose. When the first conmon finishes calling the second, it exits. This disconnects the second conmon and all of its child processes from the container engine, podman. The secondary conmon is then inherited by init (systemd), the first process running on when the system boots. This simplified, daemonless model with podman can be quite useuful when wiring it into other larger systems, like CI/CD, scripts, etc.
+The conmon utility and docker-shim both serve the same purpose. When the first conmon finishes calling the second, it exits. This disconnects the second conmon and all of its child processes from the container engine, podman. The secondary conmon is then inherited by init (systemd), the first process running on when the system boots. This simplified, daemonless model with podman can be quite useful when wiring it into other larger systems, like CI/CD, scripts, etc.
 
 Alright, now that we know how to run containers, lets move on to building...
