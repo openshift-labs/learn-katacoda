@@ -10,14 +10,16 @@ This uses NPM and the [Nodeshift](https://github.com/bucharest-gold/nodeshift) p
 application to OpenShift using the containerized Node.js runtime. Nodeshift uses the files in the `.nodeshift`
 directory of the sample project to create the necessary Kubernetes objects to cause the application to be deployed.
 
-The build and deploy may take a minute or two. Wait for it to complete. You should see `INFO done` at the end of the build output, and you
+The build and deploy may take a minute or two. Wait for it to complete. You should see `INFO complete` at the end of the build output, and you
 should not see any obvious errors or failures.
 
 After the build finishes it will take less than a minute for the application to become available.
-To verify that everything is started, run the following command and wait for it report
-`replication controller "nodejs-configmap-1" successfully rolled out`
+To verify that everything is started, run the following command
 
 ``oc rollout status dc/nodejs-configmap``{{execute}}
+
+You should then see 
+`replication controller "nodejs-configmap-1" successfully rolled out`
 
 ** 2. Access the application running on OpenShift**
 

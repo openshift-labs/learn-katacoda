@@ -5,10 +5,12 @@ With our code and ConfigMap in place, lets rebuild and redeploy using the same c
 The rebuild and redeploy may take a minute or two. Wait for it to complete.
 
 After the build finishes it will take less than a minute for the application to become available.
-To verify that everything is started, run the following command and wait for it report
-`replication controller "nodejs-configmap-2" successfully rolled out`
+To verify that everything is started, run the following command again
 
 ``oc rollout status dc/nodejs-configmap``{{execute}}
+
+and wait for it to report
+`replication controller "nodejs-configmap-2" successfully rolled out`
 
 Once the application is re-deployed, re-visit the sample UI by clicking the
 [application link](http://nodejs-configmap-example.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
