@@ -9,7 +9,7 @@ To verify that everything is started, run the following command again
 
 ``oc rollout status dc/nodejs-configmap``{{execute}}
 
-and wait for it report
+and wait for it to report
 `replication controller "nodejs-configmap-2" successfully rolled out`
 
 Once the application is re-deployed, re-visit the sample UI by clicking the

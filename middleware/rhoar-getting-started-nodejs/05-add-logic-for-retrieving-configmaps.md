@@ -1,6 +1,6 @@
 We are now ready to change our application to use ConfigMaps!
 
-In the sample application this is the hard-coded message that is returned to the caller of the service:
+In the sample application, this is the hard-coded message that is returned to the caller of the service:
 
 ```javascript
 let message = "Default hard-coded greeting: Hello, %s!";
