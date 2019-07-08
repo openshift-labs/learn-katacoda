@@ -1,0 +1,62 @@
+{
+  "title": "Quarkus and Service Mesh with Istio Workshop",
+  "icon": "fa-openshift",
+  "courses": [
+    {
+      "pathway_id": "openshift/middleware/middleware-quarkus",
+      "id": "getting-started",
+      "course_id": "getting-started",
+      "title": "Quarkus workshop: Getting Started with Quarkus",
+      "description": "Supersonic, Subatomic Java with Quarkus"
+    },
+    {
+      "pathway_id": "openshift/middleware/middleware-quarkus",
+      "id": "panache",
+      "course_id": "panache",
+      "title": "Quarkus workshop: Effective Data with Hibernate and Panache",
+      "description": "Making entities trivial and fun to write in Quarkus"
+    },
+    {
+      "pathway_id": "openshift/servicemesh",
+      "course_id": "1-introduction",
+      "id": "1-introduction",
+      "title": "Istio 1.0.x workshop: Istio Introduction"
+    },
+    {
+      "pathway_id": "openshift/servicemesh",
+      "course_id": "2-deploy-microservices",
+      "id": "2-deploy-microservices",
+      "title": "Istio 1.0.x workshop: Deploy microservices"
+    },
+    {
+      "pathway_id": "openshift/servicemesh",
+      "course_id": "3-monitoring-tracing",
+      "id": "3-monitoring-tracing",
+      "title": "Istio 1.0.x workshop: Monitoring and Tracing"
+    },
+    {
+      "pathway_id": "openshift/servicemesh",
+      "course_id": "4-simple-routerules",
+      "id": "4-simple-routerules",
+      "title": "Istio 1.0.x workshop: Simple Routing"
+    },
+    {
+      "pathway_id": "openshift/servicemesh",
+      "course_id": "5-advanced-routerules",
+      "id": "5-advanced-routerules",
+      "title": "Istio 1.0.x workshop: Advanced RouteRules"
+    },
+    {
+      "pathway_id": "openshift/servicemesh",
+      "course_id": "6-fault-injection",
+      "id": "6-fault-injection",
+      "title": "Istio 1.0.x workshop: Fault Injection"
+    },
+    {
+      "pathway_id": "openshift/servicemesh",
+      "course_id": "7-circuit-breaker",
+      "id": "7-circuit-breaker",
+      "title": "Istio 1.0.x workshop: Circuit Breaker"
+    }
+  ]
+}
