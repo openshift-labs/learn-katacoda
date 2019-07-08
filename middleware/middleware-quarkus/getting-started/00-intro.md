@@ -2,7 +2,7 @@ In this scenario, you will get an introduction to [Quarkus](https://quarkus.io).
 
 ## What is Quarkus?
 
-![Logo](../../../assets/middleware/quarkus/logo.png)
+![Logo](/openshift/assets/middleware/quarkus/logo.png)
 
 ### Supersonic, Subatomic Java
 

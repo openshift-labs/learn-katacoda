@@ -1,6 +1,6 @@
 In this step, you will create a straightforward application serving a `hello` endpoint. To demonstrate dependency injection this endpoint uses a `greeting` bean. 
 
-![Architecture](../../../assets/middleware/quarkus/arch.png)
+![Architecture](/openshift/assets/middleware/quarkus/arch.png)
 
 # Create basic project
 

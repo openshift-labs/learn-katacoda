@@ -1,6 +1,6 @@
 Let’s now produce a native executable for our application. It improves the startup time of the application, and produces a minimal disk footprint. The executable would have everything to run the application including the "JVM" (shrunk to be just enough to run the application), and the application.
 
-![Native process](../../../assets/middleware/quarkus/native-image-process.png)
+![Native process](/openshift/assets/middleware/quarkus/native-image-process.png)
 
 We will be using GraalVM, which includes a native compiler for producing native images for a number of languages, including Java. It's been installed for you:
 

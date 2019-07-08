@@ -14,7 +14,7 @@ With that set, let's see how fast our app can scale up to 10 instances:
 
 Back in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus/overview) you'll see the app scaling dynamically up to 10 pods:
 
-![Scaling](../../../assets/middleware/quarkus/scaling.png)
+![Scaling](/openshift/assets/middleware/quarkus/scaling.png)
 
 This should only take a few seconds to complete the scaling. Now that we have 10 pods running, let's hit it with some load:
 
@@ -38,7 +38,7 @@ hello quarkus-on-openshift from quarkus-quickstart-2-8xw8b
 
 Back in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus/overview) you'll see the app scaling dynamically up to 50 pods:
 
-![Scaling to 50](../../../assets/middleware/quarkus/50pods.png)
+![Scaling to 50](/openshift/assets/middleware/quarkus/50pods.png)
 
 Once they are all up and running, try the same load again:
 

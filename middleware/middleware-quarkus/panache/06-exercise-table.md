@@ -4,7 +4,7 @@ Click to [access the graphical frontend which includes our DataTable](http://qua
 
 It should look like:
 
-![Web Console Overview](../../../assets/middleware/quarkus/panache-datatable.png)
+![Web Console Overview](/openshift/assets/middleware/quarkus/panache-datatable.png)
 
 Notice the total number of records reported at the bottom. Type in a single letter, e.g. `F` in the search box and see how responsive the app is. Type additional letters to narrow the search. Rather than having all 10k records loaded in the browser, DataTable makes a call back to our `/person/datatable` REST endpoint to fetch only those records that should be shown, based on page size, current page you're looking at, and any search filters. With a page size of `10` each REST call will only return up to 10 records, no matter how many there are in the database.
 
