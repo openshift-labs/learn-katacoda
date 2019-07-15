@@ -1,13 +1,13 @@
 If any CockroachDB member fails it gets restarted or recreated automatically by the Kubernetes infrastructure, and will rejoin the cluster automatically when it comes back up. You can test this scenario by killing any of the pods:
 
 ```
-oc delete pods -l chart=cockroachdb-2.1.1
+oc delete pods -l chart=cockroachdb-2.1.11
 ```{{execute}}
 <br>
 Watch the pods respawn:
 
 ```
-oc get pods -l chart=cockroachdb-2.1.1
+oc get pods -l chart=cockroachdb-2.1.11
 ```{{execute}}
 <br>
 Confirm that the contents of the database still persist by connecting to the database cluster:
