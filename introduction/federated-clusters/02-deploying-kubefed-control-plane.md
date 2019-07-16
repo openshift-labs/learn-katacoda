@@ -8,7 +8,7 @@ You will have access to two terminals, however most of the work will be done on 
 
 An `admin` user with `cluster-admin` privileges has been created in each cluster for your convenience.
 
-*NOTE:* The current Kubefed Control Plane deployment requires cluster-admin privileges. This requirement could be addressed in upcoming releases, so specific roles will be available for the Federation Control Plane.
+*NOTE:* The current KubeFed Control Plane deployment requires cluster-admin privileges. This requirement could be addressed in upcoming releases, so specific roles will be available for the KubeFed Control Plane.
 
 You should be already logged as admin. In order to verify it:
 
@@ -28,9 +28,9 @@ Once the repository has been cloned, change directory into the new directory:
 
 ``cd federation-dev``{{execute HOST1}}
 
-Checkout the v0.0.10 tag:
+Checkout the Katacoda branch:
 
-``git checkout v0.0.10``{{execute HOST1}}
+``git checkout katacoda``{{execute HOST1}}
 
 You might want to review some configurations already present on the environment:
 
