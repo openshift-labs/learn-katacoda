@@ -1,4 +1,4 @@
-At this point we have the Kubefed Control Plane up and running with both clusters registered.
+At this point we have the KubeFed Control Plane up and running with both clusters registered.
 
 Now we are going to deploy a federated application. This application is a nginx web server serving a welcome page. Despite its simplicity, it will help us to understand how federation works.
 
@@ -11,12 +11,12 @@ Before creating the application objects, we need to enable the types we want to 
 * `configmaps`
 * `deployments.apps`
 
-Enabling `namespaces` is required so the kubefed controller will propagate namespaces across the federated clusters.
+Enabling `namespaces` is required so the KubeFed controller will propagate namespaces across the federated clusters.
 
 ```
 for type in namespaces secrets serviceaccounts services configmaps deployments.apps
 do
-  /usr/local/bin/kubefedctl enable $type --federation-namespace test-namespace
+  /usr/local/bin/kubefedctl enable $type --kubefed-namespace test-namespace
 done
 ```{{execute HOST1}}
 
@@ -37,7 +37,7 @@ At this point we are ready to deploy the application. This sample application in
 
 *NOTE:* A sample ConfigMap, Secret and ServiceAccount are also created to illustrate how federation would assist with more complex applications but will not be used in this scenario.
 
-The [sample-app directory](https://github.com/openshift/federation-dev/tree/v0.0.10/sample-app) included in the Git repository, contains definitions to deploy these resources. For each of them there is a resource template which includes a placement policy, and some of them also have overrides. For example: the [sample nginx deployment template](https://github.com/openshift/federation-dev/blob/v0.0.10/sample-app/federateddeployment.yaml) specifies 3 replicas, but there is also [an override](https://github.com/openshift/federation-dev/blob/v0.0.10/sample-app/federateddeployment.yaml#L28-L32) that sets the replicas to 5 on `cluster2`.
+The [sample-app directory](https://github.com/openshift/federation-dev/tree/katacoda/sample-app) included in the Git repository, contains definitions to deploy these resources. For each of them there is a resource template which includes a placement policy, and some of them also have overrides. For example: the [sample nginx deployment template](https://github.com/openshift/federation-dev/blob/katacoda/sample-app/federateddeployment.yaml) specifies 3 replicas, but there is also [an override](https://github.com/openshift/federation-dev/blob/katacoda/sample-app/federateddeployment.yaml#L28-L32) that sets the replicas to 5 on `cluster2`.
 
 Overrides can be used to specify different values for some attributes across clusters, in this course we use an override to control the replicas over the different clusters as explained above. Imagine you want your application running on-premise to have 3 replicas and 5 replicas for the application running on the cloud, you will use an override for that.
 
