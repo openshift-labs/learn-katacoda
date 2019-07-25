@@ -89,4 +89,4 @@ You have now successfully executed the first step in this scenario.
 
 You have successfully deployed Kafka broker service and made it available to clients to produce and consume messages.
 
-In the next step of this scenario we will deploy a single instance of Debezium.
+In the next step of this scenario, we will deploy a single instance of Debezium.
