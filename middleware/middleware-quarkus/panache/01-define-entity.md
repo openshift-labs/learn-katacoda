@@ -132,9 +132,9 @@ As you can see we've implemented our first Panache-based query, the `getAll` met
 Let's add some sample data to the database so we can test things out. Open up the `src/main/resources/import.sql`{{open}} file and click to add some SQL statements to run on startup:
 
 <pre class="file" data-filename="./src/main/resources/import.sql" data-target="replace">
-INSERT INTO person(id, name, birth, eyes) VALUES (nextval('hibernate_sequence'), 'Farid Ulyanov', to_date('1974-08-15', 'YYYY-MM-dd'), 'BLUE')
-INSERT INTO person(id, name, birth, eyes) VALUES (nextval('hibernate_sequence'), 'Salvador L. Witcher', to_date('1984-05-24', 'YYYY-MM-dd'), 'BROWN')
-INSERT INTO person(id, name, birth, eyes) VALUES (nextval('hibernate_sequence'), 'Huỳnh Kim Huê', to_date('1999-04-25', 'YYYY-MM-dd'), 'HAZEL')
+INSERT INTO person(id, name, birth, eyes) VALUES (nextval('hibernate_sequence'), 'Farid Ulyanov', to_date('1974-08-15', 'YYYY-MM-dd'), 'BLUE');
+INSERT INTO person(id, name, birth, eyes) VALUES (nextval('hibernate_sequence'), 'Salvador L. Witcher', to_date('1984-05-24', 'YYYY-MM-dd'), 'BROWN');
+INSERT INTO person(id, name, birth, eyes) VALUES (nextval('hibernate_sequence'), 'Huỳnh Kim Huê', to_date('1999-04-25', 'YYYY-MM-dd'), 'HAZEL');
 </pre>
 
 These statements will add some fake people to our database.
