@@ -14,11 +14,11 @@ We need to add a few extensions to the app for Panache and Postgres. We'll use t
 
 Click this command to add the Hibernate ORM with Panache extension:
 
-`mvn quarkus:add-extension -Dextensions="io.quarkus:quarkus-hibernate-orm-panache"`{{execute}}
+`mvn quarkus:add-extension -Dextensions="panache"`{{execute}}
 
 And then for Postgres:
 
-`mvn quarkus:add-extension -Dextensions="io.quarkus:quarkus-jdbc-postgresql"`{{execute}}
+`mvn quarkus:add-extension -Dextensions="jdbc-postgresql"`{{execute}}
 
 Done!
 
