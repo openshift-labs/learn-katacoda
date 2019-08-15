@@ -24,7 +24,7 @@ step. Click in the first terminal and press CTRL-C to stop the application and t
 
 ## Access OpenShift Project
 
-[Projects](https://docs.openshift.com/container-platform/3.6/architecture/core_concepts/projects_and_users.html#projects)
+[Projects](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/projects_and_users.html#projects)
 are a top level concept to help you organize your deployments. An
 OpenShift project allows a community of users (or a user) to organize and manage
 their content in isolation from other communities. 
