@@ -10,6 +10,12 @@
       "description": "Supersonic, Subatomic Java with Quarkus"
     },
     {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/kafka",
+      "course_id": "kafka",
+      "title": "Reactive Streaming with Quarkus and Kafka",
+      "description": "How Quarkus uses MicroProfile Reactive Messaging to interact with Apache Kafka"
+    },
+    {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/panache",
       "course_id": "panache",
       "title": "Effective Data with Hibernate and Panache",
