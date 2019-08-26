@@ -9,7 +9,7 @@ We've also included a frontend HTML file at `src/main/resources/META-INF/resourc
 The app consists of 3 components that pass messages via Kafka and an in-memory stream, then uses SSE to push messages to
 the browser. It looks like:
 
-![kafka](/openshift/assets/middleware/kafkaarch.png)
+![kafka](/openshift/assets/middleware/quarkus/kafkaarch.png)
 
 ## Add Extension
 
