@@ -63,7 +63,7 @@ So now our app is deployed to OpenShift. Finally, let's confirm our streaming Ka
 
 > It takes a few seconds to establish the connection to Kafka. If you don’t see new names generated every 5 seconds reload the browser page to re-initialize the SSE stream.
 
-![kafka](/openshift/assets/middleware/wordcloud.png)
+![kafka](/openshift/assets/middleware/quarkus/wordcloud.png)
 
 ## Congratulations!
 
