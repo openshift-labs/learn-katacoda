@@ -1,7 +1,7 @@
 {
-  "pathwayTitle": "Monitoring Quarkus with MicroProfile, Prometheus and Grafana",
+  "pathwayTitle": "Monitoring Quarkus with Prometheus and Grafana",
   "icon": "fa-java",
-  "title": "Monitoring Quarkus with MicroProfile, Prometheus and Grafana",
+  "title": "Monitoring Quarkus with Prometheus and Grafana",
   "description": "In this exercise, you will use MicroProfile extensions to instrument and monitor a Quarkus app",
   "difficulty": "beginner",
   "time": "15 minutes",
