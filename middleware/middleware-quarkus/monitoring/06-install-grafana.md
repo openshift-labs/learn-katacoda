@@ -5,12 +5,12 @@ We'll keep our prime number checker running. Click to run the following command 
 `oc new-app grafana/grafana && oc expose svc/grafana`{{execute T2}}
 
 > It may take up to a minute to finish deploying
->
+
 Verify Grafana is up and running:
 
 `oc rollout status -w dc/grafana`{{execute}}
 
-You should see `replication controller "grafana-1" successfully rolled out`.
+You should see `replication controller "grafana-1" successfully rolled out`
 
 # Open Grafana Dashboard
 

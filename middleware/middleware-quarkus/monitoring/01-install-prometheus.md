@@ -83,3 +83,4 @@ Verify Prometheus is up and running:
 
 You should see `replication controller "prometheus-2" successfully rolled out`.
 
+> If this command appears to hang, just press `CTRL-C` and click it again.
