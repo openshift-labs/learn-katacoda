@@ -31,7 +31,7 @@ The output should look something like this
 
 As you can see, there are some files that we have prepared for you in the project. Under src/main/resources/index.html we have for example prepared an html file for you. Except for the fabric8 directory and the index.html, this matches very well what you would get if you generate an empty project from the [Spring Initializr](https://start.spring.io) web page. For the moment you can ignore the content of the fabric8 folder (we will discuss this later).
 
-One this that differs slightly is the `pom.xml`. Please open the and examen it a bit closer (but do not change anything at this time)
+One this that differs slightly is the `pom.xml`. Please open the and examine it a bit closer (but do not change anything at this time)
 
 ``pom.xml``{{open}}
 

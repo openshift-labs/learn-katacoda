@@ -1,0 +1,43 @@
+{
+  "pathwayTitle": "Monitoring Quarkus with Prometheus and Grafana",
+  "icon": "fa-java",
+  "title": "Monitoring Quarkus with Prometheus and Grafana",
+  "description": "In this exercise, you will use MicroProfile extensions to instrument and monitor a Quarkus app",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "details": {
+    "steps": [
+      { "title": "Step 1", "text": "01-install-prometheus.md" },
+      { "title": "Step 2", "text": "02-create-and-instrument-app.md" },
+      { "title": "Step 3", "text": "03-add-additional-metrics.md" },
+      { "title": "Step 4", "text": "04-deploy-to-openshift.md" },
+      { "title": "Step 4", "text": "05-query-with-prometheus.md" },
+      { "title": "Step 5", "text": "06-install-grafana.md" },
+      { "title": "Step 6", "text": "07-create-dashboard.md" }
+    ],
+    "intro": {
+      "text": "00-intro.md",
+      "courseData": "env-init.sh",
+      "code": "set-env.sh"
+    },
+    "finish": {
+      "text": "99-outro.md"
+    }
+  },
+  "files": [
+
+  ],
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
+    "uilayout": "editor-terminal",
+    "uisettings": "java",
+    "hideintro": false,
+    "uieditorpath": "/root/projects/quarkus",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "openshift-3-11",
+    "port": 8443
+  }
+}

@@ -2,7 +2,7 @@ Let’s get started with building and deploying your application to the **fusela
 
 We will be using OpenShift's Source 2 Image capability, also referred to as **_S2I_** . The OpenShift S2I tool injects application source code into a container image and the final product is a new and ready-to-run container image that incorporates the builder image and built source code. 
 
-To enable this S2I capability, you need to collect the following information and configure it in ***Red Hat Developer Studio***. 
+To enable this S2I capability, you need to collect the following information and configure it in ***Red Hat CodeReady Studio***. 
 
 Right click on your project in the sidebar menu, select Run As > Run Configuration  
 
@@ -42,7 +42,7 @@ Your application is now being built locally on your machine. The first build may
 ![Deployment console view 02](../../assets/middleware/fuse-hello-world/02-deployment-console-02.png)
 
 
-WInterested in tracking progress of your deployment to OpenShift?  Click **_Continue_** on to see how.
+Interested in tracking progress of your deployment to OpenShift?  Click **_Continue_** on to see how.
 
 
 
