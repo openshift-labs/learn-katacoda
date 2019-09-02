@@ -15,9 +15,21 @@
 		},
 		{
                         "pathway_id": "openshift/subsystems",
+			"course_id": "container-internals-lab-2-0-part-3",
+			"id": "container-internals-lab-2-0-part-3",
+			"title": "Linux Container Internals 2.0 - Lab 3: Container Registries"
+		},
+		{
+                        "pathway_id": "openshift/subsystems",
 			"course_id": "container-internals-lab-2-0-part-4",
 			"id": "container-internals-lab-2-0-part-4",
 			"title": "Linux Container Internals 2.0 - Lab 4: Container Hosts"
+		},
+		{
+                        "pathway_id": "openshift/subsystems",
+			"course_id": "container-internals-lab-2-0-part-5",
+			"id": "container-internals-lab-2-0-part-5",
+			"title": "Linux Container Internals 2.0 - Lab 5: Container Orchestration"
 		}
 	]
 }
