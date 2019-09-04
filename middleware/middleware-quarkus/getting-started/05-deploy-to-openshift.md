@@ -3,7 +3,7 @@ Now that we have our app built, let's move it into containers and into the cloud
 ## Login to OpenShift
 
 **Red Hat OpenShift Container Platform** is the preferred container orchestration platform for Quarkus. OpenShift is based on **Kubernetes** which is the most used Orchestration
-for containers running in production. 
+for containers running in production.
 
 OpenShift also ships with a feature rich web console as well as command line tools to provide users with a nice
 interface to work with applications deployed to the platform.
@@ -27,7 +27,7 @@ step. Click in the first terminal and press CTRL-C to stop the application and t
 [Projects](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/projects_and_users.html#projects)
 are a top level concept to help you organize your deployments. An
 OpenShift project allows a community of users (or a user) to organize and manage
-their content in isolation from other communities. 
+their content in isolation from other communities.
 
 For this scenario, let's create a project that you will use to house your applications. Click:
 
@@ -67,7 +67,7 @@ First, create a new _binary_ build within OpenShift:
 
 `oc new-build quay.io/redhat/ubi-quarkus-native-runner --binary --name=quarkus-quickstart -l app=quarkus-quickstart`{{execute T1}}
 
-> This build uses the new [Red Hat Universal Base Image](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html/getting_started_with_containers/using_red_hat_base_container_images_standard_and_minimal), providing foundational software needed to run most applications, while staying at a reasonable size.
+> This build uses the new [Red Hat Universal Base Image](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/building_running_and_managing_containers/using_red_hat_universal_base_images_standard_minimal_and_runtimes), providing foundational software needed to run most applications, while staying at a reasonable size.
 
 And then start and watch the build, which will take about a minute to complete:
 
