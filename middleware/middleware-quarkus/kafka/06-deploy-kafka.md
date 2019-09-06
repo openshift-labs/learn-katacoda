@@ -39,6 +39,10 @@ deployment "strimzi-cluster-operator" successfully rolled out
 
 ## Deploy Kafka Cluster
 
+Before deploying the Kafka cluster, make sure you are on the project folder _projects/rhoar-getting-started/quarkus/kafka/_ by executing this command:
+
+`cd /root/projects/rhoar-getting-started/quarkus/kafka`{{execute T2}}
+
 Next, create a new `Kafka` object within Kubernetes that the operator is waiting for. Click this command to create it:
 
 `oc apply -f src/main/kubernetes/kafka-names-cluster.yaml`{{execute T2}}
@@ -66,7 +70,7 @@ spec:
 
 ## Deploy Kafka Topic
 
-We’ll need to create a _topic_ for our application to stream to and from, so click the following to create this object:
+We’ll need to create a _topic_ for our application to stream to and from. To do so, click the following command to create the _topic_ object:
 
 `oc apply -f src/main/kubernetes/kafka-names-topic.yaml`{{execute T2}}
 
