@@ -68,7 +68,7 @@ spec:
 
 We’ll need to create a _topic_ for our application to stream to and from. Make sure you are on the project folder _projects/rhoar-getting-started/quarkus/kafka/_ by executing this command:
 
-`cd /root/projects/rhoar-getting-started/quarkus/kafka`
+`cd /root/projects/rhoar-getting-started/quarkus/kafka`{{execute T2}}
 
 Now, click the following command to create the _topic_ object:
 
