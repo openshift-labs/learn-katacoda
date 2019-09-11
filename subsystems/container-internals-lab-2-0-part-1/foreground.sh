@@ -2,6 +2,7 @@
 git clone --depth 1 https://github.com/fatherlinux/container-internals-lab.git ~/labs
 yum install -y yum-plugin-versionloc
 yum versionlock podman-1.3.2
+yum remove podman buildah skopeo
 yum install -y podman buildah skopeo skopeo-containers tree httpd-tools strace
 
 # Lab 1
