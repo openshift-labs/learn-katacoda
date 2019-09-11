@@ -1,4 +1,4 @@
-This is a playground for trying out OpenShift 3.9. From here you can play
+This is a playground for trying out OpenShift 3.11. From here you can play
 with OpenShift using the web console or command line.
 
 ## What are playgrounds?

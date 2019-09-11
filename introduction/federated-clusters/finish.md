@@ -15,7 +15,7 @@ Minishift is a complete OpenShift environment which you can run on your local ma
 
 ### *oc cluster up*
 
-*oc cluster up* is a command provided by the `oc` client tool.  It configures and runs an openshift environment inside of the native docker system for your operating system.  It supports Windows, OS X, and the Linux operating systems.  For more information, visit https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md
+*oc cluster up* is a command provided by the `oc` client tool.  It configures and runs an openshift environment inside of the native docker system for your operating system.  It supports Windows, OS X, and the Linux operating systems.  For more information, visit https://docs.okd.io/latest/getting_started/administrators.html
 
 If you decide to try out *oc cluster up*, and you should, I would also suggest that you take a look at a wrapper script that was created to make life a little bit easier for you called *oc cluster wrapper*.  This wrapper provides functionality such as the ability to have different profiles, persistent volume management and other great features.  You can find more information at the official git repository at https://github.com/openshift-evangelists/oc-cluster-wrapper
 

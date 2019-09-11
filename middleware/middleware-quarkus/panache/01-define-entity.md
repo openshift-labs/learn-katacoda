@@ -14,15 +14,15 @@ We need to add a few extensions to the app for Panache and Postgres. We'll use t
 
 Click this command to add the Hibernate ORM with Panache extension:
 
-`mvn quarkus:add-extension -Dextensions="io.quarkus:quarkus-hibernate-orm-panache"`{{execute}}
+`mvn quarkus:add-extension -Dextensions="panache"`{{execute}}
 
 And then for Postgres:
 
-`mvn quarkus:add-extension -Dextensions="io.quarkus:quarkus-jdbc-postgresql"`{{execute}}
+`mvn quarkus:add-extension -Dextensions="jdbc-postgresql"`{{execute}}
 
 Done!
 
-> There are [many more extensions](https://quarkus.io/extensions/) for Quarkus for popular frameworks like [Eclipse Vert.x](https://vertx.io), [Apache Camel](http://camel.apache.org/), [Infinispan](http://infinispan.org/), Spring DI compatibility (e.g. `@Autowired`), and more. 
+> There are [many more extensions](https://quarkus.io/extensions/) for Quarkus for popular frameworks like [Eclipse Vert.x](https://vertx.io), [Apache Camel](http://camel.apache.org/), [Infinispan](http://infinispan.org/), Spring DI compatibility (e.g. `@Autowired`), and more.
 
 For more detail on basic Quarkus usage, check out the [Getting Started](https://learn.openshift.com/middleware/courses/middleware-quarkus/getting-started) scenario. We'll assume you've worked through that and understand the basics of a Quarkus app.
 
@@ -48,7 +48,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 public class Person extends PanacheEntity {
     // the person's name
     public String name;
-    
+
     // the person's birthdate
     public LocalDate birth;
 
@@ -115,7 +115,7 @@ public class PersonResource {
     }
 
     // TODO: add basic queries
-    
+
     // TODO: add datatable query
 
     // TODO: Add lifecycle hook
@@ -132,9 +132,9 @@ As you can see we've implemented our first Panache-based query, the `getAll` met
 Let's add some sample data to the database so we can test things out. Open up the `src/main/resources/import.sql`{{open}} file and click to add some SQL statements to run on startup:
 
 <pre class="file" data-filename="./src/main/resources/import.sql" data-target="replace">
-INSERT INTO person(id, name, birth, eyes) VALUES (nextval('hibernate_sequence'), 'Farid Ulyanov', to_date('1974-08-15', 'YYYY-MM-dd'), 'BLUE')
-INSERT INTO person(id, name, birth, eyes) VALUES (nextval('hibernate_sequence'), 'Salvador L. Witcher', to_date('1984-05-24', 'YYYY-MM-dd'), 'BROWN')
-INSERT INTO person(id, name, birth, eyes) VALUES (nextval('hibernate_sequence'), 'Huỳnh Kim Huê', to_date('1999-04-25', 'YYYY-MM-dd'), 'HAZEL')
+INSERT INTO person(id, name, birth, eyes) VALUES (nextval('hibernate_sequence'), 'Farid Ulyanov', to_date('1974-08-15', 'YYYY-MM-dd'), 'BLUE');
+INSERT INTO person(id, name, birth, eyes) VALUES (nextval('hibernate_sequence'), 'Salvador L. Witcher', to_date('1984-05-24', 'YYYY-MM-dd'), 'BROWN');
+INSERT INTO person(id, name, birth, eyes) VALUES (nextval('hibernate_sequence'), 'Huỳnh Kim Huê', to_date('1999-04-25', 'YYYY-MM-dd'), 'HAZEL');
 </pre>
 
 These statements will add some fake people to our database.
@@ -166,6 +166,8 @@ With the app running, let's try out our first RESTful endpoint to retrieve all t
 
 `curl http://localhost:8080/person | jq`{{execute T2}}
 
+> You may need to click this again if the initial click opens a Terminal but doesn't run the command for you.
+
 We call the endpoint with `curl` then send the output through `jq` to make the output prettier. You should see:
 
 ```json
@@ -192,9 +194,9 @@ We call the endpoint with `curl` then send the output through `jq` to make the o
     "name": "Huỳnh Kim Huê"
   }
 ]
-``` 
+```
 
-It's working! We'll leave it running and use Quarkus' Live Reload feature to automatically update our app as we make changes. Note that the `id` and `persistent` fields were added to our entity, but never appear in our query APIs and can be safely ignored most of the time. 
+It's working! We'll leave it running and use Quarkus' Live Reload feature to automatically update our app as we make changes. Note that the `id` and `persistent` fields were added to our entity, but never appear in our query APIs and can be safely ignored most of the time.
 
 Advanced use cases may require a custom ID strategy, which can by done by extending `PanacheEntityBase` instead of `PanacheEntity`, and declaring a public `id` field with the necessary policy. For example (do not copy this code into your app):
 

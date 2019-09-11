@@ -1,5 +1,5 @@
-A fresh project named `debezium` is prepared with necessary resources required to execute deployment.
-There are multiple resources created for you in the home directoory, the project itself or configured in OpenShift
+A fresh project named `debezium` is prepared with the necessary resources required to execute the deployment.
+There are multiple resources created for you in the home directory, the project itself or configured in OpenShift
 * a cloned [repository](https://github.com/strimzi/strimzi) of [Strimzi](http://strimzi.io) project
 * Strimzi Cluster Controller managing Kafka brokers
 * MySQL instance containing a small set of data to be streamed
@@ -34,7 +34,7 @@ This task is delegated to [templates](https://github.com/strimzi/strimzi/tree/0.
 The templates are already present in the home directory in the cloned repository.
 
 The templates by default deploy Kafka broker and ZooKeeper in a high-available configuration with replication factor `3`.
-This is not necessary in development environment so we reduce the number of nodes and replication factor for system topics to `1`.
+This is not necessary in the development environment so we reduce the number of nodes and replication factor for system topics to `1`.
 
 We also deploy an *ephemeral* variant of the broker.
 You should use *persistent* variant in production.
@@ -57,7 +57,7 @@ The final list of pods should be similar to
     mysql-1-84j4w                                  1/1       Running   0          10m
     strimzi-cluster-controller-2044197322-cpmb9    1/1       Running   0          10m
 
-> Note: Kafka depends on ZooKeeper so intermittent Kafka failures are expected as ZooKeeper might not be initialized at time of Kafka start.
+> Note: Kafka depends on ZooKeeper so intermittent Kafka failures are expected as ZooKeeper might not be initialized at the time of Kafka start.
 
 New services are available
 
@@ -89,4 +89,4 @@ You have now successfully executed the first step in this scenario.
 
 You have successfully deployed Kafka broker service and made it available to clients to produce and consume messages.
 
-In next step of this scenario we will deploy a single instance of Debezium.
+In the next step of this scenario, we will deploy a single instance of Debezium.

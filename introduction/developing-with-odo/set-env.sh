@@ -1,7 +1,9 @@
 
 echo "Configuring scenario"
+rm -f /usr/local/bin/odo; curl -L https://github.com/openshift/odo/releases/download/v1.0.0-beta2/odo-linux-amd64 -o /usr/local/bin/odo && chmod +x /usr/local/bin/odo
 
 curl -LO https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem > /dev/null 2>&1
+launch.sh
 oc login -u developer -p developer https://master:8443 --certificate-authority=lets-encrypt-x3-cross-signed.pem --insecure-skip-tls-verify=true > /dev/null 2>&1
 curl -kL https://gist.github.com/jorgemoralespou/033c27a354406d7c5111711346e79b01/raw 2> /dev/null | oc apply -n openshift --as system:admin -f -
 

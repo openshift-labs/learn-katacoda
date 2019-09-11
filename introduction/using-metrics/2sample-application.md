@@ -42,7 +42,7 @@ to build a new example application in Ruby.
 
 We will deploy a sample application:
 
-``oc new-app kubernetes/guestbook``{{execute}}
+``oc new-app --docker-image="docker.io/kubernetes/guestbook:latest"``{{execute}}
 
 It is requied to modify the deploymentconfig to force to use the cached image
 instead pulling it again:
