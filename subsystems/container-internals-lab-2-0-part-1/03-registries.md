@@ -25,16 +25,17 @@ Notice how easy these commands were. We didn't have to know very much about how 
 #
 # Version 1
 
-# Pull from fedora Base Image
-FROM registry.access.redhat.com/ubi7-dev-preview/ubi-minimal
+# Pull from Red Hat Universal Base Image
+FROM registry.access.redhat.com/ubi7/ubi-minimal
 
 MAINTAINER Scott McCarty smccarty@redhat.com
 
 # Update the image
-RUN yum -y install nmap-ncat
+RUN microdnf -y install nmap-ncat && \
+    echo "Hi! I'm a database. Get in ma bellie!!!" > /srv/hello.txt
 
 # Output
-ENTRYPOINT bash -c 'while true; do /usr/bin/nc -l -p 3306 < /etc/redhat-release; done'
+ENTRYPOINT bash -c 'while true; do /usr/bin/nc -l -p 3306 < /srv/hello.txt; done'
 ~~~~
 
 Realizing how easy it is to build and share using registry servers is the goal of this lab. You can embed the runtime logic into the container image using a build file, thereby communicating not just *what* to run, but also *how*. You can share the container image making it easier for others to use. You can also share the build file using something like GitHub to make it easy for others to build off of your work (open source for the win).
