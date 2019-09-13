@@ -7,5 +7,5 @@ podman run -dt registry.access.redhat.com/ubi7/ubi sleep 10
 sleep 3
 for i in $(podman ps | grep sleep | awk '{print $1}' | grep [0-9]); do find /sys/fs/cgroup/ | grep $i; done`{{execute}}
 
-Notice how each contianerized process is put into its own cgroup by the container engine. This is quite convenient, similar to sVirt.
+Notice how each containerized process is put into its own cgroup by the container engine. This is quite convenient, similar to sVirt.
 
