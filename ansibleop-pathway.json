@@ -20,7 +20,7 @@
     {
       "external_link": "https://learn.openshift.com/ansibleop/ansible-mcrouter-operator/",
       "course_id": "ansible-mcrouter-operator",
-      "title": "Mcrouter Operator"
+      "title": "Mcrouter Operator powered by the Ansible Operator SDK"
     }
   ]
 }
