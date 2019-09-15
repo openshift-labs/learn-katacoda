@@ -1,7 +1,7 @@
 {
   "icon": "fa-openshift",
-  "title": "Mcrouter Operator powered by the Ansible Operator SDK",
-  "description": "Mcrouter Operator powered by the Ansible Operator SDK",
+  "title": "Mcrouter Operator powered by Ansible Operator",
+  "description": "Deploy and test the Mcrouter Operator",
   "pathwayTitle": "OpenShift",
   "difficulty": "beginner",
   "time": "30 minutes",

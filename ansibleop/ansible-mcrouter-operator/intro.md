@@ -1,6 +1,6 @@
 The Mcrouter Operator was built with the [Ansible Operator SDK](https://github.com/operator-framework/operator-sdk/blob/master/doc/ansible/user-guide.md). It is not yet intended for production use.
 
-[Mcrouter](https://github.com/facebook/mcrouter) is a memcached protocol router for scaling [memcached](http://memcached.org/) deployments. It's a core component of cache infrastructure at Facebook and Instagram where mcrouter handles almost 5 billion requests per second at peak.
+[Mcrouter](https://github.com/facebook/mcrouter) is a Memcached protocol router for scaling [Memcached](http://memcached.org/) deployments. It's a core component of cache infrastructure at Facebook and Instagram where mcrouter handles almost 5 billion requests per second at peak.
 
 Mcrouter features:
 
