@@ -111,7 +111,7 @@ You should see the same fruits being tasted:
       "id": 1,
       "name": "cherry"
     },
-    "result": "CHERRY: TASTES GREAT !"
+    "result": "CHERRY: TASTES GREAT (IF YOU LIKE FRUIT!)"
   },
   ...
 ```
