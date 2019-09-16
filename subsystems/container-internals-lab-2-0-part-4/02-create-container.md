@@ -17,7 +17,7 @@ After running the above command we have storage created. Notice under the STATUS
 
 Try to look at the storage with the mount command (hint, you won't be able to find it):
 
-`mount | grep merged`{{execute}}
+`mount | grep -v docker | grep merged`{{execute}}
 
 Hopefully you didn't look for too long because you can't see it with the mount command. That's because this storage has been "mounted" in what's called a mount namespace. You can only see the mount from inside the container. To see the mount from outside the container, podman has a cool feature called podman-mount. This command will return the path of a directory which you can poke around in:
 
@@ -25,7 +25,7 @@ Hopefully you didn't look for too long because you can't see it with the mount c
 
 The directory you get back is a system level mount point into the overlay filesystem which is used by the container. You can literally change anything in the container's filesystem now. Run a few commands to poke around:
 
-`mount | grep merged`{{execute}}
+`mount | grep -v docker | grep merged`{{execute}}
 
 `ls $(podman mount on-off-container)`{{execute}}
 
