@@ -142,7 +142,7 @@ It will take a bit longer to scale that much. In the meantime the app continues 
 
 You can watch the 100 pods spinning up:
 
-`oc get pods -w -l app=fruit-taster1`{{execut T1}}
+`oc get pods -w -l app=fruit-taster`{{execute T1}}
 
 Watch as long as you like, then `CTRL-C` the pod watcher.
 
