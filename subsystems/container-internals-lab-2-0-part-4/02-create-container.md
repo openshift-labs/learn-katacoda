@@ -47,11 +47,7 @@ The above command errors out because the container engine hasn't created the con
 
 Now, the config.json file has been created. Inspect it for a while. Notice that there are options in there that are strikingly similar to the command line options of podman. The spec file really highlights the API:
 
-`cat /var/lib/containers/storage/overlay-containers/$(podman ps -l -q --no-trunc)/userdata/config.json|jq . | less`{{execute}}
-
-Now, exit:
-
-`q`{{execute}}
+`cat /var/lib/containers/storage/overlay-containers/$(podman ps -l -q --no-trunc)/userdata/config.json|jq .`{{execute}}
 
 Podman has not started a container, just created the config.json and immediately exited. Notice under the STATUS column, that the container is now in the Exited state:
 
@@ -79,7 +75,7 @@ Now, look for the test file we created before we started the container:
 
 `ls -alh`{{execute}}
 
-The file is there like we would expect. You have just created a container in three basic steps. Did you known and understand that all of this was happening every time you ran a podman or docker command? Now, clean up your work:
+The file is there like we would expect. You have just created a container in three basic steps. Did you know and understand that all of this was happening every time you ran a podman or docker command? Now, clean up your work:
 
 `exit`{{execute}}
 

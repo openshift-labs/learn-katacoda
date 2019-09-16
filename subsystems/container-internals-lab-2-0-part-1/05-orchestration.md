@@ -22,7 +22,7 @@ Take a quick look at this YAML file but don't don't get too worried if you don't
 `curl https://raw.githubusercontent.com/fatherlinux/two-pizza-team/master/two-pizza-team-ubi.yaml`{{execute}}
 
 
-In the "database," we are opening a file and using netcat to ship it over port 3306. In the "web app," we are pulling in the data from port 3306, and shipping it back out over port 80 like a normal application would. The idea is to show a simple example of how powerful this is without having to learn other technology. We are able to fire this application up in an instant with a single *oc* command:
+In the "database," we are opening a file and using netcat to ship it over port 3306. In the "web app", we are pulling in the data from port 3306, and shipping it back out over port 80 like a normal application would. The idea is to show a simple example of how powerful this is without having to learn other technology. We are able to fire this application up in an instant with a single *oc* command:
 
 `oc create -f https://raw.githubusercontent.com/fatherlinux/two-pizza-team/master/two-pizza-team-ubi.yaml`{{execute}}
 
@@ -30,9 +30,13 @@ Wait for the cheese-pizza and pepperoni pizza pods to start:
 
 `for i in {1..5}; do oc get pods;sleep 3; done`{{execute}}
 
-When the pods are done being created, pull some data from our newly created "web app."  Notice that we get back the contents of a file which resides on the the database server, not the web server:
+Wait until all pods are are in status "RUNNING".
+
+When the pods are done being created, pull some data from our newly created "web app".  Notice that we get back the contents of a file which resides on the the database server, not the web server:
 
 `curl $(kubectl get svc pepperoni-pizza -o yaml | grep ip | awk '{print $3}')`{{execute}}
+
+Note: The command in brackets above is simply getting the IP address of the web server.
 
 Now, let's pull data directly from the "database."  It's the same file as we would expect, but this time coming back over port 3306:
 
