@@ -75,7 +75,7 @@ Now, look for the test file we created before we started the container:
 
 `ls -alh`{{execute}}
 
-The file is there like we would expect. You have just created a container in three basic steps. Did you known and understand that all of this was happening every time you ran a podman or docker command? Now, clean up your work:
+The file is there like we would expect. You have just created a container in three basic steps. Did you know and understand that all of this was happening every time you ran a podman or docker command? Now, clean up your work:
 
 `exit`{{execute}}
 
