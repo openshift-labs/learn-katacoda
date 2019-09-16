@@ -16,6 +16,12 @@
       "description": "How Quarkus uses MicroProfile Reactive Messaging to interact with Apache Kafka"
     },
     {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/spring",
+      "course_id": "spring",
+      "title": "Quarkus for Spring Boot Developers",
+      "description": "Use familiar Spring APIs and annotations to build a Quarkus app"
+    },
+    {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/monitoring",
       "course_id": "monitoring",
       "title": "Monitoring Quarkus with Prometheus and Grafana",
