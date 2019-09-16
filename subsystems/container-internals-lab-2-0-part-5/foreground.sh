@@ -4,7 +4,7 @@ yum install -y yum-plugin-versionlock
 yum versionlock podman-1.3.2
 yum remove -y podman
 yum install -y podman buildah skopeo skopeo-containers tree httpd-tools strace
-cp ~/labs/lab1-step3/mega-proc.sh /usr/bin/mega-proc.sh
+cp -f ~/labs/lab1-step3/mega-proc.sh /usr/bin/mega-proc.sh
 
 # Lab 5
 podman pull registry.access.redhat.com/ubi7/ubi
