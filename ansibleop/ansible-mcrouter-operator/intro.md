@@ -12,17 +12,6 @@ Mcrouter features:
 * Production traffic shadowing
 * Online reconfiguration
 * Flexible routing
-* Destination health monitoring/automatic failover
-* Cold cache warm up
-* Broadcast operations
-* Reliable delete stream
-* Multi-cluster support
-* Rich stats and debug commands
-* Quality of service
-* Large values
-* Multi-level caches
-* IPv6 support
-* SSL support
 
 Mcrouter is developed and maintained by Facebook.
 
