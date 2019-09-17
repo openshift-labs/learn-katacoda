@@ -1,4 +1,4 @@
-In this step, you will create a straightforward application serving a `hello` endpoint. To demonstrate dependency injection this endpoint uses a `greeting` bean. 
+In this step, you will create a straightforward application serving a `hello` endpoint. To demonstrate dependency injection this endpoint uses a `greeting` bean.
 
 ![Architecture](/openshift/assets/middleware/quarkus/arch.png)
 
@@ -6,7 +6,7 @@ In this step, you will create a straightforward application serving a `hello` en
 
 The easiest way to create a new Quarkus project is to click to run the following command:
 
-`mvn io.quarkus:quarkus-maven-plugin:0.21.1:create \
+`mvn io.quarkus:quarkus-maven-plugin:0.22.0:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=getting-started \
     -DclassName="org.acme.quickstart.GreetingResource" \
@@ -119,11 +119,11 @@ You should see the updated `hola` message.
 
 Wow, how cool is that? Supersonic Subatomic live reload! Go ahead and change it a few more times and access the endpoint again. And we're just getting started.
 
-> `quarkus:dev` runs Quarkus in development mode. This enables live reload with background compilation, which means that when you modify your Java files your resource files and refresh your browser these changes will automatically take effect. 
+> `quarkus:dev` runs Quarkus in development mode. This enables live reload with background compilation, which means that when you modify your Java files your resource files and refresh your browser these changes will automatically take effect.
 > This will also listen for a debugger on port `5005`. If your want to wait for the debugger to attach before running you can pass `-Ddebug` on the command line. If you don’t want the debugger at all you can use `-Ddebug=false`.
 
 # Congratulations!
 
 You've seen how to build a basic app, package it as an executable JAR and start it up very quickly. We'll leave the app running and rely on hot reload for the next steps.
 
-In the next step we'll inject a custom bean to showcase Quarkus' CDI capabilities. 
+In the next step we'll inject a custom bean to showcase Quarkus' CDI capabilities.

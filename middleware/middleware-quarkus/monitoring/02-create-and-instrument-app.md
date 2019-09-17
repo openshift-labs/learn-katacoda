@@ -2,7 +2,7 @@
 
 Let's create the basic Quarkus _Hello World_ application and include the necessary monitoring extensions. Click this command to create the project:
 
-`mvn io.quarkus:quarkus-maven-plugin:0.21.1:create \
+`mvn io.quarkus:quarkus-maven-plugin:0.22.0:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=getting-started \
     -DclassName="org.acme.quickstart.GreetingResource" \
