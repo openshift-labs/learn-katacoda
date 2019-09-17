@@ -86,6 +86,8 @@ Get all fruits:
 `curl -s http://localhost:8080/fruits | jq`{{execute T2}}
 
 > Note you may need to click the command again, if it didn't execute in the new Terminal window.
+> **If you get a `parse error:`**, it is likely you missed an earlier step, and the Quarkus live reload caught it. Click on the [app's landing page](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com)
+> to see details and clues about what may be wrong, and re-visit any prior steps to re-add the missing code.
 
 > Note that we pass the output to the `jq` utility which prints nicely-formatted JSON.
 
