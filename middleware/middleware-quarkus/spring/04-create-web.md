@@ -85,7 +85,9 @@ Get all fruits:
 
 `curl -s http://localhost:8080/fruits | jq`{{execute T2}}
 
-> Note you may need to click the command again, if it didn't execute in the new Terminal window
+> Note you may need to click the command again, if it didn't execute in the new Terminal window.
+
+> Note that we pass the output to the `jq` utility which prints nicely-formatted JSON.
 
 You should see:
 

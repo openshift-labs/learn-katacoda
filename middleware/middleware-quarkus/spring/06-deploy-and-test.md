@@ -1,3 +1,4 @@
+# Deploy App to OpenShift
 Now that we have our app built, let's move it into containers and into the cloud.
 
 ## Login to OpenShift
@@ -43,8 +44,7 @@ works, click on the "OpenShift Console" tab next to the "Local Web Browser" tab.
 
 > Note you will get a security certificate error due to the use of self-signed security certificates. You will need to accept the exception in your browser to continue to the OpenShift console.
 
-The first screen you will see is the authentication screen. Enter your username and password and
-then log in:
+The first screen you will see is the authentication screen. Enter the same username and password as before (`developer`/`developer`) and then log in:
 
 ![Web Console Login](/openshift/assets/middleware/quarkus/login.png)
 
@@ -75,17 +75,26 @@ When running in production, we'll need a Postgres database on OpenShift. Click t
 
 ## Deploy to OpenShift
 
-First, create a new _binary_ build within OpenShift:
+Now let's deploy the application itself. First, create a new _binary_ build definition within OpenShift using the Java container image:
 
-`oc new-build quay.io/quarkus/ubi-quarkus-native-binary-s2i:19.2.0 --binary --name=fruit-taster -l app=fruit-taster`{{execute T1}}
+`oc new-build registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift:1.5 --binary --name=fruit-taster`{{execute T1}}
 
-> This build uses the new [Red Hat Universal Base Image](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/building_running_and_managing_containers/using_red_hat_universal_base_images_standard_minimal_and_runtimes), providing foundational software needed to run most applications, while staying at a reasonable size.
+> This build uses the new [Red Hat OpenJDK Container Image](https://access.redhat.com/documentation/en-us/red_hat_jboss_middleware_for_openshift/3/html/red_hat_java_s2i_for_openshift/index), providing foundational software needed to run Java applications, while staying at a reasonable size.
 
 And then start and watch the build, which will take about a minute to complete:
 
-`oc start-build fruit-taster --from-file=target/fruit-taster-1.0-SNAPSHOT-runner --follow`{{execute T1}}
+`oc start-build fruit-taster --from-file target/*-runner.jar --follow`{{execute T1}}
 
-Once that's done, we'll deploy it as an OpenShift application, overriding the URL to Postgres from `localhost` to the name of our production Postgres instance:
+This should take about 2 minutes to complete and should end with:
+
+```console
+...
+Pushed 4/6 layers, 78% complete
+Pushed 5/6 layers, 94% complete
+Pushed 6/6 layers, 100% complete
+Push successful
+```
+Once that's done, we'll deploy it as an OpenShift application and override the Postgres URL to specify our production Postgres credentials:
 
 `oc new-app fruit-taster \
    -e QUARKUS_DATASOURCE_URL=jdbc:postgresql://postgres-database:5432/fruits && \
@@ -95,7 +104,9 @@ Finally, make sure it's actually done rolling out:
 
 `oc rollout status -w dc/fruit-taster`{{execute T1}}
 
-Wait for that command to report `replication controller "fruit-taster-1" successfully rolled out` before continuing.
+Wait (about 30 seconds) for that command to report `replication controller "fruit-taster-1" successfully rolled out` before continuing.
+
+> If the `oc rollout` command appears to not finish, just `CTRL-C` it and run it again.
 
 And now we can access using `curl` once again:
 
@@ -116,42 +127,8 @@ You should see the same fruits being tasted:
   ...
 ```
 
-So now our app is deployed to OpenShift. You can also see it in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus-spring/overview) with its single replica running in 1 pod (the blue circle).
-
-## Scale the app
-
-With that set, let's see how fast our app can scale up to 10 instances:
-
-`oc scale --replicas=10 dc/fruit-taster`{{execute T1}}
-
-Back in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus-spring/browse/rc/fruit-taster-1?tab=details) you'll see the app scaling dynamically up to 10 pods:
-
-![Scaling](/openshift/assets/middleware/quarkus/scaling.png)
-
-We now have 10 instances running providing better performance. Make sure it still works:
-
-`curl -s http://fruit-taster-quarkus-spring.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/taster | jq`{{execute T1}}
-
-> 10 not enough? Try 100! `oc scale --replicas=100 dc/fruit-taster`{{execute T1}}
-
-And watch the pods scale in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus-spring/browse/rc/fruit-taster-1?tab=details). Try that with your traditional Java stack!
-
-It will take a bit longer to scale that much. In the meantime the app continues to respond:
-
-`curl -s http://fruit-taster-quarkus-spring.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/taster | jq`{{execute T1}}
-
-You can watch the 100 pods spinning up:
-
-`oc get pods -w -l app=fruit-taster`{{execute T1}}
-
-Watch as long as you like, then `CTRL-C` the pod watcher.
-
-Finally, scale it back down:
-
-`oc scale --replicas=1 dc/fruit-taster`{{execute T1}}
+So now our app is deployed to OpenShift. You can also see it in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus-spring/browse/rc/fruit-taster-1?tab=details) with its single replica running in 1 pod (the blue circle).
 
 ## Congratulations!
 
-This step covered the deployment of a Quarkus application on OpenShift. However, there is much more, and the integration with these environments has been tailored to make Quarkus applications execution very smooth. For instance, the health extension can be used for [health check](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-application-health); the configuration support allows mounting the application configuration using [config maps](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-configmaps), the metric extension produces data _scrape-able_ by [Prometheus](https://prometheus.io/) and so on.
-
-
+This step covered the deployment of a JVM-based Quarkus application on OpenShift. For even more performance and scalability, let's move to the final step: building and deploying a native-compiled app!
