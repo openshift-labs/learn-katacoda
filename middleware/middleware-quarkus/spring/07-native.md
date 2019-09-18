@@ -1,5 +1,11 @@
 # Going Native
 
+## This step requires 10-15 minutes of your time!
+
+This step **requires around 10-15 minutes of your time** due to the aggressive build-time optimizations
+Quarkus does at build-time coupled with the limited resources of this environment. Real-world environments
+will enjoy much greater build-time performance.
+
 Let’s now produce a native executable for our application. It improves the startup time of the application, and produces a minimal disk footprint. The executable would have everything to run the application including the "JVM" (shrunk to be just enough to run the application), and the application.
 
 We will be using GraalVM, which includes a native compiler for producing native images for a number of languages, including Java. It's been installed for you:
@@ -8,19 +14,13 @@ We will be using GraalVM, which includes a native compiler for producing native 
 
 ## Build native image
 
-> **NOTE**
->
-> This step **requires around 10-15 minutes of your time** due to the aggressive build-time optimizations
-> Quarkus does at build-time coupled with the limited resources of this environment. Real-world environments
-> will enjoy much greater build-time performance.
-
 Create a native executable by clicking:
 
 `mvn clean package -Pnative -DskipTests=true`{{execute}}
 
 > Since we are on Linux in this environment, and the OS that will eventually run our application is also Linux, we can use our local OS to build the native Quarkus app. If you need to build native Linux binaries when on other OS's like Windows or Mac OS X, you'll need to have Docker installed and then use `mvn clean package -Pnative -Dnative-image.docker-build=true -DskipTests=true`.
 
-This will take time to finish. Wait for it!
+This will take time (10-15 minutes) to finish. Wait for it! Get a cup of coffee!
 
 In addition to the regular files, the build also produces `target/fruit-taster-1.0-SNAPSHOT-runner`. This is a native Linux binary:
 
