@@ -26,7 +26,7 @@ Verify you can still retrieve the key we inserted in Step 3.
 kubectl run -it --rm telnet --image=jess/telnet --restart=Never mcrouter 5000
 ```{{execute}}
 <br>
-After a few seconds you will see a message `If you don't see a command prompt, try pressing enter.` *Do not press enter*. Run the following commands to insert a key/value and exit.
+After a few seconds you will see a message `If you don't see a command prompt, try pressing enter.` ***Do not press enter***. Run the following commands to insert a key/value and exit.
 
 ```
 get ansible

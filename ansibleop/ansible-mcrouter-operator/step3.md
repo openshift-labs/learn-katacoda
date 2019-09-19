@@ -12,7 +12,7 @@ Create a temporary telnet Pod and connect to Mrouter:
 kubectl run -it --rm telnet --image=jess/telnet --restart=Never mcrouter 5000
 ```
 <br>
-After a few seconds you will see a message `If you don't see a command prompt, try pressing enter.` *Do not press enter*. Run the following commands to insert a key/value and exit:
+After a few seconds you will see a message `If you don't see a command prompt, try pressing enter.` ***Do not press enter***. Run the following commands to insert a key/value and exit:
 
 ```
 set ansible 0 0 8
