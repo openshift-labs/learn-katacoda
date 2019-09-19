@@ -53,7 +53,7 @@ oc logs deploy/mcrouter-operator -c ansible -f
 Run the following to apply the CR:
 
 ```
-oc apply -f https://raw.githubusercontent.com/geerlingguy/mcrouter-operator/master/deploy/crds/mcrouter_v1alpha3_mcrouter_cr.yaml`
+oc apply -f https://raw.githubusercontent.com/geerlingguy/mcrouter-operator/master/deploy/crds/mcrouter_v1alpha3_mcrouter_cr.yaml
 ```{{execute}}
 <br>
 Verify the Mcrouter CR now exists:
