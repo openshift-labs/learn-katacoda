@@ -23,7 +23,7 @@ quit
 <br>
 We can also utilize the `mcperf` tool for measuring Memcached server performance.
 
-This command will create 1000 connections to Mcrouter. The connections are created at the rate of 1000 conns/sec and on every connection it sends 10 'set' requests at the rate of 1000 reqs/sec with the item sizes derived from a uniform distribution in the interval of [1,16) bytes:
+This command will create ***1000*** connections to Mcrouter. The connections are created at the rate of ***1000*** conns/sec and on every connection it sends ***10*** `set` requests at the rate of ***1000*** reqs/sec with the item sizes derived from a uniform distribution in the interval of 1 to 16 bytes:
 
 ```
 oc run -it --rm mcperf --image=quay.io/redhat/mcperf --restart=Never -- -s mcrouter -p 5000 --linger=0 --timeout=5 --conn-rate=1000 --call-rate=1000 --num-calls=10 --num-conns=1000 --sizes=u1,16
