@@ -3,10 +3,16 @@
   "icon": "fa-openshift",
   "courses": [
     {
-      "pathway_id": "openshift/ansibleop",
-      "course_id": "ansible-refresher",
-      "id": "ansible-refresher",
-      "title": "Ansible Refresher"
+      "pathway_id": "openshift/operatorframework",
+      "course_id": "k8s-api-fundamentals",
+      "id": "k8s-api-fundamentals",
+      "title": "Kubernetes API Fundamentals"
+    },
+    {
+      "pathway_id": "openshift/operatorframework",
+      "course_id": "etcd-operator",
+      "id": "etcd-operator",
+      "title": "Etcd Operator"
     },
     {
       "pathway_id": "openshift/ansibleop",
@@ -22,9 +28,9 @@
     },
     {
       "pathway_id": "openshift/ansibleop",
-      "course_id": "ansible-sdk-playground",
-      "id": "ansible-sdk-playground",
-      "title": "Ansible SDK Playground"
+      "course_id": "ansible-mcrouter-operator",
+      "id": "ansible-mcrouter-operator",
+      "title": "Mcrouter Operator"
     }
   ]
 }
