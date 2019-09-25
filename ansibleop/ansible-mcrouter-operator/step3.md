@@ -10,7 +10,7 @@ Create a temporary telnet Pod and connect to Mrouter:
 
 ```
 oc run -it --rm telnet --image=jess/telnet --restart=Never mcrouter 5000
-```
+```{{execute}}
 <br>
 After a few seconds you will see a message `If you don't see a command prompt, try pressing enter.` ***Do not press enter***. Run the following commands to insert a key/value and exit:
 
