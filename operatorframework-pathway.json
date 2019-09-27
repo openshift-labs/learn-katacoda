@@ -38,11 +38,6 @@
       "title": "Ansible Operator Overview"
     },
     {
-      "external_link": "https://learn.openshift.com/ansibleop/ansible-mcrouter-operator/",
-      "course_id": "ansible-mcrouter-operator",
-      "title": "Mcrouter Operator"
-    },
-    {
       "external_link": "https://learn.openshift.com/operatorframework/helm-operator/",
       "course_id": "helm-operator",
       "title": "Operator SDK with Helm"
