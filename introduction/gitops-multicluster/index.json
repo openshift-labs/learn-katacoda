@@ -1,0 +1,58 @@
+{
+    "icon": "fa-openshift",
+    "title": "Multi-cluster GitOps with OpenShift",
+    "description": "Learn the Multi-cluster GitOps basics with OpenShift",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "10-20 minutes",
+    "backend": {
+        "trainingid": "openshift-3-11-cluster",
+        "imageid": "openshift-3-11-cluster",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [
+            {"name": "Web Console", "port": 8443},
+            {"name": "ArgoCD Server", "href": "https://argocd-server-argocd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"},
+            {"name": "Gogs Server", "href": "http://gogs.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"}
+        ],
+        "uilayout": "terminal",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Step 1 - Argo CD Introduction",
+            "text": "01-argocd-introduction.md"
+        },
+        {
+            "title": "Step 2- Exploring the Lab Environment",
+            "text": "02-exploring-lab-environment.md"
+        }, 
+        {
+            "title": "Step 3 - Deploying a Simple App to Multiple Clusters with Argo CD CLI",
+            "text": "03-deploy-app-multiple-clusters-cli.md"
+        },
+        {
+            "title": "Step 4 - Customize Application Deployments with Argo CD and Kustomize",
+            "text": "04-customize-app-deployment.md",
+            "courseData": "prepare-lab4.sh"
+        },
+        {
+            "title": "Step 5 - Perform a Canary Deployment with Argo CD",
+            "text": "05-canary-deployment.md"
+        }],
+        "intro": {
+            "code": "set-env.sh",
+            "courseData": "env-init.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "volumes.json", "target": "~/"}, {"file": "configure-scenario.sh", "target": "/var/tmp/"}]
+        }
+    }
+}

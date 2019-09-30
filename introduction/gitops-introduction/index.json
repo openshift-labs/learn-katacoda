@@ -1,0 +1,54 @@
+{
+    "icon": "fa-openshift",
+    "title": "GitOps Introduction with OpenShift",
+    "description": "Learn the GitOps basics with OpenShift",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "10-20 minutes",
+    "backend": {
+        "trainingid": "openshift-3-11",
+        "imageid": "openshift-3-11",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [
+            {"name": "Web Console", "port": 8443},
+            {"name": "ArgoCD Server", "href": "https://argocd-server-argocd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"},
+            {"name": "Gogs Server", "href": "http://gogs.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"}
+        ],
+        "uilayout": "terminal",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Step 1 - Argo CD Introduction",
+            "text": "01-argocd-introduction.md"
+        },
+        {
+            "title": "Step 2- Exploring the Lab Environment",
+            "text": "02-exploring-lab-environment.md"
+        }, 
+        {
+            "title": "Step 3 - Deploying a Simple App with Argo CD CLI",
+            "text": "03-deploying-a-simple-app-with-argocd-cli.md"
+        },
+        {
+            "title": "Step 4 - Deploying a Simple App with Argo CD WebUI",
+            "text": "04-deploying-a-simple-app-with-argocd-webui.md",
+            "courseData": "clean-lab3.sh"
+        }],
+        "intro": {
+            "code": "set-env.sh",
+            "courseData": "env-init.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "volumes.json", "target": "~/"}, {"file": "configure-scenario.sh", "target": "/var/tmp/"}]
+        }
+    }
+}
