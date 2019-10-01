@@ -38,7 +38,7 @@ Get the IP address for the goodbad service
 
 Now test the cluster IP with curl. Use the cluster IP address so that the traffic is balanced among the active pods. You will notice some errors in your responses. You may also test with a browser. Some of the pods are different - how could this be? They should be identical because they were built from code right?
 
-``SVC_IP=$(oc get svc | grep goodbad | awk '{print $2}')
+``SVC_IP=$(oc get svc | grep goodbad | awk '{print $3}')
 for i in {1..20}; do curl $SVC_IP; done``{{execute}}
 
 

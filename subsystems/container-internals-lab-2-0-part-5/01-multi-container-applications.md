@@ -97,6 +97,6 @@ Here are some useful locations to investigate what is happening. The "Events" se
 
 Finally, ensure that the web interface is up and running. We will need this for the next lab:
 
-``curl http://$(oc get svc | grep wpfrontend | awk '{print $2}')/wp-admin/install.php``{{execute}}
+``curl http://$(oc get svc | grep wpfrontend | awk '{print $3}')/wp-admin/install.php``{{execute}}
 
 In this exercise you learned how to deploy a fully functional two tier application with a single command (oc create). As long as the cluster has persistent volumes available to satisify the application, an end user can do this on their laptop, in a development environment or in production data centers all over the world. All of the dependent code is packaged up and delivered in the container images - all of the data and configuration comes from the environment. Production instances will access production persistent volumes, development environments can be seeded with copies of production data, etc. It's easy to see why container orchestration is so powerful. 
