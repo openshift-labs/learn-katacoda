@@ -7,7 +7,7 @@ oc patch cockroachdb example --type='json' -p '[{"op": "replace", "path": "/spec
 Verify that the CockroachDB Stateful Set is creating two additional pods:
 
 ```
-oc get pods -l chart=cockroachdb-2.1.11
+oc get pods -l chart
 ```{{execute}}
 <br>
 The CockroachDB UI should now reflect these additional nodes as well.
