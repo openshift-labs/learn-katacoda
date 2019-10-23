@@ -10,7 +10,7 @@ An example registration request is part of the evironment - `register.json`{{ope
 
 To register the database source execute
 
-``cat register.json | oc exec -i my-cluster-kafka-0 -- curl -s -X POST -H "Accept:application/json" -H "Content-Type:application/json" http://my-connect-cluster-connect:8083/connectors -d @-``{{execute}}
+``cat register.json | oc exec -i -c kafka my-cluster-kafka-0 -- curl -s -X POST -H "Accept:application/json" -H "Content-Type:application/json" http://my-connect-cluster-connect-api:8083/connectors -d @-``{{execute}}
 
 Check the Connect's log file to see that the registration has succeeded and change data capture has started
 
@@ -19,12 +19,13 @@ Check the Connect's log file to see that the registration has succeeded and chan
 Now Kafka topics are created when the connector starts to capture database changes.
 Those topics could be listed using command
 
-``oc exec my-cluster-kafka-0 -- /opt/kafka/bin/kafka-topics.sh --zookeeper my-cluster-zookeeper:2181 --list``{{execute}}
+``oc exec -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-topics.sh --bootstrap-server my-cluster-kafka-bootstrap:9092 --list``{{execute}}
 
 And the topics corresponding to the database tables are
 
     dbserver1.inventory.addresses
     dbserver1.inventory.customers
+    dbserver1.inventory.geom
     dbserver1.inventory.orders
     dbserver1.inventory.products
     dbserver1.inventory.products_on_hand
@@ -48,7 +49,7 @@ should yield a result
 
 The Kafka broker should contain an equivalent list of massages in topic `dbserver1.inventory.customers` in the Debezium change event [format](http://debezium.io/docs/configuration/event-flattening/)
 
-``oc exec my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dbserver1.inventory.customers --from-beginning --max-messages 4``{{execute}}
+``oc exec -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dbserver1.inventory.customers --from-beginning --max-messages 4``{{execute}}
 
 >*Note:* Output formatted for the sake of readability
 
@@ -224,7 +225,7 @@ If we add a new record to the table
 
 a new message will be sent to the associated topic
 
-``oc exec my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dbserver1.inventory.customers --from-beginning --max-messages 5``{{execute}}
+``oc exec -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dbserver1.inventory.customers --from-beginning --max-messages 5``{{execute}}
 
     ...
     {

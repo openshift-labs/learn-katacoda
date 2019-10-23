@@ -34,14 +34,12 @@ docker pull registry.access.redhat.com/rhpam-7/rhpam72-businesscentral-openshift
 docker pull registry.access.redhat.com/rhpam-7/rhpam72-kieserver-openshift:1.1
 
 # Strimzi & Debezium
-STRIMZI_VERSION=0.2
-DEBEZIUM_VERSION=0.7
-docker pull strimzi/zookeeper:$STRIMZI_VERSION
-docker pull strimzi/kafka-statefulsets:$STRIMZI_VERSION
-docker pull strimzi/kafka-connect-s2i:$STRIMZI_VERSION
-docker pull strimzi/cluster-controller:$STRIMZI_VERSION
-docker pull strimzi/topic-controller:$STRIMZI_VERSION
+STRIMZI_VERSION=0.14.0
+KAFKA_VERSION=2.3.0
+DEBEZIUM_VERSION=0.10
 docker pull debezium/example-mysql:$DEBEZIUM_VERSION
+docker pull strimzi/operator:$STRIMZI_VERSION
+docker pull strimzi/kafka:$STRIMZI_VERSION-kafka-$KAFKA_VERSION
 
 # Requires RHEL subscription
 # docker pull registry.access.redhat.com/jboss-fuse-6/fis-karaf-openshift
