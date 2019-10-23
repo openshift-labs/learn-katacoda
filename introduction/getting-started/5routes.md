@@ -2,7 +2,7 @@ _Services_ provide internal abstraction and load balancing within an OpenShift
 environment, but sometimes clients (users, systems, devices, etc.) **outside**
 of OpenShift need to access an application. The way that external clients are able
 to access applications running in OpenShift is through the OpenShift routing layer.
-The data object behind that layer is a _Route_.
+The resource object which controls this is a _Route_.
 
 The default OpenShift router (HAProxy) uses the HTTP header of the incoming
 request to determine where to proxy the connection. You can optionally define
@@ -10,38 +10,28 @@ security, such as TLS, for the _Route_. If you want your _Services_, and, by
 extension, your _Pods_,  to be accessible to the outside world, you need to
 create a _Route_.
 
-## Task: Creating a Route
+As we mentioned earlier in the tutorial, the *Container Image* method of deploying an application will create a _Route_ for you by default. Since we un-checked that option, we will manually create a _Route_ now.
 
-Fortunately, creating a _Route_ is a pretty straight-forward process.  You just click
-the *Create Route* link displayed against the application on the _Overview_ page.
+## Exercise: Creating a Route
+
+Fortunately, creating a _Route_ is a pretty straight-forward process.  First, go to the *Administrator Perspective* by switching to *Administrator* in the *Developer* drop down menu. Ensure that your `myproject` project is selected from the projects list. Next, click *Networking* and then *Routes* in the left navigation menu.
+
+Click the blue *Create Route* button.
 
 ![No route](../../assets/introduction/getting-started/5no-route.png)
 
-By default, OpenShift is configured to create the _Route_ based on the _Service_ name being exposed and the _Project_ where the application lives, adding a common subdomain configured at the platform level. In our scenario, we have:
-
-**https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com**.
-
-This means that there is no need to change the default settings in the _Route_ creation form.
+Enter `parksmap-katacoda` for the _Route_ Name, select `parksmap-katacoda` for the _Service_, and `8080` for the Target Port. Leave all the other settings as-is.
 
 ![Route form](../../assets/introduction/getting-started/5create-route.png)
 
-Once you click _Create_, the _Route_ will be created and displayed in the _Overview_ page.
+Once you click _Create_, the _Route_ will be created and displayed in the _Route Details_ page.
+
+![Route Details](../../assets/introduction/getting-started/5route-details.png)
+
+You can also view your _Route_ in the *Developer Perspective*. Toggle back to the *Developer Perspective* now, and go to *Topology* view. On the `parksmap-katacoda` visualization you should now see an icon in the top right corner of the circle. This represents the _Route_, and if you click it, it will open the URL in your browser.
 
 ![Route created](../../assets/introduction/getting-started/5route-created.png)
 
-We can also get the list of all the existing _Routes_ by clicking the _Applications->Routes_ menu:
-
-![Routes menu](../../assets/introduction/getting-started/5routes-menu.png)
-
-Currently the list of _Routes_ will only display the one we just created.
-
-![Routes list](../../assets/introduction/getting-started/5routes-list.png)
-
-In this list, we will be able to see the details associated with the route, such as the hostname, the service, the port the route is exposing, and details on the TLS security for the route, if any.
-
-You can always click on the _Route_ name in this list to modify an existing _Route_.
-
-Now that we know how to create a _Route_, let's verify that the  application is really available at the URL shown in the
-web console. Click the link and you will see:
+Once you've clicked the _Route_ icon, you should see this in your browser:
 
 ![Application](../../assets/introduction/getting-started/5parksmap-empty.png)

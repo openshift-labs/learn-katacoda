@@ -1,10 +1,9 @@
-Let's scale our application up to 2 instances of the pods. You can do this by clicking the "up" arrow next to
-the *Pod* in the OpenShift web console on the overview page.
+Let's scale our application up to 2 instances of the pods. You can do this by clicking inside the circle for the `parksmap-katacoda` application from *Topology* view to open the side panel. In the side panel, click the *Overview* tab, and then click the "up" arrow next to
+the *Pod* in side panel.
 
 ![Scaling using arrows](../../assets/introduction/getting-started/4scaling-arrows.png)
 
-To verify that we changed the number of replicas, click the pods number in the circle next to the arrows.
-You should see a list with your pods similar to the following by scrolling to the bottom of the web console:
+To verify that we changed the number of replicas, click the *Resources* tab in the side panel. You should see a list with your pods similar to the image below:
 
 ![List of pods](../../assets/introduction/getting-started/4scaling-pods.png)
 
@@ -17,20 +16,19 @@ is already cached on the node.
 
 ### Application "Self Healing"
 
-Because OpenShift's *DeploymentConfigs* are constantly monitoring to see that the desired number
-of *Pods* is actually running, you might also expect that OpenShift will fix the
-situation if it is ever not right. You would be correct!
+OpenShift's *DeploymentConfigs* are constantly monitoring to see that the desired number
+of *Pods* is actually running. Therefore, if the actual state ever deviates from the desired state (i.e., 2 pods running), OpenShift will work to fix the situation.
 
 Since we have two *Pods* running right now, let's see what happens if we
 "accidentally" kill one.
 
-On the same page where you viewed the list of pods after scaling to 2 replicas, open one of the pods by clicking its name in the list.
+On the *Resources* tab where you viewed the list of pods after scaling to 2 replicas, open one of the pods by clicking its name in the list.
 
-In the top right corner of the page, there is an _Actions_ tab. When opened, there is the _Delete_ action.
+In the top right corner of the page, there is an _Actions_ drop down menu. Click it and select *Delete Pod*.
 
 ![Delete action](../../assets/introduction/getting-started/4scaling-actions.png)
 
-Click _Delete_ and confirm the dialog. You will be taken back to the page listing pods, however, this time, there are three pods.
+After you click *Delete Pod*, click *Delete* in the confirmation dialog. You will be taken to a page listing pods, however, this time, there are three pods. Note that on smaller screens you may not see all of these columns.
 
 ![List of pods](../../assets/introduction/getting-started/4scaling-terminating.png)
 
@@ -41,4 +39,4 @@ fill its place.
 ### Exercise: Scale Down
 
 Before we continue, go ahead and scale your application down to a single
-instance. It's as simple as clicking the down arrow on the _Overview_ page.
+instance. Click *Topology* to return to the *Topology* view, then click `parksmap-katacoda` and on the *Overview* tab, click the down arrow to scale back down to one instance.

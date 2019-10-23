@@ -1,17 +1,24 @@
-Congratulations! You just finished learning the basics of how to get started with the OpenShift Container Platform. Feels good doesn't it?
+## Continue Learning
 
-## What's next?
+You can continue learning more about OpenShift and how to develop applications on the platform by completing other tutorials at https://learn.openshift.com.
 
-At this point you are probably itching to keep working with OpenShift as you have had a glimpse of the power this can bring to your own applications. We are currently working on more advanced tutorials that will be hosted here but in the meantime, you can certainly run your own version of OpenShift or use a hosted model. You are welcome to use one of the following options:
+There are several categories of tutorials:
 
-### Minishift
+* [**Foundations of OpenShift**](https://learn.openshift.com/introduction/) covers basic OpenShift concepts and common tasks.
+* [**Building Applications on OpenShift**](https://learn.openshift.com/middleware/) has tutorials on using Quarkus, Node.js, Vert.x, etc. on OpenShift.
+* [**Subsystems, Components, and Internals**](https://learn.openshift.com/subsystems/) teaches about Linux container internals.
+* [**OpenShift Playgrounds**](https://learn.openshift.com/playgrounds/) provide an open-ended environment on different OpenShift versions to allow you to experiment and learn on your own. 
+* [**Service Mesh Workshop with Istio**](https://learn.openshift.com/servicemesh/) introduces you to many service mesh concepts.
+* [**Building Operators on OpenShift**](https://learn.openshift.com/operatorframework/) teaches you about Kubernetes operators, how to build operators on OpenShift, and provides a Kubernetes API refresher if you need it. 
 
-Minishift is a complete OpenShift environment that you can run on your local machine. The project supports Windows, OS X, and the Linux operating system.  To find more about minishift, visit https://www.okd.io/minishift/
+### Run OpenShift Locally with CodeReady Containers
 
-### OpenShift Online
+CodeReady Containers allows you to run a minimal, pre-configured OpenShift 4 cluster on your local machine. The project supports Windows 10, macOS, and Linux.  To find out more or download CodeReady Containers, visit https://developers.redhat.com/products/codeready-containers/overview
 
-The OpenShift team provides a hosted environment which includes a free starter plan which you can use to develop and test applications for OpenShift. You can find details for OpenShift Online and sign up at https://www.openshift.com/products/pricing/
+### Compare Hosted, Managed, or On Premises OpenShift
 
-### OpenShift Dedicated
+Learn more about the different OpenShift platform variants here: https://www.openshift.com/products
 
-You can also let Red Hat host an OpenShift instance for you on a public cloud. This is an ideal scenario for larger teams that doesn't want to deal with the operational aspects or running a full environment. To find out more, visit https://www.openshift.com/products/dedicated/
+### Browse the Documentation
+
+If you want to learn about particular OpenShift concepts in more depth, visit the documentation: https://docs.openshift.com/container-platform/latest

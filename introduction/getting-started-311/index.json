@@ -1,0 +1,48 @@
+{
+    "icon": "fa-openshift",
+    "title": "Getting Started with OpenShift for Developers",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "20-30 minutes",
+    "backend": {
+        "imageid": "openshift-3-11",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Step 1 - Exploring The Command Line",
+            "text": "1explore-cli.md"
+        }, {
+            "title": "Step 2 - Exploring The Web Console",
+            "text": "2explore-console.md"
+        }, {
+            "title": "Step 3 - Deploying a Docker Image",
+            "text": "3deploy-docker.md"
+        }, {
+            "title": "Step 4 - Scaling Your Application",
+            "text": "4scaling.md"
+        }, {
+            "title": "Step 5 - Routing HTTP Requests",
+            "text": "5routes.md"
+        }, {
+            "title": "Step 6 - Building From Source Code",
+            "text": "6s2i.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    }
+}

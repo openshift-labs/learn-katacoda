@@ -1,11 +1,11 @@
-While the command line tool is awesome, for this course we are going to focus on the web console, which is equally awesome.
+This section focuses on using the web console.
 
-## Task 1
-To begin, click on the **Dashboard** tab on your screen. This will open the web console on your browser.
+## Exercise: Logging in with the Web Console
+To begin, click on the **Console** tab on your screen. This will open the web console on your browser.
 
-You should see an **OKD** window with **Username** and **Password** forms as shown below:
+You should see a **Red Hat OpenShift Container Platform** window with **Username** and **Password** forms as shown below:
 
-![OKD Web Console](../../assets/introduction/getting-started/ocp-login.png)
+![OpenShift Web Console](../../assets/introduction/getting-started/ocp-login.png)
 
 For this scenario, log in by entering the following:
 
@@ -13,9 +13,19 @@ For this scenario, log in by entering the following:
 
 **Password:** `developer`{{copy}}
 
-After logging in to the web console, you'll see a blue button labeled *Create Project* in the top right corner of your screen that is shown below. Click this button to get started.
+After logging in to the web console, you'll be on a *Projects* page. 
 
-![Create Project Button](../../assets/introduction/getting-started/2create-project-button.png)
+## What is a project? Why does it matter?
+
+OpenShift is often referred to as a container application platform in that it is a platform designed for the development and deployment of applications in containers.
+
+To group your application, we use projects. The reason for having a project to contain your application is to allow for controlled access and quotas for developers or teams.
+
+More technically, it's a visualization of the Kubernetes namespace based on the developer access controls.
+
+## Exercise: Creating a Project
+
+Click the blue **Create Project** button.
 
 You should now see a page for creating your first project in the web console. Fill in the _Name_ field as `myproject`{{copy}}.
 
@@ -23,12 +33,17 @@ You should now see a page for creating your first project in the web console. Fi
 
 The rest of the form is optional and up to you to fill in or ignore. Click *Create* to continue.
 
-After your project is created, your project will appear under **My Projects**, and you can click on `myproject` to access your newly created project.
+After your project is created, you will see some basic information about your project.
 
-## Task 2
+## Exercise: Explore the Administrator and Developer Perspectives
 
-Notice the menu on the left. You're now currently on the **Overview** screen. The tools that you'll need for building and deploying your application can also be found here on the left.
+Notice the navigation menu on the left. When you first log in, you'll typically be in the *Administrator Perspective*. If you are not in the *Administrator Perspective*, click the perspective toggle and switch from **Developer** to **Administrator**. 
 
-Take a quick look around these, clicking on **Applications**, **Builds**, and **Resources** to see more options. There won't be much there for now as we have nothing in our project.
+![Perspective Toggle](../../assets/introduction/getting-started/2perspective.png)
 
-We'll get into those in future sections, but go ahead and explore to see what's possible! Don't spend too much time on these now as you will get to use a lot of these features in the upcoming sections.
+You're now in the *Administrator Perspective*, where you'll find **Operators**, **Workloads**, **Networking**, **Storage**, **Builds**, and **Administration** menus in the navigation.
+
+Take a quick look around these, clicking on a few of the menus to see more options. 
+
+Now, toggle to the *Developer Perspective*. We will spend most of our time in this tutorial in the *Developer Perspective*. The first thing you'll see is the *Topology* view. Right now it is empty, and lists several different ways to add content to your project. Once you have an application deployed, it will be visualized here in *Topology* view.
+
