@@ -24,7 +24,7 @@ You can watch the logs like this:
 
 When the above build completes, move on. Before we define the application, we need to patch application defintion because each Katacoda environment is generated dynamically and is different:
 
-``sed -i s#172.30.170.9:5000/lab02-exercise04/goodbad#$(oc get is | grep goodbad | awk '{print $2}')# ~/labs/lab4-step3/Run.yaml``{{execute}}
+``sed -i s#172.30.170.9:5000/lab02-exercise04/goodbad#$(oc get is | grep goodbad | awk '{print $3}')# ~/labs/lab4-step3/Run.yaml``{{execute}}
 
 Run the test application
 
