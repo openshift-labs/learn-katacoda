@@ -2,7 +2,7 @@
 
 ConfigMap is an object used by OpenShift to inject configuration data as simple key and value pairs into one or
 more Linux containers while keeping the containers agnostic of OpenShift. You can create a ConfigMap object in a
-variety of different ways, including using a YAML file, and inject it into the Linux container. You can find more 
+variety of different ways, including using a YAML file, and inject it into the Linux container. You can find more
 information about ConfigMap in the [OpenShift documentation](https://docs.openshift.org/latest/dev_guide/configmaps.html).
 
 ## Why ConfigMap is Important
@@ -42,7 +42,7 @@ sample Node app to access OpenShift ConfigMaps, you'll need to declare a depende
 
 Execute the following command to insert the new dependencies into the `package.json` file:
 
-```npm install "openshift-rest-client@^1.0.1" --save-prod```{{execute}}
+```npm install "openshift-rest-client@^2.3.0" --save-prod```{{execute}}
 
 This will download and install the needed dependency and update
 the `package.json` file. Close the file (click on the small 'X' near the filename)
