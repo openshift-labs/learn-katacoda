@@ -6,7 +6,7 @@ Now let's take a look at the daemons which are running on the master. OpenShift 
 
 ``mega-proc.sh openshift``{{execute}}
 
-Notice that, like docker, the OpenShift processes are just standard daemons running side by side with docker, containerd, the containerized processes and all of the other processes on the system:
+Notice that, like any container engine (podman, docker, containerd, etc), the OpenShift processes are just standard daemons running side by side with the containerized processes and all of the other processes on the system:
 
 The OpenShift/Kubernetes code is very modular. OpenShift compiles all of the functionality into a single binary. When starting this binary, the user determines which role the daemon will play with startup parameters. Depending on which installation method is chosen (single node, clustered, registry server only, manual, etc), the OpenShift binaries can be started in different ways.
 
