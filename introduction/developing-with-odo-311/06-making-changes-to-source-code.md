@@ -8,9 +8,9 @@ Now, we will tell `odo` to `watch` for changes on the file system in the backgro
 
 `odo watch &`{{execute}}
 
-Let's change the displayed name for our wild west game. Currently, the title is "Wild West The OpenShift Way!" We will change this to "My App The OpenShift Way!"
+Let's change the displayed name for our wild west game. Currently, the title is "Wild West Shoot 'em Up!" We will change this to "My App Shoot 'em Up!"
 
-![Application Title](../../assets/introduction/developing-with-odo-42/app-name.png)
+![Application Title](../../assets/introduction/developing-with-odo/app-name.png)
 
 Edit the file `index.html` with a search-and-replace one-liner performed with the Unix stream editor, `sed`:
 
@@ -22,9 +22,9 @@ There may be a slight delay before `odo` recognizes the change. Once the change 
 File /root/frontend/index.html changed
 File  changed
 Pushing files...
-✓  Waiting for component to start [10ms]
-✓  Syncing files to the component [16s]
-✓  Building component [6s]
+ ✓  Waiting for component to start
+ ✓  Copying files to component
+ ✓  Building component
 ```
 
 Refresh the application's page in the web browser. You will see the new name in the web interface for the application.

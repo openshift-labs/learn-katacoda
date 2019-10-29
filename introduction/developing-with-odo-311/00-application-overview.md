@@ -6,7 +6,7 @@ The application deployed in this tutorial consists of two such components.
 
 ## Backend
 
-The backend is a Java Spring Boot application. It performs queries against the Kubernetes and OpenShift REST APIs to retrieve a list of the resource objects that were created when you deployed the application. Then, it returns details about these resource objects to the frontend.
+The backend is a Java-based Spring Boot application. It performs queries against the Kubernetes and OpenShift REST APIs to retrieve a list of the resource objects that were created when you deployed the application. Then, it returns details about these resource objects to the frontend.
 
 ## Frontend
 
