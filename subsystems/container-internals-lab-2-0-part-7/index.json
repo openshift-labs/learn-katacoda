@@ -29,8 +29,8 @@
             "text": "03-skopeo.md"
         }],
         "intro": {
-	    "courseData": "background.sh",
-            "code": "foreground.sh",
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
             "text": "intro.md"
         },
         "finish": {
