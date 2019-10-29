@@ -5,7 +5,7 @@ The goal of this exercise is to build a containerized two tier application in th
 Before we do anything, we need some application images for MySQL and HTTPD/PHP. To do this, we are going to build the supply chain again. Open a **second** teminal because this command will take a while to complete. While it builds, continue on using Terminal 1:
 
 ``make -C ~/labs/lab2-step4/
-docker tag wordpress wordpress:csc``{{execute}}
+podman tag wordpress wordpress:csc``{{execute}}
 
 ## Terminal 1 ##
 
