@@ -12,6 +12,6 @@ podman pull registry.access.redhat.com/ubi7/ubi
 git clone --depth 1 --single-branch --branch lab4-step1 https://github.com/fatherlinux/wordpress-demo.git ~/labs/lab4-step1
 ~/labs/lab4-step1/create.sh
 sed -i s/wpfrontend-wordpress.apps.example.com/`hostname`/ ~/labs/lab4-step1/wordpress-objects.yaml
-git clone --depth 1 --single-branch --branch centos7 https://github.com/fatherlinux/container-supply-chain.git ~/labs/lab2-step4/
+git clone --depth 1 --single-branch https://github.com/fatherlinux/container-supply-chain.git ~/labs/lab2-step4/
 
 echo "Container host is now ready."
