@@ -18,7 +18,7 @@ Build the test application. **Wait** for the build to successfully complete. You
 
 ``oc get pods``{{execute}}
 
-You can watch the logs like this:
+You can watch the logs like this. Keep running the following command until you see "Push successful" in the logs:
 
 ``oc logs goodbad-1-build``{{execute}}
 
