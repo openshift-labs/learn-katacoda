@@ -1,5 +1,4 @@
 # General Preparation
-# General Preparation
 git clone --depth 1 https://github.com/fatherlinux/container-internals-lab.git ~/labs
 yum install -y podman buildah skopeo skopeo-containers tree httpd-tools strace
 yum install -y https://cbs.centos.org/kojifiles/packages/podman/1.5.1/3.el7/noarch/podman-manpages-1.5.1-3.el7.noarch.rpm \
