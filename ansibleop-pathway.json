@@ -16,6 +16,11 @@
       "external_link": "https://learn.openshift.com/ansibleop/ansible-operator-overview/",
       "course_id": "ansible-operator-overview",
       "title": "Ansible Operator Overview"
+    },
+    {
+      "external_link": "https://learn.openshift.com/ansibleop/ansible-mcrouter-operator/",
+      "course_id": "ansible-mcrouter-operator",
+      "title": "Mcrouter Operator powered by Ansible Operator"
     }
   ]
 }

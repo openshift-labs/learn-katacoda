@@ -1,36 +1,27 @@
 {
   "icon": "fa-openshift",
-  "title": "Etcd Operator",
-  "description": "Overview of the Etcd Operator",
+  "title": "Mcrouter Operator powered by Ansible Operator",
+  "description": "Deploy and test the Mcrouter Operator",
   "pathwayTitle": "OpenShift",
   "difficulty": "beginner",
   "time": "30 minutes",
   "details": {
     "steps": [
     {
-    	"title": "Creating the Custom Resource Definition (CRD)",
+    	"title": "Deploying the Mcrouter Operator",
     	"text": "step1.md"
-    },{
-			"title": "Creating the Service Account, Role, and RoleBinding",
+    }, {
+			"title": "Creating the Mcrouter Custom Resource",
 			"text": "step2.md"
-		},{
-			"title": "Creating the Etcd Operator Deployment",
+		}, {
+			"title": "Using Mcrouter",
 			"text": "step3.md"
-    },{
-			"title": "Creating the EtcdCluster Custom Resource (CR)",
+    }, {
+			"title": "Testing Modification of the Mcrouter Custom Resource",
 			"text": "step4.md"
-    },{
-			"title": "Interacting with a Live Etcd Cluster",
+    }, {
+			"title": "Testing Mcrouter failover",
 			"text": "step5.md"
-    },{
-			"title": "Scaling and Modifying the Etcd Version",
-			"text": "step6.md"
-    },{
-			"title": "Disaster Recovery in Action",
-			"text": "step7.md"
-    },{
-			"title": "Clean Up",
-      "text": "step8.md"
     }],
     "intro": {
       "code": "set-env.sh",

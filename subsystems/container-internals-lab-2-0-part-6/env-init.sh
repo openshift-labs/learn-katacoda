@@ -1,6 +1,8 @@
 # General Preparation
 ssh root@host01 'git clone --depth 1 https://github.com/fatherlinux/container-internals-lab.git ~/labs'
-ssh root@host01 'yum install -y podman buildah skopeo skopeo-containers tree httpd-tools strace &'
+ssh root@host01 'yum remove -y podman'
+ssh root@host01 'yum install -y http://assets.joinscrapbook.com/redhat/packages/podman-1.3.2-1.git14fdcd0.el7.centos.x86_64.rpm'
+ssh root@host01 'yum install -y buildah skopeo skopeo-containers tree httpd-tools strace &'
 
 # Lab 1
 ssh root@host01 'cp -f ~/labs/lab1-step3/mega-proc.sh /usr/bin/mega-proc.sh'

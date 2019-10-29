@@ -20,7 +20,7 @@ A collection of building blocks from Operator SDK that enables Ansible to handle
 
 ## Included in Operator Framework
 
-Ansible Operator is one of the available types of Operators that Operator SDK is able to generate. Operator SDK can create an operator using with Golang, Helm, or Ansible.
+Ansible Operator is one of the available types of Operators that Operator SDK is able to generate. Operator SDK can create an operator using Golang, Helm, or Ansible.
 
 ## How do I use it?
 

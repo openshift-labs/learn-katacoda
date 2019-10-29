@@ -7,7 +7,6 @@ https://cbs.centos.org/kojifiles/packages/slirp4netns/0.3.0/2.git4992082.el7/x86
 https://cbs.centos.org/kojifiles/packages/libseccomp/2.4.1/0.el7/x86_64/libseccomp-2.4.1-0.el7.x86_64.rpm
 
 # Lab 2
-yum install -y podman buildah skopeo
 podman pull registry.access.redhat.com/ubi7/ubi
 podman pull registry.access.redhat.com/ubi7/ubi-minimal
 

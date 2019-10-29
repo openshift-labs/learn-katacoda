@@ -1,6 +1,12 @@
 ## What you will learn ##
 
-In this scenario you will learn more about [Debezium](http://debezium.io/), a project that provides change data capture for MySQL, PostgreSQL and MongoDB databases.
+In this scenario you will learn more about [Debezium](http://debezium.io/), a project that provides change data capture for any of supported databases
+* MySQL
+* PostgreSQL
+* MongoDB
+* Microsoft SQL Server
+* Oracle (incubating)
+* Apache Cassandra (incubating)
 
 You will deploy a complete end-to-end solution that will capture events from database transaction logs and make those events available to processing by downstream consumers via an [Apache Kafka](https://kafka.apache.org/) broker.
 

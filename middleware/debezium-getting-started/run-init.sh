@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Pull images
-STRIMZI_VERSION=0.2
-DEBEZIUM_VERSION=0.7
-ssh root@host01 "touch /etc/rhsm/ca/redhat-uep.pem"
-ssh root@host01 "docker pull strimzi/zookeeper:$STRIMZI_VERSION; docker pull strimzi/kafka-statefulsets:$STRIMZI_VERSION; docker pull strimzi/kafka-connect-s2i:$STRIMZI_VERSION; docker pull strimzi/cluster-controller:$STRIMZI_VERSION; docker pull strimzi/topic-controller:$STRIMZI_VERSION docker pull debezium/example-mysql:$DEBEZIUM_VERSION"
+STRIMZI_VERSION=0.14.0
+KAFKA_VERSION=2.3.0
+DEBEZIUM_VERSION=0.10
+ssh root@host01 "docker pull debezium/example-mysql:$DEBEZIUM_VERSION; docker pull strimzi/operator:$STRIMZI_VERSION; docker pull strimzi/kafka:$STRIMZI_VERSION-kafka-$KAFKA_VERSION"

@@ -1,4 +1,4 @@
-We are going to use [binary build](https://docs.openshift.org/latest/dev_guide/dev_tutorials/binary_builds.html) feature of OpenShift together with [distribution](http://central.maven.org/maven2/io/debezium/debezium-connector-mysql/0.7.4/) of MySQL [plugin](http://debezium.io/docs/connectors/mysql/) to deploy a Kafka Connect node with Debezium MySQL plugin embedded.
+We are going to use [binary build](https://docs.openshift.org/latest/dev_guide/dev_tutorials/binary_builds.html) feature of OpenShift together with [distribution](http://central.maven.org/maven2/io/debezium/debezium-connector-mysql/0.10.0.Final/) of MySQL [plugin](http://debezium.io/docs/connectors/mysql/) to deploy a Kafka Connect node with Debezium MySQL plugin embedded.
 
 ![Debezium deployment](../../assets/middleware/debezium-getting-started/deployment-step-2.png)
 
@@ -20,14 +20,14 @@ and a new service is deployed.
 
 ``oc get svc -l app=strimzi-connect-s2i``{{execute}}
 
-    NAME                         CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
-    my-connect-cluster-connect   172.30.29.20   <none>        8083/TCP   12m
+    NAME                             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+    my-connect-cluster-connect-api   ClusterIP   172.30.89.106   <none>        8083/TCP   11s
 
 **2. Embed Debezium into Connect**
 
 We will use a binary build to create a Connect node with a Debezium plugin inside
 
-``oc start-build my-connect-cluster-connect --from-archive http://central.maven.org/maven2/io/debezium/debezium-connector-mysql/0.7.4/debezium-connector-mysql-0.7.4-plugin.tar.gz --follow``{{execute}}
+``oc start-build my-connect-cluster-connect --from-archive http://central.maven.org/maven2/io/debezium/debezium-connector-mysql/0.10.0.Final/debezium-connector-mysql-0.10.0.Final-plugin.tar.gz --follow``{{execute}}
 
 The Connect node should be redeployed after the build completes
 
@@ -46,12 +46,12 @@ Wait till the Connect node is ready
 
 and list all plug-ins available for use.
 
-``oc exec my-cluster-kafka-0 -- curl -s http://my-connect-cluster-connect:8083/connector-plugins``{{execute}}
+``oc exec -c kafka my-cluster-kafka-0 -- curl -s http://my-connect-cluster-connect-api:8083/connector-plugins``{{execute}}
 
     [
-        {"class":"io.debezium.connector.mysql.MySqlConnector","type":"source","version":"0.7.4"},
-        {"class":"org.apache.kafka.connect.file.FileStreamSinkConnector","type":"sink","version":"1.0.1"},
-        {"class":"org.apache.kafka.connect.file.FileStreamSourceConnector","type":"source","version":"1.0.1"}
+        {"class":"io.debezium.connector.mysql.MySqlConnector","type":"source","version":"0.10.0.Final"},
+        {"class":"org.apache.kafka.connect.file.FileStreamSinkConnector","type":"sink","version":"2.3.0"},
+        {"class":"org.apache.kafka.connect.file.FileStreamSourceConnector","type":"source","version":"2.3.0"}
     ]
 
 The Connect node has the Debezium `MySqlConnector` connector plugin available.

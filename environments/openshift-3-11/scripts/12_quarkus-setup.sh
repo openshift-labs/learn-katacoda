@@ -17,7 +17,7 @@ ${GRAALVM_HOME}/bin/gu install native-image
 # pre-populate maven repos by building a sample project
 TMPDIR=$(mktemp -d)
 pushd $TMPDIR
-mvn io.quarkus:quarkus-maven-plugin:0.21.1:create \
+mvn io.quarkus:quarkus-maven-plugin:0.22.0:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=getting-started \
     -DclassName="org.acme.quickstart.GreetingResource" \
