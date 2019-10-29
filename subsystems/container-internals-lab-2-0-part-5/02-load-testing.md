@@ -2,7 +2,7 @@ In this exercise, you will scale and load test a distributed application.
 
 First, lets set up a variable so that we have the site name saved:
 
-``export SITE="http://$(oc get svc | grep wpfrontend | awk '{print $2}')/wp-admin/install.php"``{{execute}}
+``export SITE="http://$(oc get svc | grep wpfrontend | awk '{print $3}')/wp-admin/install.php"``{{execute}}
 
 Test with AB before we scale the application to get a base line. Take note of the "Time taken for tests" section:
 
