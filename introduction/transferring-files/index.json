@@ -35,9 +35,6 @@
         },
         "finish": {
             "text": "finish.md"
-        },
-        "assets": {
-            "client01": [{"file": "robots.txt", "target": "~/"}]
         }
     }
 }
