@@ -6,12 +6,15 @@
     "difficulty": "beginner",
     "time": "10-15 minutes",
     "backend": {
-        "imageid": "openshift-4-2"
+        "imageid": "openshift-3-11",
+        "port": 8443
     },
     "environment": {
         "showdashboard": true,
-        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
-        "uilayout": "terminal-iframe"
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
     },
     "details": {
         "steps": [{

@@ -6,9 +6,9 @@ We hope `odo` helps you conveniently access all the power OpenShift has to offer
 
 Here are some of the ways you can get your own OpenShift cluster:
 
-### CodeReady Containers
+### Minishift
 
-[CodeReady Containers](https://developers.redhat.com/products/codeready-containers) brings a minimal, preconfigured OpenShift 4.x cluster to your local laptop or desktop computer for development and testing purposes. CodeReady Containers is delivered as a Red Hat Enterprise Linux virtual machine that supports native hypervisors for Linux, macOS, and Windows 10. Follow the [Getting Started Guide](https://code-ready.github.io/crc/) to set up CodeReady Ready Containers.
+Minishift is a complete OpenShift environment inside a virtual machine that runs on your local system. Minishift supports Windows, MacOS, and Linux operating systems. To find out more about minishift, visit https://www.okd.io/minishift/.
 
 ### OpenShift Online
 
