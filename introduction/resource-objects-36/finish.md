@@ -2,9 +2,11 @@ In this course you learnt about ``oc`` commands you would use for querying and u
 
 You can find a summary of the key commands covered below. To see more information on each ``oc`` command, run it with the ``--help`` option.
 
-``oc api-resources``: Outputs a list of all resource types supported by the cluster.
+``oc types``: Shows an introduction to core OpenShift concepts and types.
 
 ``oc explain <setting-path>``: Shows a description of the purpose of a specific resource object type setting.
+
+``oc get``: Shows a list of all the resource object types you can make queries about.
 
 ``oc get <type>``: Shows summary details of all resource objects of a specific type.
 
@@ -20,7 +22,9 @@ You can find a summary of the key commands covered below. To see more informatio
 
 ``oc describe <type/name>``: Shows human readable long form description of a resource object.
 
-``oc edit <type/name> -o <json|yaml>``: Edit the raw details of a resource object type as JSON or YAML. 
+``oc edit <type/name> -o <json|yaml>``: Edit the raw details of a resource object type as JSON or YAML.
+
+``oc export <type/name> -o <json|yaml>``: Shows raw details of a resource object type as JSON or YAML where any settings not required when creating a resource object have been removed.
 
 ``oc create -f <definition.json>``: Create a resource object from a definition stored in a file. The format of the definition must be JSON or YAML. The ``metadata.name`` field of the definition must not correspond to an existing resource object.
 

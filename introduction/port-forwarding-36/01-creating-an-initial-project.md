@@ -28,15 +28,13 @@ To create a new project called ``myproject`` run the command:
 You should see output similar to:
 
 ```
-Now using project "myproject" on server "https://openshift:6443".
+Now using project "myproject" on server "https://172.17.0.41:8443".
 
 You can add applications to this project with the 'new-app' command. For example, try:
 
-    oc new-app django-psql-example
+    oc new-app centos/ruby-22-centos7~https://github.com/openshift/ruby-ex.git
 
-to build a new example application in Python. Or use kubectl to deploy a simple Kubernetes application:
-
-    kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node
+to build a new example application in Ruby.
 ```
 
-We are not going to use the web console for this course, but if you want to check anything from the web console, switch to the _Console_ and  use the same credentials to login as you used above to login from the command line.
+We are not going to use the web console for this course, but if you want to check anything from the web console, switch to the _Dashboard_ and  use the same credentials to login as you used above to login from the command line.

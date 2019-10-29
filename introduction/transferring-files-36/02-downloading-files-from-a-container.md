@@ -52,33 +52,31 @@ From within the interactive shell, see what files exist in the application direc
 This will yield output similar to:
 
 ```
-total 80
- 0 drwxrwxr-x. 1 default    root    52 Oct 24 02:51 .
- 0 drwxrwxr-x. 1 default    root    28 Jun 18 02:10 ..
- 4 -rwxrwxr-x. 1 default    root  1454 Jun 18 02:07 app.sh
- 0 drwxrwxr-x. 1 default    root    43 Jun 18 02:11 blog
- 0 drwxrwxr-x. 2 default    root    25 Jun 18 02:07 configs
- 4 -rw-rw-r--. 1 default    root   230 Jun 18 02:07 cronjobs.py
-44 -rw-r--r--. 1 1000520000 root 44032 Oct 24 02:51 db.sqlite3
- 4 -rw-rw-r--. 1 default    root   430 Jun 18 02:07 Dockerfile
- 0 drwxrwxr-x. 2 default    root    25 Jun 18 02:07 htdocs
- 0 drwxrwxr-x. 1 default    root    25 Jun 18 02:11 katacoda
- 4 -rwxrwxr-x. 1 default    root   806 Jun 18 02:07 manage.py
- 0 drwxrwxr-x. 3 default    root    20 Jun 18 02:11 media
- 0 drwxrwxr-x. 1 default    root    19 Apr  3  2019 .pki
- 4 -rw-rw-r--. 1 default    root   832 Jun 18 02:07 posts.json
- 8 -rw-rw-r--. 1 default    root  7861 Jun 18 02:07 README.md
- 4 -rw-rw-r--. 1 default    root   203 Jun 18 02:07 requirements.txt
- 4 -rw-rw----. 1 default    root  1024 Apr  3  2019 .rnd
- 0 drwxrwxr-x. 4 default    root    57 Jun 18 02:09 .s2i
- 0 drwxrwxr-x. 4 default    root    30 Jun 18 02:11 static
- 0 drwxrwxr-x. 2 default    root   148 Jun 18 02:07 templates
+total 72
+ 0 drwxrwxrwx. 10 default    root   252 Jul  7 05:03 .
+ 0 drwxrwxrwx.  7 default    root   104 Jul  6 11:58 ..
+ 4 -rwxrwxr-x.  1 default    root   284 Jul  6 11:57 app.sh
+ 0 drwxrwxr-x.  6 default    root   233 Jul  6 12:01 blog
+40 -rw-r--r--.  1 1000040000 root 39936 Jul  7 05:03 db.sqlite3
+ 4 -rw-rw-r--.  1 default    root   430 Jul  6 11:57 Dockerfile
+ 0 drwxrwxr-x.  2 default    root    25 Jul  6 11:57 htdocs
+ 0 drwxrwxr-x.  3 default    root    93 Jul  6 12:01 katacoda
+ 4 -rwxrwxr-x.  1 default    root   806 Jul  6 11:57 manage.py
+ 0 drwxrwxr-x.  3 default    root    20 Jul  6 12:01 media
+ 0 drwxrwxrwx.  3 default    root    19 Jun 29 11:54 .pki
+ 4 -rw-rw-r--.  1 default    root   832 Jul  6 11:57 posts.json
+ 8 -rw-rw-r--.  1 default    root  7861 Jul  6 11:57 README.md
+ 4 -rw-rw-r--.  1 default    root    65 Jul  6 11:57 requirements.txt
+ 4 -rw-rwxrwx.  1 default    root  1024 Jun 29 12:34 .rnd
+ 0 drwxrwxr-x.  3 default    root    45 Jul  6 11:58 .s2i
+ 0 drwxrwxr-x.  2 default    root    93 Jul  6 11:57 scripts
+ 0 drwxrwxr-x.  4 default    root    30 Jul  6 12:01 static
 ```
 
 For the application being used, this has created a database file:
 
 ```
-44 -rw-r--r--. 1 1000520000 root 44032 Oct 24 02:51 db.sqlite3
+40 -rw-r--r-- 1 1000040000 root 39936 Jun  6 05:53 db.sqlite3
 ```
 
 Lets look at how this database file can be copied back to the local machine.
@@ -115,8 +113,8 @@ This should display output similar to:
 receiving incremental file list
 db.sqlite3
 
-sent 43 bytes  received 44,129 bytes  88,344.00 bytes/sec
-total size is 44,032  speedup is 1.00
+sent 30 bytes  received 40027 bytes  26704.67 bytes/sec
+total size is 39936  speedup is 1.00
 ```
 
 Check the contents of the current directory by running:
@@ -126,7 +124,7 @@ Check the contents of the current directory by running:
 and you should see that the local machine now has a copy of the file.
 
 ```
-44 -rw-r--r--  1 root root 44032 Oct 24 04:15 db.sqlite3
+40 -rw-rw-r--   1 1000040000 root 39936 Jun  6 05:53 db.sqlite3
 ```
 
 Note that the local directory into which you want the file copied must exist. If you didn't want to copy it into the current directory, ensure the target directory has been created beforehand.

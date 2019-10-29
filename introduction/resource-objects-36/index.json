@@ -6,12 +6,16 @@
     "difficulty": "beginner",
     "time": "10-15 minutes",
     "backend": {
-        "imageid": "openshift-4-2"
+        "trainingid": "openshift-3-6",
+        "imageid": "openshift",
+        "port": 8443
     },
     "environment": {
         "showdashboard": true,
-        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
-        "uilayout": "terminal-iframe"
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
     },
     "details": {
         "steps": [{
@@ -30,16 +34,21 @@
             "title": "Topic 5 - Creating Resource Objects",
             "text": "05-creating-resource-objects.md"
         }, {
-            "title": "Topic 6 - Replacing Resource Objects",
-            "text": "06-replacing-resource-objects.md"
+            "title": "Topic 6 - Exporting Resource Objects",
+            "text": "06-exporting-resource-objects.md"
         }, {
-            "title": "Topic 7 - Labelling Resource Objects",
-            "text": "07-labelling-resource-objects.md"
+            "title": "Topic 7 - Replacing Resource Objects",
+            "text": "07-replacing-resource-objects.md"
         }, {
-            "title": "Topic 8 - Deleting Resource Objects",
-            "text": "08-deleting-resource-objects.md"
+            "title": "Topic 8 - Labelling Resource Objects",
+            "text": "08-labelling-resource-objects.md"
+        }, {
+            "title": "Topic 9 - Deleting Resource Objects",
+            "text": "09-deleting-resource-objects.md"
         }],
         "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
             "text": "intro.md"
         },
         "finish": {

@@ -16,12 +16,10 @@ This will create a sub directory ``blog-django-py`` containing the source code f
 
 ```
 Cloning into 'blog-django-py'...
-remote: Enumerating objects: 3, done.
-remote: Counting objects: 100% (3/3), done.
-remote: Compressing objects: 100% (3/3), done.
-remote: Total 412 (delta 0), reused 0 (delta 0), pack-reused 409
-Receiving objects: 100% (412/412), 68.49 KiB | 701.00 KiB/s, done.
-Resolving deltas: 100% (200/200), done.
+remote: Counting objects: 125, done.
+remote: Total 125 (delta 0), reused 0 (delta 0), pack-reused 125
+Receiving objects: 100% (125/125), 22.59 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (45/45), done.
 ```
 
 Now run the following command to have ``oc rsync`` perform live synchronisation of the code, copying any changes from the ``blog-django-py`` directory up to the container.
@@ -42,7 +40,7 @@ http://blog-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katac
 
 You should see that the color of the title banner for the web site is red.
 
-![Blog Web Site Red](../../assets/introduction/transferring-files/04-blog-web-site-red.png)
+![Blog Web Site Red](../../assets/introduction/transferring-files-36/04-blog-web-site-red.png)
 
 Lets change that banner color by running the command:
 
@@ -60,7 +58,7 @@ This command will have the affect of sending a HUP signal to process ID 1 runnin
 
 Refresh the page for the web site once more and the title banner should now be blue.
 
-![Blog Web Site Blue](../../assets/introduction/transferring-files/04-blog-web-site-blue.png)
+![Blog Web Site Blue](../../assets/introduction/transferring-files-36/04-blog-web-site-blue.png)
 
 Note that the name of the pod as displayed in the title banner is unchanged, indicating that the pod was not restarted and only the web server application processes were restarted.
 
@@ -108,7 +106,7 @@ Modify the code file once more, setting the color to green.
 
 Refresh the web site page again, multiple times if need be, until the title banner shows as green. The change may not be immediate as the file synchronization may take a few moments, as may the detection of the code changes and restart of the web server application process.
 
-![Blog Web Site Green](../../assets/introduction/transferring-files/04-blog-web-site-green.png)
+![Blog Web Site Green](../../assets/introduction/transferring-files-36/04-blog-web-site-green.png)
 
 Kill the synchronization task by running:
 
