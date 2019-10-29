@@ -15,7 +15,7 @@ the variable. Click the **Copy to Editor** button below to place this code in `a
 
 <pre class="file" data-filename="app.js" data-target="insert" data-marker="// TODO: Periodic check for config map update">
 setInterval(() => {
-  retrieveConfigMap().then(config => {
+  retrieveConfigMap().then((config) => {
     if (!config) {
       message = null;
       return;
@@ -26,7 +26,7 @@ setInterval(() => {
       message = config.message;
     }
   }).catch((err) => {
-
+    console.log("error: ", err);
   });
 }, 2000);
 
@@ -48,27 +48,21 @@ Click on **Copy To Editor** below to implement the logic in `app.js`{{open}}
 
 <pre class="file" data-filename="app.js" data-target="insert" data-marker="// TODO: Retrieve ConfigMap">
 // Find the Config Map
-const openshiftRestClient = require('openshift-rest-client');
-function retrieveConfigMap() {
-  const settings = {
-    request: {
-      strictSSL: false
-    }
-  };
+const openshiftRestClient = require('openshift-rest-client').OpenshiftClient;
+const config = require('openshift-rest-client').config;
+const customConfig = config.getInCluster();
 
-  return openshiftRestClient(settings).then(client => {
-    const configMapName = 'app-config';
-    return client.configmaps.find(configMapName).then(configMap => {
-      return jsyaml.safeLoad(configMap.data['app-config.yml']);
-    });
-  });
+async function retrieveConfigMap() {
+  const client = await openshiftRestClient({config: customConfig});
+  const configmap = await client.api.v1.namespaces('example').configmaps('app-config').get();
+  return jsyaml.safeLoad(configmap.body.data['app-config.yml']);
 }
 </pre>
 
-In this code we are returning yet another _promise_ which will be responsible for using
+In this code we are returning yet another _promise_ (using JavaScript's [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) ) which will be responsible for using
 the [openshift-rest-client](https://www.npmjs.com/package/openshift-rest-client) module to make the call to the OpenShift REST API and retrieve the ConfigMap.
 
-The use of promises and promise chaining may take a little getting used to, but ultimately it results in an ordered and well-defined
+The use of promises and async may take a little getting used to, but ultimately it results in an ordered and well-defined
 process to retrieve the ConfigMap from OpenShift, parse it into a Javascript-friendly JSON object, and use it to override
 the value of our `message` variable so that we can control its value externally, without requiring any changes in the
 application code. The final chain called every 2 seconds looks something like:
