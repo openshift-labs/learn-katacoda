@@ -6,21 +6,23 @@ If you were using a different OpenShift cluster and did not already have the ``o
 
 ![Command Line Tools](../../assets/introduction/cluster-access/02-command-line-tools.png)
 
-Depending on the version of OpenShift which has been installed and how it was setup, you may see a single link here off to the downloads for the latest release, or multiple links to platform specific variants of the archive containing the ``oc`` binary. You would need to download the archive specific to your platform, extract the ``oc`` binary and install it.
+A link to details on where to get the command line tools was also shown on the initial welcome page when you first accessed the cluster when there were no projects.
 
-To login to the OpenShift cluster used for this course run:
+Once you get to the list of downloads, you would need to download the archive specific to your platform, extract the ``oc`` binary and install it.
 
-``oc login https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com``{{execute}}
+To login to the OpenShift cluster used for this course run in the terminal:
+
+``oc login``{{execute}}
 
 This will prompt you to enter your _username_ and _password_. Use the credentials:
 
-* **Username:** ``developer``
-* **Password:** ``developer``
+* **Username:** ``developer``{{copy}}
+* **Password:** ``developer``{{copy}}
 
 You should see output similar to:
 
 ```
-Authentication required for https://....environments.katacoda.com (openshift)
+Authentication required for https://openshift:6443 (openshift)
 Username: developer
 Password:
 Login successful.
@@ -29,6 +31,8 @@ You have one project on this server: "myproject"
 
 Using project "myproject".
 ```
+
+For your own cluster, you would need to know the URL to login to the cluster, and pass it as an argument to ``oc login``.
 
 Once logged in, you can verify what user you are logged in by running:
 
@@ -44,7 +48,7 @@ You can list all the projects you currently have access to by running:
 
 In the case of an external authentication service being used as the identity provider, the required steps are a bit different.
 
-If you login using ``oc login`` on the command line you will be presented with an error message:
+If you login using ``oc login`` on the command line you will be presented with an error message similar to:
 
 ```
 Login failed (401 Unauthorized)
@@ -52,13 +56,11 @@ You must obtain an API token by visiting
   https://api.starter-us-east-1.openshift.com/oauth/token/request
 ```
 
-You would visit the link given, logging in first via the separate authentication service if necessary. This will land you at a page looking like:
+You would visit the link given, logging in first via the separate authentication service if necessary. You will then be redirected to a page which will give details of the login command to use. This will include an access token to authenticate you for the session.
 
-![Request Access Token](../../assets/introduction/cluster-access/02-request-access-token.png)
+Even in the case where user authentication is managed by the OpenShift cluster and user credentials are accepted, you can opt to instead use an access token. You can retrieve the command to run by manually entering the ``/oauth/token/request`` path against the URL for the cluster access endpoint.
 
-In this case, rather than use your actual user credentials to login using ``oc login``, you use a special access token provided by that web page. The web page lists the specific ``oc login`` command to run.
-
-Even in the case where user authentication is managed by the OpenShift cluster and user credentials are accepted, you can opt to instead use an access token. You can retrieve the command to run by manually entering the ``/oauth/token/request`` URL against the OpenShift cluster being used. Or you can instead retrieve it from the _Command Line Tools_ page you use to download the ``oc`` command line tool.
+If you are already logged into the web console, you can also retrieve the details of the login command and access token by accessing the _Copy Login Command_ menu option under your login name.
 
  ![Request Access Token](../../assets/introduction/cluster-access/02-login-access-token.png)
 
