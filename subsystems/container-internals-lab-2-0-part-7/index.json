@@ -6,8 +6,8 @@
     "difficulty": "Intermediate",
     "time": "20-25 minutes",
     "backend": {
-      "trainingid": "fedora",
-      "imageid": "fedora",
+      "trainingid": "openshift-3-11",
+      "imageid": "openshift-3-11",
         "port": 8443
     },
     "environment": {
