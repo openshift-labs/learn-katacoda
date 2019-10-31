@@ -2,11 +2,11 @@ In the previous step you created a basic RESTful Java application with Quarkus. 
 
 ## Add Custom Bean
 
-Let’s modify the application and add a companion bean. Open a new file by clicking: `src/main/java/org/acme/quickstart/GreetingService.java`{{open}}.
+Let’s modify the application and add a companion bean. Open a new file by clicking: `getting-started/src/main/java/org/acme/quickstart/GreetingService.java`{{open}}.
 
 Next, click **Copy to Editor** to add the following code to this file:
 
-<pre class="file" data-filename="./src/main/java/org/acme/quickstart/GreetingService.java" data-target="replace">
+<pre class="file" data-filename="./getting-started/src/main/java/org/acme/quickstart/GreetingService.java" data-target="replace">
 package org.acme.quickstart;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -23,9 +23,9 @@ public class GreetingService {
 }
 </pre>
 
-Next, open the `src/main/java/org/acme/quickstart/GreetingResource.java`{{open}} class and then click **Copy To Editor** once again to inject the new bean and create a new endpoint using it:
+Next, open the `getting-started/src/main/java/org/acme/quickstart/GreetingResource.java`{{open}} class and then click **Copy To Editor** once again to inject the new bean and create a new endpoint using it:
 
-<pre class="file" data-filename="./src/main/java/org/acme/quickstart/GreetingResource.java" data-target="replace">
+<pre class="file" data-filename="./getting-started/src/main/java/org/acme/quickstart/GreetingResource.java" data-target="replace">
 package org.acme.quickstart;
 
 import javax.inject.Inject;

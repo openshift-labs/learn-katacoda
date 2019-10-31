@@ -6,14 +6,14 @@ You should already be logged in as an admin user. Click this command to verify:
 
 `oc whoami`{{execute T2}}
 
-It should respond with `system:admin`. 
+It should respond with `system:admin`.
 
 ## Access OpenShift Project
 
 [Projects](https://docs.openshift.com/container-platform/3.6/architecture/core_concepts/projects_and_users.html#projects)
 are a top level concept to help you organize your deployments. An
 OpenShift project allows a community of users (or a user) to organize and manage
-their content in isolation from other communities. 
+their content in isolation from other communities.
 
 For this scenario, let's create a project that you will use to house Kafka. Click:
 
@@ -94,6 +94,8 @@ names-cluster-zookeeper-1                        2/2     Running   0          1m
 names-cluster-zookeeper-2                        2/2     Running   0          1m
 ```
 If the pods are still spinning up (not all in the _Running_ state), keep clicking the above command until you see 3 _kafka_ pods, 3 _zookeeper_ pods, and the single _entity operator_ pod.
+
+It will take around 2 minutes to get all the Kafka pods up and running.
 
 ## Test Locally
 

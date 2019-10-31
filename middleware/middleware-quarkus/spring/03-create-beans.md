@@ -12,11 +12,11 @@ First we will create a `StringFunction` interface that some our beans will imple
 
 > Functional Interfaces are part of the base Java platform, and are not Spring-specific.
 
-Click here to create and open a new file for our interface: `src/main/java/org/acme/quickstart/StringFunction.java`{{open}}.
+Click here to create and open a new file for our interface: `fruit-taster/src/main/java/org/acme/quickstart/StringFunction.java`{{open}}.
 
 Click **Copy to Editor** to create the code for the interface:
 
-<pre class="file" data-filename="./src/main/java/org/acme/quickstart/StringFunction.java" data-target="replace">
+<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/quickstart/StringFunction.java" data-target="replace">
 package org.acme.quickstart;
 
 import java.util.function.Function;
@@ -28,11 +28,11 @@ public interface StringFunction extends Function&lt;String, String&gt; {
 
 With the interface in place, we will add an `AppConfiguration` class which will use the Spring’s Java Config style for defining a bean. It will be used to create a `StringFunction` bean that will capitalize the text passed as parameter.
 
-Click here to create and open a new file for our configuration: `src/main/java/org/acme/quickstart/AppConfiguration.java`{{open}}.
+Click here to create and open a new file for our configuration: `fruit-taster/src/main/java/org/acme/quickstart/AppConfiguration.java`{{open}}.
 
 Click **Copy to Editor** to create the code for the interface:
 
-<pre class="file" data-filename="./src/main/java/org/acme/quickstart/AppConfiguration.java" data-target="replace">
+<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/quickstart/AppConfiguration.java" data-target="replace">
 package org.acme.quickstart;
 
 import org.springframework.context.annotation.Bean;
@@ -52,11 +52,11 @@ public class AppConfiguration {
 
 Now we define another bean that will implement `StringFunction` using Spring’s _stereotype annotation_ style. This bean will effectively be a no-op bean that simply returns the input as is.
 
-Click here to create and open a new file for our bean: `src/main/java/org/acme/quickstart/NoOpSingleStringFunction.java`{{open}}.
+Click here to create and open a new file for our bean: `fruit-taster/src/main/java/org/acme/quickstart/NoOpSingleStringFunction.java`{{open}}.
 
 Click **Copy to Editor** to create the code for the interface:
 
-<pre class="file" data-filename="./src/main/java/org/acme/quickstart/NoOpSingleStringFunction.java" data-target="replace">
+<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/quickstart/NoOpSingleStringFunction.java" data-target="replace">
 package org.acme.quickstart;
 
 import org.springframework.stereotype.Component;
@@ -75,15 +75,15 @@ public class NoOpSingleStringFunction implements StringFunction {
 
 Quarkus also provides support for injecting configuration values using Spring’s `@Value` annotation. To see that in action, click **Copy to Editor** to add a new configuration parameter to our application which we'll use to add a little flavor to our app:
 
-<pre class="file" data-filename="./src/main/resources/application.properties" data-target="append">
+<pre class="file" data-filename="./fruit-taster/src/main/resources/application.properties" data-target="append">
 taste.message = tastes great
 </pre>
 
-We'll also need a new Spring Bean to use this configuration! Click here to create and open a new file for our configuration: `src/main/java/org/acme/quickstart/MessageProducer.java`{{open}}.
+We'll also need a new Spring Bean to use this configuration! Click here to create and open a new file for our configuration: `fruit-taster/src/main/java/org/acme/quickstart/MessageProducer.java`{{open}}.
 
 Click **Copy to Editor** to create the code for the interface:
 
-<pre class="file" data-filename="./src/main/java/org/acme/quickstart/MessageProducer.java" data-target="replace">
+<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/quickstart/MessageProducer.java" data-target="replace">
 package org.acme.quickstart;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -105,11 +105,11 @@ public class MessageProducer {
 
 The final bean we will create ties together all the previous beans.
 
-Click here to create and open a new file for our configuration: `src/main/java/org/acme/quickstart/TasterBean.java`{{open}}.
+Click here to create and open a new file for our configuration: `fruit-taster/src/main/java/org/acme/quickstart/TasterBean.java`{{open}}.
 
 Click **Copy to Editor** to create the code for the bean:
 
-<pre class="file" data-filename="./src/main/java/org/acme/quickstart/TasterBean.java" data-target="replace">
+<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/quickstart/TasterBean.java" data-target="replace">
 package org.acme.quickstart;
 
 import org.springframework.beans.factory.annotation.Autowired;

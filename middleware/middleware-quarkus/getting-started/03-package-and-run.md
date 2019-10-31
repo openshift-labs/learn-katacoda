@@ -2,7 +2,7 @@ In the previous step you added a custom CDI bean to the app. Now it's time to pa
 
 ### Stop the previous application
 
-Let's stop the original application so we can package and re-run it as an executable JAR. In the terminal, press `CTRL-C` to stop the application. 
+Let's stop the original application so we can package and re-run it as an executable JAR. In the terminal, press `CTRL-C` to stop the application.
 
 ### Package the app
 
@@ -32,7 +32,7 @@ You should see:
 hello quarkus from master
 ```
 
-> The `Class-Path` entry of the `MANIFEST.MF` from the _runner jar_ explicitly lists the jars from the `lib` directory. So if you want to deploy your application somewhere, you need to copy the _runner jar_ as well as the _lib_ directory.
+> The `Class-Path` entry of the `MANIFEST.MF` from the _runner jar_ explicitly lists the jars from the `lib` directory. So if you want to deploy your application somewhere, you need to copy the _runner jar_ as well as the _lib_ directory. If you want to create an Uber-jar with everything included, you can use `mvn pakage -DuberJar`.
 
 ## Cleanup
 
