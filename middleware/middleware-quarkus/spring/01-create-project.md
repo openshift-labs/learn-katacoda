@@ -2,14 +2,14 @@
 
 Let's create the basic Quarkus _Hello World_ application and include the necessary spring extensions. Click this command to create the project:
 
-`mvn io.quarkus:quarkus-maven-plugin:0.22.0:create \
+`mvn io.quarkus:quarkus-maven-plugin:0.27.0:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=fruit-taster \
     -DclassName="org.acme.quickstart.GreetingResource" \
-    -Dextensions="spring-data-jpa,spring-web,spring-di, jdbc-postgres" \
+    -Dextensions="spring-data-jpa,spring-web,spring-di,jdbc-postgres" \
     -Dpath="/hello"`{{execute}}
 
-This will use the Quarkus Maven Plugin and generate a basic Maven project for you and include the following extensions to enable Spring annotations and APIs:
+This will use the Quarkus Maven Plugin and generate a basic Maven project for you in the `fruit-taster` subdirectory and include the following extensions to enable Spring annotations and APIs:
 
 * **spring-data-jpa** - Adds Spring Data annotations like `@CrudRepository` allowing integration with database-backed JPA repositories
 * **spring-web** - Adds Spring Web annotations like `@RestController`, `@RequestMapping`, `@PathVariable`, `@GetMapping`, etc
@@ -26,6 +26,10 @@ We'll need a locally running database to test our app during Live Coding. Click 
     -p 5432:5432 postgres:10.5 >& /dev/null &`{{execute}}
 
 ## Start the app
+
+First, switch to the directory in which the app was built:
+
+`cd /root/projects/quarkus/fruit-taster`{{execute}}
 
 Let's begin Live Coding. Click on the following command to start the app in _Live Coding_ mode:
 
@@ -45,7 +49,7 @@ Note the amazingly fast startup time! The app is now running "locally" (within t
 
 Test that the app is running by accessing the simple `hello` endpoint:
 
-`cd /root/projects/quarkus && \
+`cd /root/projects/quarkus/fruit-taster && \
   curl http://localhost:8080/hello`{{execute T2}}
 
 > You may need to click this command again in case it doesn't execute properly on first click

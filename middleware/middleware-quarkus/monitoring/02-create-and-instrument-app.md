@@ -2,16 +2,20 @@
 
 Let's create the basic Quarkus _Hello World_ application and include the necessary monitoring extensions. Click this command to create the project:
 
-`mvn io.quarkus:quarkus-maven-plugin:0.22.0:create \
+`mvn io.quarkus:quarkus-maven-plugin:0.27.0:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=getting-started \
     -DclassName="org.acme.quickstart.GreetingResource" \
     -Dextensions="metrics" \
     -Dpath="/hello"`{{execute}}
 
-This will use the Quarkus Maven Plugin and generate a basic Maven project for you and include the `smallrye-metrics` extension which is an implementation of the MicroProfile Metrics specification used in Quarkus.
+This will use the Quarkus Maven Plugin and generate a basic Maven project for you in the `getting-started` subdirectory and include the `smallrye-metrics` extension which is an implementation of the MicroProfile Metrics specification used in Quarkus.
 
 ## Start the app
+
+Change to the directory in which the app was created:
+
+`cd /root/projects/quarkus/getting-started`{{execute}}
 
 Let's begin Live Coding. Click on the following command to start the app in _Live Coding_ mode:
 
@@ -31,7 +35,7 @@ Note the amazingly fast startup time! The app is now running "locally" (within t
 
 Test that the app is running by accessing the simple `hello` endpoint:
 
-`cd /root/projects/quarkus && \
+`cd /root/projects/quarkus/getting-started && \
   curl http://localhost:8080/hello`{{execute T2}}
 
 > You may need to click this command again in case it doesn't execute properly on first click

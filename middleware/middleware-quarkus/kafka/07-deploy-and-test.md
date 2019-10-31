@@ -2,7 +2,7 @@
 
 Quarkus applications can be built as executable JARs, or native binary images. Here we'll use an executable JAR to deploy our app. Build the application:
 
-`mvn clean package`{{execute T2}}
+`mvn clean package -DuberJar`{{execute T2}}
 
 It produces an executable jar file in the `target/` directory:
 

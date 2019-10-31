@@ -8,7 +8,7 @@ We will be using GraalVM, which includes a native compiler for producing native 
 
 ## Build native image
 
-Within the `pom.xml`{{open}} is the declaration for the Quarkus Maven plugin which contains a profile for `native-image`:
+Within the `getting-started/pom.xml`{{open}} is the declaration for the Quarkus Maven plugin which contains a profile for `native-image`:
 
 ```xml
   <profile>
@@ -63,7 +63,7 @@ Notice the amazingly fast startup time:
 2019-03-07 18:34:16,642 INFO  [io.quarkus] (main) Quarkus 0.21.1 started in 0.004s. Listening on: http://[::]:8080
 2019-03-07 18:34:16,643 INFO  [io.quarkus] (main) Installed features: [cdi, resteasy]
 ```
-That's 4 milliseconds. A _mere 4000 nanoseconds_. 
+That's 4 milliseconds. A _mere 4000 nanoseconds_.
 
 And extremely low memory usage as reported by the Linux `ps` utility. Click here to run this in your other Terminal tab:
 

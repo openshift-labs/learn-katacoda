@@ -6,13 +6,13 @@ In this step, you will create a straightforward application serving a `hello` en
 
 The easiest way to create a new Quarkus project is to click to run the following command:
 
-`mvn io.quarkus:quarkus-maven-plugin:0.22.0:create \
+`mvn io.quarkus:quarkus-maven-plugin:0.27.0:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=getting-started \
     -DclassName="org.acme.quickstart.GreetingResource" \
     -Dpath="/hello"`{{execute}}
 
-This will use the Quarkus Maven Plugin and generate a basic Maven project for you, generating:
+This will use the Quarkus Maven Plugin and generate a basic Maven project for you in the `getting-started` subdirectory, generating:
 
 * The Maven structure
 * An `org.acme.quickstart.GreetingResource` resource exposed on `/hello`
@@ -21,7 +21,7 @@ This will use the Quarkus Maven Plugin and generate a basic Maven project for yo
 * Example `Dockerfile`s for both native and jvm modes
 * The application configuration file
 
-Once generated, look at the `pom.xml`{{open}}. You will find the import of the Quarkus BOM, allowing to omit the version on the different Quarkus dependencies. In addition, you can see the `quarkus-maven-plugin` responsible of the packaging of the application and also providing the development mode.
+Once generated, look at the `getting-started/pom.xml`{{open}}. You will find the import of the Quarkus BOM, allowing to omit the version on the different Quarkus dependencies. In addition, you can see the `quarkus-maven-plugin` responsible of the packaging of the application and also providing the development mode.
 
 ```xml
 <dependencyManagement>
@@ -72,7 +72,7 @@ If we focus on the dependencies section, you can see we are using [Quarkus exten
 </dependency>
 ```
 
-During the project creation, the `src/main/java/org/acme/quickstart/GreetingResource.java`{{open}} file has been created with the following endpoint:
+During the project creation, the `getting-started/src/main/java/org/acme/quickstart/GreetingResource.java`{{open}} file has been created with the following endpoint:
 
 ```java
 @Path("/hello")
@@ -90,6 +90,10 @@ It’s a very simple REST endpoint, returning "hello" to requests on `/hello`.
 > Compared to vanilla JAX-RS, with Quarkus there is no need to create an `Application` class. It’s supported but not required. In addition, only one instance of the resource is created and not one per request. You can configure this using the different `*Scoped` annotations (`ApplicationScoped`, `RequestScoped`, etc).
 
 # Running the Application
+
+First, change to the directory in which the project was created:
+
+`cd /root/projects/quarkus/getting-started`{{execute}}
 
 Now we are ready to run our application. Click here to run:
 
@@ -113,7 +117,7 @@ hello
 ```
 It's working!
 
-Now, let's exercise the **live reload** capabilities of Quarkus. Click here to open the endpoint:  `src/main/java/org/acme/quickstart/GreetingResource.java`{{open}}. Change `return "hello";` to `return "hola";` on line 14 in the editor. Don't save. Don't recompile or restart anything. Just try to reload the brower (or [click here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello) again.)
+Now, let's exercise the **live reload** capabilities of Quarkus. Click here to open the endpoint:  `getting-started/src/main/java/org/acme/quickstart/GreetingResource.java`{{open}}. Change `return "hello";` to `return "hola";` on line 14 in the editor. Don't save. Don't recompile or restart anything. Just try to reload the brower (or [click here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello) again.)
 
 You should see the updated `hola` message.
 

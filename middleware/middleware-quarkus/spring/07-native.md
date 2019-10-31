@@ -76,7 +76,7 @@ Let's replace our JVM-based app with the native app.
 First, re-define the build process to use our native binary by clicking this command:
 
 `oc delete bc/fruit-taster && \
-  oc new-build quay.io/quarkus/ubi-quarkus-native-binary-s2i:19.2.0 \
+  oc new-build quay.io/quarkus/ubi-quarkus-native-binary-s2i:19.2.1 \
   --binary --name=fruit-taster`{{execute T1}}
 
 Next, re-build the container image in OpenShift using our Quarkus binary app:

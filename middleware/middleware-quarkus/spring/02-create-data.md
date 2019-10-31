@@ -6,11 +6,11 @@ First, we need a data model.
 
 ## Create Model
 
-Click here to create and open a new file for our Remodelpository: `src/main/java/org/acme/quickstart/Fruit.java`{{open}}.
+Click here to create and open a new file for our Remodelpository: `fruit-taster/src/main/java/org/acme/quickstart/Fruit.java`{{open}}.
 
 Click **Copy to Editor** to add the code:
 
-<pre class="file" data-filename="./src/main/java/org/acme/quickstart/Fruit.java" data-target="replace">
+<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/quickstart/Fruit.java" data-target="replace">
 package org.acme.quickstart;
 
 import javax.persistence.Entity;
@@ -67,11 +67,11 @@ This is a simple POJO representing a Fruit, with a name and color.
 
 ## Create Spring Data Repository
 
-Next, click here to create and open a new file for our Repository: `src/main/java/org/acme/quickstart/FruitRepository.java`{{open}}.
+Next, click here to create and open a new file for our Repository: `fruit-taster/src/main/java/org/acme/quickstart/FruitRepository.java`{{open}}.
 
 Click **Copy to Editor** to create the code for the repository:
 
-<pre class="file" data-filename="./src/main/java/org/acme/quickstart/FruitRepository.java" data-target="replace">
+<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/quickstart/FruitRepository.java" data-target="replace">
 package org.acme.quickstart;
 
 import org.springframework.data.repository.CrudRepository;
@@ -89,11 +89,11 @@ Note that by extending Spring's `CrudRepository` interface you'll automatically 
 
 ## Create sample data
 
-Finally, we need some sample data to work with. Click here to create and open a new file to hold our sample data: `src/main/resources/import.sql`{{open}}.
+Finally, we need some sample data to work with. Click here to create and open a new file to hold our sample data: `fruit-taster/src/main/resources/import.sql`{{open}}.
 
 Click **Copy to Editor** to create add the sample data which will be used to populate our database when the app runs:
 
-<pre class="file" data-filename="./src/main/resources/import.sql" data-target="replace">
+<pre class="file" data-filename="./fruit-taster/src/main/resources/import.sql" data-target="replace">
 INSERT INTO fruit(id, name, color) VALUES (nextval('hibernate_sequence'), 'cherry', 'red');
 INSERT INTO fruit(id, name, color) VALUES (nextval('hibernate_sequence'), 'orange', 'orange');
 INSERT INTO fruit(id, name, color) VALUES (nextval('hibernate_sequence'), 'banana', 'yellow');
@@ -103,11 +103,11 @@ INSERT INTO fruit(id, name, color) VALUES (nextval('hibernate_sequence'), 'straw
 
 ## Configure Quarkus
 
-We need to configure our app to define database connection settings. Click: `src/main/resources/application.properties`{{open}} to open this file. This file contains Quarkus configuration.
+We need to configure our app to define database connection settings. Click: `fruit-taster/src/main/resources/application.properties`{{open}} to open this file. This file contains Quarkus configuration.
 
 Click **Copy to Editor** to add the following values to the `application.properties` file:
 
-<pre class="file" data-filename="./src/main/resources/application.properties" data-target="replace">
+<pre class="file" data-filename="./fruit-taster/src/main/resources/application.properties" data-target="replace">
 quarkus.datasource.url=jdbc:postgresql://localhost/fruits
 quarkus.datasource.driver=org.postgresql.Driver
 quarkus.datasource.username=sa

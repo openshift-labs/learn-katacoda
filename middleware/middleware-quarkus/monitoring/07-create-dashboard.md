@@ -54,13 +54,13 @@ Add Panels for:
 After saving, go back to the main dashboard (click on **Quar** at the top and then select it under *Recent
 Dashboards*). Change the time value to *Last 15 Minutes* at the top-right:
 
-![time](graftime.png)
+![time](/openshift/assets/middleware/quarkus/graftime.png)
 
 Finally, drag and resize the different panels to look nice and fit on a single page.
 
 Click **Save Dashboad** again to save it. Your final Dashboard should look like:
 
-![final](graffinal.png)
+![final](/openshift/assets/middleware/quarkus/graffinal.png)
 
 Beautiful, and useful\! You can add many more metrics to monitor and alert for Quarkus apps using these tools.
 
