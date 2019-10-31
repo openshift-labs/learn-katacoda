@@ -4,7 +4,7 @@ In this course the embedded _Terminal_ provided to you already has ``oc`` instal
 
 If you were using a different OpenShift cluster and did not already have the ``oc`` command line tool, you can download it by following the links in the _Command Line Tools_ menu option of the web console.
 
-![Command Line Tools](../../assets/introduction/cluster-access/02-command-line-tools.png)
+![Command Line Tools](../../assets/introduction/cluster-access-42/02-command-line-tools.png)
 
 A link to details on where to get the command line tools was also shown on the initial welcome page when you first accessed the cluster when there were no projects.
 
@@ -62,6 +62,6 @@ Even in the case where user authentication is managed by the OpenShift cluster a
 
 If you are already logged into the web console, you can also retrieve the details of the login command and access token by accessing the _Copy Login Command_ menu option under your login name.
 
- ![Request Access Token](../../assets/introduction/cluster-access/02-login-access-token.png)
+ ![Request Access Token](../../assets/introduction/cluster-access-42/02-login-access-token.png)
 
 Whichever mechanism you use to login from the command line using ``oc login``, the login will periodically expire and you will need to login again. The expiration period is typically 24 hours.
