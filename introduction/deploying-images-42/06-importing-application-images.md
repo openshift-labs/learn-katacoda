@@ -1,4 +1,4 @@
-When you deploy an existing Docker-formatted container image which resides on an external image registry, the image will be pulled down and stored within the internal OpenShift image registry. The image will then be copied to any node in the OpenShift cluster where an instance of the application is run.
+When you deploy an existing container image which resides on an external image registry, the image will be pulled down and stored within the internal OpenShift image registry. The image will then be copied to any node in the OpenShift cluster where an instance of the application is run.
 
 In order to track the image that is pulled down, an _Image Stream_ resource will be created. You can list what image stream resources have been created within a project by running the command:
 
@@ -22,8 +22,8 @@ Namespace:              myproject
 Created:                4 minutes ago
 Labels:                 app=blog-django-py
 Annotations:            openshift.io/generated-by=OpenShiftNewApp
-                        openshift.io/image.dockerRepositoryCheck=2017-03-20T02:51:09Z
-Docker Pull Spec:       172.30.125.109:5000/myproject/blog-django-py
+                        openshift.io/image.dockerRepositoryCheck=2019-11-01T03:39:18Z
+Image Repository:       default-route-openshift-image-registry.apps-crc.testing/myproject/blog-django-py
 Image Lookup:           local=false
 Unique Images:          1
 Tags:                   1
@@ -31,8 +31,8 @@ Tags:                   1
 latest
   tagged from openshiftkatacoda/blog-django-py
 
-  * openshiftkatacoda/blog-django-py@sha256:43e78e610a3181a4b710f938598acaf43d511ab38c4e84a98e59f29dbdb62c62
-      4 minutes ago
+  * openshiftkatacoda/blog-django-py@sha256:ec0149d51aac5db76abba4df956021c8d0f58b0e153160bd6b1eb8e967830bb5
+      3 minutes ago
 ```
 
 In the details of the image stream which was created, you will see that the label ``app=blog-django-py`` was applied, identifying the image as relating to this one deployment. Consequently, when the application was deleted by using a label selector with the same value, the image stream would also be deleted.
@@ -47,21 +47,21 @@ Check that all the resource objects have been deleted by running:
 
 ``oc get all -o name``{{execute}}
 
-Now import the existing Docker-formatted container image explicitly using the command:
+Now import the existing container image explicitly using the command:
 
 ``oc import-image openshiftkatacoda/blog-django-py --confirm``{{execute}}
 
 This should yield the output:
 
 ```
-The import completed successfully.
+imagestream.image.openshift.io/blog-django-py imported
 
 Name:                   blog-django-py
 Namespace:              myproject
 Created:                Less than a second ago
 Labels:                 <none>
-Annotations:            openshift.io/image.dockerRepositoryCheck=2017-03-20T03:20:35Z
-Docker Pull Spec:       172.30.235.4:5000/myproject/blog-django-py
+Annotations:            openshift.io/image.dockerRepositoryCheck=2019-11-01T03:44:32Z
+Image Repository:       image-registry.openshift-image-registry.svc:5000/myproject/blog-django-py
 Image Lookup:           local=false
 Unique Images:          1
 Tags:                   1
@@ -69,7 +69,7 @@ Tags:                   1
 latest
   tagged from openshiftkatacoda/blog-django-py
 
-  * openshiftkatacoda/blog-django-py@sha256:43e78e610a3181a4b710f938598acaf43d511ab38c4e84a98e59f29dbdb62c62
+  * openshiftkatacoda/blog-django-py@sha256:ec0149d51aac5db76abba4df956021c8d0f58b0e153160bd6b1eb8e967830bb5
       Less than a second ago
 
 ...
@@ -92,49 +92,51 @@ This is using the image stream name, not the full name which identifies the imag
 This should yield output similar to:
 
 ```
---> Found image d29f1bb (2 days old) in image stream "myproject/blog-django-py" under tag "latest" for "blog-django-py"
+--> Found image 927f823 (4 months old) in image stream "myproject/blog-django-py" under tag "latest" for "blog-django-py"
 
     Python 3.5
     ----------
-    ...
+    Python 3.5 available as container is a base platform for building and running various Python 3.5 applications and frameworks. Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.
 
-    Tags: builder, python, python35, rh-python35
+    Tags: builder, python, python35, python-35, rh-python35
 
     * This image will be deployed in deployment config "blog-1"
     * Port 8080/tcp will be load balanced by service "blog-1"
       * Other containers can access this service through the hostname "blog-1"
 
 --> Creating resources ...
-    deploymentconfig "blog-1" created
+    imagestreamtag.image.openshift.io "blog-1:latest" created
+    deploymentconfig.apps.openshift.io "blog-1" created
     service "blog-1" created
 --> Success
+    Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
+     'oc expose svc/blog-1'
     Run 'oc status' to view your app.
 ```
 
-Jump back to the OpenShift web console, click on _Add to project_ in the menu bar, then click on _Deploy Image_.
+Deploy a second instance of the container image by running:
 
-This time select _Image Stream Tag_ and from the drop down menus select the project ``myproject``, and the image stream ``blog-django-py`` with tag ``latest``.
+``oc new-app blog-django-py --name blog-2``{{execute}}
 
-![Deploy Image Stream Tag](../../assets/introduction/deploying-images-42/06-deploy-image-stream-tag.png)
-
-Change the _Name_ to be used for the deployed application to ``blog-2``. Click on _Create_ at the bottom of the page to start the deployment.
-
-From the command line, list all the resources which have been created.
+List all the resources which have been created.
 
 ``oc get all -o name``{{execute}}
 
 This should yield output similar to:
 
 ```
-imagestreams/blog-django-py
-deploymentconfigs/blog-1
-deploymentconfigs/blog-2
-replicationcontrollers/blog-1-1
-replicationcontrollers/blog-2-1
-services/blog-1
-services/blog-2
-pods/blog-1-1-mzpbf
-pods/blog-2-1-d2snt
+pod/blog-1-1-d8p9n
+pod/blog-1-1-deploy
+pod/blog-2-1-deploy
+replicationcontroller/blog-1-1
+replicationcontroller/blog-2-1
+service/blog-1
+service/blog-2
+deploymentconfig.apps.openshift.io/blog-1
+deploymentconfig.apps.openshift.io/blog-2
+imagestream.image.openshift.io/blog-1
+imagestream.image.openshift.io/blog-2
+imagestream.image.openshift.io/blog-django-py
 ```
 
 You will see a deployment config, replication controller, service and pod for each instance of the application. Only the one image stream exists corresponding to the initial image import that was run.
