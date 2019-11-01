@@ -1,4 +1,4 @@
-In this course you learnt about deploying an existing Docker-formatted container image to OpenShift. You first deployed an image direct from an external image registry. This was followed by importing an image into the OpenShift internal registry, and then deploying the image from the internal registry.
+In this course you learnt about deploying an existing container image to OpenShift.
 
 You can find a summary of the key commands covered below. To see more information on each ``oc`` command, run it with the ``--help`` option.
 

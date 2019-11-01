@@ -10,6 +10,6 @@ From the _Overview_ for the deployment, you can adjust the number of replicas, o
 
 You public URL for accessing the application can be found under _Resources_.
 
-If you dismiss the panel, you can also access the application via its public URL, by click on the URL shortcut icon on the visualisation of the deployment.
+If you dismiss the panel, you can also access the application via its public URL, by clicking on the URL shortcut icon on the visualisation of the deployment.
 
 ![URL Shortcut Icon](../../assets/introduction/deploying-images-42/03-url-shortcut-icon.png)
