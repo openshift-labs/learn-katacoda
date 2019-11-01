@@ -56,7 +56,7 @@ We should see something similar to:
 
 # Evaluating Registries
 
-Now, that we have taken a look at several container images, we are going to start to look at where they came from and how they were built - we are going to evaluate four regsitry serversi - Fedora, podmanHub, Bitnami and the Red Hat Container Catalog:
+Now, that we have taken a look at several container images, we are going to start to look at where they came from and how they were built - we are going to evaluate four registry servers - Fedora, podmanHub, Bitnami and the Red Hat Container Catalog:
 
 ## Fedora Registry
 - Click: [registry.fedoraproject.org](https://registry.fedoraproject.org/)
@@ -67,7 +67,7 @@ The Fedora registry provides a very basic experience. You know that it is operat
 ## podmanHub
 - Click: [https://hub.podman.com/_/centos/](https://hub.podman.com/_/centos/)
 
-podmanHub provides "official" images for a lot of different pieces of software including things like CentOS, Ubuntu, Wordpress, and PHP. That said, there really isn't standard definition for what "official" means. Each repository appearst to have their own processes, rules, time lines, lifecycles, and testing. There really is no shared understanding what official images provide an end user. Users must evaluate each repository for themselves and determine whether they trust that it's connected to the upstream project in any meaningful way.
+podmanHub provides "official" images for a lot of different pieces of software including things like CentOS, Ubuntu, Wordpress, and PHP. That said, there really isn't standard definition for what "official" means. Each repository appears to have their own processes, rules, time lines, lifecycles, and testing. There really is no shared understanding what official images provide an end user. Users must evaluate each repository for themselves and determine whether they trust that it's connected to the upstream project in any meaningful way.
 
 ## Bitnami
 - Click: [https://bitnami.com/containers](https://bitnami.com/containers)
