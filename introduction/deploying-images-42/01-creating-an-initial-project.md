@@ -49,10 +49,9 @@ created the one project, all you should see is ``myproject``.
 
 ![List of Projects](../../assets/introduction/deploying-images-42/01-list-of-projects.png)
 
-Click on ``myproject`` and you should be left at the _Overview_ page for
-the project.
+Click on ``myproject`` and you should then be at the _Overview_ page for
+the project. Select the _Developer_ perspective for the project instead of the _Adminstrator_ perspective in the left hand side menu. If necessary click on the hamburger menu icon top left of the web console to expose the left hand side menu.
 
-![Project Overview](../../assets/introduction/deploying-images-42/01-project-overview.png)
+As the project is currently empty, no workloads should be found and you be presented with various options for how you can deploy an application.
 
-As the project is currently empty, you should be presented with an _Add to Project_
-button.
+![Add to Project](../../assets/introduction/deploying-images-42/01-add-to-project.png)

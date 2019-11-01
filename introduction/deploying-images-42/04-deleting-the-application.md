@@ -1,4 +1,4 @@
-Instead of deploying the existing Docker-formatted container image from the web console, you can use the command line. Before we do that, lets delete the application we have already deployed.
+Instead of deploying the existing container image from the web console, you can use the command line. Before we do that, lets delete the application we have already deployed.
 
 To do this from the web console you could visit each resource type created and delete them one at a time. The simpler way to delete an application is from the command line using the ``oc`` program.
 
