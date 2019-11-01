@@ -29,9 +29,6 @@
         }, {
             "title": "Topic 5 - Deploying Using the Command Line",
             "text": "05-deploying-using-the-command-line.md"
-        }, {
-            "title": "Topic 6 - Importing Application Images",
-            "text": "06-importing-application-images.md"
         }],
         "intro": {
             "text": "intro.md"
