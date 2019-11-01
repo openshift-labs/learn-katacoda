@@ -17,7 +17,7 @@ From a security perspective, it's much better to remotely inspect and determine 
 
 `skopeo inspect docker://registry.fedoraproject.org/fedora`{{execute}}
 
-Examine the YAML. There's really nothing in there that helps us determine if we trust this repository. It "says" it was created by the Fedora project ("vendor": "Fedora Project") but we have no idea if that is true. We have to move on to verifying that we trust the source, then we can determin if we trust the thing.
+Examine the JSON. There's really nothing in there that helps us determine if we trust this repository. It "says" it was created by the Fedora project ("vendor": "Fedora Project") but we have no idea if that is true. We have to move on to verifying that we trust the source, then we can determin if we trust the thing.
 
 ## Trusted Source
 
