@@ -115,7 +115,7 @@ Jump back to the OpenShift web console, click on _Add to project_ in the menu ba
 
 This time select _Image Stream Tag_ and from the drop down menus select the project ``myproject``, and the image stream ``blog-django-py`` with tag ``latest``.
 
-![Deploy Image Stream Tag](../../assets/introduction/deploying-images/06-deploy-image-stream-tag.png)
+![Deploy Image Stream Tag](../../assets/introduction/deploying-images-42/06-deploy-image-stream-tag.png)
 
 Change the _Name_ to be used for the deployed application to ``blog-2``. Click on _Create_ at the bottom of the page to start the deployment.
 
