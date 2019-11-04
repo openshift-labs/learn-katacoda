@@ -1,4 +1,4 @@
-Let’s redirect all traffic to reccomendation:v3.
+Let’s redirect all traffic to recommendation:v3.
 
 `istioctl create -f ~/projects/istio-tutorial/istiofiles/destination-rule-recommendation-v1-v2-v3.yml -n tutorial; \
 istioctl create -f ~/projects/istio-tutorial/istiofiles/virtual-service-recommendation-v3.yml
@@ -18,7 +18,7 @@ Open the file `istiofiles/service-entry-egress-worldclockapi.yml`{{open}}.
 
 Note that this `ServiceEntry` allows you to access the host `now.httpbin.org` in the port `80`.
 
-Applye this file executing the following command:
+Apply this file executing the following command:
 
 `istioctl create -f ~/projects/istio-tutorial/istiofiles/service-entry-egress-worldclockapi.yml -n tutorial`{{execute T1}}
 
