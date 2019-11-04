@@ -23,7 +23,7 @@ As this is the first time you have logged in as this user in this OpenShift clus
 
 ![Web Console Welcome](../../assets/introduction/cluster-access-42/01-web-console-welcome.png)
 
-Create a new project by selecting _Create Project_. Call the project ``myproject``.
+Create a new project by selecting _Create Project_. Call the project ``myproject``{{copy}}.
 
 ![Create New Project](../../assets/introduction/cluster-access-42/01-create-new-project.png)
 

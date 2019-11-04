@@ -16,7 +16,7 @@ To grant this user access to your project, go to the list of projects in the web
 
 ![Edit Project Details](../../assets/introduction/cluster-access-42/03-edit-project-option.png)
 
-When the project details are display, select on the _Role Bindings_ tab.
+When the project details are displayed, select on the _Role Bindings_ tab.
 
 ![Project Role Bindings](../../assets/introduction/cluster-access-42/03-project-role-bindings.png)
 
@@ -30,7 +30,7 @@ For the name of the role binding use ``user1-edit``{{copy}}.
 
 Ensure that the ``myproject`` namespace is selected, and with the role name as ``edit``.
 
-Finally enter ``user``{{copy}} as the subject name.
+Finally enter ``user1``{{copy}} as the subject name.
 
 Click on _Create_.
 
