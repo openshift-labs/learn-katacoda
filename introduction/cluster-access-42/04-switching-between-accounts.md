@@ -2,9 +2,9 @@ When using the ``oc`` command line tool, you can only interact with one OpenShif
 
 If you do need to work against multiple OpenShift clusters, or even as different users on the same OpenShift cluster, you will need to remember to switch between them.
 
-In this course you originally logged in from the command line using ``oc login`` as the ``developer`` user. You then subsequently logged in as the ``collaborator`` user.
+In this course you originally logged in from the command line using ``oc login`` as the ``developer`` user. You then subsequently logged in as the ``user1`` user.
 
-At this point you are still logged in and have an active session token for both users, but are currently operating as the ``collaborator`` user.
+At this point you are still logged in and have an active session token for both users, but are currently operating as the ``user1`` user.
 
 To switch back to the ``developer`` user run:
 
