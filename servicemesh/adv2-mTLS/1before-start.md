@@ -11,7 +11,7 @@ Then configure some environment variables that will help you on testing:
 `export INGRESS_PORT=$(oc -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}'); \
 export GATEWAY_URL=http://customer-tutorial.[[HOST_SUBDOMAIN]]-$INGRESS_PORT-[[KATACODA_HOST]].environments.katacoda.com; `{{execute T1}}
 
-Now you can run curl but against GATEWAY_URL and you’ll see the same messages as before (customer => preference => recommendation v1 from 'b87789c58-mfrhr': 1):
+Now you can run curl but against GATEWAY_URL and you’ll see the same messages as before (`customer => preference => recommendation v1 from 'b87789c58-mfrhr': 1`):
 
 `curl ${GATEWAY_URL}`{{execute T1}}
 
