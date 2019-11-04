@@ -23,12 +23,12 @@ mvn io.quarkus:quarkus-maven-plugin:0.27.0:create \
     -DclassName="org.acme.quickstart.GreetingResource" \
     -Dpath="/hello"
 
-mvn -q -fn dependency:resolve-plugins dependency:resolve \
+mvn -q -f getting-started -fn dependency:resolve-plugins dependency:resolve \
     dependency:go-offline clean compile package -DskipTests
 
 # and once for the native image
 
-mvn -q -fn dependency:resolve-plugins dependency:resolve \
+mvn -q -f getting-started -fn dependency:resolve-plugins dependency:resolve \
     dependency:go-offline clean compile package  -DskipTests -Pnative
 
 popd
