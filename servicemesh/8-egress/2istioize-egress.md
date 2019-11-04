@@ -16,7 +16,7 @@ Let’s fix it by registering a service entry to allow access to httpbin.
 
 Open the file `istiofiles/service-entry-egress-worldclockapi.yml`{{open}}.
 
-Note that this `ServiceEntry` allows you to access the host `now.httpbin.org` in the port `80`.
+Note that this `ServiceEntry` allows you to access the host `worldclockapi.com` in the port `80`.
 
 Apply this file executing the following command:
 
