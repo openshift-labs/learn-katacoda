@@ -38,7 +38,7 @@ We use a profile because, you will see very soon, packaging the native image tak
 
 Create a native executable by clicking: `mvn clean package -Pnative -DskipTests=true`{{execute}}
 
-> Since we are on Linux in this environment, and the OS that will eventually run our application is also Linux, we can use our local OS to build the native Quarkus app. If you need to build native Linux binaries when on other OS's like Windows or Mac OS X, you'll need to have Docker installed and then use `mvn clean package -Pnative -Dnative-image.docker-build=true -DskipTests=true`.
+> Since we are on Linux in this environment, and the OS that will eventually run our application is also Linux, we can use our local OS to build the native Quarkus app. If you need to build native Linux binaries when on other OS's like Windows or Mac OS X, you can use `-Dquarkus.native.container-runtime=[podman | docker]`. You'll need either Docker or [Podman](https://podman.io) installed depending on which container runtime you want to use!
 
 This will take a minute or so to finish. Wait for it!
 
