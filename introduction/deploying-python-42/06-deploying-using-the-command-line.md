@@ -64,7 +64,7 @@ svc/blog-django-py - 172.30.54.158:8080
 3 infos identified, use 'oc status --suggest' to see details.
 ```
 
-Unlike the case of deploying the application from the web console, the application is not exposed outside of the OpenShift cluster by default. To expose the application created so it is available outside of the OpenShift cluster, you can run the command:
+Unlike the case of deploying the application from the web console, the application is not exposed outside of the OpenShift cluster by default. To expose the application so it is available outside of the OpenShift cluster, you can run the command:
 
 ``oc expose service/blog-django-py``{{execute}}
 
