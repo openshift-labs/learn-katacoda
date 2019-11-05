@@ -7,7 +7,7 @@ To do this from the command line using ``oc``, run the command:
 This should display:
 
 ```
-build "blog-django-py-2" started
+build.build.openshift.io/blog-django-py-2 started
 ```
 
 A new build could also have been triggered from the web console by finding the the build configuration for the application under the _Builds_ menu, selecting the kebab menu on the right side of the entry, and clicking on _Start Build_.
@@ -130,7 +130,7 @@ To return back to using the source code from the hosted Git repository, run:
 This should output:
 
 ```
-build "blog-django-py-4" started
+build.build.openshift.io/blog-django-py-4 started
 ```
 
 If for some reason a build was wrongly started, or you realised it would fail anyway, you can cancel the build by running ``oc cancel-build`` and supplying the name of the build.
@@ -140,7 +140,8 @@ If for some reason a build was wrongly started, or you realised it would fail an
 This should show the build has been cancelled.
 
 ```
-build "blog-django-py-4" cancelled
+build.build.openshift.io/blog-django-py-4 marked for cancellation, waiting to be cancelled
+build.build.openshift.io/blog-django-py-4 cancelled
 ```
 
 You can confirm this by also looking at the list of all builds run.
