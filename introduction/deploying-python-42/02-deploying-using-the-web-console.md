@@ -32,7 +32,7 @@ The Git icon shown to the lower right of the ring can be clicked on to take you 
 
 The icon shown to the lower left represents the build of the application. The icon will change from showing an hour glass, indicating the build is starting, to a sync icon indicating the build is in progress, and finally to a tick or cross depending on whether the build was successful or failed. Clicking on this icon will take you to the details of the current build.
 
-Once the application is running, the icon show to the upper right can be clicked to open the URL for the application route which was created.
+Once the application is running, the icon shown to the upper right can be clicked to open the URL for the application route which was created.
 
 The ring itself will progress from being white, indicating the deployment is pending, to light blue indicating the deployment is starting, and blue to indicate the application is running. The ring can also turn dark blue if the application is stopping.
 
