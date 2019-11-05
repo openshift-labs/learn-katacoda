@@ -1,41 +1,37 @@
-In the empty project, select the _Add to Project_ button in the centre of the page.
+From the options presented for deploying an application, select _From Catalog_. This will land you on the _Developer Catalog_.
 
-![Adding to Empty Project](../../assets/introduction/deploying-python-42/02-add-to-project-empty.png)
-
-You should be presented with the catalog browser.
-
-![Catalog Browser](../../assets/introduction/deploying-python-42/02-add-to-project-browser.png)
-
-If applications had previously been deployed to the project, or you were not on the project _Overview_ page, you can use the _Add to Project_ link in the menu bar.
-
-![Adding via Menu Bar](../../assets/introduction/deploying-python-42/02-add-to-project-menubar.png)
+![Developer Catalog](../../assets/introduction/deploying-python-42/02-developer-catalog.png)
 
 In this course you are going to deploy a web application which is implemented using the Python programming language.
 
-Select the _Python_ category from the catalog browser. Any options for deploying applications which are related to Python will be displayed.
+Click on _Languages_ on the left hand side and then select _Python_. Any options for deploying applications which are related to Python will be displayed.
 
 ![Available Python Versions](../../assets/introduction/deploying-python-42/02-deploy-python-versions.png)
 
-In the environment used for this course, the only option presented will be that for the Python Source-to-Image (S2I) builder.
+Click on the _Python_ tile for the generic Python Source-to-Image (S2I) builder. This will bring up a dialog with the details of the builder image. Click on _Create Application_ in the dialog.
 
-For this exercise leave the version as ``latest``, which in this environment maps to Python 3.5.
+![Create Python Application #1](../../assets/introduction/deploying-python-42/02-create-python-application-1.png)
 
-Click on _Select_ to bring up the deployment options for the Python S2I builder.
-
-![Python Deployment Options](../../assets/introduction/deploying-python-42/02-deploy-python-options.png)
-
-For the _Name_ to be given to resources, enter:
-
-`blog`{{copy}}
-
-For the _Git Repository URL_ enter:
+Under the _Git_ settings, in the _Git Repo URL_ enter:
 
 `https://github.com/openshift-katacoda/blog-django-py`{{copy}}
 
-When you are ready, at the bottom of the page click on _Create_. This will take you to a splash page confirming the application has been created.
+Scroll down to the _General_ settings.
 
-![Application Image Details](../../assets/introduction/deploying-python-42/02-continue-to-overview.png)
+![Create Python Application #2](../../assets/introduction/deploying-python-42/02-create-python-application-2.png)
 
-Click on _Continue to overview_ and you will be returned to the _Overview_ page, where you can view the details of the application created and monitor progress as it is built and deployed.
+The settings in this section have been pre-populated with values based on the Git repository name. Leave the settings with their default values.
 
-![Application Overview](../../assets/introduction/deploying-python-42/02-build-in-progress.png)
+When you are ready, at the bottom of the page click on _Create_. This will create resources to manage the build and deployment of the application. You will then be redirected to the topology overview for the project.
+
+![Application Topology View](../../assets/introduction/deploying-python-42/02-application-topology-view.png)
+
+The topology overview provides a visual representation of the application you have deployed.
+
+The Git icon shown to the lower right of the ring can be clicked on to take you to the hosted Git repository from which the source code for the application was built.
+
+The icon shown to the lower left represents the build of the application, it will progress from showing an hour glass, indicating the build is starting, to a sync icon indicating the build is in progress, and finally to a tick or cross depending on whether the build was successful or failed. Clicking on this icon will take you to the details of the current build.
+
+Once the application is running, the icon show to the upper right can be clicked to open the URL for the application route which was created.
+
+The ring itself will progress from being white, indicating the deployment is pending, to light blue indicating the deployment is starting, and blue to indicate the application is running. The ring can also turn dark blue if the application is stopping.
