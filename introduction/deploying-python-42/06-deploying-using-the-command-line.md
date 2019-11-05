@@ -6,7 +6,7 @@ The URL of the Git repository containing the web application is:
 
 We want to deploy it using the S2I builder for the latest version of Python provided by the platform. To do this run the command:
 
-``oc new-app python:latest~https://github.com/openshift-katacoda/blog-django-py --name blog``{{execute}}
+``oc new-app python:latest~https://github.com/openshift-katacoda/blog-django-py``{{execute}}
 
 This should display output similar to:
 
@@ -70,7 +70,7 @@ Unlike the case of deploying the application from the web console, the applicati
 
 Switch to the OpenShift web console by selecting on _Console_ to verify that the application has been deployed.
 
-You will note though that the visualisation on the topology view lacks icons for the build and source code repository. This is because they rely on special annotations added to the deploy when creating an application from the web console. These annotations are not added automatically when creating the application from the command line. You can add the annotations later if you wanted.
+You will note though that the visualisation on the topology view lacks icons for the build and source code repository. This is because they rely on special annotations and labels added to the deployment when creating an application from the web console. These annotations are not added automatically when creating the application from the command line. You can add the annotations later if you wanted.
 
 The icon for accessing the URL is still present on the visualisation. Alternatively, to view the hostname assigned to the route created from the command line, you can run the command:
 

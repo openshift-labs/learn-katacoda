@@ -1,4 +1,4 @@
-Once the build has started, click on the _View Logs_ link shown on the _Resources_ panel which was displayed when clicking anywhere within the ring of the visualisation for the application on the topology view.
+Once the build has started, click on the _View Logs_ link shown on the _Resources_ panel.
 
 ![Accessing Build Logs](../../assets/introduction/deploying-python-42/03-application-build-logs.png)
 
