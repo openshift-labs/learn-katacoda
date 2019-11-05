@@ -1,4 +1,4 @@
-The build may take a moment to start running if the environment needs to update the S2I builder being used due to a newer version being available.
+The build may take a moment to start running if the environment needs to update the S2I builder image being used due to a newer version being available.
 
 ![Build Progress Banner](../../assets/introduction/deploying-python-42/03-build-progress-banner.png)
 
