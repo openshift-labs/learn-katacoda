@@ -61,9 +61,9 @@ In this case when deploying the application via the OpenShift web console, OpenS
 
 This should display the same list of resources as when ``oc get all -o name`` was run. To double check that this is doing what is being described, run instead:
 
-``oc get all --selector app=web-site -o name``{{execute}}
+``oc get all --selector app=blog -o name``{{execute}}
 
-In this case, because there are no resources with the label ``app=web-site``, the result will be empty.
+In this case, because there are no resources with the label ``app=blog``, the result will be empty.
 
 Having a way of selecting just the resources for the one application, you can now schedule them for deletion by running the command:
 

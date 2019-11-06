@@ -10,7 +10,7 @@ This should display:
 build.build.openshift.io/blog-django-py-2 started
 ```
 
-A new build could also have been triggered from the web console by finding the the build configuration for the application under the _Builds_ menu, selecting the kebab menu on the right side of the entry, and clicking on _Start Build_.
+A new build could also have been triggered from the web console by finding the build configuration for the application under the _Builds_ menu, selecting the kebab menu on the right side of the entry, and clicking on _Start Build_.
 
 As before you can use ``oc logs`` to monitor the log output as the build runs. You can also monitor the progress of any builds in a project by running the command:
 
@@ -25,7 +25,7 @@ blog-django-py-2    Source    Git@fcdc38c   Running    3 seconds ago   3s
 blog-django-py-2    Source    Git@fcdc38c   Complete   About a minute ago   1m9s
 ```
 
-To exit the command when the build has completed, type _CTRL-C_ in the terminal window.
+To exit the command type _CTRL-C_ in the terminal window.
 
 To display information about the build configuration for the application you can run:
 
