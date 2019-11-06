@@ -2,7 +2,7 @@
 
 Let's create the basic Quarkus _Hello World_ application and include the necessary spring extensions. Click this command to create the project:
 
-`mvn io.quarkus:quarkus-maven-plugin:0.27.0:create \
+`mvn io.quarkus:quarkus-maven-plugin:1.0.0.CR1:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=fruit-taster \
     -DclassName="org.acme.quickstart.GreetingResource" \
