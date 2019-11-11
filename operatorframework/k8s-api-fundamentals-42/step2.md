@@ -14,7 +14,7 @@ Use the `oc proxy` command to proxy local requests on port 8001 to the Kubernete
 
 ```
 oc proxy --port=8001
-```{{execute}}
+```{{execute interrupt T1}}
 <br>
 Open up another terminal by clicking the **+** button and select `Open New Terminal`.
 <br>
@@ -23,7 +23,7 @@ Send a `GET` request to the Kubernetes API using `curl`:
 
 ```
 curl -X GET http://localhost:8001
-```{{execute}}
+```{{execute interrupt T2}}
 <br>
 We can explore the OpenAPI definition file to see complete API details.
 
