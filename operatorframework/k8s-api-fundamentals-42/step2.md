@@ -23,7 +23,7 @@ Send a `GET` request to the Kubernetes API using `curl`:
 
 ```
 curl -X GET http://localhost:8001
-```{{execute interrupt T2}}
+```{{execute T2}}
 <br>
 We can explore the OpenAPI definition file to see complete API details.
 
