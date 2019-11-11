@@ -14,7 +14,7 @@ Use the `oc proxy` command to proxy local requests on port 8001 to the Kubernete
 
 ```
 oc proxy --port=8001
-```{{execute interrupt T1}}
+```{{execute T1}}
 <br>
 Open up another terminal by clicking the **+** button and select `Open New Terminal`.
 <br>
