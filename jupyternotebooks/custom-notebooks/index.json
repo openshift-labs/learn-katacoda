@@ -1,0 +1,47 @@
+{
+    "icon": "fa-openshift",
+    "title": "Building Custom Notebook Images",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "10-15 minutes",
+    "backend": {
+        "imageid": "openshift-4-2"
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "terminal-iframe"
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Loading the Notebook Images",
+            "text": "01-loading-the-notebook-images.md"
+        }, {
+            "title": "Topic 2 - Loading the Notebook Templates",
+            "text": "02-loading-the-notebook-templates.md"
+        }, {
+            "title": "Topic 3 - Accessing the Web Console",
+            "text": "03-accessing-the-web-console.md"
+        }, {
+            "title": "Topic 4 - Building the Notebook Image",
+            "text": "04-building-the-notebook-image.md"
+        }, {
+            "title": "Topic 5 - Deploying the Notebook Image",
+            "text": "05-deploying-the-notebook-image.md"
+        }, {
+            "title": "Topic 6 - Deleting the Jupyter Notebook",
+            "text": "06-deleting-the-jupyter-notebook.md"
+        }, {
+            "title": "Topic 7 - Build and Deploy the Notebooks",
+            "text": "07-build-and-deploy-the-notebooks.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    }
+}
