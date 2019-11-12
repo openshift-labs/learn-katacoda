@@ -1,0 +1,26 @@
+{
+  "title": "Jupyter Notebooks and JupyterHub",
+  "icon": "fa-openshift",
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/jupyternotebooks/jupyter-notebooks/",
+      "course_id": "jupyter-notebooks",
+      "title": "Deploying a Jupyter Notebook Image"
+    },
+    {
+      "external_link": "https://learn.openshift.com/jupyternotebooks/custom-notebooks/",
+      "course_id": "custom-notebooks",
+      "title": "Building Custom Notebook Images"
+    },
+    {
+      "external_link": "https://learn.openshift.com/jupyternotebooks/jupyter-workspace/",
+      "course_id": "jupyter-workspace",
+      "title": "Persistent Workspace for Notebooks"
+    },
+    {
+      "external_link": "https://learn.openshift.com/jupyternotebooks/jupyterhub-service/",
+      "course_id": "jupyterhub-service",
+      "title": "Deploying JupyterHub as a Service"
+    }
+  ]
+}
