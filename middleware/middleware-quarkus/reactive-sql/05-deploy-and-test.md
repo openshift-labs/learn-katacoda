@@ -12,19 +12,7 @@ Confirm the JAR file is there with this command:
 
 `file target/*.jar`{{execute}}
 
-## Deploy application to OpenShift
-
-Now let's deploy the application itself. Create a new project for our app:
-
-`oc new-project reactive-sql --display-name="ReactiveSQL with Quarkus"`{{execute}}
-
-
-We will also need to recreate our database since its not in this new project we are deploying in
-
-``oc new-app postgresql-ephemeral --name database --param DATABASE_SERVICE_NAME=database --param POSTGRESQL_DATABASE=sampledb --param POSTGRESQL_USER=username --param POSTGRESQL_PASSWORD=password``{{execute}}
-
-
-Next, create a new _binary_ build definition within OpenShift using the Java container image:
+Lets move on to the Next step; create a new _binary_ build definition within OpenShift using the Java container image:
 
 `oc new-build registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift:1.5 --binary --name=reactive-sql -l app=reactive-sql`{{execute}}
 
@@ -61,7 +49,7 @@ Wait for that command to report `replication controller "reactive-sql-1" success
 
 So now our app is deployed to OpenShift. Finally, let's confirm that its working as expected.
 
-[Open up the web UI](http://reactive-sql.[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com). You should see the front web page load with the List of Coffee
+[Open up the web UI](http://reactive-sql-reactive-sql.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com). You should see the front web page load with the List of Coffee
 
 ![Reactive SQL app UI](/openshift/assets/middleware/quarkus/reactive-sql-ui.png)
 
