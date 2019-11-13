@@ -1,11 +1,7 @@
-In the previous step you created created a PostgreSQL databases for your app, and also added the extensions. In this section we will add methods to our CoffeeResource also we'll add this custom bean that will use the _ArC_ extension which provides a CDI-based dependency injection [solution](https://quarkus.io/guides/cdi-reference.html) tailored for the Quarkus architecture.
+In the previous step you created created a PostgreSQL databases for your app, and also added the extensions. In this section we will create our Reactive CoffeResource and its endpoints.
 
 
-## Add the Vertx Extension
- mvn quarkus:add-extension -Dextensions="io.quarkus:quarkus-vertx"
-
-Note that Quarkus will automatically update the running applicaiton once a new extension is added.
-
+## Add CoffeeResource endpoints
 
 Let’s modify the application and add relevant methods. The CoffeeResource has alredy been created we will add the functionality to it. 
 Open a new file by clicking: `src/main/java/org/acme/reactive/CoffeeResource.java`{{open}}.

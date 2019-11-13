@@ -23,7 +23,7 @@ Like other exercises, we’ll need another extension to start using the PosgtreS
 
 > The first time you add the extension, new dependencies may be downloaded via maven. This should only happen once, after that things will go even faster.
 
-This will add the necessary entries in your `pom.xml`{{open}} to bring in the Kafka extension. You'll see:
+This will add the necessary entries in your `pom.xml`{{open}} to bring in the Reactive PostgreSQL extension. You'll see:
 
 ```xml
 <dependency>

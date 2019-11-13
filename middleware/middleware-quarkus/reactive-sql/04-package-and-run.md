@@ -1,4 +1,4 @@
-In the previous step you added a custom CDI bean to the app. Now it's time to package and run it as a self-contained JAR file.
+In the previous step you added a custom bean to the app. Now it's time to package and run it as a self-contained JAR file.
 
 ### Stop the previous application
 
@@ -24,7 +24,7 @@ Now that we have a new database and a new project for our production system in p
 
 To do that, let use configuration profiles, Quarkus allows you to have multiple configuration profiles, so in our case we can have one for developers prefixed with %dev. and then one for our production. 
 
-Open the application properties and replace all the lines with the new application.properies config as stated below. 
+Open the application.properties `src/main/resources/application.properties` {{open}} and replace all the lines with the new application.properies config as stated below. 
 
 <pre>
 %dev.quarkus.datasource.url=vertx-reactive:postgresql://database.default.svc:5432/sampledb
