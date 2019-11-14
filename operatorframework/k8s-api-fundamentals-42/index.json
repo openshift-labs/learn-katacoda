@@ -32,7 +32,7 @@
       "text": "finish.md"
     },
     "assets": {
-      "client": [{"file": ".init.sh", "target": "~/", "chmod": "+x"},{"file": "op-sdk-setup.sh", "target": "~/", "chmod": "+x"}]
+      "client": [{"file": ".init.sh", "target": "/root", "chmod": "+x"},{"file": "op-sdk-setup.sh", "target": "/root", "chmod": "+x"}]
     }
   },
   "files": [],
