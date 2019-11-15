@@ -1,4 +1,4 @@
-Instead of deploying the existing Docker-formatted container image from the web console, you can use the command line. Before we do that, lets delete the application we have already deployed.
+Instead of deploying the existing container image from the web console, you can use the command line. Before we do that, lets delete the application we have already deployed.
 
 To do this from the web console you could visit each resource type created and delete them one at a time. The simpler way to delete an application is from the command line using the ``oc`` program.
 
@@ -9,12 +9,13 @@ To see a list of all the resources that have been created in the project so far,
 This will display output similar to:
 
 ```
-imagestreams/blog-django-py
-deploymentconfigs/blog-django-py
-replicationcontrollers/blog-django-py-1
-routes/blog-django-py
-services/blog-django-py
-pods/blog-django-py-1-9fshs
+pod/blog-django-py-1-cbp96
+pod/blog-django-py-1-deploy
+replicationcontroller/blog-django-py-1
+service/blog-django-py
+deploymentconfig.apps.openshift.io/blog-django-py
+imagestream.image.openshift.io/blog-django-py
+route.route.openshift.io/blog-django-py
 ```
 
 You have only created one application, so you would know that all the resources listed will relate to it. When you have multiple applications deployed, you need to identify those which are specific to the application you may want to delete. You can do this by applying a command to a subset of resources using a label selector.
@@ -28,11 +29,15 @@ This should display output similar to:
 ```
 Name:                   blog-django-py
 Namespace:              myproject
-Created:                17 minutes ago
+Created:                2 minutes ago
 Labels:                 app=blog-django-py
-Annotations:            openshift.io/host.generated=true
-Requested Host:         blog-django-py-myproject.2886795279-80-ollie02.environments.katacoda.com
-                          exposed on router router 17 minutes ago
+                        app.kubernetes.io/component=blog-django-py
+                        app.kubernetes.io/instance=blog-django-py
+                        app.kubernetes.io/part-of=blog-django-py-app
+Annotations:            openshift.io/generated-by=OpenShiftWebConsole
+                        openshift.io/host.generated=true
+Requested Host:         blog-django-py-myproject.2886795274-80-frugo03.environments.katacoda.com
+                          exposed on router default (host apps-crc.testing) 2 minutes ago
 Path:                   <none>
 TLS Termination:        <none>
 Insecure Policy:        <none>
@@ -40,10 +45,10 @@ Endpoint Port:          8080-tcp
 
 Service:        blog-django-py
 Weight:         100 (100%)
-Endpoints:      172.18.0.3:8080
+Endpoints:      10.128.0.205:8080
 ```
 
-In this case when deploying the existing Docker-formatted container image via the OpenShift web console, OpenShift has applied automatically to all resources the label ``app=blog-django-py``. You can confirm this by running the command:
+In this case when deploying the existing container image via the OpenShift web console, OpenShift has applied automatically to all resources the label ``app=blog-django-py``. You can confirm this by running the command:
 
 ``oc get all --selector app=blog-django-py -o name``{{execute}}
 

@@ -1,0 +1,58 @@
+{
+    "icon": "fa-openshift",
+    "title": "Using the CLI to Manage Resource Objects",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "10-15 minutes",
+    "backend": {
+        "trainingid": "openshift-3-6",
+        "imageid": "openshift",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Deploying an Application",
+            "text": "01-deploying-an-application.md"
+        }, {
+            "title": "Topic 2 - Resource Object Types",
+            "text": "02-resource-object-types.md"
+        }, {
+            "title": "Topic 3 - Querying Resource Objects",
+            "text": "03-querying-resource-objects.md"
+        }, {
+            "title": "Topic 4 - Editing Resource Objects",
+            "text": "04-editing-resource-objects.md"
+        }, {
+            "title": "Topic 5 - Creating Resource Objects",
+            "text": "05-creating-resource-objects.md"
+        }, {
+            "title": "Topic 6 - Exporting Resource Objects",
+            "text": "06-exporting-resource-objects.md"
+        }, {
+            "title": "Topic 7 - Replacing Resource Objects",
+            "text": "07-replacing-resource-objects.md"
+        }, {
+            "title": "Topic 8 - Labelling Resource Objects",
+            "text": "08-labelling-resource-objects.md"
+        }, {
+            "title": "Topic 9 - Deleting Resource Objects",
+            "text": "09-deleting-resource-objects.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    }
+}

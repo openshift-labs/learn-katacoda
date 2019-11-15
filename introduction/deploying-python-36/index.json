@@ -1,0 +1,52 @@
+{
+    "icon": "fa-openshift",
+    "title": "Deploying Applications From Source",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "15-20 minutes",
+    "backend": {
+        "trainingid": "openshift-3-6",
+        "imageid": "openshift",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Creating an Initial Project",
+            "text": "01-creating-an-initial-project.md"
+        }, {
+            "title": "Topic 2 - Deploying Using the Web Console",
+            "text": "02-deploying-using-the-web-console.md"
+        }, {
+            "title": "Topic 3 - Viewing the Builder Logs",
+            "text": "03-viewing-the-builder-logs.md"
+        }, {
+            "title": "Topic 4 - Accessing the Application",
+            "text": "04-accessing-the-application.md"
+        }, {
+            "title": "Topic 5 - Deleting the Application",
+            "text": "05-deleting-the-application.md"
+        }, {
+            "title": "Topic 6 - Deploying Using the Command Line",
+            "text": "06-deploying-using-the-command-line.md"
+        }, {
+            "title": "Topic 7 - Triggering a New Build",
+            "text": "07-triggering-a-new-build.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    }
+}

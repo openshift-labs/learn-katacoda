@@ -1,0 +1,43 @@
+{
+    "icon": "fa-openshift",
+    "title": "Logging in to an OpenShift Cluster",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "5-10 minutes",
+    "backend": {
+        "trainingid": "openshift-3-6",
+        "imageid": "openshift",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Logging in Via the Web Console",
+            "text": "01-logging-in-via-the-web-console.md"
+        }, {
+            "title": "Topic 2 - Logging in Via the Command Line",
+            "text": "02-logging-in-via-the-command-line.md"
+        }, {
+            "title": "Topic 3 - Collaborating with Other Users",
+            "text": "03-collaborating-with-other-users.md"
+        }, {
+            "title": "Topic 4 - Switching Between Accounts",
+            "text": "04-switching-between-accounts.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    }
+}

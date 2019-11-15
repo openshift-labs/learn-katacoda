@@ -1,0 +1,50 @@
+{
+    "icon": "fa-openshift",
+    "title": "Transferring Files in and out of Containers",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "intermediate",
+    "time": "15-20 minutes",
+    "backend": {
+        "trainingid": "openshift-3-6",
+        "imageid": "openshift",
+        "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Creating an Initial Project",
+            "text": "01-creating-an-initial-project.md"
+        }, {
+            "title": "Topic 2 - Downloading Files from a Container",
+            "text": "02-downloading-files-from-a-container.md"
+        }, {
+            "title": "Topic 3 - Uploading Files to a Container",
+            "text": "03-uploading-files-to-a-container.md"
+        }, {
+            "title": "Topic 4 - Synchronizing Files with a Container",
+            "text": "04-synchronizing-files-with-a-container.md"
+        }, {
+            "title": "Topic 5 - Copying Files to a Persistent Volume",
+            "text": "05-copying-files-to-a-persistent-volume.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "robots.txt", "target": "~/"},
+                     {"file": "volumes.json", "target": "~/"}]
+        }
+    }
+}

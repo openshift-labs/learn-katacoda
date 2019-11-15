@@ -10,7 +10,7 @@ Next create a new project to add the application to, by running:
 
 This should automatically switch you to the new project, so you are ready to deploy the application.
 
-The application you are going to deploy is the our ParksMap web application used in _Getting Started with OpenShift for Developers_ Katacoda course.
+The application you are going to deploy is the ParksMap web application used in the _Getting Started with OpenShift for Developers_ Katacoda course.
 
 ``oc new-app openshiftroadshow/parksmap-katacoda:1.0.0 --name parksmap``{{execute}}
 

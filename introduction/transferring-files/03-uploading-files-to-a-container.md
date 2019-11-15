@@ -15,9 +15,12 @@ A request to fetch the current ``robots.txt`` file for the web site fails with a
 
 ``curl --head http://blog-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/robots.txt``{{execute}}
 
-The local machine already contains a ``robots.txt`` file to be uploaded to the container.
+Create a ``robots.txt`` file to upload.
 
-``cat robots.txt``{{execute}}
+``cat > robots.txt << !
+User-agent: *
+Disallow: /
+!``{{execute}}
 
 For the web application being used, it hosts static files out of the ``htdocs`` sub directory of the application source code. To upload the ``robots.txt`` file run:
 

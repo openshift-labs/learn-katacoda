@@ -26,16 +26,17 @@ You can see that you are in the container running the database by running:
 This will display output similar to:
 
 ```
-  PID TTY      STAT   TIME COMMAND
-    1 ?        Ss     0:00 postgres
-   71 ?        Ss     0:00 postgres: logger process
-   73 ?        Ss     0:00 postgres: checkpointer process
-   74 ?        Ss     0:00 postgres: writer process
-   75 ?        Ss     0:00 postgres: wal writer process
-   76 ?        Ss     0:00 postgres: autovacuum launcher process
-   77 ?        Ss     0:00 postgres: stats collector process
-  940 ?        Ss     0:00 /bin/sh
-  957 ?        R+     0:00 ps x
+PID TTY      STAT   TIME COMMAND
+  1 ?        Ss     0:00 postgres
+ 60 ?        Ss     0:00 postgres: logger process
+ 62 ?        Ss     0:00 postgres: checkpointer process
+ 63 ?        Ss     0:00 postgres: writer process
+ 64 ?        Ss     0:00 postgres: wal writer process
+ 65 ?        Ss     0:00 postgres: autovacuum launcher process
+ 66 ?        Ss     0:00 postgres: stats collector process
+ 67 ?        Ss     0:00 postgres: bgworker: logical replication launcher
+193 pts/0    Ss     0:00 /bin/sh
+257 pts/0    R+     0:00 ps x
 ```
 
 Because you are in the same container, you could at this point run the database client for the database if provided in the container. For PostgreSQL, you would use the ``psql`` command.

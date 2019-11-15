@@ -1,11 +1,13 @@
-Once the build of the application image has completed, it will be deployed, the _Overview_ page showing the details. Click on the arrow to the left of the deployment summary to expose all the details available for the application on the overview page.
+Once the build of the application image has completed, it will be deployed.
 
-![Build has Completed](../../assets/introduction/deploying-python/04-build-has-completed.png)
+Click on _Topology_ in the left hand menu bar to return to the topology view for the project.
 
-When you deploy an application from application source code using the web console, a _Route_ will be automatically created for the application and it will be exposed outside of the cluster. The URL which can be used to access the application from a web browser will be displayed in the _Overview_ page.
+![Topology View](../../assets/introduction/deploying-python-42/04-application-topology-view.png)
 
-![Application Route](../../assets/introduction/deploying-python/04-application-route.png)
+When you created the application using the web console, a _Route_ was automatically created for the application and it will be exposed outside of the cluster. The URL which can be used to access the application from a web browser was visible on the _Resources_ tab for the application you viewed previously.
 
-With the build and deployment completed, click on the URL and you can view the web application.
+From the topology view, you can quickly get to the URL for the deployed application by clicking on the icon top right of the ring in the visualisation for the application.
 
-![Blog Web Site](../../assets/introduction/deploying-python/04-blog-web-site.png)
+Wait for the ring to turn from light blue to blue to indicate the deployment is complete. Now click on the icon and you should see the blog application you deployed.
+
+![Blog Web Site](../../assets/introduction/deploying-python-42/04-blog-web-site.png)

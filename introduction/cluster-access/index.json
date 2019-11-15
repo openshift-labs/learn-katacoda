@@ -6,16 +6,12 @@
     "difficulty": "beginner",
     "time": "5-10 minutes",
     "backend": {
-        "trainingid": "openshift-3-6",
-        "imageid": "openshift",
-        "port": 8443
+        "imageid": "openshift-4-2"
     },
     "environment": {
         "showdashboard": true,
-        "dashboard": "Dashboard",
-        "uilayout": "terminal-iframe",
-        "hideintro": false,
-        "hidefinish": false
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "terminal-iframe"
     },
     "details": {
         "steps": [{
@@ -32,8 +28,6 @@
             "text": "04-switching-between-accounts.md"
         }],
         "intro": {
-            "courseData": "env-init.sh",
-            "code": "set-env.sh",
             "text": "intro.md"
         },
         "finish": {

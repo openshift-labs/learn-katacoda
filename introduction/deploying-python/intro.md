@@ -1,6 +1,6 @@
 When using OpenShift there are a number of different ways you can add an application. The main methods are:
 
-* Deploy an application from an existing Docker-formatted image.
+* Deploy an application from an existing container image.
 * Build and deploy from source code contained in a Git repository using a Source-to-Image builder.
 * Build and deploy from source code contained in a Git repository from a Dockerfile.
 

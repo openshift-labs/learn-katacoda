@@ -6,16 +6,12 @@
     "difficulty": "intermediate",
     "time": "15-20 minutes",
     "backend": {
-        "trainingid": "openshift-3-6",
-        "imageid": "openshift",
-        "port": 8443
+        "imageid": "openshift-4-2"
     },
     "environment": {
         "showdashboard": true,
-        "dashboard": "Dashboard",
-        "uilayout": "terminal-iframe",
-        "hideintro": false,
-        "hidefinish": false
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "terminal-iframe"
     },
     "details": {
         "steps": [{
@@ -35,16 +31,10 @@
             "text": "05-copying-files-to-a-persistent-volume.md"
         }],
         "intro": {
-            "courseData": "env-init.sh",
-            "code": "set-env.sh",
             "text": "intro.md"
         },
         "finish": {
             "text": "finish.md"
-        },
-        "assets": {
-          "host01": [{"file": "robots.txt", "target": "~/"},
-                     {"file": "volumes.json", "target": "~/"}]
         }
     }
 }
