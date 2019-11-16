@@ -12,7 +12,7 @@ Open `/recommendation/java/vertx/src/main/java/com/redhat/developer/demos/recomm
 
 Now go to the recommendations folder `cd ~/projects/istio-tutorial/recommendation/java/vertx`{{execute T1}}
 
-Make sure that the file has changed: `git diff`{{execute T1}}. To exit, hit `q`{{execute T1}}
+Make sure that the file has changed: `git diff`{{execute T1}}.
 
 Compile the project with the modifications that you did.
 
