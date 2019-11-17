@@ -1,0 +1,35 @@
+{
+    "icon": "fa-openshift",
+    "title": "Multi-user Workspace Using JupyterHub",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "intermediate",
+    "time": "15-20 minutes",
+    "backend": {
+        "imageid": "openshift-4-2"
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "terminal-iframe"
+    },
+    "details": {
+        "steps": [{
+            "title": "Topic 1 - Loading the Required Images",
+            "text": "01-loading-the-required-images.md"
+        }, {
+            "title": "Topic 2 - Loading the Required Templates",
+            "text": "02-loading-the-required-templates.md"
+        }, {
+            "title": "Topic 3 - Accessing the Web Console",
+            "text": "03-accessing-the-web-console.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    }
+}

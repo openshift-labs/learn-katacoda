@@ -21,6 +21,11 @@
       "external_link": "https://learn.openshift.com/jupyternotebooks/jupyterhub-service/",
       "course_id": "jupyterhub-service",
       "title": "Deploying JupyterHub as a Service"
+    },
+    {
+      "external_link": "https://learn.openshift.com/jupyternotebooks/jupyterhub-workspace/",
+      "course_id": "jupyterhub-workspace",
+      "title": "Multi-user Workspace Using JupyterHub"
     }
   ]
 }
