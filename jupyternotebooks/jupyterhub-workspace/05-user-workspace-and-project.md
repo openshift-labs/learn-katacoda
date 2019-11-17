@@ -28,16 +28,18 @@ In this example deployment, because the ``OPENSHIFT_PROJECT`` template parameter
 
 This relied on the user having the ability to create new projects. What workloads they can deploy to the project will be dictated by whatever global resource quotas and limits would be applied to the project for the user.
 
-If a user cannot normally create projects, you can instead pre-create required projects as a cluster admin, setting per project resources quotas, limit ranges, and granting access to the project by the user, or a group of users, as necessary. In this case, the project will not need to be created, but will be made the active project for the user.
+If a user cannot normally create projects, you can instead pre-create required projects as a cluster admin, setting a per project resource quota, limit ranges, and granting access to the project by the user, or a group of users, as necessary. In this case, as the project will not need to be created, it will just be made the active project for the user.
 
 A user can deploy workloads to the project using the cluster REST API using code running in their notebooks. The Jupyter notebook image also supplies the ``oc`` and ``kustomize`` command line tools, which can be used from a terminal created from the Jupyter notebook interface.
 
-To test access to the cluster, from the Jupyter notebook web interface, create a terminal instance. At the login prompt, run:
+To test access to the cluster, from the Jupyter notebook web interface, create a terminal instance. At the login prompt of the terminal running in the Jupyter notebook, run:
 
-``oc projects``{{execute}}
+``oc projects``{{copy}}
 
 You will see what projects you can access.
 
-Where the JupyterHub environment was created and a custom Jupyter notebook image was used containing a set of Jupyter notebook files, it could also include an OpenShift template, or set of resources for ``kustomize`` which can then be used to deploy any workloads required for the Jupyter notebook. For example, you might deploy a Dask or Spark cluster within the project.
+![Terminal Session](../../assets/jupyternotebooks/jupyterhub-workspace-42/05-jupyter-notebook-terminal-session.png)
+
+Where the JupyterHub environment was created and a custom Jupyter notebook image was used containing a set of Jupyter notebook files, it could also include an OpenShift template, or set of resources for ``kustomize`` which can then be used to deploy any workloads required for the Jupyter notebook. For example, you might deploy a Dask or Spark cluster within the project right from the Jupyter notebook terminal interface.
 
 If you need to know the name of any associated project, you can work out the name from the ``PROJECT_NAMESPACE`` environment variable. This will be available in both the Jupyter notebook and terminal.

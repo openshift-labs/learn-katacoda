@@ -46,7 +46,7 @@ https://jupyterhub-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environment
 
 Because a secure HTTP connection is used, but an environment may in some cases use a self signed SSL certificate, you will need to accept the certificate to proceed.
 
-In this deployment of JupyterHub, user authentication is handled by the OpenShift cluster. When you are presented with the OpenShift login page, enter a username of ``user1``, and a password of ``user1``.
+In this deployment of JupyterHub, user authentication is handled by the OpenShift cluster. When you are presented with the OpenShift login page, enter a username of ``user1``{{copy}}, and a password of ``user1``{{copy}}.
 
 What you will see is a progress screen as a separate Jupyter notebook instance is started up for the user ``user1``. Once the instance has started, you will have access to the JupyterLab web interface.
 

@@ -9,4 +9,4 @@ For the credentials, enter:
 * **Username:** ``admin``{{copy}}
 * **Password:** ``admin``{{copy}}
 
-Once you have logged in, you should be shown the list of projects you have access to. You can then interact with the cluster and examine what happens as we work through the workshop.
+Once you have logged in, you can then interact with the cluster and examine what happens as we work through the workshop.
