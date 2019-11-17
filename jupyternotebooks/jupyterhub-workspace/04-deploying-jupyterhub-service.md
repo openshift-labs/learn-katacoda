@@ -30,9 +30,9 @@ All the other fields can be left as their defaults, but we will enable a few ext
 
 To create the JupyterHub instance run:
 
-``oc process jupyterhub-workspace --param SPAWNER_NAMESPACE=`oc project --short` --param CLUSTER_SUBDOMAIN="[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com" --param NOTEBOOK_INTERFACE=lab --param OPENSHIFT_PROJECT='{{username}}-workspace' --param VOLUME_SIZE=1Gi --param IDLE_TIMEOUT=3600 | oc apply -f - --as system:admin``{{execute}}
+``oc process jupyterhub-workspace --param SPAWNER_NAMESPACE=`oc project --short` --param CLUSTER_SUBDOMAIN="[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com" --param NOTEBOOK_INTERFACE=lab --param OPENSHIFT_PROJECT='{{username}}-workspace' --param VOLUME_SIZE=1Gi --param IDLE_TIMEOUT=3600 | oc apply -f - --as system:admin``{{execute}}
 
-Note that we have used the option ``--as system:admin`` to create the deployment as a cluster admin. This option is making use of the fact that the current user account being used has ``sudoer`` access and can run commands in this as a cluster admin so long as using that option.
+Note that we have used the option ``--as system:admin`` to create the deployment as a cluster admin. This option is making use of the fact that the current user account being used has ``sudoer`` access and can run commands as a cluster admin so long as using that option.
 
 To monitor the deployment, run:
 
