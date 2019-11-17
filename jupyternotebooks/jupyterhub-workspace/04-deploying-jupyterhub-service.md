@@ -30,9 +30,11 @@ All the other fields can be left as their defaults, but we will enable a few ext
 
 To create the JupyterHub instance run:
 
-``oc process jupyterhub-workspace --param SPAWNER_NAMESPACE=`oc project --short` --param CLUSTER_SUBDOMAIN="[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com" --param NOTEBOOK_INTERFACE=lab --param OPENSHIFT_PROJECT='{username}-workspace' --param VOLUME_SIZE=1Gi --param IDLE_TIMEOUT=3600 | oc apply -f - --as system:admin``{{execute}}
+``oc process jupyterhub-workspace --param SPAWNER_NAMESPACE=`oc project --short` --param CLUSTER_SUBDOMAIN="[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com" --param NOTEBOOK_INTERFACE=lab --param OPENSHIFT_PROJECT='{username}-workspace' --param VOLUME_SIZE=1Gi --param IDLE_TIMEOUT=3600 | oc apply -f -``{{execute}}
 
-Note that we have used the option ``--as system:admin`` to create the deployment as a cluster admin. This option is making use of the fact that the current user account being used has ``sudoer`` access and can run commands as a cluster admin so long as using that option.
+Note that to deploy JupyterHub using the ``jupyterhub-workspace`` template, you must be a cluster admin. In this workshop you are already logged in on the command line as a cluster admin.
+
+This is necessary as a resource of type ``oauthclient`` needs to be created, and only a cluster admin would usually have the require role to create it.
 
 To monitor the deployment, run:
 
@@ -44,14 +46,14 @@ https://jupyterhub-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environment
 
 Because a secure HTTP connection is used, but an environment may in some cases use a self signed SSL certificate, you will need to accept the certificate to proceed.
 
-In this deployment of JupyterHub, user authentication is handled by the OpenShift cluster. Use the username ``user1`` and password of ``user1`` when logging in to JupyterHub.
+In this deployment of JupyterHub, user authentication is handled by the OpenShift cluster. When you are presented with the OpenShift login page, enter a username of ``user1``, and a password of ``user1``.
 
-What you will see is a progress screen as a separate Jupyter notebook instance is started up for the user ``user1``. Once the instance has started, you will have access to the Jupyter notebook file browser.
+What you will see is a progress screen as a separate Jupyter notebook instance is started up for the user ``user1``. Once the instance has started, you will have access to the JupyterLab web interface.
 
-![Classic Notebook](../../assets/jupyternotebooks/jupyter-workspace-42/04-classic-notebook-interface.png)
+![JupyterLab Notebook](../../assets/jupyternotebooks/jupyterhub-workspace-42/04-lab-notebook-interface.png)
 
 At this point you can create new notebooks or upload existing notebooks. If you need to install additional Python packages, when using this type of deployment you would need to start a terminal from the Jupyter notebook web interface and install the packages manually.
 
 In this configuration, because we specified ``VOLUME_SIZE`` any changes you make are persistent. If the notebook instance were restarted, you would not loose any work.
 
-Because JupyterHub is used to handle spawning of JupyterHub notebook instances on demand, a separate user visiting the same URL, will be given access to their own notebook session.
+Because JupyterHub is used to handle spawning of JupyterHub notebook instances on demand, a separate user visiting the same URL, will be given access to their own notebook session, with their own persistent storage.
