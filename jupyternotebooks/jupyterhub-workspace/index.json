@@ -26,6 +26,12 @@
         }, {
             "title": "Topic 4 - Deploying JupyterHub Service",
             "text": "04-deploying-jupyterhub-service.md"
+        }, {
+            "title": "Topic 5 - User Workspace and Project",
+            "text": "05-user-workspace-and-project.md"
+        }, {
+            "title": "Topic 6 - Deleting the JupyterHub Service",
+            "text": "06-deleting-the-jupyterhub-service.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
