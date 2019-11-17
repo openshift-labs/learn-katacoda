@@ -19,7 +19,7 @@ The purpose of the template parameters are:
 * ``DATABASE_MEMORY`` - The maximum amount of memory the JupyterHub database application is allowed to use.
 * ``NOTEBOOK_MEMORY`` - The maximum amount of memory each Jupyter noteboook deployment is allowed to use.
 * ``NOTEBOOK_INTERFACE`` - The style of web interface to be displayed for the Jupyter notebooks.
-* ``OPENSHIFT_PROJECT`` - A name template for an optional OpenShift project which should be automatically created and/or made the default project for a user. For example ``{{username}}-workspace``.
+* ``OPENSHIFT_PROJECT`` - A name template for an optional OpenShift project which should be automatically created and/or made the default project for a user. For example ``{username}-workspace``.
 * ``VOLUME_SIZE`` - The size of an optional persistent volume into which a users workspace is stored.
 * ``IDLE_TIMEOUT`` - Optional time in seconds after which idle Jupyter notebook sessions should be shutdown.
 * ``OAUTH_CLIENT_SECRET`` - Secret used in communicating with the OpenShift OAuth client endpoint.
@@ -30,7 +30,7 @@ All the other fields can be left as their defaults, but we will enable a few ext
 
 To create the JupyterHub instance run:
 
-``oc process jupyterhub-workspace --param SPAWNER_NAMESPACE=`oc project --short` --param CLUSTER_SUBDOMAIN="[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com" --param NOTEBOOK_INTERFACE=lab --param OPENSHIFT_PROJECT='{{username}}-workspace' --param VOLUME_SIZE=1Gi --param IDLE_TIMEOUT=3600 | oc apply -f - --as system:admin``{{execute}}
+``oc process jupyterhub-workspace --param SPAWNER_NAMESPACE=`oc project --short` --param CLUSTER_SUBDOMAIN="[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com" --param NOTEBOOK_INTERFACE=lab --param OPENSHIFT_PROJECT='{username}-workspace' --param VOLUME_SIZE=1Gi --param IDLE_TIMEOUT=3600 | oc apply -f - --as system:admin``{{execute}}
 
 Note that we have used the option ``--as system:admin`` to create the deployment as a cluster admin. This option is making use of the fact that the current user account being used has ``sudoer`` access and can run commands as a cluster admin so long as using that option.
 
