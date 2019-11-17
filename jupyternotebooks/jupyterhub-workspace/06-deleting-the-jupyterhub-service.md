@@ -16,10 +16,10 @@ You will also need to delete the global ``oauthclient`` resource. Do this as a s
 
 To list the ``oauthclient`` resources run:
 
-``oc get oauthclient --selector app=jupyterhub``{{exec}}
+``oc get oauthclient --selector app=jupyterhub``{{execute}}
 
 Delete by name the one entry corresponding to the JupyterHub deployment in this project. In this case the project name was ``myproject``, so you would run:
 
-``oc delete oauthclient/jupyterhub-myproject-users``{{exec}}
+``oc delete oauthclient/jupyterhub-myproject-users``{{execute}}
 
 Note that this will not delete any projects which have been created for or by users. If users had not deleted the projects themselves, you as a cluster admin will need to identify them and delete them.
