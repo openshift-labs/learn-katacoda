@@ -17,9 +17,3 @@ The purpose of the OpenShift templates which have been loaded are:
 * `jupyterhub-workspace` - Template for deploying a JupyterHub service, with optional persistent storage for Jupyter notebooks and with access gated using OpenShift cluster authentication. Instances will also have access to the cluster to deploy additional workloads required by the notebooks.
 
 In this workshop you will be using the `jupyterhub-workspace` template.
-
-To see details about the `jupyterhub-workspace` template and what parameters can be provided when using the template, run the command:
-
-``oc describe template jupyterhub-workspace``{{execute}}
-
-Check out the other workshops available here for more information on the other templates.

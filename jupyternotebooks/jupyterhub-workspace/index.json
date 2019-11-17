@@ -23,6 +23,9 @@
         }, {
             "title": "Topic 3 - Accessing the Web Console",
             "text": "03-accessing-the-web-console.md"
+        }, {
+            "title": "Topic 4 - Deploying JupyterHub Service",
+            "text": "04-deploying-jupyterhub-service.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
