@@ -30,17 +30,17 @@ All the other fields can be left as their defaults, but we will enable a few ext
 
 To create the JupyterHub instance run:
 
-``oc process jupyterhub-workspace --param SPAWNER_NAMESPACE=`oc project --short` --param CLUSTER_SUBDOMAIN="[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com" --param OPENSHIFT_PROJECT='{{username}}-workspace' --param VOLUME_SIZE=1Gi --param IDLE_TIMEOUT=3600 | oc apply -f - --as system:admin``{{exec}}
+``oc process jupyterhub-workspace --param SPAWNER_NAMESPACE=`oc project --short` --param CLUSTER_SUBDOMAIN="[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com" --param NOTEBOOK_INTERFACE=lab --param OPENSHIFT_PROJECT='{{username}}-workspace' --param VOLUME_SIZE=1Gi --param IDLE_TIMEOUT=3600 | oc apply -f - --as system:admin``{{execute}}
 
-Note that we have used the option ``--as system:admin`` to create the deployment as a cluster admin. This option is making use of the fact that the current user account being used has ``sudoer`` access and run commands in this was as a cluster admin.
+Note that we have used the option ``--as system:admin`` to create the deployment as a cluster admin. This option is making use of the fact that the current user account being used has ``sudoer`` access and can run commands in this as a cluster admin so long as using that option.
 
 To monitor the deployment, run:
 
-``oc rollout status dc/jupyterhub``{{exec}}
+``oc rollout status dc/jupyterhub``{{execute}}
 
-When the deployment has created, click on the URL:
+When the deployment has completed, click on the URL:
 
-https://jupyterhub-myproject.[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com
+https://jupyterhub-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
 
 Because a secure HTTP connection is used, but an environment may in some cases use a self signed SSL certificate, you will need to accept the certificate to proceed.
 
