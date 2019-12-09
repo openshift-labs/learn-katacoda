@@ -45,7 +45,7 @@
             "text": "finish.md"
         },
         "assets": {
-          "client": [{"file": "configure-scenario.sh", "target": "/var/tmp/"},{"file": "clean-lab3", "target": "/usr/local/bin/"}]
+          "client": [{"file": "configure-scenario.sh", "target": "/var/tmp/"}, {"file": "clean-lab3", "target": "/usr/local/bin/"}]
         }
     }
 }
