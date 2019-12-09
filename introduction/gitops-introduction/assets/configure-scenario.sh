@@ -106,6 +106,11 @@ function initialize_git {
   oc -n $GOGS_NS exec $GOGS_POD init-gogs "student" "student" "student@katacoda.com"
 }
 
+function initialize_git_local_user {
+  git config --global user.email "student@katacoda.com"
+  git config --global user.name "Student"
+}
+
 function initialize_git_repository {
   GOGS_ROUTE="$1"
   GOGS_TOKEN_OUTPUT=$(curl -s -X POST -H 'Content-Type: application/json' --data '{"name":"api"}' "http://student:student@$GOGS_ROUTE/api/v1/users/student/tokens")
@@ -160,16 +165,13 @@ echo "Configuring required tools for ArgoCD..."
 curl -LOs https://github.com/argoproj/argo-cd/releases/download/${ARGOCD_VERSION}/argocd-linux-amd64 &> /dev/null
 mv argocd-linux-amd64 /usr/local/bin/argocd &> /dev/null
 chmod +x /usr/local/bin/argocd &> /dev/null
+curl -LOs https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 &> /dev/null
+mv jq-linux64 /usr/local/bin/jq &> /dev/null
+chmod +x /usr/local/bin/jq &> /dev/null
 echo "Configuring required contexts and users..."
 HOST_IP=$(/sbin/ip -o -4 addr list eth0 | awk '{print $4}' | awk -F "/" '{print $1}')
 oc adm policy add-cluster-role-to-user cluster-admin admin &> /dev/null
-oc login https://$HOST_IP:8443/ --insecure-skip-tls-verify=true -u admin -p admin &> /dev/null
 oc config rename-context $(oc config current-context) cluster &> /dev/null
-echo "Configuring PVs..."
-mkdir -p /data/pv-0{1..4} &> /dev/null
-chmod 0777 /data/pv-* &> /dev/null
-chcon -t svirt_sandbox_file_t /data/pv-* &> /dev/null
-oc create -f volumes.json &> /dev/null
 echo "Deploying ArgoCD..."
 git clone https://github.com/openshift/federation-dev.git federation-dev/ &> /dev/null
 cd federation-dev/ &> /dev/null
@@ -195,22 +197,26 @@ WC_DOMAIN=$(oc -n $ARGOCD_NS get route argocd-server -o jsonpath='{.spec.host}' 
 # Generate Route file for Lab4
 create_lab4_route_yaml $WC_DOMAIN &> /dev/null
 oc create namespace $GOGS_NS &> /dev/null
-oc process -f federation-dev/gitops-introduction/gogs/gogs-persistent-template.yaml -p HOSTNAME="gogs.${WC_DOMAIN}" | oc -n $GOGS_NS apply -f - &> /dev/null
+oc -n $GOGS_NS apply -f https://raw.githubusercontent.com/openshift/federation-dev/1873a8510dbc82f47367bebaf348996716ee6da4/automated-demo-gitops/yaml-resources/gogs/postgres.yaml &> /dev/null
+wait_for_deployment $GOGS_NS postgres 0 &> /dev/null
 sleep 5
-wait_for_deployment $GOGS_NS gogs-postgresql 1 &> /dev/null
-wait_for_deployment $GOGS_NS gogs 1 &> /dev/null
+curl -sL https://raw.githubusercontent.com/openshift/federation-dev/1873a8510dbc82f47367bebaf348996716ee6da4/automated-demo-gitops/yaml-resources/gogs/gogs.yaml | sed "s/changeMe/gogs.${WC_DOMAIN}"/g | oc -n $GOGS_NS apply -f - &> /dev/null
+wait_for_deployment $GOGS_NS gogs 0 &> /dev/null
 sleep 5
 # Get Gogs Pod name
-GOGS_POD=$(oc -n $GOGS_NS get pod -l app=gogs -o jsonpath='{.items[*].metadata.name}')
+GOGS_POD=$(oc -n $GOGS_NS get pod -l name=gogs -o jsonpath='{.items[*].metadata.name}')
 GOGS_ROUTE=$(oc -n $GOGS_NS get route gogs -o jsonpath='{.spec.host}')
 echo "Initialize Git Server"
 wait_for_gogs_api "${GOGS_ROUTE}"
 initialize_git "${GOGS_NS}" "${GOGS_POD}" &> /dev/null
+echo "initialize Git local user"
+initialize_git_local_user &> /dev/null
 echo "Initialize Git Repository"
 initialize_git_repository "${GOGS_ROUTE}" &> /dev/null
 echo "Initialize ArgoCD"
 wait_for_argocd_api "${ARGOCD_ROUTE}"
 initialize_argocd "${ARGOCD_ROUTE}" "${ARGOCD_SERVER_PASSWORD}" &> /dev/null
+chmod +x /usr/local/bin/clean-lab3 &> /dev/null
 echo "Lab tools and OpenShift Ready"
 export PS1="$ "
 stty echo
