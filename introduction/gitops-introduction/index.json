@@ -6,14 +6,12 @@
     "difficulty": "beginner",
     "time": "10-20 minutes",
     "backend": {
-        "trainingid": "openshift-3-11",
-        "imageid": "openshift-3-11",
-        "port": 8443
+        "imageid": "openshift-4-2"
     },
     "environment": {
         "showdashboard": true,
         "dashboards": [
-            {"name": "Web Console", "port": 8443},
+            {"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"},
             {"name": "ArgoCD Server", "href": "https://argocd-server-argocd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"},
             {"name": "Gogs Server", "href": "http://gogs.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"}
         ],
@@ -36,8 +34,7 @@
         },
         {
             "title": "Step 4 - Deploying a Simple App with Argo CD WebUI",
-            "text": "04-deploying-a-simple-app-with-argocd-webui.md",
-            "courseData": "clean-lab3.sh"
+            "text": "04-deploying-a-simple-app-with-argocd-webui.md"
         }],
         "intro": {
             "code": "set-env.sh",
@@ -48,7 +45,7 @@
             "text": "finish.md"
         },
         "assets": {
-          "host01": [{"file": "volumes.json", "target": "~/"}, {"file": "configure-scenario.sh", "target": "/var/tmp/"}]
+          "client": [{"file": "configure-scenario.sh", "target": "/var/tmp/"},{"file": "clean-lab3", "target": "/usr/local/bin/"}]
         }
     }
 }

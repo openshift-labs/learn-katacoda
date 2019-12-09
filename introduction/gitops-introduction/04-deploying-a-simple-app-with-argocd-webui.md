@@ -27,17 +27,22 @@ In the previous lab we have seen how Argo CD detected that the OpenShift Route c
 
 ## Configuring Git Repository on Argo CD WebUI
 
+> **NOTE:** We need to cleanup previous lab, we have an script that will delete lab3 work
+
+``clean-lab3``{{execute}}
+
 Before configuring our application into Argo CD, we need to configure the Git repository which contains the manifests used to deploy our applications:
 
-1. Login into the [ArgoCD WebUI](https://argocd-server-argocd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+1. Make sure you have cleaned the previous lab work by executing the script above
+2. Login into the [ArgoCD WebUI](https://argocd-server-argocd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
    1. **User:** admin
    2. **Pwd:** student
-2. Click on the Gears icon on the left menu
-3. Click on `Repositories`
-4. Click on `Connect repo using https`
-5. Introduce `http://gogs.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/student/gitops-lab.git` as the repository URL
-6. Leave the other fields empty and click `Connect`
-7. Now you will see the repository definition with connection status reporting `Successful`
+3. Click on the Gears icon on the left menu
+4. Click on `Repositories`
+5. Click on `Connect repo using https`
+6. Introduce `http://gogs.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/student/gitops-lab.git` as the repository URL
+7. Leave the other fields empty and click `Connect`
+8. Now you will see the repository definition with connection status reporting `Successful`
 
 ## Define the application within Argo CD WebUI
 
