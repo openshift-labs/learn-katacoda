@@ -1,6 +1,6 @@
 yum install -y nc
 yum install -y vim man curl wget unzip zip git zsh tmux java-1.8.0-openjdk-devel tree git bash-completion net-tools python36 glibc-langpack-en rsync
-export MVN_VERSION=3.6.2
+export MVN_VERSION=3.6.3
 RUN wget http://www.eu.apache.org/dist/maven/maven-3/$MVN_VERSION/binaries/apache-maven-$MVN_VERSION-bin.tar.gz && \
 	tar xzf apache-maven-$MVN_VERSION-bin.tar.gz && \
 	rm -rf apache-maven-$MVN_VERSION-bin.tar.gz && \
