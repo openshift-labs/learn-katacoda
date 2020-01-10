@@ -7,7 +7,7 @@ oc delete pods -l chart
 Watch the pods respawn:
 
 ```
-oc get pods -l chart
+oc get pods -l app.kubernetes.io/component=cockroachdb
 ```{{execute}}
 <br>
 Confirm that the contents of the database still persist by connecting to the database cluster:
