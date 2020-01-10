@@ -50,7 +50,7 @@ oc get statefulset
 Confirm that the Stateful Set's pod is currently running:
 
 ```
-oc get pods -l chart
+oc get pods -l app.kubernetes.io/component=cockroachdb
 ```{{execute}}
 <br>
 Confirm that the CockroachDB "internal" and "public" ClusterIP Service were created:
