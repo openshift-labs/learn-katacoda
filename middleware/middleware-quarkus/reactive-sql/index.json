@@ -1,0 +1,41 @@
+{
+  "pathwayTitle": "Intro to Quarkus",
+  "icon": "fa-java",
+  "title": "Introduction to Quarkus",
+  "description": "In this scenario you will learn more about Quarkus: Supersonic, Subatomic Java",
+  "difficulty": "beginner",
+  "time": "10 minutes",
+  "details": {
+    "steps": [
+      { "title": "Step 1", "text": "01-add-extension.md" },
+      { "title": "Step 2", "text": "02-add-resource.md" },
+      { "title": "Step 3", "text": "03-add-model.md" },
+      { "title": "Step 4", "text": "04-package-and-run.md" },
+      { "title": "Step 5", "text": "05-deploy-and-test.md" }
+    ],
+    "intro": {
+      "text": "00-intro.md",
+      "courseData": "env-init.sh",
+      "code": "set-env.sh"
+    },
+    "finish": {
+      "text": "99-outro.md"
+    }
+  },
+  "files": [
+
+  ],
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
+    "uilayout": "editor-terminal",
+    "uisettings": "java",
+    "hideintro": false,
+    "uieditorpath": "/root/projects/rhoar-getting-started/quarkus/reactive-sql",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "openshift-3-11",
+    "port": 8443
+  }
+}

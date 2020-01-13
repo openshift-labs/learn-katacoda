@@ -28,6 +28,12 @@
       "description": "Visualizing Quarkus application metrics with open source monitoring tools"
     },
     {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/reactive-sql",
+      "course_id": "reactive-sql",
+      "title": "Reactive programming with Quarkus Reactive SQL",
+      "description": "Reactive programming with Quarkus and the Reactive SQL extension"
+    },
+    {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/panache",
       "course_id": "panache",
       "title": "Effective Data with Hibernate and Panache",
