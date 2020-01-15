@@ -25,6 +25,10 @@
     {
       "external_link": "https://learn.openshift.com/operatorframework/",
       "title": "Building Operators on OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/ai-machine-learning/",
+      "title": "AI and Machine Learning on OpenShift"
     }
   ]
 }
