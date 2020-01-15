@@ -43,11 +43,6 @@
       "title": "Transferring Files in and out of Containers"
     },
     {
-      "external_link": "https://learn.openshift.com/introduction/using-metrics/",
-      "course_id": "using-metrics",
-      "title": "Exploring and using metrics and HPAs"
-    },
-    {
       "external_link": "https://learn.openshift.com/introduction/federated-clusters/",
       "course_id": "federated-clusters",
       "title": "Introduction to Federated Clusters with Kubefed"
