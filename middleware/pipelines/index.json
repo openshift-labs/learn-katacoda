@@ -20,11 +20,11 @@
             "title": "Step 1 - Install the Pipelines Operator",
             "text": "1install-op.md"
         }, {
-            "title": "Step 2 - Exploring The Web Console",
-            "text": "2explore-console.md"
+            "title": "Step 2 - Pipeline Service Account",
+            "text": "2serviceaccount.md"
         }, {
-            "title": "Step 3 - Deploying a Docker Image",
-            "text": "3deploy-docker.md"
+            "title": "Step 3 - Deploying a Sample Application",
+            "text": "3deploy-sample.md"
         }, {
             "title": "Step 4 - Scaling Your Application",
             "text": "4scaling.md"
@@ -45,8 +45,8 @@
         },
         "assets": {
             "client": [
-                { "file": "operator/csc.yaml", "target": "~/operator" },
-                { "file": "operator/subscription.yaml", "target": "~/operator/" }
+                { "file": "operator/subscription.yaml", "target": "~/operator" },
+                { "file": "sampleapp/sampleapp.yaml", "target": "~/sampleapp" }
             ]
         }
     }
