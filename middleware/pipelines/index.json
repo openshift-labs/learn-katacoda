@@ -26,11 +26,11 @@
             "title": "Step 3 - Deploying a Sample Application",
             "text": "3deploy-sample.md"
         }, {
-            "title": "Step 4 - Scaling Your Application",
-            "text": "4scaling.md"
+            "title": "Step 4 - Create Tasks",
+            "text": "4create-task.md"
         }, {
-            "title": "Step 5 - Routing HTTP Requests",
-            "text": "5routes.md"
+            "title": "Step 5 - Task Resource Definitions",
+            "text": "5task-resource-def.md"
         }, {
             "title": "Step 6 - Building From Source Code",
             "text": "6s2i.md"
@@ -46,7 +46,9 @@
         "assets": {
             "client": [
                 { "file": "operator/subscription.yaml", "target": "~/operator" },
-                { "file": "sampleapp/sampleapp.yaml", "target": "~/sampleapp" }
+                { "file": "sampleapp/sampleapp.yaml", "target": "~/sampleapp" },
+                { "file": "tektontasks/openshift-client-task.yaml", "target": "~/tektontasks" },
+                { "file": "tektontasks/s2i-nodejs-task.yaml", "target": "~/tektontasks" }
             ]
         }
     }

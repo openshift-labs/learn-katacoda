@@ -8,7 +8,7 @@ To prepare for _nodejs-ex_’s eventual deployment, you will create Kubernetes o
 
 Create the supplementary Kubernetes objects by running the command below:
 
-`oc create -f sampleapp/sampleapp.yaml`
+`oc create -f sampleapp/sampleapp.yaml`{{execute}}
 
 _nodejs-ex_ also needs a MongoDB database. You can deploy a container with MongoDB to your OpenShift project by running the following command:
 
@@ -30,15 +30,19 @@ Now that you are familiar with Kubernetes services, go ahead and connect _nodejs
 
 `oc set env dc/nodejs-ex MONGO_URL="mongodb://admin:secret@mongodb-36-centos7:27017/mongodb"`{{execute}}
 
+## Verify the deployment
+
 To verify the resources needed to support _nodejs-ex_ and the MongoDB have been created, you can head out to the OpenShift web console.
 
 You can make your way to the web console by clicking on the Console tab next to the Terminal tab at the center top of the workshop in your browser.
+
+You will need to login with username `admin` and password `admin`
 
 Make sure the Developer option from the dropdown in the top left corner of the web console is selected as shown below:
 
 <img src="../../assets/middleware/pipelines/developer-view.png" width="800" />
 
-Next, select the Project dropdown menu shown below and choose the project namespace you have been working with. 
+Next, select the Project dropdown menu shown below and choose the project namespace you have been working with (_lat-tekton_). 
 
 Next, click on the Topology tab on the left side of the web console if you don’t see the what’s in the image below. Once in the Topology view, you can see the deployment config for the nodejs-ex application and the MongoDB, which will look similar to what is shown in the image below:
 
