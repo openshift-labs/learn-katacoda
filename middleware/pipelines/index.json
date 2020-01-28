@@ -46,8 +46,8 @@
     },
     "assets": {
         "client": [
-            { "file": "jupyterhub_config.py", "target": "/root" },
-            { "file": "jupyterhub_config.sh", "target": "/root" }
+            { "file": "csc.yaml", "target": "/root/operator" },
+            { "file": "subscription.yaml", "target": "/root/operator" }
         ]
     }
 }
