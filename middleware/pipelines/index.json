@@ -17,8 +17,8 @@
     },
     "details": {
         "steps": [{
-            "title": "Step 1 - Exploring The Command Line",
-            "text": "1explore-cli.md"
+            "title": "Step 1 - Install the Pipelines Operator",
+            "text": "1install-op.md"
         }, {
             "title": "Step 2 - Exploring The Web Console",
             "text": "2explore-console.md"
