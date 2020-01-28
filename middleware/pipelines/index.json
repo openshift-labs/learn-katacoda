@@ -46,8 +46,8 @@
     },
     "assets": {
         "client": [
-            { "file": "csc.yaml", "target": "/root/operator" },
-            { "file": "subscription.yaml", "target": "/root/operator" }
+            { "file": "operator/csc.yaml", "target": "~/operator" },
+            { "file": "operator/subscription.yaml", "target": "~/operator" }
         ]
     }
 }
