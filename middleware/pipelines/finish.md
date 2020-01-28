@@ -1,24 +1,25 @@
-## Continue Learning
+## Summary
 
-You can continue learning more about OpenShift and how to develop applications on the platform by completing other tutorials at https://learn.openshift.com.
+In this workshop, you have worked with OpenShift Pipelines and learned about underlying Tekton concepts. OpenShift Pipelines provides CI/CD solutions for addressing the fundamentals of CI/CD (i.e., automation of building, testing, and deploying application components) but also offers modern solutions around addressing scale, server maintenance, and making all parts of the CI/CD process highly reusable for any number of application development tasks.
 
-There are several categories of tutorials:
+We hope you have found this workshop helpful in learning about OpenShift Pipelines and would love any feedback you have on ways to make it better! Feel free to open issues in this workshop’s [GitHub repository](https://github.com/openshift-labs/lab-tekton-pipelines), but also reach out to your workshop leaders to share any thoughts on how we can make this a better experience.
 
-* [**Foundations of OpenShift**](https://learn.openshift.com/introduction/) covers basic OpenShift concepts and common tasks.
-* [**Building Applications on OpenShift**](https://learn.openshift.com/middleware/) has tutorials on using Quarkus, Node.js, Vert.x, etc. on OpenShift.
-* [**Subsystems, Components, and Internals**](https://learn.openshift.com/subsystems/) teaches about Linux container internals.
-* [**OpenShift Playgrounds**](https://learn.openshift.com/playgrounds/) provide an open-ended environment on different OpenShift versions to allow you to experiment and learn on your own. 
-* [**Service Mesh Workshop with Istio**](https://learn.openshift.com/servicemesh/) introduces you to many service mesh concepts.
-* [**Building Operators on OpenShift**](https://learn.openshift.com/operatorframework/) teaches you about Kubernetes operators, how to build operators on OpenShift, and provides a Kubernetes API refresher if you need it. 
+To learn more about OpenShift Pipelines and Tekton, the resources below can provide information on everything from getting started to more advanced concepts.
 
-### Run OpenShift Locally with CodeReady Containers
+OpenShift Pipelines Webpage: https://www.openshift.com/learn/topics/pipelines
 
-CodeReady Containers allows you to run a minimal, pre-configured OpenShift 4 cluster on your local machine. The project supports Windows 10, macOS, and Linux.  To find out more or download CodeReady Containers, visit https://developers.redhat.com/products/codeready-containers/overview
+OpenShift Pipelines Documentation: https://openshift.github.io/pipelines-docs/docs/index.html
 
-### Compare Hosted, Managed, or On Premises OpenShift
+Tekton Pipelines GitHub: https://github.com/tektoncd/pipeline
 
-Learn more about the different OpenShift platform variants here: https://www.openshift.com/products
+Tekton CLI GitHub: https://github.com/tektoncd/cli
 
-### Browse the Documentation
+While the Tekton website is under construction at this time, please look out in the future for information about Tekton to be available at the following link: https://tekton.dev/
 
-If you want to learn about particular OpenShift concepts in more depth, visit the documentation: https://docs.openshift.com/container-platform/latest
+Read more in the OpenShift blog announcement for OpenShift Pipelines: https://blog.openshift.com/cloud-native-ci-cd-with-openshift-pipelines/
+
+For examples of OpenShift Pipelines tasks, visit the openshift/pipelines-catalog GitHub: https://github.com/openshift/pipelines-catalog
+
+For examples of Tekton pipelines and tasks, visit the tektoncd/catalog GitHub repository: https://github.com/tektoncd/catalog
+
+To rerun an OpenShift Pipelines tutorial on your own, check out the openshift/pipelines-tutorial GitHub repository: https://github.com/openshift/pipelines-tutorial
