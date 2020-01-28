@@ -51,16 +51,17 @@ Before continuing, grab the name of the pipeline run and save it to an environme
 
 To view the pipeline run created, run the following tkn command:
 
-tkn pr ls
+`tkn pr ls`{{execute}}
 
 You should see the NAME of your pipeline run, the pipeline run start time (i.e. STARTED), and the STATUS as Running.
 
 As mentioned earlier, when a task is running as part of a pipeline, it allocates a pod that will host steps that each run in a separate container. You can see the pod for the first task on your pipeline (i.e. build) by running the following command:
 
-oc get pods
+`oc get pods`{{execute}}
 
 You should see a pod with a name consisting of deploy-pipeline-run and build. When build finishes, another pod will be allocated to host the step of the deploy task of your pipeline.
-Tekton CLI Logs
+
+## Tekton CLI Logs
 
 The logs output tells you what tasks are running as well as what step it is running. You’ll see the output structured as [task_name : step_name]. An example from this pipeline run is below for the generate step of the build task:
 
@@ -81,8 +82,3 @@ Upon the successful completion of the pipeline run, you will see the following o
 [deploy : oc] deploymentconfig.apps.openshift.io/nodejs-ex rolled out
 
 While the pipeline run is executing, you can take a look at how you can visualize a pipeline run through the OpenShift web console in the next section. Leave the logs running so that you can confirm the successful deployment message when the pipeline run finishes.
-
-Clear the terminal without the running logs before continuing:
-
-clear
-
