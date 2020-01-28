@@ -32,8 +32,14 @@
             "title": "Step 5 - Task Resource Definitions",
             "text": "5task-resource-def.md"
         }, {
-            "title": "Step 6 - Building From Source Code",
-            "text": "6s2i.md"
+            "title": "Step 6 - Create Pipeline",
+            "text": "6create-pipeline.md"
+        }, {
+            "title": "Step 7 - Create Pipeline Resources",
+            "text": "7create-pipeline-resources.md"
+        }, {
+            "title": "Step 8 - Trigger a Pipeline",
+            "text": "8trigger-pipeline.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
@@ -48,7 +54,10 @@
                 { "file": "operator/subscription.yaml", "target": "~/operator" },
                 { "file": "sampleapp/sampleapp.yaml", "target": "~/sampleapp" },
                 { "file": "tektontasks/openshift-client-task.yaml", "target": "~/tektontasks" },
-                { "file": "tektontasks/s2i-nodejs-task.yaml", "target": "~/tektontasks" }
+                { "file": "tektontasks/s2i-nodejs-task.yaml", "target": "~/tektontasks" },
+                { "file": "exercise/deploy-pipeline.yaml", "target": "~/exercise" },
+                { "file": "exercise/git-pipeline-resource.yaml", "target": "~/exercise" },
+                { "file": "exercise/image-pipeline-resource.yaml", "target": "~/exercise" }
             ]
         }
     }
