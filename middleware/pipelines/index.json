@@ -40,6 +40,9 @@
         }, {
             "title": "Step 8 - Trigger a Pipeline",
             "text": "8trigger-pipeline.md"
+        }, {
+            "title": "Step 9 - Verify Deployment",
+            "text": "9verify-deployment.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
