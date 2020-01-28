@@ -42,12 +42,12 @@
         },
         "finish": {
             "text": "finish.md"
+        },
+        "assets": {
+            "client": [
+                { "file": "operator/csc.yaml", "target": "~/operator" },
+                { "file": "operator/subscription.yaml", "target": "~/operator/" }
+            ]
         }
-    },
-    "assets": {
-        "client": [
-            { "file": "csc.yaml", "target": "~/" },
-            { "file": "subscription.yaml", "target": "~/" }
-        ]
     }
 }
