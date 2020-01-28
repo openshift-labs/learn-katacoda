@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: nodejs-ex-image
+  labels:
+    app: tekton-workshop
+spec:
+  type: image
+  params:
+  - name: url
+    value: ${OPENSHIFT_IMAGE_REGISTRY}/${PROJECT_NAMESPACE}/nodejs-ex

@@ -77,6 +77,11 @@
       "external_link": "https://learn.openshift.com/middleware/fuse-hello-world/",  
       "course_id": "fuse-hello-world",  
       "title": "Hello ! Fuse - Getting Started" 
+    },
+    { 
+      "external_link": "https://learn.openshift.com/middleware/pipelines/",  
+      "course_id": "pipelines",  
+      "title": "Using OpenShift Pipelines" 
     }
   ]
 }

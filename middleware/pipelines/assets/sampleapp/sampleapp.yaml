@@ -1,0 +1,104 @@
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    app: nodejs-ex
+  name: nodejs-ex
+---
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: nodejs-ex
+  name: nodejs-ex
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    app: nodejs-ex
+    deploymentconfig: nodejs-ex
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      labels:
+        app: nodejs-ex
+        deploymentconfig: nodejs-ex
+    spec:
+      containers:
+      - image: nodejs-ex:latest
+        imagePullPolicy: Always
+        name: nodejs-ex
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8443
+          protocol: TCP
+        - containerPort: 8778
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - imageChangeParams:
+      containerNames:
+      - nodejs-ex
+      from:
+        kind: ImageStreamTag
+        name: nodejs-ex:latest
+    type: ImageChange
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nodejs-ex
+  name: nodejs-ex
+spec:
+  ports:
+  - name: 8080-tcp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  - name: 8443-tcp
+    port: 8443
+    protocol: TCP
+    targetPort: 8443
+  - name: 8778-tcp
+    port: 8778
+    protocol: TCP
+    targetPort: 8778
+  selector:
+    app: nodejs-ex
+    deploymentconfig: nodejs-ex
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: nodejs-ex
+  name: nodejs-ex
+spec:
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: nodejs-ex
+    weight: 100
