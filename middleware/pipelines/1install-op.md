@@ -1,5 +1,3 @@
-## Install Tekton Operator
-
 OpenShift Pipelines is provided as an OpenShift add-on that can be installed via an
 operator that is available in the OpenShift OperatorHub.
 
@@ -28,6 +26,8 @@ The OpenShift Pipelines Operator provides all its resources under a single API g
 `oc api-resources --api-group=tekton.dev`{{execute}}
 
 **Note**: It might take a minute before the operator gets applied so you might need to try this command a few times before seeing anything.
+
+## Verify user roles
 
 To validate that your user has been granted the appropriate roles, you can use the oc auth can-i command to see whether you can create Kubernetes custom resources of the kind the OpenShift Pipelines Operator responds to.
 

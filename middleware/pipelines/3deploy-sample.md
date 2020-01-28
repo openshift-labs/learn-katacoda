@@ -2,7 +2,7 @@ For this tutorial, you’re going to use a simple Node.js application that inter
 
 `oc new-project lab-tekton`{{execute}}
 
-You will use the nodejs-ex sample application during this workshop (i.e. the Node.js application).
+You will use the _nodejs-ex_ sample application during this workshop (i.e. the Node.js application).
 
 To prepare for _nodejs-ex_’s eventual deployment, you will create Kubernetes objects that are supplementary to the application, such as a route (i.e. url). The deployment will not complete since there are no container images built for the nodejs-ex application yet. That you will do in the following sections through a CI/CD pipeline.
 
@@ -42,7 +42,7 @@ Make sure the Developer option from the dropdown in the top left corner of the w
 
 <img src="../../assets/middleware/pipelines/developer-view.png" width="800" />
 
-Next, select the Project dropdown menu shown below and choose the project namespace you have been working with (_lat-tekton_). 
+Next, select the Project dropdown menu shown below and choose the project namespace you have been working with (_lab-tekton_). 
 
 Next, click on the Topology tab on the left side of the web console if you don’t see the what’s in the image below. Once in the Topology view, you can see the deployment config for the nodejs-ex application and the MongoDB, which will look similar to what is shown in the image below:
 
