@@ -46,8 +46,8 @@
     },
     "assets": {
         "client": [
-            { "file": "csc.yaml", "target": "/root" },
-            { "file": "subscription.yaml", "target": "/root" }
+            { "file": "csc.yaml", "target": "~/" },
+            { "file": "subscription.yaml", "target": "~/" }
         ]
     }
 }
