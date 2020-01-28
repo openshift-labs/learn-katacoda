@@ -13,7 +13,7 @@ spec:
 `
 The params property below defines fields that must be specified when using the task (e.g. the version of Node.js to use).
 
-`
+```
 params:
   - name: VERSION
     description: The version of the nodejs
@@ -24,7 +24,7 @@ params:
   - name: TLSVERIFY
     description: Verify the TLS on the registry endpoint (for push/pull to a non-TLS registry)
     default: "true"
-`
+```
 
 There is also an outputs property shown below that is used to specify that something is output as a result of running this task. The type of the output is image. This is to specify that this task creates an image from the git repository that is sent in as an input.
 
