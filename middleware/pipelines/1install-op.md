@@ -11,11 +11,11 @@ You can install the operator using the "Operators" tab in the web console or you
 
 To install the operator, you will need to be logged in as an admin. You can do so by running
 
-`oc login -u admin -p admin`{{copy}}
+`oc login -u admin -p admin`{{execute}}
 
 Now that you are logged in, you should be able to see the packages available to you to install from the OperatorHub. Let's take a look at the _openshift-pipelines-operator_ one.
 
-`oc describe packagemanifest openshift-pipelines-operator -n openshift-marketplace`{{copy}}
+`oc describe packagemanifest openshift-pipelines-operator -n openshift-marketplace`{{execute}}
 
 
 That's it!
