@@ -8,6 +8,6 @@ curl -LO https://github.com/tektoncd/cli/releases/download/v0.6.0/tkn_0.6.0_Linu
 # Extract tkn to your PATH (e.g. /usr/local/bin)
 tar xvzf tkn_0.6.0_Linux_x86_64.tar.gz -C /usr/local/bin/ tkn
 
-#clear
+clear
 
 echo -e "Welcome to your interactive environment. OpenShift is configured and ready to use."

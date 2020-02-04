@@ -8,4 +8,4 @@ spec:
   type: image
   params:
   - name: url
-    value: ${OPENSHIFT_IMAGE_REGISTRY}/${PROJECT_NAMESPACE}/nodejs-ex
+    value: docker://default-route-openshift-image-registry.apps-crc.testing/lab-tekton/nodejs-ex
