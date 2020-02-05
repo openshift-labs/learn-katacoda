@@ -61,9 +61,9 @@
                 { "file": "sampleapp/sampleapp.yaml", "target": "~/sampleapp" },
                 { "file": "tektontasks/openshift-client-task.yaml", "target": "~/tektontasks" },
                 { "file": "tektontasks/s2i-nodejs-task.yaml", "target": "~/tektontasks" },
-                { "file": "exercise/deploy-pipeline.yaml", "target": "~/exercise" },
-                { "file": "exercise/git-pipeline-resource.yaml", "target": "~/exercise" },
-                { "file": "exercise/image-pipeline-resource.yaml", "target": "~/exercise" }
+                { "file": "pipeline/deploy-pipeline.yaml", "target": "~/pipeline" },
+                { "file": "resources/git-pipeline-resource.yaml", "target": "~/resources" },
+                { "file": "resources/image-pipeline-resource.yaml", "target": "~/resources" }
             ]
         }
     }

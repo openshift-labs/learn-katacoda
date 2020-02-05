@@ -47,8 +47,7 @@ In short, to create a pipeline, one does the following:
 * Create a `Pipeline` and `PipelineResources` to define your application's delivery `Pipeline`;
 * Create a `PipelineRun` to instantiate and invoke the `Pipeline`;
 
-For further details on pipeline concepts, refer to the [Tekton documentation](https://github.com/tektoncd/pipeline/tree/master/docs#learn-more)
-that provides an excellent guide for understanding various parameters and attributes available for defining pipelines.
+For further details on pipeline concepts, refer to the [Tekton documentation](https://github.com/tektoncd/pipeline/tree/master/docs#learn-more) that provides an excellent guide for understanding various parameters and attributes available for defining pipelines.
 
 In the following sections, you will go through each of the above steps to define and execute a pipeline.
 
