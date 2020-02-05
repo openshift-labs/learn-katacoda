@@ -41,7 +41,10 @@
             "title": "Step 8 - Trigger a Pipeline",
             "text": "8trigger-pipeline.md"
         }, {
-            "title": "Step 9 - Verify Deployment",
+            "title": "Step 9 - Console View of Your Pipeline",
+            "text": "9pipelines-console.md"
+        }, {
+            "title": "Step 10 - Verify Deployment",
             "text": "9verify-deployment.md"
         }],
         "intro": {

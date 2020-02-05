@@ -25,7 +25,7 @@ spec:
     - name: generate
       image: quay.io/openshift-pipeline/s2i
       workingdir: /workspace/source
-      command: ['s2i', 'build', '$(inputs.params.PATH_CONTEXT)', 'docker.io/centos/nodejs-$(inputs.params.VERSION)-centos7', '--as-dockerfile', '/gen-source/Dockerfile.gen']
+      command: ['s2i', 'build', '$(inputs.params.PATH_CONTEXT)', 'centos/nodejs-$(inputs.params.VERSION)-centos7', '--as-dockerfile', '/gen-source/Dockerfile.gen']
       volumeMounts:
         - name: gen-source
           mountPath: /gen-source

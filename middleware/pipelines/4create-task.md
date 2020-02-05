@@ -1,16 +1,16 @@
-Tasks consist of a number of steps that are executed sequentially. Each step is executed in a separate container within the same task pod. Tasks can have inputs and outputs in order to interact with other tasks as part of a pipeline.
+`Tasks` consist of some steps that get executed sequentially. Each step gets executed in a separate container within the same task pod. They can have inputs and outputs to interact with other `Tasks` as part of a pipeline.
 
-For this exercise, you should create the s2i-nodejs and openshift-client tasks from the catalog repositories using oc. These will be the tasks you add to your pipeline for this workshop.
+For this exercise, you should create the _s2i-nodejs_ and _openshift-client_ tasks from the catalogue repositories using oc. These are the tasks you add to your pipeline for this workshop.
 
-Create the s2i-nodejs task that will define and build a container image for the nodejs-ex application and push the resulting image to an image registry:
+Create the _s2i-nodejs_ task that defines and build a container image for the _nodejs-ex_ application and push the resulting image to an image registry:
 
 `oc create -f tektontasks/s2i-nodejs-task.yaml`{{execute}}
 
-Create the openshift-client task that will deploy the image created by s2i-nodejs as a container on OpenShift:
+Create the _openshift-client_ task that will deploy the image created by _s2i-nodejs_ as a container on OpenShift:
 
 `oc create -f tektontasks/openshift-client-task.yaml`{{execute}}
 
-**Note**: For convenience, the tasks have been copied from their original locations in the Tekton and OpenShift catalog git repositories to the workshop.
+**Note**: For convenience, the tasks have been copied from their original locations in the Tekton and OpenShift catalogue git repositories to the workshop.
 
 You can take a look at the list of tasks using the Tekton CLI (tkn):
 
@@ -19,9 +19,9 @@ You can take a look at the list of tasks using the Tekton CLI (tkn):
 You should see similar output to this:
 
 `
-NAME               AGE
-openshift-client   58 seconds ago
-s2i-nodejs         1 minute ago
+NAME                  AGE
+openshift-client  58 seconds ago
+s2i-nodejs           1 minute ago
 `
 
 In the next section, you will examine the task definitions you just created to gain a better understanding of the pipeline you will create.

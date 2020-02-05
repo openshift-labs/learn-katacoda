@@ -4,7 +4,7 @@ Click on the Topology tab on the left side of the web console. You should see so
 
 <img src="../../assets/middleware/pipelines/topology-view-deployed.png" width="800" />
 
-The Topology view of the OpenShift web console helps to visually show what is deployed out to your OpenShift project. As mentioned earlier, the dark blue lining around the nodejs-ex circle means that a container is started up and running the nodejs-ex application. By clicking on the arrow icon as shown below, you can open the url for nodejs-ex in a new tab and see the application running.
+The Topology view of the OpenShift web console helps to show what is deployed out to your OpenShift project visually. As mentioned earlier, the dark blue lining around the _nodejs-ex_ circle means that a container has started up and running the _nodejs-ex_ application. By clicking on the arrow icon as shown below, you can open the URL for _nodejs-ex_ in a new tab and see the application running.
 
 <img src="../../assets/middleware/pipelines/url-icon.png" width="800" />
 
@@ -14,7 +14,7 @@ One of the things you will notice about the application is the **Request informa
 
 <img src="../../assets/middleware/pipelines/request-information.png" width="800" />
 
-The MongoDB is used to store the amount of times the page is viewed. If you refresh the page, the page view count will increment to show the page was loaded again.
+MongoDB is used to store the number of times the page is viewed. If you refresh the page, the page view count will increment to show the page was loaded again.
 
 If you were to redeploy _nodejs-ex+ with another pipeline run, the data in the MongoDB would persist. This would allow you to make updates to the application while preserving the data that it uses.
 

@@ -1,17 +1,14 @@
-OpenShift Pipelines is provided as an OpenShift add-on that can be installed via an
-operator that is available in the OpenShift OperatorHub.
+OpenShift Pipelines are an OpenShift add-on that can be installed via an operator that is available in the OpenShift OperatorHub.
 
-Operators may be installed into a single namespace and only monitor resources in that
-namespace, but the OpenShift Pipelines Operator installs globally on the cluster and monitors
-and manage pipelines for every single user in the cluster.
+Operators may be installed into a single namespace and only monitor resources in that namespace. The OpenShift Pipelines Operator installs globally on the cluster and monitors and manages pipelines for every single user in the cluster.
 
-You can install the operator using the "Operators" tab in the web console or you can use the CLI tool "oc". In this exercise, we will use the latter.
+You can install the operator using the "Operators" tab in the web console, or you can use the CLI tool "oc". In this exercise, we use the latter.
 
-To install the operator, you will need to be logged in as an admin. You can do so by running
+To install the operator, you need to log in as an admin. You can do so by running:
 
 `oc login -u admin -p admin`{{execute}}
 
-Now that you are logged in, you should be able to see the packages available to you to install from the OperatorHub. Let's take a look at the _openshift-pipelines-operator_ one.
+Now that you have logged in, you should be able to see the packages available to you to install from the OperatorHub. Let's take a look at the _openshift-pipelines-operator_ one.
 
 `oc describe packagemanifest openshift-pipelines-operator -n openshift-marketplace`{{execute}}
 
@@ -21,15 +18,25 @@ You can find more information on how to add operators on the [OpenShift document
 
 ## Verify installation
 
-The OpenShift Pipelines Operator provides all its resources under a single API group: tekton.dev. To see all the resources provided by the operator, run the following command:
+The OpenShift Pipelines Operator provides all its resources under a single API group: tekton.dev. This operation can take a few seconds; you can run the following script to monitor the progress of the installation.
+
+```
+until oc api-resources --api-group=tekton.dev | grep tekton.dev &> /dev/null
+do 
+ echo "Operator installation in progress..."
+ sleep 5
+done
+
+echo "Operator ready"
+```{{execute}}
+
+Once you see the message `Operator ready`, the operator is installed, and you can see the new resources by running: 
 
 `oc api-resources --api-group=tekton.dev`{{execute}}
 
-**Note**: It might take a minute before the operator gets applied so you might need to try this command a few times before seeing anything.
-
 ## Verify user roles
 
-To validate that your user has been granted the appropriate roles, you can use the oc auth can-i command to see whether you can create Kubernetes custom resources of the kind the OpenShift Pipelines Operator responds to.
+To validate that your user has the appropriate roles, you can use the `oc auth can-i` command to see whether you can create Kubernetes custom resources of the kind needed by the OpenShift Pipelines Operator.
 
 The custom resource you need to create an OpenShift Pipelines pipeline is a resource of the kind pipeline.tekton.dev in the tekton.dev API group. To check that you can create this, run:
 
@@ -47,4 +54,4 @@ Verify that you can create the rest of the Tekton custom resources needed for th
 `oc auth can-i create PipelineResource`{{execute}}
 `oc auth can-i create PipelineRun`{{execute}}
 
-Now that we have verified that you can create the required resources, let’s start the workshop.
+Now that we have verified that you can create the required resources let's start the workshop.

@@ -1,11 +1,19 @@
-In this self paced tutorial you will learn how to use OpenShift Pipelines to automate deployment of your applications.
+In this self-paced tutorial, you will learn how to use OpenShift Pipelines to automate the deployment of your applications.
+
+In this tutorial, you will:
+* Install the OpenShift Pipelines operator;
+* Deploy a partial application;
+* Create reusable Tekton `Tasks`;
+* Create a Tekton `Pipeline`;
+* Create `PipelineResources`;
+* Trigger the created `Pipeline` to finish your application deployment.
 
 ## Let's get started
 
 OpenShift Pipelines is a cloud-native, continuous integration and delivery (CI/CD)
 solution for building pipelines using [Tekton](https://tekton.dev). Tekton is
 a flexible, Kubernetes-native, open-source CI/CD framework that enables automating
-deployments across multiple platforms (e.g. Kubernetes, serverless, VMs, etc) by
+deployments across multiple platforms (e.g. Kubernetes, serverless, VMs, and so forth) by
 abstracting away the underlying details.
 
 OpenShift Pipelines features:
@@ -19,30 +27,25 @@ OpenShift Pipelines features:
 * Designed for microservices and decentralized teams
 * Integrated with the OpenShift Developer Console
 
-This tutorial walks you through Tekton concepts and how to create and run a simple pipeline
-for building and deploying a containerized app on OpenShift.
-
 ## Tekton CRDs
 
-Tekton defines a number of [Kubernetes custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
-as building blocks in order to standardize pipeline concepts and provide a terminology
-that is consistent across CI/CD solutions. These custom resources are an extension of the
-Kubernetes API that let users create and interact with these objects using the OpenShift CLI (`oc`), `kubectl`, and other Kubernetes tools.
+Tekton defines some [Kubernetes custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
+as building blocks to standardize pipeline concepts and provide terminology that is consistent across CI/CD solutions. These custom resources are an extension of the Kubernetes API that lets users create and interact with these objects using the OpenShift CLI (`oc`), `kubectl`, and other Kubernetes tools.
 
 The custom resources needed to define a pipeline are listed below:
 
 * `Task`: a reusable, loosely coupled number of steps that perform a specific task (e.g. building a container image)
 * `Pipeline`: the definition of the pipeline and the tasks that it should perform
 * `PipelineResource`: inputs (e.g. git repository) and outputs (e.g. image registry) to and out of a pipeline or task
-* `TaskRun`: the execution and result (i.e. success or failure) of running an instance of task
+* `TaskRun`: the execution and result (i.e. success or failure) of running an instance of a task
 * `PipelineRun`: the execution and result (i.e. success or failure) of running a pipeline
 
 
-In short, in order to create a pipeline, one does the following:
+In short, to create a pipeline, one does the following:
 
-* Create custom or install [existing](https://github.com/tektoncd/catalog) reusable Tasks
-* Create a Pipeline and PipelineResources to define your application's delivery Pipeline
-* Create a PipelineRun to instantiate and invoke the Pipeline
+* Create custom or install [existing](https://github.com/tektoncd/catalog) reusable `Tasks`;
+* Create a `Pipeline` and `PipelineResources` to define your application's delivery `Pipeline`;
+* Create a `PipelineRun` to instantiate and invoke the `Pipeline`;
 
 For further details on pipeline concepts, refer to the [Tekton documentation](https://github.com/tektoncd/pipeline/tree/master/docs#learn-more)
 that provides an excellent guide for understanding various parameters and attributes available for defining pipelines.
