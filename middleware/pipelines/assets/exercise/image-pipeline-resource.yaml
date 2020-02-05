@@ -8,4 +8,4 @@ spec:
   type: image
   params:
   - name: url
-    value: docker://default-route-openshift-image-registry.apps-crc.testing/lab-tekton/nodejs-ex
+    value: image-registry.openshift-image-registry.svc:5000/lab-tekton/nodejs-ex:latest
