@@ -13,32 +13,42 @@ Within the `getting-started/pom.xml`{{open}} is the declaration for the Quarkus 
 ```xml
   <profile>
     <id>native</id>
+    <activation>
+      <property>
+        <name>native</name>
+      </property>
+    </activation>
     <build>
       <plugins>
         <plugin>
-          <groupId>io.quarkus</groupId>
-          <artifactId>quarkus-maven-plugin</artifactId>
-          <version>${quarkus.version}</version>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${surefire-plugin.version}</version>
           <executions>
             <execution>
               <goals>
-                <goal>native-image</goal>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
               </goals>
               <configuration>
-                <enableHttpUrlHandler>true</enableHttpUrlHandler>
+                <systemProperties>
+                  <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+                </systemProperties>
               </configuration>
             </execution>
           </executions>
         </plugin>
       </plugins>
     </build>
+    <properties>
+      <quarkus.package.type>native</quarkus.package.type>
+    </properties>
   </profile>
 ```
 We use a profile because, you will see very soon, packaging the native image takes a few seconds. However, this compilation time is only incurred _once_, as opposed to _every_ time the application starts, which is the case with other approaches for building and executing JARs.
 
 In the original terminal, if the application is still running, stop it with `Ctrl+C`. Next, a native executable by clicking: `mvn clean package -Pnative -DskipTests=true`{{execute}}
 
-> Since we are on Linux in this environment, and the OS that will eventually run our application is also Linux, we can use our local OS to build the native Quarkus app. If you need to build native Linux binaries when on other OS's like Windows or macOS, you can use `-Dquarkus.native.container-runtime=[podman | docker]`. You'll need either Docker or [Podman](https://podman.io) installed depending on which container runtime you want to use!
+> Since we are working in a Linux environment, and the OS that will eventually run our application is also Linux, we can use our local OS to build the native Quarkus app. If you need to build native Linux binaries when on other OS's like Windows or macOS, you can use `-Dquarkus.native.container-runtime=[podman | docker]`. You'll need either Docker or [Podman](https://podman.io) installed depending on which container runtime you want to use!
 
 This will take a minute or so to finish. Wait for it!
 
@@ -98,5 +108,4 @@ Go to the first Terminal tab and press `CTRL-C` to stop our native app.
 
 ## Congratulations!
 
-You've now built a Kogito Java application as an executable JAR and a Linux native binary. Now let's give our app superpowers by deploying to OpenShift as a Linux container image.
-
+You've now built a Kogito application as an executable JAR and a Linux native binary. Now let's give our app superpowers by deploying to OpenShift as a Linux container image.

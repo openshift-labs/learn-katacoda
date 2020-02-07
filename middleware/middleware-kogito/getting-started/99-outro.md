@@ -1,4 +1,4 @@
-In this scenario, you learned about Kogito, and how it can be used to create cloud-native business applications. Kogito provides an effective solution for running business automation workloads, like processes, workflows, decisions and rules, in this new world of serverless, microservices, containers, Kubernetes, FaaS, and the cloud because it has been designed with these in mind. 
+In this scenario, you learned about Kogito, and how it can be used to create cloud-native business automation applications. Kogito provides an effective solution for running business automation workloads, like processes, workflows, decisions and rules, in this new world of serverless, microservices, containers, Kubernetes, FaaS, and the cloud, because it has been designed with these use-cases in mind.
 
 Its domain-driven and developer-focussed approach for cloud-native business applications is achieved through the extensive use of code generation based on your business assets (e.g. process definitions, decision models). This allows you to focus on the actual business problem you're trying to solve, rather than the technical details of the platform and runtimes.
 

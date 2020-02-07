@@ -1,5 +1,4 @@
-In the previous step you created a skeleton Kogito application with Quarkus. In this step we'll 
-create our first process definition in BPMN2. We will see how Kogito is able to generate a microservice, including RESTful resources from our business assets (e.g. processes, decisions, etc.).
+In the previous step you'vee created a skeleton Kogito application with Quarkus. In this step we'll create our first process definition in BPMN2. We will see how Kogito is able to generate a microservice, including RESTful resources, from our business assets (e.g. process definitions, decisions, etc.).
 
 ## Create a process definition
 
@@ -17,11 +16,11 @@ Click on the "Kogito Tooling" tab next to the "Local Web Browser" tab to open th
 
 Implement the process as shown in the following video. Make sure to use `getting_started` for the **name** and **id** of the process and `org.acme` for the **package**.
 
-https://youtu.be/Eqk1mXTU3eE
+https://youtu.be/babjHSNrZBg
 
-In the Kogito BPMN editor, click on the **Copy to Clipboard** button to copy the BPMN2 XML definition.
+After youv've defined your process, click on the **Copy to Clipboard** button to copy the BPMN2 XML definition to your clipboard.
 
-Copy the content of your clipboard to the `getting-started/src/main/resources/getting-started.bpmn` file you created earlier and save the file.
+Copy the content of your clipboard to the `getting-started/src/main/resources/getting-started.bpmn` file you've created and opened earlier using `Ctrl+v ` or `Command-v` (depending on your type of computer).
 
 Alternatively, you can copy the following BPMN2 definition to the BPMN file:
 
@@ -160,11 +159,11 @@ Alternatively, you can copy the following BPMN2 definition to the BPMN file:
 &lt;/bpmn2:definitions&gt;
 </pre>
 
-Since we still have our app running using `mvn quarkus:dev`, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live reload them, including changes in your business assets (e.g. processes, decision, rules, etc.).
+Since we still have our app running using `mvn quarkus:dev`, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live-reload them, including changes in your business assets (i.e. processes, decision, rules, etc.).
 
-Check that it works as expected by loading the Swagger-UI endpoint by [clicking here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). The Swagger-UI will show the REST resources that have been generated from the project's _business assets_, in this case the `getting_started` resource, which is backed by our process definition.
+Check that it works as expected by opening the Swagger-UI endpoint by [clicking here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). The Swagger-UI will show the REST resources that have been generated from the project's _business assets_, in this case the `getting_started` resource, which is backed by our process definition.
 
-In the Swagger UI, expand the **POST /getting_started** resource. Click on the **Try it out** button on the right-hand-side of the screen. Remove the 
+In the Swagger UI, expand the **POST /getting_started** resource. Click on the **Try it out** button on the right-hand-side of the screen. Remove the
 
 ```console
 {
@@ -184,7 +183,9 @@ Because the original Terminal tab already has our applicatio running, we need to
 > You can also open additional terminals with the "+" button on the tab bar to the right.
 > ![Open Terminal](/openshift/assets/middleware/middleware-kogito/katacoda-open-new-terminal.png)
 
-Our process defintion contains a *UserTask*. To retrieve the tasks of an instance, we need to execute another REST operation. Let's go back to the [Swagger-UI](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). Expand the **GET ​/getting_started​/{id}​/tasks** operation, and click on the **Try it out** button. In the `id` field, fill in the value of the process instance id the previous command returned. Now, click on the **Execute** button.
+Our process defintion contains a *UserTask*. To retrieve the tasks of an instance, we need to execute another REST operation.
+
+Let's go back to the [Swagger-UI](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). Expand the **GET ​/getting_started​/{id}​/tasks** operation, and click on the **Try it out** button. In the `id` field, fill in the value of the process instance id the previous command returned. Now, click on the **Execute** button.
 
 This will return a list of **Tasks**.
 
