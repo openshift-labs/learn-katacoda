@@ -56,6 +56,11 @@
       "external_link": "https://learn.openshift.com/introduction/gitops-multicluster/",
       "course_id": "gitops-multicluster",
       "title": "Multi-cluster GitOps with OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/serverless/",
+      "course_id": "serverless",
+      "title": "Introduction to Serverless with OpenShift"
     }
   ]
 }
