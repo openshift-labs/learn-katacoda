@@ -13,13 +13,12 @@ chmod 0777 /data/pv-*; chcon -t svirt_sandbox_file_t /data/pv-*;
 
 clear
 
-odo preference set UpdateNotification false > /dev/null 2>&1
-
-clear
-
-echo "Cloning app repos"
-git clone https://github.com/openshift-evangelists/Wild-West-Backend.git ~/backend > /dev/null 2>&1
-git clone https://github.com/openshift-evangelists/Wild-West-Frontend.git ~/frontend > /dev/null 2>&1
+echo "Setting up kn CLI"
+mkdir .kn
+curl -Lo .kn/kn-linux-amd64-0.11.0.tar.gz https://mirror.openshift.com/pub/openshift-v4/clients/serverless/0.11.0/kn-linux-amd64-0.11.0.tar.gz
+tar xf .kn/kn-linux-amd64-0.11.0.tar.gz -C .kn
+ln -s .kn/kn /usr/local/bin/kn
+rm .kn/kn-linux-amd64-0.11.0.tar.gz
 
 clear
 
