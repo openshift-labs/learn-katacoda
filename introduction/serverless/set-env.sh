@@ -23,4 +23,4 @@ git clone https://github.com/openshift-evangelists/Wild-West-Frontend.git ~/fron
 
 clear
 
-echo "Configuration completed-!"
+echo "Configuration completed!!"
