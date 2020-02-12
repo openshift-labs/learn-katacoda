@@ -6,20 +6,20 @@ The `PipelineRun` definition below is how you can trigger a pipeline and tie it 
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineRun
 metadata:
- generateName: deploy-pipelinerun-
+  generateName: deploy-pipelinerun-
 spec:
- pipelineRef:
- name: deploy-pipeline
- trigger:
- type: manual
- serviceAccount: 'pipeline'
- resources:
- - name: app-git
- resourceRef:
- name: nodejs-ex-git
- - name: app-image
- resourceRef:
- name: nodejs-ex-image
+  pipelineRef:
+    name: deploy-pipeline
+    trigger:
+      type: manual
+      serviceAccount: 'pipeline'
+    resources:
+    - name: app-git
+      resourceRef:
+      name: nodejs-ex-git
+    - name: app-image
+      resourceRef:
+      name: nodejs-ex-image
 ```
 
 Under the spec property, you'll see the pipelineRef property where the pipeline to be used is specified. You should see the name of the pipeline you created (i.e. deploy-pipeline).
@@ -51,9 +51,14 @@ The logs output tells you what tasks are running as well as what step it is runn
 
 As these logs come in via tkn, you can see the output from the task-step combinations from the build task:
 
+```
 [build : generate]
+...
 [build : build]
+...
 [build : push]
+...
+```
 
 You can also eventually see the output of the deploy task execution with its one step:
 

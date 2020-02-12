@@ -1,147 +1,44 @@
-In the previous section, you created two tasks called _s2i-nodejs_ and _openshift-client_. Before adding these tasks to a pipeline, take a look at their definitions to understand how they work.
-
-The _s2i-nodejs_ has been broken into pieces below to help highlight its key aspects.
-
-_s2i-nodejs_ starts by defining a property called inputs, as shown below. Underneath inputs, a property called resources specify that a resource of type _git_ is required. This property indicates that this task takes a git repository as an input.
-
-`"
-spec:
- inputs:
- resources:
- - name: source
- type: git
-`"
-The params property below defines fields that must be specified when using the task (e.g. the version of Node.js to use).
-
-```
-params:
- - name: VERSION
- description: The version of the nodejs
- default: '12'
- - name: PATH_CONTEXT
- description: The location of the path to run s2i from.
- default: .
- - name: TLSVERIFY
- description: Verify the TLS on the registry endpoint (for push/pull to a non-TLS registry)
- default: "true"
-```
-
-There is also an _outputs_ property shown below that is used to specify that something is output as a result of running this task. The type of output is _image_. This property specifies that this task creates an image from the git repository provided as an input.
-
-```
-outputs:
- resources:
- - name: image
- type: image
-```
-
-For each step of the task, a steps property is used to define what steps will run during this task. Each step is denoted by its name. _s2i-nodejs_ has three steps:
-
-generate
-```
-- name: generate
- image: quay.io/openshift-pipeline/s2i
- workingdir: /workspace/source
- command: ['s2i', 'build', '$(inputs.params.PATH_CONTEXT)', 'centos/nodejs-$(inputs.params.VERSION)-centos7', '--as-dockerfile', '/gen-source Dockerfile.gen']
-
- volumeMounts:
- - name: gen-source
- mountPath: /gen-source
- resources:
- limits:
- cpu: 500m
- memory: 1Gi
- requests:
- cpu: 500m
- memory: 1Gi
-```
-
-build
-```
-- name: build
- image: quay.io/buildah/stable
- workingdir: /gen-source
- command: ['buildah', 'bud', '--tls-verify=$(inputs.params.TLSVERIFY)', '--layers', '-f', '/gen-source/Dockerfile.gen', '-t', '$(outputs.resources.image.url)', '.']
- volumeMounts:
- - name: varlibcontainers
- mountPath: /var/lib/containers
- - name: gen-source
- mountPath: /gen-source
- resources:
- limits:
- cpu: 500m
- memory: 1Gi
- requests:
- cpu: 500m
- memory: 1Gi
- securityContext:
- privileged: true
-```
-
-push
-```
-- name: push
- image: quay.io/buildah/stable
- command: ['buildah', 'push', '--tls-verify=${inputs.params.TLSVERIFY}', '$(outputs.resources.image.url)', 'docker://$(outputs.resources.image.url)']
- volumeMounts:
- - name: varlibcontainers
- mountPath: /var/lib/containers
- resources:
- limits:
- cpu: 500m
- memory: 1Gi
- requests:
- cpu: 500m
- memory: 1Gi
- securityContext:
- privileged: true
-```
-
-Each step above runs in its own container. Since the generate step uses an s2i command to generate a Dockerfile from the source code from the git repository input, the image used for its container has s2i installed.
-
-The build and push steps both use a Buildah image to run commands to build the Dockerfile created by the generate step and then push that image to an image registry (i.e., the output of the task).
-
-You can see the images used for both these steps via the image property of each step.
-
-The order of the steps above (i.e. 1. generate 2. build 3. push) is used to specify when these steps should run. For _s2i-nodejs_, this means _generate_ will run followed by build and then the push step will execute last.
-
-Under the resources property of each step, you can define the amount of resources needed for the container in terms of CPU and memory.
-
-```
-resources:
- limits:
- cpu: 500m
- memory: 1Gi
- requests:
- cpu: 500m
- memory: 1Gi
-```
-
-You can view the full definition of this task in the [OpenShift Pipelines Catalog GitHub repository](https://github.com/openshift/pipelines-catalog/blob/master/s2i-nodejs/s2i-nodejs-task.yaml).
-
-The openshift-client task created is much simpler as shown below:
+The openshift-client task you will create is simpler as shown below:
 
 ```
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
- name: openshift-client
+  name: openshift-client
 spec:
- inputs:
- params:
- - name: ARGS
- description: The OpenShift CLI arguments to run
- default: help
- steps:
- - name: oc
- image: quay.io/openshiftlabs/openshift-cli-tekton-workshop:2.0
- command: ["/usr/local/bin/oc"]
- args:
- - "$(inputs.params.ARGS)"
+  inputs:
+    params:
+      - name: ARGS
+        description: The OpenShift CLI arguments to run
+        default: help
+  steps:
+    - name: oc
+      image: quay.io/openshiftlabs/openshift-cli-tekton-workshop:2.0
+      command: ["/usr/local/bin/oc"]
+      args:
+        - "$(inputs.params.ARGS)"
 ```
 
 _openshift-client_ doesn't have any inputs or outputs associated with it. It also only has one step named oc.
 
 This step uses an image with oc installed and runs the oc root command along with any args passed to the step under the args property. This task allows you to run any command with oc. You will use it to deploy the image created by the _s2i-nodejs_ task to OpenShift. You will see how this takes place in the next section.
+
+Create the _openshift-client_ task that will deploy the image created by _s2i-nodejs_ as a container on OpenShift:
+
+`oc create -f tektontasks/openshift-client-task.yaml`{{execute}}
+
+**Note**: For convenience, the tasks have been copied from their original locations in the Tekton and OpenShift catalogue git repositories to the workshop.
+
+You can take a look at the list of tasks using the Tekton CLI (tkn):
+
+`tkn task ls`{{execute}}
+
+You should see similar output to this:
+
+```
+NAME                  AGE
+openshift-client     58 seconds ago
+s2i-nodejs           3 minutes ago
+```
 
 In the next section, you will create a pipeline that uses _s2i-nodejs_ and _openshift-client_ tasks. 

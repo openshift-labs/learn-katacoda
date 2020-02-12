@@ -18,7 +18,7 @@ You should see `--> Success` in the output of the command, which verifies the su
 
 The command above uses a container image with a CentOS 7 operating system and MongoDB 3.6 installed. It also sets environment variables using the -e option. MongoDB needs these environment variables for its deployment, such as the username, database name, password, and the admin password.
 
-A service is an abstract way to expose an application running on a set of pods as a network service. Using this service name allows _nodejs-ex_ to reference a consistent endpoint in the event the pod hosting your MongoDB container is updated from events such as scaling pods up or down or redeploying your MongoDB container image with updates.
+A service is an abstract way to expose an application running on a set of pods as a network service. Using a service name allows _nodejs-ex_ to reference a consistent endpoint in the event the pod hosting your MongoDB container is updated from events such as scaling pods up or down or redeploying your MongoDB container image with updates.
 
 You can see all the services, including the one for _nodejs-ex_ in your OpenShift project by running the following command:
 

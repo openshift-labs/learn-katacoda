@@ -10,12 +10,14 @@ The following pipeline resource defines the git repository and reference for the
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
- name: nodejs-ex-git
+  name: nodejs-ex-git
+  labels:
+    app: tekton-workshop
 spec:
- type: git
- params:
- - name: url
- value: https://github.com/sclorg/nodejs-ex
+  type: git
+  params:
+  - name: url
+    value: https://github.com/sclorg/nodejs-ex
 ```
 
 You can see above that the resource has a name (i.e. _nodejs-ex-git_), and, under the spec property, we define that this pipeline resource has a type of git, meaning it is a git repository.
@@ -28,15 +30,17 @@ The following defines the OpenShift internal registry for the resulting _nodejs-
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
- name: nodejs-ex-image
+  name: nodejs-ex-image
+  labels:
+    app: tekton-workshop
 spec:
- type: image
- params:
- - name: url
- value: image-registry.openshift-image-registry.svc:5000/lab-tekton/nodejs-ex:latest
+  type: image
+  params:
+  - name: url
+    value: image-registry.openshift-image-registry.svc:5000/lab-tekton/nodejs-ex:latest
 ```
 
-The format follows the same structure as the git pipeline resource. The main difference is that a type of image is specified under the spec property, meaning this is an image registry that will have an image pushed to it. The URL for the registry is specified under the params property, just like with the git pipeline resource.
+The format follows the same structure as the git pipeline resource. The main difference is that a type of image is specified under the spec property, meaning this is an image registry that will have an image pushed to it. The URL for the registry is specified under the params property, just like with the git pipeline resource. In this case, we are using OpenShift's internal registry.
 
 Create the above pipeline resources via the oc commands below.
 

@@ -8,35 +8,37 @@ Below is a YAML file that represents the above pipeline:
 apiVersion: tekton.dev/v1alpha1
 kind: Pipeline
 metadata:
- name: deploy-pipeline
+  name: deploy-pipeline
+  labels:
+    app: tekton-workshop
 spec:
- resources:
- - name: app-git
- type: git
- - name: app-image
- type: image
- tasks:
- - name: build
- taskRef:
- name: s2i-nodejs
- params:
- - name: TLSVERIFY
- value: "false"
- resources:
- inputs:
- - name: source
- resource: app-git
- outputs:
- - name: image
- resource: app-image
- - name: deploy
- taskRef:
- name: openshift-client
- runAfter:
- - build
- params:
- - name: ARGS
- value: "rollout latest nodejs-ex"
+  resources:
+  - name: app-git
+    type: git
+  - name: app-image
+    type: image
+  tasks:
+  - name: build
+    taskRef:
+      name: s2i-nodejs
+    params:
+      - name: TLSVERIFY
+        value: "false"
+    resources:
+      inputs:
+      - name: source
+        resource: app-git
+      outputs:
+      - name: image
+        resource: app-image
+  - name: deploy
+    taskRef:
+      name: openshift-client
+    runAfter:
+      - build
+    params:
+    - name: ARGS
+      value: "rollout latest nodejs-ex"
 ```
 
 This pipeline performs the following:

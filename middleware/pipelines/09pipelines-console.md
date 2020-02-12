@@ -1,6 +1,6 @@
 Now that you have kicked off your pipeline execution, you can view it in the **Pipelines** tab of the OpenShift web console. Click on the **Console** tab at the center top of the workshop in your browser to head back out to the web console.
 
-Once back in the web console, you should be on the **Pipelines** tab. Click on the name of the pipeline you created (i.e. `deploy-pipeline`) under the **Name** column. As you might remember from earlier, clicking on the name takes you to the overview page for a pipeline that you have in an OpenShift project.
+Once back in the web console, you should be on the **Pipelines** section. Click on the name of the pipeline you created (i.e. `deploy-pipeline`) under the **Name** column. As you might remember from earlier, clicking on the name takes you to the overview page for a pipeline that you have in an OpenShift project.
 
 Since you now have a pipeline run for `deploy-pipeline`, you can now view the pipeline runs via the **Pipeline Runs** tab as shown below:
 

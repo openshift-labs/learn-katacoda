@@ -12,7 +12,28 @@ Now that you have logged in, you should be able to see the packages available to
 
 `oc describe packagemanifest openshift-pipelines-operator -n openshift-marketplace`{{execute}}
 
-You can find more information on how to add operators on the [OpenShift documentation page](https://docs.openshift.com/container-platform/4.2/operators/olm-adding-operators-to-cluster.html). For now, all you need to do is apply the associated YAML file.
+From that package manifest, you can find all the information that you need to create a Subscription to the Pipeline Operator.
+
+```
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: openshift-pipelines-operator
+  namespace: openshift-operators 
+spec:
+  channel: dev-preview
+  installPlanApproval: Automatic
+  name: openshift-pipelines-operator
+  source: community-operators 
+  sourceNamespace: openshift-marketplace
+  startingCSV: openshift-pipelines-operator.v0.8.2
+```
+
+The channel, name, starting CSV, source and source namespace are all described in the package file you just described. 
+
+_You can find more information on how to add operators on the [OpenShift documentation page](https://docs.openshift.com/container-platform/latest/operators/olm-adding-operators-to-cluster.html)._
+
+For now, all you need to do is apply the associated YAML file.
 
 `oc apply -f ./operator/subscription.yaml`{{execute}}
 
