@@ -121,7 +121,7 @@ requests:
     memory: 1Gi
 ```
 
-You can view the full definition of this task in the [OpenShift Pipelines Catalog GitHub repository](https://github.com/openshift/pipelines-catalog/blob/master/s2i-nodejs/s2i-nodejs-task.yaml) or by using `cat ./operator/subscription.yaml`.
+You can view the full definition of this task in the [OpenShift Pipelines Catalog GitHub repository](https://github.com/openshift/pipelines-catalog/blob/master/s2i-nodejs/s2i-nodejs-task.yaml) or by using `cat ./tektontasks/s2i-nodejs-task.yaml`.
 
 Create the _s2i-nodejs_ task that defines and builds a container image for the _nodejs-ex_ application and push the resulting image to an image registry:
 

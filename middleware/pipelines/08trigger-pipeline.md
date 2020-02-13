@@ -47,7 +47,9 @@ Additionally, you will begin to see the pipeline run logs immediately after the 
 
 The logs output tells you what tasks are running as well as what step it is running. You’ll see the output structured as [task_name : step_name]. An example from this pipeline run is below for the _generate_ step of the build task:
 
+```
 [build : generate]
+```
 
 As these logs come in via tkn, you can see the output from the task-step combinations from the build task:
 
@@ -62,10 +64,14 @@ As these logs come in via tkn, you can see the output from the task-step combina
 
 You can also eventually see the output of the deploy task execution with its one step:
 
+```
 [deploy : oc]
+```
 
 Upon the successful completion of the pipeline run, you will see the following output from the logs:
 
+```
 [deploy : oc] deploymentconfig.apps.openshift.io/nodejs-ex rolled out
+```
 
 While the pipeline run is executing, you can take a look at how you can visualize a pipeline run through the OpenShift web console in the next section. Leave the logs running so that you can confirm the successful deployment message when the pipeline run finishes.
