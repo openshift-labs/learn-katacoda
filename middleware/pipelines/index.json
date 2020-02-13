@@ -1,0 +1,70 @@
+{
+    "icon": "fa-openshift",
+    "title": "Getting Started with OpenShift Pipelines",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "30 minutes",
+    "backend": {
+        "imageid": "openshift-4-2"
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "terminal-iframe",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Step 1 - Install the Pipelines Operator",
+            "text": "01install-op.md"
+        }, {
+            "title": "Step 2 - Pipeline Service Account",
+            "text": "02serviceaccount.md"
+        }, {
+            "title": "Step 3 - Deploying a Sample Application",
+            "text": "03deploy-sample.md"
+        }, {
+            "title": "Step 4 - Create Tasks",
+            "text": "04create-task.md"
+        }, {
+            "title": "Step 5 - Task Resource Definitions",
+            "text": "05task-resource-def.md"
+        }, {
+            "title": "Step 6 - Create Pipeline",
+            "text": "06create-pipeline.md"
+        }, {
+            "title": "Step 7 - Create Pipeline Resources",
+            "text": "07create-pipeline-resources.md"
+        }, {
+            "title": "Step 8 - Trigger a Pipeline",
+            "text": "08trigger-pipeline.md"
+        }, {
+            "title": "Step 9 - Console View of Your Pipeline",
+            "text": "09pipelines-console.md"
+        }, {
+            "title": "Step 10 - Verify Deployment",
+            "text": "10verify-deployment.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+            "client": [
+                { "file": "operator/subscription.yaml", "target": "~/operator" },
+                { "file": "sampleapp/sampleapp.yaml", "target": "~/sampleapp" },
+                { "file": "tektontasks/openshift-client-task.yaml", "target": "~/tektontasks" },
+                { "file": "tektontasks/s2i-nodejs-task.yaml", "target": "~/tektontasks" },
+                { "file": "pipeline/deploy-pipeline.yaml", "target": "~/pipeline" },
+                { "file": "resources/git-pipeline-resource.yaml", "target": "~/resources" },
+                { "file": "resources/image-pipeline-resource.yaml", "target": "~/resources" }
+            ]
+        }
+    }
+}
