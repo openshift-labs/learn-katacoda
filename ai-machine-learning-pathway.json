@@ -26,6 +26,11 @@
       "external_link": "https://learn.openshift.com/ai-machine-learning/jupyterhub-workspace/",
       "course_id": "jupyterhub-workspace",
       "title": "Multi-user Workspace Using JupyterHub"
+    },
+    {
+      "external_link": "https://learn.openshift.com/ai-machine-learning/prometheus-api-client/",
+      "course_id": "prometheus-api-client",
+      "title": "Prometheus metrics for Data Science on OpenShift"
     }
   ]
 }
