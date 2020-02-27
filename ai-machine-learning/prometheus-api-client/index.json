@@ -23,6 +23,9 @@
         }, {
             "title": "Accessing the workshop environment",
             "text": "02-loading-the-notebook-templates.md"
+        }, {
+            "title": "Accessing the workshop environment",
+            "text": "03-accessing-the-web-console.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
