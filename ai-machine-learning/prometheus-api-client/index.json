@@ -1,0 +1,45 @@
+{
+    "icon": "fa-openshift",
+    "title": "Playing with the Prometheus API Client",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "15-20 minutes",
+    "backend": {
+      "imageid": "openshift-3-11",
+      "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "More about Prometheus",
+            "text": "01-loading-the-notebook-images.md"
+        }, {
+            "title": "Accessing the workshop environment",
+            "text": "02-loading-the-notebook-templates.md"
+        }, {
+            "title": "Accessing the workshop environment",
+            "text": "03-accessing-the-web-console.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "deploy-prometheus.yaml", "target": "~/"},
+                     {"file": "volumes.json", "target": "~/"},
+                     {"file": "generate-metrics.yaml", "target": "~/"}
+                    ]
+        }
+    }
+}
