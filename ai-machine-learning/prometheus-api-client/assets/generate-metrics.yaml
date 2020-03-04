@@ -1,0 +1,50 @@
+---
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: prometheus-metric-generation
+parameters:
+  - name: APPLICATION_NAME
+    value: prometheus-demo
+
+objects:
+  - apiVersion: batch/v1
+    kind: Job
+    metadata:
+      name: prometheus-generate-data
+    spec:
+      selector: {}
+      template:
+        metadata:
+          name: prometheus-generate-data
+        spec:
+          containers:
+            - name: "prometheus-generate-data"
+              command: ["/bin/sh"]
+              args: ["-c", "go get -u github.com/jjneely/stuff/cmd/historygen; cd /go/src/github.com/jjneely/stuff/cmd/historygen; go build; ./historygen -c 3 -o /data"]
+              image: "golang:1.13.8"
+              imagePullPolicy: IfNotPresent
+              env:
+                - name: XDG_CACHE_HOME
+                  value: "/tmp/.cache"
+              volumeMounts:
+                - mountPath: /data
+                  name: prometheus-data
+          restartPolicy: Never
+          volumes:
+            - name: prometheus-data
+              persistentVolumeClaim:
+                claimName: ${APPLICATION_NAME}
+
+  - apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      labels:
+        app: ${APPLICATION_NAME}
+      name: ${APPLICATION_NAME}
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: "2Gi"

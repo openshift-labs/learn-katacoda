@@ -47,7 +47,7 @@ The above commands show how easy and elegant podman is to use. Now, lets analyse
 
 Cache the Fedora Toolbox image:
 
-``podman pull registry.fedoraproject.org/f28/fedora-toolbox``{{execute}}
+``podman pull registry.fedoraproject.org/f29/fedora-toolbox``{{execute}}
 
 Wait for the image pull to complete, then move on...
 
