@@ -43,7 +43,7 @@
       "course_id": "panache",
       "title": "Quarkus workshop: Effective Data with Hibernate and Panache",
       "description": "Making entities trivial and fun to write in Quarkus"
-    },
+    }
 
   ]
 }
