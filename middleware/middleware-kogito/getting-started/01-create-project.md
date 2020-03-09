@@ -79,7 +79,7 @@ You should see:
 
 Because this is the first Maven Kogito/Quarkus build on this environment, the system first needs to download a number of dependencies, which can take some time.
 
-After the dependencies have been downloaded, and the application has been compiled, note the amazingly fast startup time! Once started, you can request the provided endpoint in the browser [using this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/).
+After the dependencies have been downloaded, and the application has been compiled, note the amazingly fast startup time! Once started, you can request the provided endpoint in the browser [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/).
 
 You should see the following page:
 
