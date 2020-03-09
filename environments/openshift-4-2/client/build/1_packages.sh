@@ -1,6 +1,10 @@
 yum install -y nc
 yum install -y vim man curl wget unzip zip git zsh tmux java-1.8.0-openjdk-devel tree git bash-completion net-tools python36 glibc-langpack-en rsync
-export MVN_VERSION=3.6.3
+
+export MVN_VERSION=3.6.2
+export KAMEL_VERSION=1.0.0-RC1
+export KOGITO_VERSION=0.7.0
+
 RUN wget http://www.eu.apache.org/dist/maven/maven-3/$MVN_VERSION/binaries/apache-maven-$MVN_VERSION-bin.tar.gz && \
 	tar xzf apache-maven-$MVN_VERSION-bin.tar.gz && \
 	rm -rf apache-maven-$MVN_VERSION-bin.tar.gz && \
@@ -27,3 +31,15 @@ curl -o kn.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/serve
     rm -f kn.tar.gz && \
     mv kn-linux-amd64 /usr/bin/kn && \
     chmod +x /usr/bin/kn
+
+curl -o kamel.tar.gz -L https://github.com/apache/camel-k/releases/download/$KAMEL_VERSION/camel-k-client-$KAMEL_VERSION-linux-64bit.tar.gz && \
+    tar -xvf kamel.tar.gz && \
+    rm -f kamel.tar.gz && \
+    mv kamel /usr/bin/kamel && \
+    chmod +x /usr/bin/kamel
+
+curl -o kogito.tar.gz -L https://github.com/kiegroup/kogito-cloud-operator/releases/download/v$KOGITO_VERSION/kogito-$KOGITO_VERSION-linux-amd64.tar.gz && \
+    tar -xvf kogito.tar.gz && \
+    rm -f kogito.tar.gz && \
+    mv kogito /usr/bin/kogito && \
+    chmod +x /usr/bin/kogito    
