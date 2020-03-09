@@ -1,6 +1,6 @@
 #!/bin/bash
-GRAALVM_ARCHIVE='https://github.com/oracle/graal/releases/download/vm-19.2.1/graalvm-ce-linux-amd64-19.2.1.tar.gz'
-GRAALVM_BASENAME='graalvm-ce-19.2.1'
+GRAALVM_ARCHIVE='https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-19.3.1/graalvm-ce-java11-linux-amd64-19.3.1.tar.gz'
+GRAALVM_BASENAME='graalvm-ce-java11-19.3.1'
 
 echo "install gcc and deps"
 yum --enablerepo=extras install epel-release -y
@@ -30,4 +30,3 @@ mvn -q -f getting-started -fn dependency:resolve-plugins dependency:resolve \
 
 mvn -q -f getting-started -fn dependency:resolve-plugins dependency:resolve \
     dependency:go-offline clean compile package  -DskipTests -Pnative
-
