@@ -5,7 +5,7 @@ In this step, you will create a Kogito application skeleton.
 
 The easiest way to create a new Kogito project is to execute the Maven command below by clicking on it:
 
-`mvn io.quarkus:quarkus-maven-plugin:1.3.0.Alpha1:create \
+`mvn io.quarkus:quarkus-maven-plugin:1.3.0.CR1:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=getting-started \
     -Dextensions=kogito,smallrye-openapi`{{execute}}
