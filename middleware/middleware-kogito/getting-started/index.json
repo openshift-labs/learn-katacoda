@@ -28,7 +28,7 @@
   ],
   "environment": {
     "showdashboard": true,
-    "dashboards": [{"name":"Local Web Browser","port":8080},{"name": "Kogito Tooling", "href": "https://kiegroup.github.io/kogito-online/#/"}, {"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+    "dashboards": [{"name":"Local Web Browser","port":8080},{"name": "Kogito BPMN Tooling", "href": "https://bpmn.new"}, {"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
     "uilayout": "editor-terminal",
     "uisettings": "java",
     "hideintro": false,

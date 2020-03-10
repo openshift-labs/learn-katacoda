@@ -1,4 +1,4 @@
-In the previous step you'vee created a skeleton Kogito application with Quarkus. In this step we'll create our first process definition in BPMN2. We will see how Kogito is able to generate a microservice, including RESTful resources, from our business assets (e.g. process definitions, decisions, etc.).
+In the previous step you've created a skeleton Kogito application with Quarkus. In this step we'll create our first process definition in BPMN2. We will see how Kogito is able to generate a microservice, including RESTful resources, from our business assets (e.g. process definitions, decisions, etc.).
 
 ## Create a process definition
 
@@ -12,7 +12,7 @@ Open a new BPMN2 file by clicking: `getting-started/src/main/resources/getting-s
 
 BPMN2 allows us to define a graphical representation of a process (or workflow), and as such, we need a BPMN2 editor to implement our process. Kogito provides an online BPMN2 editor that we can use to build our process.
 
-Click on the "Kogito Tooling" tab next to the "Local Web Browser" tab to open the Kogito Tooling, or navigate to: https://kiegroup.github.io/kogito-online/#/
+Click on the "Kogito Tooling" tab next to the "Local Web Browser" tab to open the Kogito Tooling, or navigate to: https://bpmn.new
 
 Implement the process as shown in the following video. Make sure to use `getting_started` for the **name** and **id** of the process and `org.acme` for the **package**.
 
@@ -161,7 +161,7 @@ Alternatively, you can copy the following BPMN2 definition to the BPMN file:
 
 Since we still have our app running using `mvn quarkus:dev`, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live-reload them, including changes in your business assets (i.e. processes, decision, rules, etc.).
 
-Check that it works as expected by opening the Swagger-UI endpoint by [clicking here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). The Swagger-UI will show the REST resources that have been generated from the project's _business assets_, in this case the `getting_started` resource, which is backed by our process definition.
+Check that it works as expected by opening the Swagger-UI endpoint by [clicking here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). The Swagger-UI will show the REST resources that have been generated from the project's _business assets_, in this case the `getting_started` resource, which is backed by our process definition.
 
 In the Swagger UI, expand the **POST /getting_started** resource. Click on the **Try it out** button on the right-hand-side of the screen. Remove the
 
@@ -185,13 +185,13 @@ Because the original Terminal tab already has our applicatio running, we need to
 
 Our process defintion contains a *UserTask*. To retrieve the tasks of an instance, we need to execute another REST operation.
 
-Let's go back to the [Swagger-UI](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). Expand the **GET ​/getting_started​/{id}​/tasks** operation, and click on the **Try it out** button. In the `id` field, fill in the value of the process instance id the previous command returned. Now, click on the **Execute** button.
+Let's go back to the [Swagger-UI](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). Expand the **GET ​/getting_started​/{id}​/tasks** operation, and click on the **Try it out** button. In the `id` field, fill in the value of the process instance id the previous command returned. Now, click on the **Execute** button.
 
 This will return a list of **Tasks**.
 
 ![Tasks](/openshift/assets/middleware/middleware-kogito/kogito-getting-started-get-tasks.png)
 
-Since we haven't defined any Task input and output data yet, we can simply complete the task without providing any data. We will again do this from the [Swagger-UI](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). Expand the **POST ​/getting_started​/{id}​/Task/{workitemId}** operation, and click on the **Try it out** button. In the `id` field, fill in the value of the process instance id, and fill in the task-id that we retrieved with our previous REST call in the `workItemId` field. Now, click on the **Execute** button.
+Since we haven't defined any Task input and output data yet, we can simply complete the task without providing any data. We will again do this from the [Swagger-UI](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). Expand the **POST ​/getting_started​/{id}​/Task/{workitemId}** operation, and click on the **Try it out** button. In the `id` field, fill in the value of the process instance id, and fill in the task-id that we retrieved with our previous REST call in the `workItemId` field. Now, click on the **Execute** button.
 
 This will complete the task, and the process will continue and reach the *End* node and complete.
 
