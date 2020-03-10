@@ -176,7 +176,7 @@ from the *Request body*, and click on the blue **Execute** button. The response 
 
 Apart from the Swagger-UI, we can also call our RESTful resources from any REST client, for example via **cURL** in a terminal.
 
-Because the original Terminal tab already has our applicatio running, we need to run this command in a second Terminal tab. Click on the following command to run it in your other Terminal tab. This will return the list of **getting_started** resource instances, which currently containts the single instance we created earlier:
+Because the original Terminal tab already has our application running, we need to run this command in a second Terminal tab. Click on the following command to run it in your other Terminal tab. This will return the list of **getting_started** resource instances, which currently contains the single instance we created earlier:
 
 `curl -X GET "http://localhost:8080/getting_started" -H "accept: application/json"`{{execute T2}}
 

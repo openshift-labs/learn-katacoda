@@ -39,7 +39,7 @@ The output shows the id of the new instance (note that your id will be different
 >  `quarkus.swagger-ui.always-include=true`
 
 
-> The `Class-Path` entry of the `MANIFEST.MF` file in the _runner jar_ explicitly lists the jars from the `lib` directory. So if you want to deploy your application somewhere, you need to copy the _runner jar_ as well as the _lib_ directory. If you want to create an _Uber-jar_ with everything included, you can use `mvn package -DuberJar`.
+> The `Class-Path` entry of the `MANIFEST.MF` file in the _runner JAR_ explicitly lists the jars from the `lib` directory. So if you want to deploy your application somewhere, you need to copy the _runner JAR_ as well as the _lib_ directory. If you want to create an _Uber-JAR_ with everything included, you can use `mvn package -DuberJar`.
 
 ## Cleanup
 
