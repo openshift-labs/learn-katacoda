@@ -37,7 +37,7 @@ OpenShift ships with a web-based console that will allow users to perform variou
 
 The first screen you will see is the authentication screen. Enter your username and password (u: developer, p: developer) and then log in:
 
-![Web Console Login](/openshift/assets/middleware/quarkus/login.png)
+![Web Console Login](/openshift/assets/middleware/middleware-kogito/login.png)
 
 After you have authenticated to the web console, you will be presented with a list of projects that your user has permission to work with.
 
@@ -45,7 +45,7 @@ After you have authenticated to the web console, you will be presented with a li
 
 Click on your new project name to be taken to the project overview page which will list all of the routes, services, deployments, and pods that you have running as part of your project:
 
-![Web Console Overview](/openshift/assets/middleware/quarkus/overview.png)
+![Web Console Overview](/openshift/assets/middleware/middleware-kogito/overview.png)
 
 There's nothing there now, but that's about to change.
 
