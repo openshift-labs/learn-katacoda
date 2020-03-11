@@ -50,7 +50,7 @@ In the original terminal, if the application is still running, stop it with `Ctr
 
 > Since we are working in a Linux environment, and the OS that will eventually run our application is also Linux, we can use our local OS to build the native Quarkus app. If you need to build native Linux binaries when on other OS's like Windows or macOS, you can use `-Dquarkus.native.container-runtime=[podman | docker]`. You'll need either Docker or [Podman](https://podman.io) installed depending on which container runtime you want to use!
 
-This will take a minute or so to finish. Wait for it!
+This will take a couple of minutes to finish. Wait for it!
 
 In addition to the regular files, the build also produces `target/getting-started-1.0-SNAPSHOT-runner`. This is a native Linux binary:
 
@@ -70,11 +70,11 @@ Since our environment here is Linux, you can _just run it_:
 Notice the amazingly fast startup time:
 
 ```console
-2019-12-19 13:52:17,872 INFO  [io.quarkus] (main) getting-started 1.0-SNAPSHOT (running on Quarkus 1.0.1.Final) started in 0.006s. Listening on: http://0.0.0.0:8080
-2019-12-19 13:52:17,872 INFO  [io.quarkus] (main) Profile prod activated.
-2019-12-19 13:52:17,872 INFO  [io.quarkus] (main) Installed features: [cdi, kogito, resteasy, resteasy-jackson, smallrye-openapi]
+2020-03-11 14:41:46,536 INFO  [io.quarkus] (main) getting-started 1.0-SNAPSHOT (powered by Quarkus 1.3.0.CR2) started in 0.027s. Listening on: http://0.0.0.0:8080
+2020-03-11 14:41:46,536 INFO  [io.quarkus] (main) Profile prod activated.
+2020-03-11 14:41:46,536 INFO  [io.quarkus] (main) Installed features: [cdi, kogito, resteasy, resteasy-jackson, smallrye-openapi]
 ```
-That's 6 milliseconds. A _mere 6000 nanoseconds_.
+That's 27 milliseconds to start a full business application, exposing a REST API and ready to serve requests in a shared learning environment!
 
 And extremely low memory usage as reported by the Linux `ps` utility. Click here to run this in your other Terminal tab:
 
@@ -84,10 +84,10 @@ You should see something like:
 
 ```console
   PID   RSS COMMAND
-26473 14948 target/getting-started-1.0-SNAPSHOT-runner
+2478 26904 target/getting-started-1.0-SNAPSHOT-runner
 ```
 
-This shows that our process is taking around 15 MB of memory ([Resident Set Size](https://en.wikipedia.org/wiki/Resident_set_size), or RSS). Pretty compact!
+This shows that our process is taking around 27 MB of memory ([Resident Set Size](https://en.wikipedia.org/wiki/Resident_set_size), or RSS). Pretty compact!
 
 > Note that the RSS and memory usage of any app, including Quarkus, will vary depending your specific environment, and will rise as the application experiences load.
 
