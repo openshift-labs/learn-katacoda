@@ -8,7 +8,7 @@ OpenShift also ships with a feature rich web console as well as command line too
 
 In order to login, we will use the **oc** command and then specify the server that we want to authenticate to:
 
-`oc login [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com --insecure-skip-tls-verify=true`{{execute T1}}
+`oc login --server=https://[[HOST_SUBDOMAIN]]-6443-[[KATACODA_HOST]].environments.katacoda.com --insecure-skip-tls-verify=true`{{execute T1}}
 
 Enter your username and password:
 * Username: **developer**
