@@ -10,7 +10,7 @@ http://prometheus-demo-route-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].e
 
 The jupyter environment with the workshop notebooks is available here:
 
-http://custom-notebook-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
+http://prometheus-anomaly-detection-workshop-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
 
 You will need a password to access the environment.
 The password is `secret`{{copy}}
