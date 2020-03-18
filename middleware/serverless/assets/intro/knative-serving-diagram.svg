@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 776.3 305.2" style="enable-background:new 0 0 776.3 305.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#CC2029;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#6C6C6C;stroke-miterlimit:10;}
+	.st2{fill:#CC2029;}
+	.st3{fill:none;stroke:#DC3327;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st4{fill:#FFFFFF;stroke:#6C6C6C;stroke-miterlimit:10;}
+	.st5{fill:#6C6C6C;}
+	.st6{font-family:'RedHatText-Regular';}
+	.st7{font-size:16px;}
+	.st8{letter-spacing:1;}
+	.st9{fill:none;}
+	.st10{font-size:14px;}
+	.st11{font-size:18px;}
+	.st12{letter-spacing:3;}
+	.st13{fill:#FFFFFF;}
+	.st14{font-family:'RedHatText-Medium';}
+	.st15{font-size:20px;}
+</style>
+<line class="st0" x1="561.4" y1="202.7" x2="578.1" y2="202.7"/>
+<rect x="-2856" y="1306.4" class="st1" width="141.1" height="126.4"/>
+<line class="st0" x1="-2714.5" y1="1370" x2="-2687.8" y2="1370"/>
+<g>
+	<g>
+		<g>
+			<circle class="st2" cx="-2856.3" cy="1324.6" r="5.1"/>
+			<line class="st3" x1="-3150.2" y1="1324.7" x2="-2861.5" y2="1324.6"/>
+		</g>
+		<g>
+			<rect x="-3037.3" y="1306.9" class="st4" width="129" height="36"/>
+			<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -3001.2156 1329.6288)" class="st5 st6 st7">Pipeline</text>
+		</g>
+	</g>
+	<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -3269.8923 1329.6288)" class="st5 st6 st7">Source code A</text>
+</g>
+<g>
+	<g>
+		<circle class="st2" cx="-2856.3" cy="1369.6" r="5.1"/>
+		<line class="st3" x1="-3150.1" y1="1369.7" x2="-2861.4" y2="1369.6"/>
+	</g>
+	<g>
+		<rect x="-3037.3" y="1351.9" class="st4" width="129" height="36"/>
+		<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -3001.2156 1374.6288)" class="st5 st6 st7">Pipeline</text>
+	</g>
+</g>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -3269.8914 1374.6288)" class="st5 st6 st7">Source code B</text>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -2810.3108 1363.6288)" class="st5 st6 st7">Service</text>
+<g>
+	<g>
+		<g>
+			<line class="st3" x1="-3150.1" y1="1414.7" x2="-2861.4" y2="1414.6"/>
+			<circle class="st2" cx="-2856.3" cy="1414.6" r="5.1"/>
+		</g>
+		<g>
+			<rect x="-3037.3" y="1396.9" class="st4" width="129" height="36"/>
+			<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -3001.2156 1419.6288)" class="st5 st6 st7">Pipeline</text>
+		</g>
+	</g>
+	<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -3269.8923 1419.6288)" class="st5 st6 st7">Source code C</text>
+</g>
+<rect x="-2855.3" y="1371.3" class="st9" width="140.6" height="18.8"/>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -2840.781 1383.1892)" class="st5 st6 st10">(User application)</text>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -2578.4128 1331.9279)" class="st5 st6 st11">Revision 1</text>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -2578.4128 1375.4983)" class="st5 st6 st11">Revision 2</text>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -2578.4128 1418.1371)" class="st5 st6 st11">Revision 3</text>
+<line class="st0" x1="-2623.5" y1="1370" x2="-2591.8" y2="1370"/>
+<polyline class="st0" points="-2591.8,1414 -2592.7,1414 -2592.8,1325 -2591.8,1325 "/>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -2682.3079 1365.4054)"><tspan x="0" y="0" class="st5 st6 st10">Network </tspan><tspan x="7.6" y="16.8" class="st5 st6 st10">traffic</tspan></text>
+<circle class="st2" cx="-2592.5" cy="1414.2" r="5"/>
+<circle class="st2" cx="-2592.5" cy="1370.2" r="5"/>
+<circle class="st2" cx="-2592.5" cy="1325.2" r="5"/>
+<rect x="-3290.7" y="1209.9" class="st5" width="230" height="71.4"/>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -3267.2336 1241.4686)" class="st13 st14 st15">Che | VS Code | IDE</text>
+<text transform="matrix(1 0 0 1 -3201.6367 1264.5237)" class="st6 st7" style="fill:#DCDBDB;">(Code)</text>
+<rect x="-2881.1" y="1209.9" class="st5" width="390.3" height="71.4"/>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -2758.3472 1241.4625)" class="st13 st14 st15">Knative serving</text>
+<text transform="matrix(1 0 0 1 -2706.3423 1264.5237)" class="st6 st7" style="fill:#DCDBDB;">(Run)</text>
+<rect x="-3050.7" y="1209.9" class="st5" width="159" height="71.4"/>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 -3004.2056 1241.4501)" class="st13 st14 st15">Tekton</text>
+<text transform="matrix(1 0 0 1 -2995.0049 1264.5237)" class="st6 st7" style="fill:#DCDBDB;">(Build)</text>
+<rect x="425.8" y="139.1" class="st1" width="134.7" height="126.4"/>
+<circle class="st2" cx="425.5" cy="157.3" r="5.1"/>
+<line class="st3" x1="399.4" y1="157.3" x2="420.4" y2="157.3"/>
+<path class="st3" d="M267.6,157.4"/>
+<line class="st3" x1="163.7" y1="157.4" x2="270.6" y2="157.4"/>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 38.9302 162.3175)"><tspan x="0" y="0" class="st5 st6 st7">Source code </tspan><tspan x="93.6" y="0" class="st5 st6 st7 st8">V.1</tspan></text>
+<g>
+	<circle class="st2" cx="425.5" cy="202.3" r="5.1"/>
+	<line class="st3" x1="399.8" y1="202.3" x2="420.4" y2="202.3"/>
+	<path class="st3" d="M266.8,202.4"/>
+	<line class="st3" x1="163.7" y1="202.4" x2="269.8" y2="202.4"/>
+</g>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 38.9312 207.3175)" class="st5 st6 st7">Source code V.2</text>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 465.5117 196.3175)" class="st5 st6 st7">Service</text>
+<g>
+	<line class="st3" x1="399.4" y1="247.3" x2="420.4" y2="247.3"/>
+	<path class="st3" d="M266.8,247.4"/>
+	<line class="st3" x1="163.7" y1="247.4" x2="269.8" y2="247.4"/>
+	<circle class="st2" cx="425.6" cy="247.3" r="5.1"/>
+</g>
+<g>
+	<rect x="270.5" y="139.6" class="st4" width="129" height="36"/>
+	<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 306.6298 162.3175)" class="st5 st6 st7">Pipeline</text>
+	<rect x="270.5" y="184.6" class="st4" width="129" height="36"/>
+	<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 306.6298 207.3175)" class="st5 st6 st7">Pipeline</text>
+	<rect x="270.5" y="229.6" class="st4" width="129" height="36"/>
+	<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 306.6298 252.3175)" class="st5 st6 st7">Pipeline</text>
+</g>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 38.9302 252.3175)" class="st5 st6 st7">Source code V.3</text>
+<rect x="425.5" y="204" class="st9" width="134.3" height="18.3"/>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 436.8579 215.879)" class="st5 st6 st10">(User application)</text>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 670.4097 164.6165)"><tspan x="0" y="0" class="st5 st6 st11">Revision</tspan><tspan x="67" y="0" class="st5 st6 st11 st12"> </tspan><tspan x="74.8" y="0" class="st5 st6 st11">1</tspan></text>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 670.4097 208.1871)" class="st5 st6 st11">Revision 2</text>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 670.4097 250.8258)" class="st5 st6 st11">Revision 3</text>
+<line class="st0" x1="642.4" y1="202.7" x2="664.1" y2="202.7"/>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 583.5147 198.0941)"><tspan x="0" y="0" class="st5 st6 st10">Network </tspan><tspan x="7.6" y="16.8" class="st5 st6 st10">traffic</tspan></text>
+<line class="st0" x1="660.2" y1="157.7" x2="660.3" y2="246.7"/>
+<circle class="st2" cx="660.3" cy="246.9" r="5"/>
+<circle class="st2" cx="660.3" cy="202.9" r="5"/>
+<circle class="st2" cx="660.3" cy="157.9" r="5"/>
+<rect x="15.1" y="67.6" class="st5" width="230" height="49.9"/>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 38.5888 99.1574)" class="st13 st14 st15">Che | VS Code | IDE</text>
+<text transform="matrix(1 0 0 1 107.0251 53.2124)" class="st2 st6 st7">Code</text>
+<rect x="424.7" y="67.6" class="st5" width="336.5" height="49.9"/>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 520.4753 99.1512)" class="st13 st14 st15">Knative serving</text>
+<text transform="matrix(1 0 0 1 575.4514 53.2124)" class="st2 st6 st7">Run</text>
+<rect x="255.1" y="67.6" class="st5" width="159" height="49.9"/>
+<text transform="matrix(1 -3.200000e-04 3.200000e-04 1 301.6171 99.1388)" class="st13 st14 st15">Tekton</text>
+<text transform="matrix(1 0 0 1 311.3288 53.2124)" class="st2 st6 st7">Build</text>
+</svg>
