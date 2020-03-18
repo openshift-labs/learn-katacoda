@@ -39,6 +39,7 @@
           "host01": [{"file": "deploy-prometheus.yaml", "target": "~/"},
                      {"file": "volumes.json", "target": "~/"},
                      {"file": "generate-metrics.yaml", "target": "~/"},
+                     {"file": "notebook-imagestream.yaml", "target": "~/"},
                      {"file": "setup.sh", "target": "~/"}
                     ]
         }
