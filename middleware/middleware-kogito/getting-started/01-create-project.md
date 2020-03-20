@@ -5,12 +5,16 @@ In this step, you will create a Kogito application skeleton.
 
 The easiest way to create a new Kogito project is to execute the Maven command below by clicking on it:
 
-`mvn io.quarkus:quarkus-maven-plugin:1.3.0.CR2:create \
-    -DprojectGroupId=org.acme \
-    -DprojectArtifactId=getting-started \
-    -Dextensions=kogito,smallrye-openapi`{{execute}}
+`mvn archetype:generate \
+  -DarchetypeGroupId=org.kie.kogito \
+  -DarchetypeArtifactId=kogito-quarkus-archetype \
+  -DarchetypeVersion=8.0.0-SNAPSHOT \
+  -DgroupId=org.acme \
+  -DartifactId=getting-started \
+  -Dversion=1.0.0-SNAPSHOT`{{execute}}
 
-This will use the Quarkus Maven Plugin and generate a basic Maven project for you in the `getting-started` subdirectory, generating:
+
+This will use the Kogito Quarkus Archetype and generate a basic Maven project for you in the `getting-started` subdirectory, generating:
 
 * The Maven structure.
 * A landing page that is accessible on `http://localhost:8080` after starting the application.
@@ -18,19 +22,19 @@ This will use the Quarkus Maven Plugin and generate a basic Maven project for yo
 * The application configuration file.
 * An OpenAPI Swagger-UI at `http://localhost:8080/swagger-ui`.
 
-Once generated, look at the `getting-started/pom.xml`{{open}}. You will find the import of the Quarkus BOM, allowing to omit the version on the different Quarkus dependencies. In addition, you can see the `quarkus-maven-plugin`, which is responsible for packaging of the application as well as allowing to start the application in development mode.
+Once generated, look at the `getting-started/pom.xml`{{open}}. You will find the import of the Kogito BOM, allowing to omit the version on the different Kogito and Quarkus dependencies. In addition, you can see the `quarkus-maven-plugin`, which is responsible for packaging of the application as well as allowing to start the application in development mode.
 
 ```xml
 <dependencyManagement>
-    <dependencies>
-          <dependency>
-            <groupId>${quarkus.platform.group-id}</groupId>
-            <artifactId>${quarkus.platform.artifact-id}</artifactId>
-            <version>${quarkus.platform.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>kogito-quarkus-bom</artifactId>
+      <version>${kogito.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
 </dependencyManagement>
 
 <build>
@@ -38,7 +42,7 @@ Once generated, look at the `getting-started/pom.xml`{{open}}. You will find the
         <plugin>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-maven-plugin</artifactId>
-            <version>${quarkus.version}</version>
+            <version>1.3.0.Final</version>
             <executions>
                 <execution>
                     <goals>
@@ -51,11 +55,11 @@ Once generated, look at the `getting-started/pom.xml`{{open}}. You will find the
 </build>
 ```
 
-If we focus on the dependencies section, you can see we are using the [Kogito Quarkus extension](https://quarkus.io/extensions/#business-automation), which enables the development of Kogito applications on Quarkus:
+If we focus on the dependencies section, you can see we are using the Kogito Quarkus extension, which enables the development of Kogito applications on Quarkus:
 ```xml
 <dependency>
-    <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-kogito</artifactId>
+  <groupId>org.kie.kogito</groupId>
+  <artifactId>kogito-quarkus</artifactId>
 </dependency>
 ```
 
