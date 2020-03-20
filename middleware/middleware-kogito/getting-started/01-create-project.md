@@ -8,7 +8,7 @@ The easiest way to create a new Kogito project is to execute the Maven command b
 `mvn archetype:generate \
   -DarchetypeGroupId=org.kie.kogito \
   -DarchetypeArtifactId=kogito-quarkus-archetype \
-  -DarchetypeVersion=8.0.0-SNAPSHOT \
+  -DarchetypeVersion=0.9.0 \
   -DgroupId=org.acme \
   -DartifactId=getting-started \
   -Dversion=1.0.0-SNAPSHOT`{{execute}}
