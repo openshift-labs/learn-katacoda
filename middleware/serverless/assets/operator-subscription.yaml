@@ -1,19 +1,6 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: elasticsearch-operator
-  namespace: openshift-operators
-spec:
-  channel: "4.2"
-  installPlanApproval: Automatic
-  name: elasticsearch-operator
-  source: redhat-operators
-  sourceNamespace: openshift-marketplace
-  startingCSV: elasticsearch-operator.4.2.15-202001171551
----
-apiVersion: operators.coreos.com/v1alpha1
-kind: Subscription
-metadata:
   name: serverless-operator
   namespace: openshift-operators
 spec:
@@ -22,18 +9,4 @@ spec:
   name: serverless-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: serverless-operator.v1.4.0
----
-apiVersion: operators.coreos.com/v1alpha1
-kind: Subscription
-metadata:
-  name: knative-eventing-operator
-  namespace: openshift-operators
-spec:
-  channel: alpha
-  installPlanApproval: Automatic
-  name: knative-eventing-operator
-  source: community-operators
-  sourceNamespace: openshift-marketplace
-  startingCSV: knative-eventing-operator.v0.11.0
-
+  startingCSV: serverless-operator.v1.4.1
