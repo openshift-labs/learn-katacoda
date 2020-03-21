@@ -42,7 +42,7 @@
         "uilayout": "terminal-iframe"
     },
   "backend": {
-    "imageid": "openshift42",
+    "imageid": "openshift-4-2",
     "port": 8443
   }
 }
