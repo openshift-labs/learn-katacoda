@@ -92,6 +92,6 @@ So now our app is deployed to OpenShift. You can also see it in the [Overview in
 
 ## Congratulations!
 
-This step covered the deployment of a Kogito application on OpenShift. However, there is much more, and the integration with these environments has been tailored to make Kogito applications execution very smooth. For instance, the health extension can be used for [health check](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-application-health); the configuration support allows mounting the application configuration using [config maps](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-configmaps), the metric extension produces data _scrape-able_ by [Prometheus](https://prometheus.io/) and so on.
+This step covered the deployment of a Kogito application on OpenShift. However, there is much more, and the integration with these environments has been tailored to make Kogito applications execution very smooth. For instance, the health extension can be used for [health check](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-application-health); the configuration support allows mounting the application configuration using config maps, the metric extension produces data _scrape-able_ by [Prometheus](https://prometheus.io/) and so on.
 
 But we'll move to the final chapter around scaling and try a few things.
