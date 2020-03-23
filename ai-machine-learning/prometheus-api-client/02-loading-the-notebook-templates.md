@@ -16,5 +16,7 @@ You will need a password to access the environment.
 The password is `secret`{{copy}}
 ![Jupyter Environment Secret](./prometheus-api-client/assets/02-jupyter-secret.png)
 
-The notebook we will be using is called: `Introduction_Prometheus_API_Client.ipynb`
+There are 2 notebooks available in the Jupyter environment:
+1. `(Exercises) Introduction_Prometheus_API_Client.ipynb` - In this notebook you will explore and solve few exercises on using the Prometheus API client.
+2. `(Solutions) Introduction_Prometheus_API_Client.ipynb` - You will find the solutions to the exercises in this notebook.
 ![Jupyter Notebook List](./prometheus-api-client/assets/02-jupyter-notebook-list.png)
