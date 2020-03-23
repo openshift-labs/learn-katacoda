@@ -3,7 +3,7 @@ set -o pipefail
 
 oc create -f https://raw.githubusercontent.com/btannous/learn-katacoda/serverless/middleware/serverless/assets/operator-subscription.yaml
 source assets/approve-csv.bash
-timeout 900 "[[ -z \$(find_install_plan $csv_version) ]]" || return 1
+while [ -z $(find_install_plan $csv_version) ] do sleep 10; done
 approve_csv 1.4.1
 
 mkdir -p /root/projects && cd /root/projects/
