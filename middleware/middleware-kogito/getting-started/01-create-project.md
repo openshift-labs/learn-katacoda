@@ -8,7 +8,7 @@ The easiest way to create a new Kogito project is to execute the Maven command b
 `mvn archetype:generate \
   -DarchetypeGroupId=org.kie.kogito \
   -DarchetypeArtifactId=kogito-quarkus-archetype \
-  -DarchetypeVersion=0.9.0 \
+  -DarchetypeVersion=0.8.1 \
   -DgroupId=org.acme \
   -DartifactId=getting-started \
   -Dversion=1.0.0-SNAPSHOT`{{execute}}
@@ -17,9 +17,7 @@ The easiest way to create a new Kogito project is to execute the Maven command b
 This will use the Kogito Quarkus Archetype and generate a basic Maven project for you in the `getting-started` subdirectory, generating:
 
 * The Maven structure.
-* A landing page that is accessible on `http://localhost:8080` after starting the application.
-* Example `Dockerfiles` for both Native and JVM modes.
-* The application configuration file.
+* Example `test-process.bpmn2` BPMN2 process definition.
 * An OpenAPI Swagger-UI at `http://localhost:8080/swagger-ui`.
 
 Once generated, look at the `getting-started/pom.xml`{{open}}. You will find the import of the Kogito BOM, allowing to omit the version on the different Kogito and Quarkus dependencies. In addition, you can see the `quarkus-maven-plugin`, which is responsible for packaging of the application as well as allowing to start the application in development mode.
@@ -83,11 +81,11 @@ You should see:
 
 Because this is the first Maven Kogito/Quarkus build on this environment, the system first needs to download a number of dependencies, which can take some time.
 
-After the dependencies have been downloaded, and the application has been compiled, note the amazingly fast startup time! Once started, you can request the provided endpoint in the browser [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/).
+After the dependencies have been downloaded, and the application has been compiled, note the amazingly fast startup time! Once started, you can request the provided Swagger UI in the browser [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).
 
 You should see the following page:
 
-![New Kogito Quarkus Web Page](/openshift/assets/middleware/middleware-kogito/new-kogito-quarkus-webpage.png)
+![New Kogito Quarkus Web Page](/openshift/assets/middleware/middleware-kogito/new-kogito-quarkus-swagger-ui.png)
 
 It's working!
 
