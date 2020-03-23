@@ -11,7 +11,7 @@ The easiest way to create a new Kogito project is to execute the Maven command b
   -DarchetypeVersion=0.8.1 \
   -DgroupId=org.acme \
   -DartifactId=getting-started \
-  -Dversion=1.0.0-SNAPSHOT`{{execute}}
+  -Dversion=1.0-SNAPSHOT`{{execute}}
 
 
 This will use the Kogito Quarkus Archetype and generate a basic Maven project for you in the `getting-started` subdirectory, generating:
