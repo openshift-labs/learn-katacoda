@@ -11,7 +11,7 @@
     },
     {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-kogito/cdi",
-      "course_id": "cdi",
+      "course_id": "service-task-cdi",
       "title": "Kogito and CDI",
       "description": "Using MicroProfile CDI to implement business automation logic with Kogito"
     },
