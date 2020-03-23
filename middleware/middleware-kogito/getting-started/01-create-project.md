@@ -6,6 +6,7 @@ In this step, you will create a Kogito application skeleton.
 The easiest way to create a new Kogito project is to execute the Maven command below by clicking on it:
 
 `mvn archetype:generate \
+  -DinteractiveMode=false \
   -DarchetypeGroupId=org.kie.kogito \
   -DarchetypeArtifactId=kogito-quarkus-archetype \
   -DarchetypeVersion=0.8.1 \

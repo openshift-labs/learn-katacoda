@@ -11,38 +11,32 @@ We will be using GraalVM, which includes a native compiler for producing native 
 Within the `getting-started/pom.xml`{{open}} is the declaration for the Quarkus Maven plugin which contains a profile for `native-image`:
 
 ```xml
-  <profile>
-    <id>native</id>
-    <activation>
-      <property>
-        <name>native</name>
-      </property>
-    </activation>
-    <build>
-      <plugins>
-        <plugin>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <version>${surefire-plugin.version}</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>integration-test</goal>
-                <goal>verify</goal>
-              </goals>
-              <configuration>
-                <systemProperties>
-                  <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
-                </systemProperties>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </build>
-    <properties>
-      <quarkus.package.type>native</quarkus.package.type>
-    </properties>
-  </profile>
+<profile>
+  <id>native</id>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>native-image</goal>
+            </goals>
+            <configuration>
+              <additionalBuildArgs>--allow-incomplete-classpath</additionalBuildArgs>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>2.22.1</version>
+      </plugin>
+    </plugins>
+  </build>
+</profile>
 ```
 We use a profile because, you will see very soon, packaging the native image takes a few seconds. However, this compilation time is only incurred _once_, as opposed to _every_ time the application starts, which is the case with other approaches for building and executing JARs.
 
@@ -70,11 +64,11 @@ Since our environment here is Linux, you can _just run it_:
 Notice the amazingly fast startup time:
 
 ```console
-2020-03-11 14:41:46,536 INFO  [io.quarkus] (main) getting-started 1.0-SNAPSHOT (powered by Quarkus 1.3.0.CR2) started in 0.027s. Listening on: http://0.0.0.0:8080
-2020-03-11 14:41:46,536 INFO  [io.quarkus] (main) Profile prod activated.
-2020-03-11 14:41:46,536 INFO  [io.quarkus] (main) Installed features: [cdi, kogito, resteasy, resteasy-jackson, smallrye-openapi]
+2020-03-23 12:54:58,692 INFO  [io.quarkus] (main) getting-started 1.0-SNAPSHOT (powered by Quarkus 1.3.0.Final) started in 0.007s. Listening on: http://0.0.0.0:8080
+2020-03-23 12:54:58,692 INFO  [io.quarkus] (main) Profile prod activated.
+2020-03-23 12:54:58,692 INFO  [io.quarkus] (main) Installed features: [cdi, kogito, resteasy, resteasy-jackson, smallrye-openapi]
 ```
-That's 27 milliseconds to start a full business application, exposing a REST API and ready to serve requests in a shared learning environment!
+That's 7 milliseconds (seven!!!) to start a full business application, exposing a REST API and ready to serve requests in a shared learning environment!
 
 And extremely low memory usage as reported by the Linux `ps` utility. Click here to run this in your other Terminal tab:
 
