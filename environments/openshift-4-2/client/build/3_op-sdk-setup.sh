@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "install jq"
+yum install jq -y
+
 echo "install gcc"
 yum install gcc -y
 
