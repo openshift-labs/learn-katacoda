@@ -1,6 +1,6 @@
 #!/bin/bash
 git clone --depth 1 -b serverless https://github.com/btannous/learn-katacoda.git .learn-katacoda
-ln -s serverless .learn-katacoda/middleware/serverless
+ln -s .learn-katacoda/middleware/serverless serverless
 cd serverless
 oc create -f assets/operator-subscription.yaml
 source assets/approve-csv.bash
