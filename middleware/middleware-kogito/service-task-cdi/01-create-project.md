@@ -12,7 +12,7 @@ You will implement logic that converts the text to uppercase in a CDI bean.
 
 Let's get started.
 
-# Create basic project
+# Create a basic project
 
 The easiest way to create a new Kogito project is to execute the Maven command below by clicking on it:
 
@@ -26,34 +26,6 @@ The easiest way to create a new Kogito project is to execute the Maven command b
   -Dversion=1.0-SNAPSHOT`{{execute}}
 
 This will use the Kogito Maven Archetype and generate a basic Maven project for you in the `service-task-cdi` subdirectory.
-
-
-# Running the Application
-
-First, change to the directory in which the project was created:
-
-`cd /root/projects/kogito/service-task-cdi`{{execute}}
-
-Now we are ready to run our application. Click on the following command to start the application in _dev-mode_:
-
-`mvn clean compile quarkus:dev`{{execute}}
-
-You should see:
-
-```console
-2020-02-07 09:09:12,440 INFO  [io.quarkus] (main) getting-started 1.0-SNAPSHOT (running on Quarkus 1.2.0.Final) started in 5.850s. Listening on: http://0.0.0.0:8080
-2020-02-07 09:09:12,447 INFO  [io.quarkus] (main) Profile dev activated. Live Coding activated.
-2020-02-07 09:09:12,449 INFO  [io.quarkus] (main) Installed features: [cdi, kogito, resteasy, resteasy-jackson, smallrye-openapi, swagger-ui]
-```
-
-Because this is the first Maven Kogito/Quarkus build on this environment, the system first needs to download a number of dependencies, which can take some time.
-
-After the dependencies have been downloaded, and the application has been compiled, note the amazingly fast startup time! Once started, you can request the provided Swagger UI in the browser [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).
-
-You should see the following page:
-
-![New Kogito Quarkus Web Page](/openshift/assets/middleware/middleware-kogito/new-kogito-quarkus-swagger-ui.png)
-
 
 # BPMN2 Process Definition
 
