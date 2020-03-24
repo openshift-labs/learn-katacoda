@@ -9,8 +9,7 @@
     "steps": [
       { "title": "Step 1", "text": "01-create-project.md" },
       { "title": "Step 2", "text": "02-implement-cdi-bean.md" },
-      { "title": "Step 3", "text": "03-implement-the-process.md" },
-      { "title": "Step 4", "text": "04-hot-reload.md" }
+      { "title": "Step 3", "text": "03-implement-the-process.md" }
     ],
     "intro": {
       "text": "00-intro.md",

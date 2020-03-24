@@ -40,6 +40,7 @@ We will use this process definition as the base of our application.
 We will now run the Kogito application in development mode. This allows us to keep the application running while implementing our application logic. Kogito and Quarkus will _hot reload_ the application when it is acccessed and changes have been detected.
 
 `cd /root/projects/kogito/service-task-cdi`{{execute}}
+
 `mvn clean compile quarkus:dev`{{execute}}
 
 When the application has started, you can access the [Swagger UI](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).

@@ -1,7 +1,7 @@
 In this step, you will create a Kogito application skeleton.
 
 
-# Create basic project
+# Create a basic project
 
 The easiest way to create a new Kogito project is to execute the Maven command below by clicking on it:
 
@@ -13,7 +13,6 @@ The easiest way to create a new Kogito project is to execute the Maven command b
   -DgroupId=org.acme \
   -DartifactId=getting-started \
   -Dversion=1.0-SNAPSHOT`{{execute}}
-
 
 This will use the Kogito Quarkus Archetype and generate a basic Maven project for you in the `getting-started` subdirectory, generating:
 

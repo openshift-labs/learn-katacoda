@@ -38,8 +38,7 @@ We will call the method `toUpper`.
 Finally, we need to add the `@ApplicationScoped` CDI annotation to turn our Java bean into a CDI bean.
 
 <pre class="file" data-filename="./service-task/src/main/java/org/acme/TextProcessor.java" data-target="insert" data-marker="//Add CDI annotation here">
-@ApplicationScoped
-</pre>
+@ApplicationScoped</pre>
 
 Since we still have our app running using `mvn quarkus:dev`, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live-reload them.
 
