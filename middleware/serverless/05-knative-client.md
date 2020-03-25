@@ -1,11 +1,11 @@
 # Knative Client
-Knative Client is the command line utility aimed at enhancing the developer experience when doing Knative Serving and Eventing tasks.
+Knative Client is the command line utility aimed at enhancing the developer experience when doing Serverless Serving and Eventing tasks.
 
 At the end of this chapter you will be able to :
 - Install Knative Client
-- Create, update, list and delete Knative service
-- Create, update, list and delete Knative service revisions
-- List Knative service routes
+- Create, update, list and delete Serverless service
+- Create, update, list and delete Serverless service revisions
+- List Serverless service routes
 
 * Warning: Knative Client (kn) is still under aggressive development, so commands and options might change rapidly.
 As of writing the tutorial v0.12.0 was the latest version of the Knative Client*
@@ -13,8 +13,8 @@ As of writing the tutorial v0.12.0 was the latest version of the Knative Client*
 ## Install
 #TODO Include link of where to get this, but it should already be installed in the env.
 
-## Knative Service Commands
-In the previous chapter you created, updated and deleted the Knative service using the YAML and kubectl/oc command line tools.
+## Serverles Service Commands
+In the previous chapter you created, updated and deleted the Serverless service using the YAML and oc command line tools.
 
 We will perform the same operations in this chapter but with kn:
 
@@ -31,7 +31,7 @@ Service URL:
 http://greeter.serverless-tutorial.example.com
 ```
 
-## List Knative Services
+## List Serverless Services
 You can list the created services using the command: `kn service list --namespace serverless-tutorial`{{execute}}
 
 ## Invoke Service
@@ -42,16 +42,16 @@ export SVC_URL=`oc get rt greeter -o yaml | yq read - 'status.url'` && http $SVC
 
 You can verify what you the kn client has deployed, to make sure its inline with what you have see in previous chapter.
 
-## Update Knative Service
+## Update Serverless Service
 To create a new revision using kn is as easy as running another command.
 
-In previous chapter we deployed a new revision of Knative service by adding an environment variable. Lets try do the same thing with kn to trigger a new deployment:
+In previous chapter we deployed a new revision of Serverless service by adding an environment variable. Lets try do the same thing with kn to trigger a new deployment:
 `kn service update greeter --env "MESSAGE_PREFIX=Namaste"`{{execute}}
 
 Now Invoking the service will return me a response like **Namaste greeter ⇒ '9861675f8845' : 1**
 
-## Describe Knative Service
-Sometime you wish you get the YAML of the Knative service to build a new service or to compare with with another service. kn makes it super easy for you to get the YAML:
+## Describe Serverless Service
+Sometime you wish you get the YAML of the Serverless service to build a new service or to compare with with another service. kn makes it super easy for you to get the YAML:
 
 `kn service describe greeter`{{execute}}
 
@@ -109,7 +109,7 @@ status:
   url: http://greeter.serverless-tutorial.example.com
 ```
 
-## Delete Knative Service
+## Delete Serverless Service
 *If you are going to work with other kn commands Revisions and Routes, then run these exercises after those commands*
 
 You can also use kn to delete the service that were created, to delete the service named greeter run the following command:
@@ -122,11 +122,11 @@ A successful delete should show an output like
 
 Listing services you will notice that the greeter service no longer exists.
 
-# Knative Revision Commands
-The kn revision commands are used to interact with revision(s) of Knative service.
+# Serverless Revision Commands
+The kn revision commands are used to interact with revision(s) of Serverless service.
 
 ## List Revisions
-You can list the available revisions of a Knative service using: `kn revision list`{{execute}}
+You can list the available revisions of a Serverless service using: `kn revision list`{{execute}}
 
 The command should show a list of revisions like
 ```
@@ -205,8 +205,8 @@ The command should return an output like
 
 Now invoking service will return the response from revision `greeter-6m45j`.
 
-# Knative Route Commands
-The kn revision commands are used to interact with route(s) of Knative service.
+# Serverless Route Commands
+The kn revision commands are used to interact with route(s) of Serverless service.
 
 ## List Routes
 `kn route list`{{execute}}

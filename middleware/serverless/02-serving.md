@@ -1,8 +1,8 @@
-At the end of this chapter you will be able to  deploy your very first application as Knative service using OpenShift Serverless.
+At the end of this chapter you will be able to  deploy your very first application as an OpenShift Serverless Service. 
 
 ## Explore the Service
 
-Before you deploy the serverless service, let us take a moment to  understand its structure
+Before you deploy the serverless service, let us take a moment to understand its structure
 
 Open the file **/root/serverless/basics/service.yaml** `/root/serverless/basics/service.yaml`{{open}}
 
@@ -10,13 +10,13 @@ TODO **some explanation about the service yaml**
 
 ## Deploy the service
 
-Lets clear our terminal `clear`{{execute interrupt}} before running our exercises.
+Clear our terminal `clear`{{execute interrupt}} before running the next exercises.
 
 To deploy the service execute `oc apply -n serverless-tutorial -f basics/service.yaml`{{execute}}
 
 As it will take some time for the service to come up you can watch the status using the command `oc get -n serverless-tutorial get pods -w`{{execute}}
 
-A successful service deployment will show the following greeter pods:
+A successful service deployment will show the following `greeter` pods:
 
 ```shell
 NAME                                       READY   STATUS              RESTARTS   AGE
@@ -25,7 +25,7 @@ greeter-q2j7w-deployment-55d67f957-xn5p7   0/2     ContainerCreating   0        
 
 ## See what you have deployed
 
-The Knative Service deployment will create many Knative resources, the following commands will help you to query and find what has been deployed.
+The OpenShift Serverless Service deployment will create many serverless resources, the following commands will help you to query and find what has been deployed.
 
 ### service
 
@@ -45,7 +45,7 @@ The Knative Service deployment will create many Knative resources, the following
 
 ## Invoke the service
 
-We need to use the URL returned by knative route to invoke the service, execute the command `curl http://greeter.serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute}}
+We need to use the URL returned by the serverless route to invoke the service, execute the command `curl http://greeter.serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute}}
 
 The service will return a response like **Hi  greeter => '6fee83923a9f' : 1**
 
