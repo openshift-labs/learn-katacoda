@@ -2,7 +2,7 @@ For more information, check out the links below:
 
 ## Git Hub
  * Operator-Framework: https://github.com/operator-framework
- * Operator-SDK: https://github.com/operator-framework/operator-sdk/
+ * Operator Lifecycle Manager: https://github.com/operator-framework/operator-lifecycle-manager/
 
 
 ## Chat
