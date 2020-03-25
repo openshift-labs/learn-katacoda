@@ -19,20 +19,20 @@ In the previous chapter you created, updated and deleted the Knative service usi
 We will perform the same operations in this chapter but with kn:
 
 ## Create Service
-To create the `greeter` service using `kn` run the following command: `kn service create greeter --namespace knativetutorial --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus`{{execute}}
+To create the `greeter` service using `kn` run the following command: `kn service create greeter --namespace serverless-tutorial --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus`{{execute}}
 
 A successful create of the greeter service should show a response like
 
 ```bash
-Service 'greeter' successfully created in namespace 'knativetutorial'.
+Service 'greeter' successfully created in namespace 'serverless-tutorial'.
 Waiting for service 'greeter' to become ready ... OK
 
 Service URL:
-http://greeter.knativetutorial.example.com
+http://greeter.serverless-tutorial.example.com
 ```
 
 ## List Knative Services
-You can list the created services using the command: `kn service list --namespace knativetutorial`{{execute}}
+You can list the created services using the command: `kn service list --namespace serverless-tutorial`{{execute}}
 
 ## Invoke Service
 ```
@@ -66,9 +66,9 @@ metadata:
   creationTimestamp: "2019-08-05T12:51:40Z"
   generation: 2
   name: greeter
-  namespace: knativetutorial
+  namespace: serverless-tutorial
   resourceVersion: "35193"
-  selfLink: /apis/serving.knative.dev/v1/namespaces/knativetutorial/services/greeter
+  selfLink: /apis/serving.knative.dev/v1/namespaces/serverless-tutorial/services/greeter
   uid: c4ee1f47-b77f-11e9-96b1-22e0f431a3ed
 spec:
   template:
@@ -88,7 +88,7 @@ spec:
     percent: 100
 status:
   address:
-    url: http://greeter.knativetutorial.svc.cluster.local
+    url: http://greeter.serverless-tutorial.svc.cluster.local
   conditions:
   - lastTransitionTime: "2019-08-05T13:03:33Z"
     status: "True"
@@ -106,7 +106,7 @@ status:
   - latestRevision: true
     percent: 100
     revisionName: greeter-578mv
-  url: http://greeter.knativetutorial.example.com
+  url: http://greeter.serverless-tutorial.example.com
 ```
 
 ## Delete Knative Service
@@ -118,7 +118,7 @@ You can also use kn to delete the service that were created, to delete the servi
 
 A successful delete should show an output like
 
-`Service 'greeter' successfully deleted in namespace 'knativetutorial'.`
+`Service 'greeter' successfully deleted in namespace 'serverless-tutorial'.`
 
 Listing services you will notice that the greeter service no longer exists.
 
@@ -153,7 +153,7 @@ metadata:
     serving.knative.dev/configurationGeneration: "2"
     serving.knative.dev/service: greeter
   name: greeter-7cqzq
-  namespace: knativetutorial
+  namespace: serverless-tutorial
   ownerReferences:
   - apiVersion: serving.knative.dev/v1
     blockOwnerDeletion: true
@@ -162,7 +162,7 @@ metadata:
     name: greeter
     uid: 2f89f930-b7fa-11e9-96b1-22e0f431a3ed
   resourceVersion: "40312"
-  selfLink: /apis/serving.knative.dev/v1/namespaces/knativetutorial/revisions/greeter-7cqzq
+  selfLink: /apis/serving.knative.dev/v1/namespaces/serverless-tutorial/revisions/greeter-7cqzq
   uid: 49e30221-b7fa-11e9-96b1-22e0f431a3ed
 spec:
   containers:
@@ -201,7 +201,7 @@ To delete a specific revision you can use the command: `kn revision delete greet
 
 The command should return an output like
 
-`Revision 'greeter-7cqzq' successfully deleted in namespace 'knativetutorial'.`
+`Revision 'greeter-7cqzq' successfully deleted in namespace 'serverless-tutorial'.`
 
 Now invoking service will return the response from revision `greeter-6m45j`.
 
@@ -214,7 +214,7 @@ The kn revision commands are used to interact with route(s) of Knative service.
 The command should return an output like
 ```bash
 NAME      URL                                          AGE   CONDITIONS   TRAFFIC
-greeter   http://greeter.knativetutorial.example.com   10m   3 OK / 3     100% -> greeter-zd7jk
+greeter   http://greeter.serverless-tutorial.example.com   10m   3 OK / 3     100% -> greeter-zd7jk
 ```
 
 *TIP: As an exercise you can run the exercises of previous chapter and try listing the routes using kn.*

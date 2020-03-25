@@ -12,3 +12,5 @@ oc adm new-project serverless-tutorial
 oc adm policy add-role-to-user admin developer -n serverless-tutorial
 
 sleep 5; while echo && oc get pods -n knative-serving | grep -v -E "(Running|Completed|STATUS)"; do sleep 20; done
+
+clear; echo "Serverless Tutorial Ready!"

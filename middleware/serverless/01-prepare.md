@@ -19,6 +19,4 @@ webhook-55b96d44f6-sxj7p            1/1     Running   0          84s
 
 To begin we need to first login to OpenShift using the `developer` user. Login by executing: `oc login -u developer -p developer`{{execute T1}}
 
-> **NOTE:** Ignore *Warning: User 'developer' not found*. This happens as you have not logged in yet as `developer`
-
 There we go! You are all set to kickstart your serverless journey with **OpenShift Serverless**. Click continue to go to next module on how to deploy your first severless service.

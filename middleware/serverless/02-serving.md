@@ -4,7 +4,7 @@ At the end of this chapter you will be able to  deploy your very first applicati
 
 Before you deploy the serverless service, let us take a moment to  understand its structure
 
-Open the file **/root/projects/knative-tutorial/basics/service.yaml** `/root/projects/knative-tutorial/basics/service.yaml`{{open}}
+Open the file **/root/serverless/basics/service.yaml** `/root/serverless/basics/service.yaml`{{open}}
 
 TODO **some explanation about the service yaml**
 
@@ -12,9 +12,9 @@ TODO **some explanation about the service yaml**
 
 Lets clear our terminal `clear`{{execute interrupt}} before running our exercises.
 
-To deploy the service execute `oc apply -n knativetutorial -f basics/service.yaml`{{execute}}
+To deploy the service execute `oc apply -n serverless-tutorial -f basics/service.yaml`{{execute}}
 
-As it will take some time for the service to come up you can watch the status using the command `oc get -n knativetutorial get pods -w`{{execute}}
+As it will take some time for the service to come up you can watch the status using the command `oc get -n serverless-tutorial get pods -w`{{execute}}
 
 A successful service deployment will show the following greeter pods:
 
@@ -29,23 +29,23 @@ The Knative Service deployment will create many Knative resources, the following
 
 ### service
 
-`oc get -n knativetutorial services.serving.knative.dev`{{execute}}
+`oc get -n serverless-tutorial services.serving.knative.dev`{{execute}}
 
 ### configuration
 
-`oc get -n knativetutorial configurations.serving.knative.dev`{{execute}}
+`oc get -n serverless-tutorial configurations.serving.knative.dev`{{execute}}
 
 ### revisions
 
-`oc get -n knativetutorial revisions.serving.knative.dev`{{execute}}
+`oc get -n serverless-tutorial revisions.serving.knative.dev`{{execute}}
 
 ### routes
 
-`oc get -n knativetutorial routes.serving.knative.dev`{{execute}}
+`oc get -n serverless-tutorialS routes.serving.knative.dev`{{execute}}
 
 ## Invoke the service
 
-We need to use the URL returned by knative route to invoke the service, execute the command `curl http://greeter.knativetutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute}}
+We need to use the URL returned by knative route to invoke the service, execute the command `curl http://greeter.serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute}}
 
 The service will return a response like **Hi  greeter => '6fee83923a9f' : 1**
 

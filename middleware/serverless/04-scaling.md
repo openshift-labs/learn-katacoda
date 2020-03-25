@@ -29,7 +29,7 @@ spec:
             path: /healthz
 ```
 
-The service can be deployed using the command: `oc -n knativetutorial apply -f service.yaml`
+The service can be deployed using the command: `oc -n serverless-tutorial apply -f service.yaml`
 
 After the **deployment** of the service was successful we should see a Kubernetes deployment like `greeter-v1-deployment`.
 
@@ -57,15 +57,15 @@ By default Knative Serving allows 100 concurrent requests into a pod. This is de
 
 For this exercise let us make our service handle only 10 concurrent requests. This will cause Knative autoscaler to scale to more pods as soon as we run more than 10 requests in parallel against the revision.
 
-Open the `service-10.yaml` here: **/root/projects/knative-tutorial/scaling/service-10.yaml** `/root/projects/knative-tutorial/scaling/service-10.yaml`{{open}}
+Open the `service-10.yaml` here: **/root/serverless/scaling/service-10.yaml** `/root/serverless/scaling/service-10.yaml`{{open}}
 
 The Knative service definition above will allow each service pod to handle max of 10 in-flight requests per pod (configured via `autoscaling.knative.dev/target` annotation) before automatically scaling to new pod(s)
 
 ### Deploy the service:
-`oc apply -n knativetutorial -f /root/projects/knative-tutorial/sacaling/service-10.yaml`{{execute}}
+`oc apply -n serverless-tutorial -f /root/serverless/sacaling/service-10.yaml`{{execute}}
 
 ### Invoke the service:
-We will not invoke the service directly as we need to send the load to see the autoscaling.  `watch 'oc get pods -n knativetutorial'`{{execute}}
+We will not invoke the service directly as we need to send the load to see the autoscaling.  `watch 'oc get pods -n serverless-tutorial'`{{execute}}
 
 ### Load the service
 We will now send some load to the greeter service. The command below sends 50 concurrent requests (`-c 50`) for the next 10s (`-z 30s`): `hey -c 50 -z 10s "${SVC_URL}/?sleep=3&upto=10000&memload=100"`{{execute}}
@@ -85,16 +85,16 @@ In real world scenarios your service might need to handle sudden spikes in reque
 
 The following example shows how to make Knative create services that start with a replica count of 2 and never scale below it.
 
-Open the `service-min-max-scale.yaml` here: **/root/projects/knative-tutorial/scaling/service-min-max-scale.yaml** `/root/projects/knative-tutorial/scaling/service-min-max-scale.yaml`{{open}}
+Open the `service-min-max-scale.yaml` here: **/root/serverless/scaling/service-min-max-scale.yaml** `/root/serverless/scaling/service-min-max-scale.yaml`{{open}}
 
 - The deployment of this service will always have a minimum of 2 pods.
 - Will allow each service pod to handle max of 10 in-flight requests per pod before automatically scaling to new pods.
 
-`oc apply -n knativetutorial -f service-min-max-scale.yaml`{{execute}}
+`oc apply -n serverless-tutorial -f service-min-max-scale.yaml`{{execute}}
 
 After the deployment was successful we should see a Kubernetes Deployment called `prime-generator-v2-deployment` with **two** pods available.
 
-Open a new terminal and run the following command: `watch 'oc get pods -n knativetutorial'`{{execute}}
+Open a new terminal and run the following command: `watch 'oc get pods -n serverless-tutorial'`{{execute}}
 
 Let us send some load to the service to trigger autoscaling. ##TODO SCRIPT
 
@@ -102,6 +102,6 @@ When all requests are done and if we are beyond the `scale-to-zero-grace-period`
 
 ## Cleanup
 ```
-oc -n knativetutorial delete services.serving.knative.dev greeter &&\
-oc -n knativetutorial delete services.serving.knative.dev prime-generator
+oc -n serverless-tutorial delete services.serving.knative.dev greeter &&\
+oc -n serverless-tutorial delete services.serving.knative.dev prime-generator
 ```

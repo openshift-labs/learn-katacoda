@@ -6,7 +6,7 @@ When looking up the IP address to use for accessing your app, you need to look u
 IP_ADDRESS="$(minikube ip):$(kubectl get svc kourier-external --namespace kourier-system --output 'jsonpath={.spec.ports[?(@.port==80)].nodePort}')"
 
 # calling a knative service named greeter
-curl -H "Host:greeter.knativetutorial.example.com" $IP_ADDRESS
+curl -H "Host:greeter.serverless-tutorial.example.com" $IP_ADDRESS
 ```
 
 ## What is a "revision" in simpler terms?

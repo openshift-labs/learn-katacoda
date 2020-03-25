@@ -11,15 +11,15 @@ By default, Knative generates random revision names for the service based with K
 
 The following service deployments will show how to use an arbitrary revision names for the services. The service are exactly same greeter service except that their Revision name is specified using the service revision template spec.
 
-First, deploy the greeter service revision v1 `oc apply -n knativetutorial -f basics/greeter-v1-service.yaml`{{execute}}
+First, deploy the greeter service revision v1 `oc apply -n serverless-tutorial -f basics/greeter-v1-service.yaml`{{execute}}
 
-Open the greeter service revision v1 that you just deployed. Be sure to see the `spec.template.metadata.name` **/root/projects/knative-tutorial/basics/greeter-v1-service.yaml** `/root/projects/knative-tutorial/basics/greeter-v1-service.yaml`{{open}}
+Open the greeter service revision v1 that you just deployed. Be sure to see the `spec.template.metadata.name` **/root/serverless/basics/greeter-v1-service.yaml** `/root/serverless/basics/greeter-v1-service.yaml`{{open}}
 
-Next, deploy the greeter service revision v2 `oc apply -n knativetutorial -f basics/greeter-v2-service.yaml`{{execute}}
+Next, deploy the greeter service revision v2 `oc apply -n serverless-tutorial -f basics/greeter-v2-service.yaml`{{execute}}
 
-You can open the greeter service revision v2 and compare with v1 if you would like **/root/projects/knative-tutorial/basics/greeter-v2-service.yaml** `/root/projects/knative-tutorial/basics/greeter-v2-service.yaml`{{open}}
+You can open the greeter service revision v2 and compare with v1 if you would like **/root/serverless/basics/greeter-v2-service.yaml** `/root/serverless/basics/greeter-v2-service.yaml`{{open}}
 
-Before continuing, double check that two revisions of the greeter service are configured by executing `oc --namespace knativetutorial get rev --selector=serving.knative.dev/service=greeter --sort-by="{.metadata.creationTimestamp}"`{{execute}}
+Before continuing, double check that two revisions of the greeter service are configured by executing `oc --namespace serverless-tutorial get rev --selector=serving.knative.dev/service=greeter --sort-by="{.metadata.creationTimestamp}"`{{execute}}
 
 *TIP: add `-oyaml` to the commands above to see more detail*
 
@@ -34,7 +34,7 @@ With the deployment of `greeter-v2` you noticed that Knative automatically start
 
 The `service-pinned.yaml` below is identical to the previously deployed `greeter-v2` except that we have added the `traffic` section to indicate that 100% of the traffic should be routed to `greeter-v1`.
 
-Open the `service-pinned.yaml` here: **/root/projects/knative-tutorial/basics/service-pinned.yaml** `/root/projects/knative-tutorial/basics/service-pinned.yaml`{{open}}
+Open the `service-pinned.yaml` here: **/root/serverless/basics/service-pinned.yaml** `/root/serverless/basics/service-pinned.yaml`{{open}}
 
 The above service definition creates three sub-routes(named after traffic tags) to existing `greeter` route.
 - **current**: The revision is going to have all 100% traffic distribution
@@ -54,14 +54,14 @@ NAME                                    READY   STATUS    AGE
 greeter-v2-deployment-9984bb56d-gr4gp   2/2     Running   14s
 ```
 
-Now apply the update Knative service configuration using the command as shown in following listing: `oc -n knativetutorial apply -f /root/project/knative-tutorial/basics/service-pinned.yaml`{{execute}}
+Now apply the update Knative service configuration using the command as shown in following listing: `oc -n serverless-tutorial apply -f /root/serverless/basics/service-pinned.yaml`{{execute}}
 
-We can see the sub-routes: `oc -n knativetutorial get ksvc greeter -oyaml | yq r - 'status.traffic[*].url'`{{execute}}
+We can see the sub-routes: `oc -n serverless-tutorial get ksvc greeter -oyaml | yq r - 'status.traffic[*].url'`{{execute}}
 
 The above command should return you three sub-routes for the main greeter route:
-- *The sub route for the traffic tag current:* http://current-greeter.knativetutorial.example.com
-- *The sub route for the traffic tag prev:* http://prev-greeter.knativetutorial.example.com
-- *The sub route for the traffic tag latest:* http://latest-greeter.knativetutorial.example.com
+- *The sub route for the traffic tag current:* http://current-greeter.serverless-tutorial.example.com
+- *The sub route for the traffic tag prev:* http://prev-greeter.serverless-tutorial.example.com
+- *The sub route for the traffic tag latest:* http://latest-greeter.serverless-tutorial.example.com
 
 You will notice that the command does not create any new configuration/revision/deployment as there was no application update (e.g. image tag, env var, etc), but when you call the service, Knative scales up the `greeter-v1` and the service responds with the text `Hi greeter ⇒ '9861675f8845' : 1`.
 
@@ -117,7 +117,7 @@ spec:
       percent: 0
 ```
 
-#TODO `oc -n knativetutorial apply -f service-canary.yaml`
+#TODO `oc -n serverless-tutorial apply -f service-canary.yaml`
 
 As in the previous section on Applying Blue-Green Deployment Pattern deployments, the command will not create any new configuration/revision/deployment. To observe the traffic distribution you need to run the script $BOOK_HOME/bin/poll.sh, which is almost identical to $BOOK_HOME/bin/call.sh but will invoke the Knative service in a loop.
 
@@ -157,4 +157,4 @@ greeter-v2-deployment-9984bb56d-n7xvm    2/2     Running   2s
 
 As a challenge, adjust the traffic distribution and observe the responses while the poll.sh script is actively running.
 
-`oc -n knativetutorial delete services.serving.knative.dev greeter`
+`oc -n serverless-tutorial delete services.serving.knative.dev greeter`
