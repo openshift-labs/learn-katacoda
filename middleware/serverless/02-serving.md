@@ -4,7 +4,7 @@ At the end of this chapter you will be able to  deploy your very first applicati
 
 Before you deploy the serverless service, let us take a moment to understand its structure
 
-Open the file **/root/serverless/basics/service.yaml** `/root/serverless/basics/service.yaml`{{open}}
+Open the file **/root/serverless/assets/basics/service.yaml** `/root/serverless/assets/basics/service.yaml`{{open}}
 
 TODO **some explanation about the service yaml**
 
@@ -14,7 +14,7 @@ Clear our terminal `clear`{{execute interrupt}} before running the next exercise
 
 To deploy the service execute `oc apply -n serverless-tutorial -f basics/service.yaml`{{execute}}
 
-As it will take some time for the service to come up you can watch the status using the command `oc get -n serverless-tutorial get pods -w`{{execute}}
+As it will take some time for the service to come up you can watch the status using the command `oc -n serverless-tutorial get pods -w`{{execute}}
 
 A successful service deployment will show the following `greeter` pods:
 
