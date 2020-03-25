@@ -21,7 +21,7 @@
       }
     ],
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root/serverless/",
+    "uieditorpath": "/root/",
     "uisettings": "java",
     "hideintro": false,
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
