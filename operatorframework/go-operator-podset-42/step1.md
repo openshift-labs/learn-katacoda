@@ -19,7 +19,7 @@ cd $GOPATH/src/github.com/redhat/
 Create a new Go-based Operator SDK project for the PodSet:
 
 ```
-operator-sdk new podset-operator --type=go --skip-git-init
+operator-sdk new podset-operator --type=go
 ```{{execute}}
 
 
