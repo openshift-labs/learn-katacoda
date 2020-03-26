@@ -18,5 +18,5 @@ The Operator-SDK automatically creates the following manifests for you under the
 Inspect the Custom Resource Definition manifest:
 
 ```
-cat deploy/crds/app_v1alpha1_podset_crd.yaml
+cat deploy/crds/app.example.com_podsets_crd.yaml
 ```{{execute}}
