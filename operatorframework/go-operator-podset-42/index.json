@@ -1,0 +1,55 @@
+{
+  "icon": "fa-openshift",
+  "title": "Operator SDK with Go",
+  "description": "Operator SDK with Go",
+  "pathwayTitle": "OpenShift",
+  "difficulty": "beginner",
+  "time": "30 minutes",
+  "details": {
+    "steps": [
+    {
+    	"title": "Creating a New Project",
+    	"text": "step1.md"
+    },{
+			"title": "Adding a New Custom API",
+			"text": "step2.md"
+		},{
+			"title": "Defining the Spec and Status",
+			"text": "step3.md"
+    },{
+			"title": "Adding a New Controller",
+			"text": "step4.md"
+    },{
+			"title": "Customize the Operator Logic",
+			"text": "step5.md"
+    },{
+			"title": "Running the Operator Locally (Inside the Cluster)",
+			"text": "step6.md"
+    },{
+                        "title": "Creating the Custom Resource",
+                        "text": "step7.md"
+    }],
+    "intro": {
+      "code": "set-env.sh",
+      "courseData": "env-init.sh",
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "client": [{"file": ".init.sh", "target": "/root", "chmod": "+x"},{"file": "op-sdk-setup.sh", "target": "/root", "chmod": "+x"}]
+    }
+  },
+  "files": [],
+  "environment": {
+        "showdashboard": true,
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "terminal-iframe"
+    },
+  "backend": {
+    "imageid": "openshift-4-2",
+    "port": 8443
+  }
+}
+
