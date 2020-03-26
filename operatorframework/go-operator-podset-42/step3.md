@@ -51,7 +51,7 @@ func init() {
 After modifying the `*_types.go` file, always run the following command to update the generated code for that resource type:
 
 ```
-operator-sdk generate k8s
+operator-sdk generate crds
 ```{{execute}}
 <br>
 We can also automatically update the CRD with [OpenAPI v3 schema](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#validation) details based off the newly updated `*_types.go` file:
@@ -63,17 +63,17 @@ operator-sdk generate openapi
 Observe the CRD now reflects the `spec.replicas` and `status.podNames` OpenAPI v3 schema validation in the spec:
 
 ```
-cat deploy/crds/app_v1alpha1_podset_crd.yaml
+cat deploy/crds/app.example.com_podsets_crd.yaml
 ```{{execute}}
 <br>
 Deploy your PodSet Custom Resource Definition to the live OpenShift Cluster:
 
 ```
-oc create -f deploy/crds/app_v1alpha1_podset_crd.yaml
+oc create -f deploy/crds/app.example.com_podsets_crd.yaml
 ```{{execute}}
 <br>
 Confirm the CRD was successfully created:
 
 ```
-oc get crd
+oc get crd podsets.app.example.com -o yaml
 ```{{execute}}
