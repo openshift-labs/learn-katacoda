@@ -105,17 +105,15 @@ func (r *ReconcilePodSet) Reconcile(request reconcile.Request) (reconcile.Result
 		// Error reading the object - requeue the request.
 		return reconcile.Result{}, err
 	}
-        podSet := instance
         // List all pods owned by this PodSet instance
+	podSet := instance
         podList := &corev1.PodList{}
         lbs := map[string]string{
         "app":     podSet.Name,
         "version": "v0.1",
 }
         labelSelector := labels.SelectorFromSet(lbs)
-
         listOps := &client.ListOptions{Namespace: podSet.Namespace, LabelSelector: labelSelector}
-
         if err = r.client.List(context.TODO(), podList, listOps); err != nil {
                 return reconcile.Result{}, err
 }
