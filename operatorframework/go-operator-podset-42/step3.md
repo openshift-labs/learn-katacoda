@@ -51,13 +51,13 @@ func init() {
 After modifying the `*_types.go` file, always run the following command to update the generated code for that resource type:
 
 ```
-operator-sdk generate crds
+operator-sdk generate k8s
 ```{{execute}}
 <br>
 We can also automatically update the CRD with [OpenAPI v3 schema](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#validation) details based off the newly updated `*_types.go` file:
 
 ```
-operator-sdk generate openapi
+operator-sdk generate crds
 ```{{execute}}
 <br>
 Observe the CRD now reflects the `spec.replicas` and `status.podNames` OpenAPI v3 schema validation in the spec:
