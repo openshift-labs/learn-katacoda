@@ -43,6 +43,10 @@ use a different query. <br>
 * Once you have set up the second panel, your dashboard should look something like this <br>
 ![Grafana Create Panel Page](../../assets/introduction/deploy-prometheus-grafana/04-grafana-2-panel-dashboard-page.png)
 
-That's it! you should have your own monitoring dashboard now
+If your graphs look boring, then go to the [demo application page](http://metrics-demo-app-metrics-demo.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/) and generate some requests. <br>
+Then click on the refresh button in the upper right corner.
 
-If your graphs look boring, then go to the [demo application page](http://metrics-demo-app-metrics-demo.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/) and generate some requests. Then click on the refresh button in the upper right corner.
+That's it! you should have your own monitoring dashboard now.
+
+**You can do a lot more with dashboards like saving them, exporting as jsons, using variables, etc. <br>
+You can learn more about dashboards [here](https://grafana.com/docs/grafana/latest/features/dashboard/dashboards/)**
