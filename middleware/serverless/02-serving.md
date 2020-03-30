@@ -41,7 +41,7 @@ The OpenShift Serverless Service deployment will create many serverless resource
 
 ### routes
 
-`oc get -n serverless-tutorialS routes.serving.knative.dev`{{execute}}
+`oc get -n serverless-tutorial routes.serving.knative.dev`{{execute}}
 
 ## Invoke the service
 

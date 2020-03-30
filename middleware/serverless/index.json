@@ -1,10 +1,10 @@
 {
   "icon": "fa-openshift",
-  "title": "Serving with OpenShift Serverless",
-  "description": "Developing with OpenShift Serverless",
+  "title": "Getting Started with OpenShift Serverless",
+  "description": "",
   "pathwayTitle": "OpenShift",
   "difficulty": "beginner",
-  "time": "10-15 minutes",
+  "time": "30 minutes",
   "backend": {
     "imageid": "openshift-4-2"
   },
@@ -12,18 +12,12 @@
     "showdashboard": true,
     "dashboards": [
       {
-        "name": "Local Web Browser",
-        "port": 8080
-      },
-      {
         "name": "OpenShift Web Console",
         "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
       }
     ],
-    "uilayout": "editor-terminal",
+    "uilayout": "terminal-iframe",
     "uieditorpath": "/root/",
-    "uisettings": "java",
-    "hideintro": false,
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "details": {

@@ -1,10 +1,10 @@
 In this self-paced tutorial, you will learn the basics of how to use OpenShift Serverless, which provides a development model to remove the overhead of server provisioning and maintenance from the developer.
 
 In this tutorial, you will:
-* Deploy an OpenShift Serverless service.
-* Deploy multiple revisions of a service.
-* Run different revisions of a service via canary deployments.
-* Utilize the knative client
+* Deploy an OpenShift Serverless `service`.
+* Deploy multiple `revisions` of a service.
+* Run different revisions of a service via `canary deployments`.
+* Utilize the `knative client`.
 
 # Why Serverless?
 
@@ -20,7 +20,7 @@ In this chapter we introduce you to one such platform -- [OpenShift Serverless](
 
 Applications can be triggered by a variety of event sources, such as events from your own applications, cloud services from multiple providers, Software as a Service (SaaS) systems and Red Hat Services ([AMQ Streams](https://access.redhat.com/products/red-hat-amq)).
 
-![OpenShift Eventing](assets/intro/knative-serving-diagram.svg)
+![OpenShift Eventing](assets/intro/knative-eventing-diagram.svg)
 
 OpenShift Serverless applications can be integrated with other OpenShift services, such as OpenShift [Pipelines](https://www.openshift.com/learn/topics/pipelines), [Service Mesh](https://www.openshift.com/learn/topics/service-mesh), Monitoring and [Metering](https://github.com/operator-framework/operator-metering), delivering a complete serverless application development and deployment experience.
 
