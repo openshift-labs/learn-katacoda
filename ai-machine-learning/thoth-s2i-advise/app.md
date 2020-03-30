@@ -6,7 +6,7 @@ Here is the example repo we are going to try today -
 ``https://github.com/thoth-station/s2i-example-tensorflow``
 
 Now that you have forked it, let's check out the `log-thoth` branch.
-The upstream link to the same is - `https://github.com/thoth-station/s2i-example-tensorflow/tree/log-thoth`
+The upstream link to the same is - `https://github.com/thoth-station/s2i-example/tree/log-thoth`
 
 If you go to app.py, it's a simple python app that prints `Hello thoth` every 10 seconds. 
 And you have a Pipfile that has `daiquiri` as the only package. That is the standard python project, we are going to experiment with. 
@@ -32,7 +32,7 @@ End of the yaml, we declare the image to be `s2i-thoth-ubi8-py36`
 And we use this under `build config` under line 26, stating our source repo to be - 
 ```
 git:
-    uri: "https://github.com/thoth-station/s2i-example-tensorflow"
+    uri: "https://github.com/thoth-station/s2i-example"
     ref: "log-thoth"
 ```
 You could change this to point to your repo fork.
