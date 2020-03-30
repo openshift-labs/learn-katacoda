@@ -1,4 +1,4 @@
-OpenShift Serverless are an OpenShift add-on that can be install via an operator that is available within the OpenShift OperatorHub.
+OpenShift Serverless is an OpenShift add-on that can be install via an operator that is available within the OpenShift OperatorHub.
 
 Some operators are able to be installed into single namespaces within a cluster and are only able to monitor resources within that namespace.  The OpenShift Serverless operator is one that installs globally on a cluster so that it is able to monitor and manage Serverless resources for every single project and user within the cluster.
 
@@ -38,18 +38,18 @@ The channel, name, starting CSV, source, and source namespace are all described 
 
 For now, all you need to do is apply the associated YAML file to subscribe to the OpenShift Serverless Operator.
 
-`oc apply -f ./01-prepare/operator-subscription.yaml`{{execute}}
+`oc apply -f 01-prepare/operator-subscription.yaml`{{execute}}
 
 # Approve and Verify the Operator Installation
 The `installPlanApproval: Manual` in our Subscription requires the admin to approve the *installplan* in order for it to begin.  Normally, it might be easiest to see this from the OpenShift Web Console and approve the changes as shown in the picture below.
 
-![installplan](.assets/01-prepare/installplan.png "Approve Install Plan")
+![installplan](assets/01-prepare/installplan.png "Approve Install Plan")
 
 In this tutorial we will find the installplan and approve it using the CLI:
 
 ```bash
 #!/usr/bin/env bash
-# Find me in `./assets/01-prepare/approve-csv.bash`
+# Find me in `assets/01-prepare/approve-csv.bash`
 OPERATORS_NAMESPACE='openshift-operators'
 OPERATOR='redhat-operators'
 
@@ -70,33 +70,63 @@ function find_install_plan {
   echo ""
 }
 
-while [ -z $(find_install_plan 1.4.1) ]; do sleep 10; done
+while [ -z $(find_install_plan 1.4.1) ]; do sleep 10; echo "Checking..."; done
 approve_csv 1.4.1
 ```{{execute}}
 
-Since the Operator takes some time to install, we should watch it's and continue when done.
+Since the Operator takes some time to install, we should wait for it to complete and continue when done.
 
 ```bash
 #!/usr/bin/env bash
-# Find me in `.assets/01-prepare/watch-opeator-phase.bash`
-phase=""
+# Find me in `assets/01-prepare/watch-opeator-phase.bash`
 
-function check_for_operator_install {
+while : do
+  echo "Checking..."
   phase=`oc get csv -n openshift-operators serverless-operator.v1.4.1 -o jsonpath='{.status.phase}'`
-}
-
-check_for_operator_install
-while [ $phase != "Succeeded" ]; do
+  if [ $phase == "Succeeded" ]; then echo "Installed"; break; fi
   sleep 10
-  check_for_operator_install
 done
 ```{{execute}}
 
-#TODO next install knative-serving
+When you see the message "Installed", the OpenShift Serverless Opeartor is installed.  We can see the new resources that are available to the cluster by running:
 
-Before beginning, check that all pods are running in `knative-serving` namespace by executing the command `oc get -n knative-serving pods`{{execute T1}}
+```bash
+echo "NAME              SHORTNAMES   APIGROUP              NAMESPACED   KIND"
+oc api-resources | grep KnativeServing
+```
 
-If the install was successful you should see the following pods in `knative-serving` namespace with the *Status* of `Running`:
+As you can see, the OpenShift Serverless Operator added two new resources: `operator.knative.dev` and `servings.knative.dev`.  Next, we need to use these resources to install KnativeServing. 
+# Install KnativeServing
+You must create a `KnativeServing` object to install Knative Serving using the OpenShift Serverless Operator.
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: knative-serving
+---
+apiVersion: operator.knative.dev/v1alpha1
+kind: KnativeServing
+metadata:
+  name: knative-serving
+  namespace: knative-serving
+```
+
+Apply the yaml like so: `oc apply -f 01-prepare/serving.yaml`{{execute}}
+
+The `KnativeServing` instance will take a minute to install, and we can check for it's completion by using the command:
+
+`oc get knativeserving.operator.knative.dev/knative-serving -n knative-serving --template='{{range .status.conditions}}{{printf "%s=%s\n" .type .status}}{{end}}'`{{execute}}
+
+The output should be similar to:
+
+```bash
+DeploymentsAvailable=True
+InstallSucceeded=True
+Ready=True
+``` 
+
+We can further validate an install being successful by seeing the following pods in `knative-serving` namespace with the *Status* of `Running`:
 
 ```shell
 NAME                                READY   STATUS    RESTARTS   AGE
@@ -107,9 +137,5 @@ controller-55b4748bc5-ndv4p         1/1     Running   0          84s
 networking-istio-679dfcd5d7-2pbl4   1/1     Running   0          82s
 webhook-55b96d44f6-sxj7p            1/1     Running   0          84s
 ```
-
-## Login to the cluster
-
-To begin we need to first login to OpenShift using the `developer` user. Login by executing: `oc login -u developer -p developer`{{execute T1}}
 
 There we go! You are all set to kickstart your serverless journey with **OpenShift Serverless**. Click continue to go to next module on how to deploy your first severless service.

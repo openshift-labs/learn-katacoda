@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
-# Find me in `.assets/01-prepare/watch-opeator-phase.bash`
-phase=""
+# Find me in `assets/01-prepare/watch-opeator-phase.bash`
 
-function check_for_operator_install {
+while : do
+  echo "Checking..."
   phase=`oc get csv -n openshift-operators serverless-operator.v1.4.1 -o jsonpath='{.status.phase}'`
-}
-
-while [ $phase != "Succeeded" ]; do
+  if [ $phase == "Succeeded" ]; then echo "Installed"; break; fi
   sleep 10
-  check_for_operator_install
 done

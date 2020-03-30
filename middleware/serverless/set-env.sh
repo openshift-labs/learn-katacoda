@@ -12,5 +12,5 @@ cd serverless
 #oc apply -f assets/serving.yaml
 #oc adm new-project serverless-tutorial
 #oc adm policy add-role-to-user admin developer -n serverless-tutorial
-#cd assets
+cd assets
 clear; echo "Serverless Tutorial Ready!"
