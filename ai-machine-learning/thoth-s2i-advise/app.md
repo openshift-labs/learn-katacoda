@@ -3,7 +3,7 @@ to explore more about the s2i process.
 
 Here is the example repo we are going to try today - 
 
-``https://github.com/thoth-station/s2i-example-tensorflow``
+``https://github.com/thoth-station/s2i-example``
 
 Now that you have forked it, let's check out the `log-thoth` branch.
 The upstream link to the same is - `https://github.com/thoth-station/s2i-example/tree/log-thoth`
