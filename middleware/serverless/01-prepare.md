@@ -120,11 +120,14 @@ Apply the yaml like so: `oc apply -f 01-prepare/serving.yaml`{{execute}}
 The `KnativeServing` instance will take a minute to install.  As you might have noticed, the resources for `KnativeServing` can be found in the `knative-serving` project.  We can check for it's installation by using the command:
 
 ```bash
+#!/usr/bin/env bash
+# Find me in `assets/01-prepare/watch-knative-serving.bash`
 while : ;
 do
   output=`oc get knativeserving.operator.knative.dev/knative-serving -n knative-serving --template='{{range .status.conditions}}{{printf "%s=%s\n" .type .status}}{{end}}'`
   echo $output
   if [ -z "${output##*'Ready=True'*}" ] ; then break; fi;
+  sleep 10
 done
 ```{{execute}}
 
@@ -153,4 +156,4 @@ networking-istio-679dfcd5d7-2pbl4   1/1     Running   0          82s
 webhook-55b96d44f6-sxj7p            1/1     Running   0          84s
 ```
 
-There we go! You are all set to kickstart your serverless journey with **OpenShift Serverless**. Click continue to go to next module on how to deploy your first severless service.
+There we go! You are all set to kickstart your serverless journey with **OpenShift Serverless**. Click `continue` to go to next module on how to deploy your first severless service.
