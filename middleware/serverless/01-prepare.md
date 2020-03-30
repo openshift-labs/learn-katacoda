@@ -119,7 +119,14 @@ Apply the yaml like so: `oc apply -f 01-prepare/serving.yaml`{{execute}}
 
 The `KnativeServing` instance will take a minute to install.  As you might have noticed, the resources for `KnativeServing` can be found in the `knative-serving` project.  We can check for it's installation by using the command:
 
-`oc get knativeserving.operator.knative.dev/knative-serving -n knative-serving --template='{{range .status.conditions}}{{printf "%s=%s\n" .type .status}}{{end}}'`{{execute}}
+```bash
+while : ;
+do
+  output=`oc get knativeserving.operator.knative.dev/knative-serving -n knative-serving --template='{{range .status.conditions}}{{printf "%s=%s\n" .type .status}}{{end}}'`
+  echo $output
+  if [ -z "${output##*'Ready=True'*}" ] ; then break; fi;
+done
+```{{execute}}
 
 The output should be similar to:
 
