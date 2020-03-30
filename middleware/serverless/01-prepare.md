@@ -80,7 +80,8 @@ Since the Operator takes some time to install, we should wait for it to complete
 #!/usr/bin/env bash
 # Find me in `assets/01-prepare/watch-opeator-phase.bash`
 
-while : do
+while : ;
+do
   echo "Checking..."
   phase=`oc get csv -n openshift-operators serverless-operator.v1.4.1 -o jsonpath='{.status.phase}'`
   if [ $phase == "Succeeded" ]; then echo "Installed"; break; fi
@@ -93,11 +94,13 @@ When you see the message "Installed", the OpenShift Serverless Opeartor is insta
 ```bash
 echo "NAME              SHORTNAMES   APIGROUP              NAMESPACED   KIND"
 oc api-resources | grep KnativeServing
-```
+```{{execute}}
 
 As you can see, the OpenShift Serverless Operator added two new resources: `operator.knative.dev` and `servings.knative.dev`.  Next, we need to use these resources to install KnativeServing. 
 # Install KnativeServing
-You must create a `KnativeServing` object to install Knative Serving using the OpenShift Serverless Operator.
+As per the [Knative Serving Operator documentation](https://github.com/knative/serving-operator#the-knativeserving-custom-resource) You must create a `KnativeServing` object to install Knative Serving using the OpenShift Serverless Operator.
+
+To do so, see the yaml that we are going to apply to the cluster:
 
 ```yaml
 apiVersion: v1
@@ -114,19 +117,24 @@ metadata:
 
 Apply the yaml like so: `oc apply -f 01-prepare/serving.yaml`{{execute}}
 
-The `KnativeServing` instance will take a minute to install, and we can check for it's completion by using the command:
+The `KnativeServing` instance will take a minute to install.  As you might have noticed, the resources for `KnativeServing` can be found in the `knative-serving` project.  We can check for it's installation by using the command:
 
 `oc get knativeserving.operator.knative.dev/knative-serving -n knative-serving --template='{{range .status.conditions}}{{printf "%s=%s\n" .type .status}}{{end}}'`{{execute}}
 
 The output should be similar to:
 
 ```bash
+DependenciesInstalled=True
 DeploymentsAvailable=True
 InstallSucceeded=True
 Ready=True
 ``` 
 
-We can further validate an install being successful by seeing the following pods in `knative-serving` namespace with the *Status* of `Running`:
+We can further validate an install being successful by seeing the following pods in `knative-serving` project:
+
+`oc get pod -n knative-serving`{{execute}}
+
+When completed, you should see all pods with the status of `Running`.
 
 ```shell
 NAME                                READY   STATUS    RESTARTS   AGE
