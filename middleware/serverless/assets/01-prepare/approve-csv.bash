@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Find me in `assets/01-prepare/approve-csv.bash`
 OPERATORS_NAMESPACE='openshift-operators'
 OPERATOR='redhat-operators'
 

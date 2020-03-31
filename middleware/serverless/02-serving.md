@@ -1,4 +1,10 @@
-At the end of this chapter you will be able to  deploy your very first application as an OpenShift Serverless Service. 
+At the end of this chapter you will be able to:
+- Deploy your very first application as an OpenShift Serverless `Service`.
+- Learn the underlying components of a Serverless Service, such as: `configurations`, `revisions`, and `routes`.
+- Watch the service `scale to zero`.
+- `Delete` the Serverless Service.
+
+Now that we have `OpenShift Serverles` and `Serverless Serving` deployed on the cluster we can explore `Serving` by deploying our first `Serverless Service`.
 
 ## Explore the Service
 

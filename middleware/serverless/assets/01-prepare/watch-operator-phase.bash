@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Find me in `assets/01-prepare/watch-opeator-phase.bash`
 
 while : do
   echo "Checking..."

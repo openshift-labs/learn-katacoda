@@ -16,6 +16,8 @@ Now that you have logged in, you should be able to see the packages available to
 From that package manifest, we can see all of the information that you would need to create a Subscription to the Serverless Operator
 
 ```yaml
+# ./assets/01-prepare/operator-subscription.yaml
+
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
@@ -28,6 +30,7 @@ spec:
   source: redhat-operators
   sourceNamespace: openshift-marketplace
   startingCSV: serverless-operator.v1.4.1
+
 ```
 
 > **Note:** *The installPlanApproval and startingCSV for our particular environment only supports a version of 1.4.1 at the highest, hence the differing versions from the packagemanifest spec in the terminal.*
@@ -48,8 +51,9 @@ The `installPlanApproval: Manual` in our Subscription requires the admin to appr
 In this tutorial we will find the installplan and approve it using the CLI:
 
 ```bash
+# ./assets/01-prepare/approve-csv.bash
+
 #!/usr/bin/env bash
-# Find me in `assets/01-prepare/approve-csv.bash`
 OPERATORS_NAMESPACE='openshift-operators'
 OPERATOR='redhat-operators'
 
@@ -72,21 +76,23 @@ function find_install_plan {
 
 while [ -z $(find_install_plan 1.4.1) ]; do sleep 10; echo "Checking..."; done
 approve_csv 1.4.1
+
 ```{{execute}}
 
 Since the Operator takes some time to install, we should wait for it to complete and continue when done.
 
 ```bash
-#!/usr/bin/env bash
-# Find me in `assets/01-prepare/watch-opeator-phase.bash`
+# ./assets/01-prepare/watch-operator-phase.bash
 
-while : ;
-do
+#!/usr/bin/env bash
+
+while : do
   echo "Checking..."
   phase=`oc get csv -n openshift-operators serverless-operator.v1.4.1 -o jsonpath='{.status.phase}'`
   if [ $phase == "Succeeded" ]; then echo "Installed"; break; fi
   sleep 10
 done
+
 ```{{execute}}
 
 When you see the message "Installed", the OpenShift Serverless Opeartor is installed.  We can see the new resources that are available to the cluster by running:
@@ -103,6 +109,8 @@ As per the [Knative Serving Operator documentation](https://github.com/knative/s
 To do so, see the yaml that we are going to apply to the cluster:
 
 ```yaml
+# ./assets/01-prepare/serving.yaml
+
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -120,8 +128,9 @@ Apply the yaml like so: `oc apply -f 01-prepare/serving.yaml`{{execute}}
 The `KnativeServing` instance will take a minute to install.  As you might have noticed, the resources for `KnativeServing` can be found in the `knative-serving` project.  We can check for it's installation by using the command:
 
 ```bash
+# ./assets/01-prepare/watch-knative-serving.bash
+
 #!/usr/bin/env bash
-# Find me in `assets/01-prepare/watch-knative-serving.bash`
 while : ;
 do
   output=`oc get knativeserving.operator.knative.dev/knative-serving -n knative-serving --template='{{range .status.conditions}}{{printf "%s=%s\n" .type .status}}{{end}}'`
@@ -129,6 +138,7 @@ do
   if [ -z "${output##*'Ready=True'*}" ] ; then break; fi;
   sleep 10
 done
+
 ```{{execute}}
 
 The output should be similar to:
