@@ -2,11 +2,11 @@ Now that you are familiar with the configurations our s2i image offers, let's tr
 
 Assuming you have followed the steps from before are logged in as an admin into `myproject` in the openshift cluster lets deploy - 
 
-``oc process -f https://raw.githubusercontent.com/<your-github-username>/s2i-example/log-thoth/openshift.yaml | oc apply -f -``{{copy}}
-
 If you haven't forked the repo and made any changes, you can try deploy our version using - 
 
 ``oc process -f https://raw.githubusercontent.com/thoth-station/s2i-example/log-thoth/openshift.yaml | oc apply -f -``{{execute}}
+
+
 
 
 Now that you have scheduled it in the katacoda terminal on the right, you should see this - 
@@ -32,7 +32,11 @@ You should keep a eye for these things in the log -
  - Thoth's configuration file after hardware and software discovery (that's the .thoth.yaml being expanded from the template.)
  - Asking Thoth for advise... (That is where thamos interacts with Thoth API)
 
-Now if Your app should be running under `Workloads -> Pods`.
+Now if check the UI, your app should be running under `Workloads -> Pods`.
+
+Once the application is deployed, you can check the logs from the deployed app using - 
+
+``oc logs -f dc/s2i-example-log``{{execute}}
 
 If you want to pull down the remove app you deployed - 
 

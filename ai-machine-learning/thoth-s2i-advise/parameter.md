@@ -4,6 +4,8 @@ Thoth’s s2i container images can be configured using environment variables sup
 
 `THOTH_ADVISE` - always use the recommended stack by Thoth (even if Pipfile.lock is present in the repo)
 
+`THOTH_PROVENANCE_CHECK` - verify stack provenance - the provenance check is triggered only if the lock file is not comming from Thoth’s recommendation engine (otherwise the stack has already verified provenance)
+
 `THOTH_ASSEMBLE_DEBUG` - run s2i’s assemble script in verbose mode
 
 `THOTH_DRY_RUN` - submit stack to Thoth’s recommendation engine but do not use the recommended Pipfile.lock file, use the Pipfile.lock file present in the repo instead
@@ -18,6 +20,7 @@ If you go checkout the `openshift.yaml` and checkout the env block under BuildCo
 Thamos Host is currently set to `api.moc.thoth-station.ninja`, which is our public facing api. 
 And `THAMOS_ADVISE` set to 1, that uses the stack recommended, this would allow us 
 to use to Thoth recommended build in the s2i build process. 
+For this tutorial we are going to focus on `THAMOS_ADVISE`, hence provenance check is set to 0. 
 
 
 Here are some config option's that you could configure, which 

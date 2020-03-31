@@ -1,10 +1,10 @@
 {
     "icon": "fa-openshift",
-    "title": "Building s2i with Thoth",
+    "title": "Building s2i with Thoth Advise",
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "intermediate",
-    "time": "60 minutes",
+    "time": "40 minutes",
     "backend": {
         "imageid": "openshift-4-2"
     },
@@ -18,7 +18,7 @@
             "title": "Getting Started",
             "text": "setup.md"
         },{
-            "title": "Getting the sample python app",
+            "title": "Getting the sample Python app",
             "text": "app.md"
         },{
             "title": "Thoth s2i parameters",

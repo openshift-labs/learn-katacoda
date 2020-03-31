@@ -1,4 +1,4 @@
-In this tutorial, we are going to build a simple python app, using Thoth s2i.
+In this tutorial, we are going to build a simple Python app, using Thoth s2i.
 Thus getting intelligent recommendation on the software stack during the build process.
 
 ## Why to use Thoth s2i build process?
