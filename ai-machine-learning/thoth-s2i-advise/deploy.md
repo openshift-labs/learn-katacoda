@@ -20,17 +20,17 @@ imagestream.image.openshift.io/s2i-thoth-ubi8-py36 created
 ### Let's go to Openshift UI and checkout our build process - 
 
 Make sure you have selected `myproject` on the project selector. 
-If you go to Builds in the Openshift UI in the other tab, under `Builds`, you would see `s2i-example-log-` and under logs you could inspect the build process. 
+If you go to Builds in the Openshift UI in the other tab, under `Builds`, you would see `s2i-example-log` and under logs you could inspect the build process. 
 You would see `thamos advise` being run your stack and if there is a suggestion. 
-Incase the analysis fails, we resort to the existing Piplock for to prevent the build from failing. 
+Incase the analysis fails, we resort to the existing Pipfile.lock for to prevent the build from failing. 
 
 Now lets check the logs - 
 
 ``oc logs bc/s2i-example-log -f``{{execute}}
 
 You should keep a eye for these things in the log - 
- -  Thoth's configuration file after hardware and software discovery (that's the .thoth.yaml being expanded from the template.)
- - Asking Thoth for advise... (That is where thamos interacts with thoth api)
+ - Thoth's configuration file after hardware and software discovery (that's the .thoth.yaml being expanded from the template.)
+ - Asking Thoth for advise... (That is where thamos interacts with Thoth API)
 
 Now if Your app should be running under `Workloads -> Pods`.
 

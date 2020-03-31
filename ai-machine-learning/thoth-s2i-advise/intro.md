@@ -1,13 +1,13 @@
 In this tutorial, we are going to build a simple python app, using Thoth s2i.
 Thus getting intelligent recommendation on the software stack during the build process.
 
-## Why to use thoth s2i build process?
+## Why to use Thoth s2i build process?
 
 For those who are new to this [s2i](https://docs.openshift.com/container-platform/3.11/using_images/s2i_images/python.html) refers to the Source to image process which
-bundles your source code to a image that can be run on Openshift. 
+bundles your source code to a image that can be run on OpenShift. 
 
-So when you use, thoth s2i build process instead of the normal s2i build process, 
-thoth produces recommendations targeting your specific hardware configuration you 
+So when you use, Thoth s2i build process instead of the normal s2i build process, 
+Thoth produces recommendations targeting your specific hardware configuration you 
 use to run your application inside the cluster (e.g. specific GPU available in 
 the cluster).
 

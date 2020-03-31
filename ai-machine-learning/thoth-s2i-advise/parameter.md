@@ -1,4 +1,4 @@
-Now finally let's explore the options thoth s2i build image offers - 
+Now finally let's explore the options Thoth s2i build image offers - 
 
 Thoth’s s2i container images can be configured using environment variables supplied to the build config:
 
@@ -17,11 +17,11 @@ Thoth’s s2i container images can be configured using environment variables sup
 If you go checkout the `openshift.yaml` and checkout the env block under BuildConfig (ln 57), you will see some of these being used like `THAMOS_ADVISE`, `THOTH_DRY_RUN`, `THOTH_HOST`.
 Thamos Host is currently set to `api.moc.thoth-station.ninja`, which is our public facing api. 
 And `THAMOS_ADVISE` set to 1, that uses the stack recommended, this would allow us 
-to use to thoth recommended build in the s2i build process. 
+to use to Thoth recommended build in the s2i build process. 
 
 
 Here are some config option's that you could configure, which 
-changes the behaviour of `THAMOS` (the cli tool used to interact with thoth internally.) 
+changes the behaviour of `THAMOS` (the cli tool used to interact with Thoth internally.) 
  - https://thoth-station.ninja/docs/developers/thamos/
 
 You can see them being used in the sample `openshift.yaml` in your repo, feel free to try tinkering with them according to your need.
