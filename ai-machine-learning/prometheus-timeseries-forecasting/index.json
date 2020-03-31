@@ -1,0 +1,41 @@
+{
+    "icon": "fa-openshift",
+    "title": "Playing with the SARIMA model",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "15-20 minutes",
+    "backend": {
+      "imageid": "openshift-3-11",
+      "port": 8443
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "terminal-iframe"
+    },
+    "details": {
+        "steps": [{
+            "title": "SARIMA model to forecast timeseries metrics",
+            "text": "01-loading-the-notebook-images.md"
+        }, {
+            "title": "Using a Jupyter Notebook to play with the SARIMA model",
+            "text": "02-loading-the-notebook-templates.md"
+        }, {
+            "title": "Accessing the OpenShift console",
+            "text": "03-accessing-the-web-console.md"
+        }],
+        "intro": {
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "notebook-imagestream.yaml", "target": "~/"},
+                     {"file": "setup.sh", "target": "~/"}
+                    ]
+        }
+    }
+}
