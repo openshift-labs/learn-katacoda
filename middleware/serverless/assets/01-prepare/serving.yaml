@@ -8,3 +8,7 @@ kind: KnativeServing
 metadata:
   name: knative-serving
   namespace: knative-serving
+spec:
+  config:
+    network:
+      domainTemplate: '{{.Name}}-{{.Namespace}}-ks.{{.Domain}}'

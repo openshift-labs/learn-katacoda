@@ -121,6 +121,11 @@ kind: KnativeServing
 metadata:
   name: knative-serving
   namespace: knative-serving
+spec:
+  config:
+    network:
+      domainTemplate: '{{.Name}}-{{.Namespace}}-ks.{{.Domain}}'
+
 ```
 
 Apply the yaml like so: `oc apply -f 01-prepare/serving.yaml`{{execute}}
