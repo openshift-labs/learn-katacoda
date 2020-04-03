@@ -10,7 +10,7 @@
       },
       {
         "pathway_id": "aicoe/ai-machine-learning",
-        "title": "Prometheus metrics for Data Science on OpenShift",
+        "title": "Working with Prometheus Metrics in Python",
         "course_id": "prometheus-api-client",
         "id": "prometheus-api-client"
       },
