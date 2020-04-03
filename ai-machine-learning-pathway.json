@@ -36,6 +36,11 @@
       "external_link": "https://learn.openshift.com/ai-machine-learning/prometheus-timeseries-forecasting/",
       "course_id": "prometheus-timeseries-forecasting",
       "title": "Time series forecasting for Prometheus metrics"
+    },
+    {
+      "external_link": "https://learn.openshift.com/ai-machine-learning/thoth-s2i-provenance/",
+      "course_id": "thoth-s2i-provenance",
+      "title": "Thoth S2I build with Provenance check on OpenShift"
     }
   ]
 }
