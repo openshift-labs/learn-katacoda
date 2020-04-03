@@ -3,7 +3,7 @@ As we saw in the previous scenario, Prometheus metrics are time series data iden
 ## What is Time Series Forecasting?
 A time series is a sequence of observations taken sequentially in time. Time series adds an explicit order dependence between observations: a time dimension. This additional dimension is both a constraint and a structure that provides a source of additional information.
 
-![Time Series Forecasting](./assets/01-time-series-forecasting.png)
+![Time Series Forecasting](../../assets/ai-machine-learning/prometheus-timeseries-forecasting/01-time-series-forecasting.png)
 
 We have different goals depending on whether we are interested in understanding a dataset or making predictions.
 Making predictions about the future is called extrapolation in the classical statistical handling of time series data. More modern fields focus on the topic and refer to it as time series forecasting. Forecasting involves taking models fit on historical data and using them to predict future observations. An important distinction in forecasting is that the future is completely unavailable and must only be estimated from what has already happened. The skill of a time series forecasting model is determined by its performance at predicting the future. This is often at the expense of being able to explain why a specific prediction was made, confidence intervals and even better understanding the underlying causes behind the problem.
@@ -15,14 +15,14 @@ Some important components of time series are:
 3. **Seasonality** - The optional repeating patterns or cycles of behavior over time
 4. **Noise** - The optional variability in the observations that cannot be explained by the model
 
-![Components of Time Series](./assets/01-components-time-series.png)
+![Components of Time Series](../../assets/ai-machine-learning/prometheus-timeseries-forecasting/01-components-time-series.png)
 
 All time series have a level, most have noise, and the trend and seasonality are optional. Assumptions can be made about these components both in behavior and in how they are combined, which allows them to be modeled using traditional statistical methods. These components may also be the most effective way to make predictions about future values, but not always
 
 ## Concerns of Forecasting
 When forecasting, it is important to understand your goal and ask lots of questions to help zoom in on the specifics of your predictive modeling problem. For example:
 * *How much data do you have available and are you able to gather it all together?*
-* *What is the time horizon of predictions that is required? Short, medium or long term?* 
+* *What is the time horizon of predictions that is required? Short, medium or long term?*
 * *Can forecasts be updated frequently over time or must they be made once and remain static?*
 * *At what temporal frequency are forecasts required?*
 
