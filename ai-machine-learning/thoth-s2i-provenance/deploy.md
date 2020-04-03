@@ -1,8 +1,8 @@
 Now that you are familiar with the configurations our s2i image offers, let's try deploying our sample app using Thoth's S2I build process. 
 
-Assuming you have followed the steps from before are logged in as an admin into `myproject` in the openshift cluster lets deploy - 
+Assuming you have followed the steps from before are logged in as an admin into `myproject` in the OpenShift cluster lets deploy - 
 
-If you haven't forked the repo and made any changes, you can try deploy our version using - 
+As the cluster is ready now, let's try deploying the application using Thoth S2I build process - 
 
 ``oc process -f https://raw.githubusercontent.com/thoth-station/s2i-example/log-thoth-broken/openshift.yaml | oc apply -f -``{{execute}}
 
@@ -18,7 +18,7 @@ imagestream.image.openshift.io/s2i-thoth-ubi8-py36 created
 ### Let's go to Openshift UI and checkout our build process - 
 
 Make sure you have selected `myproject` on the project selector. 
-If you go to Builds in the Openshift UI in the other tab, under `Builds`, you would see `s2i-example-log` and under logs you could inspect the build process. 
+If you go to Builds in the OpenShift UI in the other tab, under `Builds`, you would see `s2i-example-log` and under logs you could inspect the build process. 
 You would see `thamos provenance-check` being run your stack. 
 
 You can also check the logs from the terminal. Lets check the logs - 

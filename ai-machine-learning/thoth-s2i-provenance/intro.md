@@ -1,9 +1,9 @@
-In this tutorial, we are going to build a simple python app, using Thoth s2i build process and use Thoth's provenance check in the process. 
+In this tutorial, we are going to build a simple Python app, using Thoth s2i build process and use Thoth's provenance check in the process. 
 
 ## Why to use Thoth provenance check in s2i build process?
 
 For those who are new to this [s2i](https://docs.openshift.com/container-platform/3.11/using_images/s2i_images/python.html) refers to the Source to image process which
-bundles your source code to a image that can be run on Openshift. 
+bundles your source code to a image that can be run on OpenShift. 
 The provenance check is done against Pipfile and Pipfile.lock, which are expected as an input to Thoth. The output is a structured report (with metadata) that states issues found in the application stack. Currently reported issues are of the following categories:
  - `ERROR/ARTIFACT-DIFFERENT-SOURCE` - reported if a package/artifact is installed from a different package source index in comparision to the configured one
 

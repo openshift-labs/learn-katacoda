@@ -18,7 +18,7 @@ imagestream.image.openshift.io/s2i-thoth-ubi8-py36 created
 ### Let's go to Openshift UI and checkout our build process - 
 
 Make sure you have selected `myproject` on the project selector. 
-If you go to Builds in the Openshift UI in the other tab, under `Builds`, you would see `s2i-example-log` and under logs you could inspect the build process. 
+If you go to Builds in the OpenShift UI in the other tab, under `Builds`, you would see `s2i-example-log` and under logs you could inspect the build process. 
 You would see `thamos provenance-check` being run your stack. 
 
 You can also check the logs from the terminal. Lets check the logs - 

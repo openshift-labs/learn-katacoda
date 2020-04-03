@@ -18,7 +18,7 @@
             "title": "Getting Started",
             "text": "setup.md"
         },{
-            "title": "Getting the sample python app",
+            "title": "Getting the sample Python app",
             "text": "app.md"
         },{
             "title": "Thoth s2i parameters",

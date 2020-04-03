@@ -22,7 +22,7 @@ And `THOTH_PROVENANCE_CHECK` set to 1, that triggers the provenance check. For t
 
 
 Here are some config option's that you could configure, which 
-changes the behaviour of `THAMOS` (the cli tool used to interact with Thoth internally.) 
+changes the behaviour of `Thamos` (the cli tool used to interact with Thoth internally.) 
  - https://thoth-station.ninja/docs/developers/thamos/
 
 These env variables can be toggles according to your needs in the `openshift.yaml`.
