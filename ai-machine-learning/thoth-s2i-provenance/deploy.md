@@ -27,7 +27,7 @@ You can also check the logs from the terminal. Lets check the logs -
 
 You should keep a eye for these things in the log - 
  - Thoth's configuration file after hardware and software discovery (that's the .thoth.yaml being expanded from the template.)
- - Asking Thoth for provenance check... (That is where thamos interacts with Thoth API)
+ - Asking Thoth for provenance check... (That is where Thamos interacts with Thoth API)
 
 If you scroll to the end of it, you should see something similar to this - 
 ![provenance fail](https://raw.githubusercontent.com/saisankargochhayat/katacoda-scenarios/master/thoth-provenance/assets/provenance_fail.png)
