@@ -2,7 +2,7 @@ Now that you are familiar with the configurations our s2i image offers, let's tr
 
 Assuming you have followed the steps from before and are logged in as an admin into `myproject` in the openshift cluster lets deploy - 
 
-If you haven't forked the repo and made any changes, you can try deploy our version using - 
+You can try deploying our version using - 
 
 ``oc process -f https://raw.githubusercontent.com/thoth-station/s2i-example/log-thoth/openshift.yaml | oc apply -f -``{{execute}}
 
@@ -21,8 +21,8 @@ imagestream.image.openshift.io/s2i-thoth-ubi8-py36 created
 
 Make sure you have selected `myproject` on the project selector. 
 If you go to Builds in the Openshift UI in the other tab, under `Builds`, you would see `s2i-example-log` and under logs you could inspect the build process. 
-You would see `thamos advise` being run your stack and if there is a suggestion. 
-Incase the analysis fails, we resort to the existing Pipfile.lock for to prevent the build from failing. 
+You would see `thamos advise` being run on your stack and if there is a suggestion. 
+Incase the analysis fails, we resort to the existing Pipfile.lock to prevent the build from failing. 
 
 Now lets check the logs - 
 
@@ -32,7 +32,7 @@ You should keep a eye for these things in the log -
  - Thoth's configuration file after hardware and software discovery (that's the .thoth.yaml being expanded from the template.)
  - Asking Thoth for advise... (That is where thamos interacts with Thoth API)
 
-Now if check the UI, your app should be running under `Workloads -> Pods`.
+Now if you check the UI, your app should be running under `Workloads -> Pods`.
 
 Once the application is deployed, you can check the logs from the deployed app using - 
 
@@ -41,6 +41,6 @@ Once the application is deployed, you can check the logs from the deployed app u
 After Thoth finishes processing your stack you should see something similar to this in your report - 
 ![thoth advise pass](https://raw.githubusercontent.com/saisankargochhayat/katacoda-scenarios/master/hello-world/assets/thamos_advise_pass.png)
 
-If you want to pull down the remove app you deployed - 
+If you want to remove the app from the cluster - 
 
 ``oc delete all --selector 'app=s2i-example-log'``{{execute}}
