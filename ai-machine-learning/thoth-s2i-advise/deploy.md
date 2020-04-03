@@ -1,6 +1,6 @@
 Now that you are familiar with the configurations our s2i image offers, let's try deploying our sample app using Thoth's S2I build process. 
 
-Assuming you have followed the steps from before are logged in as an admin into `myproject` in the openshift cluster lets deploy - 
+Assuming you have followed the steps from before and are logged in as an admin into `myproject` in the openshift cluster lets deploy - 
 
 If you haven't forked the repo and made any changes, you can try deploy our version using - 
 
