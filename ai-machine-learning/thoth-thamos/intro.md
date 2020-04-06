@@ -1,4 +1,4 @@
-In this tutorial, we are going to run Thamos Advise on a simple Python app using Thamos CLI. 
+In this tutorial, we are going to run Thamos Advise on a simple TensorFlow Python app using Thamos CLI.
 Thus getting intelligent recommendation on the software stack during using the CLI.
 
 ## About Thamos

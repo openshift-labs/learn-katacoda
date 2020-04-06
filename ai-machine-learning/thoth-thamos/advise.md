@@ -1,6 +1,6 @@
-Thamos CLI runs based on the `.thoth.yaml` config, which we ahve setup already in the example repository here. 
+Thamos CLI runs based on the `.thoth.yaml` config, which we have setup already in the example repository here. 
 
-You can browse the same in the editor or via terminal using -
+You can browse the config file in the editor or via terminal using -
 
 ``cat .thoth.yaml``{{execute}} 
 
@@ -29,7 +29,7 @@ Now lets try running the application after installing the depedendencies -
 
 ``python3 -m venv venv``{{execute}}
 
-Then we jump into this environment - 
+Then we activate this virtual environment -  
 
 ``source venv/bin/activate``{{execute}}
 
