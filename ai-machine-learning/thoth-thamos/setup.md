@@ -18,3 +18,11 @@ Last step is cloning out demo app - [Link](https://github.com/thoth-station/s2i-
 ``git clone https://github.com/thoth-station/s2i-example.git && cd s2i-example``{{execute}}
 
 You can see all the files, that our sample repo contains in the Katacoda editor.
+
+Now let's check out out sample application - 
+
+``cat app.py``{{execute}}
+
+And the depedencies it needs using - 
+
+``cat requirements.in``{{execute}}
