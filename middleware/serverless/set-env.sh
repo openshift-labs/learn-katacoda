@@ -10,7 +10,7 @@ cd serverless
 #approve_csv 1.4.1
 #sleep 60
 #oc apply -f assets/serving.yaml
-#oc adm new-project serverless-tutorial
-#oc adm policy add-role-to-user admin developer -n serverless-tutorial
+oc adm new-project serverless-tutorial
+oc adm policy add-role-to-user admin developer -n serverless-tutorial
 cd assets
 clear; echo "Serverless Tutorial Ready!"
