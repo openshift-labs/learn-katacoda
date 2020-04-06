@@ -6,13 +6,13 @@ In this tutorial, you will:
 * Run different revisions of a service via `canary deployments`.
 * Utilize the `knative client`.
 
-# Why Serverless?
+## Why Serverless?
 
 Deploying applications as Serverless services is becoming a popular architectural style. It seems like many organizations assume that _Functions as a Service (FaaS)_ implies a serverless architecture. We think it is more accurate to say that FaaS is one of the ways to utilize serverless, although it is not the only way. This raises a super critical question for enterprises that may have applications which could be monolith or a microservice: What is the easiest path to serverless application deployment?
 
 The answer is a platform that can run serverless workloads, while also enabling you to have complete control of the configuration, building, and deployment. Ideally, the platform also supports deploying the applications as linux containers.
 
-# OpenShift Serverless
+## OpenShift Serverless
 
 In this chapter we introduce you to one such platform -- [OpenShift Serverless](https://www.openshift.com/learn/topics/serverless).  OpenShift Serverless helps developers to deploy and run applications that will scale up or scale to zero on-demand. Applications are packaged as OCI compliant Linux containers that can be run anywhere.
 

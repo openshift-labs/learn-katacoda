@@ -4,7 +4,7 @@ Some operators are able to be installed into single namespaces within a cluster 
 
 You could install the Serverless operator using the *Operators* tab within the web console, or you can use the CLI tool `oc`.  In this instance, we will use the latter.
 
-# Login and install the operator
+## Login and install the operator
 To install an operator, you need to log in as an admin.  You can do so by running:
 
 `oc login -u admin -u admin`{{execute}}
@@ -43,7 +43,7 @@ For now, all you need to do is apply the associated YAML file to subscribe to th
 
 `oc apply -f 01-prepare/operator-subscription.yaml`{{execute}}
 
-# Approve and Verify the Operator Installation
+## Approve and Verify the Operator Installation
 The `installPlanApproval: Manual` in our Subscription requires the admin to approve the *installplan* in order for it to begin.  Normally, it might be easiest to see this from the OpenShift Web Console and approve the changes as shown in the picture below.
 
 ![installplan](assets/01-prepare/installplan.png "Approve Install Plan")
@@ -104,7 +104,8 @@ oc api-resources | grep KnativeServing
 ```{{execute}}
 
 As you can see, the OpenShift Serverless Operator added two new resources: `operator.knative.dev` and `servings.knative.dev`.  Next, we need to use these resources to install KnativeServing. 
-# Install KnativeServing
+
+## Install KnativeServing
 As per the [Knative Serving Operator documentation](https://github.com/knative/serving-operator#the-knativeserving-custom-resource) You must create a `KnativeServing` object to install Knative Serving using the OpenShift Serverless Operator.
 
 To do so, see the yaml that we are going to apply to the cluster:
@@ -141,7 +142,7 @@ while : ;
 do
   output=`oc get knativeserving.operator.knative.dev/knative-serving -n knative-serving --template='{{range .status.conditions}}{{printf "%s=%s\n" .type .status}}{{end}}'`
   echo $output
-  if [ -z "${output##*'Ready=True'*}" ] ; then break; fi;
+  if [ -z "${output##*'Ready=True'*}" ] ; then echo "Installed"; break; fi;
   sleep 10
 done
 
