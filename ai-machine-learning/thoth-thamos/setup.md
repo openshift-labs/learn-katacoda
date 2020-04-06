@@ -23,6 +23,6 @@ Now let's check out out sample application -
 
 ``cat app.py``{{execute}}
 
-And the depedencies it needs using - 
+And to check all the direct dependencies it needs using - 
 
 ``cat requirements.in``{{execute}}
