@@ -88,9 +88,9 @@ Since the Operator takes some time to install, we should wait for it to complete
 A=1
 while : ;
 do
-  echo "Checking..."
+  echo "$A: Checking..."
   phase=`oc get csv -n openshift-operators serverless-operator.v1.4.1 -o jsonpath='{.status.phase}'`
-  if [ $phase == "Succeeded" ]; then echo $A+": Installed"; break; fi
+  if [ $phase == "Succeeded" ]; then echo "Installed"; break; fi
   A=$((A+1))
   sleep 10
 done
@@ -146,7 +146,7 @@ A=1
 while : ;
 do
   output=`oc get knativeserving.operator.knative.dev/knative-serving -n knative-serving --template='{{range .status.conditions}}{{printf "%s=%s\n" .type .status}}{{end}}'`
-  echo $A+": "+$output
+  echo "$A: $output"
   if [ -z "${output##*'Ready=True'*}" ] ; then echo "Installed"; break; fi;
   A=$((A+1))
   sleep 10
