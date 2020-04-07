@@ -85,16 +85,19 @@ Since the Operator takes some time to install, we should wait for it to complete
 # ./assets/01-prepare/watch-operator-phase.bash
 
 #!/usr/bin/env bash
-
+A=1
 while : ;
 do
   echo "Checking..."
   phase=`oc get csv -n openshift-operators serverless-operator.v1.4.1 -o jsonpath='{.status.phase}'`
-  if [ $phase == "Succeeded" ]; then echo "Installed"; break; fi
+  if [ $phase == "Succeeded" ]; then echo $A+": Installed"; break; fi
+  A=$((A+1))
   sleep 10
 done
 
 ```{{execute}}
+
+> **NOTE:** *You should expect this to loop around 12 or so iterations.*
 
 When you see the message "Installed", the OpenShift Serverless Opeartor is installed.  We can see the new resources that are available to the cluster by running:
 
@@ -138,11 +141,14 @@ The `KnativeServing` instance will take a minute to install.  As you might have 
 # ./assets/01-prepare/watch-knative-serving.bash
 
 #!/usr/bin/env bash
+
+A=1
 while : ;
 do
   output=`oc get knativeserving.operator.knative.dev/knative-serving -n knative-serving --template='{{range .status.conditions}}{{printf "%s=%s\n" .type .status}}{{end}}'`
-  echo $output
+  echo $A+": "+$output
   if [ -z "${output##*'Ready=True'*}" ] ; then echo "Installed"; break; fi;
+  A=$((A+1))
   sleep 10
 done
 
@@ -156,6 +162,8 @@ DeploymentsAvailable=True
 InstallSucceeded=True
 Ready=True
 ``` 
+
+> **NOTE:** *You should expect this to run for 22 or so iterations.*
 
 We can further validate an install being successful by seeing the following pods in `knative-serving` project:
 
