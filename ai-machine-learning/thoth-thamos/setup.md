@@ -1,4 +1,4 @@
-Before start using the Thamos let's setup the environment.
+Before we start using Thamos, let's give a couple of minutes for the environment to setup.
 
 Next we could go ahead and install `Thamos CLI` -
 
