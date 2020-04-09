@@ -3,7 +3,7 @@ In this self-paced tutorial, you will learn the basics of how to use OpenShift S
 In this tutorial, you will:
 * Deploy an OpenShift Serverless `service`.
 * Deploy multiple `revisions` of a service.
-* Run different revisions of a service via `canary deployments`.
+* Run different revisions of a service via `canary` and `blue-green` deployments.
 * Utilize the `knative client`.
 
 ## Why Serverless?
