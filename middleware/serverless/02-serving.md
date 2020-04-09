@@ -8,6 +8,12 @@ At the end of this chapter you will be able to:
 
 Now that we have the `OpenShift Serverles Operator` and a `Serverless Serving` Custom Resource (CR) deployed on the cluster we can explore `Serving` by deploying our first `Serverless Service`.
 
+Before beginning we should change to the non-priviledged user `developer` and create a new `project` for the tutorial.
+
+To change to the non-priviledged user in our envirnoment we can execute: `oc login -u developer -p developer`{{execute}}
+
+Next create a new project by executing: `oc new-project serverless-tutorial`{{execute}}
+
 ## Explore Serving
 Let's take a moment to explore the new API resources available in the cluster since installing `Serving`.
 
@@ -55,7 +61,7 @@ spec:
 
 ```
 
-As you can see, we now are deploying an instance of a `Service` that is provided by `serving.knative.dev`.  In our simple example we define a container `image` and the paths for health checking of the service.
+As you can see, we now are deploying an instance of a `Service` that is provided by `serving.knative.dev`.  In our simple example we define a container `image` and the paths for `health checking` of the service.  We also provided the `name` and `namespace`.
 
 ## Deploy the Serverless Service
 To deploy the service execute: `oc apply -n serverless-tutorial -f 02-serving/service.yaml`{{execute}}
@@ -67,8 +73,8 @@ You can watch the status using the commands:
 #!/usr/bin/env bash
 while : ;
 do
-  output=`oc get pod -n knative-serving`
-  echo $output
+  output=`oc get pod -n serverless-tutorial`
+  echo "$output"
   if [ -z "${output##*'Running'*}" ] ; then echo "Service is ready."; break; fi;
   sleep 5
 done
@@ -82,7 +88,7 @@ NAME                                        READY   STATUS    RESTARTS   AGE
 greeter-6vzt6-deployment-5dc8bd556c-42lqh   2/2     Running   0          11s
 ```
 
-> **QUESTION:** *If you run the watch script too late you might not see any pods running or being created after a few loops and will have to escape out of the watch with `CTRL+C`.  I'll let you think about why this happens.  Continue on for now and validate the deployment.*
+> **Question:** *If you run the watch script too late you might not see any pods running or being created after a few loops and will have to escape out of the watch with `CTRL+C`.  I'll let you think about why this happens.  Continue on for now and validate the deployment.*
 
 ## Check out the deployment
 As discussed in the [OpenShift Serverless Documentation][ocp-serving-components], Serverless Service deployments will create a few required serverless resources.  We will dive into each of them below.
@@ -101,7 +107,9 @@ The Serverless `Service` gives us information about a `URL` as well as revisions
 
 The URL managed by the route which we will check out next.
 
-> *How is it possible that you could have a service deployed and `Ready` but no pods are running for that service?* You could see a hint by inspecting the `READY` column from `oc get deployment`{{execute}}
+> *How is it possible that you could have a service deployed and `Ready` but no pods are running for that service?*
+>
+> You could see a hint by inspecting the `READY` column from `oc get deployment`{{execute}}
 
 ### Route
 As the [OpenShift Serverless Documentation][ocp-serving-components] explains, a `Route` resource maps a network endpoint to one or more Knative revisions. You can manage the traffic in several ways, including fractional traffic and named routes.  Currently, since our service is new, we have only one revision to direct our users to -- in later sections we will show how to mahage multiple revisions at once using a `Canary Deployment Pattern`.
@@ -124,6 +132,24 @@ greeter   greeter-6vzt6   greeter-6vzt6   True
 
 Here we can see the latest created and latest ready revision to our deployment.  We an also see that it is ready, like the service and route outputs if `Ready` is not `True` then we would see the `Reason` of why not.
 
+We can edit our configuration by pointing our Service to a new container image.  You could edit the original yaml, or use `oc edit configurations.serving.knative.dev greeter` and patching the image there.
+
+In our case we will update the image by executing: `oc get configurations.serving.knative.dev greeter -o yaml | sed 's/knative-tutorial-greeter:quarkus/knative-tutorial-greeter:latest/' | oc replace -f -`{{execute}}
+
+We could quickly check the configurations again to see the changes happening by executing: `oc get -n serverless-tutorial configurations.serving.kntive.dev`
+
+```bash
+NAME      LATESTCREATED   LATESTREADY     READY     REASON
+greeter   greeter-db88f   greeter-6vzt6   Unknown
+```
+
+If we get the configurations again after some time to allow for the image to be pulled, we should see:
+
+```bash
+NAME      LATESTCREATED   LATESTREADY     READY   REASON
+greeter   greeter-db88f   greeter-db88f   True
+```
+
 ### Revision
 Lastly, we can inspect the `Revisions`.  As per the [OpenShift Serverless Documentation][ocp-serving-components], a `Revision` is a point-in-time snapshot of the code and configuration for each modification made to the workload. Revisions are immutable objects and can be retained for as long as needed. Cluster administrators can modify the `revision.serving.knative.dev` resource to enable automatic scaling of Pods in your OpenShift Container Platform cluster.
 
@@ -133,28 +159,31 @@ You should see an output similar to:
 
 ```bash
 NAME            CONFIG NAME   K8S SERVICE NAME   GENERATION   READY   REASON
+greeter-2j4j6   greeter       greeter-2j4j6      2            True
 greeter-6vzt6   greeter       greeter-6vzt6      1            True
+greeter-db88f   greeter       greeter-db88f      3            True
 ```
 
 Here we can see each revision and the configuration it was generated from, as well as the service that is utilizing this revision.  We can see the generational number of this revision, **which is incremented on each config change**, and the status of the revision.
 
-## Invoke the Service
-
+### Invoke the Service
 Now that we have seen a a few of the underlying resouces that get created when deploying a Serverless Service, we can test the deployment.  To do so we will need to use the URL returned by the serverless route.  To invoke the service we can execute the command `curl http://greeter-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute}}
 
 The service will return a response like **Hi  greeter => '6fee83923a9f' : 1**
 
 > **NOTE:** *You can also open this in your own local browser to test the service!*
 
-## Scale to Zero
-
+### Scale to Zero
 The `greeter` service will automatically scale down to zero if it does not get request for approximately 60 seconds.  Try watching the service scaling down from [OpenShift Dev Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com).
 
-TODO **screen shot of OpenShift Developer Console**
+![serving-terminating](assets/02-serving/terminating.png)
 
 Try invoking the service again as you did earlier to see the service scaling up.
 
-## Delete the Service
+> **Question:** *Do you see now why the pod might not have been running earlier? Your service scaled to zero before you checked!*
 
-Awesome! You have successfully deployed your very first serverless service using OpenShift serverless. In next chapter we go a bit deep in understanding how to distribute traffic between multiple revisions of same service.
+## Delete the Service
+We can easily delete our service by executing: `oc delete services.serving.knative.dev greeter`{{execute}}
+
+Awesome! You have successfully deployed your very first serverless service using OpenShift Serverless. In the next chapter we will go a bit deeper in understanding how to distribute traffic between multiple revisions of the same service.
 

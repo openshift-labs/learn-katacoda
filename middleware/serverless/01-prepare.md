@@ -48,7 +48,7 @@ The `installPlanApproval: Manual` in our Subscription requires the admin to appr
 
 ![installplan](assets/01-prepare/installplan.png "Approve Install Plan")
 
-In this tutorial we will find the installplan and approve it using the CLI:
+In this tutorial we will find the installplan and approve it using the CLI.  To do so click and run the script below where we automate approving the installplan.
 
 ```bash
 # ./assets/01-prepare/approve-csv.bash
@@ -79,7 +79,9 @@ approve_csv 1.4.1
 
 ```{{execute}}
 
-Since the Operator takes some time to install, we should wait for it to complete and continue when done.
+> **Note:** *The main commands in the automation above are: find installplan - `oc get installplan -n openshift-operators`, and approve installplan - `oc edit <install plan> -n openshift-operators` and change `approved: false` to `approved: true`.*
+
+Since the Operator takes some time to install, we should wait for it to complete and continue when done by clicking the script below to run.
 
 ```bash
 # ./assets/01-prepare/watch-operator-phase.bash
@@ -97,12 +99,12 @@ done
 
 ```{{execute}}
 
-> **NOTE:** *You should expect this to loop around 12 or so iterations.*
+> **Note:** *You should expect this to loop around 12 or so iterations.*
 
-When you see the message "Installed", the OpenShift Serverless Opeartor is installed.  We can see the new resources that are available to the cluster by running:
+When you see the message "Installed", the OpenShift Serverless Opeartor is installed.  We can see the new resources that are available to the cluster by clicking the script below to run:
 
 ```bash
-echo "NAME              SHORTNAMES   APIGROUP              NAMESPACED   KIND"
+echo "NAME                                SHORTNAMES         APIGROUP                        NAMESPACED             KIND"
 oc api-resources | grep KnativeServing
 ```{{execute}}
 
@@ -163,7 +165,7 @@ InstallSucceeded=True
 Ready=True
 ``` 
 
-> **NOTE:** *You should expect this to run for 22 or so iterations.*
+> **Note:** *You should expect this to run for 22 or so iterations.*
 
 We can further validate an install being successful by seeing the following pods in `knative-serving` project:
 
