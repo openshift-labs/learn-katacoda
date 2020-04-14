@@ -1,0 +1,48 @@
+{
+    "icon": "fa-openshift",
+    "title": "Deploying Prometheus and Grafana on OpenShift",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "10-15 minutes",
+    "backend": {
+      "imageid": "openshift-4-2"
+    },
+    "files": [
+        "prometheus-configmap.yaml"
+    ],
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "editor-terminal",
+        "uisettings": "yaml",
+        "hideintro": false,
+        "hidefinish": false
+    },
+    "details": {
+        "steps": [{
+            "title": "Step 1 - Example Prometheus metrics exposing application",
+            "text": "1deploy-demo-app.md"
+        }, {
+            "title": "Step 2 - Deploying Prometheus to collect exposed metrics",
+            "text": "2deploy-prometheus.md"
+        }, {
+            "title": "Step 3 - Deploying Grafana to visualize Prometheus metrics",
+            "text": "3deploy-grafana.md"
+        }, {
+            "title": "Step 4 - Visualize Metrics in Grafana",
+            "text": "4create-dashboard.md"
+        }],
+        "intro": {
+            "courseData": "env-init.sh",
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "host01": [{"file": "deploy-prometheus.yaml", "target": "~/"}]
+        }
+    }
+}
