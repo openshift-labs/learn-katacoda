@@ -1,10 +1,10 @@
 {
     "icon": "fa-openshift",
-    "title": "Playground (OpenShift 4.2)",
+    "title": "Using Elastic Search for 100 famous novels",
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
-    "time": "60 minutes",
+    "time": "5 minutes",
     "backend": {
         "imageid": "openshift-4-2"
     },

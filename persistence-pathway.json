@@ -1,0 +1,16 @@
+{
+  "title": "OpenShift Persistence",
+  "icon": "fa-openshift",
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/playgrounds/persistent-intro/",
+      "course_id": "persistent-intro",
+      "title": "Making persistent storage calls in your application"
+    },
+    {
+      "external_link": "https://learn.openshift.com/playgrounds/persistent-elasticsearch/",
+      "course_id": "persistent-elasticsearch",
+      "title": "Using Elastic Search for 100 famous novels"
+    }
+  ]
+}

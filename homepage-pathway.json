@@ -29,6 +29,10 @@
     {
       "external_link": "https://learn.openshift.com/ai-machine-learning/",
       "title": "AI and Machine Learning on OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/persistence/",
+      "title": "Adding persistence to OpenShift"
     }
   ]
 }

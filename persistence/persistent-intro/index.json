@@ -1,0 +1,45 @@
+{
+    "icon": "fa-openshift",
+    "title": "Making persistent storage calls in your application",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "5 minutes",
+    "backend": {
+        "imageid": "openshift-4-2"
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [
+            {
+                "name": "Console",
+                "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+            }
+        ],
+        "uilayout": "terminal-iframe"
+    },
+    "details": {
+        "steps": [
+            {
+                "title": "Using RWO storage",
+                "text": "rwo.md"
+            },
+            {
+                "title": "Using RWX storage",
+                "text": "rwx.md"
+            },
+            {
+                "title": "Using OBC storage",
+                "text": "obc.md"
+            }
+        ],
+        "intro": {
+            "code": "set-env.sh",
+            "courseData": "env-init.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    }
+}
