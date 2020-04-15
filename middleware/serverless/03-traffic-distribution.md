@@ -111,10 +111,10 @@ spec:
     spec:
       containers:
       - image: quay.io/rhdevelopers/knative-tutorial-greeter:quarkus
-      env:
-      - name: MESSAGE_PREFIX
-        value: GreeterVlatest
-      livenessProbe:
+        env:
+        - name: MESSAGE_PREFIX
+          value: GreeterVlatest
+        livenessProbe:
           httpGet:
             path: /healthz
         readinessProbe:

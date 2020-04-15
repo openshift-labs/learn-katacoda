@@ -53,8 +53,18 @@
             { "file": "01-prepare/operator-subscription.yaml", "target": "~/01-prepare" },
             { "file": "01-prepare/serving.yaml", "target": "~/01-prepare" },
             { "file": "01-prepare/watch-knative-serving.bash", "target": "~/01-prepare" },
-            { "file": "01-prepare/watch-operator-phase.bash", "target": "~/01-prepare" }
-        ]
+            { "file": "01-prepare/watch-operator-phase.bash", "target": "~/01-prepare" },
+            { "file": "02-serving/service.yaml", "target": "~/02-serving" },
+            { "file": "02-serving/watch-service.bash", "target": "~/02-serving" },
+            { "file": "03-traffic-distribution/greeter-canary-service.yaml", "target": "~/03-traffic-distribution" },
+            { "file": "03-traffic-distribution/greeter-v1-service.yaml", "target": "~/03-traffic-distribution" },
+            { "file": "03-traffic-distribution/greeter-v2-service.yaml", "target": "~/03-traffic-distribution" },
+            { "file": "03-traffic-distribution/poll-svc-10.bash", "target": "~/03-traffic-distribution" },
+            { "file": "03-traffic-distribution/service-pinned.yaml", "target": "~/03-traffic-distribution" },
+            { "file": "04-scaling/service-50.yaml", "target": "~/04-scaling" },
+            { "file": "04-scaling/service-hpa.yaml", "target": "~/04-scaling" },
+            { "file": "04-scaling/service-min-max-scale.yaml", "target": "~/04-scaling" }
+          ]
     }
   }  
 }
