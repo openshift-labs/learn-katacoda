@@ -23,16 +23,13 @@ Within the `getting-started/pom.xml`{{open}} is the declaration for the Quarkus 
             <goals>
               <goal>native-image</goal>
             </goals>
-            <configuration>
-              <additionalBuildArgs>--allow-incomplete-classpath</additionalBuildArgs>
-            </configuration>
           </execution>
         </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
-        <version>2.22.1</version>
+        <version>${surefire.version}</version>
       </plugin>
     </plugins>
   </build>
@@ -40,7 +37,7 @@ Within the `getting-started/pom.xml`{{open}} is the declaration for the Quarkus 
 ```
 We use a profile because, you will see very soon, packaging the native image takes a few seconds. However, this compilation time is only incurred _once_, as opposed to _every_ time the application starts, which is the case with other approaches for building and executing JARs.
 
-In the original terminal, if the application is still running, stop it with `Ctrl+C`. Next, a native executable by clicking: `mvn clean package -Pnative -DskipTests=true`{{execute}}
+In the original terminal, if the application is still running, stop it with `Ctrl+C`. Next, create a native executable by clicking: `mvn clean package -Pnative -DskipTests=true`{{execute}}
 
 > Since we are working in a Linux environment, and the OS that will eventually run our application is also Linux, we can use our local OS to build the native Quarkus app. If you need to build native Linux binaries when on other OS's like Windows or macOS, you can use `-Dquarkus.native.container-runtime=[podman | docker]`. You'll need either Docker or [Podman](https://podman.io) installed depending on which container runtime you want to use!
 
@@ -52,7 +49,7 @@ In addition to the regular files, the build also produces `target/getting-starte
 
 ```console
 $ file target/getting-started-1.0-SNAPSHOT-runner
-target/getting-started-1.0-SNAPSHOT-runner: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=e922a54ad13711d63023ff99b370cc419a3eba96, not stripped
+target/getting-started-1.0-SNAPSHOT-runner: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=d8c36b6f114e5b2fce77b4efe07d1e4ac4879ab6, with debug_info, not stripped, too many notes (256)
 ```
 
 ## Run native image
@@ -64,11 +61,15 @@ Since our environment here is Linux, you can _just run it_:
 Notice the amazingly fast startup time:
 
 ```console
-2020-03-23 12:54:58,692 INFO  [io.quarkus] (main) getting-started 1.0-SNAPSHOT (powered by Quarkus 1.3.0.Final) started in 0.007s. Listening on: http://0.0.0.0:8080
-2020-03-23 12:54:58,692 INFO  [io.quarkus] (main) Profile prod activated.
-2020-03-23 12:54:58,692 INFO  [io.quarkus] (main) Installed features: [cdi, kogito, resteasy, resteasy-jackson, smallrye-openapi]
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+2020-04-15 13:48:19,193 INFO  [io.quarkus] (main) getting-started 1.0-SNAPSHOT (powered by Quarkus 1.3.0.Final) started in 0.021s. Listening on: http://0.0.0.0:8080
+2020-04-15 13:48:19,193 INFO  [io.quarkus] (main) Profile prod activated.
+2020-04-15 13:48:19,193 INFO  [io.quarkus] (main) Installed features: [cdi, kogito, resteasy, resteasy-jackson, smallrye-openapi, swagger-ui]
 ```
-That's 7 milliseconds (seven!!!) to start a full business application, exposing a REST API and ready to serve requests in a shared learning environment!
+That's 21 milliseconds (twenty one!!!) to start a full business application, exposing a REST API and ready to serve requests in a shared learning environment!
 
 And extremely low memory usage as reported by the Linux `ps` utility. Click here to run this in your other Terminal tab:
 

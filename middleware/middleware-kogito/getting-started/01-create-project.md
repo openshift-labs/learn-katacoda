@@ -83,7 +83,7 @@ Because this is the first Maven Kogito/Quarkus build on this environment, the sy
 
 After the dependencies have been downloaded, and the application has been compiled, note the amazingly fast startup time! Once started, you can request the provided Swagger UI in the browser [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).
 
-You should see the following page:
+You should see the following page, which shows the API of the sample Kogito _Greetings_ service provided by the archetype:
 
 ![New Kogito Quarkus Web Page](/openshift/assets/middleware/middleware-kogito/new-kogito-quarkus-swagger-ui.png)
 

@@ -43,7 +43,7 @@ The output shows the id of the new instance (note that your id will be different
 
 ## Cleanup
 
-Go back to the terminal and stop the application once again by pressing `CTRL-C`.
+Go back to the first terminal and stop the application once again by pressing `CTRL-C`.
 
 ## Congratulations!
 
