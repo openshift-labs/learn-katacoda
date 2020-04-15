@@ -20,7 +20,7 @@ The easiest way to create a new Kogito project is to execute the Maven command b
   -DinteractiveMode=false \
   -DarchetypeGroupId=org.kie.kogito \
   -DarchetypeArtifactId=kogito-quarkus-archetype \
-  -DarchetypeVersion=0.8.1 \
+  -DarchetypeVersion=0.9.0 \
   -DgroupId=org.acme \
   -DartifactId=service-task-cdi \
   -Dversion=1.0-SNAPSHOT`{{execute}}
