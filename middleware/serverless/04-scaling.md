@@ -62,6 +62,30 @@ To solve for this, you might want to allow a few processes sit idle waiting for 
 
 ```yaml
 # ./assets/04-scaling/service-min-max-scale.yaml
+
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: prime-generator
+  namespace: serverless-tutorial
+spec:
+  template:
+    metadata:
+      annotations:
+        # the minimum number of pods to scale down to
+        autoscaling.knative.dev/minScale: "2"
+        # the maximum number of pods to scale up to
+        autoscaling.knative.dev/maxScale: "5"
+    spec:
+      containers:
+        - image: quay.io/rhdevelopers/prime-generator:v27-quarkus
+          livenessProbe:
+            httpGet:
+              path: /healthz
+          readinessProbe:
+            httpGet:
+              path: /healthz
+
 ```
 
 In the service definition above you can see that we configure the minimum scale to 2.  You might also have noticed that we also specified a maximum scale to 5.
@@ -89,8 +113,8 @@ spec:
   template:
     metadata:
       annotations:
-        # Target 10 in-flight-requests per pod.
-        autoscaling.knative.dev/target: "10"
+        # Target 50 in-flight-requests per pod.
+        autoscaling.knative.dev/target: "50"
     spec:
       containers:
       - image: quay.io/rhdevelopers/prime-generator:v27-quarkus
@@ -113,6 +137,29 @@ CPU based autoscaling metrics are acheived using something called a Horizontal P
 
 ```yaml
 # ./assets/04-scaling/service-hpa.yaml
+
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: prime-generator
+  namespace: serverless-tutorial
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/metric: cpu
+        autoscaling.knative.dev/target: "70"
+        autoscaling.knative.dev/class: hpa.autoscaling.knative.dev
+    spec:
+      containers:
+      - image: quay.io/rhdevelopers/prime-generator:v27-quarkus
+        livenessProbe:
+          httpGet:
+            path: /healthz
+        readinessProbe:
+          httpGet:
+            path: /healthz
+
 ```
 
 Let's update the prime-generator service by executing: `oc apply -n serverless-tutorial -f 04-scaling/service-hpa.yaml`{{execute}}
