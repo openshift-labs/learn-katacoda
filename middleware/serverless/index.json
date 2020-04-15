@@ -42,10 +42,6 @@
       {
         "title": "Scaling",
         "text": "04-scaling.md"
-      },
-      {
-        "title": "Using Knative client",
-        "text": "05-knative-client.md"
       }
     ],
     "finish": {

@@ -235,3 +235,5 @@ We can also notice that two pods are running, representing both greeter-v1 and g
 ## Delete the Service
 
 We will need to cleanup the project for our next section by executing: `oc -n serverless-tutorial delete services.serving.knative.dev greeter`{{execute}}
+
+Congrats! You now are able to apply a few different deployment patterns using Serverless.  In the next section we will see how we dig a little deeper into the scaling components of Serverless.

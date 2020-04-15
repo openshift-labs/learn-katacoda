@@ -1,17 +1,17 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: greeter
+  name: prime-generator
+  namespace: serverless-tutorial
 spec:
   template:
     metadata:
-      name: greeter-v2
+      annotations:
+        # Target 50 in-flight-requests per pod.
+        autoscaling.knative.dev/target: "50"
     spec:
       containers:
-      - image: quay.io/rhdevelopers/knative-tutorial-greeter:quarkus
-        env:
-        - name: MESSAGE_PREFIX
-          value: Namaste
+      - image: quay.io/rhdevelopers/prime-generator:v27-quarkus
         livenessProbe:
           httpGet:
             path: /healthz

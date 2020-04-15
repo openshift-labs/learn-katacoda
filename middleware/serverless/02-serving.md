@@ -186,4 +186,3 @@ Try invoking the service again as you did earlier to see the service scaling up.
 We can easily delete our service by executing: `oc delete services.serving.knative.dev greeter`{{execute}}
 
 Awesome! You have successfully deployed your very first serverless service using OpenShift Serverless. In the next chapter we will go a bit deeper in understanding how to distribute traffic between multiple revisions of the same service.
-

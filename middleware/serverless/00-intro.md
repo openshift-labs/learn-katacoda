@@ -30,4 +30,8 @@ During this scenario, you will be using a hosted OpenShift environment that is c
 
 The OpenShift environment created for you is running version 4.2 of the OpenShift Container Platform. This deployment is a self-contained environment that provides everything you need to be successful learning the platform. This includes a preconfigured command line environment, the OpenShift web console, public URLs, and sample applications.
 
-Let's get started!
+> **Note:** *It is possible to skip around in this tutorial.  The only pre-requisite for each section would be the initial `Prepare for Exercises` section.*
+>
+> *For example, you could run the `Prepare for Exercises` section immediatly followed by the `Scaling` section.*
+
+Now, let's get started!
