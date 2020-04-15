@@ -1,0 +1,15 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: prometheus-anomaly-detection-workshop
+objects:
+  - apiVersion: v1
+    kind: ImageStream
+    metadata:
+      name: prometheus-anomaly-detection-workshop
+    spec:
+      tags:
+        - name: 'prometheus-timeseries-forecasting-katacoda'
+          from:
+            kind: DockerImage
+            name: 'quay.io/hveeradh/prometheus-anomaly-detection-workshop:prometheus-timeseries-forecasting-katacoda'

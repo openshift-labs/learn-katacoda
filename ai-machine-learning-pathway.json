@@ -31,6 +31,11 @@
       "external_link": "https://learn.openshift.com/ai-machine-learning/prometheus-api-client/",
       "course_id": "prometheus-api-client",
       "title": "Prometheus metrics for Data Science on OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/ai-machine-learning/prometheus-timeseries-forecasting/",
+      "course_id": "prometheus-timeseries-forecasting",
+      "title": "Time series forecasting for Prometheus metrics"
     }
   ]
 }
