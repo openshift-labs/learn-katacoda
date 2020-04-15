@@ -98,7 +98,15 @@ Deploy the service by executing: `oc apply -n serverless-tutorial -f 04-scaling/
 
 Now we can see that the `prime-generator` is deployed and it will never be scaled outside of 2-5 pods available by checking: `oc get pods -n serverless-tutorial`{{execute}}
 
-We now guarentee that we will have two instances available at all times to provide us with no initial lag at the cost of consuming additional resources.
+We now guarentee that we will have two instances available at all times to provide us with no initial lag at the cost of consuming additional resources.  Let's test the service won't scale past 5.
+
+To load the service we will use [hey](https://github.com/rakyll/hey).  We will send 2550 total requests `-n 2550`, of which 850 will be preformed concurrently each time `-c 850`.  Immediatly after we will get the deployments in our project to be able to see the number of pods running.
+
+`hey -n 2550 -c 850 -t 60 "http://prime-generator-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/?sleep=3&upto=10000&memload=100" && oc get deployment -n serverless-tutorial`{{execute}}
+
+> **Note:** *This might take a few moments!*
+
+Here we should have noticed that `5/5` pods should be marked as `READY`, confirming our max scale.
 
 ## AutoScaling
 As mentioned before, Serverless by default is will scale up when there are 100 concurrent requests coming in at one time.  This scaling factor might work well for some applications, but not all -- fortunately this is a tuneable factor!  In our case you might notice that a given app isn't using it's resources too effectively as each request is CPU-bound.
@@ -132,6 +140,12 @@ spec:
 ```
 
 Let's update the prime-generator service by executing: `oc apply -n serverless-tutorial -f 04-scaling/service-50.yaml`{{execute}}
+
+Again we can test the scaling by loading our service.  This time we will send 1100 total requests, of which 275 will be preformed concurrently each time.
+
+`hey -n 1100 -c 275 -t 60 "http://prime-generator-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/?sleep=3&upto=10000&memload=100" && oc get deployment -n serverless-tutorial`{{execute}}
+
+Here we should have noticed that at least 6 pods should be up and running.  You might notice more than 6 as `hey` could be overloading the amount of concurrent workers at one time.
 
 This will work well, but given that we are CPU-bound instead of request bound we might want to choose a different autoscaling class that is based on CPU load to be able to manage our scaling more effectively.
 
@@ -168,10 +182,10 @@ spec:
 
 Let's update the prime-generator service by executing: `oc apply -n serverless-tutorial -f 04-scaling/service-hpa.yaml`{{execute}}
 
-#TODO Add in challenge + load testing.  `hey` seems good, maybe ab?
+> **Note:** *Getting the service to scale on the large CPU nodes that this tutorial is running on is relatively hard.  If you have any ideas to see this in action let put an issue in at https://github.com/openshift-labs/learn-katacoda*
 
 ## Delete the Service
 
-We will need to cleanup the project for our next section by executing: `oc -n serverless-tutorial delete services.serving.knative.dev prime-generator`{{execute}}
+We can cleanup the project using: `oc -n serverless-tutorial delete services.serving.knative.dev prime-generator`{{execute}}
 
 Congrats! You are now a Serverless Scaling Expert!  We can now adjust and tune Serverless scaling using concurrency or CPU based HPAs.
