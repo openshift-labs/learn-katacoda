@@ -1,0 +1,70 @@
+{
+  "icon": "fa-openshift",
+  "title": "Getting Started with OpenShift Serverless",
+  "description": "",
+  "pathwayTitle": "OpenShift",
+  "difficulty": "intermediate",
+  "time": "30 minutes",
+  "backend": {
+    "imageid": "openshift-4-2"
+  },
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "OpenShift Web Console",
+        "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ],
+    "uilayout": "terminal-iframe",
+    "uieditorpath": "/root/",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "details": {
+    "intro": {
+      "courseData": "env-init.sh",
+      "text": "00-intro.md",
+      "code": "set-env.sh"
+    },
+    "steps": [
+      {
+        "title": "Prepare for Exercises",
+        "text": "01-prepare.md"
+      },
+      {
+        "title": "Deploying your service",
+        "text": "02-serving.md"
+      },
+      {
+        "title": "Traffic Distribution",
+        "text": "03-traffic-distribution.md"
+      },
+      {
+        "title": "Scaling",
+        "text": "04-scaling.md"
+      }
+    ],
+    "finish": {
+      "text": "99-outro.md"
+    },
+    "assets": {
+      "client": [
+        { "file": "01-prepare/approve-csv.bash", "target": "~/01-prepare" },
+        { "file": "01-prepare/operator-subscription.yaml", "target": "~/01-prepare" },
+        { "file": "01-prepare/serving.yaml", "target": "~/01-prepare" },
+        { "file": "01-prepare/watch-knative-serving.bash", "target": "~/01-prepare" },
+        { "file": "01-prepare/watch-operator-phase.bash", "target": "~/01-prepare" },
+        { "file": "02-serving/service.yaml", "target": "~/02-serving" },
+        { "file": "02-serving/watch-service.bash", "target": "~/02-serving" },
+        { "file": "03-traffic-distribution/greeter-canary-service.yaml", "target": "~/03-traffic-distribution" },
+        { "file": "03-traffic-distribution/greeter-v1-service.yaml", "target": "~/03-traffic-distribution" },
+        { "file": "03-traffic-distribution/greeter-v2-service.yaml", "target": "~/03-traffic-distribution" },
+        { "file": "03-traffic-distribution/poll-svc-10.bash", "target": "~/03-traffic-distribution" },
+        { "file": "03-traffic-distribution/service-pinned.yaml", "target": "~/03-traffic-distribution" },
+        { "file": "04-scaling/service-50.yaml", "target": "~/04-scaling" },
+        { "file": "04-scaling/service-hpa.yaml", "target": "~/04-scaling" },
+        { "file": "04-scaling/service-min-max-scale.yaml", "target": "~/04-scaling" }
+      ]
+    }
+  }  
+}
