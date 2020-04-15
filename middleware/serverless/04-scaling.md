@@ -9,7 +9,7 @@ At the end of this chapter you will be able to:
 ## In depth: Scaling to Zero
 As you might recall from the `Deploying your Service` section of the tutorial, Scale-to-zero is one of the main properties of Serverless. After a defined time of idleness *(called the `stable-window`)* a revision is considered inactive, which causes a few things to happen.  First off, all routes pointing to the now inactive revision will be pointed to the so-called **activator**. 
 
-![serving-flow](./assets/04-scaling/serving-flow.jpg) #todo, image?
+![serving-flow](/btannous/assets/middleware/serverless/04-scaling/serving-flow.png)
 
 The name `activator` is somewhat misleading these days.  Originally it used to activate inactive revisions, hence the name.  Today it's primary responsibilites are to receive and buffer requests for revisions that are inactive as well as report metrics to the autoscaler.  
 
