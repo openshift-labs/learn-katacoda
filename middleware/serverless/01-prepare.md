@@ -183,4 +183,11 @@ networking-istio-679dfcd5d7-2pbl4   1/1     Running   0          82s
 webhook-55b96d44f6-sxj7p            1/1     Running   0          84s
 ```
 
+## Login as a Developer and create a Project
+Before beginning we should change to the non-priviledged user `developer` and create a new `project` for the tutorial.
+
+To change to the non-priviledged user in our envirnoment we can execute: `oc login -u developer -p developer`{{execute}}
+
+Next create a new project by executing: `oc new-project serverless-tutorial`{{execute}}
+
 There we go! You are all set to kickstart your serverless journey with **OpenShift Serverless**. Click `continue` to go to next module on how to deploy your first severless service.

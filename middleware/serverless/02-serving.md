@@ -8,12 +8,6 @@ At the end of this chapter you will be able to:
 
 Now that we have the `OpenShift Serverles Operator` and a `Serverless Serving` Custom Resource (CR) deployed on the cluster we can explore `Serving` by deploying our first `Serverless Service`.
 
-Before beginning we should change to the non-priviledged user `developer` and create a new `project` for the tutorial.
-
-To change to the non-priviledged user in our envirnoment we can execute: `oc login -u developer -p developer`{{execute}}
-
-Next create a new project by executing: `oc new-project serverless-tutorial`{{execute}}
-
 ## Explore Serving
 Let's take a moment to explore the new API resources available in the cluster since installing `Serving`.
 
@@ -136,7 +130,7 @@ We can edit our configuration by pointing our Service to a new container image. 
 
 In our case we will update the image by executing: `oc get configurations.serving.knative.dev greeter -o yaml | sed 's/knative-tutorial-greeter:quarkus/knative-tutorial-greeter:latest/' | oc replace -f -`{{execute}}
 
-We could quickly check the configurations again to see the changes happening by executing: `oc get -n serverless-tutorial configurations.serving.kntive.dev`
+We could quickly check the configurations again to see the changes happening by executing: `oc get -n serverless-tutorial configurations.serving.knative.dev`{{execute}}
 
 ```bash
 NAME      LATESTCREATED   LATESTREADY     READY     REASON
@@ -174,9 +168,10 @@ The service will return a response like **Hi  greeter => '6fee83923a9f' : 1**
 > **NOTE:** *You can also open this in your own local browser to test the service!*
 
 ### Scale to Zero
-The `greeter` service will automatically scale down to zero if it does not get request for approximately 60 seconds.  Try watching the service scaling down from [OpenShift Dev Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com).
+The `greeter` service will automatically scale down to zero if it does not get request for approximately 90 seconds.  Try watching the service scaling down from [OpenShift Dev Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com).
 
-![serving-terminating](assets/02-serving/terminating.png)
+![serving-terminating](assets/02-serving/terminating.png) #TODO Image still doesnt work...
+![OpenShift Serving](assets/00-intro/knative-serving-diagram.png)
 
 Try invoking the service again as you did earlier to see the service scaling up.
 

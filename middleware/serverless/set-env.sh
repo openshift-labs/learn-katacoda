@@ -1,5 +1,4 @@
 #!/bin/bash
-curl -L -o $HOME/bin/hey https://storage.googleapis.com/hey-release/hey_linux_amd64
 git clone --depth 1 -b serverless https://github.com/btannous/learn-katacoda.git .learn-katacoda
 sleep 1
 ln -s .learn-katacoda/middleware/serverless serverless

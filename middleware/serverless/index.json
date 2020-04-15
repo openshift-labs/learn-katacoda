@@ -3,7 +3,7 @@
   "title": "Getting Started with OpenShift Serverless",
   "description": "",
   "pathwayTitle": "OpenShift",
-  "difficulty": "beginner",
+  "difficulty": "intermediate",
   "time": "30 minutes",
   "backend": {
     "imageid": "openshift-4-2"

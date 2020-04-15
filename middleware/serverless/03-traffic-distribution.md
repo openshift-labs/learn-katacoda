@@ -81,7 +81,7 @@ greeter-v1   greeter       greeter-v1         1            True
 greeter-v2   greeter       greeter-v2         2            True
 ```
 
-It is important to notice that by default the latest revision will replace the previous by receiving 100% of the traffic.  We can see that inspecting the `status.traffic` in the output of the following command: `oc describe routes.serving.knative.dev greeter`{{execute}}
+It is important to notice that by default the latest revision will replace the previous by receiving 100% of the traffic.  We can see that inspecting the `.status.traffic` in the output of the following command: `oc get routes.serving.knative.dev greeter -oyaml | yq -y .status.traffic`{{execute}}
 
 ```bash
 Status:
@@ -138,16 +138,17 @@ The above service definition creates three sub-routes(named after traffic tags) 
 - **prev**: The previously active revision, which will now receive no traffic
 - **latest**: The route pointing to the latest service deployment, here we change the default configuration to receive no traffic.
 
-> **Note:** *Be sure to notice the special tag: `latest` in our configuration above.  In the configuration we defined 100% of the traffic be handled by `greeter-v1`. Using the latest tag as such can allow you to change the default behavior of Serverless Services to route 100% of the traffic to the latest revision and instead route none of the traffic to the latest.*
+> **Note:** *Be sure to notice the special tag: `latest` in our configuration above.  In the configuration we defined 100% of the traffic be handled by `greeter-v1`.*
+>
+> *Using the latest tag as such can allow you to change the default behavior of Serverless Services to route 100% of the traffic to the latest revision.*
 
-Before you apply the resource above, call the `greeter` service again to verify that it is still providing the response from `greeter-v2` that includes `GreeterV2` by reloading the URL to our Service: `curl http://greeter-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute}}
+Before you apply the resource above, call the `greeter` service again to verify that it is still providing the response from `greeter-v2`.  We can do so by validating the response includes `GreeterV2` by reloading the URL to our Service: `curl http://greeter-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute}}
 
 The output should be similar to: `GreeterV2  greeter => '9861675f8845' : 1`
 
 Now update the Serverless Service Configuration using the command by executing: `oc -n serverless-tutorial apply -f 03-traffic-distribution/service-pinned.yaml`{{execute}}
 
-We can see the sub-routes: `oc -n serverless-tutorial get ksvc greeter -oyaml | yq r - 'status.traffic[*].url'`{{execute}}
-#TODO Validate this works^
+We can see the sub-routes: `oc -n serverless-tutorial get ksvc greeter -oyaml | yq -y .status.traffic`{{execute}}
 
 The above command should return you three sub-routes for the main greeter route:
 - *The sub route for the traffic tag current:* http://current-greeter-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
@@ -158,7 +159,11 @@ The configuration change we issued above does not create any new `configuration`
 
 We can check that `greeter-v1` is receiving 100% of the traffic now to our main route by executing: `curl http://greeter-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute}}
 
-> **Challenge:** *As a test, route all of the traffic back to `greeter-v2` (green).  You can edit the 03-traffic-distribution/service-pinned.yaml and run `oc replace -f <file>` or just run `oc edit services.serving.knative.dev greeter`  After you make the changes and apply them, try calling the service again to notice the difference. If everything went smooth you will notice the service calls will now go to only `greeter-v2`.*
+> **Challenge:** *As a test, route all of the traffic back to `greeter-v2` (green).*
+>
+> *You can edit the `03-traffic-distribution/service-pinned.yaml` and run `oc replace -f <file>` or just run `oc edit services.serving.knative.dev greeter`.*
+>
+> *After you make the changes and apply them, try calling the service again to notice the difference. If everything went smooth you will notice the service calls will now go to only `greeter-v2`.*
 
 ## Applying a Canary Release Pattern
 A Canary release is more effective when you want to reduce the risk of introducing new features. Using this type of deployment model allows you a more effective feature-feedback loop before rolling out the change to your entire user base.  Using this deployment approach with Serverless allows you to split the traffic between revisions in increments as small as 1%.
@@ -202,9 +207,11 @@ spec:
 
 In this service configuration you can see the 80/20 split between v1 and v2 of the greeter service.  We also can see that the current service is set to receive 0% of the traffic using the `latest` tag.
 
-Apply this service configuration by executing: `oc -n serverless-tutorial apply -f service-canary.yaml`{{execute}}
+Apply this service configuration by executing: `oc -n serverless-tutorial apply -f 03-traffic-distribution/greeter-canary-service.yaml`{{execute}}
 
-As in the previous section on Applying Blue-Green Deployment Pattern deployments, the command will not create a new configuration, revision, or deployment. To observe the new traffic distribution you need to execute the following:
+As in the previous section on Applying Blue-Green Deployment Pattern deployments, the command will not create a new configuration, revision, or deployment.
+
+To observe the new traffic distribution you need to execute the following:
 
 ```bash
 # ./assets/03-traffic-distribution/poll-svc-10.bash
@@ -214,18 +221,29 @@ for run in {1..10}
 do
   curl http://greeter-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
 done
-```
+```{{execute}}
 
 You will see that 80% of the responses are returned from greeter-v1 and 20% from greeter-v2. See the listing below for sample output:
 
-#TODO
 ```bash
+Hi  greeter => '6fee83923a9f' : 1
+Hi  greeter => '6fee83923a9f' : 2
+Hi  greeter => '6fee83923a9f' : 3
+GreeterV2  greeter => '4d1c551aac4f' : 1
+Hi  greeter => '6fee83923a9f' : 4
+Hi  greeter => '6fee83923a9f' : 5
+Hi  greeter => '6fee83923a9f' : 6
+GreeterV2  greeter => '4d1c551aac4f' : 2
+Hi  greeter => '6fee83923a9f' : 7
+Hi  greeter => '6fee83923a9f' : 8
 ```
 
 We can also notice that two pods are running, representing both greeter-v1 and greeter-v2: `oc get pods -n serverless-tutorial`{{execute}}
 
-#TODO
 ```bash
+NAME                                     READY   STATUS    RESTARTS   AGE
+greeter-v1-deployment-5dc8bd556c-42lqh   2/2     Running   0          29s
+greeter-v2-deployment-1dc2dd145c-41aab   2/2     Running   0          20s
 ```
 
 > **Note:** *If we waited too long to execute the preceding command we might have noticed the services scaling to zero!*

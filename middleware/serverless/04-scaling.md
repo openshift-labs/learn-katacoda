@@ -7,19 +7,21 @@ At the end of this chapter you will be able to:
 - Configure a `Horizontal Pod Autoscaler` for a service.
 
 ## In depth: Scaling to Zero
-As you recall from the `Deploying your Service` section of the tutorial, Scale-to-zero is one of the main properties of Serverless. After a defined time of idleness *(called the `stable-window`)* a revision is considered inactive which causes a few things to happen.  First off, all routes pointing to the now inactive revision will be pointed to the so-called **activator**. 
+As you might recall from the `Deploying your Service` section of the tutorial, Scale-to-zero is one of the main properties of Serverless. After a defined time of idleness *(called the `stable-window`)* a revision is considered inactive, which causes a few things to happen.  First off, all routes pointing to the now inactive revision will be pointed to the so-called **activator**. 
 
-![serving-flow](./assets/04-scaling/serving-flow.jpg)
+![serving-flow](./assets/04-scaling/serving-flow.jpg) #todo, image?
 
 The name `activator` is somewhat misleading these days.  Originally it used to activate inactive revisions, hence the name.  Today it's primary responsibilites are to receive and buffer requests for revisions that are inactive as well as report metrics to the autoscaler.  
 
-After the revision has been deemed idle, by not receiving any traffic during the `stable-window`, the revision will be marked inactive.  If scaling to zero is enabled then there is an additional grace period before the inactive revision terminates, called the `scale-to-zero-grace-period`.  When scaling to zero is enabled the total termination period is equal to the sum of both the `stable-window` (default=60s) and `scale-to-zero-grace-period` (default=30s).
+After the revision has been deemed idle, by not receiving any traffic during the `stable-window`, the revision will be marked inactive.  If **scaling to zero** is enabled then there is an additional grace period before the inactive revision terminates, called the `scale-to-zero-grace-period`.  When **scaling to zero** is enabled the total termination period is equal to the sum of both the `stable-window` (default=60s) and `scale-to-zero-grace-period` (default=30s) = default=90s.
 
-If we try to access the service while it is scaled to zero the activator will pick up the request(s) buffer them until the **Autoscaler** is able to quickly create pods for the given revison.
+If we try to access the service while it is scaled to zero the activator will pick up the request(s) and buffer them until the **Autoscaler** is able to quickly create pods for the given revison.
 
 > **Note:** *You might have noticed an initial lag when trying to access your service.  The reason for that delay is highly likely that your request is being held by the activator!*
 
-It is possible to default configurations of the autoscaler by executing: `oc -n knative-serving describe cm config-autoscaler`{{execute}}
+First login as an administrator for the cluster: `oc login -u admin -p admin`{{execute}}
+
+It is possible to see the default configurations of the autoscaler by executing: `oc -n knative-serving describe cm config-autoscaler`{{execute}}
 
 Here we can see the `stable-window`, `scale-to-zero-grace-period`, a `enable-scale-to-zero`, amongst other settings.
 
@@ -50,6 +52,8 @@ In this tutorial we are going to leave the configuration as-is, but if you had r
 > You can see the other settings of Serverless by describing other configmaps in the `knative-serving` project.
 >
 > Explore what all is available by running: `oc get cm -n knative-serving`{{execute}}
+
+Now, log back in as the developer as we do not need elevated privileges to continue: `oc login -u developer -p developer`{{execute}}
 
 ## Minimum Scale
 By default, Serverless Serving allows for 100 concurrent requests into each revision and allows the service to scale down to zero, so you don't use any resources running idle processes!  This is the out of the box configuration, and it works quite well depending on the needs of the specific application.
@@ -97,9 +101,9 @@ Now we can see that the `prime-generator` is deployed and it will never be scale
 We now guarentee that we will have two instances available at all times to provide us with no initial lag at the cost of consuming additional resources.
 
 ## AutoScaling
-As mentioned before, Serverless by default is will scale up when there are 100 concurrent requests coming in at one time.  This is tuneable for your particualr application.  You might notice that your app isn't using it's resources too effectively as each request is CPU-bound.
+As mentioned before, Serverless by default is will scale up when there are 100 concurrent requests coming in at one time.  This scaling factor might work well for some applications, but not all -- fortunately this is a tuneable factor!  In our case you might notice that a given app isn't using it's resources too effectively as each request is CPU-bound.
 
-To help with this you adjust your service to scale up sooner, say 50 concurrent requests.  We do this by adding a `autoscaling.knative.dev/target` annotation to your definition below.
+To help with this, we can adjust the service to scale up sooner, say 50 concurrent requests.  All we need to do is add an `autoscaling.knative.dev/target` annotation to the definition below.
 
 ```yaml
 # ./assets/04-scaling/service-50.yaml
@@ -132,7 +136,7 @@ Let's update the prime-generator service by executing: `oc apply -n serverless-t
 This will work well, but given that we are CPU-bound instead of request bound we might want to choose a different autoscaling class that is based on CPU load to be able to manage our scaling more effectively.
 
 ## HPA AutoScaling
-CPU based autoscaling metrics are acheived using something called a Horizontal Pod Autoscaler (HPA).  In our example we want to scale up when we start using 70% of the CPU.  We do this by adding a few annotations to our service: `autoscaling.knative.dev/{metric,target,class}`
+CPU based autoscaling metrics are acheived using something called a Horizontal Pod Autoscaler (HPA).  In our example we want to scale up when we start using 70% of the CPU.  We do this by adding three new annotations to our service: `autoscaling.knative.dev/{metric,target,class}`
 
 
 ```yaml
@@ -170,4 +174,4 @@ Let's update the prime-generator service by executing: `oc apply -n serverless-t
 
 We will need to cleanup the project for our next section by executing: `oc -n serverless-tutorial delete services.serving.knative.dev prime-generator`{{execute}}
 
-Congrats! You are now familar with how Serverless handles scale!
+Congrats! You are now a Serverless Scaling Expert!  We can now adjust and tune Serverless scaling using concurrency or CPU based HPAs.
