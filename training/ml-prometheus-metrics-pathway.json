@@ -1,0 +1,24 @@
+{
+    "title": "Workshop: Prometheus Anomaly Detection",
+    "description": "Setting up Prometheus and Grafana for application monitoring, then detecting anomalies on prometheus time-series metrics.",
+    "courses": [
+      {
+        "pathway_id": "openshift/introduction",
+        "title": "How to set up Prometheus and Grafana on OpenShift",
+        "course_id": "deploy-prometheus-grafana",
+        "id": "deploy-prometheus-grafana"
+      },
+      {
+        "pathway_id": "openshift/ai-machine-learning",
+        "title": "Working with Prometheus Metrics in Python",
+        "course_id": "prometheus-api-client",
+        "id": "prometheus-api-client"
+      },
+      {
+        "pathway_id": "openshift/ai-machine-learning",
+        "title": "Time series forecasting for Prometheus metrics",
+        "course_id": "prometheus-timeseries-forecasting",
+        "id": "prometheus-timeseries-forecasting"
+      }
+    ]
+  }

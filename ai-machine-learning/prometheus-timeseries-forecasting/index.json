@@ -1,6 +1,6 @@
 {
     "icon": "fa-openshift",
-    "title": "Working with Prometheus Metrics in Python",
+    "title": "Playing with the SARIMA model",
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
@@ -12,23 +12,20 @@
     "environment": {
         "showdashboard": true,
         "dashboard": "Dashboard",
-        "uilayout": "terminal",
-        "hideintro": false,
-        "hidefinish": false
+        "uilayout": "terminal-iframe"
     },
     "details": {
         "steps": [{
-            "title": "More about Prometheus",
+            "title": "SARIMA model to forecast timeseries metrics",
             "text": "01-loading-the-notebook-images.md"
         }, {
-            "title": "Accessing the workshop environment",
+            "title": "Using a Jupyter Notebook to play with the SARIMA model",
             "text": "02-loading-the-notebook-templates.md"
         }, {
-            "title": "Accessing the workshop environment (Backend)",
+            "title": "Accessing the OpenShift console",
             "text": "03-accessing-the-web-console.md"
         }],
         "intro": {
-            "courseData": "env-init.sh",
             "code": "set-env.sh",
             "text": "intro.md"
         },
@@ -36,10 +33,7 @@
             "text": "finish.md"
         },
         "assets": {
-          "host01": [{"file": "deploy-prometheus.yaml", "target": "~/"},
-                     {"file": "volumes.json", "target": "~/"},
-                     {"file": "generate-metrics.yaml", "target": "~/"},
-                     {"file": "notebook-imagestream.yaml", "target": "~/"},
+          "host01": [{"file": "notebook-imagestream.yaml", "target": "~/"},
                      {"file": "setup.sh", "target": "~/"}
                     ]
         }
