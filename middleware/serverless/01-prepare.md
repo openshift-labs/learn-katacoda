@@ -46,7 +46,7 @@ For now, all you need to do is apply the associated YAML file to subscribe to th
 ## Approve and Verify the Operator Installation
 The `installPlanApproval: Manual` in our Subscription requires the admin to approve the *installplan* in order for it to begin.  Normally, it might be easiest to see this from the OpenShift Web Console and approve the changes as shown in the picture below.
 
-![installplan](/btannous/assets/middleware/serverless/01-prepare/installplan.png "Approve Install Plan")
+![installplan](/openshift/assets/middleware/serverless/01-prepare/installplan.png "Approve Install Plan")
 
 In this tutorial we will find the installplan and approve it using the CLI.  To do so click and run the script below where we automate approving the installplan.
 

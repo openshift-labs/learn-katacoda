@@ -170,7 +170,7 @@ The service will return a response like **Hi  greeter => '6fee83923a9f' : 1**
 ### Scale to Zero
 The `greeter` service will automatically scale down to zero if it does not get request for approximately 90 seconds.  Try watching the service scaling down from [OpenShift Dev Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com).
 
-![serving-terminating](/btannous/assets/middleware/serverless/02-serving/terminating.png)
+![serving-terminating](/openshift/assets/middleware/serverless/02-serving/terminating.png)
 
 Try invoking the service again as you did earlier to see the service scaling up.
 
