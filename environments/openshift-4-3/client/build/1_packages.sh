@@ -26,10 +26,11 @@ curl -o odo.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/
     mv odo /usr/bin/odo && \
     chmod +x /usr/bin/odo
 
-curl -o kn.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/serverless/0.2.3/kn-linux-amd64-0.2.3.tar.gz && \
+curl -o kn.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/serverless/0.11.0/kn-linux-amd64-0.11.0.tar.gz && \
     tar -xvf kn.tar.gz && \
     rm -f kn.tar.gz && \
-    mv kn-linux-amd64 /usr/bin/kn && \
+    rm -f LICENSE && \
+    mv kn /usr/bin/kn && \
     chmod +x /usr/bin/kn
 
 curl -o kamel.tar.gz -L https://github.com/apache/camel-k/releases/download/$KAMEL_VERSION/camel-k-client-$KAMEL_VERSION-linux-64bit.tar.gz && \
