@@ -1,6 +1,8 @@
 Modify the spec and status of the `PodSet` Custom Resource(CR) at `go/src/github.com/redhat/podset-operator/pkg/apis/app/v1alpha1/podset_types.go`:
 
-<pre class="file">
+Test open: `/root/tutorial/go/src/github.com/redhat/podset-operator/pkg/apis/app/v1alpha1/podset_types.go`{{open}}.
+
+<pre class="file" data-filename="/root/tutorial/go/src/github.com/redhat/podset-operator/pkg/apis/app/v1alpha1/podset_types.go" data-target="replace">
 package v1alpha1
 
 import (
