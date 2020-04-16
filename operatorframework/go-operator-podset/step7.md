@@ -1,15 +1,12 @@
 In a new terminal, inspect the Custom Resource manifest:
 
 ```
-cd tutorial/go/src/github.com/redhat/podset-operator/
-cat deploy/crds/app_v1alpha1_podset_cr.yaml
+cat deploy/crds/app.example.com_v1alpha1_podset_cr.yaml
 ```{{execute}}
 <br>
 Ensure your `kind: PodSet` Custom Resource (CR) is updated with `spec.replicas`:
 
-<pre class="file"
- data-filename="/root/tutorial/go/src/github.com/redhat/podset-operator/deploy/crds/app_v1alpha1_podset_cr.yaml"
-  data-target="replace">
+<pre class="file">
 apiVersion: app.example.com/v1alpha1
 kind: PodSet
 metadata:
@@ -18,10 +15,16 @@ spec:
   replicas: 3
 </pre>
 
+You can easily update this file by running the following command:
+
+```
+wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/app.example.com_v1alpha1_podset_cr.yaml -O deploy/crds/app.example.com_v1alpha1_podset_cr.yaml
+```{{execute}}
+<br>
 Deploy your PodSet Custom Resource to the live OpenShift Cluster:
 
 ```
-oc create -f deploy/crds/app_v1alpha1_podset_cr.yaml
+oc create -f deploy/crds/app.example.com_v1alpha1_podset_cr.yaml
 ```{{execute}}
 <br>
 Verify the PodSet operator has created 3 pods:

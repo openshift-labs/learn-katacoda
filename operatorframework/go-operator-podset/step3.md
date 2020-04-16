@@ -1,8 +1,6 @@
-Modify the spec and status of the `PodSet` Custom Resource(CR) at `go/src/github.com/redhat/podset-operator/pkg/apis/app/v1alpha1/podset_types.go`:
+Modify the `PodSetSpec` and `PodSetStatus` of the `PodSet` Custom Resource(CR) at `go/src/github.com/redhat/podset-operator/pkg/apis/app/v1alpha1/podset_types.go`. It should look like the file below:
 
-Test open: `/root/tutorial/go/src/github.com/redhat/podset-operator/pkg/apis/app/v1alpha1/podset_types.go`{{open}}.
-
-<pre class="file" data-filename="/root/tutorial/go/src/github.com/redhat/podset-operator/pkg/apis/app/v1alpha1/podset_types.go" data-target="replace">
+<pre class="file">
 package v1alpha1
 
 import (
@@ -57,6 +55,12 @@ func init() {
 }
 </pre>
 
+You can easily update this file by running the following command:
+
+```
+wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/podset_types.go -O pkg/apis/app/v1alpha1/podset_types.go
+```{{execute}}
+<br>
 After modifying the `*_types.go` file, always run the following command to update the generated code for that resource type:
 
 ```
