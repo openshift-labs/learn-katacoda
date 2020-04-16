@@ -79,7 +79,7 @@ You should see something like:
 
 ```console
   PID   RSS COMMAND
-2478 26904 target/getting-started-1.0-SNAPSHOT-runner
+3003 26384 target/getting-started-1.0-SNAPSHOT-runner
 ```
 
 This shows that our process is taking around 27 MB of memory ([Resident Set Size](https://en.wikipedia.org/wiki/Resident_set_size), or RSS). Pretty compact!

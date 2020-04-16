@@ -1,5 +1,7 @@
 Now that we have our app built, let's move it into containers and into the cloud.
 
+Make sure that you've stopped the Kogito application in your terminal with `CTRL-C`.
+
 ## Login to OpenShift
 
 **Red Hat OpenShift Container Platform** is the preferred container orchestration platform for Quarkus. OpenShift is based on **Kubernetes** which is the most used Orchestration platform for containers running in production.
@@ -86,9 +88,7 @@ You should again see the id of the process instance we've just started:
 {"id":"4844cfc0-ea93-46e3-8213-c10517bde1ce"}
 ```
 
-So now our app is deployed to OpenShift. You can also see it in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/kogito/overview) with its single replica running in 1 pod (the blue circle). You can click on the route link as well to see the [sample application default web UI](https://kogito-quickstart-kogito.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com):
-
-![UI](/openshift/assets/middleware/middleware-kogito/new-kogito-quarkus-webpage.png)
+So now our app is deployed to OpenShift. You can also see it in the [Overview in the OpenShift Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/k8s/ns/kogito/deploymentconfigs/kogito-quickstart) with its single replica running in 1 pod (the blue circle). 
 
 ## Congratulations!
 
