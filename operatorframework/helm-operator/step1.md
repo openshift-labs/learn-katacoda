@@ -4,7 +4,7 @@ Let's begin my creating a new project called `myproject`:
 oc new-project myproject
 ```{{execute}}
 
-Cockroachdb is a database so let's ensure we have persistent storage by adding some current `PersistentVolumes` to a `StorageClass` called `local-storage`:
+CockroachDB is a database so let's ensure we have accessible persistent storage by adding some current `PersistentVolumes` to a `StorageClass` called `local-storage`:
 
 ```
 for num in {02..06}; do oc patch pv pv00$num --type='json' -p '[{"op": "replace", "path": "/spec/storageClassName", "value":local-storage}]'; done;
