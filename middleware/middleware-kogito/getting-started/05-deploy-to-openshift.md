@@ -59,7 +59,7 @@ First, create a new _binary_ build within OpenShift:
 
 > This build uses the new [Red Hat Universal Base Image](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/building_running_and_managing_containers/using_red_hat_universal_base_images_standard_minimal_and_runtimes), providing foundational software needed to run most applications, while staying at a reasonable size.
 
-And then start and watch the build, which will take about a minute to complete:
+And then start and watch the build, which will take about a minute or two to complete:
 
 `oc start-build kogito-quickstart --from-file=target/getting-started-1.0-SNAPSHOT-runner --follow`{{execute T1}}
 
@@ -88,7 +88,7 @@ You should again see the id of the process instance we've just started:
 {"id":"4844cfc0-ea93-46e3-8213-c10517bde1ce"}
 ```
 
-So now our app is deployed to OpenShift. You can also see it in the [Overview in the OpenShift Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/k8s/ns/kogito/deploymentconfigs/kogito-quickstart) with its single replica running in 1 pod (the blue circle). 
+So now our app is deployed to OpenShift. You can also see it in the [Overview in the OpenShift Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/k8s/ns/kogito/deploymentconfigs/kogito-quickstart) with its single replica running in 1 pod (the blue circle).
 
 ## Congratulations!
 
