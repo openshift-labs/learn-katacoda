@@ -1,4 +1,4 @@
-Modify the PodSet controller logic at `go/src/github.com/redhat/podset-operator/pkg/controller/podset/podset_controller.go`:
+Modify the PodSet controller logic at `go/src/github.com/redhat/podset-operator/pkg/controller/podset/podset_controller.go`
 
 <pre class="file">
 package podset
@@ -216,6 +216,6 @@ func newPodForCR(cr *appv1alpha1.PodSet) *corev1.Pod {
 You can easily update this file by running the following command:
 
 ```
-wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/podset_types.go -O pkg/controller/podset/podset_controller.go
+wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/podset_controller.go -O pkg/controller/podset/podset_controller.go
 ```{{execute}}
 

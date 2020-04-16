@@ -1,4 +1,6 @@
-Modify the `PodSetSpec` and `PodSetStatus` of the `PodSet` Custom Resource(CR) at `go/src/github.com/redhat/podset-operator/pkg/apis/app/v1alpha1/podset_types.go`. It should look like the file below:
+Modify the `PodSetSpec` and `PodSetStatus` of the `PodSet` Custom Resource(CR) at `go/src/github.com/redhat/podset-operator/pkg/apis/app/v1alpha1/podset_types.go`
+<br>
+It should look like the file below:
 
 <pre class="file">
 package v1alpha1

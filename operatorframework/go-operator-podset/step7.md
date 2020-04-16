@@ -4,7 +4,7 @@ In a new terminal, inspect the Custom Resource manifest:
 cat deploy/crds/app.example.com_v1alpha1_podset_cr.yaml
 ```{{execute}}
 <br>
-Ensure your `kind: PodSet` Custom Resource (CR) is updated with `spec.replicas`:
+Ensure your `kind: PodSet` Custom Resource (CR) is updated with `spec.replicas`
 
 <pre class="file">
 apiVersion: app.example.com/v1alpha1
