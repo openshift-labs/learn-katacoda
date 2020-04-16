@@ -13,26 +13,30 @@ Update the CockroachDB Custom Resource at `go/src/github.com/redhat/cockroachdb-
 * `spec.storage.persistentVolume.size: 1Gi`
 * `spec.storage.persistentVolume.storageClass: 1Gi`
 
-<pre class="file"
- data-filename="/root/tutorial/go/src/github.com/redhat/cockroachdb-operator/deploy/crds/charts_v1alpha1_cockroachdb_cr.yaml"
-  data-target="replace">
+<pre class="file">
 apiVersion: charts.helm.k8s.io/v1alpha1
 kind: Cockroachdb
-metadata: 
+metadata:
   name: example
-spec: 
-  statefulset: 
+spec:
+  statefulset:
     replicas: 1
-  storage: 
-    persistentVolume: 
-      size: 1Gi
-      storageClass: local-storage
+  storage:
+    hostpath: "/tmp"
+    persistentVolume:
+      enabled: no
 </pre>
 
+You can easily update this file by running the following command:
+
+```
+wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/helm-operator/assets/charts.helm.k8s.io_v1alpha1_cockroachdb_cr.yaml -O deploy/crds/charts.helm.k8s.io_v1alpha1_cockroachdb_cr.yaml
+```{{execute}}
+<br>
 After updating the CockroachDB Custom Resource with our desired spec, apply it to the cluster:
 
 ```
-oc apply -f deploy/crds/charts_v1alpha1_cockroachdb_cr.yaml
+oc apply -f deploy/crds/charts.helm.k8s.io_v1alpha1_cockroachdb_cr.yaml
 ```{{execute}}
 <br>
 Confirm that the Custom Resource was created:
