@@ -210,7 +210,7 @@ Let's try this out:
 
 #### Deploy the Manifest:
 
-`oc apply obc_app_example.yaml`{{execute}}
+`oc apply -f obc_app_example.yaml`{{execute}}
 
 ---
 **Example output:**

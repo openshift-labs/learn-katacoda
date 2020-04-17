@@ -8,11 +8,11 @@ In this section the `ocs-storagecluster-cephfs` *Storage Class* will be used to 
 
 Create a new project:
 
-`oc new-project my-shared-storage`{{execute}
+`oc new-project my-shared-storage`{{execute}}
 
 Next deploy the example PHP application called `file-uploader`:
 
-`oc new-app openshift/php:7.1~https://github.com/christianh814/openshift-php-upload-demo --name=file-uploader`{{execute}
+`oc new-app openshift/php:7.1~https://github.com/christianh814/openshift-php-upload-demo --name=file-uploader`{{execute}}
 
 #### Sample Output:
 <pre>
@@ -45,7 +45,7 @@ Next deploy the example PHP application called `file-uploader`:
 
 Watch and wait for the application to be deployed:
 
-`oc logs -f bc/file-uploader -n my-shared-storage`{{execute}
+`oc logs -f bc/file-uploader -n my-shared-storage`{{execute}}
 
 #### Sample Output:
 
@@ -97,9 +97,11 @@ Pod* deployment with a *Service* and no *Route*.
 
 Let's make our application production ready by exposing it via a `Route` and scale to 3 instances for high availability:
 
-`oc expose svc/file-uploader -n my-shared-storage`{{execute}
-`oc scale --replicas=3 dc/file-uploader -n my-shared-storage`{{execute}
-`oc get pods -n my-shared-storage`{{execute}
+`oc expose svc/file-uploader -n my-shared-storage`{{execute}}
+
+`oc scale --replicas=3 dc/file-uploader -n my-shared-storage`{{execute}}
+
+`oc get pods -n my-shared-storage`{{execute}}
 
 You should have 3 `file-uploader` *Pods* in a few minutes.
 
@@ -118,13 +120,13 @@ storage to this app.
 You can create a *PersistentVolumeClaim* and attach it into an application with
 the `oc set volume` command. Execute the following
 
-```bash
+```
 oc set volume dc/file-uploader --add --name=my-shared-storage \
 -t pvc --claim-mode=ReadWriteMany --claim-size=1Gi \
 --claim-name=my-shared-storage --claim-class=ocs-storagecluster-cephfs \
 --mount-path=/opt/app-root/src/uploaded \
 -n my-shared-storage
-```{{execute}
+```{{execute}}
 
 This command will:
 
@@ -136,7 +138,7 @@ This command will:
 For more information on what `oc set volume` is capable of, look at its help output
 with `oc set volume -h`. Now, let's look at the result of adding the volume:
 
-`oc get pvc -n my-shared-storage`{{execute}
+`oc get pvc -n my-shared-storage`{{execute}}
 
 #### Sample Output:
 

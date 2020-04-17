@@ -7,7 +7,7 @@ In this section the `ocs-storagecluster-ceph-rbd` *storage class* will be used b
 To do so we have created a template file, based on the OpenShift rails-pgsql-persistent template, that includes an extra parameter STORAGE_CLASS that enables the end user to specify the storage class the PVC should use.
 
 
-```bash
+```
 oc new-project my-database-app
 oc new-app rwo_rails_app.yaml -p STORAGE_CLASS=ocs-storagecluster-ceph-rbd -p VOLUME_CAPACITY=5Gi
 ```{{execute}}
@@ -42,23 +42,8 @@ rails-pgsql-persistent-1-pjh6q      1/1     Running     0          3m14s
 
 You can exit by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd>
 
-Once the deployment is complete you can now test the application and the persistent storage on Ceph. Your `HOST/PORT` will be different.
+Once the deployment is complete you can now test the application and the persistent storage on Ceph:
 
-`oc get route -n my-database-app`{{execute}}
-
----
-
-**Example output:**
-
-<pre>
-NAME                     HOST/PORT                                                                         PATH   SERVICES                 PORT    TERMINATION   WILDCARD
-rails-pgsql-persistent   rails-pgsql-persistent-my-database-app.apps.cluster-a26e.sandbox449.opentlc.com          rails-pgsql-persistent
-</pre>
-
----
-
-Copy your `rails-pgsql-persistent` route (different than above) to a browser window to create articles. You will need to append `/articles` to the end.
-
-*Example*  http://<your_route>/articles
+*URL*  http://rails-pgsql-persistent-my-database-app.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/articles/
 
 Enter the `username` and `password` below to create articles and comments. The articles and comments are saved in a PostgreSQL database which stores its table spaces on the Ceph RBD volume provisioned using the `ocs-storagecluster-ceph-rbd` *storageclass* during the application deployment.
