@@ -1,12 +1,5 @@
-This is a playground for trying out OpenShift 4.2. From here you can play
-with OpenShift using the web console or command line.
+# What is OpenShift Container Storage (OCS)
+Red Hat® OpenShift® Container Storage is software-defined storage for containers. Engineered as the data and storage services platform for Red Hat OpenShift, Red Hat OpenShift Container Storage helps teams develop and deploy applications quickly and efficiently across clouds.
 
-## What are playgrounds?
-
-Playgrounds give you a pre-configured environment to start playing and
-exploring using an unstructured learning approach. They are great for
-experimenting with OpenShift, including trying to deploy your own
-application code.
-
-The playground will be available for 60 minutes after which time it will
-be destroyed.
+# What will you learn
+In this tutorial you will learn how to create Persistent Volumes and use that for deploying Elasticsearch. You will then deploy a demo app which is a e-library search engin for 100 classic novels. Once the app is successfully deployed, you could search any word from 100 classic novels, the search is powered by Elasticsearch which is using persistent storage from OCS.

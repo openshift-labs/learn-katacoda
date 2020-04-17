@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: elasticsearch
+  labels:
+    name: "e-library-elasticsearch"
+  namespace: "e-library"  
+spec:
+  ports:
+  - port: 9200
+    protocol: TCP
+    targetPort: 9200
+  selector:
+    run: elasticsearch
+status:
+  loadBalancer: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: elasticsearch
+  labels:
+    run: "elasticsearch"
+  namespace: "e-library"  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: "elasticsearch"
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: "elasticsearch"
+    spec:
+      volumes:
+        - name: ocs-pv-storage
+          persistentVolumeClaim:
+            claimName: ocs-pv-claim    
+      containers:
+      - image: docker.elastic.co/elasticsearch/elasticsearch:6.1.1
+        name: elasticsearch
+        env:
+          - name: "bootstrap.memory_lock"
+            value: "true"
+          - name: "ES_JAVA_OPTS"
+            value: "-Xms512m -Xmx512m"
+          - name: "discovery.type"
+            value: "single-node"         
+        ports:
+        - containerPort: 9200
+        - containerPort: 9300
+        volumeMounts:
+          - mountPath: "/usr/share/elasticsearch/data"
+            name: ocs-pv-storage        
+        resources: {}
+status: {}

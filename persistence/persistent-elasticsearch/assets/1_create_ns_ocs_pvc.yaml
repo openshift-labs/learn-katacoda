@@ -1,0 +1,22 @@
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: "e-library"
+  labels:
+    name: "e-library"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ocs-pv-claim
+  labels:
+    name: "e-library"
+  namespace: "e-library"  
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: ocs-storagecluster-ceph-rbd
