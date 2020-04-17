@@ -1,6 +1,6 @@
 {
     "icon": "fa-openshift",
-    "title": "e-Library search engine demo app using elasticsearch on Openshift powered by OCS",
+    "title": "Persistent storage for Elasticsearch powered by OCS",
     "description": "e-Library demo app using elasticsearch on Openshift with persistent storage from Openshift Container Storage",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
@@ -43,7 +43,7 @@
             "client": [],
             "host01": [
                 {
-                    "file": "1_create_ns_ocs_pvc.yaml",
+                    "file": "1_ns_pvc.yaml",
                     "target": "/root/"
                 },
                 {
