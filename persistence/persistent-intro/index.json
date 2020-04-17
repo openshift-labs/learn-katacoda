@@ -40,6 +40,15 @@
         },
         "finish": {
             "text": "finish.md"
+        },
+        "assets": {
+            "client": [],
+            "host01": [
+                {
+                    "file": "install_ocs.sh",
+                    "target": "/root/"
+                }
+            ]
         }
     }
 }
