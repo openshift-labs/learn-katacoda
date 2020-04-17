@@ -47,6 +47,14 @@
                 {
                     "file": "install_ocs.sh",
                     "target": "/root/"
+                },
+                {
+                    "file": "obc_app_example.yaml",
+                    "target": "/root/"
+                },
+                {
+                    "file": "rwo_rails_app.yaml",
+                    "target": "/root/"
                 }
             ]
         }
