@@ -1,11 +1,11 @@
 
 THis scenario will introduce [Camel K ](https://camel.apache.org/camel-k/latest/index.html).
 
+##What is Camel K?
 
 
 ![Logo](https://www.nicolaferraro.me/images/post-logo-apache-camel-d.png)
 
-##What is Camel K?
 
 ###Your Integration Swiss-Knife native on Kubernetes with Camel K
 
