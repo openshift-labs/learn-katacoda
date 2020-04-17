@@ -1,7 +1,8 @@
-
 #!/bin/bash
 
 set +x
+
+echo "Setting up environment for OCS"
 
 export OCS_IMAGE=quay.io/mulbc/ocs-operator
 export REGISTRY_NAMESPACE=mulbc
@@ -37,6 +38,21 @@ spec:
   publisher: Red Hat
 EOF
 
+# LSO install
+cat <<EOF | oc create -f - > /dev/null
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    olm.providedAPIs: LocalVolume.v1.local.storage.openshift.io
+  generateName: local-storage-
+  name: local-storage-qtk96
+  namespace: local-storage
+spec:
+  targetNamespaces:
+  - local-storage
+EOF
+
 sleep 10s
 
 # Install OCS - needs to wait for CatalogSource to be "checked"
@@ -53,21 +69,6 @@ spec:
   source: ocs-catalogsource
   sourceNamespace: openshift-marketplace
   startingCSV: ocs-operator.v4.3.0
-EOF
-
-# LSO install
-cat <<EOF | oc create -f - > /dev/null
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  annotations:
-    olm.providedAPIs: LocalVolume.v1.local.storage.openshift.io
-  generateName: local-storage-
-  name: local-storage-qtk96
-  namespace: local-storage
-spec:
-  targetNamespaces:
-  - local-storage
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -109,7 +110,7 @@ spec:
         - /dev/vdd
 EOF
 
-seq 20 30 | xargs -n1 -P0 -t -I {} oc patch pv/pv00{} -p '{"metadata":{"annotations":{"volume.beta.kubernetes.io/storage-class": "localfile"}}}'
+seq 20 30 | xargs -n1 -P0 -I {} oc patch pv/pv00{} -p '{"metadata":{"annotations":{"volume.beta.kubernetes.io/storage-class": "localfile"}}}' > /dev/null
 
 cat <<EOF | oc create -f - > /dev/null
 apiVersion: ocs.openshift.io/v1

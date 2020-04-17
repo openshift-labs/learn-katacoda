@@ -1,2 +1,3 @@
 launch.sh
-# /root/install_ocs.sh
+chmod +x /root/install_ocs.sh
+/root/install_ocs.sh
