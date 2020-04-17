@@ -35,6 +35,11 @@
       "course_id": "middleware-kogito",
       "title": "Developing with Kogito"
     },
+    { 
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-k-basic/",  
+      "course_id": "camel-k-basic",  
+      "title": "This is simple basic Camel K hello world example" 
+    },
     {
       "external_link": "https://learn.openshift.com/middleware/amq-getting-started-broker/",
       "course_id": "amq-getting-started-broker",
@@ -79,11 +84,6 @@
       "external_link": "https://learn.openshift.com/middleware/debezium-getting-started/",
       "course_id": "debezium-getting-started",
       "title": "Debezium deployment"
-    },
-    { 
-      "external_link": "https://learn.openshift.com/middleware/fuse-hello-world/",  
-      "course_id": "fuse-hello-world",  
-      "title": "Hello ! Fuse - Getting Started" 
     },
     { 
       "external_link": "https://learn.openshift.com/middleware/pipelines/",  

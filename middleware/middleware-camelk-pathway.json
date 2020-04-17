@@ -1,0 +1,13 @@
+{
+  "title": "Developing with Camel K",
+  "description": "",
+  "paid": false,
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-k-basic",
+      "course_id": "camel-k-basic",
+      "title": "Camel K Basics",
+      "description": "This is simple basic Camel K hello world example"
+    }
+  ]
+}
