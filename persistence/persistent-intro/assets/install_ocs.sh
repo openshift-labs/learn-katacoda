@@ -53,23 +53,9 @@ spec:
   - local-storage
 EOF
 
-sleep 10s
+sleep 10
 
-# Install OCS - needs to wait for CatalogSource to be "checked"
-cat <<EOF | oc create -f - > /dev/null
-apiVersion: operators.coreos.com/v1alpha1
-kind: Subscription
-metadata:
-  name: ocs-operator
-  namespace: openshift-storage
-spec:
-  channel: alpha
-  installPlanApproval: Automatic
-  name: ocs-operator
-  source: ocs-catalogsource
-  sourceNamespace: openshift-marketplace
-  # startingCSV: ocs-operator.v4.3.0
----
+cat <<EOF | oc create -f - 
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
@@ -82,9 +68,56 @@ spec:
   source: redhat-operators
   sourceNamespace: openshift-marketplace
   # startingCSV: local-storage-operator.4.2.26-202003230335
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ocs-operator
+  namespace: openshift-storage
+spec:
+  channel: alpha
+  installPlanApproval: Automatic
+  name: ocs-operator
+  source: ocs-catalogsource
+  sourceNamespace: openshift-marketplace
+  startingCSV: ocs-operator.v4.3.0
 EOF
 
-echo "Waiting for operators to be ready" && while [ "$(oc get csv --all-namespaces | grep -c Succeeded)" -lt 4 ]; do echo -n . ; sleep 3; done
+
+echo "Waiting for operators to be ready"
+while [ "$(oc get csv --all-namespaces | grep -c Succeeded)" -lt 4 ]
+do echo -n .
+
+cat <<EOF | oc create -f - 2&>1 > /dev/null
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: local-storage-operator
+  namespace: local-storage
+spec:
+  channel: "4.2"
+  installPlanApproval: Automatic
+  name: local-storage-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  # startingCSV: local-storage-operator.4.2.26-202003230335
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ocs-operator
+  namespace: openshift-storage
+spec:
+  channel: alpha
+  installPlanApproval: Automatic
+  name: ocs-operator
+  source: ocs-catalogsource
+  sourceNamespace: openshift-marketplace
+  startingCSV: ocs-operator.v4.3.0
+EOF
+
+sleep 3
+done
 echo "Operators are ready now"
 
 cat <<EOF | oc create -f - > /dev/null
