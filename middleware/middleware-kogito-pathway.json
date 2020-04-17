@@ -10,7 +10,7 @@
       "description": "Cloud Native Business Automation with Kogito"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/courses/middleware-kogito/cdi",
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-kogito/service-task-cdi",
       "course_id": "service-task-cdi",
       "title": "Kogito and CDI",
       "description": "Using MicroProfile CDI to implement business automation logic with Kogito"
