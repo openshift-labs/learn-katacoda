@@ -24,8 +24,11 @@ This step could take a few minutes. Wait until there are 2 *Pods* in `Running` S
 
 `watch oc get pods -n my-database-app`{{execute}}
 
-.Example output:
-----
+---
+
+**Example output:**
+
+<pre>
 NAME                                READY   STATUS      RESTARTS   AGE
 postgresql-1-deploy                 0/1     Completed   0          5m48s
 postgresql-1-lf7qt                  1/1     Running     0          5m40s
@@ -33,7 +36,9 @@ rails-pgsql-persistent-1-build      0/1     Completed   0          5m49s
 rails-pgsql-persistent-1-deploy     0/1     Completed   0          3m36s
 rails-pgsql-persistent-1-hook-pre   0/1     Completed   0          3m28s
 rails-pgsql-persistent-1-pjh6q      1/1     Running     0          3m14s
-----
+</pre>
+
+---
 
 You can exit by pressing <kbd>Ctrl</kbd>+<kbd>C</kbd>
 
@@ -41,11 +46,16 @@ Once the deployment is complete you can now test the application and the persist
 
 `oc get route -n my-database-app`{{execute}}
 
-.Example output:
-----
+---
+
+**Example output:**
+
+<pre>
 NAME                     HOST/PORT                                                                         PATH   SERVICES                 PORT    TERMINATION   WILDCARD
 rails-pgsql-persistent   rails-pgsql-persistent-my-database-app.apps.cluster-a26e.sandbox449.opentlc.com          rails-pgsql-persistent
-----
+</pre>
+
+---
 
 Copy your `rails-pgsql-persistent` route (different than above) to a browser window to create articles. You will need to append `/articles` to the end.
 
