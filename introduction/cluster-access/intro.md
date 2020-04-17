@@ -1,3 +1,16 @@
-When working with an OpenShift cluster you can use either the web console, the command line ``oc`` tool, or the REST API. Whichever method you use to access the OpenShift cluster you need to prove you have the right to use the cluster by first authenticating using a user account registered with the cluster.
+## Goal
 
-In this course you will learn about how to access and login to an OpenShift cluster using the web console and command line. You will also learn how you can add collaborators on your projects so others can view or work on your applications.
+Learn how to log in to OpenShift with the web console and with the `oc` command line tool.
+
+## Concepts
+
+* OpenShift user authentication and authorization basics
+* OpenShift Web Console
+* OpenShift `oc` tool
+* OpenShift Projects and collaboration
+
+## Use case
+
+You must log in to do anything on an OpenShift cluster. To collaborate on an OpenShift Project, you can authorize other users to see or modify resources in your Projects.
+
+This OpenShift cluster will self-destruct in one hour.
