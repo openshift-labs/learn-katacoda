@@ -1,9 +1,16 @@
-When using OpenShift there are a number of different ways you can add an application. The main methods are:
+## Goal
 
-* Deploy an application from an existing container image.
-* Build and deploy from source code contained in a Git repository using a Source-to-Image builder.
-* Build and deploy from source code contained in a Git repository from a Dockerfile.
+Learn how to deploy an application on OpenShift with the web console and with the `oc` command line tool.
 
-In this course you will learn how to deploy an application from an existing
-container image using the OpenShift web console, and from the command
-line using ``oc``.
+## Concepts
+
+* Deploying existing container images on an OpenShift cluster
+* OpenShift Web Console’s Topology view
+* OpenShift Projects and Applications
+* OpenShift `oc` tool’s `new-app` subcommand
+
+## Use case
+
+You can deploy a container image on an OpenShift cluster to make the application easier to manage, scale, connect and monitor.
+
+This OpenShift cluster will self-destruct in one hour.
