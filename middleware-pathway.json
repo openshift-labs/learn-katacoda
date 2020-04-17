@@ -35,10 +35,10 @@
       "course_id": "middleware-kogito",
       "title": "Developing with Kogito"
     },
-    { 
-      "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-k-basic/",  
-      "course_id": "camel-k-basic",  
-      "title": "This is simple basic Camel K hello world example" 
+    {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-k-basic/",
+      "course_id": "camel-k-basic",
+      "title": "Getting Started with Camel K"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/amq-getting-started-broker/",
@@ -85,10 +85,10 @@
       "course_id": "debezium-getting-started",
       "title": "Debezium deployment"
     },
-    { 
-      "external_link": "https://learn.openshift.com/middleware/pipelines/",  
-      "course_id": "pipelines",  
-      "title": "Using OpenShift Pipelines" 
+    {
+      "external_link": "https://learn.openshift.com/middleware/pipelines/",
+      "course_id": "pipelines",
+      "title": "Using OpenShift Pipelines"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/serverless/",
