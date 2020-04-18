@@ -43,10 +43,9 @@ When the application has started, you can access the [Swagger UI](https://[[CLIE
 
 You should see the following page:
 
-![New Kogito Quarkus Web Page](/openshift/assets/middleware/middleware-kogito/new-kogito-quarkus-swagger-ui.png)
+![New Kogito Quarkus Web Page](/openshift/assets/middleware/middleware-kogito/new-kogito-quarkus-empty-swagger-ui.png)
 
 It's working!
-
 
 # Congratulations!
 

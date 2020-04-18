@@ -13,7 +13,9 @@ From this description of our application, we can infer the _fact_:
 
 ## Person
 
-We will implement the `Person` class as follows. Click on the _Copy to Editor_ link to copy the source code into the project.
+We will first implement the `Person` class. Open a new file by clicking: `getting-started/src/main/java/org/acme/domain/Person.java`{{open}}
+
+Click on the _Copy to Editor_ link to copy the source code into the new `Person.java`file.
 
 <pre class="file" data-filename="./adult-service/src/main/java/org/acme/domain/Person.java" data-target="replace">
 package org.acme.domain;
