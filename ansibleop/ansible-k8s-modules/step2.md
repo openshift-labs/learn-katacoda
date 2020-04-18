@@ -37,7 +37,7 @@ spec:
 
  ###### **b. Update tasks file `example-role/tasks/main.yml` to create the nginx deployment using the k8s module**
 
- <pre class="fild>
+ <pre class="file">
 ---
 - name: set test namespace to {{ state }}
   k8s:
@@ -55,10 +55,7 @@ spec:
 
 You can easily update this file by running the following command:
 
-```
 wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-k8s-modules/assets/tasksmain2.yml -O /root/tutorial/example-role/tasks/main.yml
-```{{execute}}
-<br>
 
 ---
 
