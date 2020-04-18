@@ -33,7 +33,7 @@ The default Kogito application created from the archetype contains a sample proc
 
 # Running the Application
 
-We will now run the Kogito application in development mode. This allows us to keep the application running while implementing our application logic. Kogito and Quarkus will _hot reload_ the application when it is acccessed and changes have been detected.
+We will now run the Kogito application in development mode. This allows us to keep the application running while implementing our application logic. Kogito and Quarkus will _hot reload_ the application when it is accessed and changes have been detected.
 
 `cd /root/projects/kogito/adult-service`{{execute}}
 
