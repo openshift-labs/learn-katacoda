@@ -38,7 +38,11 @@ There's nothing there now, but that's about to change.
 
 ## Deploy to OpenShift
 
-First, create a new _binary_ build within OpenShift:
+First, we need to compile and package our application. We will compile our application as a Kogito Quarkus application running on OpenJDK / JVM mode:
+
+`mvn clean package`{{execute T1}}
+
+Next, create a new _binary_ build within OpenShift:
 
 `oc new-build quay.io/quarkus/ubi-quarkus-native-binary-s2i:19.3.1 --binary --name=airmiles-service -l app=airmiles-service`{{execute T1}}
 
