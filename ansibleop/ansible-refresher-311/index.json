@@ -53,14 +53,15 @@
                  {"file": "playbook.yml", "target":"~/tutorial/"}]
     }
   },
-  "files": [],
+  "files": [
+	"playbook.yml"
+  ],
   "environment": {
-        "showdashboard": true,
-        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
-        "uilayout": "terminal-iframe"
-    },
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/tutorial"
+  },
   "backend": {
-    "imageid": "openshift-4-2",
+    "imageid": "openshift-3-11",
     "port": 8443
   }
 }
