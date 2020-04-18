@@ -38,13 +38,13 @@ There's nothing there now, but that's about to change.
 
 ## Deploy to OpenShift
 
-First, we need to compile and package our application. We will compile our application as a Kogito Quarkus application running on OpenJDK / JVM mode:
+First, we need to compile and package our application. We will compile our application as a Kogito Quarkus native image using GraalVM. Note that the compilation might take a minute or two:
 
-`mvn clean package`{{execute T1}}
+`mvn clean package -Pnative`{{execute T1}}
 
 Next, create a new _binary_ build within OpenShift:
 
-`oc new-build quay.io/quarkus/ubi-quarkus-binary-s2i:19.3.1 --binary --name=airmiles-service -l app=airmiles-service`{{execute T1}}
+`oc new-build quay.io/quarkus/ubi-quarkus-native-binary-s2i:19.3.1 --binary --name=airmiles-service -l app=airmiles-service`{{execute T1}}
 
 > This build uses the new [Red Hat Universal Base Image](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/building_running_and_managing_containers/using_red_hat_universal_base_images_standard_minimal_and_runtimes), providing foundational software needed to run most applications, while staying at a reasonable size.
 
@@ -81,7 +81,13 @@ So now our app is deployed to OpenShift. You can also see it in the [Overview in
 
 ## Scale the application
 
-In order to be able to handle production load and have high availability semantics, we need to scale the application and add a number of extra running pods. We can easily do this via the OpenShift _oc_ client:
+In order to be able to handle production load and have high availability semantics, we need to scale the application and add a number of extra running pods.
+
+Let's make _sure_ our Kogito app doesn't go beyond a reasonable amount of memory for each instance by setting _resource constraints_ on it. We'll go with 50 MB of memory as an upper limit (which is pretty thin, compared to your average Java app!). This will let us scale up quite a bit. Click here to set this limit:
+
+`oc set resources dc/airmiles-service --limits=memory=50Mi`{{execute T1}}
+
+ We can now easily scale the number of PODs via the OpenShift _oc_ client:
 
 `oc scale --replicas=10 dc/airmiles-service`{{execute T1}}
 
