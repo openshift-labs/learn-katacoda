@@ -29,7 +29,7 @@ This will use the Kogito Maven Archetype and generate a basic Maven project for 
 
 The default Kogito application created from the archetype contains a sample process called `test-process.bpmn2`. We will remove this process definition, as it is not required for our application.
 
-`rm /root/projects/kogito/airmiles-service/src/main.resources/test-process.bpmn2`{{execute}}
+`rm -f /root/projects/kogito/adult-service/src/main/resources/test-process.bpmn2`{{execute}}
 
 # Running the Application
 
