@@ -17,9 +17,7 @@ For this example we will *create and delete a namespace* with the switch of an A
 
 You can easily update this file by running the following command:
 
-```
-wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-k8s-modules/assets/tasksmain1.yml -O /root/tutorial/example-role/tasks/main.yml
-```{{execute}}
+`wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-k8s-modules/assets/tasksmain1.yml -O /root/tutorial/example-role/tasks/main.yml`{{execute}}
 <br>
 ---
 
@@ -33,9 +31,7 @@ state: present
 
 You can easily update this file by running the following command:
 
-```
-wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-k8s-modules/assets/defaultmain.yml -O /root/tutorial/example-role/tasks/defaultsmain.yml
-```{{execute}}
+`wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-k8s-modules/assets/defaultsmain1.yml -O /root/tutorial/example-role/defaults/main.yml`{{execute}}
 <br>
 ---
 

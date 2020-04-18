@@ -55,7 +55,7 @@ spec:
 
 You can easily update this file by running the following command:
 
-wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-k8s-modules/assets/tasksmain2.yml -O /root/tutorial/example-role/tasks/main.yml
+`wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-k8s-modules/assets/tasksmain2.yml -O /root/tutorial/example-role/tasks/main.yml`{{execute}}
 
 ---
 
