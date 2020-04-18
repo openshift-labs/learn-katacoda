@@ -170,7 +170,7 @@ Check that it works as expected by opening the Swagger-UI endpoint by [clicking 
 
 To test the application, we can simply send a RESTful request to it using cURL. By clicking the following command, we send a request that determines the number of airmiles a traveller with a _GOLD_ status gets for a flight with a price of 600:
 
-`curl -X POST 'http://localhost:8080/airmiles' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{ "Status": "GOLD",	"Price": 600}'`
+`curl -X POST 'http://localhost:8080/airmiles' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{ "Status": "GOLD",	"Price": 600}'`{{execute T2}}
 
 You will get the following result:
 
@@ -179,6 +179,8 @@ You will get the following result:
 ```
 
 We can see that our DMN decision logic has determined that the number of airmiles is 720, which is 1.2 times the price of the flight.
+
+You can now stop the application in the first terminal using `CTRL-C`.
 
 ## Congratulations!
 

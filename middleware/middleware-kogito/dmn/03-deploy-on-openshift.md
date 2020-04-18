@@ -1,5 +1,7 @@
 In the previous step you've created a DMN model that implements the decision logic of our airmiles service and tested it using a number of RESTful requests. In this step of the scenario, we will deploy our service to OpenShift and scale it up to be able to handle production load.
 
+Before getting started with this step, make sure you've stopped the running application in terminal 1 using `CTRL-C`.
+
 ## Login to OpenShift
 
 `oc login --server=https://[[HOST_SUBDOMAIN]]-6443-[[KATACODA_HOST]].environments.katacoda.com --insecure-skip-tls-verify=true`{{execute T1}}
