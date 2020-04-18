@@ -40,3 +40,4 @@ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
 # Switch user to tutorial directory
 cd ~/tutorial
+clear
