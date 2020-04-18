@@ -1,4 +1,4 @@
-Since you are interested in *using Ansible for lifecycle management of applications on Kubernetes*, it will be beneficial to learn how to use the [Ansible k8s (Kubernetes) module](https://docs.ansible.com/ansible/2.6/modules/k8s_module.html). 
+Since you are interested in *using Ansible for lifecycle management of applications on Kubernetes*, it will be beneficial to learn how to use the [Ansible k8s (Kubernetes) module](https://docs.ansible.com/ansible/latest/modules/k8s_module.html#k8s-info-module). 
 
 The k8s module allows you to:
  - Leverage your existing Kubernetes resource files (written in YAML) 
