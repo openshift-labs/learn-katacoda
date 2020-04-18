@@ -30,7 +30,7 @@ spec:
 You can easily update this file by running the following command:
 
 ```
-wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/helm-operator/assets/charts.helm.k8s.io_v1alpha1_cockroachdb_cr.yaml -O deploy/crds/charts.helm.k8s.io_v1alpha1_cockroachdb_cr.yaml
+wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/helm-operator/assets/charts.helm.k8s.io_v1alpha1_cockroachdb_cr.yaml -O deploy/crds/charts.helm.k8s.io_v1alpha1_cockroachdb_cr.yaml
 ```{{execute}}
 <br>
 After updating the CockroachDB Custom Resource with our desired spec, apply it to the cluster:
