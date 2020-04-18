@@ -44,7 +44,7 @@ First, we need to compile and package our application. We will compile our appli
 
 Next, create a new _binary_ build within OpenShift:
 
-`oc new-build quay.io/quarkus/ubi-quarkus-native-binary-s2i:19.3.1 --binary --name=airmiles-service -l app=airmiles-service`{{execute T1}}
+`oc new-build quay.io/quarkus/ubi-quarkus-binary-s2i:19.3.1 --binary --name=airmiles-service -l app=airmiles-service`{{execute T1}}
 
 > This build uses the new [Red Hat Universal Base Image](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/building_running_and_managing_containers/using_red_hat_universal_base_images_standard_minimal_and_runtimes), providing foundational software needed to run most applications, while staying at a reasonable size.
 
