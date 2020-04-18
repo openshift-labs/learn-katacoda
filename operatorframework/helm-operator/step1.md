@@ -25,7 +25,7 @@ cd $GOPATH/src/github.com/redhat/
 Create a new Helm-based Operator SDK project for the CockroachDB Operator:
 
 ```
-operator-sdk new cockroachdb-operator --type=helm --helm-chart cockroachdb --helm-chart-repo https://kubernetes-charts.storage.googleapis.com
+operator-sdk new cockroachdb-operator --type=helm --helm-chart cockroachdb --helm-chart-repo https://kubernetes-charts.storage.googleapis.com --helm-chart-version 3.0.7
 ```{{execute}}
 <br>
 Navigate to the top-level project directory:
