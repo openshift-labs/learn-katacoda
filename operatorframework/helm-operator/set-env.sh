@@ -1,7 +1,7 @@
 # Install Helm client
 wget https://storage.googleapis.com/kubernetes-helm/helm-v2.13.1-linux-amd64.tar.gz
 tar -zxvf helm-v2.13.1-linux-amd64.tar.gz
-mv linux-amd64/helm /usr/local/bin/helm
+mv -f linux-amd64/helm /usr/local/bin/helm
 helm init --client-only
 
 # Setup persistent volumes
