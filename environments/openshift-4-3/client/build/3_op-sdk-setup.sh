@@ -10,8 +10,9 @@ pip2 install --trusted-host files.pythonhosted.org --trusted-host pypi.org --tru
 pip2 install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org --upgrade setuptools
 pip2 install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org --ignore-installed ipaddress openshift
 
-echo "install ansible runner -> this will be used for operator-sdk local installs"
+echo "install ansible and ansible runner -> this will be used for operator-sdk local installs"
 yum install python2-devel -y
+pip2 install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org ansible
 pip2 install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org ansible-runner
 pip2 install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org ansible-runner-http
 
