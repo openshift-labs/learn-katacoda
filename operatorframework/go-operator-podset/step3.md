@@ -60,7 +60,7 @@ func init() {
 You can easily update this file by running the following command:
 
 ```
-wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/podset_types.go -O pkg/apis/app/v1alpha1/podset_types.go
+wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/podset_types.go -O pkg/apis/app/v1alpha1/podset_types.go
 ```{{execute}}
 <br>
 After modifying the `*_types.go` file, always run the following command to update the generated code for that resource type:
