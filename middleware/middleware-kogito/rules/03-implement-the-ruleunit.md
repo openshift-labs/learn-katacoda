@@ -6,7 +6,9 @@ _Rule Units_ are groups of data sources, global variables, and DRL rules that fu
 
 ## PersonUnit.
 
-We will first implement the skeleton of our `PersonUnit` class:
+We will first implement the skeleton of our `PersonUnit` class. To do this, we first create a new `PersonUnit.java` file by clicking: `adult-service/src/main/java/org/acme/PersonUnit.java`{{open}}
+
+Click on the _Copy to Editor_ link to copy the source code into the new `PersonUnit.java`file.
 
 <pre class="file" data-filename="./adult-service/src/main/java/org/acme/PersonUnit.java" data-target="replace">
 package org.acme;

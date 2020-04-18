@@ -8,6 +8,12 @@ The rules of our rule unit will be implemented in DRL, the Drools Rule Language.
 
 We will first implement the skeleton of our `PersonUnit.drl` file in the `src/main/resources` directory of our project.
 
+First we create the proper package in our `src/main/resources` folder: `mkdir -p /root/projects/kogito/adult-service/src/main/resources/org/acme`{{execute T2}}
+
+Next, we create the DRL file by clicking: `adult-service/src/main/resources/org/acme/PersonUnit.drl`{{open}}
+
+Click on the _Copy to Editor_ link to copy the source code into the new `PersonUnit.drl`file.
+
 <pre class="file" data-filename="./adult-service/src/main/resources/org/acme/PersonUnit.drl" data-target="replace">
 package org.acme;
 //Unit definition
