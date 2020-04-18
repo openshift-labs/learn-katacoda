@@ -50,7 +50,7 @@ Next, create a new _binary_ build within OpenShift:
 
 And then start and watch the build, which will take about a minute or two to complete:
 
-`oc start-build airmiles-service --from-file=target/airmiles-service-1.0-SNAPSHOT-runner.jar --follow`{{execute T1}}
+`oc start-build airmiles-service --from-file=target/airmiles-service-1.0-SNAPSHOT-runner --follow`{{execute T1}}
 
 Once that's done, we'll deploy it as an OpenShift application:
 
