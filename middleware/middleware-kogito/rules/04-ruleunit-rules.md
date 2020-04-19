@@ -72,7 +72,7 @@ We can inspect the generated RESTful endpoint in the Swagger-UI [Swagger UI](htt
 
 We can now send a request to our generated RESTful endpoint using cURL:
 
-`curl -X POST "http://localhost:8080/adult" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"persons\":[{\"age\":18,\"name\":\"Jason\"}]}"`{{execute}}
+`curl -X POST "http://localhost:8080/adult" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"persons\":[{\"age\":18,\"name\":\"Jason\"}]}"`{{execute T2}}
 
 You should see the following result, showing that Jason is an adult:
 
