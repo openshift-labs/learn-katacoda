@@ -68,7 +68,7 @@ spec:
   name: ocs-operator
   source: ocs-catalogsource
   sourceNamespace: openshift-marketplace
-  startingCSV: ocs-operator.v4.3.0
+  # startingCSV: ocs-operator.v4.3.0
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -81,7 +81,7 @@ spec:
   name: local-storage-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: local-storage-operator.4.2.26-202003230335
+  # startingCSV: local-storage-operator.4.2.26-202003230335
 EOF
 
 echo "Waiting for operators to be ready" && while [ "$(oc get csv --all-namespaces | grep -c Succeeded)" -lt 4 ]; do echo -n . ; sleep 3; done

@@ -43,7 +43,7 @@
             "client": [],
             "host01": [
                 {
-                    "file": "1_ns_pvc.yaml",
+                    "file": "1_create_ns_ocs_pvc.yaml",
                     "target": "/root/"
                 },
                 {
@@ -57,7 +57,11 @@
                 {
                     "file": "4_deploy_frontend_app.yaml",
                     "target": "/root/"
-                }                
+                },
+                {
+                    "file": "1_create_ns_ocs_pvc.yaml",
+                    "target": "/root/"
+                }                                
             ]
         }
     }

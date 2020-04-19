@@ -10,7 +10,7 @@
     {
       "external_link": "https://learn.openshift.com/playgrounds/persistent-elasticsearch/",
       "course_id": "persistent-elasticsearch",
-      "title": "Using Elastic Search for 100 famous novels"
+      "title": "e-Library search engine on Elasticsearch powered by OpenShift Container Storage"
     }
   ]
 }
