@@ -66,25 +66,11 @@ This completes the initial implementation of our DRL.
 
 ## Running the application
 
-With our domain model, rule unit and rules implemented, we can now start our application. We will start our application in Quarkus-dev mode, which enables the live/hot reload functionality of Quarkus. This allows us to make some live changes in our rule unit and rules in the next step.
+Since we're started the application in Quarkus dev-mode, all the changed we've made so far will be compiled automatically when we hit the application.
 
-First, change to the directory in which the project was created:
+We can inspect the generated RESTful endpoint in the Swagger-UI [Swagger UI](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui) of the application.
 
-`cd /root/projects/kogito/adult-service`{{execute}}
-
-Now we are ready to run our application. Click on the following command to start the application in _dev-mode_:
-
-`mvn clean compile quarkus:dev`{{execute}}
-
-You should see:
-
-```console
-2020-02-07 09:09:12,440 INFO  [io.quarkus] (main) getting-started 1.0-SNAPSHOT (running on Quarkus 1.2.0.Final) started in 5.850s. Listening on: http://0.0.0.0:8080
-2020-02-07 09:09:12,447 INFO  [io.quarkus] (main) Profile dev activated. Live Coding activated.
-2020-02-07 09:09:12,449 INFO  [io.quarkus] (main) Installed features: [cdi, kogito, resteasy, resteasy-jackson, smallrye-openapi, swagger-ui]
-```
-
-With our application running, we can now send a request to our generated RESTful endpoint using cURL:
+We can now send a request to our generated RESTful endpoint using cURL:
 
 `curl -X POST "http://localhost:8080/adult" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"persons\":[{\"age\":18,\"name\":\"Jason\"}]}"`{{execute}}
 
