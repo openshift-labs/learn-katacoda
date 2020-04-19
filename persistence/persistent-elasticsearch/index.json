@@ -59,9 +59,9 @@
                     "target": "/root/"
                 },
                 {
-                    "file": "1_create_ns_ocs_pvc.yaml",
+                    "file": "install_ocs.sh",
                     "target": "/root/"
-                }                                
+                }                                                
             ]
         }
     }
