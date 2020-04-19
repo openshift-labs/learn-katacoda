@@ -39,7 +39,7 @@ We now need to create out `DataSource` for our `Person` facts. A `DataSource` pr
 
 In this example we will be using the `DataStore` implementation for our `Person` facts. We therefore add a private `DataStore` variable to our rule unit. We use the `DataSource` factory class to create a new `DataStore` instance and assign it to the variable:
 
-<pre class="file" data-filename="./adult-service/src/main/java/org/acme/PersonUnit.java" data-target="insert" data-marker="//Add Person Data Store here">
+<pre class="file" data-filename="./adult-service/src/main/java/org/acme/PersonUnit.java" data-target="insert" data-marker="//Add Person DataStore here">
   private DataStore<Person> persons = DataSource.createStore();
 </pre>
 
