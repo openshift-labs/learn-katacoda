@@ -14,7 +14,7 @@ First, we add a new `adultAge` variable to our `PersonUnit` class:
 
 We also add the _getters and setters_:
 
-<pre class="file" data-filename="./service-task/src/main/java/org/acme/PersonUnit.java" data-target="insert" data-marker="//Add adultAge Getters and Setters here">
+<pre class="file" data-filename="./adult-service/src/main/java/org/acme/PersonUnit.java" data-target="insert" data-marker="//Add adultAge Getters and Setters here">
   public int getAdultAge() {
       return adultAge;
   }
@@ -26,7 +26,7 @@ We also add the _getters and setters_:
 
 With our variable implemented, we can now use this variable in our rules:
 
-<pre class="file" data-filename="./service-task/src/main/resources/org/acme/PersonUnit.drl" data-target="insert" data-marker="$p: /persons[age >= 18];">
+<pre class="file" data-filename="./adult-service/src/main/resources/org/acme/PersonUnit.drl" data-target="insert" data-marker="$p: /persons[age >= 18];">
   $p: /persons[age >= adultAge];
 </pre>
 

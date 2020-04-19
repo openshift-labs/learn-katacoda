@@ -35,7 +35,7 @@ end
 
 We first need to define that this `PersonUnit.drl` is connected to our `PersonUnit`. We do this through `unit` definition under the `package` definition at the top of the DRL file:
 
-<pre class="file" data-filename="./service-task/src/main/resources/org/acme/PersonUnit.drl" data-target="insert" data-marker="//Unit definition">
+<pre class="file" data-filename="./adult-service/src/main/resources/org/acme/PersonUnit.drl" data-target="insert" data-marker="//Unit definition">
 unit PersonUnit;
 </pre>
 
@@ -43,13 +43,13 @@ Next, we implement the constraint, or left-hand-side of our rule. We will do thi
 
 The following constraint matches `Person` facts from the `persons` datastore of our unit, who's age is equal to, or greater than 18:
 
-<pre class="file" data-filename="./service-task/src/main/java/org/acme/TextProcessor.java" data-target="insert" data-marker="//Person OOPath">
+<pre class="file" data-filename="./adult-service/src/main/resources/org/acme/PersonUnit.drl" data-target="insert" data-marker="//Person OOPath">
   $p: /persons[age >= 18];
 </pre>
 
 We can now implement the consequence of our rule, or the right-hand-side (RHS). This the action that will be executed when the rule fires. In our case we want to set the person's `adult` field to true when the rule fires:
 
-<pre class="file" data-filename="./service-task/src/main/resources/org/acme/PersonUnit.drl" data-target="insert" data-marker="//Set adult">
+<pre class="file" data-filename="./adult-service/src/main/resources/org/acme/PersonUnit.drl" data-target="insert" data-marker="//Set adult">
   $p.setAdult(true);
 </pre>
 
@@ -58,7 +58,7 @@ The next thing we need to do for our Kogito application is a query. The query in
 
 In this query, we simply want to return all the facts from our `persons` datastore:
 
-<pre class="file" data-filename="./service-task/src/main/resources/org/acme/PersonUnit.drl" data-target="insert" data-marker="//Adult query">
+<pre class="file" data-filename="./adult-service/src/main/resources/org/acme/PersonUnit.drl" data-target="insert" data-marker="//Adult query">
   $p: /persons;
 </pre>
 
