@@ -20,17 +20,17 @@ import org.kie.kogito.rules.RuleUnitData;
 
 public class PersonUnit implements RuleUnitData {
 
-    //Add Person DataStore here
+//Add Person DataStore here
 
-    //Add adultAge variable here
+//Add adultAge variable here
 
     public PersonUnit() {
 
     }
 
-    //Add DataStore Getters and Setters here
+//Add DataStore Getters and Setters here
 
-    //Add adultAge Getters and Setters here
+//Add adultAge Getters and Setters here
 
 }
 </pre>

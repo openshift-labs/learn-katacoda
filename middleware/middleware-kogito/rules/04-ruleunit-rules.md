@@ -22,14 +22,14 @@ import org.acme.domain.Person;
 
 rule "Is Adult"
 when
-    //Person OOPath
+//Person OOPath
 then
-    //Set adult
+//Set adult
 end
 
 
 query "adult"
-    //Adult query
+//Adult query
 end
 </pre>
 
