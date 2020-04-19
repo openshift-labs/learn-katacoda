@@ -44,7 +44,7 @@ Next, we implement the constraint, or left-hand-side of our rule. We will do thi
 The following constraint matches `Person` facts from the `persons` datastore of our unit, who's age is equal to, or greater than 18:
 
 <pre class="file" data-filename="./adult-service/src/main/resources/org/acme/PersonUnit.drl" data-target="insert" data-marker="//Person OOPath">
-  $p: /persons[age >= 18];
+  $p: /persons[age &lt;= 18];
 </pre>
 
 We can now implement the consequence of our rule, or the right-hand-side (RHS). This the action that will be executed when the rule fires. In our case we want to set the person's `adult` field to true when the rule fires:
