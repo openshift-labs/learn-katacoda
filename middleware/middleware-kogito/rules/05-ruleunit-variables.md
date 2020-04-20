@@ -6,7 +6,7 @@ Apart from using `DataSources` in our rule units to insert, update and delete fa
 
 ## PersonUnit DRL
 
-First, we add a new `adultAge` variable to our `PersonUnit` class. First we open the file": `adult-service/src/main/java/org/acme/PersonUnit.java`{{open}}
+First, we add a new `adultAge` variable to our `PersonUnit` class. First we open the file: `adult-service/src/main/java/org/acme/PersonUnit.java`{{open}}
 
 And next, we add the `adultAge` variable:
 
@@ -53,6 +53,8 @@ Notice that, because we have defined the `adultAge` to be 21, Jason is no longer
 A Kogito Quarkus application running in Quarkus dev-mode automatically exposes an OpenAPI specification of its RESTful resources through a Swagger-UI. You can open this Swagger [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).
 
 Open the **POST /adult** RESTful endpoint. Note that a fully typed API is generated for you, based on your business assets like your rule units and rules.
+
+![API](/openshift/assets/middleware/middleware-kogito/kogito-adult-post-api.png)
 
 ## Congratulations!
 
