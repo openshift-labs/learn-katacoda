@@ -11,7 +11,7 @@ First, we add a new `adultAge` variable to our `PersonUnit` class. First we open
 And next, we add the `adultAge` variable:
 
 <pre class="file" data-filename="./service-task/src/main/java/org/acme/PersonUnit.java" data-target="insert" data-marker="//Add adultAge variable here">
-  private int adultAge
+  private int adultAge;
 </pre>
 
 We also add the _getters and setters_:
