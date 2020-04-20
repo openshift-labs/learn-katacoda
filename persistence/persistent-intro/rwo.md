@@ -46,4 +46,4 @@ Once the deployment is complete you can now test the application and the persist
 
 *URL*  http://rails-pgsql-persistent-my-database-app.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/articles/
 
-Enter the `username` and `password` below to create articles and comments. The articles and comments are saved in a PostgreSQL database which stores its table spaces on the Ceph RBD volume provisioned using the `ocs-storagecluster-ceph-rbd` *storageclass* during the application deployment.
+The articles and comments are saved in a PostgreSQL database which stores its table spaces on the Ceph RBD volume provisioned using the `ocs-storagecluster-ceph-rbd` *storageclass* during the application deployment.

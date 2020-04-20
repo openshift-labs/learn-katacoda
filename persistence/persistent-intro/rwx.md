@@ -103,7 +103,7 @@ Let's make our application production ready by exposing it via a `Route` and sca
 
 `oc get pods -n my-shared-storage`{{execute}}
 
-You should have 3 `file-uploader` *Pods* in a few minutes.
+You should have 3 `file-uploader` *Pods* in a few minutes. The additional `Route` allows us to access the application from outside of the Openshift cluster.
 
 ---
 **CAUTION**
