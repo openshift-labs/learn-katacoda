@@ -82,7 +82,7 @@ You should see the following result, showing that Jason is an adult:
 [{"name":"Jason","age":18,"adult":true}]
 ```
 
-Stop the application using `CTRL-C`.
+Stop the application in the first terminal using `CTRL-C`.
 
 ## Congratulations!
 

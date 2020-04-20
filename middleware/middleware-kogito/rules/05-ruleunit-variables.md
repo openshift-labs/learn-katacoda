@@ -6,7 +6,9 @@ Apart from using `DataSources` in our rule units to insert, update and delete fa
 
 ## PersonUnit DRL
 
-First, we add a new `adultAge` variable to our `PersonUnit` class:
+First, we add a new `adultAge` variable to our `PersonUnit` class. First we open the file": `adult-service/src/main/java/org/acme/PersonUnit.java`{{open}}
+
+And next, we add the `adultAge` variable:
 
 <pre class="file" data-filename="./service-task/src/main/java/org/acme/PersonUnit.java" data-target="insert" data-marker="//Add adultAge variable here">
   private int adultAge
@@ -24,15 +26,15 @@ We also add the _getters and setters_:
   }
 </pre>
 
-With our variable implemented, we can now use this variable in our rules:
+With our variable implemented, we can now use this variable in our rules: `adult-service/src/main/resources/org/acme/PersonUnit.drl`{{open}}
 
 <pre class="file" data-filename="./adult-service/src/main/resources/org/acme/PersonUnit.drl" data-target="insert" data-marker="$p: /persons[age >= 18];">
-  $p: /persons[age >= adultAge];
+  $p: /persons[age &gt;= adultAge];
 </pre>
 
 We've now added the functionality we want, so we can start our application again:
 
-`mvn clean compile quarkus:dev`{{execute}}
+`mvn clean compile quarkus:dev`{{execute T1}}
 
 We can now hit the application with a request that contains our new `adultAge` variable:
 
@@ -51,8 +53,6 @@ Notice that, because we have defined the `adultAge` to be 21, Jason is no longer
 A Kogito Quarkus application running in Quarkus dev-mode automatically exposes an OpenAPI specification of its RESTful resources through a Swagger-UI. You can open this Swagger [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).
 
 Open the **POST /adult** RESTful endpoint. Note that a fully typed API is generated for you, based on your business assets like your rule units and rules.
-
-
 
 ## Congratulations!
 
