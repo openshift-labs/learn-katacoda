@@ -18,7 +18,7 @@ Implement the process as shown in the following video. Make sure to use `getting
 
 https://youtu.be/babjHSNrZBg
 
-After youv've defined your process, click on the **Copy to Clipboard** button to copy the BPMN2 XML definition to your clipboard.
+After you've defined your process, click on the **Copy to Clipboard** button to copy the BPMN2 XML definition to your clipboard.
 
 Copy the content of your clipboard to the `getting-started/src/main/resources/getting-started.bpmn` file you've created and opened earlier using `Ctrl+v ` or `Command-v` (depending on your type of computer).
 
