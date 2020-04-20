@@ -4,10 +4,6 @@ set +x
 
 echo "Setting up environment for OCS"
 
-export OCS_IMAGE=quay.io/mulbc/ocs-operator
-export REGISTRY_NAMESPACE=mulbc
-export IMAGE_TAG=katacoda
-
 oc label "$(oc get no -o name)" cluster.ocs.openshift.io/openshift-storage='' > /dev/null
 
 oc create ns openshift-storage > /dev/null
@@ -33,7 +29,7 @@ metadata:
   namespace: openshift-marketplace
 spec:
   sourceType: grpc
-  image: quay.io/$REGISTRY_NAMESPACE/ocs-registry:$IMAGE_TAG
+  image: quay.io/mulbc/ocs-registry:katacoda
   displayName: OpenShift Container Storage
   publisher: Red Hat
 EOF
@@ -55,7 +51,7 @@ EOF
 
 sleep 10
 
-cat <<EOF | oc create -f - 
+cat <<EOF | oc create -f -
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
@@ -88,7 +84,7 @@ echo "Waiting for operators to be ready"
 while [ "$(oc get csv --all-namespaces | grep -c Succeeded)" -lt 4 ]
 do echo -n .
 
-cat <<EOF | oc create -f - 2&>1 > /dev/null
+cat <<EOF | oc create -f - > /dev/null 2&>1
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
