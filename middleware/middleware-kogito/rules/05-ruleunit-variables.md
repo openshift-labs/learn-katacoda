@@ -30,9 +30,13 @@ With our variable implemented, we can now use this variable in our rules:
   $p: /persons[age >= adultAge];
 </pre>
 
-We've now added the functionality we want. Because we are still running our Kogito application in Quarkus dev-mode, we can simply hit our endpoint again with a new request, containing our `adultAge` variable:
+We've now added the functionality we want, so we can start our application again:
 
-`curl -X POST "http://localhost:8080/adult" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"adultAge\": 21, \"persons\":[{\"age\":18,\"name\":\"Jason\"}]}"`{{execute}}
+`mvn clean compile quarkus:dev`{{execute}}
+
+We can now hit the application with a request that contains our new `adultAge` variable:
+
+`curl -X POST "http://localhost:8080/adult" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"adultAge\": 21, \"persons\":[{\"age\":18,\"name\":\"Jason\"}]}"`{{execute T2}}
 
 This will give you the following result:
 
@@ -47,6 +51,8 @@ Notice that, because we have defined the `adultAge` to be 21, Jason is no longer
 A Kogito Quarkus application running in Quarkus dev-mode automatically exposes an OpenAPI specification of its RESTful resources through a Swagger-UI. You can open this Swagger [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).
 
 Open the **POST /adult** RESTful endpoint. Note that a fully typed API is generated for you, based on your business assets like your rule units and rules.
+
+
 
 ## Congratulations!
 

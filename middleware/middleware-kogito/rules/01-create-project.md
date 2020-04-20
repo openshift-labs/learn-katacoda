@@ -47,6 +47,8 @@ You should see the following page:
 
 It's working!
 
+You can now stop the application with `CTRL-C`.
+
 # Congratulations!
 
 You've seen how to create the skeleton of basic Kogito app, and start the application in _Quarkus dev-mode_.

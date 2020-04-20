@@ -66,7 +66,9 @@ This completes the initial implementation of our DRL.
 
 ## Running the application
 
-Since we're started the application in Quarkus dev-mode, all the changed we've made so far will be compiled automatically when we hit the application.
+With our domain model, rule unit and rules implemented, we can now start our application.
+
+`mvn clean compile quarkus:dev`{{execute}}
 
 We can inspect the generated RESTful endpoint in the Swagger-UI [Swagger UI](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui) of the application.
 
