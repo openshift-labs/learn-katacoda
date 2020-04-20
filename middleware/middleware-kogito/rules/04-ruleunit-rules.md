@@ -68,7 +68,7 @@ This completes the initial implementation of our DRL.
 
 With our domain model, rule unit and rules implemented, we can now start our application.
 
-`mvn clean compile quarkus:dev`{{execute}}
+`mvn clean compile quarkus:dev`{{execute T1}}
 
 We can inspect the generated RESTful endpoint in the Swagger-UI [Swagger UI](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui) of the application.
 
@@ -81,6 +81,8 @@ You should see the following result, showing that Jason is an adult:
 ```console
 [{"name":"Jason","age":18,"adult":true}]
 ```
+
+Stop the application using `CTRL-C`.
 
 ## Congratulations!
 
