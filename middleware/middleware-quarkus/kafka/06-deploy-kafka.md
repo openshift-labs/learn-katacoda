@@ -25,7 +25,7 @@ To deploy Kafka, we'll use the _Strimzi_ Operator. Strimzi is an open source pro
 
 First, click this command to deploy the Operator to our new `kafka` namespace:
 
-`curl -s -L https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.13.0/strimzi-cluster-operator-0.13.0.yaml | sed 's/namespace: .*/namespace: kafka/' | oc apply -f -`{{execute T2}}
+`curl -s -L https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.17.0/strimzi-cluster-operator-0.17.0.yaml | sed 's/namespace: .*/namespace: kafka/' | oc apply -f -`{{execute T2}}
 
 Wait for the Operator to be deployed by running this command:
 
@@ -53,10 +53,9 @@ This command creates a simple Kafka object:
 apiVersion: kafka.strimzi.io/v1beta1
 kind: Kafka
 metadata:
-  name: my-cluster
+  name: names-cluster
 spec:
   kafka:
-    version: 2.3.0
     replicas: 3
     listeners:
       ...
