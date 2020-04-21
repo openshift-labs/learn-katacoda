@@ -6,7 +6,7 @@ You should already be logged in as an admin user. Click this command to verify:
 
 `oc whoami`{{execute T2}}
 
-It should respond with `system:admin`.
+It should respond with `admin`.
 
 ## Access OpenShift Project
 

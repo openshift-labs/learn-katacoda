@@ -1,14 +1,14 @@
+## Import the code
+
+Let's refresh the code we'll be using. Run the following command to clone the sample project:
+
+`cd /root/projects && rm -rf rhoar-getting-started && git clone https://github.com/openshift-katacoda/rhoar-getting-started`{{execute}}
+
 # The Project
 
 You start with a basic Maven-based application with the usual `pom.xml` entries for a Quarkus app.
 
 We've also included a frontend HTML file at `src/main/resources/META-INF/resources/index.html`{{open}} that will render our stream.
-
-## Import the code
-
-Let's refresh the code we'll be using. Run the following command to clone the sample project:
-
-`cd /root/projects && rm rhoar-getting-started && git clone https://github.com/openshift-katacoda/rhoar-getting-started`{{execute}}
 
 # The Application You Will Build
 
