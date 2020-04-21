@@ -8,7 +8,7 @@ Run the following command to add it to our project:
 
 Click **Copy to Editor** to add the following values to the `application.properties` file:
 
-<pre class="file" data-filename="./src/main/resources/application.properties" data-target="replace">
+<pre class="file" data-filename="./src/main/resources/application.properties" data-target="append">
 # Configure the OpenShift extension options (we write to it)
 quarkus.kubernetes-client.trust-certs=true
 quarkus.container-image.build=true
