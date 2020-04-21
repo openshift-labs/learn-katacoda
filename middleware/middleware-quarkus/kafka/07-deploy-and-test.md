@@ -6,6 +6,22 @@ Run the following command to add it to our project:
 
 `mvn quarkus:add-extension -Dextensions="openshift"`{{execute T2}}
 
+## Login to OpenShift
+
+We'll deploy our app as the `developer` user. Run the following command to login with the OpenShift CLI:
+
+`oc login -u developer -p developer`{{execute T2}}
+
+You should see
+
+```
+Login successful.
+
+You don't have any projects. You can try to create a new project, by running
+
+    oc new-project <projectname>
+```
+
 ## Create project
 
 Create a new project into which we'll deploy the app:
@@ -18,6 +34,15 @@ Now let's deploy the application itself. Run the following command which will bu
 
 `mvn clean package -Dquarkus.kubernetes-client.trust-certs=true -Dquarkus.container-image.build=true -Dquarkus.kubernetes.deploy=true -Dquarkus.kubernetes.deployment-target=openshift -Dquarkus.openshift.expose=true -Dquarkus.openshift.labels.app.openshift.io/runtime=java`{{execute T2}}
 
+This complex-looking command sets a few options for the OpenShift extension:
+
+* `-Dquarkus.kubernetes-client.trust-certs=true` - We are using self-signed certs in this simple example, so this simply says to the extension to trust them.
+* `-Dquarkus.container-image.build=true` - Instructs the extension to build a container image
+* `-Dquarkus.kubernetes.deploy=true` - Instructs the extension to deploy to OpenShift after the container image is built
+* `-Dquarkus.kubernetes.deployment-target=openshift` - Instructs the extension to generate and create the OpenShift resources (like `DeploymentConfig`s and `Service`s) after building the container
+* `-Dquarkus.openshift.expose=true` - Instructs the extension to generate an OpenShift `Route`.
+* `-Dquarkus.openshift.labels.app.openshift.io/runtime=java` - Adds a nice-looking icon to the app when viewing the OpenShift Developer Toplogy
+
 The output should end with `BUILD SUCCESS`.
 
 Finally, make sure it's actually done rolling out:
@@ -25,6 +50,15 @@ Finally, make sure it's actually done rolling out:
 `oc rollout status -w dc/people`{{execute T2}}
 
 Wait for that command to report `replication controller "people-1" successfully rolled out` before continuing.
+
+You can see the app deployed in the [OpenShift Developer Toplogy](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/quarkus-kafka):
+
+You'll need to login with the same credentials as before:
+
+* Username: `developer`
+* Password: `developer`
+
+![topology](/openshift/assets/middleware/quarkus/peopletopology.png)
 
 And now we can access using `curl` once again to confirm the app is up:
 
