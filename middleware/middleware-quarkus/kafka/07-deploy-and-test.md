@@ -6,6 +6,27 @@ Run the following command to add it to our project:
 
 `mvn quarkus:add-extension -Dextensions="openshift"`{{execute T2}}
 
+Click **Copy to Editor** to add the following values to the `application.properties` file:
+
+<pre class="file" data-filename="./src/main/resources/application.properties" data-target="replace">
+# Configure the OpenShift extension options (we write to it)
+quarkus.kubernetes-client.trust-certs=true
+quarkus.container-image.build=true
+quarkus.kubernetes.deploy=true
+quarkus.kubernetes.deployment-target=openshift
+quarkus.openshift.expose=true
+quarkus.openshift.labels.app.openshift.io/runtime=java
+</pre>
+
+For more details of the above options:
+
+* `quarkus.kubernetes-client.trust-certs=true` - We are using self-signed certs in this simple example, so this simply says to the extension to trust them.
+* `quarkus.container-image.build=true` - Instructs the extension to build a container image
+* `quarkus.kubernetes.deploy=true` - Instructs the extension to deploy to OpenShift after the container image is built
+* `quarkus.kubernetes.deployment-target=openshift` - Instructs the extension to generate and create the OpenShift resources (like `DeploymentConfig`s and `Service`s) after building the container
+* `quarkus.openshift.expose=true` - Instructs the extension to generate an OpenShift `Route`.
+* `quarkus.openshift.labels.app.openshift.io/runtime=java` - Adds a nice-looking icon to the app when viewing the OpenShift Developer Toplogy
+
 ## Login to OpenShift
 
 We'll deploy our app as the `developer` user. Run the following command to login with the OpenShift CLI:
@@ -32,16 +53,7 @@ Create a new project into which we'll deploy the app:
 
 Now let's deploy the application itself. Run the following command which will build and deploy using the OpenShift extension:
 
-`mvn clean package -Dquarkus.kubernetes-client.trust-certs=true -Dquarkus.container-image.build=true -Dquarkus.kubernetes.deploy=true -Dquarkus.kubernetes.deployment-target=openshift -Dquarkus.openshift.expose=true -Dquarkus.openshift.labels.app.openshift.io/runtime=java`{{execute T2}}
-
-This complex-looking command sets a few options for the OpenShift extension:
-
-* `-Dquarkus.kubernetes-client.trust-certs=true` - We are using self-signed certs in this simple example, so this simply says to the extension to trust them.
-* `-Dquarkus.container-image.build=true` - Instructs the extension to build a container image
-* `-Dquarkus.kubernetes.deploy=true` - Instructs the extension to deploy to OpenShift after the container image is built
-* `-Dquarkus.kubernetes.deployment-target=openshift` - Instructs the extension to generate and create the OpenShift resources (like `DeploymentConfig`s and `Service`s) after building the container
-* `-Dquarkus.openshift.expose=true` - Instructs the extension to generate an OpenShift `Route`.
-* `-Dquarkus.openshift.labels.app.openshift.io/runtime=java` - Adds a nice-looking icon to the app when viewing the OpenShift Developer Toplogy
+`mvn clean package`{{execute T2}}
 
 The output should end with `BUILD SUCCESS`.
 
@@ -50,6 +62,10 @@ Finally, make sure it's actually done rolling out:
 `oc rollout status -w dc/people`{{execute T2}}
 
 Wait for that command to report `replication controller "people-1" successfully rolled out` before continuing.
+
+You can also add a Java icon to the app if you don't see it in the OpenShift Developer Toplogy:
+
+`oc label dc/people app.openshift.io/runtime=java --overwrite`{{execute T2}}
 
 You can see the app deployed in the [OpenShift Developer Toplogy](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/quarkus-kafka):
 
