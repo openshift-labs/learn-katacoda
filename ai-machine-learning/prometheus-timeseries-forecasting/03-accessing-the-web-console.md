@@ -1,6 +1,6 @@
 ### Accessing the OpenShift console:
-You don't need to access the OpenShift Console for this workshop. <br>
-If you want to look at what's going on under thehood, you can follow the instructions below:
+You don't need to access the OpenShift Console for this scenario. <br>
+If you want to look at what's going on under the hood, you can follow the instructions below:
 
 To access the OpenShift console:
 
@@ -18,3 +18,5 @@ Once you have logged in, you should be shown the list of projects you have acces
 In this project you should be able to see a Jupyter deployment. Once the pod is ready, you can login to the Jupyter environment.
 
 ![Web Console Project](../../assets/ai-machine-learning/prometheus-timeseries-forecasting/03-openshift-console-page.png)
+
+Go back to Step 2 if you want to continue playing with the notebooks, else you can proceed to exit this scenario. 
