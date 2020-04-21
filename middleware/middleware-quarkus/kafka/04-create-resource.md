@@ -47,7 +47,7 @@ This method:
 The `process()` method is called for every Kafka record from the `names` topic (configured in the application
 configuration which we'll do later). Every result is sent to the my-data-stream in-memory stream.
 
-> There is a pre-created `src/main/resources/META-INF/resources/names.html`{{open}} page for you to use,
+> In the `src/main/resources/META-INF/resources/index.html`{{open}} page you'll find code
 > which will make a request to this `/names/stream` endpoint using standard JavaScript running in the browser and draw
 > the resulting names using the [D3.js library](https://d3js.org/). The JavaScript that makes this call looks like this
 > (do not copy this into anything\!):
