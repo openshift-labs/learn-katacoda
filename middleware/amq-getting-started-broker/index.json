@@ -44,11 +44,11 @@
                 },
                 {
                     "file": "app.js",
-                    "target": "/root/projects/amq-examples/amq-js-demo"
+                    "target": "/root/projects/amq-examples/amq-js-demo/"
                 },
                 {
                     "file": "package.json",
-                    "target": "/root/projects/amq-examples/amq-js-demo"
+                    "target": "/root/projects/amq-examples/amq-js-demo/"
                 }
             ],
             "host01": [
@@ -62,11 +62,11 @@
                 },
                 {
                     "file": "app.js",
-                    "target": "/root/projects/amq-examples/amq-js-demo"
+                    "target": "/root/projects/amq-examples/amq-js-demo/"
                 },
                 {
                     "file": "package.json",
-                    "target": "/root/projects/amq-examples/amq-js-demo"
+                    "target": "/root/projects/amq-examples/amq-js-demo/"
                 }
             ]
         }
