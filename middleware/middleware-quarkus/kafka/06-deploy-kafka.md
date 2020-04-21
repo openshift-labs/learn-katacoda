@@ -96,29 +96,3 @@ If the pods are still spinning up (not all in the _Running_ state), keep clickin
 
 It will take around 2 minutes to get all the Kafka pods up and running.
 
-## Test Locally
-
-With Kafka deployed, let's test our locally running app (it should still be running in the first Terminal).
-
-We'll use `curl` to access the same streaming endpoint that our web page will eventually access. To access this endpoint, click on the following command:
-
-`curl -i http://localhost:8080/names/stream`{{execute T2}}
-
-This command will connect to the endpoint, recognize it as a streaming endpoint, and begin showing the names from our name generator, with the added honorific. You should see:
-
-```console
-HTTP/1.1 200 OK
-Connection: keep-alive
-Transfer-Encoding: chunked
-Content-Type: text/event-stream
-Date: Mon, 12 Aug 2019 18:50:28 GMT
-
-
-
-data: Mrs. Zest Stealer
-
-data: Sir Sunrise Kitten
-
-data: Lord Mulberry Donkey
-```
-This shows the names coming from our SSE-enabled endpoint. After a few more names, press CTRL-C to end the stream. In the final step we'll deploy our Quarkus app to OpenShift and see these same names as part of a web page visualization. On with the show!

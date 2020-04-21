@@ -1,51 +1,24 @@
-## Build executable JAR
+## Install OpenShift extension
 
-Quarkus applications can be built as executable JARs, or native binary images. Here we'll use an executable JAR to deploy our app. Build the application:
+Quarkus offers the ability to automatically generate OpenShift resources based on sane default and user supplied configuration. The OpenShift extension is actually a wrapper extension that brings together the [kubernetes](https://quarkus.io/guides/deploying-to-kubernetes) and [container-image-s2i](https://quarkus.io/guides/container-image#s2i) extensions with sensible defaults so that it’s easier for the user to get started with Quarkus on OpenShift.
 
-`mvn clean package -DuberJar`{{execute T2}}
+Run the following command to add it to our project:
 
-It produces an executable jar file in the `target/` directory:
+`mvn quarkus:add-extension -Dextensions="openshift"`{{execute T2}}
 
-* `person-1.0-SNAPSHOT-runner.jar` - an executable jar that can be run with `java -jar`
+## Create project
 
-Confirm the JAR file is there with this command:
-
-`file target/*.jar`{{execute T2}}
-
-## Deploy application to OpenShift
-
-Now let's deploy the application itself. Create a new project for our app:
+Create a new project into which we'll deploy the app:
 
 `oc new-project quarkus-kafka --display-name="Quarkus on Kafka"`{{execute T2}}
 
+## Deploy application to OpenShift
 
-Next, create a new _binary_ build definition within OpenShift using the Java container image:
+Now let's deploy the application itself. Run the following command which will build and deploy using the OpenShift extension:
 
-`oc new-build registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift:1.5 --binary --name=people -l app=people`{{execute T2}}
+`mvn clean package -Dquarkus.kubernetes-client.trust-certs=true -Dquarkus.container-image.build=true -Dquarkus.kubernetes.deploy=true -Dquarkus.kubernetes.deployment-target=openshift -Dquarkus.openshift.expose=true -Dquarkus.openshift.labels.app.openshift.io/runtime=java`{{execute T2}}
 
-The output should end with `--> Success`.
-
-> This build uses the new [Red Hat OpenJDK Container Image](https://access.redhat.com/documentation/en-us/red_hat_jboss_middleware_for_openshift/3/html/red_hat_java_s2i_for_openshift/index), providing foundational software needed to run Java applications, while staying at a reasonable size.
-
-And then start and watch the build, which will take about a minute to complete:
-
-`oc start-build people --from-file target/*-runner.jar --follow`{{execute T2}}
-
-It should end with:
-
-```console
-Pushed 5/6 layers, 96% complete
-Pushed 6/6 layers, 100% complete
-Push successful
-```
-
-Once that's done, deploy it as an OpenShift application:
-
-`oc new-app people`{{execute T2}}
-
-and expose it to the world:
-
-`oc expose service people`{{execute T2}}
+The output should end with `BUILD SUCCESS`.
 
 Finally, make sure it's actually done rolling out:
 
