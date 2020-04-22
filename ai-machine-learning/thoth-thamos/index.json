@@ -1,0 +1,31 @@
+{
+  "title": "Thamos CLI",
+  "description": "",
+  "difficulty": "Intermediate",
+  "time": "40",
+  "details": {
+    "steps": [
+      {
+        "title": "Setup the environment.",
+        "text": "setup.md"
+      },
+      {
+        "title": "Running Thamos Advise",
+        "text": "advise.md"
+      }
+    ],
+    "intro": {
+      "code": "set-env.sh",
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal"
+  },
+  "backend": {
+    "imageid": "centos"
+  }
+}
