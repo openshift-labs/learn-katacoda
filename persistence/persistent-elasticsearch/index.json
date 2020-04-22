@@ -1,6 +1,6 @@
 {
     "icon": "fa-openshift",
-    "title": "Persistent storage for Elasticsearch powered by OCS",
+    "title": "Persistent Storage for Elasticsearch Powered by OpenShift Container Storage",
     "description": "e-Library demo app using elasticsearch on Openshift with persistent storage from Openshift Container Storage",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
