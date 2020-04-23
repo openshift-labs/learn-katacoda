@@ -1,0 +1,56 @@
+{
+  "icon": "fa-openshift",
+  "title": "Operator SDK with Go",
+  "description": "Operator SDK with Go",
+  "pathwayTitle": "OpenShift",
+  "difficulty": "beginner",
+  "time": "30 minutes",
+  "details": {
+    "steps": [
+    {
+    	"title": "Creating a New Project",
+    	"text": "step1.md"
+    },{
+			"title": "Adding a New Custom API",
+			"text": "step2.md"
+		},{
+			"title": "Defining the Spec and Status",
+			"text": "step3.md"
+    },{
+			"title": "Adding a New Controller",
+			"text": "step4.md"
+    },{
+			"title": "Customize the Operator Logic",
+			"text": "step5.md"
+    },{
+			"title": "Running the Operator Locally (Inside the Cluster)",
+			"text": "step6.md"
+    },{
+                        "title": "Creating the Custom Resource",
+                        "text": "step7.md"
+    }],
+    "intro": {
+      "code": "set-env.sh",
+      "courseData": "env-init.sh",
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [{"file": ".init.sh", "target": "~/", "chmod": "+x"},{"file": "op-sdk-setup.sh", "target": "~/", "chmod": "+x"}]
+    }
+  },
+  "files": [],
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/tutorial",
+    "showdashboard": true,
+    "dashboard": "Dashboard",
+    "exclusionPatterns": ["./go/bin*", "./go/pkg*"]
+  },
+  "backend": {
+    "imageid": "openshift-3-11",
+    "port": 8443
+  }
+}
