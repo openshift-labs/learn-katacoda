@@ -18,7 +18,7 @@ You can open the editor by clicking on the "Kogito DMN Tooling" tab next to the 
 
 Implement the decision logic as shown in the following video.
 
-https://youtu.be/babjHSNrZBg
+https://youtu.be/NAO0eV5c5tE
 
 After you've defined your DMN model, click on the **Copy to Clipboard** button to copy the DMN XML definition to your clipboard.
 
