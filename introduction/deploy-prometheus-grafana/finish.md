@@ -18,6 +18,11 @@ You can help us by providing your feedback/suggestions [here](https://docs.googl
   We also have created a workshop that will walk you through using the Prometheus API Client: <br>
   https://learn.openshift.com/ai-machine-learning/prometheus-api-client/
 
+### Time-series forecasting on Prometheus metrics
+
+* We have a workshop that shows how Prometheus metrics can be used for data science applications: <br>
+  https://learn.openshift.com/ai-machine-learning/prometheus-timeseries-forecasting/
+
 ### Workshops to learn more about Openshift
 
 * [**Foundations of OpenShift**](https://learn.openshift.com/introduction/) covers basic OpenShift concepts and common tasks.

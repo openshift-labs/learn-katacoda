@@ -17,6 +17,8 @@ OpenShift also provides a feature rich Web Console that provides a friendly grap
 
 ### The Environment
 
-During this tutorial you will be using a hosted OpenShift 4.2 environment that is created just for you. This environment is not shared with other users of the system. Your environment will only be active for a one hour period. Keep this in mind before embarking on getting through the content. Each time you start this tutorial, a new environment will be created on the fly.
+During this tutorial you will be using a hosted OpenShift 4.2 environment that is created just for you. This environment is not shared with other users of the system. <br>
+Your environment will only be active for a one hour period. Keep this in mind before embarking on getting through the content. <br>
+Each time you start this tutorial, a new environment will be created on the fly.
 
 Let's get started!
