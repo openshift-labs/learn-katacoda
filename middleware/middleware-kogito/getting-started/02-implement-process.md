@@ -188,7 +188,7 @@ Since we haven't defined any Task input and output data yet, we can simply compl
 
 This will complete the task, and the process will continue and reach the *End* node and complete.
 
-![Complete Tasks](/openshift/assets/middleware/middleware-kogito/kogito-getting-started-complete-tasks.png)
+![Complete Tasks](/openshift/assets/middleware/middleware-kogito/kogito-getting-started-complete-task.png)
 
 With the task completed, the process instance will now be completed. Execute the following command again in the Terminal by clicking on it. Notice that there are no process instances returned:
 
