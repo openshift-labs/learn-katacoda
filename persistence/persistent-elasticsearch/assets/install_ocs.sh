@@ -4,7 +4,7 @@ set +x
 
 curl -s https://red.ht/3cICp0t > /dev/null
 
-echo "Setting up environment for OCS"
+echo "Setting up environment for OCS - this will take a few minutes"
 
 export OCS_IMAGE=quay.io/mulbc/ocs-operator
 export REGISTRY_NAMESPACE=mulbc

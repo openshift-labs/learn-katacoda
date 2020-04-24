@@ -1,10 +1,10 @@
 RWO storage is the most basic type of storage that is supported by most dynamic storage provisioners in the Kuberneted eco system.
 
-With OCS, each RWO storage device is backed by its own block device, which means that it is well suited for high-IOPs and low-latency operations that are common for database workloads.
+With Openshift Container Storage (OCS), each RWO storage device is backed by its own block device, which means that it is well suited for high-IOPs and low-latency operations that are common for database workloads.
 
-In this section the `ocs-storagecluster-ceph-rbd` *storage class* will be used by an OCP application + database *deployment* to create RWO (ReadWriteOnce) persistent storage. The persistent storage will be a Ceph RBD (RADOS Block Device) volume (object) in the Ceph pool `ocs-storagecluster-cephblockpool`.
+In this section the `ocs-storagecluster-ceph-rbd` *storage class* will be used by an Openshift application + database *deployment* to create RWO (ReadWriteOnce) persistent storage. The persistent storage will be a Ceph RBD (RADOS Block Device) volume (object) in the Ceph pool `ocs-storagecluster-cephblockpool`.
 
-To do so we have created a template file, based on the OpenShift rails-pgsql-persistent template, that includes an extra parameter STORAGE_CLASS that enables the end user to specify the storage class the PVC should use.
+To do so we have created a template file, based on the OpenShift rails-pgsql-persistent template, that includes an extra parameter STORAGE_CLASS that enables the end user to specify the storage class the PVC (Persistent Volume Claim) should use.
 
 
 ```

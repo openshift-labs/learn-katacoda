@@ -4,7 +4,7 @@ set +x
 
 curl -s https://red.ht/3bAH2d0 > /dev/null
 
-echo "Setting up environment for OCS"
+echo "Setting up environment for OCS - this will take a few minutes"
 
 oc label "$(oc get no -o name)" cluster.ocs.openshift.io/openshift-storage='' > /dev/null
 

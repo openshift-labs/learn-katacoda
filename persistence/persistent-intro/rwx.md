@@ -2,7 +2,7 @@ RWX storage is a special kind of storage that can be mounted on several pods at 
 
 With OCS, each RWX storage device is backed by the battle-tested and high-performance distributed filesystem known as CephFS.
 
-This storage type is well suited for scalable applications that need a common filesystem storage. An example of this are webservers that are dynamically scaled up and down based on the amount of visitors.
+This storage type is well suited for scalable applications that need a shared filesystem storage. An example of this are webservers that are dynamically scaled up and down based on the amount of visitors.
 
 In this section the `ocs-storagecluster-cephfs` *Storage Class* will be used to create a RWX (ReadWriteMany) PVC that can be used by multiple pods at the same time. The application we will use is called `File Uploader`.
 
