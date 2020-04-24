@@ -7,16 +7,3 @@ sudo podman pull karansingh/e-library-backend-api-ks:latest
 sudo podman pull karansingh/e-library-frontend-ks:latest
 sudo podman pull mesosphere/aws-cli:latest
 sudo podman pull docker.elastic.co/elasticsearch/elasticsearch:6.1.1
-
-cat <<EOF | oc create -f -
-apiVersion: operators.coreos.com/v1alpha1
-kind: CatalogSource
-metadata:
-  name: ocs-catalogsource
-  namespace: openshift-marketplace
-spec:
-  sourceType: grpc
-  image: quay.io/mulbc/ocs-registry:katacoda
-  displayName: OpenShift Container Storage
-  publisher: Red Hat
-EOF
