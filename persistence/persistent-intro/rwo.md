@@ -54,3 +54,6 @@ To log in, use the following credentials:
 username: openshift
 password: secret
 </pre>
+
+If you want to clean your screen before continuing, just execute:
+`clear`{{execute}}

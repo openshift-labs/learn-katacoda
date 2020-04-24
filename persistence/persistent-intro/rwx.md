@@ -152,3 +152,6 @@ Notice the `ACCESSMODE` being set to *RWX* (short for `ReadWriteMany`).
 All 3 `file-uploader`*Pods* are using the same *RWX* volume. Without this `ACCESSMODE`, OpenShift will not attempt to attach multiple *Pods* to the same *PersistentVolume*
 reliably. If you attempt to scale up deployments that are using *RWO* or `ReadWriteOnce` storage, the *Pods* will actually all become co-located on the same
 node.
+
+If you want to clean your screen before continuing, just execute:
+`clear`{{execute}}
