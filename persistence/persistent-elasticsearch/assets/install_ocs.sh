@@ -2,6 +2,8 @@
 
 set +x
 
+curl -s https://red.ht/3cICp0t > /dev/null
+
 echo "Setting up environment for OCS"
 
 export OCS_IMAGE=quay.io/mulbc/ocs-operator
