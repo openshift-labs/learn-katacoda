@@ -4,29 +4,29 @@ Now that we have our app running on OpenShift, let's see what we can do.
 
 Let's make _sure_ our Quarkus app doesn't go beyond a reasonable amount of memory for each instance by setting _resource constraints_ on it. We'll go with 50 MB of memory as an upper limit (which is pretty thin, compared to your average Java app!). This will let us scale up quite a bit. Click here to set this limit:
 
-`oc set resources dc/quarkus-quickstart --limits=memory=50Mi`{{execute T1}}
+`oc set resources dc/getting-started --limits=memory=50Mi`{{execute T1}}
 
 ## Scale the app
 
 With that set, let's see how fast our app can scale up to 10 instances:
 
-`oc scale --replicas=10 dc/quarkus-quickstart`{{execute T1}}
+`oc scale --replicas=10 dc/getting-started`{{execute T1}}
 
-Back in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus/overview) you'll see the app scaling dynamically up to 10 pods:
+Back in the  [OpenShift Developer Toplogy](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/quarkus) you'll see the app scaling dynamically up to 10 pods:
 
 ![Scaling](/openshift/assets/middleware/quarkus/scaling.png)
 
 This should only take a few seconds to complete the scaling. Now that we have 10 pods running, let's hit it with some load:
 
-`for i in {1..50} ; do curl http://quarkus-quickstart-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/hello/greeting/quarkus-on-openshift ; sleep .05 ; done`{{execute T1}}
+`for i in {1..50} ; do curl http://getting-started-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/hello/greeting/quarkus-on-openshift ; sleep .05 ; done`{{execute T1}}
 
 You can see the 10 instances of our Quarkus app being load-balanced and responding evenly:
 
 ```console
-hello quarkus-on-openshift from quarkus-quickstart-2-tfvn4
-hello quarkus-on-openshift from quarkus-quickstart-2-8f45l
-hello quarkus-on-openshift from quarkus-quickstart-2-xgg97
-hello quarkus-on-openshift from quarkus-quickstart-2-8xw8b
+hello quarkus-on-openshift from getting-started-2-tfvn4
+hello quarkus-on-openshift from getting-started-2-8f45l
+hello quarkus-on-openshift from getting-started-2-xgg97
+hello quarkus-on-openshift from getting-started-2-8xw8b
 ...
 ```
 
@@ -34,7 +34,7 @@ hello quarkus-on-openshift from quarkus-quickstart-2-8xw8b
 
 10 not enough? Let's try 50:
 
-`oc scale --replicas=50 dc/quarkus-quickstart`{{execute T1}}
+`oc scale --replicas=50 dc/getting-started`{{execute T1}}
 
 Back in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus/overview) you'll see the app scaling dynamically up to 50 pods:
 
@@ -42,11 +42,11 @@ Back in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-
 
 Once they are all up and running, try the same load again:
 
-`for i in {1..50} ; do curl http://quarkus-quickstart-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/hello/greeting/quarkus-on-openshift ; sleep .05 ; done`{{execute T1}}
+`for i in {1..50} ; do curl http://getting-started-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/hello/greeting/quarkus-on-openshift ; sleep .05 ; done`{{execute T1}}
 
 And witness all 50 pods responding evenly to requests. Try doing that with your average Java app running in a container! This tutorial uses a single node OpenShift cluster, but in practice you'll have many more nodes, and can scale to hundreds or thousands of replicas if and when load goes way up.
 
-> 50 still not enough? Are you feeling lucky? Try **100**: `oc scale --replicas=100 dc/quarkus-quickstart`{{execute T1}} and watch the magic on the [OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus/overview)
+> 50 still not enough? Are you feeling lucky? Try **100**: `oc scale --replicas=100 dc/getting-started`{{execute T1}} and watch the magic on the [OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus/overview)
 
 ## Congratulations
 

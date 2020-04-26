@@ -45,6 +45,9 @@ When running in production, we'll need a Postgres database on OpenShift. Click t
     --name=postgres-database \
     openshift/postgresql`{{execute T1}}`
 
+And to expose the service port
+`oc expose svc/postgres-database`{{execute T1}}`
+
 ## Configure Quarkus
 
 
@@ -75,8 +78,7 @@ Now let's deploy the application itself. Run the following command which will bu
 -Dquarkus.kubernetes.deploy=true \
 -Dquarkus.kubernetes.deployment-target=openshift \
 -Dquarkus.openshift.expose=true \
--Dquarkus.openshift.labels.app.openshift.io/runtime=java \
--DskipTests`{{execute T1}}`
+-Dquarkus.openshift.labels.app.openshift.io/runtime=java`{{execute T1}}`
 
 The output should end with `BUILD SUCCESS`.
 
