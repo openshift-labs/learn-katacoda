@@ -69,63 +69,6 @@ You should get back our default fruits data. Nice!
 
 In the first Terminal, press `CTRL-C` to stop the running Quarkus native app (or click the `clear`{{execute T1 interrupt}} command to do it for you).
 
-## Deploy to OpenShift
-
-Let's replace our JVM-based app with the native app.
-
-First, re-define the build process to use our native binary by clicking this command:
-
-`oc delete bc/fruit-taster && \
-  oc new-build quay.io/quarkus/ubi-quarkus-native-binary-s2i:19.2.1 \
-  --binary --name=fruit-taster`{{execute T1}}
-
-Next, re-build the container image in OpenShift using our Quarkus binary app:
-
-`oc start-build fruit-taster --from-file target/*-runner \
-  --follow`{{execute T1}}
-
-This will automatically trigger a re-deployment. Wait for it to finish:
-
-`oc rollout status -w dc/fruit-taster`{{execute T1}}
-
-Wait (about 30 seconds) for that command to report `replication controller "fruit-taster-2" successfully rolled out` before continuing.
-
-> If the `oc rollout` command appears to not finish, just `CTRL-C` it and click the `oc rollout` command again.
-
-## Scale the app
-
-With that set, let's see how fast our app can scale up to 10 instances:
-
-`oc scale --replicas=10 dc/fruit-taster`{{execute T1}}
-
-Back in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus-spring/browse/rc/fruit-taster-2?tab=details) you'll see the app scaling dynamically up to 10 pods:
-
-![Scaling](/openshift/assets/middleware/quarkus/scaling.png)
-
-We now have 10 instances running providing better performance. Make sure it still works:
-
-`curl -s http://fruit-taster-quarkus-spring.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/taster | jq`{{execute T1}}
-
-**10 not enough? Try 100!** Click the command to scale this app to 100 instances:
-
-`oc scale --replicas=100 dc/fruit-taster`{{execute T1}}
-
-And watch the pods scale in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus-spring/browse/rc/fruit-taster-2?tab=details). Try that with your traditional Java stack!
-
-It will take a bit longer to scale that much. In the meantime the app continues to respond:
-
-`curl -s http://fruit-taster-quarkus-spring.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/taster | jq`{{execute T1}}
-
-You can watch the 100 pods spinning up:
-
-`oc get pods -w -l app=fruit-taster`{{execute T1}}
-
-Watch as long as you like, then `CTRL-C` the pod watcher.
-
-Finally, scale it back down:
-
-`oc scale --replicas=1 dc/fruit-taster`{{execute T1}}
-
 ## Congratulations!
 
-This step covered the deployment and scaling of a native Quarkus application on OpenShift. However, there is much more, and the integration with these environments has been tailored to make Quarkus applications execution very smooth. For instance, the health extension can be used for [health check](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-application-health); the configuration support allows mounting the application configuration using [config maps](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-configmaps), the metric extension produces data _scrape-able_ by [Prometheus](https://prometheus.io/) and so on.
+This step covered the deployment a Quarkus native application. Lets give this app some super powers and deploy it on Openshift.
