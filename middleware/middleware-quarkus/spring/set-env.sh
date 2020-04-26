@@ -2,7 +2,6 @@
 cd projects
 mkdir -p quarkus
 cd quarkus
-clear
 
 mkdir -p /root/.m2
 cat > ~/.m2/settings.xml <<-EOF1
@@ -74,3 +73,5 @@ cat > ~/.m2/settings.xml <<-EOF1
     </activeProfiles>
 </settings>
 EOF1
+
+clear
