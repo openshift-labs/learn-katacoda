@@ -2,13 +2,9 @@
 
 set +x
 
-curl -s https://red.ht/3cICp0t > /dev/null
+curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&action=start" > /dev/null
 
 echo "Setting up environment for OCS - this will take a few minutes"
-
-export OCS_IMAGE=quay.io/mulbc/ocs-operator
-export REGISTRY_NAMESPACE=mulbc
-export IMAGE_TAG=katacoda
 
 oc label "$(oc get no -o name)" cluster.ocs.openshift.io/openshift-storage='' > /dev/null
 
@@ -35,7 +31,7 @@ metadata:
   namespace: openshift-marketplace
 spec:
   sourceType: grpc
-  image: quay.io/$REGISTRY_NAMESPACE/ocs-registry:$IMAGE_TAG
+  image: quay.io/mulbc/ocs-registry:katacoda
   displayName: OpenShift Container Storage
   publisher: Red Hat
 EOF
@@ -57,7 +53,7 @@ EOF
 
 sleep 10
 
-cat <<EOF | oc create -f - 
+cat <<EOF | oc create -f -
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
@@ -90,7 +86,7 @@ echo "Waiting for operators to be ready"
 while [ "$(oc get csv --all-namespaces | grep -c Succeeded)" -lt 4 ]
 do echo -n .
 
-cat <<EOF | oc create -f - 2&>1 > /dev/null
+cat <<EOF | oc create -f - > /dev/null 2>&1
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
@@ -120,6 +116,7 @@ EOF
 
 sleep 3
 done
+curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&action=operators" > /dev/null
 echo "Operators are ready now"
 
 cat <<EOF | oc create -f - > /dev/null
@@ -190,3 +187,4 @@ oc wait --for=condition=Ready --timeout=10m pod -l app=rook-ceph-tools
 export POD=$(oc get po -l app=rook-ceph-tools -o name)
 
 echo "OCS is installed now"
+curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&action=provisioning" > /dev/null

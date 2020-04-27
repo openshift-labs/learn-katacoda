@@ -2,7 +2,7 @@
 
 set +x
 
-curl -s https://red.ht/3bAH2d0 > /dev/null
+curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&action=start" > /dev/null
 
 echo "Setting up environment for OCS - this will take a few minutes"
 
@@ -86,7 +86,7 @@ echo "Waiting for operators to be ready"
 while [ "$(oc get csv --all-namespaces | grep -c Succeeded)" -lt 4 ]
 do echo -n .
 
-cat <<EOF | oc create -f - > /dev/null 2&>1
+cat <<EOF | oc create -f - > /dev/null 2>&1
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
@@ -116,6 +116,7 @@ EOF
 
 sleep 3
 done
+curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&action=operators" > /dev/null
 echo "Operators are ready now"
 
 cat <<EOF | oc create -f - > /dev/null
@@ -186,3 +187,4 @@ oc wait --for=condition=Ready --timeout=10m pod -l app=rook-ceph-tools
 export POD=$(oc get po -l app=rook-ceph-tools -o name)
 
 echo "OCS is installed now"
+curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&action=provisioning" > /dev/null
