@@ -1,11 +1,7 @@
 #!/bin/bash
 cd /root/projects
 mkdir -p quarkus
-<<<<<<< HEAD
 cd /root/projects/quarkus
-=======
-cd quarkus
->>>>>>> 898da26ceb8ddb2cef328b942b64d5aa94f8bd9f
 
 mkdir -p /root/.m2
 cat > ~/.m2/settings.xml <<-EOF1

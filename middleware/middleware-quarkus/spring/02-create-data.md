@@ -108,12 +108,14 @@ We need to configure our app to define database connection settings. Click: `fru
 Click **Copy to Editor** to add the following values to the `application.properties` file:
 
 <pre class="file" data-filename="./fruit-taster/src/main/resources/application.properties" data-target="replace">
-quarkus.datasource.url=jdbc:postgresql://localhost/fruits
-quarkus.datasource.driver=org.postgresql.Driver
-quarkus.datasource.username=sa
-quarkus.datasource.password=sa
+
+quarkus.datasource.url=jdbc:h2:mem:rest-crud
+quarkus.datasource.driver=org.h2.Driver
+quarkus.datasource.max-size=8
+quarkus.datasource.min-size=2
 quarkus.hibernate-orm.database.generation=drop-and-create
-quarkus.hibernate-orm.sql-load-script = import.sql
+quarkus.hibernate-orm.log.sql=true
+
 </pre>
 
 That’s it! Now you have a database, domain model (`Fruit`) and a repository (`FruitRepository`) to retrieve the domain model, and some sample data.
