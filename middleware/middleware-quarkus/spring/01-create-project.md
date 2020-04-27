@@ -7,7 +7,7 @@ Let's create the basic Quarkus _Hello World_ application and include the necessa
     -DprojectArtifactId=fruit-taster \
     -DplatformGroupId=com.redhat.quarkus \
     -DplatformVersion=1.3.2.Final-redhat-00001 \
-    -Dextensions="spring-data-jpa,spring-web,spring-di,jdbc-postgres" \
+    -Dextensions="spring-data-jpa,spring-web,spring-di,jdbc-postgres, jdbc-h2" \
     -DclassName="org.acme.quickstart.GreetingResource" \
     -Dpath="/hello"`{{execute}}`
 
@@ -17,15 +17,7 @@ This will use the Quarkus Maven Plugin and generate a basic Maven project for yo
 * **spring-web** - Adds Spring Web annotations like `@RestController`, `@RequestMapping`, `@PathVariable`, `@GetMapping`, etc
 * **spring-di** - Adds Spring DI annotations like `@Autowired`, `@Configuration`, `@Component`, etc
 * **jdbc-postgres** - Driver for Postgresql database. Note this is the `jdbc` variant. Reactive programmers may be interested in the [Reactive Postgres Client](https://quarkus.io/guides/reactive-postgres-client).
-
-## Start the database
-
-We'll need a locally running database to test our app during Live Coding. Click the following command to start one in the background:
-
-`docker run --ulimit memlock=-1:-1 --rm=true --memory-swappiness=0 \
-    --name postgres-database -e POSTGRES_USER=sa \
-    -e POSTGRES_PASSWORD=sa -e POSTGRES_DB=fruits \
-    -p 5432:5432 postgres:10.5 >& /dev/null &`{{execute}}
+* **jdbc-h2** - We also use the h2 database for local development
 
 ## Start the app
 

@@ -1,7 +1,7 @@
 #!/bin/bash
-cd projects
+cd /root/projects
 mkdir -p quarkus
-cd quarkus
+cd /root/projects/quarkus
 
 mkdir -p /root/.m2
 cat > ~/.m2/settings.xml <<-EOF1
