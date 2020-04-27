@@ -50,20 +50,27 @@ oc expose svc/postgres-database`{{execute T1}}`
 
 ## Configure Quarkus
 
-
-Since we are now deploying this to Openshift our database will no longer be on localhost.
+Since we are now deploying this to Openshift our database will no longer be on localhost. And our production is running Postgres. How do we handle these multiple configurations? Quarkus has a neat feature where we can create different profiles. So we will use the %dev profile for our local environment.
 
 Click: `fruit-taster/src/main/resources/application.properties`{{open}} to open this file. This file contains Quarkus configuration.
 
 Click **Copy to Editor** to add the following values to the `application.properties` file:
 
 <pre class="file" data-filename="./fruit-taster/src/main/resources/application.properties" data-target="replace">
+%dev.quarkus.datasource.url=jdbc:h2:mem:rest-crud
+%dev.quarkus.datasource.driver=org.h2.Driver
+%dev.quarkus.datasource.max-size=8
+%dev.quarkus.datasource.min-size=2
+%dev.quarkus.hibernate-orm.database.generation=drop-and-create
+%dev.quarkus.hibernate-orm.log.sql=true
+
 quarkus.datasource.url=jdbc:postgresql://postgres-database:5432/fruits
 quarkus.datasource.driver=org.postgresql.Driver
 quarkus.datasource.username=sa
 quarkus.datasource.password=sa
 quarkus.hibernate-orm.database.generation=drop-and-create
 quarkus.hibernate-orm.sql-load-script = import.sql
+
 taste.message = tastes great
 taste.suffix = (if you like fruit!)
 </pre>
