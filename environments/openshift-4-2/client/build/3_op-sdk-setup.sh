@@ -18,6 +18,9 @@ pip2 install --trusted-host files.pythonhosted.org --trusted-host pypi.org --tru
 echo "create tutorial dir"
 mkdir -p $HOME/tutorial
 
+echo "set kube editor"
+KUBE_EDITOR=vim
+
 echo "setup GoLang Environment"
 wget https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz -P /tmp
 tar -C /usr/local -xzf /tmp/go1.13.1.linux-amd64.tar.gz
