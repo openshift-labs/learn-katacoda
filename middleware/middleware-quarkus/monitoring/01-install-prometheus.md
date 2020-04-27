@@ -48,7 +48,7 @@ scrape_configs:
     - targets: ['localhost:9090']
   - job_name: 'hello-app'
     static_configs:
-    - targets: ['primes:8080']
+    - targets: ['getting-started:8080']
 EOF
 ```{{execute}}
 

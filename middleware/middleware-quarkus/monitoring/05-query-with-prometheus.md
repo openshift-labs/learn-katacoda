@@ -5,7 +5,7 @@ With our app deployed to OpenShift, let's setup a loop that will test random num
 `while [ true ] ; do
         BITS=$(( ( RANDOM % 60 )  + 1 ))
         NUM=$(openssl prime -generate -bits $BITS)
-        curl http://primes-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/prime/${NUM}
+        curl http://getting-started-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/prime/${NUM}
         sleep 2
 done`{{execute}}
 
