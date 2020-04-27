@@ -39,8 +39,6 @@ Make sure the app is still working as expected (we'll use `curl` this time to ac
 
 `curl -s http://localhost:8080/fruits | jq`{{execute T2}}
 
-You should get back our default fruits data. Nice!
-
 ## Cleanup
 
 In the first Terminal, press `CTRL-C` to stop the running Quarkus native app (or click the `clear`{{execute T1 interrupt}} command to do it for you).

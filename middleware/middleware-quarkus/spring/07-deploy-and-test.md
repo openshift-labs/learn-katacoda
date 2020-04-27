@@ -46,7 +46,7 @@ When running in production, we'll need a Postgres database on OpenShift. Click t
     openshift/postgresql`{{execute T1}}`
 
 And to expose the service port
-`oc expose svc/postgres-database`{{execute T1}}`
+oc expose svc/postgres-database`{{execute T1}}`
 
 ## Configure Quarkus
 
@@ -78,6 +78,7 @@ Now let's deploy the application itself. Run the following command which will bu
 -Dquarkus.kubernetes.deploy=true \
 -Dquarkus.kubernetes.deployment-target=openshift \
 -Dquarkus.openshift.expose=true \
+-DskipTest \
 -Dquarkus.openshift.labels.app.openshift.io/runtime=java`{{execute T1}}`
 
 The output should end with `BUILD SUCCESS`.
@@ -118,7 +119,8 @@ You should see the same fruits being tasted:
   ...
 ```
 
-So now our app is deployed to OpenShift. You can also see it in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus-spring/browse/rc/fruit-taster-1?tab=details) with its single replica running in 1 pod (the blue circle).
+
+You can also see the app deployed in the [OpenShift Developer Toplogy](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/quarkus-spring)
 
 
 ## Scale the app
@@ -127,7 +129,7 @@ With that set, let's see how fast our app can scale up to 10 instances:
 
 `oc scale --replicas=10 dc/fruit-taster`{{execute T1}}
 
-Back in the [Overview in the OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus-spring/browse/rc/fruit-taster-2?tab=details) you'll see the app scaling dynamically up to 10 pods:
+Back in the [OpenShift Developer Toplogy](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/quarkus-spring) you'll see the app scaling dynamically up to 10 pods:
 
 ![Scaling](/openshift/assets/middleware/quarkus/scaling.png)
 
@@ -138,8 +140,6 @@ We now have 10 instances running providing better performance. Make sure it stil
 **10 not enough? Try 100!** Click the command to scale this app to 100 instances:
 
 `oc scale --replicas=100 dc/fruit-taster`{{execute T1}}
-
-You can also see the app deployed in the [OpenShift Developer Toplogy](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/quarkus-sprin):
 
 
 It will take a bit longer to scale that much. In the meantime the app continues to respond:
@@ -156,7 +156,6 @@ Finally, scale it back down:
 
 `oc scale --replicas=1 dc/fruit-taster`{{execute T1}}
 
-
 ## Congratulations!
 
-This step covered the deployment of a Quarkus application on OpenShift. However, there is much more, and the integration with these environments has been tailored to make Quarkus applications execution very smooth. For instance, the health extension can be used for [health check](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-application-health); the configuration support allows mounting the application configuration using [config maps](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-configmaps), the metric extension produces data _scrape-able_ by [Prometheus](https://prometheus.io/) and so on.
+This step covered the deployment of a Quarkus application on OpenShift. To try out the native features, try the Getting Started tutorial. There is much more, and the integration with these environments has been tailored to make Quarkus applications execution very smooth. For instance, the health extension can be used for [health check](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-application-health); the configuration support allows mounting the application configuration using [config maps](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-configmaps), the metric extension produces data _scrape-able_ by [Prometheus](https://prometheus.io/) and so on.
