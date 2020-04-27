@@ -30,7 +30,7 @@
   ],
   "environment": {
     "showdashboard": true,
-    "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
+    "dashboards": [{"name":"Local Web Browser","href": "https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com"},{"name":"OpenShift Console","port":8443}],
     "uilayout": "editor-terminal",
     "uisettings": "java",
     "hideintro": false,
