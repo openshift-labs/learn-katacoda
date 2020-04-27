@@ -45,9 +45,6 @@ When running in production, we'll need a Postgres database on OpenShift. Click t
     --name=postgres-database \
     openshift/postgresql`{{execute T1}}`
 
-And to expose the service port
-oc expose svc/postgres-database`{{execute T1}}`
-
 ## Configure Quarkus
 
 Since we are now deploying this to Openshift our database will no longer be on localhost. And our production is running Postgres. How do we handle these multiple configurations? Quarkus has a neat feature where we can create different profiles. So we will use the %dev profile for our local environment.
@@ -85,7 +82,7 @@ Now let's deploy the application itself. Run the following command which will bu
 -Dquarkus.kubernetes.deploy=true \
 -Dquarkus.kubernetes.deployment-target=openshift \
 -Dquarkus.openshift.expose=true \
--DskipTest \
+-DskipTests \
 -Dquarkus.openshift.labels.app.openshift.io/runtime=java`{{execute T1}}`
 
 The output should end with `BUILD SUCCESS`.
@@ -146,14 +143,14 @@ We now have 10 instances running providing better performance. Make sure it stil
 
 **10 not enough? Try 100!** Click the command to scale this app to 100 instances:
 
-`oc scale --replicas=100 dc/fruit-taster`{{execute T1}}
+`oc scale --replicas=50 dc/fruit-taster`{{execute T1}}
 
 
 It will take a bit longer to scale that much. In the meantime the app continues to respond:
 
 `curl -s http://fruit-taster-quarkus-spring.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/taster | jq`{{execute T1}}
 
-You can watch the 100 pods spinning up:
+You can watch the 50 pods spinning up:
 
 `oc get pods -w -l app=fruit-taster`{{execute T1}}
 
