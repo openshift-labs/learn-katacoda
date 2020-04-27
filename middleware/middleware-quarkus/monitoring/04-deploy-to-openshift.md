@@ -35,13 +35,13 @@ For more details of the above options:
 
 Now let's deploy the application itself. Run the following command which will build and deploy using the OpenShift extension:
 
-`mvn clean package`{{execute T2}}
+`mvn clean package`{{execute}}
 
 The output should end with `BUILD SUCCESS`.
 
 Finally, make sure it's actually done rolling out:
 
-`oc rollout status -w dc/getting-started`{{execute T2}}
+`oc rollout status -w dc/getting-started`{{execute}}
 
 Wait for that command to report `replication controller "getting-started-1" successfully rolled out` before continuing.
 
