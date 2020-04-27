@@ -1,52 +1,45 @@
 Now that we have our app built, let's move it into containers and into the cloud where Prometheus can scrape from.
 
-## Build executable JAR
+## Install OpenShift extension
 
-Quarkus applications can be built as executable JARs, or native binary images. Here we'll use an executable JAR to deploy our app. Build the application:
+Quarkus offers the ability to automatically generate OpenShift resources based on sane default and user supplied configuration. The OpenShift extension is actually a wrapper extension that brings together the [kubernetes](https://quarkus.io/guides/deploying-to-kubernetes) and [container-image-s2i](https://quarkus.io/guides/container-image#s2i) extensions with defaults so that it’s easier for the user to get started with Quarkus on OpenShift.
 
-`mvn clean package -DskipTests`{{execute}}
+Run the following command to add it to our project:
 
-It produces 2 jar files:
+`mvn quarkus:add-extension -Dextensions="openshift"`{{execute}}
 
-* `getting-started-1.0-SNAPSHOT.jar` - containing just the classes and resources of the projects, it’s the regular artifact produced by the Maven build
+Click **Copy to Editor** to add the following values to the `application.properties` file:
 
-* `getting-started-1.0-SNAPSHOT-runner.jar` - being an executable jar. Be aware that it’s not an über-jar as the dependencies are copied into the `target/lib` directory.
+<pre class="file" data-filename="./src/main/resources/application.properties" data-target="replace">
+# Configure the OpenShift extension options (we write to it)
+quarkus.kubernetes-client.trust-certs=true
+quarkus.container-image.build=true
+quarkus.kubernetes.deploy=true
+quarkus.kubernetes.deployment-target=openshift
+quarkus.openshift.expose=true
+quarkus.openshift.labels.app.openshift.io/runtime=java
+</pre>
+
+For more details of the above options:
+
+* `quarkus.kubernetes-client.trust-certs=true` - We are using self-signed certs in this simple example, so this simply says to the extension to trust them.
+* `quarkus.container-image.build=true` - Instructs the extension to build a container image
+* `quarkus.kubernetes.deploy=true` - Instructs the extension to deploy to OpenShift after the container image is built
+* `quarkus.kubernetes.deployment-target=openshift` - Instructs the extension to generate and create the OpenShift resources (like `DeploymentConfig`s and `Service`s) after building the container
+* `quarkus.openshift.expose=true` - Instructs the extension to generate an OpenShift `Route`.
+* `quarkus.openshift.labels.app.openshift.io/runtime=java` - Adds a nice-looking icon to the app when viewing the OpenShift Developer Toplogy
 
 ## Deploy to OpenShift
 
-Now let's deploy the application itself. First, create a new _binary_ build definition within OpenShift using the Java container image:
+Now let's deploy the application itself. Run the following command which will build and deploy using the OpenShift extension:
 
-`oc new-build registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift:1.5 --binary --name=primes -l app=primes`{{execute}}
+`mvn clean package`{{execute T2}}
 
-> This build uses the new [Red Hat OpenJDK Container Image](https://access.redhat.com/documentation/en-us/red_hat_jboss_middleware_for_openshift/3/html/red_hat_java_s2i_for_openshift/index), providing foundational software needed to run Java applications, while staying at a reasonable size.
-
-Next, create a directory to house only our previously-built app plus the `lib` directory:
-
-`rm -rf target/binary && mkdir -p target/binary && cp -r target/*-runner.jar target/lib target/binary`{{execute}}
-
-> Note that you could also use a true source-based S2I build, but we're using binaries here to save time.
-
-And then start and watch the build, which will take about a minute to complete:
-
-`oc start-build primes --from-dir=target/binary --follow`{{execute}}
-
-> This command will take about 1 minute to complete. Wait for it!
-
-It should end with:
-
-```
-Pushed 5/6 layers, 95% complete
-Pushed 6/6 layers, 100% complete
-Push successful
-```
-
-Once that's done, deploy it as an OpenShift application:
-
-`oc new-app primes && oc expose service primes`{{execute}}
+The output should end with `BUILD SUCCESS`.
 
 Finally, make sure it's actually done rolling out:
 
-`oc rollout status -w dc/primes`{{execute}}
+`oc rollout status -w dc/primes`{{execute T2}}
 
 Wait for that command to report `replication controller "primes-1" successfully rolled out` before continuing.
 
