@@ -70,9 +70,9 @@ taste.suffix = (if you like fruit!)
 
 ## Deploy application to OpenShift
 
-Now let's deploy the application itself. Run the following command which will build and deploy a Quarkus native application using the OpenShift extension:
+Now let's deploy the application itself. Run the following command which will build and deploy the Quarkus app in Openshift:
 
-`mvn clean package -Pnative \
+`mvn clean package \
 -Dquarkus.kubernetes-client.trust-certs=true \
 -Dquarkus.container-image.build=true \
 -Dquarkus.kubernetes.deploy=true \
