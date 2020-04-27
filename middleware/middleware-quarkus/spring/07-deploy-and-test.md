@@ -135,7 +135,7 @@ With that set, let's see how fast our app can scale up to 10 instances:
 
 Back in the [OpenShift Developer Toplogy](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/quarkus-spring) you'll see the app scaling dynamically up to 10 pods:
 
-![Scaling](/openshift/assets/middleware/quarkus/scaling.png)
+![Scaling](/openshift/assets/middleware/quarkus/scaling_spring_.png)
 
 We now have 10 instances running providing better performance. Make sure it still works:
 
