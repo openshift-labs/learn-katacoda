@@ -2,7 +2,7 @@
 
 set +x
 
-curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&action=start" > /dev/null
+curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&lab=elastic&action=start" > /dev/null
 
 echo "Setting up environment for OCS - this will take a few minutes"
 
@@ -116,7 +116,7 @@ EOF
 
 sleep 3
 done
-curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&action=operators" > /dev/null
+curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&lab=elastic&action=operators" > /dev/null
 echo "Operators are ready now"
 
 cat <<EOF | oc create -f - > /dev/null
@@ -187,4 +187,4 @@ oc wait --for=condition=Ready --timeout=10m pod -l app=rook-ceph-tools
 export POD=$(oc get po -l app=rook-ceph-tools -o name)
 
 echo "OCS is installed now"
-curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&action=provisioning" > /dev/null
+curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&lab=elastic&action=provisioning" > /dev/null
