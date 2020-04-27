@@ -1,0 +1,16 @@
+{
+  "title": "Adding Persistence to OpenShift",
+  "icon": "fa-openshift",
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/persistence/persistent-intro/",
+      "course_id": "persistent-intro",
+      "title": "Making Persistent Storage Calls in Your Application"
+    },
+    {
+      "external_link": "https://learn.openshift.com/persistence/persistent-elasticsearch/",
+      "course_id": "persistent-elasticsearch",
+      "title": "Persistent Storage for Elasticsearch Powered by OpenShift Container Storage"
+    }
+  ]
+}

@@ -2,12 +2,14 @@
 
 Let's create the basic Quarkus _Hello World_ application and include the necessary spring extensions. Click this command to create the project:
 
-`mvn io.quarkus:quarkus-maven-plugin:1.0.0.CR1:create \
+`mvn io.quarkus:quarkus-maven-plugin:1.3.2.Final-redhat-00001:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=fruit-taster \
-    -DclassName="org.acme.quickstart.GreetingResource" \
+    -DplatformGroupId=com.redhat.quarkus \
+    -DplatformVersion=1.3.2.Final-redhat-00001 \
     -Dextensions="spring-data-jpa,spring-web,spring-di,jdbc-postgres" \
-    -Dpath="/hello"`{{execute}}
+    -DclassName="org.acme.quickstart.GreetingResource" \
+    -Dpath="/hello"`{{execute}}`
 
 This will use the Quarkus Maven Plugin and generate a basic Maven project for you in the `fruit-taster` subdirectory and include the following extensions to enable Spring annotations and APIs:
 

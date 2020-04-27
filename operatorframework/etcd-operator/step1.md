@@ -38,5 +38,5 @@ oc create -f etcd-operator-crd.yaml
 Verify the CRD was successfully created.
 
 ```
-oc get crd
+oc get crd etcdclusters.etcd.database.coreos.com
 ```{{execute}}
