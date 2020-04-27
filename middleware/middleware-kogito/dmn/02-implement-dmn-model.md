@@ -14,7 +14,7 @@ To create our DMN model, we first need to create a new file: `airmiles-service/s
 
 DMN uses a graphical modeling language/notation to define decisions. Therefore, Kogito provides a graphical DMN editor as part of its toolset. Apart from providing this editor as an extension to _Visual Studio Code_ and _Red Hat Code Ready Workspaces_, we also  provide this editor online.
 
-You can open the editor by clicking on the "Kogito DMN Tooling" tab next to the "Local Web Browser" tab to open the Kogito DMN Tooling, or navigate to: https://dmn.new
+You can open the editor by clicking on the "Kogito DMN Tooling" tab next to the "OpenShift Console" tab to open the Kogito DMN Tooling, or navigate to: https://dmn.new
 
 Implement the decision logic as shown in the following video.
 

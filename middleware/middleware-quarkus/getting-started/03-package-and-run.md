@@ -24,7 +24,7 @@ You can run the packaged application by clicking:
 
 `java -jar target/getting-started-1.0-SNAPSHOT-runner.jar`{{execute}}
 
-And then test it again using the browser to access the `/hello/greeting` endpoint, passing `quarkus` in the URL using [this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello/greeting/quarkus).
+And then test it again using the browser to access the `/hello/greeting` endpoint, passing `quarkus` in the URL using [this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello/greeting/quarkus).
 
 You should see:
 
