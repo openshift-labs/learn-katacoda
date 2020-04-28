@@ -19,7 +19,6 @@ To monitor progress as the database is deployed and made ready, run the command:
 
 ``oc rollout status dc/database``{{execute}}
 
-
 Now that we have a new database and a new project for our production system in place, its a good idea we should also change our application configuration. 
 
 To do that, let use configuration profiles, Quarkus allows you to have multiple configuration profiles, so in our case we can have one for developers prefixed with %dev. and then one for our production. 
@@ -60,7 +59,7 @@ You can run the packaged application by clicking:
 
 `java -jar target/reactive-sql-1.0-SNAPSHOT-runner.jar`{{execute}}
 
-And then test using the browser to access the `/` endpoint at [this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/).
+And then test using the browser to access the `/` endpoint at [this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/).
 
 
 > The `Class-Path` entry of the `MANIFEST.MF` from the _runner jar_ explicitly lists the jars from the `lib` directory. So if you want to deploy your application somewhere, you need to copy the _runner jar_ as well as the _lib_ directory. If you want to create an Uber-jar with everything included, you can use `mvn pakage -DuberJar`.
