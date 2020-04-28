@@ -1,11 +1,21 @@
 ## Generate Load
 
+Click the following command to verify openssl is installed. If it is not, you may need to wait a few seconds and click the command again until it reports a proper version"
+
+`openssl version`{{execute}}
+
+Then you should see
+
+```console
+OpenSSL 1.1.1c FIPS  28 May 2019
+```
+
 With our app deployed to OpenShift, let's setup a loop that will test random numbers for primeness. Click the following command to endlessly run `curl` every 2 seconds with a random prime number:
 
 `while [ true ] ; do
         BITS=$(( ( RANDOM % 60 )  + 1 ))
         NUM=$(openssl prime -generate -bits $BITS)
-        curl http://primes-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/prime/${NUM}
+        curl http://getting-started-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/prime/${NUM}
         sleep 2
 done`{{execute}}
 
