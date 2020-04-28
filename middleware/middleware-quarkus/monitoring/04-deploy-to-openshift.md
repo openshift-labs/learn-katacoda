@@ -8,7 +8,7 @@ Run the following command to add it to our project:
 
 `mvn quarkus:add-extension -Dextensions="openshift"`{{execute}}
 
-Open here to add OpenShift properties: `getting-started/src/main/resources/application.properties`{{open}}.
+Open here to add OpenShift properties: `primes/src/main/resources/application.properties`{{open}}.
 
 Then click **Copy to Editor** to add the following values to the `application.properties` file:
 
@@ -41,16 +41,16 @@ The output should end with `BUILD SUCCESS`.
 
 Finally, make sure it's actually done rolling out:
 
-`oc rollout status -w dc/getting-started`{{execute}}
+`oc rollout status -w dc/primes`{{execute}}
 
-Wait for that command to report `replication controller "getting-started-1" successfully rolled out` before continuing.
+Wait for that command to report `replication controller "primes-1" successfully rolled out` before continuing.
 
 And now we can access using `curl` once again to test our primes:
 
-`curl http://getting-started-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/prime/1`{{execute}}
+`curl http://primes-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/prime/1`{{execute}}
 
-`curl http://getting-started-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/prime/350`{{execute}}
+`curl http://primes-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/prime/350`{{execute}}
 
-`curl http://getting-started-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/prime/629521085409773`{{execute}}
+`curl http://primes-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/prime/629521085409773`{{execute}}
 
 With our app rolled out, Prometheus should start collecting metrics. Let's take a look in the next exercise.
