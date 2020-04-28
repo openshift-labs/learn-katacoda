@@ -7,4 +7,5 @@ Thamos is the CLI application offered by Thoth that interacts with Thoth Backend
 You can find the full documentation on Thamos here - [Link](https://thoth-station.ninja/docs/developers/thamos/)
 
 ## About the environment. 
-This is a CENTOS environment with a terminal and an editor. 
+This is a CENTOS environment with a terminal and an editor.<br>
+We are operating our services on the MassOpen.cloud [#operatefirst](https://massopen.cloud/connected-initiatives/operate-first)

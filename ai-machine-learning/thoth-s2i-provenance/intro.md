@@ -25,4 +25,5 @@ prefix s2i.
 
 We are going to discover more about it in the next step how you can customize the process.
 
-In this demo, we are going to use an Openshift 4.2 playground.
+In this demo, we are going to use an Openshift 4.2 playground.<br>
+We are operating our services on the MassOpen.cloud [#operatefirst](https://massopen.cloud/connected-initiatives/operate-first)

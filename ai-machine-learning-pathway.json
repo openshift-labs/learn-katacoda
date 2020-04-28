@@ -48,8 +48,8 @@
       "title": "Thoth S2I build with Provenance check on OpenShift"
     },
     {
-      "external_link": "https://learn.openshift.com/ai-machine-learning/thoth-thamos/",
-      "course_id": "thoth-thamos",
+      "external_link": "https://learn.openshift.com/ai-machine-learning/thoth-cli/",
+      "course_id": "thoth-cli",
       "title": "Thoth Thamos CLI Guide"
     }
   ]
