@@ -3,18 +3,18 @@
 Out of the box, you get a lot of basic JVM metrics which are useful, but what if you wanted to provide metrics for your
 app? Let’s add a few using the MicroProfile Metrics APIs.
 
-Click here to open the `getting-started/src/main/java/org/acme/quickstart/GreetingResource.java`{{open}}.
+Click here to open the `primes/src/main/java/org/acme/quickstart/GreetingResource.java`{{open}}.
 
 Let’s add a metric to count the number of times we’ve greeted someone. Click **Copy to Editor** to add the following annotation to the `hello()` method:
 
-<pre class="file" data-filename="./getting-started/src/main/java/org/acme/quickstart/GreetingResource.java" data-target="insert" data-marker="@GET">
+<pre class="file" data-filename="./primes/src/main/java/org/acme/quickstart/GreetingResource.java" data-target="insert" data-marker="@GET">
 @Counted(name = "greetings", description = "How many greetings we've given.")
     @GET
 </pre>
 
 You'll need to import the new `Counted` class, so click **Copy To Editor** to add it:
 
-<pre class="file" data-filename="./getting-started/src/main/java/org/acme/quickstart/GreetingResource.java" data-target="insert" data-marker="import javax.ws.rs.GET;">
+<pre class="file" data-filename="./primes/src/main/java/org/acme/quickstart/GreetingResource.java" data-target="insert" data-marker="import javax.ws.rs.GET;">
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import javax.ws.rs.GET;
 </pre>
@@ -52,11 +52,11 @@ again, and you’ll see the number rise.
 
 Let’s add another class with some different types of metrics. This new class implements an algorithm for checking whether a number is a prime number. This algorithm is exposed over a REST interface. Additionally, we need a few annotations to make sure that our desired metrics are calculated over time and can be exported for manual analysis or processing by additional tooling.
 
-Click here to create a new class: `getting-started/src/main/java/org/acme/quickstart/PrimeNumberChecker.java`{{open}}.
+Click here to create a new class: `primes/src/main/java/org/acme/quickstart/PrimeNumberChecker.java`{{open}}.
 
 Then click **Copy To Editor** to create the code with metrics:
 
-<pre class="file" data-filename="./getting-started/src/main/java/org/acme/quickstart/PrimeNumberChecker.java" data-target="replace">
+<pre class="file" data-filename="./primes/src/main/java/org/acme/quickstart/PrimeNumberChecker.java" data-target="replace">
 package org.acme.quickstart;
 
 import org.eclipse.microprofile.metrics.MetricUnits;
