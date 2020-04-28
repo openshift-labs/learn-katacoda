@@ -27,12 +27,12 @@ At the password change prompt, use any password you wish.
 
 You’ll land on the Data Source screen. Click **Add Data Source**, and select **Prometheus** as the *Data Source Type*.
 
-In the URL box, type `http://prometheus:9090` (this is the hostname and port of our running Prometheus in our
+In the URL box, type ``http://prometheus:9090``{{copy}} (this is the hostname and port of our running Prometheus in our
 namespace):
 
 > **WARNING**
 >
-> If you skip this step, you'll get errors and things won't work! Make sure to change it to `http://prometheus:9090`!
+> If you skip this step, you'll get errors and things won't work! Make sure to change it to ``http://prometheus:9090``{{copy}}!
 
 ![Grafana UI](/openshift/assets/middleware/quarkus/grafds.png)
 
