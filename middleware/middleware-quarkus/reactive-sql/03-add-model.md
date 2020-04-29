@@ -37,11 +37,11 @@ Lets move on to deploy this application
 
 Since we still have our app running using `mvn quarkus:dev`, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live reload them.
 
-Check that it works as expected by loading the new endpoint by [clicking here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/).
+Check that it works as expected by loading the new endpoint by [clicking here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/).
 
 
 ## Congratulations!
 
 Now you have a running app, with a reactive database extension. 
 In the next step, we'll package and run it as a standalone executable JAR, which should also be familiar to microservice developers.
-Now Cancel the running dev session by pressing `CTRL+C` before moving ahead.
+Now Cancel the running dev session by clicking the `clear`{{execute T1 interrupt}} before moving ahead.

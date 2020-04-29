@@ -71,6 +71,6 @@ Installed features: [cdi, reactive-pg-client, resteasy, resteasy-jsonb, vertx]
 
 Note the amazingly fast startup time! The app is now running "locally" (within the Linux container in which this exercise runs).
 
-Test that the app is running using the browser to access the `/` endpoint at [this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
+Test that the app is running using the browser to access the `/` endpoint at [this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
 
 Leave the app running, and let's start adding to it. Everytime we add something to our code, quarkus will hot reload.

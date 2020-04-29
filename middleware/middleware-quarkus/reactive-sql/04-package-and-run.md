@@ -23,9 +23,9 @@ Now that we have a new database and a new project for our production system in p
 
 To do that, let use configuration profiles, Quarkus allows you to have multiple configuration profiles, so in our case we can have one for developers prefixed with %dev. and then one for our production. 
 
-Open the application.properties `src/main/resources/application.properties` {{open}} and replace all the lines with the new application.properies config as stated below. 
+Open the application.properties: `src/main/resources/application.properties`{{open}} and replace all the lines with the new application.properies config as stated below. 
 
-<pre>
+<pre class="file" data-filename="./src/main/resources/application.properties" data-target="replace">
 %dev.quarkus.datasource.url=vertx-reactive:postgresql://database.default.svc:5432/sampledb
 %dev.quarkus.datasource.username=username
 %dev.quarkus.datasource.password=password
@@ -33,7 +33,6 @@ Open the application.properties `src/main/resources/application.properties` {{op
 quarkus.datasource.url=vertx-reactive:postgresql://database.reactive-sql.svc:5432/sampledb
 quarkus.datasource.username=username
 quarkus.datasource.password=password
-
 </pre>
 
 So now if you do `mvn quarkus:dev:` it will pick up the dev config profile otherwise it will take the default one, which we will use for our new deployment on openshift.
@@ -66,7 +65,7 @@ And then test using the browser to access the `/` endpoint at [this link](https:
 
 ## Cleanup
 
-Go back to the terminal and stop the app once again by pressing `CTRL-C`.
+Go back to the terminal and stop the app once again by clicking the `clear`{{execute T1 interrupt}}.
 
 ## Congratulations!
 
