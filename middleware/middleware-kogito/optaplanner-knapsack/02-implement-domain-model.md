@@ -11,13 +11,13 @@ In every OptaPlanner application, we have so called `PlanningEntities` and `Plan
 
 We will implement the `Ingot` class. To do this, we first need to create a new package in our project:
 
-`mkdir -p /root/projects/kogito/knapsack-optaplanner-quarkus/src/main/java/om/redhat/knapsackoptaplanner/domain`{{execute T2}}
+`mkdir -p /root/projects/kogito/knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain`{{execute T2}}
 
 We can no open a new `Ingot.java` file in this package by clicking: `knapsack-optaplanner-quarkus/src/main/java/om/redhat/knapsackoptaplanner/domain/Ingot.java`{{open}}
 
 Click on the _Copy to Editor_ link to copy the source code into the new `Ingot.java`file.
 
-<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/om/redhat/knapsackoptaplanner/domain/Ingot.java" data-target="replace">
+<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Ingot.java" data-target="replace">
 package com.redhat.knapsackoptaplanner.domain;
 
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
@@ -69,4 +69,4 @@ public class Ingot {
 
 ## Congratulations!
 
-You've implemented the domain model of your Kogito business rules project. In the next step, we will implement the _RuleUnit_ of our application.
+You've implemented the domain model of your OptaPlanner Quarkus application. In the next step, we will implement the _PlanningSolution_ of our application.

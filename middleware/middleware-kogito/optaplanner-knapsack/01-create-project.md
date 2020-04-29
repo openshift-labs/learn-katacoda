@@ -33,13 +33,7 @@ We will now run the OptaPlanner application in development mode. This allows us 
 
 `mvn clean compile quarkus:dev`{{execute}}
 
-When the application has started, you can access the [Swagger UI](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).
-
-You should see the following page:
-
-![New OptaPlanner Quarkus Swagger UI](/openshift/assets/middleware/middleware-kogito/new-kogito-quarkus-empty-swagger-ui.png)
-
-It's working!
+The application will start in dev-mode, but will print an error that it can't find any classes annotated with `@PlanningSolution`. This is expected!
 
 # Congratulations!
 
