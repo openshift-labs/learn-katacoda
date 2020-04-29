@@ -1,8 +1,8 @@
 {
-  "pathwayTitle": "Intro to Quarkus",
+  "pathwayTitle": "Reactive programming with Quarkus Reactive SQL",
   "icon": "fa-java",
-  "title": "Introduction to Quarkus",
-  "description": "In this scenario you will learn more about Quarkus: Supersonic, Subatomic Java",
+  "title": "Reactive programming with Quarkus Reactive SQL",
+  "description": "In this scenario, you will learn more about Reactive programming with Quarkus and the Reactive SQL extension",
   "difficulty": "beginner",
   "time": "10 minutes",
   "details": {
