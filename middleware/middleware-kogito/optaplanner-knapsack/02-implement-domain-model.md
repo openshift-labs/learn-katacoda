@@ -69,7 +69,7 @@ public class Ingot {
 
 We first need to tell OptaPlanner that this class is our `PlanningEntity` class. To do this, we set the `@PlanningEntity` annotation on the class:
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Ingot.java" data-target="insert" data-marker="//Add PlanningEntity annotation">
-  @PlanningEntity
+@PlanningEntity
 </pre>
 
 #### Planning Variable

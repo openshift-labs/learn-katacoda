@@ -84,7 +84,7 @@ The next thing we need to add is the `PlanningScore`. In this knapsack problem w
 
 We add a `HardSoftScore` attribute to the planning solution class and add an `@PlanningScore` annotation to this attribute:
 
-<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/KnapsackSolution.java" data-target="insert" data-marker="//Add Knapsack here">
+<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/KnapsackSolution.java" data-target="insert" data-marker="//Add PlanningScore here">
   @PlanningScore
   private HardSoftScore score;
 </pre>
