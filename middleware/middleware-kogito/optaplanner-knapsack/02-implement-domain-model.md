@@ -68,7 +68,7 @@ public class Ingot {
 ### Planning Entity
 
 We first need to tell OptaPlanner that this class is our `PlanningEntity` class. To do this, we set the `@PlanningEntity` annotation on the class:
-<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Ingot.java" data-target="insert" data-marker="//PlanningEntity annotation">
+<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Ingot.java" data-target="insert" data-marker="//Add PlanningEntity annotation">
   @PlanningEntity
 </pre>
 
@@ -76,7 +76,7 @@ We first need to tell OptaPlanner that this class is our `PlanningEntity` class.
 
 Second, we need to configure our `PlanningVariable`. In this example, the planning variable, i.e. the property that changes during planning, is the `selected` attribute of our planning entity class. We mark this property with the `@PlanningVariable` annotation. We also specify the so called _valuerange provider_. This is the entity in our application that provides the range of possible values of our planning variable. In this example, since our planning variable is a boolean, this will simply be the range of `true` and `false`. We will define this provider in the next step:
 
-<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Ingot.java" data-target="insert" data-marker="//PlanningEntity annotation">
+<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Ingot.java" data-target="insert" data-marker="  //Add Planning Variable annotation">
   @PlanningVariable(valueRangeProviderRefs = "selected")
 </pre>
 
