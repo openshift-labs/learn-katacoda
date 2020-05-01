@@ -1,4 +1,4 @@
-Next, let's make it possible to customize the replica count for our [nginx deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)** by adding an `nginx_replicas` variable to the DeploymentConfig template and filling the variable value dynamically with Ansible.
+Next, let's make it possible to customize the replica count for our [nginx deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment) by adding an `nginx_replicas` variable to the Deployment template and filling the variable value dynamically with Ansible.
 
 ---
 
@@ -22,10 +22,8 @@ wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/oper
 
 ###### **b. Modify nginx deployment definition `nginx-deployment.yml.j2` to read `replicas` from the `nginx_replicas` variable**
 
- <pre class="file"
-  data-filename="/root/tutorial/example-role/templates/nginx-deployment.yml.j2"
-   data-target="replace">
-kind: DeploymentConfig
+ <pre class="file">
+kind: Deployment
 apiVersion: v1
 metadata:
   name: nginx-deployment
@@ -55,7 +53,7 @@ wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/oper
 
 ###### **c. Run the Playbook to change the nginx replica count**
 
-Running the Playbook again will read the variable `nginx_replicas` and use the provided value to customize the nginx DeploymentConfig.
+Running the Playbook again will read the variable `nginx_replicas` and use the provided value to customize the nginx Deployment.
 
  `ansible-playbook -i myhosts playbook.yml`{{execute}}
 
