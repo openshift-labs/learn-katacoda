@@ -1,4 +1,34 @@
-Now that we have deployed our Operator, let's create a CR and deploy an instance
+## Copying Roles for local development
+It is important that the Role path referenced in watches.yaml exists on
+your machine. 
+
+To run our Operator locally, we will manually copy any Roles used by our Operator to a configured Ansible
+Roles path for our local machine (e.g /etc/ansible/roles).
+
+`cp -r ~/tutorial/memcached-operator/roles/dymurray.memcached_operator_role /opt/ansible/roles/`{{execute}}
+
+## Running with 'operator-sdk run --local'
+
+### Sample Commands
+Running `operator-sdk run --local` to run an Operator locally requires a KUBECONFIG value to connect with a cluster. Some sample commands are shown below.
+```sh
+$ operator-sdk run --local # default, KUBECONFIG=$HOME/.kube/config
+```
+```sh
+$ operator-sdk run --local --kubeconfig=/tmp/config # KUBECONFIG='/tmp/config'
+```
+
+For this scenario, there is a properly permissioned KUBECONFIG at ~/backup/.kube/config.  We'll run the command below to use it.
+
+### Start the Operator
+`operator-sdk run --local --kubeconfig=/root/backup/.kube/config --namespace tutorial`{{execute}}
+
+Next open a 2nd terminal window, using the "+" tab and navigate to our Operator.
+
+`cd ~/tutorial/memcached-operator`{{execute}}
+
+
+Now that our Operator is running, let's create a CR and deploy an instance
 of memcached.
 
 There is a sample CR in the scaffolding created as part of the Operator SDK:
@@ -39,7 +69,6 @@ Ensure that the memcached-operator creates the deployment for the CR:
 ```sh
 $ oc get deployment
 NAME                 DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
-memcached-operator   1       1       1          1         2m
 example-memcached    3       3       3          3         1m
 ```
 </small>
@@ -53,18 +82,14 @@ NAME                                READY STATUS   RESTARTS AGE
 example-memcached-6cc844747c-2hbln  1/1   Running  0        1m
 example-memcached-6cc844747c-54q26  1/1   Running  0        1m
 example-memcached-6cc844747c-7jfhc  1/1   Running  0        1m
-memcached-operator-68b5b558c5-dxjwh 1/1   Running  0        2m
 ```
 </small>
 
 ## Change the Memcached CR to deploy 4 replicas
 
-Change the `spec.size` field in `deploy/crds/cache_v1alpha1_memcached_cr.yaml` from 3 to 4 and apply the
-change:
+Change the `spec.size` field in `deploy/crds/cache_v1alpha1_memcached_cr.yaml` from 3 to 4.
 
-<pre class="file"
- data-filename="/root/tutorial/memcached-operator/deploy/crds/cache_v1alpha1_memcached_cr.yaml"
-  data-target="replace">
+<pre class="file">
 apiVersion: cache.example.com/v1alpha1
 kind: Memcached
 metadata:
@@ -73,17 +98,23 @@ spec:
   size: 4
 </pre>
 
+Update this file by running the following command:
+
+```
+wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-operator-overview/assets/cache_v1alpha1_memcached_cr_updated.yaml -O /root/tutorial/memcached-operator/deploy/crds/cache_v1alpha1_memcached_cr.yaml
+```{{execute}}
+<br>
+Apply the change:
+
 `oc apply -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
 
-Confirm that the Operator changes the deployment size:
+Confirm that the Operator changes the Deployment size:
 
 <small>
 ```sh
 $ oc get deployment
 NAME                DESIRED CURRENT  UP-TO-DATE  AVAILABLE  AGE
-example-memcached   4       4        4           4          53s
-memcached-operator  1       1        1           1          5m
-```
+example-memcached   4       4        4           4          53s```
 </small>
 
 Inspect the YAML list of 'memcached' resources in your project, noting that the 'spec.size' field is now set to 4.
@@ -92,24 +123,9 @@ Inspect the YAML list of 'memcached' resources in your project, noting that the 
 
 ## Removing Memcached from the cluster 
 
-First, delete the 'memcached' CR, which will remove the 4 Memcached pods and the associated deployment.
+First, delete the 'memcached' CR, which will remove the 4 Memcached Pods and the associated Deployment.
 
 `oc delete -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
 
 <small>
 ```sh
-$ oc get pods
-NAME                                 READY STATUS  RESTARTS AGE
-memcached-operator-7cc7cfdf86-vvjqk  1/1   Running 0        8m
-```
-</small>
-
-Then, delete the memcached-operator deployment.
-
-`oc delete -f deploy/operator.yaml`{{execute}}
-
-Finally, verify that the memcached-operator is no longer running.
-
-`oc get deployment`{{execute}}
-
-Now let's take a look at using the built-in 'local install' functionality of the SDK.  
