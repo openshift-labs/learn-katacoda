@@ -57,7 +57,9 @@ public class KnapsackResource {
 
 OptaPlanner will keep solving the problem indefinitely if we don't configure a so called _termination strategy_. A _termnination strategy_ tells OptaPlanner when to stop solving, for example based on the number of seconds spent, or if a score has not improved in a given amount of time.
 
-In an OptaPlanner Quarkus application, this _termination strategy_ can be set by simply adding a configuration property in the Quarkus `application.properties` configuration file:
+In an OptaPlanner Quarkus application, this _termination strategy_ can be set by simply adding a configuration property in the Quarkus `application.properties` configuration file. Let's first open this file by clicking: `knapsack-optaplanner-quarkus/src/main/resources/application.properties`{{open}}
+
+We can now add our _termination strategy_ configuration property:
 
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/resources/application.properties" data-target="replace">
 # Configuration file

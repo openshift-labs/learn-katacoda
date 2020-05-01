@@ -21,15 +21,15 @@ In this example we will be using the Constraint Streams API.
 
 We will start by implementing the `ConstraintProvider`. The implementation class will be automatically picked up by the OptaPlanner Quarkus runtime without the need for any configuration.
 
-We will implement the `KnapsackConstraintConfiguration` class. To do this, we first need to create a new package in our project:
+We will implement the `KnapsackConstraintProvider` class. To do this, we first need to create a new package in our project:
 
 `mkdir -p /root/projects/kogito/knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver`{{execute T2}}
 
-We can no open a new `KnapsackConstraintConfiguration.java` file in this package by clicking: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintConfiguration.java`{{open}}
+We can no open a new `KnapsackConstraintProvider.java` file in this package by clicking: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintProvider.java`{{open}}
 
-Click on the _Copy to Editor_ link to copy the source code into the new `KnapsackConstraintConfiguration.java`file.
+Click on the _Copy to Editor_ link to copy the source code into the new `KnapsackConstraintProvider.java`file.
 
-<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintConfiguration.java" data-target="replace">
+<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintProvider.java" data-target="replace">
 package com.redhat.knapsackoptaplanner.solver;
 
 import com.redhat.knapsackoptaplanner.domain.Ingot;
@@ -68,7 +68,7 @@ public class KnapsackConstraintProvider implements ConstraintProvider {
 
 The hard constraint sums up the weight of all selected ingots and compares this with the maximum weight of the knapsack:
 
-<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintConfiguration.java" data-target="insert" data-marker="//Add hard constraint here">
+<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintProvider.java" data-target="insert" data-marker="//Add hard constraint here">
   private Constraint maxWeight(ConstraintFactory constraintFactory) {
     return constraintFactory.from(Ingot.class).filter(i -> i.getSelected())
             .groupBy(ConstraintCollectors.sum(i -> i.getWeight())).join(Knapsack.class)
@@ -79,7 +79,7 @@ The hard constraint sums up the weight of all selected ingots and compares this 
 
 The soft constraints sums up all the values of the selected ingots:
 
-<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintConfiguration.java" data-target="insert" data-marker="//Add soft constraint here">
+<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintProvider.java" data-target="insert" data-marker="//Add soft constraint here">
   private Constraint maxValue(ConstraintFactory constraintFactory) {
     return constraintFactory.from(Ingot.class)
             .filter(Ingot::getSelected)
