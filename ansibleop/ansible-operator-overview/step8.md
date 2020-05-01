@@ -116,7 +116,7 @@ wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/a
 <br>
 Apply the change:
 
-`oc --namespace tutorial apply -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
+`oc --namespace tutorial apply -f deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml`{{execute}}
 
 Confirm that the Operator changes the Deployment size:
 
@@ -135,7 +135,10 @@ Inspect the YAML list of 'memcached' resources in your project, noting that the 
 
 First, delete the 'memcached' CR, which will remove the 4 Memcached Pods and the associated Deployment.
 
-`oc --namespace tutorial delete -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
+`oc --namespace tutorial delete -f deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml`{{execute}}
 
-<small>
-```sh
+Verify the memcached CR and deployment are gone
+
+`oc get memcached`{{execute}}
+
+`oc get deployment`{{execute}}
