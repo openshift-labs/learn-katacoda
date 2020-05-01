@@ -2,6 +2,8 @@ kind: Deployment
 apiVersion: v1
 metadata:
   name: nginx-deployment
+  labels:
+    name: nginx
 spec:
   template:
     metadata:
@@ -15,4 +17,5 @@ spec:
           - containerPort: 80
   replicas: {{ nginx_replicas }}
   selector:
-    name: nginx
+    matchLabels:
+      name: nginx

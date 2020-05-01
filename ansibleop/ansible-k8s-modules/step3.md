@@ -46,7 +46,7 @@ spec:
 You can easily update this file by running the following command:
 
 ```
-wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/nginx-deployment-updated.yml.j2 -O example-role/templates/nginx-deployment.yml.j2
+wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/nginx-deployment-updated.yml.j2 -O /root/tutorial/example-role/templates/nginx-deployment.yml.j2
 ```{{execute}}
 <br>
 ---
