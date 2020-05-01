@@ -97,7 +97,7 @@ example-memcached-6cc844747c-7jfhc  1/1   Running  0        1m
 
 ## Change the Memcached CR to deploy 4 replicas
 
-Change the `spec.size` field in `deploy/crds/cache_v1alpha1_memcached_cr.yaml` from 3 to 4.
+Change the `spec.size` field in `deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml` from 3 to 4.
 
 <pre class="file">
 apiVersion: cache.example.com/v1alpha1
@@ -137,7 +137,7 @@ First, delete the 'memcached' CR, which will remove the 4 Memcached Pods and the
 
 `oc --namespace tutorial delete -f deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml`{{execute}}
 
-Verify the memcached CR and deployment are gone
+Verify the memcached CR and deployment have been properly removed.
 
 `oc get memcached`{{execute}}
 
