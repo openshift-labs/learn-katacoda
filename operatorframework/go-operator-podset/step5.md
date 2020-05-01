@@ -216,6 +216,6 @@ func newPodForCR(cr *appv1alpha1.PodSet) *corev1.Pod {
 You can easily update this file by running the following command:
 
 ```
-wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/podset_controller.go -O pkg/controller/podset/podset_controller.go
+wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/podset_controller.go -O pkg/controller/podset/podset_controller.go
 ```{{execute}}
 
