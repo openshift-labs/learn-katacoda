@@ -16,6 +16,9 @@ pip2 install --trusted-host files.pythonhosted.org --trusted-host pypi.org --tru
 pip2 install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org ansible-runner
 pip2 install --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org ansible-runner-http
 
+echo "set kube editor"
+echo "export KUBE_EDITOR=vim" >> ~/.bashrc
+
 echo "create tutorial dir"
 mkdir -p $HOME/tutorial
 
