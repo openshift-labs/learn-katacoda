@@ -5,23 +5,33 @@ your machine.
 To run our Operator locally, we will manually copy any Roles used by our Operator to a configured Ansible
 Roles path for our local machine (e.g /etc/ansible/roles).
 
-`cp -r ~/tutorial/memcached-operator/roles/dymurray.memcached_operator_role /opt/ansible/roles/`{{execute}}
+```
+mkdir -p /opt/ansible/roles
+cp -r ~/tutorial/memcached-operator/roles/dymurray.memcached_operator_role /opt/ansible/roles/```{{execute}}
 
 ## Running with 'operator-sdk run --local'
 
 ### Sample Commands
 Running `operator-sdk run --local` to run an Operator locally requires a KUBECONFIG value to connect with a cluster. Some sample commands are shown below.
+
+Automatically sets KUBECONFIG=$HOME/.kube/config
 ```sh
-$ operator-sdk run --local # default, KUBECONFIG=$HOME/.kube/config
-```
-```sh
-$ operator-sdk run --local --kubeconfig=/tmp/config # KUBECONFIG='/tmp/config'
+$ operator-sdk run --local 
 ```
 
-For this scenario, there is a properly permissioned KUBECONFIG at ~/backup/.kube/config.  We'll run the command below to use it.
+Sets KUBECONFIG to path specified
+```sh
+$ operator-sdk run --local --kubeconfig=/tmp/config
+```
+
+For this scenario, we will create a new namespace/project called `tutorial`. We will then start up our Operator and ensure our operator only watches for Custom Resources within this namespace.
+
+
+### Create the Namespace/Project
+`oc new-project tutorial`{{execute}}
 
 ### Start the Operator
-`operator-sdk run --local --kubeconfig=/root/backup/.kube/config --namespace tutorial`{{execute}}
+`operator-sdk run --local --namespace tutorial`{{execute}}
 
 Next open a 2nd terminal window, using the "+" tab and navigate to our Operator.
 
@@ -48,10 +58,10 @@ using our Operator:
 
 ## Create a Memcached CR instance
 
-Inspect `deploy/crds/cache_v1alpha1_memcached_cr.yaml`, and then use it to create a `Memcached` custom resource:
+Inspect `deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml`, and then use it to create a `Memcached` custom resource:
 
 ```yaml
-# deploy/crds/cache_v1alpha1_memcached_cr.yaml
+# deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml
 apiVersion: cache.example.com/v1alpha1
 kind: Memcached
 metadata:
@@ -60,7 +70,7 @@ spec:
   size: 3
 ```
 
-`oc create -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
+`oc --namespace tutorial create -f deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml`{{execute}}
 
 ## Check that the Memcached Operator works as intended 
 Ensure that the memcached-operator creates the deployment for the CR:
@@ -101,12 +111,12 @@ spec:
 Update this file by running the following command:
 
 ```
-wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-operator-overview/assets/cache_v1alpha1_memcached_cr_updated.yaml -O /root/tutorial/memcached-operator/deploy/crds/cache_v1alpha1_memcached_cr.yaml
+wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-operator-overview/assets/cache.example.com_v1alpha1_memcached_cr_updated.yaml.yaml -O /root/tutorial/memcached-operator/deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml
 ```{{execute}}
 <br>
 Apply the change:
 
-`oc apply -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
+`oc --namespace tutorial apply -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
 
 Confirm that the Operator changes the Deployment size:
 
@@ -125,7 +135,7 @@ Inspect the YAML list of 'memcached' resources in your project, noting that the 
 
 First, delete the 'memcached' CR, which will remove the 4 Memcached Pods and the associated Deployment.
 
-`oc delete -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
+`oc --namespace tutorial delete -f deploy/crds/cache_v1alpha1_memcached_cr.yaml`{{execute}}
 
 <small>
 ```sh
