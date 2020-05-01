@@ -49,6 +49,13 @@ public class KnapsackSolution {
 }
 </pre>
 
+To mark this class as our `PlanningSolution` class, we need to add the `@PlanningSolution` annotation:
+
+<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/KnapsackSolution.java" data-target="insert" data-marker="//Add PlanningSolution annotation here">
+@PlanningSolution
+</pre>
+
+
 ### Planning Entities
 
 We can now add the collection of `PlanningEntities` to our class. As stated earlier, in this implementation this is a `List` of `Ingot`. We also need to tell OptaPlanner that this is the collection of `PlanningEntities`, and hence need to annotate this field with the `@PlanningEntityCollectionProperty` annotation:
