@@ -34,18 +34,18 @@ import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 //Add PlanningSolution annotation here
 public class KnapsackSolution {
 
-    //Add Ingots here
+//Add Ingots here
 
-    //Add Knapsack here
+//Add Knapsack here
 
-    //Add selected valuerangeprovider here
+//Add selected valuerangeprovider here
 
-    //Add PlanningScore here
+//Add PlanningScore here
 
     public KnapsackSolution() {
     }
 
-    //Add getters and setters here
+//Add getters and setters here
 }
 </pre>
 
