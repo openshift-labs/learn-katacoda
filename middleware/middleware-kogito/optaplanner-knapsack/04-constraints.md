@@ -54,13 +54,13 @@ public class KnapsackConstraintProvider implements ConstraintProvider {
     /*
      * Hard constraint
      */
-    //Add hard constraint here
+//Add hard constraint here
 
 
     /*
      * Soft constraint
      */
-    //Add soft constraint here
+//Add soft constraint here
 
 
 }
@@ -68,7 +68,7 @@ public class KnapsackConstraintProvider implements ConstraintProvider {
 
 The hard constraint sums up the weight of all selected ingots and compares this with the maximum weight of the knapsack:
 
-<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintConfiguration.java" data-target="insert" data-marker="//Add soft constraint here">
+<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintConfiguration.java" data-target="insert" data-marker="//Add hard constraint here">
   private Constraint maxWeight(ConstraintFactory constraintFactory) {
     return constraintFactory.from(Ingot.class).filter(i -> i.getSelected())
             .groupBy(ConstraintCollectors.sum(i -> i.getWeight())).join(Knapsack.class)
@@ -82,8 +82,8 @@ The soft constraints sums up all the values of the selected ingots:
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintConfiguration.java" data-target="insert" data-marker="//Add soft constraint here">
   private Constraint maxValue(ConstraintFactory constraintFactory) {
     return constraintFactory.from(Ingot.class)
-                .filter(Ingot::getSelected)
-                .reward("Max Value", HardSoftScore.ONE_SOFT, Ingot::getValue);
+            .filter(Ingot::getSelected)
+            .reward("Max Value", HardSoftScore.ONE_SOFT, Ingot::getValue);
   }
 </pre>
 

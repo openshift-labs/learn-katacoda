@@ -42,8 +42,8 @@ public class KnapsackSolution {
 
 //Add PlanningScore here
 
-    public KnapsackSolution() {
-    }
+  public KnapsackSolution() {
+  }
 
 //Add getters and setters here
 }

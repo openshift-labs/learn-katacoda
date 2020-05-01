@@ -53,6 +53,19 @@ public class KnapsackResource {
 }
 </pre>
 
+# Configuring the Solver
+
+OptaPlanner will keep solving the problem indefinitely if we don't configure a so called _termination strategy_. A _termnination strategy_ tells OptaPlanner when to stop solving, for example based on the number of seconds spent, or if a score has not improved in a given amount of time.
+
+In an OptaPlanner Quarkus application, this _termination strategy_ can be set by simply adding a configuration property in the Quarkus `application.properties` configuration file:
+
+<pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/resources/application.properties" data-target="replace">
+# Configuration file
+# key = value
+quarkus.optaplanner.solver.termination.spent-limit=10s
+</pre>
+
+The `quarkus.optaplanner.solver.termination.spent-limit` property is set to 10 seconds, which means that the solver will stop solving after 10 seconds and return the best result found so far.
 
 ## Running the Application
 Since we still have our application running in Quarkus dev-mode, we can simply access the Swagger-UI of our application by clicking [here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). Hitting this endpoint will force the OptaPlanner Quarkus application to do a hot-reload, and recompile and deploy the changes we made in our application "on-the-fly".
