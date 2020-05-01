@@ -1,0 +1,3 @@
+---
+state: present
+nginx_replicas: 2

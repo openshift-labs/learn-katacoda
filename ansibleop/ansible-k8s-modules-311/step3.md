@@ -4,19 +4,14 @@ Next, let's make it possible to customize the replica count for our [nginx deplo
 
 ###### **a. Modify vars file `example-role/defaults/main.yml`, setting `nginx_replicas: 2`**
 
-<pre class="file">
+<pre class="file"
+ data-filename="/root/tutorial/example-role/defaults/main.yml"
+  data-target="replace">
 ---
 state: present
 nginx_replicas: 2
 
 </pre>
-
-You can easily update this file by running the following command:
-
-```
-wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/defaultsmain2.yml -O /root/tutorial/example-role/defaults/main.yml
-```{{execute}}
-<br>
 
 ---
 
@@ -40,17 +35,11 @@ spec:
           image: nginx:1.15.4
           ports:
           - containerPort: 80
-  replicas: {{ nginx_replicas }}
+  replicas: "{{ nginx_replicas }}"
   selector:
     name: nginx
  </pre>
 
-You can easily update this file by running the following command:
-
-```
-wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/nginx-deployment-updated.yml.j2 -O example-role/templates/nginx-deployment.yml.j2
-```{{execute}}
-<br>
 ---
 
 ###### **c. Run the Playbook to change the nginx replica count**
