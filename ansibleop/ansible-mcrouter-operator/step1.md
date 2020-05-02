@@ -7,7 +7,7 @@ oc new-project mcrouter
 Let's use one command to deploy the Mcrouter CRD, Service Account, Role, RoleBinding, and Operator Deployment into the cluster:
 
 ```
-oc apply -f https://raw.githubusercontent.com/geerlingguy/mcrouter-operator/master/deploy/mcrouter-operator.yaml
+oc apply -f https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-mcrouter-operator/assets/mcrouter-operator.yaml
 ```{{execute}}
 <br>
 Let's now verify that all the objects were successfully deployed. Begin by verifying the `kind: Mcrouter` CRD:
