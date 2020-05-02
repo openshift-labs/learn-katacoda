@@ -13,7 +13,7 @@ oc apply -f https://raw.githubusercontent.com/openshift-labs/learn-katacoda/mast
 Let's now verify that all the objects were successfully deployed. Begin by verifying the `kind: Mcrouter` CRD:
 
 ```
-oc get crd
+oc get crd mcrouters.mcrouter.example.com
 ```{{execute}}
 <br>
 Verify the `mcrouter-operator` Service Account. This Service Account is responsible for the identity of the Mcrouter Operator Deployment.
