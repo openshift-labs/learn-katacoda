@@ -33,14 +33,14 @@ import org.optaplanner.core.api.solver.SolverManager;
 public class KnapsackResource {
 
     @Inject
-    private SolverManager<KnapsackSolution, UUID> solverManager;
+    private SolverManager&lt;KnapsackSolution, UUID&gt; solverManager;
 
     @POST
     @Path("/solve")
     public KnapsackSolution solve(KnapsackSolution problem) {
         UUID problemId = UUID.randomUUID();
         // Submit the problem to start solving
-        SolverJob<KnapsackSolution, UUID> solverJob = solverManager.solve(problemId, problem);
+        SolverJob&lt;KnapsackSolution, UUID&gt; solverJob = solverManager.solve(problemId, problem);
         KnapsackSolution solution;
         try {
             // Wait until the solving ends
@@ -77,8 +77,6 @@ You will see our `/knapsack/solve` RESTful API listed. We can now fire a RESTful
 `curl --location --request POST 'http://localhost:8080/knapsack/solve' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
---header 'Content-Type: text/plain' \
---header 'Cookie: JSESSIONID=0C6C24091A814A4A0431ED5E32CE6B45' \
 --data-raw '{
 	"knapsack": {
 		"maxWeight": 10

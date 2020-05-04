@@ -86,7 +86,7 @@ In our application we need to have an object that defines the maximum weight of 
 
 Open a new `Knapsack.java` file in this package by clicking: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Knapsack.java`{{open}}
 
-The implementation is a class with a single `maxWeight attribute`:
+The implementation is a class with a single `maxWeight` attribute:
 
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Knapsack.java" data-target="replace">
 package com.redhat.knapsackoptaplanner.domain;
