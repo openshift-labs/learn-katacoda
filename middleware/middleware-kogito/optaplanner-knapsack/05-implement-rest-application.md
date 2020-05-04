@@ -1,12 +1,12 @@
 In the previous step you've implemented the constraints of the application using the `ConstraintStreams` API. We will now create the RESTful resource of our application and take the application for a test-drive.
 
-#KnapsackResource
+# KnapsackResource
 
 When we created the initial OptaPlanner Quarkus application using the Quarkus Maven Plugin, we defined the resource class of our RESTful endpoint, being `KnapsackResource`.
 
 We will now implement the skeleton of our `KnapsackSolution` class. To do this, we first have to open the `KnapsackResource.java` file by clicking: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackResource.java`{{open}}
 
-The `KnapsackResource` class will be implemented as a Kogito JAX-RS service. We will inject an OptaPlanner `SolverManager` instance to manage the `Solver` instances that will solve our problem. `SolverManager` accepts (uninitialized) `PlanningSolutions` (i.e. the problem), and will pass this problem to a managed `Solver` that runs on a separate thread to solve it. The `SolverJob` will run until solving ends, after which we can retrieve the final best solution.
+The `KnapsackResource` class will be implemented as a Quarkus JAX-RS service. We will inject an OptaPlanner `SolverManager` instance to manage the `Solver` instances that will solve our problem. `SolverManager` accepts (uninitialized) `PlanningSolutions` (i.e. the problem), and will pass this problem to a managed `Solver` that runs on a separate thread to solve it. The `SolverJob` will run until solving ends, after which we can retrieve the final best solution.
 
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackResource.java" data-target="replace">
 package com.redhat.knapsackoptaplanner.solver;

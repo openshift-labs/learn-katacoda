@@ -46,7 +46,7 @@ Next, create a new _binary_ build within OpenShift:
 
 `oc new-build registry.access.redhat.com/openjdk/openjdk-11-rhel7:latest --binary --name=knapsack-optaplanner -l app=knapsack-optaplanner`{{execute T1}}
 
-Our build needs both the _runner_ JAR file, as well as the _libs_ directory. We will create a temporary directory in which we will copy those assets, and use that directory to upload to our S2I image:
+Our build needs both the _runner_ JAR file, as well as the _lib_ directory. We will create a temporary directory in which we will copy those assets, and use that directory to upload to our S2I image:
 
 `rm -rf /tmp/knapsack-optaplanner-build && mkdir -p /tmp/knapsack-optaplanner-build && cp target/knapsack-optaplanner-quarkus-1.0-SNAPSHOT-runner.jar /tmp/knapsack-optaplanner-build/knapsack-optaplanner-quarkus-1.0-SNAPSHOT-runner.jar && cp -R target/lib /tmp/knapsack-optaplanner-build/lib`{{execute T1}}
 

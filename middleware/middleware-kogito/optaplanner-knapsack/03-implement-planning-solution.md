@@ -1,14 +1,14 @@
-In the previous step you've implement the domain model of the application. Now it's time to implement the _PlanningSolution_.
+In the previous step you've implemented the domain model of the application. Now it's time to implement the _PlanningSolution_.
 
 ## PlanningSolution
 
-The `PlanningSolution` of your OptaPlanner application represents both the problem (i.e. the uninitialized solution,), the working solution, and the best solution, which is returned by OptaPlanner when solving is ended.
+The `PlanningSolution` of your OptaPlanner application represents both the problem (i.e. the uninitialized solution), the working solution, and the best solution which is returned by OptaPlanner when solving is ended.
 
 The `PlanningSolution` therefore contains:
 
 * The collection of `PlanningEntities` that need to be planned. In this case this is a list of `Ingots`.
 * Zero or more collections/ranges of `PlanningVariables`. In this simple example we only have a range of `Booleans` (i.e. `true` and `false`) that indicate whether an `Ingot` has been selected or not.
-* Possible `ProblemFactProperties`. These are properties that are neither a `PlanningEntity` nor a `PlanningVariable`, but are required by the constraints during solving. In this example the `Knapsack` is such a propert, as we require the maximum weight of the knapsack in our constraint evaluation.
+* Possible `ProblemFactProperties`. These are properties that are neither a `PlanningEntity` nor a `PlanningVariable`, but are required by the constraints during solving. In this example the `Knapsack` is such a property, as we require the maximum weight of the knapsack in our constraint evaluation.
 * The `Score` of the solution. This contains the score calculated by the OptaPlanner `ScoreCalculator` based on the hard and soft constraints.
 
 ## KnapsackSolution.
@@ -67,7 +67,7 @@ We can now add the collection of `PlanningEntities` to our class. As stated earl
 
 ### Valuerange Provider
 
-Next, we can add the _valuerange provider_ to our solution class. This is provider of the valuerange of our `selected` planning variable that we've defined in our `Ingot` planning entity class. Since this planning variable is a `Boolean`, we need to create a `Boolean` value range:
+Next, we can add the _valuerange provider_ to our solution class. This is the provider of the valuerange of our `selected` planning variable that we've defined in our `Ingot` planning entity class. Since this planning variable is a `Boolean`, we need to create a `Boolean` value range:
 
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/KnapsackSolution.java" data-target="insert" data-marker="//Add selected valuerangeprovider here">
   @ValueRangeProvider(id = "selected")
@@ -87,7 +87,7 @@ Our constraints, that we will implement in the following step of our scenario, w
 
 ### Planning Score
 
-The next thing we need to add is the `PlanningScore`. In this knapsack problem we have 2 score types: a _hard score_ and a _soft score_. In OptaPlanner, a broken hard score defines an infeasible solution. In our knapsack application this is for example the case when the total weight of the selected ingots is higher than the maximum weight of the knapsack. The soft score is the score that we want to optimize. In this example, this is the total value of the selected ingots, as we want to have a solution with the highest possible values.
+The next thing we need to add is the `PlanningScore`. In this knapsack problem we have 2 score types: a _hard score_ and a _soft score_. In OptaPlanner, a broken hard score defines an _infeasible solution_. In our knapsack application, this is for example the case when the total weight of the selected ingots is higher than the maximum weight of the knapsack. The soft score is the score that we want to optimize. In this example, this is the total value of the selected ingots, as we want to have a solution with the highest possible values.
 
 We add a `HardSoftScore` attribute to the planning solution class and add an `@PlanningScore` annotation to this attribute:
 

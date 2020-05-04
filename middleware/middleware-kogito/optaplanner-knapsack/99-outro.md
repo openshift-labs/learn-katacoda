@@ -1,4 +1,4 @@
-In this scenario, you've learned how to implement the knapsack problem using OptaPlanner on Quarkus. We've seen how the Quarkus hot-feature allows us to keep our application running while developing our code. We've turned our OptaPlanner Quarkus application into a native executable using GraalVM. And finally, we've shown how we can deploy this application to OpenShift, scale the application, and fire requests to it.
+In this scenario, you've learned how to implement the knapsack problem using OptaPlanner on Quarkus. We've seen how the Quarkus hot-reload feature allows us to keep our application running while developing our code. We've turned our OptaPlanner Quarkus application into a runnable JAR file that runs on a standard JVM. And finally, we've shown how we can deploy this application to OpenShift, scale the application, and fire requests to it.
 
 ## Additional Resources
 

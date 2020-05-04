@@ -1,21 +1,21 @@
-In the previous step you've implement the `PlanningSolution` of our application. We can now implement constraint rules.
+In the previous step you've implemented the `PlanningSolution` of our application. We can now implement constraint rules.
 
 ## Constraints
 
-Constraints define how the score of a solution is calculated. Based on the current assignment of planning variables to planning entities, we can calculate a score for the given solution using constraint. In this example, as stated earlier, uses a _hard_ and _soft_ score. A _hard_ score defines an infeasible solution, where the _soft_ score is the score that we want to optimize. Our constraints will calculate these scores.
+Constraints define how the score of a solution is calculated. Based on the current assignment of planning variables to planning entities, we can calculate a score for the given solution using constraint. This example, as stated earlier, uses a _hard_ and _soft_ score. A _hard_ score defines an infeasible solution, where the _soft_ score is the score that we want to optimize. Our constraints will calculate these scores.
 
 In this example we will implement two constraint. The first constraint states that a hard constraint is broken when the total weight of the selected ingots is greater than the max weight of the knapsack. I.e. if we select ingots that have a total weight that is greater than the max weight of our knapsack, the solution is infeasible.
 
-The soft constraint, the score that we want to optimize, is the total value if the ingots. I.e. we want to find the solution that maximizes our total value. For this we will implement a constraint that calculates this as a soft score.
+The soft constraint, the score that we want to optimize, is the total value of the ingots. I.e. we want to find the solution that maximizes our total value. For this we will implement a constraint that calculates this as a soft score.
 
 ## ConstraintStreams
 
 OptaPlanner provides various options to implement your constraints:
 
-* Easy Java: Java implementation that recalculates the full score for every move. Easy to write but extremely slow. Do not use this in production.
-* Incremental Java: Java implementation that does incremental score calculation on every move. Fast, but very hard to write and maintain. Not recommeded.
-* Drools: rule based constraints written in DRL. Incremental and fast calculation of constraints. Requires knowledge of Drools.
-* Constraint Streams: constraints written in API inspired by Java Streams. Incremental and fast calculation of constraints. Requires knowledge of the Streams API.
+* **Easy Java**: Java implementation that recalculates the full score for every move. Easy to write but extremely slow. Do not use this in production!
+* **Incremental Java**: Java implementation that does incremental score calculation on every move. Fast, but very hard to write and maintain. Not recommeded!
+* **Drools**: rule based constraints written in DRL. Incremental and fast calculation of constraints. Requires knowledge of Drools.
+* **Constraint Streams**: constraints written in an API inspired by Java Streams. Incremental and fast calculation of constraints. Requires knowledge of the Streams API.
 
 In this example we will be using the Constraint Streams API.
 
