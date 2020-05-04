@@ -28,29 +28,32 @@ The first screen you will see is the authentication screen. Enter your username 
 
 After you have authenticated to the web console, you will be presented with a list of projects that your user has permission to work with.
 
-![Web Console Projects](/openshift/assets/middleware/middleware-kogito/projects.png)
+![Web Console Projects](/openshift/assets/middleware/middleware-kogito/openshift-knapsack-optaplanner-project.png)
 
 Click on your new project name to be taken to the project overview page which will list all of the routes, services, deployments, and pods that you have running as part of your project:
 
-![Web Console Overview](/openshift/assets/middleware/middleware-kogito/overview.png)
+![Web Console Overview](/openshift/assets/middleware/middleware-kogito/openshift-knapsack-optaplanner-overview.png)
 
 There's nothing there now, but that's about to change.
 
 ## Deploy to OpenShift
 
-First, we need to compile and package our application. We will compile our application as a Kogito Quarkus native image using GraalVM. Note that the compilation might take a minute or two:
+First, we need to compile and package our application. We will compile our application as an OptaPlanner Quarkus image to run in JVM mode. Note that our application also supports being compiled into a native image using GraalVM.
 
-`mvn clean package -Pnative`{{execute T1}}
+`mvn clean package`{{execute T1}}
 
 Next, create a new _binary_ build within OpenShift:
 
-`oc new-build quay.io/quarkus/ubi-quarkus-native-binary-s2i:19.3.1 --binary --name=knapsack-optaplanner -l app=knapsack-optaplanner`{{execute T1}}
+`oc new-build registry.access.redhat.com/openjdk/openjdk-11-rhel7:latest --binary --name=knapsack-optaplanner -l app=knapsack-optaplanner`{{execute T1}}
 
-> This build uses the new [Red Hat Universal Base Image](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/building_running_and_managing_containers/using_red_hat_universal_base_images_standard_minimal_and_runtimes), providing foundational software needed to run most applications, while staying at a reasonable size.
+Our build needs both the _runner_ JAR file, as well as the _libs_ directory. We will create a temporary directory in which we will copy those assets, and use that directory to upload to our S2I image:
+
+`rm -rf /tmp/knapsack-optaplanner-build && mkdir -p /tmp/knapsack-optaplanner-build && cp target/knapsack-optaplanner-quarkus-1.0-SNAPSHOT-runner.jar /tmp/knapsack-optaplanner-build/knapsack-optaplanner-quarkus-1.0-SNAPSHOT-runner.jar && cp -R target/lib /tmp/knapsack-optaplanner-build/lib`{{execute T1}}
+
 
 And then start and watch the build, which will take about a minute or two to complete:
 
-`oc start-build knapsack-optaplanner --from-file=target/knapsack-optaplanner-quarkus-1.0-SNAPSHOT-runner --follow`{{execute T1}}
+`oc start-build knapsack-optaplanner --from-dir=/tmp/knapsack-optaplanner-build --follow`{{execute T1}}
 
 Once that's done, we'll deploy it as an OpenShift application:
 
@@ -66,7 +69,7 @@ Finally, make sure it's actually done rolling out:
 
 Wait for that command to report `replication controller "knapsack-optaplanner-1" successfully rolled out` before continuing.
 
-And now we can access our application using `cURL` once again. Note that we again need to wait 10 seconds for the response to return:s
+And now we can access our application using `cURL` once again. Note that we again need to wait 10 seconds for the response to return:
 
 `curl --location --request POST 'http://knapsack-optaplanner-knapsack-optaplanner.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/knapsack/solve' \
 --header 'Accept: application/json' \
@@ -126,73 +129,14 @@ So now our app is deployed to OpenShift. You can also see it in the [Overview in
 
 In order to be able to handle production load and have high availability semantics, we need to scale the application and add a number of extra running pods.
 
-Let's make _sure_ our Kogito app doesn't go beyond a reasonable amount of memory for each instance by setting _resource constraints_ on it. We'll go with 50 MB of memory as an upper limit (which is pretty thin, compared to your average Java app!). This will let us scale up quite a bit. Click here to set this limit:
-
-`oc set resources dc/knapsack-optaplanner --limits=memory=50Mi`{{execute T1}}
-
- We can now easily scale the number of PODs via the OpenShift _oc_ client:
+We can easily scale the number of PODs via the OpenShift _oc_ client:
 
 `oc scale --replicas=10 dc/knapsack-optaplanner`{{execute T1}}
 
 Back in the [Overview in the OpenShift Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/k8s/ns/knapsack-optaplanner/deploymentconfigs/knapsack-optaplanner) you'll see the app scaling dynamically up to 10 pods.
 
-This should only take a few seconds to complete the scaling. Now that we have 10 pods running, let's hit it with some load:
-
-Now, with our service being ready for a production environment, let's hit it with some load:
-
-`for i in {1..10} ; do curl --location --request POST 'http://knapsack-optaplanner-knapsack-optaplanner.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/knapsack/solve' \
---header 'Accept: application/json' \
---header 'Content-Type: application/json' \
---data-raw '{
-	"knapsack": {
-		"maxWeight": 10
-	},
-	"ingots" : [
-		{
-			"weight": 4,
-			"value": 15
-		},
-		{
-			"weight": 4,
-			"value": 15
-		},
-		{
-			"weight": 3,
-			"value": 12
-		},
-		{
-			"weight": 3,
-			"value": 12
-		},
-		{
-			"weight": 3,
-			"value": 12
-		},
-		{
-			"weight": 2,
-			"value": 7
-		},
-		{
-			"weight": 2,
-			"value": 7
-		},
-		{
-			"weight": 2,
-			"value": 7
-		},
-		{
-			"weight": 2,
-			"value": 7
-		},
-		{
-			"weight": 2,
-			"value": 7
-		}
-	]
-}'; sleep .05 ; done`{{execute T1}}
-
-You can see the 10 instances of our OptaPlanner app being load-balanced and knapsack problems being solve.
+This should only take a few seconds to complete the scaling. The application is now ready to take production load.
 
 ## Congratulations!
 
-In this scenario you got a glimpse of the power of OptaPlanner apps on a Quarkus runtime on OpenShift. You've packaged your Knapsack OptaPlanner solver in a container image, deployed it on OpenShift, scaled the environment to 10 PODs and hit it with a number of requests. Well done!
+In this scenario you got a glimpse of the power of OptaPlanner apps on a Quarkus runtime on OpenShift. You've packaged your Knapsack OptaPlanner solver in a container image, deployed it on OpenShift, and solved a knapsack problem. Finally, you've scaled the environment to 10 PODs to be able to serve production load. Well done!

@@ -25,7 +25,7 @@ We will implement the `KnapsackConstraintProvider` class. To do this, we first n
 
 `mkdir -p /root/projects/kogito/knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver`{{execute T2}}
 
-We can no open a new `KnapsackConstraintProvider.java` file in this package by clicking: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintProvider.java`{{open}}
+We can now open a new `KnapsackConstraintProvider.java` file in this package by clicking: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintProvider.java`{{open}}
 
 Click on the _Copy to Editor_ link to copy the source code into the new `KnapsackConstraintProvider.java`file.
 
