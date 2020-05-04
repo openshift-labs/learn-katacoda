@@ -125,7 +125,7 @@ You will see our `/knapsack/solve` RESTful API listed. We can now fire a RESTful
 	]
 }'`{{execute T2}}
 
-The response shows which ingots have been selected. These ingots will have their `selected` attribute to `true`.
+The response shows which ingots have been selected. These ingots will have their `selected` attribute set to `true`.
 
 ## Congratulations!
 You've implemented the RESTful endpoint of the application, hot-reloaded the app using the Quarkus dev-mode and solved a knapsack problem. Well done! In the next step we will deploy this application to OpenShift to run our OptaPlanner solution as a true cloud-native application.
