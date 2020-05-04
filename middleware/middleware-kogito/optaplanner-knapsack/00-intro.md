@@ -1,7 +1,7 @@
 In this scenario, you will learn how to implement an [OptaPlanner](https://www.optaplanner.org) application on [Quarkus](https://www.quarkus.io).
 
 ![Logo](/openshift/assets/middleware/middleware-kogito/logo.png)
-![Logo](https://github.com/kiegroup/optaplanner/blob/master/optaplanner-docs/src/main/asciidoc/shared/optaPlannerLogo.png)
+![Logo](/openshift/assets/middleware/middleware-kogito/optaPlannerLogo.png)
 
 ### Knapsack Problem
 
