@@ -25,6 +25,9 @@ The easiest way to create a new Kogito project is to execute the Maven command b
 
 This will use the Quarkus Maven Plugin and generate a basic Quakus application, including the OptaPlanner extension, for you in the `knapsack-optaplanner-quarkus` subdirectory.
 
+Before we start, we have to remove the automatically generated unit-test classes:
+`rm -rf /root/projects/kogito/knapsack-optaplanner-quarkus/src/test/java/com`{{execute}}`
+
 # Running the Application
 
 We will now run the OptaPlanner application in development mode. This allows us to keep the application running while implementing our application logic. OptaPlanner and Quarkus will _hot reload_ the application when it is accessed and changes have been detected.

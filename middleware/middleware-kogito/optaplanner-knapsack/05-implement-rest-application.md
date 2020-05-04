@@ -72,7 +72,7 @@ The `quarkus.optaplanner.solver.termination.spent-limit` property is set to 10 s
 ## Running the Application
 Since we still have our application running in Quarkus dev-mode, we can simply access the Swagger-UI of our application by clicking [here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). Hitting this endpoint will force the OptaPlanner Quarkus application to do a hot-reload, and recompile and deploy the changes we made in our application "on-the-fly".
 
-You will see our `/knapsack/solve` RESTful API listed. We can now fire a RESTful request with a knapsack problem to this endpoint. We wil do this from the terminal using cURL:
+You will see our `/knapsack/solve` RESTful API listed. We can now fire a RESTful request with a knapsack problem to this endpoint. We wil do this from the terminal using cURL. Note that it will take 10 seconds for the response to return, as we've set the OptaPlanner termination strategy to 10 seconds:
 
 `curl --location --request POST 'http://localhost:8080/knapsack/solve' \
 --header 'Accept: application/json' \
@@ -125,6 +125,7 @@ You will see our `/knapsack/solve` RESTful API listed. We can now fire a RESTful
 	]
 }'`{{execute T2}}
 
+The response shows which ingots have been selected. These ingots will have their `selected` attribute to `true`.
 
 ## Congratulations!
 You've implemented the RESTful endpoint of the application, hot-reloaded the app using the Quarkus dev-mode and solved a knapsack problem. Well done! In the next step we will deploy this application to OpenShift to run our OptaPlanner solution as a true cloud-native application.
