@@ -1,0 +1,42 @@
+{
+  "pathwayTitle": "OptaPlanner and Quarks",
+  "icon": "fa-java",
+  "title": "OptaPlanner and Quarkus",
+  "description": "In this scenario you will learn how to implements the Knapsack Problem with OptaPlanner and Quarkus.",
+  "difficulty": "beginner",
+  "time": "20 minutes",
+  "details": {
+    "steps": [
+      { "title": "Step 1", "text": "01-create-project.md" },
+      { "title": "Step 2", "text": "02-implement-domain-model.md" },
+      { "title": "Step 3", "text": "03-implement-planning-solution.md" },
+      { "title": "Step 4", "text": "04-constraints.md" },
+      { "title": "Step 5", "text": "05-implement-rest-application.md" },
+      { "title": "Step 6", "text": "06-deploy-on-openshift.md" }
+    ],
+    "intro": {
+      "text": "00-intro.md",
+      "courseData": "env-init.sh",
+      "code": "set-env.sh"
+    },
+    "finish": {
+      "text": "99-outro.md"
+    }
+  },
+  "files": [
+
+  ],
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [{"name":"Local Web Browser","port":8080}, {"name": "OpenShift Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+    "uilayout": "editor-terminal",
+    "uisettings": "java",
+    "hideintro": false,
+    "uieditorpath": "/root/projects/kogito",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "openshift-4-2",
+    "port": 8443
+  }
+}

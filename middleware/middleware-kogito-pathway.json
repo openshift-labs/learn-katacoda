@@ -26,6 +26,12 @@
       "course_id": "service-task-cdi",
       "title": "Kogito and CDI",
       "description": "Using MicroProfile CDI to implement business automation logic with Kogito"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-kogito/optaplanner-knapsack",
+      "course_id": "optaplanner-knapsack",
+      "title": "OptaPlanner and Quarkus",
+      "description": "Using OptaPlanner on Quarkus to implement the knapsack problem"
     }
   ]
 }
