@@ -1,6 +1,7 @@
-In this scenario, you will learn how to implement (business) rules in [Kogito](https://kogito.kie.org) using _rule units_.
+In this scenario, you will learn how to implement an [OptaPlanner](https://www.optaplanner.org) application on [Quarkus](https://www.quarkus.io).
 
 ![Logo](/openshift/assets/middleware/middleware-kogito/logo.png)
+![Logo](/openshift/assets/middleware/middleware-kogito/optaPlannerLogo.png)
 
 ### Knapsack Problem
 

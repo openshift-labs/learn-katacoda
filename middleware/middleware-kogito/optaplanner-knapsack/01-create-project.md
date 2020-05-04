@@ -20,7 +20,7 @@ The easiest way to create a new Quarkus project is to execute the Maven command 
     -DprojectArtifactId=knapsack-optaplanner-quarkus \
     -DclassName="com.redhat.knapsackoptaplanner.solver.KnapsackResource" \
     -Dpath="/knapsack" \
-    -Dextensions="quarkus-optaplanner,quarkus-resteasy-jackson,quarkus-smallrye-openapi"`{{execute}}
+    -Dextensions="quarkus-optaplanner,quarkus-optaplanner-jackson,quarkus-resteasy-jackson,quarkus-smallrye-openapi"`{{execute}}
 
 
 This will use the Quarkus Maven Plugin and generate a basic Quakus application, including the OptaPlanner extension, for you in the `knapsack-optaplanner-quarkus` subdirectory.

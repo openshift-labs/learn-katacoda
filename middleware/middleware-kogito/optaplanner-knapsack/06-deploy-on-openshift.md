@@ -38,9 +38,11 @@ There's nothing there now, but that's about to change.
 
 ## Deploy to OpenShift
 
-First, we need to compile and package our application. We will compile our application as an OptaPlanner Quarkus image to run in JVM mode. Note that our application also supports being compiled into a native image using GraalVM.
+First, we need to compile and package our application. We will compile our application as an OptaPlanner Quarkus image to run in JVM mode.
 
 `mvn clean package`{{execute T1}}
+
+Note that our application also supports being compiled into a native image using GraalVM.
 
 Next, create a new _binary_ build within OpenShift:
 
