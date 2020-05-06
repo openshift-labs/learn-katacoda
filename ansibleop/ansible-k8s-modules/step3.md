@@ -14,7 +14,7 @@ nginx_replicas: 2
 You can easily update this file by running the following command:
 
 ```
-wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/defaultsmain2.yml -O /root/tutorial/example-role/defaults/main.yml
+wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-k8s-modules/assets/defaultsmain2.yml -O /root/tutorial/example-role/defaults/main.yml
 ```{{execute}}
 <br>
 
@@ -46,7 +46,7 @@ spec:
 You can easily update this file by running the following command:
 
 ```
-wget https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/nginx-deployment-updated.yml.j2 -O /root/tutorial/example-role/templates/nginx-deployment.yml.j2
+wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-k8s-modules/assets/nginx-deployment-updated.yml.j2 -O /root/tutorial/example-role/templates/nginx-deployment.yml.j2
 ```{{execute}}
 <br>
 ---
