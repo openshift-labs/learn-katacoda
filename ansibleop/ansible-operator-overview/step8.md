@@ -111,7 +111,7 @@ spec:
 Update this file by running the following command:
 
 ```
-wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-operator-overview/assets/cache.example.com_v1alpha1_memcached_cr_updated.yaml.yaml -O /root/tutorial/memcached-operator/deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml
+wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-operator-overview/assets/cache.example.com_v1alpha1_memcached_cr_updated.yaml -O /root/tutorial/memcached-operator/deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml
 ```{{execute}}
 <br>
 Apply the change:
