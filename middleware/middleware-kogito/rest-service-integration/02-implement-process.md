@@ -48,10 +48,10 @@ Copy the content of your clipboard to the `coffeeshop/src/main/resources/coffees
 Alternatively, you can copy the following BPMN2 definition to the BPMN file:
 
 <pre class="file" data-filename="./coffeeshop/src/main/resources/coffeeshop-process.bpmn" data-target="replace">
-&lt;bpmn2:definitions xmlns:bpmn2=&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot; xmlns:bpmndi=&quot;http://www.omg.org/spec/BPMN/20100524/DI&quot; xmlns:bpsim=&quot;http://www.bpsim.org/schemas/1.0&quot; xmlns:dc=&quot;http://www.omg.org/spec/DD/20100524/DC&quot; xmlns:di=&quot;http://www.omg.org/spec/DD/20100524/DI&quot; xmlns:drools=&quot;http://www.jboss.org/drools&quot; id=&quot;_emppsHMyEDig17XG0NHLjQ&quot; exporter=&quot;jBPM Process Modeler&quot; exporterVersion=&quot;2.0&quot; targetNamespace=&quot;http://www.omg.org/bpmn20&quot;&gt;
+&lt;bpmn2:definitions xmlns:bpmn2=&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot; xmlns:bpmndi=&quot;http://www.omg.org/spec/BPMN/20100524/DI&quot; xmlns:bpsim=&quot;http://www.bpsim.org/schemas/1.0&quot; xmlns:dc=&quot;http://www.omg.org/spec/DD/20100524/DC&quot; xmlns:di=&quot;http://www.omg.org/spec/DD/20100524/DI&quot; xmlns:drools=&quot;http://www.jboss.org/drools&quot; id=&quot;_F5Ou4HNMEDig17XG0NHLjQ&quot; exporter=&quot;jBPM Process Modeler&quot; exporterVersion=&quot;2.0&quot; targetNamespace=&quot;http://www.omg.org/bpmn20&quot;&gt;
   &lt;bpmn2:itemDefinition id=&quot;_coffeesItem&quot; structureRef=&quot;java.util.Collection&quot;/&gt;
   &lt;bpmn2:itemDefinition id=&quot;__3CDC6E61-DCC5-4831-8BBB-417CFF517CB0_coffeesOutputXItem&quot; structureRef=&quot;java.util.Collection&quot;/&gt;
-  &lt;bpmn2:interface id=&quot;_3CDC6E61-DCC5-4831-8BBB-417CFF517CB0_ServiceInterface&quot; name=&quot;com.redhat.service.CoffeeService&quot; implementationRef=&quot;com.redhat.service.CoffeeService&quot;&gt;
+  &lt;bpmn2:interface id=&quot;_3CDC6E61-DCC5-4831-8BBB-417CFF517CB0_ServiceInterface&quot; name=&quot;org.acme.service.CoffeeService&quot; implementationRef=&quot;org.acme.service.CoffeeService&quot;&gt;
     &lt;bpmn2:operation id=&quot;_3CDC6E61-DCC5-4831-8BBB-417CFF517CB0_ServiceOperation&quot; name=&quot;getCoffees&quot; implementationRef=&quot;getCoffees&quot;/&gt;
   &lt;/bpmn2:interface&gt;
   &lt;bpmn2:process id=&quot;coffeeshop&quot; drools:packageName=&quot;org.acme&quot; drools:version=&quot;1.0&quot; drools:adHoc=&quot;false&quot; name=&quot;coffeeshop&quot; isExecutable=&quot;true&quot; processType=&quot;Public&quot;&gt;
@@ -85,7 +85,7 @@ Alternatively, you can copy the following BPMN2 definition to the BPMN file:
     &lt;bpmn2:endEvent id=&quot;_D74E4311-5CAB-4CBE-9B83-C12961961633&quot;&gt;
       &lt;bpmn2:incoming&gt;_323FD4C9-FC3D-404F-9156-E3F83B45A799&lt;/bpmn2:incoming&gt;
     &lt;/bpmn2:endEvent&gt;
-    &lt;bpmn2:serviceTask id=&quot;_3CDC6E61-DCC5-4831-8BBB-417CFF517CB0&quot; drools:serviceimplementation=&quot;Java&quot; drools:serviceinterface=&quot;com.redhat.service.CoffeeService&quot; drools:serviceoperation=&quot;getCoffees&quot; name=&quot;Get Coffee Menu&quot; implementation=&quot;Java&quot; operationRef=&quot;_3CDC6E61-DCC5-4831-8BBB-417CFF517CB0_ServiceOperation&quot;&gt;
+    &lt;bpmn2:serviceTask id=&quot;_3CDC6E61-DCC5-4831-8BBB-417CFF517CB0&quot; drools:serviceimplementation=&quot;Java&quot; drools:serviceinterface=&quot;org.acme.service.CoffeeService&quot; drools:serviceoperation=&quot;getCoffees&quot; name=&quot;Get Coffee Menu&quot; implementation=&quot;Java&quot; operationRef=&quot;_3CDC6E61-DCC5-4831-8BBB-417CFF517CB0_ServiceOperation&quot;&gt;
       &lt;bpmn2:extensionElements&gt;
         &lt;drools:metaData name=&quot;elementname&quot;&gt;
           &lt;drools:metaValue&gt;&lt;![CDATA[Get Coffee Menu]]&gt;&lt;/drools:metaValue&gt;
@@ -164,8 +164,8 @@ Alternatively, you can copy the following BPMN2 definition to the BPMN file:
         &lt;/bpsim:Scenario&gt;
       &lt;/bpsim:BPSimData&gt;
     &lt;/bpmn2:extensionElements&gt;
-    &lt;bpmn2:source&gt;_emppsHMyEDig17XG0NHLjQ&lt;/bpmn2:source&gt;
-    &lt;bpmn2:target&gt;_emppsHMyEDig17XG0NHLjQ&lt;/bpmn2:target&gt;
+    &lt;bpmn2:source&gt;_F5Ou4HNMEDig17XG0NHLjQ&lt;/bpmn2:source&gt;
+    &lt;bpmn2:target&gt;_F5Ou4HNMEDig17XG0NHLjQ&lt;/bpmn2:target&gt;
   &lt;/bpmn2:relationship&gt;
 &lt;/bpmn2:definitions&gt;
 </pre>
