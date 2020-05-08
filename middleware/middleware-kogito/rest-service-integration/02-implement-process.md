@@ -25,6 +25,7 @@ Implement the process as follows:
 * Open the property panel on the right-hand-side of the screen by clicking the pencil icon. Expand the _Process Data_ section and add the following _Process Variable_:
 ** Name: `coffees`
 ** Data Type: `java.util.Collection`
+* Add the tag `output` to this variable. This controls, among other things, the generation of our RESTful API. I.e., a variable tagged with `output` will not be part of the input model, and thus does not need to be passed when starting a process. It is however part of the output model, and hence will be returned to the client as a response of the RESTful call.
 * Create a StartEvent node.
 * Create a Service Task node.
 * Connect the Service Task node to the StartEvent.
@@ -47,7 +48,7 @@ Copy the content of your clipboard to the `getting-started/src/main/resources/ge
 Alternatively, you can copy the following BPMN2 definition to the BPMN file:
 
 <pre class="file" data-filename="./coffeeshop/src/main/resources/coffeeshop-process.bpmn" data-target="replace">
-&lt;bpmn2:definitions xmlns:bpmn2=&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot; xmlns:bpmndi=&quot;http://www.omg.org/spec/BPMN/20100524/DI&quot; xmlns:bpsim=&quot;http://www.bpsim.org/schemas/1.0&quot; xmlns:dc=&quot;http://www.omg.org/spec/DD/20100524/DC&quot; xmlns:di=&quot;http://www.omg.org/spec/DD/20100524/DI&quot; xmlns:drools=&quot;http://www.jboss.org/drools&quot; id=&quot;_W7YqkHKXEDi7KqoGVfpUxw&quot; exporter=&quot;jBPM Process Modeler&quot; exporterVersion=&quot;2.0&quot; targetNamespace=&quot;http://www.omg.org/bpmn20&quot;&gt;
+&lt;bpmn2:definitions xmlns:bpmn2=&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot; xmlns:bpmndi=&quot;http://www.omg.org/spec/BPMN/20100524/DI&quot; xmlns:bpsim=&quot;http://www.bpsim.org/schemas/1.0&quot; xmlns:dc=&quot;http://www.omg.org/spec/DD/20100524/DC&quot; xmlns:di=&quot;http://www.omg.org/spec/DD/20100524/DI&quot; xmlns:drools=&quot;http://www.jboss.org/drools&quot; id=&quot;_emppsHMyEDig17XG0NHLjQ&quot; exporter=&quot;jBPM Process Modeler&quot; exporterVersion=&quot;2.0&quot; targetNamespace=&quot;http://www.omg.org/bpmn20&quot;&gt;
   &lt;bpmn2:itemDefinition id=&quot;_coffeesItem&quot; structureRef=&quot;java.util.Collection&quot;/&gt;
   &lt;bpmn2:itemDefinition id=&quot;__3CDC6E61-DCC5-4831-8BBB-417CFF517CB0_coffeesOutputXItem&quot; structureRef=&quot;java.util.Collection&quot;/&gt;
   &lt;bpmn2:interface id=&quot;_3CDC6E61-DCC5-4831-8BBB-417CFF517CB0_ServiceInterface&quot; name=&quot;com.redhat.service.CoffeeService&quot; implementationRef=&quot;com.redhat.service.CoffeeService&quot;&gt;
@@ -57,7 +58,7 @@ Alternatively, you can copy the following BPMN2 definition to the BPMN file:
     &lt;bpmn2:property id=&quot;coffees&quot; itemSubjectRef=&quot;_coffeesItem&quot; name=&quot;coffees&quot;&gt;
       &lt;bpmn2:extensionElements&gt;
         &lt;drools:metaData name=&quot;customTags&quot;&gt;
-          &lt;drools:metaValue&gt;&lt;![CDATA[internal]]&gt;&lt;/drools:metaValue&gt;
+          &lt;drools:metaValue&gt;&lt;![CDATA[output]]&gt;&lt;/drools:metaValue&gt;
         &lt;/drools:metaData&gt;
       &lt;/bpmn2:extensionElements&gt;
     &lt;/bpmn2:property&gt;
@@ -163,47 +164,16 @@ Alternatively, you can copy the following BPMN2 definition to the BPMN file:
         &lt;/bpsim:Scenario&gt;
       &lt;/bpsim:BPSimData&gt;
     &lt;/bpmn2:extensionElements&gt;
-    &lt;bpmn2:source&gt;_W7YqkHKXEDi7KqoGVfpUxw&lt;/bpmn2:source&gt;
-    &lt;bpmn2:target&gt;_W7YqkHKXEDi7KqoGVfpUxw&lt;/bpmn2:target&gt;
+    &lt;bpmn2:source&gt;_emppsHMyEDig17XG0NHLjQ&lt;/bpmn2:source&gt;
+    &lt;bpmn2:target&gt;_emppsHMyEDig17XG0NHLjQ&lt;/bpmn2:target&gt;
   &lt;/bpmn2:relationship&gt;
 &lt;/bpmn2:definitions&gt;
 </pre>
 
 Since we still have our app running using `mvn quarkus:dev`, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live-reload them, including changes in your business assets (i.e. processes, decision, rules, etc.).
 
-Check that it works as expected by opening the Swagger-UI endpoint by [clicking here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). The Swagger-UI will show the REST resources that have been generated from the project's _business assets_, in this case the `coffeeshop` resource, which is backed by our process definition (note that the sample _Greetings_ resource is also still shown in the Swagger UI).
-
-In the Swagger UI, expand the **POST /getting_started** resource. Click on the **Try it out** button on the right-hand-side of the screen. Click on the blue **Execute** button to fire the request. The response will be the instance-id/process-id of the created **getting_started** resource.
-
-![Swagger](/openshift/assets/middleware/middleware-kogito/kogito-getting-started-swagger.png)
-
-Apart from the Swagger-UI, we can also call our RESTful resources from any REST client, for example via **cURL** in a terminal.
-
-Because the original Terminal tab already has our application running, we need to run this command in a second Terminal tab. Click on the following command to run it in your other Terminal tab. This will return the list of **getting_started** resource instances, which currently contains the single instance we created earlier:
-
-`curl -X GET "http://localhost:8080/getting_started" -H "accept: application/json"`{{execute T2}}
-
-> You can also open additional terminals with the "+" button on the tab bar to the right.
-> ![Open Terminal](/openshift/assets/middleware/middleware-kogito/katacoda-open-new-terminal.png)
-
-Our process defintion contains a *UserTask*. To retrieve the tasks of an instance, we need to execute another REST operation.
-
-Let's go back to the [Swagger-UI](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). Expand the **GET ​/getting_started​/{id}​/tasks** operation, and click on the **Try it out** button. In the `id` field, fill in the value of the process instance id the previous command returned. Now, click on the **Execute** button.
-
-This will return a list of **Tasks**.
-
-![Tasks](/openshift/assets/middleware/middleware-kogito/kogito-getting-started-get-tasks.png)
-
-Since we haven't defined any Task input and output data yet, we can simply complete the task without providing any data. We will again do this from the [Swagger-UI](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). Expand the **POST ​/getting_started​/{id}​/Task/{workitemId}** operation, and click on the **Try it out** button. In the `id` field, fill in the value of the process instance id, and fill in the task-id that we retrieved with our previous REST call in the `workItemId` field. Now, click on the **Execute** button.
-
-This will complete the task, and the process will continue and reach the *End* node and complete.
-
-![Complete Tasks](/openshift/assets/middleware/middleware-kogito/kogito-getting-started-complete-task.png)
-
-With the task completed, the process instance will now be completed. Execute the following command again in the Terminal by clicking on it. Notice that there are no process instances returned:
-
-`curl -X GET "http://localhost:8080/getting_started" -H "accept: application/json"`{{execute T2}}
+Note however that we've not yet implemented the required CDI beans, hence, we cannot test our process yet. We will implement this CDI bean in the following step
 
 ## Congratulations!
 
-You've created your first Kogito application. You've defined a process in BPMN2, have seen the **live-reload** in action. You've experienced how Kogito automatically generates REST resources based on your process definition. Finally, you've started a process instance, retrieved the task list, completed a task and thereby finished the process instance.
+You've created the coffeeshop business process in your Kogito application using BPMN2. In the next step, we will implement the CDI bean that our Service Task is referencing.
