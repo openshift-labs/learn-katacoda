@@ -1,5 +1,6 @@
 #!/bin/sh
 echo "export PATH=$GRAALVM_HOME/bin:$PATH" >> /root/.bashrc
+export PATH=$GRAALVM_HOME/bin:$PATH
 
 mkdir -p /root/projects/kogito
 cd /root/projects/kogito
