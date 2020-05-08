@@ -50,6 +50,33 @@ You should see the following page, which shows the API of the sample Kogito _Gre
 
 It's working!
 
+# The CoffeeService
+
+The goal of this scenario is to have our process call an external microservice using REST from a Service Task node. Therefore we will need to have a RESTful microservice that we can call.
+
+As part of this scenario we've provided a Quarkus-based microservice that will serve as our Coffee Menu Service. The service provides a simple RESTful endpoint that can return a list of coffees on the menu, as well as the details of a single coffee item that can be selected by name.
+
+To run the service, we will first need to compile and package it:
+
+`cd /root/projects/kogito/coffeeservice-quarkus`{{execute T2}}
+`mvn clean package`{{execute T2}}
+
+This will create a new runnable Quarkus JAR file. We can now run the application:
+
+`java -jar target/coffeeservice-quarkus-1.0-SNAPSHOT-runner.jar`{{execute T2}}
+
+With the microservice running, you can now access its [Swagger-UI here](https://[[CLIENT_SUBDOMAIN]]-8090-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).
+
+We can also retrieve the list of coffees using curl.
+
+`curl -X GET "http://localhost:8090/coffee" -H "accept: application/json" -d "{}"`{{execute T3}}
+
+You should see the following output:
+
+```console
+[{"id":1,"name":"espresso-arabica","description":"arabica beans","price":2.0},{"id":2,"name":"espresso-robusta","description":"robusta beans","price":2.0},{"id":3,"name":"latte-arabica","description":"arabica beans, full fat bio milk","price":3.0}]
+```
+
 # Congratulations!
 
 You've seen how to create the skeleton of basic Kogito app, package it and start it up very quickly in `quarkus:dev` mode. We'll leave the app running and rely on hot reload for the next steps.
