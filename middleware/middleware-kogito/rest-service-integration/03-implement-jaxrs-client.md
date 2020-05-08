@@ -1,5 +1,15 @@
 In the previous step you added a process definition to your Kogito application that uses a Service Task node to call a CDI bean. In this step we will implement the CDI bean that calls our RESTful service.
 
+# REST Client Dependencies
+
+We first need to add the required dependencies to our pom.xml. Because we will be using the `quarkus-rest-client`, we need to add its dependency to our POM.
+
+We can add the dependencies using the following Maven command:
+
+`mvn quarkus:add-extension -Dextensions=io.quarkus:quarkus-rest-client`{{execute T1}}
+
+Open the `pom.xml` file and observe the the required dependencies have been added: `coffeeshop/pom.xml`{{open}}
+
 ### JAX-RS Client
 
 Our Service Task node in our process will call the method `getCoffees` of a CDI bean called `CoffeeService`. Let's first create the skeleton of that bean.
