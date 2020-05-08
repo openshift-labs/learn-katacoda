@@ -171,7 +171,7 @@ Alternatively, you can copy the following BPMN2 definition to the BPMN file:
 
 Since we still have our app running using `mvn quarkus:dev`, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live-reload them, including changes in your business assets (i.e. processes, decision, rules, etc.).
 
-Check that it works as expected by opening the Swagger-UI endpoint by [clicking here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). The Swagger-UI will show the REST resources that have been generated from the project's _business assets_, in this case the `getting_started` resource, which is backed by our process definition (note that the sample _Greetings_ resource is also still shown in the Swagger UI).
+Check that it works as expected by opening the Swagger-UI endpoint by [clicking here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). The Swagger-UI will show the REST resources that have been generated from the project's _business assets_, in this case the `coffeeshop` resource, which is backed by our process definition (note that the sample _Greetings_ resource is also still shown in the Swagger UI).
 
 In the Swagger UI, expand the **POST /getting_started** resource. Click on the **Try it out** button on the right-hand-side of the screen. Click on the blue **Execute** button to fire the request. The response will be the instance-id/process-id of the created **getting_started** resource.
 
