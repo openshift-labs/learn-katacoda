@@ -56,9 +56,14 @@ The goal of this scenario is to have our process call an external microservice u
 
 As part of this scenario we've provided a Quarkus-based microservice that will serve as our Coffee Menu Service. The service provides a simple RESTful endpoint that can return a list of coffees on the menu, as well as the details of a single coffee item that can be selected by name.
 
-To run the service, we will first need to compile and package it:
+To run the service, we will first need to compile and package it.
+
+We first need to navigate to the correct directory:
 
 `cd /root/projects/kogito/coffeeservice-quarkus`{{execute T2}}
+
+After which we can package the project:
+
 `mvn clean package`{{execute T2}}
 
 This will create a new runnable Quarkus JAR file. We can now run the application:
