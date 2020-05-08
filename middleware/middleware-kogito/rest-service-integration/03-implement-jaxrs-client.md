@@ -20,8 +20,8 @@ import java.util.Collection;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import com.redhat.coffeeservice.client.CoffeeResource;
-import com.redhat.model.Coffee;
+import org.acme.coffeeservice.client.CoffeeResource;
+import org.acme.model.Coffee;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
@@ -107,7 +107,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.redhat.model.Coffee;
+import org.acme.model.Coffee;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
@@ -145,7 +145,7 @@ Next, we need to add the proper annotation to this attribute to inject our REST 
 Finally, we need to call our REST client to retrieve the list of coffees from our service. We add some logging to our application to show that our CDI is actually being called (just for demonstration purposes):
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="return null;">
-    System.out.println("Kogito calling our CoffeeService microservice!")
+    System.out.println("Kogito calling our CoffeeService microservice!");
     return coffeeResource.getCoffees();
 </pre>
 
@@ -185,6 +185,14 @@ coffeeresource/mp-rest/scope=javax.inject.Singleton
 </pre>
 
 Notice that we can use the key `coffeeresource` to configure our client, and don't need to specify its full class name. This because we defined this as the `configKey` in `@RegisterRestClient` annotation on our JAX-RS interface.
+
+# Starting the Application
+
+With our code implemented, we can now start our application again:
+
+`mvn clean compile quarkus:dev`{{execute T1}}
+
+This will download the new dependencies and start our application in Quarkus development mode.
 
 ## Testing the Application
 

@@ -170,9 +170,7 @@ Alternatively, you can copy the following BPMN2 definition to the BPMN file:
 &lt;/bpmn2:definitions&gt;
 </pre>
 
-Since we still have our app running using `mvn quarkus:dev`, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live-reload them, including changes in your business assets (i.e. processes, decision, rules, etc.).
-
-Note however that we've not yet implemented the required CDI beans, hence, we cannot test our process yet. We will implement this CDI bean in the following step
+Note that we've not yet implemented the required CDI beans, hence, we cannot test our process yet. We will implement this CDI bean in the following step.
 
 ## Congratulations!
 

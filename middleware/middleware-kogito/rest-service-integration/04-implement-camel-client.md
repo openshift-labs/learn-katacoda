@@ -35,7 +35,7 @@ package org.acme.camel;
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.core.MediaType;
 
-import com.redhat.model.Coffee;
+import org.acme.model.Coffee;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.jackson.JacksonDataFormat;
@@ -75,8 +75,8 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import com.redhat.coffeeservice.client.CoffeeResource;
-import com.redhat.model.Coffee;
+import org.acme.coffeeservice.client.CoffeeResource;
+import org.acme.model.Coffee;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;

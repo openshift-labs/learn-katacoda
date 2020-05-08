@@ -50,6 +50,8 @@ You should see the following page, which shows the API of the sample Kogito _Gre
 
 It's working!
 
+We can now stop the application using `CTRL-C`.
+
 # The CoffeeService
 
 The goal of this scenario is to have our process call an external microservice using REST from a Service Task node. Therefore we will need to have a RESTful microservice that we can call.
