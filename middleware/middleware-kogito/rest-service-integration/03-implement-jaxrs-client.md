@@ -127,7 +127,7 @@ public interface CoffeeResource {
 }
 </pre>
 
-We now have both our domain model and JAX-RS client interface defined. We can now add the logic to our CDI bean to use the JAX-RS client.
+We now have both our domain model and JAX-RS client interface defined. We can now add the logic to our CDI bean to use the JAX-RS client. We now open our `CoffeeService.java` class again by clicking: `coffeeshop/src/main/java/org/acme/service/CoffeeService.java`{{open}}
 
 First, we need to inject our `CoffeeResource` class into our service. So, we need to create add the following attribute to our class (not that this attribute is _package-private_. This is recommended by Quarkus, as this allows Quarkus to do the injection without the need for reflection):
 
@@ -144,7 +144,7 @@ Next, we need to add the proper annotation to this attribute to inject our REST 
 
 Finally, we need to call our REST client to retrieve the list of coffees from our service. We add some logging to our application to show that our CDI is actually being called (just for demonstration purposes):
 
-<pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="return null();">
+<pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="return null;">
     System.out.println("Kogito calling our CoffeeService microservice!")
     return coffeeResource.getCoffees();
 </pre>

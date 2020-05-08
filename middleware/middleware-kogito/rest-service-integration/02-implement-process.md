@@ -43,7 +43,7 @@ Implement the process as follows:
 
 After you've defined your process, click on the **File Actions -> Copy source** button to copy the BPMN2 XML definition to your clipboard.
 
-Copy the content of your clipboard to the `getting-started/src/main/resources/getting-started.bpmn` file you've created and opened earlier using `Ctrl+v ` or `Command-v` (depending on your type of computer).
+Copy the content of your clipboard to the `coffeeshop/src/main/resources/coffeeshop-process.bpmn` file you've created and opened earlier using `Ctrl+v ` or `Command-v` (depending on your type of computer).
 
 Alternatively, you can copy the following BPMN2 definition to the BPMN file:
 
