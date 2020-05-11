@@ -1,10 +1,10 @@
-In the previous step you added a process definition to your Kogito application that uses a Service Task node to call a CDI bean. In this step we will implement the CDI bean that calls our RESTful service.
+In the previous step we added a process definition to our Kogito application that uses a Service Task node to call a CDI bean. In this step we will implement the CDI bean that calls our RESTful service.
 
 # REST Client Dependencies
 
-We first need to add the required dependencies to our pom.xml. Because we will be using the `quarkus-rest-client`, we need to add its dependency to our POM.
+We first add the required dependencies to our pom.xml. Because we will use the `quarkus-rest-client`, we need to add its dependency to our POM.
 
-We can add the dependencies using the following Maven command:
+Click the following command to add the dependencies to our project.
 
 `mvn quarkus:add-extension -Dextensions=io.quarkus:quarkus-rest-client`{{execute T1}}
 
@@ -14,13 +14,13 @@ Open the `pom.xml` file and observe the the required dependencies have been adde
 
 Our Service Task node in our process will call the method `getCoffees` of a CDI bean called `CoffeeService`. Let's first create the skeleton of that bean.
 
-First we need to create the package of the bean:
+Click the following command to create the package of the `CoffeeService` bean.
 
 `mkdir -p /root/projects/kogito/coffeeshop/src/main/java/org/acme/service`{{execute T3}}
 
-We can now open a new `CoffeeService.java` file in this package by clicking: `coffeeshop/src/main/java/org/acme/service/CoffeeService.java`{{open}}
+Click the following path to open a new `CoffeeService.java` file: `coffeeshop/src/main/java/org/acme/service/CoffeeService.java`{{open}}
 
-Click on the _Copy to Editor_ link to copy the source code into the new `CoffeeService.java`file.
+Click _Copy to Editor_ to copy the source code into the new `CoffeeService.java`file.
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="replace">
 package org.acme.service;
@@ -48,13 +48,13 @@ public class CoffeeService {
 }
 </pre>
 
-With our CDI bean skeleton implemented, we will first focus on the domain model and the JAX-RS interface from which we will generate our client.
+With the CDI bean skeleton implemented, we can focus on the domain model and the JAX-RS interface from which our rest client is generated.
 
-Our domain model is simply the `Coffee` class that's also used by the CoffeeService we started in the first step. To add this domain model class, we first need to create the required package:
+Our domain model is simply the `Coffee` class that's also used by the CoffeeService we started in the first step. Click the following command to create a new package for our domain class.
 
 `mkdir -p /root/projects/kogito/coffeeshop/src/main/java/org/acme/model`{{execute T3}}
 
-Next we can create our `Coffee.java` file in this package by clicking: `coffeeshop/src/main/java/org/acme/model/Coffee.java`{{open}}
+Click the following path to create the `Coffee.java` file: `coffeeshop/src/main/java/org/acme/model/Coffee.java`{{open}}
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/model/Coffee.java" data-target="replace">
 package org.acme.model;
@@ -98,13 +98,13 @@ public class Coffee {
 }
 </pre>
 
-With our domain model implemented, we can now implement our JAX-RS interface definition. This is actually the same JAX-RS interface definition that is used in the _CoffeeService_. The only difference is that we annotate this interface with the `@RegisterRestClient(configKey = "coffeeresource")` annotation to register it as a Rest client.
+With our domain model implemented, we can now implement the JAX-RS interface definition. This is actually the same JAX-RS interface definition that is used in the _CoffeeService_. The only difference is that we annotate this interface with the `@RegisterRestClient(configKey = "coffeeresource")` annotation to register it as a Rest client.
 
-We first need to create the package in which we will create our Rest client:
+Click the following command to create the package force our Rest client.
 
 `mkdir -p /root/projects/kogito/coffeeshop/src/main/java/org/acme/coffeeservice/client`{{execute T3}}
 
-Next we can create our `CoffeeResource.java` interface in this package by clicking: `coffeeshop/src/main/java/org/acme/coffeeservice/client/CoffeeResource.java`{{open}}
+Click the following path to create the `CoffeeResource.java` interface: `coffeeshop/src/main/java/org/acme/coffeeservice/client/CoffeeResource.java`{{open}}
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/coffeeservice/client/CoffeeResource.java" data-target="replace">
 package org.acme.coffeeservice.client;
@@ -137,22 +137,22 @@ public interface CoffeeResource {
 }
 </pre>
 
-We now have both our domain model and JAX-RS client interface defined. We can now add the logic to our CDI bean to use the JAX-RS client. We now open our `CoffeeService.java` class again by clicking: `coffeeshop/src/main/java/org/acme/service/CoffeeService.java`{{open}}
+With our domain model and JAX-RS client interface defined, we can now add the logic to our CDI bean to use the JAX-RS client. Click the following path to re-open the `CoffeeService.java` class: `coffeeshop/src/main/java/org/acme/service/CoffeeService.java`{{open}}
 
-First, we need to inject our `CoffeeResource` class into our service. So, we need to create add the following attribute to our class (not that this attribute is _package-private_. This is recommended by Quarkus, as this allows Quarkus to do the injection without the need for reflection):
+First, we inject the `CoffeeResource` class into the service. Click _Copy to Editor_ to add the `CoffeeResource` attribute to our class (note that this attribute is _package-private_. This is recommended by Quarkus, as this enables Quarkus to do the injection without the need for reflection):
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add RestClient attribute">
     CoffeeResource coffeeResource;
 </pre>
 
-Next, we need to add the proper annotation to this attribute to inject our REST client. Here we need 2 annotations. First we need the `@Inject` annotation, but because we want to inject the generated REST client project (generated from the JAX-RS interface we created earlier), we also need to add the `@RestClient` annotation:
+Next, we add the annotations to this attribute to inject the REST client. We need two annotations. First we need the `@Inject` annotation, but because we want to inject the generated REST client project (generated from the JAX-RS interface we created earlier), we also need to add the `@RestClient` annotation. Click `Copy to Editor` to add the annotations.
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add RestClient annotations">
     @Inject
     @RestClient
 </pre>
 
-Finally, we need to call our REST client to retrieve the list of coffees from our service. We add some logging to our application to show that our CDI is actually being called (just for demonstration purposes):
+Finally, we call our REST client to retrieve the list of coffees from our service. We add some logging to our application to show that our CDI is actually being called (just for demonstration purposes). Click `Copy to Editor` to add this logic to our service class.
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="return null;">
     System.out.println("Kogito calling our CoffeeService microservice!");
@@ -162,9 +162,9 @@ Finally, we need to call our REST client to retrieve the list of coffees from ou
 # Configuring the REST client
 With our code completed, we now only need to add some configuration options to our `application.properties` file to instruct our REST client which endpoint it needs to call.
 
-First we need to open our `application.properties` file by clicking: `coffeeshop/src/main/resources/application.properties`{{open}}
+Click the following path to open the `application.properties`: `coffeeshop/src/main/resources/application.properties`{{open}}
 
-We can now add the proper content:
+Click `Copy to Editor` to add the configuration of the REST client to the `application.properties` file.
 
 <pre class="file" data-filename="./coffeeshop/src/main/resources/application.properties" data-target="replace">
 #
@@ -194,23 +194,23 @@ coffeeresource/mp-rest/url=http://localhost:8090
 coffeeresource/mp-rest/scope=javax.inject.Singleton
 </pre>
 
-Notice that we can use the key `coffeeresource` to configure our client, and don't need to specify its full class name. This because we defined this as the `configKey` in `@RegisterRestClient` annotation on our JAX-RS interface.
+Notice that we use the key `coffeeresource` to configure our client, and don't specify its full class name. This is possible because we defined this name as the `configKey` in `@RegisterRestClient` annotation on the JAX-RS interface.
 
 # Starting the Application
 
-With our code implemented, we can now start our application again:
+With our code implemented, click the following command to start the application.
 
 `mvn clean compile quarkus:dev`{{execute T1}}
 
-This will download the new dependencies and start our application in Quarkus development mode.
+This downloads the new dependencies and starts our application in Quarkus development mode.
 
 ## Testing the Application
 
-We can now test our Kogito application by sending the following request:
+Click the following command to send a request to our application.
 
 `curl -X POST "http://localhost:8080/coffeeshop" -H "accept: application/json" -H "Content-Type: application/json" -d "{}"`{{execute T3}}
 
-You should see the following output:
+We see the following output in the console:
 
 ```console
 [{"id":1,"name":"espresso-arabica","description":"arabica beans","price":2.0},{"id":2,"name":"espresso-robusta","description":"robusta beans","price":2.0},{"id":3,"name":"latte-arabica","description":"arabica beans, full fat bio milk","price":3.0}]
@@ -218,4 +218,4 @@ You should see the following output:
 
 ## Congratulations!
 
-You've implemented the MicroProfile JAXRS Rest Client implementation to integrate your Kogito application with another microservice over REST. Well done! In the next step we will change the implementation to use Apache Camel.
+We've implemented the MicroProfile JAXRS Rest Client to integrate our Kogito application with another microservice over REST. Well done! In the next step we will change the implementation to use Apache Camel.

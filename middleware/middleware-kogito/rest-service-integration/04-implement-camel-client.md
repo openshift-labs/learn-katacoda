@@ -1,33 +1,35 @@
-In the previous step you implemented a RESTful call from a Kogito process to a microservice using the MicroProfile JAX-RS Rest Client. In this step we will replace that implementation with an Apache Camel implementation. The advantage of Camel is that we can:
+In the previous step we've implemented a RESTful call from a Kogito process to a microservice using the MicroProfile JAX-RS Rest Client. In this step we will replace that implementation with an Apache Camel implementation. The advantage of Camel is that we can:
 
 * Add additional logic to our integration using additional Camel functionality, e.g. marshalling, transformation, routing, error handling, etc.
 * Use the vast array of Camel components to connect to virtually any other external system, e.g. Salesforce, Kafka, Twitter, Filesystems, etc.
 
 # Stop the Application
-Because we will be adding a number of Camel dependencies to our application, we will first stop our application.
+Because we will add a number of Camel dependencies to our application, we must first stop our application.
 
 In the first terminal, stop the application using `CTRL-C`.
 
-
 # Camel Dependencies
 
-We first need to add the required dependencies to our pom.xml. Because we will be using the `netty-http` Camel component, we need to add its dependency to our POM. We will also be using `camel-direct` to call the Camel Route from our CDI bean, and `jackson` to support marshalling and unmarshalling in our route.
+We add the required dependencies to our pom.xml. Because we will use the `netty-http` Camel component, we add its dependency to our POM. We will also use `camel-direct` to call the Camel Route from our CDI bean, and `jackson` to support marshalling and unmarshalling in our route.
 
-We can add the dependencies using the following Maven command:
+Click the following command to add the dependencies to our project:
 
 `mvn quarkus:add-extension -Dextensions=org.apache.camel.quarkus:camel-quarkus-netty-http,org.apache.camel.quarkus:camel-quarkus-jackson,org.apache.camel.quarkus:camel-quarkus-direct`{{execute T1}}
 
-Open the `pom.xml` file and observe the the required dependencies have been added: `coffeeshop/pom.xml`{{open}}
+Click the following path to open the `pom.xml` file and observe that the required dependencies have been added: `coffeeshop/pom.xml`{{open}}
 
 ### Camel RouteBuilder
 
-We can now implement the Camel `RouteBuilder`. In the `RouteBuilder` we implement the Camel route that, in our case, will do a RESTful call to our CoffeeService microservice, and process the response.
+We will now implement the Camel `RouteBuilder`. In the `RouteBuilder` we implement the Camel route that, in our case, will do a RESTful call to our CoffeeService microservice, and process the response.
 
-To implement the RouteBuilder, we first need to create a new package in our application:
+Click the following commmanbt to create a new package in which we create our RouteBuilder:
 
 `mkdir -p /root/projects/kogito/coffeeshop/src/main/java/org/acme/camel`{{execute T3}}
 
-Next we can create our `Coffee.java` file in this package by clicking: `coffeeshop/src/main/java/org/acme/camel/CoffeeRouteBuilder.java`{{open}}
+Click on the following path to create the `Coffee.java` file: `coffeeshop/src/main/java/org/acme/camel/CoffeeRouteBuilder.java`{{open}}
+
+
+Click _Copy to Editor_ to implement the `CoffeeRouteBuilder`.
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/camel/CoffeeRouteBuilder.java" data-target="replace">
 package org.acme.camel;
@@ -62,8 +64,7 @@ public class CoffeeRouteBuilder extends RouteBuilder {
 
 The route is pretty simple. It accepts an exchange (message) from a "direct" endpoint (which allows us to call this endpoint from our CDI bean), it sets the required HTTP headers (`Accept`), it sets the HTTP method that we want to use, and uses the `netty-http` component to do a call to our CoffeeService. Finally, the response is unmarshalled into a `Collection` of `Coffee` instances using the `JacksonDataFormat` instance.
 
-With our route implemented, we can now change our `CoffeeService` implementation to use our Camel route. To do this, we first replace our old implementation with the following skeleton implementation:
-
+With our route implemented, we can change our `CoffeeService` implementation to use our Camel route. To do this, click _Copy to Editor_ to replace our old implementation with a new following skeleton implementation.
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="replace">
 package org.acme.service;
@@ -111,20 +112,20 @@ public class CoffeeService {
 </pre>
 
 
-First we need to inject the `CamelContext`, from which we can create our Camel `FluentProducerTemplate`:
+Click _Copy to Editor_ to copy the code snippet that injects the `CamelContext` into the service class:
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add CamelContext">
     @Inject
     CamelContext camelContext;CoffeeResource coffeeResource;
 </pre>
 
-We add an attribute to our class to hold the `FluentProducerTemplate`:
+Click _Copy to Editor_ to add an attribute to our class to hold the `FluentProducerTemplate`.
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add FluentProducerTemplate">
     private FluentProducerTemplate producer;
 </pre>
 
-Using an `@PostConstruct` method, we initialize the `FluentProducerTemplate` and set its default endpoint:
+Click _Copy to Editor_ to add the `@PostConstruct` method, in which the `FluentProducerTemplate` is initialized and its default endpoint is set:
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add PostConstruct">
     @PostConstruct
@@ -134,7 +135,7 @@ Using an `@PostConstruct` method, we initialize the `FluentProducerTemplate` and
     }
 </pre>
 
-And we use an `@PreDestroy` method to clean-up the `ProducerTemplate` resources when our bean is destroyed:
+Click _Copy to Editor_ to add the `@PreDestroy` method which cleans-up the `ProducerTemplate` resources when the bean is destroyed:
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add PreDestroy">
     @PreDestroy
@@ -143,7 +144,7 @@ And we use an `@PreDestroy` method to clean-up the `ProducerTemplate` resources 
     }
 </pre>
 
-With all the plumbing in place, we can now implement the method that will call the Camel route, which in its turn will call our microservice via REST:
+With all the plumbing in place, click _Copy to Editor_ to implement the method which calls the Camel route, which in its turn calls the microservice via REST:
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add Method Implementation">
     return producer.request(Collection.class);
@@ -152,19 +153,19 @@ With all the plumbing in place, we can now implement the method that will call t
 
 # Starting the Application
 
-With our code implemented, we can now start our application again:
+Click on the following command to start the application again:
 
 `mvn clean compile quarkus:dev`{{execute T1}}
 
-This will download the new dependencies and start our application in Quarkus development mode.
+This downloads the new dependencies and starts our application in Quarkus development mode.
 
 ## Testing the Application
 
-We can now test our application again with the following request:
+Click on the following command to send a request to test our application.
 
 `curl -X POST "http://localhost:8080/coffeeshop" -H "accept: application/json" -H "Content-Type: application/json" -d "{}"`{{execute T3}}
 
-You should see the following output:
+We should see the following output in the console:
 
 ```console
 [{"id":1,"name":"espresso-arabica","description":"arabica beans","price":2.0},{"id":2,"name":"espresso-robusta","description":"robusta beans","price":2.0},{"id":3,"name":"latte-arabica","description":"arabica beans, full fat bio milk","price":3.0}]
@@ -172,4 +173,4 @@ You should see the following output:
 
 ## Congratulations!
 
-You've implemented the integration with our CoffeeService using Apache Camel's `netty-http` component. Well done!
+We've implemented the integration with our CoffeeService using Apache Camel's `netty-http` component. Well done!

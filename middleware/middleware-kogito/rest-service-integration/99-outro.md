@@ -1,4 +1,4 @@
-In this scenario, you learned how you can use both a Quarkus JAX-RS client, as well as a Camel Route to integrate a Kogito with RESTful microservices. We've seen how we can utilize the Kogito CDI support to implement the bridge between our process definition's BPMN2 Service Task and our integration logic.
+In this scenario, we've learned how we can use both a Quarkus JAX-RS client, as well as a Camel Route to integrate a Kogito with RESTful microservices. We've seen how we can utilize the Kogito CDI support to implement the bridge between our process definition's BPMN2 Service Task and our integration logic.
 
 Kogito gives cloud-native developers the ability to use their skillset and combine it with the power of process, workflow, rules and decision automation capabilities, providing a complete toolkit to build cloud-native business applications and systems.
 

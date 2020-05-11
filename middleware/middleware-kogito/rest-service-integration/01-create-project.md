@@ -1,9 +1,9 @@
-In this step, you will create a Kogito application skeleton.
+In this step, we will create a Kogito application skeleton.
 
 
 # Create a basic project
 
-We can create a new Quarkus project with the Kogito extension by executing the following Maven command:
+To create a new Quarkus project with the Kogito extension, click the following command.
 
 `mvn io.quarkus:quarkus-maven-plugin:1.4.1.Final:create \
     -DprojectGroupId=org.acme \
@@ -11,24 +11,24 @@ We can create a new Quarkus project with the Kogito extension by executing the f
     -Dextensions="org.kie.kogito:kogito-quarkus,io.quarkus:quarkus-smallrye-openapi"`{{execute}}
 
 
-This will use the Quarkus Maven Plugin Archetype and generate a basic Maven project for you in the `coffeeshop` subdirectory, generating:
+This uses the Quarkus Maven plugin and generates a basic Maven project for us in the `coffeeshop` subdirectory which contains:
 
-* The Maven structure.
+* The project's Maven structure.
 * An OpenAPI Swagger-UI at `http://localhost:8080/swagger-ui`.
 
-Once generated, look at the `coffeeshop/pom.xml`{{open}}. You will find the import of the Quarkus BOM, allowing to omit the version on the different Kogito and Quarkus dependencies. In addition, you can see the `quarkus-maven-plugin`, which is responsible for packaging of the application as well as allowing to start the application in development mode.
+Once generated, look at the `coffeeshop/pom.xml`{{open}}. We will find the import of the Quarkus BOM which enables us to omit the version of the Kogito and Quarkus dependencies. In addition, we can see the `quarkus-maven-plugin`, which is responsible for packaging of the application and which allows us to start the application in development mode.
 
 # Running the Application
 
-First, change to the directory in which the project was created:
+Click the following command to change directory to the `coffeeshop` directory:
 
 `cd /root/projects/kogito/coffeeshop`{{execute}}
 
-Now we are ready to run our application. Click on the following command to start the application in _dev-mode_:
+Click the following command to start the application in Quarkus development mode:
 
 `mvn clean compile quarkus:dev`{{execute}}
 
-You should see:
+We see the following output in the console:
 
 ```console
 2020-02-07 09:09:12,440 INFO  [io.quarkus] (main) getting-started 1.0-SNAPSHOT (running on Quarkus 1.4.1.Final) started in 5.850s. Listening on: http://0.0.0.0:8080
@@ -36,11 +36,11 @@ You should see:
 2020-02-07 09:09:12,449 INFO  [io.quarkus] (main) Installed features: [cdi, kogito, resteasy, resteasy-jackson, smallrye-openapi, swagger-ui]
 ```
 
-Because this is the first Maven Kogito/Quarkus build on this environment, the system first needs to download a number of dependencies, which can take some time.
+Because this is the first Maven Kogito/Quarkus build in this environment, the system first needs to download a number of dependencies. This can take some time.
 
-After the dependencies have been downloaded, and the application has been compiled, note the amazingly fast startup time! Once started, you can request the provided Swagger UI in the browser [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).
+After the dependencies have downloaded, and the application is compiled, note the amazingly fast startup time! Once started, we can open the application's Swagger UI in the browser [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).
 
-You should see the following page, which shows the Swagger-UI. Because we have not yet implemented our application, there are no operations defined yet in our API:
+We see the following Swagger-UI page. Because we have not yet implemented our application, there are no operations defined yet in our API:
 
 ![New Kogito Quarkus Web Page](/openshift/assets/middleware/middleware-kogito/new-quarkus-empty-swagger-ui.png)
 
@@ -50,25 +50,25 @@ We can now stop the application using `CTRL-C`.
 
 # The CoffeeService
 
-The goal of this scenario is to have our process call an external microservice using REST from a Service Task node. Therefore we will need to have a RESTful microservice that we can call.
+The goal of this scenario is for our process to call an external microservice using REST from a BPMN2 Service Task node. So we need to have a RESTful microservice that we can call.
 
-As part of this scenario we've provided a Quarkus-based microservice that will serve as our Coffee Menu Service. The service provides a simple RESTful endpoint that can return a list of coffees on the menu, as well as the details of a single coffee item that can be selected by name.
+As part of this scenario we've provided a Quarkus-based microservice that serves as our Coffee Menu Service. The service provides a simple RESTful endpoint that returns a list of coffees on the menu, as well as the details of a single coffee item that can be selected by name.
 
-To run the service, we will first need to compile and package it.
+To run the service, we first need to compile and package it.
 
-We first need to navigate to the correct directory:
+Click the following command to change directory to the correct directory:
 
 `cd /root/projects/kogito/coffeeservice-quarkus`{{execute T2}}
 
-After which we can package the project:
+To package the project, click on the following command:
 
 `mvn clean package`{{execute T2}}
 
-This will create a new runnable Quarkus JAR file. We can now run the application:
+This creates a new runnable Quarkus JAR file. Click on the following command to run the application:
 
 `java -jar target/coffeeservice-quarkus-1.0-SNAPSHOT-runner.jar`{{execute T2}}
 
-With the microservice running, you can now access its [Swagger-UI here](https://[[CLIENT_SUBDOMAIN]]-8090-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).
+With the microservice running, we can access its [Swagger-UI here](https://[[CLIENT_SUBDOMAIN]]-8090-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui).
 
 We can also retrieve the list of coffees using curl.
 
