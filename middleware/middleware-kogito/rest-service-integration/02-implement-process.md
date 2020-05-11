@@ -8,10 +8,6 @@ We will create a simple process that will look like this:
 
 ![Process](/openshift/assets/middleware/middleware-kogito/kogito-rest-coffeeshop-process.png)
 
-First we will delete the existing _test process_ process:
-
-`rm -f /root/projects/kogito/coffeeshop/src/main/resources/test-process.bpmn2`{{execute}}
-
 Open a new _coffeeshop process_ BPMN2 file by clicking: `coffeeshop/src/main/resources/coffeeshop-process.bpmn`{{open}}
 
 BPMN2 allows us to define a graphical representation of a process (or workflow), and as such, we need a BPMN2 editor to implement our process. Kogito provides an online BPMN2 editor that we can use to build our process.

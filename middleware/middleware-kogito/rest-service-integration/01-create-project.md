@@ -3,16 +3,13 @@ In this step, you will create a Kogito application skeleton.
 
 # Create a basic project
 
-The easiest way to create a new Kogito project is to execute the Maven command below by clicking on it:
+We can create a new Quarkus project with the Kogito extension by executing the following Maven command:
 
-`mvn archetype:generate \
-  -DinteractiveMode=false \
-  -DarchetypeGroupId=org.kie.kogito \
-  -DarchetypeArtifactId=kogito-quarkus-archetype \
-  -DarchetypeVersion=0.10.0 \
-  -DgroupId=org.acme \
-  -DartifactId=coffeeshop \
-  -Dversion=1.0-SNAPSHOT`{{execute}}
+`mvn io.quarkus:quarkus-maven-plugin:1.4.1.Final:create \
+    -DprojectGroupId=org.acme \
+    -DprojectArtifactId=coffeeshop \
+    -Dextensions="org.kie.kogito:kogito-quarkus,io.quarkus:quarkus-smallrye-openapi"`{{execute}}
+
 
 This will use the Kogito Quarkus Archetype and generate a basic Maven project for you in the `getting-started` subdirectory, generating:
 

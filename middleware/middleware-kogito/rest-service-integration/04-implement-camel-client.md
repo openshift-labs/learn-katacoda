@@ -108,26 +108,27 @@ public class CoffeeService {
         //Add Build Exchange
         //Add Send Exchange
         //Add Return
-
-        return (Collection<Coffee>) response.getMessage().getBody();
     }
 
 }
 
-
 </pre>
 
+
+First we need to inject the `CamelContext`, from which we can create our Camel `ProducerTemplate`:
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add CamelContext">
     @Inject
     CamelContext camelContext;CoffeeResource coffeeResource;
 </pre>
 
+We add an attribute to our class to hold the `ProducerTemplate`:
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add ProducerTemplate">
     private ProducerTemplate producer;
 </pre>
 
+Using an `@PostConstruct` method, we initialize the `ProducerTemplate` when our bean is created:
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add PostConstruct">
     @PostConstruct
@@ -136,13 +137,16 @@ public class CoffeeService {
     }
 </pre>
 
+And we use an `@PreDestroy` method to clean-up the `ProducerTemplate` resources when our bean is destroyed:
 
-<pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add PostConstruct">
+<pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add PreDestroy">
     @PreDestroy
     void destroy() {
       producer.stop();
     }
 </pre>
+
+With all the plumbing in place, we can now implement the method that will call the Camel route, which in its turn will call our microservice via REST. We first create a new `Exchange` (note):
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add Build Exchange">
     Exchange requestExchange = ExchangeBuilder.anExchange(camelContext).withPattern(ExchangePattern.InOut).build();
