@@ -102,7 +102,7 @@ public class CoffeeService {
 //Add PreDestroy
 
     public Collection<Coffee> getCoffees() {
-        LOGGER.debug("Retrieving coffees")
+        LOGGER.debug("Retrieving coffees");
 //Add Method Implementation
     }
 
@@ -162,7 +162,7 @@ This will download the new dependencies and start our application in Quarkus dev
 
 We can now test our application again with the following request:
 
-`curl -X POST "http://localhost:8080/coffeeprocess" -H "accept: application/json" -H "Content-Type: application/json" -d "{}"`{{execute T3}}
+`curl -X POST "http://localhost:8080/coffeeshop" -H "accept: application/json" -H "Content-Type: application/json" -d "{}"`{{execute T3}}
 
 You should see the following output:
 
