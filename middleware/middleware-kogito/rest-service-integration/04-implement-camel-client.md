@@ -90,10 +90,6 @@ public class CoffeeService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CoffeeService.class);
 
-    //Doesn't seem to work in Quarkus
-    //@EndpointInject("direct://getCoffees")
-    //private ProducerTemplate producer;
-
 //Add CamelContext
 
 //Add FluentProducerTemplate
