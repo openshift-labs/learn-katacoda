@@ -1,20 +1,20 @@
-In the previous step you've created a skeleton OptaPlanner application with Quarkus and started the application in _Quarkus dev-mode_. In this step we'll create the domain model of our application.
+In the previous step we've created a skeleton OptaPlanner application with Quarkus and started the application in Quarkus development mode. In this step we'll create the domain model of our application.
 
 ## PlanningEntities and PlanningVariables
 
-In every OptaPlanner application, we have so called `PlanningEntities` and `PlanningVariables`. Planning entities are the entities in your domain that OptaPlanner needs to plan. In our knapsack problem, these are our ingots, as these are the entities that are either put into the knapsack or not.
+Each OptaPlanner application has planning entities (`@PlanningEntity` annotation) and planning variables (`@PlanningVariable` annotation). Planning entities are the entities in our domain that OptaPlanner needs to plan. In the knapsack problem, these are the ingots because these are the entities that are either put into the knapsack or not.
 
-Planning variables are properties on a planning entity that point to a planning value that changes during planning. In our case, this is the property whether the ingot is _selected_, i.e. whether it is put in the knapsack (note that in this example we use a single knapsack. If we would have multiple knapsacks, the actual knapsack would be the planning variable, as an ingot could be placed in different knapsacks).
+Planning variables are properties of a planning entity that specify a planning value that changes during planning. In the knapsack problem, this is the property that tells OptaPlanner whether or not the ingot is _selected_. That is, whether or not it is put in the knapsack. Note that in this example we have a single knapsack. If we have multiple knapsacks, the actual knapsack is the planning variable, because an ingot can be placed in different knapsacks.
 
 ## Ingot
 
-We will implement the `Ingot` class. To do this, we first need to create a new package in our project:
+To implement the `Ingot` class, first we need to create a new package in our project:
 
 `mkdir -p /root/projects/kogito/knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain`{{execute T2}}
 
-We can now open a new `Ingot.java` file in this package by clicking: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Ingot.java`{{open}}
+Click on the following line to open a new `Ingot.java` file in this package: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Ingot.java`{{open}}
 
-Click on the _Copy to Editor_ link to copy the source code into the new `Ingot.java`file.
+Click _Copy to Editor_ to copy the source code into the new `Ingot.java`file.
 
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Ingot.java" data-target="replace">
 package com.redhat.knapsackoptaplanner.domain;
@@ -67,28 +67,29 @@ public class Ingot {
 
 ### Planning Entity
 
-We first need to tell OptaPlanner that this class is our `PlanningEntity` class. To do this, we set the `@PlanningEntity` annotation on the class:
+We first need to tell OptaPlanner that this class is our `PlanningEntity` class. To do this, click _Copy to Editor_ to set the `@PlanningEntity` annotation on the class.
+
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Ingot.java" data-target="insert" data-marker="//Add PlanningEntity annotation">
 @PlanningEntity
 </pre>
 
 #### Planning Variable
 
-Second, we need to configure our `PlanningVariable`. In this example, the planning variable, i.e. the property that changes during planning, is the `selected` attribute of our planning entity class. We mark this property with the `@PlanningVariable` annotation. We also specify the so called _valuerange provider_. This is the entity in our application that provides the range of possible values of our planning variable:
+Next, we need to configure our planning variable. In this example, the planning variable (the property that changes during planning) is the `selected` attribute of the planning entity class. Mark this property with the `@PlanningVariable` annotation and specify the _valuerange provider_. This is the entity in our application that provides the range of possible values of our planning variable.
 
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Ingot.java" data-target="insert" data-marker="  //Add Planning Variable annotation">
   @PlanningVariable(valueRangeProviderRefs = "selected")
 </pre>
 
-In this example, since our planning variable is a `Boolean`, the _valuerange_ will simply be the range of `true` and `false`. We will define this provider in the next step.
+In this example, because our planning variable is a `Boolean` value, the _valuerange_ is simply `true` and `false`. We will define this provider in the next step.
 
 ## Knapsack
 
-In our application we need to have an object that defines the maximum weight of our knapsack. We will therefore implement a simple `Knapsack` class that has a `maxWeight` attribute that can hold this value.
+In our application, we need to have an object that defines the maximum weight of our knapsack. So we will implement a simple `Knapsack` class that has a `maxWeight` attribute that can hold this value.
 
-Open a new `Knapsack.java` file in this package by clicking: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Knapsack.java`{{open}}
+Click the following line to open a new `Knapsack.java` file in this package: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Knapsack.java`{{open}}
 
-The implementation is a class with a single `maxWeight` attribute:
+Click _Copy to Editor_ to add a class with a single `maxWeight` attribute.
 
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/domain/Knapsack.java" data-target="replace">
 package com.redhat.knapsackoptaplanner.domain;
@@ -113,4 +114,4 @@ public class Knapsack {
 
 ## Congratulations!
 
-You've implemented the domain model of your OptaPlanner Quarkus application. In the next step, we will implement the _PlanningSolution_ of our application.
+We've implemented the domain model of our OptaPlanner Quarkus application. In the next step, we will implement the _PlanningSolution_ of our application.
