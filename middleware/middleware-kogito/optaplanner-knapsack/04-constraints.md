@@ -2,32 +2,32 @@ In the previous step you've implemented the `PlanningSolution` of our applicatio
 
 ## Constraints
 
-Constraints define how the score of a solution is calculated. Based on the current assignment of planning variables to planning entities, we can calculate a score for the given solution using constraint. This example, as stated earlier, uses a _hard_ and _soft_ score. A _hard_ score defines an infeasible solution, where the _soft_ score is the score that we want to optimize. Our constraints will calculate these scores.
+Constraints define how the score of a solution is calculated. Based on the current assignment of planning variables to planning entities, we can calculate a score for the solution using constraints. This example, as stated earlier, uses a _hard_ and _soft_ score. A _hard_ score defines an infeasible solution and the _soft_ score is the score that we want to optimize. Our constraints will calculate these scores.
 
-In this example we will implement two constraint. The first constraint states that a hard constraint is broken when the total weight of the selected ingots is greater than the max weight of the knapsack. I.e. if we select ingots that have a total weight that is greater than the max weight of our knapsack, the solution is infeasible.
+In this example we will implement two constraints. The first constraint states that a hard constraint is broken when the total weight of the selected ingots is greater than the maximum weight of the knapsack. That is, if we select ingots that have a total weight that is greater than the maximum weight of our knapsack, the solution is infeasible.
 
-The soft constraint, the score that we want to optimize, is the total value of the ingots. I.e. we want to find the solution that maximizes our total value. For this we will implement a constraint that calculates this as a soft score.
+The soft constraint, the score that we want to optimize, is the total value of the ingots. That is, we want to find the solution that maximizes our total value. For this we will implement a constraint that calculates this as a soft score.
 
 ## ConstraintStreams
 
-OptaPlanner provides various options to implement your constraints:
+OptaPlanner provides various options to implement our constraints:
 
 * **Easy Java**: Java implementation that recalculates the full score for every move. Easy to write but extremely slow. Do not use this in production!
-* **Incremental Java**: Java implementation that does incremental score calculation on every move. Fast, but very hard to write and maintain. Not recommeded!
-* **Drools**: rule based constraints written in DRL. Incremental and fast calculation of constraints. Requires knowledge of Drools.
-* **Constraint Streams**: constraints written in an API inspired by Java Streams. Incremental and fast calculation of constraints. Requires knowledge of the Streams API.
+* **Incremental Java**: Java implementation that does incremental score calculation on every move. Fast, but very hard to write and maintain. Not recommended!
+* **Drools**: Rule-based constraints written in DRL. Incremental and fast calculation of constraints. Requires knowledge of Drools.
+* **Constraint Streams**: Constraints written in an API inspired by Java Streams. Incremental and fast calculation of constraints. Requires knowledge of the Streams API.
 
-In this example we will be using the Constraint Streams API.
+In this example we will use the Constraint Streams API.
 
-We will start by implementing the `ConstraintProvider`. The implementation class will be automatically picked up by the OptaPlanner Quarkus runtime without the need for any configuration.
+We will start by implementing the `ConstraintProvider`. The implementation class is automatically picked up by the OptaPlanner Quarkus runtime without the need for any configuration.
 
-We will implement the `KnapsackConstraintProvider` class. To do this, we first need to create a new package in our project:
+We will implement the `KnapsackConstraintProvider` class. To do this, click the following command to create a new package in our project:
 
 `mkdir -p /root/projects/kogito/knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver`{{execute T2}}
 
-We can now open a new `KnapsackConstraintProvider.java` file in this package by clicking: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintProvider.java`{{open}}
+Now click the following path to open a new `KnapsackConstraintProvider.java` file in this package: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintProvider.java`{{open}}
 
-Click on the _Copy to Editor_ link to copy the source code into the new `KnapsackConstraintProvider.java`file.
+Click _Copy to Editor_ to copy the source code into the new `KnapsackConstraintProvider.java`file.
 
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintProvider.java" data-target="replace">
 package com.redhat.knapsackoptaplanner.solver;
@@ -66,7 +66,7 @@ public class KnapsackConstraintProvider implements ConstraintProvider {
 }
 </pre>
 
-The hard constraint sums up the weight of all selected ingots and compares this with the maximum weight of the knapsack:
+Click _Copy to Editor_. The hard constraint sums up the weight of all selected ingots and compares this with the maximum weight of the knapsack.
 
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintProvider.java" data-target="insert" data-marker="//Add hard constraint here">
   private Constraint maxWeight(ConstraintFactory constraintFactory) {
@@ -77,7 +77,7 @@ The hard constraint sums up the weight of all selected ingots and compares this 
   }
 </pre>
 
-The soft constraints sums up all the values of the selected ingots:
+Click _Copy to Editor_. The soft constraints sums up all the values of the selected ingots.
 
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackConstraintProvider.java" data-target="insert" data-marker="//Add soft constraint here">
   private Constraint maxValue(ConstraintFactory constraintFactory) {
@@ -89,4 +89,4 @@ The soft constraints sums up all the values of the selected ingots:
 
 ## Congratulations!
 
-In this step you've implemented your first OptaPlanner constraints using the `ConstraintStreams` API. In the next step we will implement our RESTful resource and test our application.
+In this step we've implemented our first OptaPlanner constraints using the `ConstraintStreams` API. In the next step we will implement our RESTful resource and test our application.

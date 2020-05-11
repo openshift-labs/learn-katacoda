@@ -1,12 +1,12 @@
-In the previous step you've implemented the constraints of the application using the `ConstraintStreams` API. We will now create the RESTful resource of our application and take the application for a test-drive.
+In the previous step we've implemented the constraints of the application using the `ConstraintStreams` API. We will now create the RESTful resource of our application and take the application for a test-drive.
 
 # KnapsackResource
 
-When we created the initial OptaPlanner Quarkus application using the Quarkus Maven Plugin, we defined the resource class of our RESTful endpoint, being `KnapsackResource`.
+When we created the initial OptaPlanner Quarkus application using the Quarkus Maven plugin, we defined the resource class of our RESTful endpoint (being `KnapsackResource`).
 
-We will now implement the skeleton of our `KnapsackSolution` class. To do this, we first have to open the `KnapsackResource.java` file by clicking: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackResource.java`{{open}}
+We will now implement the skeleton of our `KnapsackSolution` class. To do this, we first have to open the `KnapsackResource.java` file by clicking the following path: `knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackResource.java`{{open}}
 
-The `KnapsackResource` class will be implemented as a Quarkus JAX-RS service. We will inject an OptaPlanner `SolverManager` instance to manage the `Solver` instances that will solve our problem. `SolverManager` accepts (uninitialized) `PlanningSolutions` (i.e. the problem), and will pass this problem to a managed `Solver` that runs on a separate thread to solve it. The `SolverJob` will run until solving ends, after which we can retrieve the final best solution.
+The `KnapsackResource` class is implemented as a Quarkus JAX-RS service. Click _Copy to Editor_ to inject an OptaPlanner `SolverManager` instance to manage the `Solver` instances that will solve our problem.
 
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/java/com/redhat/knapsackoptaplanner/solver/KnapsackResource.java" data-target="replace">
 package com.redhat.knapsackoptaplanner.solver;
@@ -53,13 +53,15 @@ public class KnapsackResource {
 }
 </pre>
 
+SolverManager accepts (uninitialized) PlanningSolutions the problem), and passes this problem to a managed Solver that runs on a separate thread to solve it. The SolverJob runs until solving ends, after which we can retrieve the final best solution.
+
 # Configuring the Solver
 
-OptaPlanner will keep solving the problem indefinitely if we don't configure a so called _termination strategy_. A _termnination strategy_ tells OptaPlanner when to stop solving, for example based on the number of seconds spent, or if a score has not improved in a given amount of time.
+OptaPlanner will keep solving the problem indefinitely if we don't configure a _termination strategy_. A _termnination strategy_ tells OptaPlanner when to stop solving, for example based on the number of seconds spent, or if a score has not improved in a specified amount of time.
 
-In an OptaPlanner Quarkus application, this _termination strategy_ can be set by simply adding a configuration property in the Quarkus `application.properties` configuration file. Let's first open this file by clicking: `knapsack-optaplanner-quarkus/src/main/resources/application.properties`{{open}}
+In an OptaPlanner Quarkus application, we can set this _termination strategy_ by simply adding a configuration property in the Quarkus `application.properties` configuration file. Let's first open this file by clicking the following path: `knapsack-optaplanner-quarkus/src/main/resources/application.properties`{{open}}
 
-We can now add our _termination strategy_ configuration property:
+Click _Copy to Editor_ to add our _termination strategy_ configuration property:
 
 <pre class="file" data-filename="./knapsack-optaplanner-quarkus/src/main/resources/application.properties" data-target="replace">
 # Configuration file
@@ -70,9 +72,9 @@ quarkus.optaplanner.solver.termination.spent-limit=10s
 The `quarkus.optaplanner.solver.termination.spent-limit` property is set to 10 seconds, which means that the solver will stop solving after 10 seconds and return the best result found so far.
 
 ## Running the Application
-Since we still have our application running in Quarkus dev-mode, we can simply access the Swagger-UI of our application by clicking [here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). Hitting this endpoint will force the OptaPlanner Quarkus application to do a hot-reload, and recompile and deploy the changes we made in our application "on-the-fly".
+Because we still have our application running in Quarkus development mode, we can simply access the Swagger-UI of our application by clicking [here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/swagger-ui). Hitting this endpoint will force the OptaPlanner Quarkus application to do a hot-reload and recompile and deploy the changes we made in our application "on-the-fly".
 
-You will see our `/knapsack/solve` RESTful API listed. We can now fire a RESTful request with a knapsack problem to this endpoint. We wil do this from the terminal using cURL. Note that it will take 10 seconds for the response to return, as we've set the OptaPlanner termination strategy to 10 seconds:
+You will see our `/knapsack/solve` RESTful API listed. We can now fire a RESTful request with a knapsack problem to this endpoint. We will do this from the terminal using cURL. Note that it will take 10 seconds for the response to return because we've set the OptaPlanner termination strategy to 10 seconds:
 
 `curl --location --request POST 'http://localhost:8080/knapsack/solve' \
 --header 'Accept: application/json' \
