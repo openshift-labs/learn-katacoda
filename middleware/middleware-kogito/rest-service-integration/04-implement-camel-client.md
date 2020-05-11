@@ -89,19 +89,19 @@ import org.slf4j.LoggerFactory;
 @ApplicationScoped
 public class CoffeeService {
 
-    //private static final Logger LOGGER = LoggerFactory.getLogger(CoffeeService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CoffeeService.class);
 
     //Doesn't seem to work in Quarkus
     //@EndpointInject("direct://getCoffees")
     //private ProducerTemplate producer;
 
-    //Add CamelContext
+//Add CamelContext
 
-    //Add ProducerTemplate
+//Add ProducerTemplate
 
-    //Add PostConstruct
+//Add PostConstruct
 
-    //Add PreDestroy
+//Add PreDestroy
 
     public Collection<Coffee> getCoffees() {
         LOGGER.debug("Retrieving coffees")

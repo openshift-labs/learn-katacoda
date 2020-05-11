@@ -206,9 +206,9 @@ This will download the new dependencies and start our application in Quarkus dev
 
 ## Testing the Application
 
-Because we've got our application running in Quarkus development mode, all our changes will be hot reloaded. So, we can simply hit our endpoint with the following request:
+We can now test our Kogito application by sending the following request:
 
-`curl -X POST "http://localhost:8080/coffeeprocess" -H "accept: application/json" -H "Content-Type: application/json" -d "{}"`{{execute T3}}
+`curl -X POST "http://localhost:8080/coffeeshop" -H "accept: application/json" -H "Content-Type: application/json" -d "{}"`{{execute T3}}
 
 You should see the following output:
 
