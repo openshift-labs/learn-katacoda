@@ -21,6 +21,19 @@ From that package manifest, we can see all of the information that you would nee
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
+  name: servicemeshoperator
+  namespace: openshift-operators
+spec:
+  channel: stable
+  installPlanApproval: Manual
+  name: servicemeshoperator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: servicemeshoperator.v1.1.0
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
   name: serverless-operator
   namespace: openshift-operators
 spec:
@@ -33,25 +46,27 @@ spec:
 
 ```
 
-> **Note:** *The installPlanApproval and startingCSV for our particular environment only supports a version of 1.4.1 at the highest, hence the differing versions from the packagemanifest spec in the terminal.*
+> **Note:** *TLDR; Serverless requires some components of Service Mesh to be installed on the cluster, normally we would allow the OLM handle this dependancy.  For the purposes of this tutorial we need to specify specific versions of both operators, hence the startingCSV spec above.*
+> 
+> *The installPlanApproval and startingCSV for our particular environment only supports up to serverless version 1.4.1 and servicemesh version 1.1.0, hence the differing versions from the packagemanifest spec in the terminal.  In newer OpenShift versions you can omit the `startingCSV` from the yaml above to install the newer releases.  The channel also needs to be adjusted, refer to the Serverless and Service Mesh documentation for more info.*
 
 The channel, name, starting CSV, source, and source namespace are all described in the packagemanifest you just described.
 
 > **Tip:** *You can find more information on how to add operators on the [OpenShift Documentation Page](https://docs.openshift.com/container-platform/latest/operators/olm-adding-operators-to-cluster.html).*
 
-For now, all you need to do is apply the associated YAML file to subscribe to the OpenShift Serverless Operator.
+For now, all you need to do is apply the associated YAML file to subscribe to the OpenShift Serverless and Service Mesh Operator.
 
 `oc apply -f 01-prepare/operator-subscription.yaml`{{execute}}
 
 ## Approve and Verify the Operator Installation
-The `installPlanApproval: Manual` in our Subscription requires the admin to approve the *installplan* in order for it to begin.  Normally, it might be easiest to see this from the OpenShift Web Console and approve the changes as shown in the picture below.
+Normally, the subscription might be set to an Automatic install plan approval, which would handle the approval for you.  In our case the `installPlanApproval: Manual` in our Subscription requires the admin to approve the *installplan* in order for it to begin.  In these cases it might be easiest to see this from the OpenShift Web Console and approve the changes as shown in the picture below.
 
 ![installplan](assets/01-prepare/installplan.png "Approve Install Plan")
 
 In this tutorial we will find the installplan and approve it using the CLI.  To do so click and run the script below where we automate approving the installplan.
 
 ```bash
-# ./assets/01-prepare/approve-csv.bash
+# ./assets/01-prepare/approve-operators.bash
 
 #!/usr/bin/env bash
 OPERATORS_NAMESPACE='openshift-operators'
@@ -74,34 +89,36 @@ function find_install_plan {
   echo ""
 }
 
-while [ -z $(find_install_plan 1.4.1) ]; do sleep 10; echo "Checking..."; done
+function wait_for_operator_install {
+  local A=1
+  local sub=$1
+  while : ;
+  do
+    echo "$A: Checking..."
+    phase=`oc get csv -n openshift-operators $sub -o jsonpath='{.status.phase}'`
+    if [ $phase == "Succeeded" ]; then echo "$sub Installed"; break; fi
+    A=$((A+1))
+    sleep 10
+  done
+}
+
+while [ -z $(find_install_plan 1.1.0) ]; do sleep 10; echo "Checking for service mesh CSV..."; done
+approve_csv 1.1.0
+sleep 5
+wait_for_operator_install servicemeshoperator.v1.1.0
+
+while [ -z $(find_install_plan 1.4.1) ]; do sleep 10; echo "Checking for serverless CSV..."; done
 approve_csv 1.4.1
+sleep 5
+wait_for_operator_install serverless-operator.v1.4.1
 
 ```{{execute}}
 
 > **Note:** *The main commands in the automation above are: find installplan - `oc get installplan -n openshift-operators`, and approve installplan - `oc edit <install plan> -n openshift-operators` and change `approved: false` to `approved: true`.*
+>
+> *You should expect this to loop around 12 or so iterations.*
 
-Since the Operator takes some time to install, we should wait for it to complete and continue when done by clicking the script below to run.
-
-```bash
-# ./assets/01-prepare/watch-operator-phase.bash
-
-#!/usr/bin/env bash
-A=1
-while : ;
-do
-  echo "$A: Checking..."
-  phase=`oc get csv -n openshift-operators serverless-operator.v1.4.1 -o jsonpath='{.status.phase}'`
-  if [ $phase == "Succeeded" ]; then echo "Installed"; break; fi
-  A=$((A+1))
-  sleep 10
-done
-
-```{{execute}}
-
-> **Note:** *You should expect this to loop around 12 or so iterations.*
-
-When you see the message "Installed", the OpenShift Serverless Opeartor is installed.  We can see the new resources that are available to the cluster by clicking the script below to run:
+When you see the message "Installed", the OpenShift Serverless and Service Mesh Opeartors are installed.  We can see the new Serverless resources that are available to the cluster by clicking the script below to run:
 
 ```bash
 echo "NAME                                SHORTNAMES         APIGROUP                        NAMESPACED             KIND"
