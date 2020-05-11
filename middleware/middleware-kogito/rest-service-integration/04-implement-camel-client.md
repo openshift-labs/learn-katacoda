@@ -79,10 +79,8 @@ import org.acme.coffeeservice.client.CoffeeResource;
 import org.acme.model.Coffee;
 
 import org.apache.camel.CamelContext;
-import org.apache.camel.Exchange;
-import org.apache.camel.ExchangePattern;
-import org.apache.camel.ProducerTemplate;
-import org.apache.camel.builder.ExchangeBuilder;
+import org.apache.camel.FluentProducerTemplate;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -97,7 +95,7 @@ public class CoffeeService {
 
 //Add CamelContext
 
-//Add ProducerTemplate
+//Add FluentProducerTemplate
 
 //Add PostConstruct
 
@@ -105,9 +103,7 @@ public class CoffeeService {
 
     public Collection<Coffee> getCoffees() {
         LOGGER.debug("Retrieving coffees")
-        //Add Build Exchange
-        //Add Send Exchange
-        //Add Return
+//Add Method Implementation
     }
 
 }
@@ -115,25 +111,26 @@ public class CoffeeService {
 </pre>
 
 
-First we need to inject the `CamelContext`, from which we can create our Camel `ProducerTemplate`:
+First we need to inject the `CamelContext`, from which we can create our Camel `FluentProducerTemplate`:
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add CamelContext">
     @Inject
     CamelContext camelContext;CoffeeResource coffeeResource;
 </pre>
 
-We add an attribute to our class to hold the `ProducerTemplate`:
+We add an attribute to our class to hold the `FluentProducerTemplate`:
 
-<pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add ProducerTemplate">
-    private ProducerTemplate producer;
+<pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add FluentProducerTemplate">
+    private FluentProducerTemplate producer;
 </pre>
 
-Using an `@PostConstruct` method, we initialize the `ProducerTemplate` when our bean is created:
+Using an `@PostConstruct` method, we initialize the `FluentProducerTemplate` and set its default endpoint:
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add PostConstruct">
     @PostConstruct
     void init() {
-       producer = camelContext.createProducerTemplate();
+       producer = camelContext.createFluentProducerTemplate();
+       producer.setDefaultEndpointUri("direct://getCoffees");
     }
 </pre>
 
@@ -146,19 +143,12 @@ And we use an `@PreDestroy` method to clean-up the `ProducerTemplate` resources 
     }
 </pre>
 
-With all the plumbing in place, we can now implement the method that will call the Camel route, which in its turn will call our microservice via REST. We first create a new `Exchange` (note):
+With all the plumbing in place, we can now implement the method that will call the Camel route, which in its turn will call our microservice via REST:
 
-<pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add Build Exchange">
-    Exchange requestExchange = ExchangeBuilder.anExchange(camelContext).withPattern(ExchangePattern.InOut).build();
+<pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add Method Implementation">
+    return producer.request(Collection.class);
 </pre>
 
-<pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add Send Exchange">
-    Exchange response = producer.send("direct://getCoffees", requestExchange);
-</pre>
-
-<pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add Return">
-    return (Collection<Coffee>) response.getMessage().getBody();
-</pre>
 
 # Starting the Application
 
