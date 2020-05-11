@@ -1,13 +1,18 @@
-# FAQ
-## How to access the Serverless services ?
-When looking up the IP address to use for accessing your app, you need to look up the NodePort for the kourier-external as well as the IP address used for minikube. You can use the following command to look up the value to use for the {IP_ADDRESS} placeholder used in the sample
-```
-#!/bin/bash
-IP_ADDRESS="$(minikube ip):$(oc get svc kourier-external --namespace kourier-system --output 'jsonpath={.spec.ports[?(@.port==80)].nodePort}')"
+## Summary
+In this workshop, you have worked with OpenShift Serverless and learned about underlying Knative Serving concepts. OpenShift Serverless helps developers to deploy and run applications that will scale up or scale to zero on-demand. Applications are packaged as OCI compliant Linux containers that can be run anywhere.
 
-# calling a knative service named greeter
-curl -H "Host:greeter.serverless-tutorial.example.com" $IP_ADDRESS
-```
+We hope you have found this workshop helpful in learning about OpenShift Serverless and would love any feedback you have on ways to make it better! Feel free to open issues in this workshop’s [GitHub repository](https://github.com/openshift-labs/learn-katacoda), but also reach out to your workshop leaders to share any thoughts on how we can make this a better experience.
 
-## What is a "revision" in simpler terms?
-A Revision is an immutable snapshot of code and configuration. Each change to an application’s Configuration creates a new Revision, which allows an application to be rolled back to any previous “known good configuration”.
+To learn more about OpenShift Serverless and Knative, the resources below can provide information on everything from getting started to more advanced concepts.
+
+OpenShift Serverless Webpage: https://www.openshift.com/learn/topics/serverlesss
+
+OpenShift Serverless Documentation: https://access.redhat.com/documentation/en-us/openshift_container_platform/4.2/html/serverless_applications/index
+
+Knative Serving GitHub: https://github.com/knative/serving
+
+Knative CLI GitHub: https://github.com/knative/client
+
+Knative Website: https://knative.dev/
+
+Read more in the OpenShift blog announcement for OpenShift Serverless: https://www.openshift.com/blog/announcing-openshift-serverless-1-5-0-tech-preview-a-sneak-peek-of-our-ga

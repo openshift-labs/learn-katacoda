@@ -6,11 +6,10 @@ Information, check out the links below:
  * Operator-SDK: https://github.com/operator-framework/operator-sdk/
 
 ## YouTube
-* Memcached Ansible Operator Demo: https://www.youtube.com/watch?v=Smk9oQp7YMY
-* OpenShift Commons Briefing Ansible Operator - Operator Framework SIG: https://www.youtube.com/watch?v=YFTQJI6foGc
+* Tutorial: Deep Dive into the Operator Framework: https://www.youtube.com/watch?v=8_DaCcRMp5I&t=1220s
 
 ## Samples
-* Sample Operators using Ansible: https://github.com/operator-framework/operator-sdk-samples/tree/master/ansible
+* Sample Operators using Go: https://github.com/operator-framework/operator-sdk-samples/tree/master/go
 
 ## Chat
 * Kubernetes Slack Chat (upstream): #kubernetes-operators at https://kubernetes.slack.com/

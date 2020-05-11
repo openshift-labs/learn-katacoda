@@ -1,0 +1,98 @@
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: false
+allowedCapabilities:
+- '*'
+apiVersion: security.openshift.io/v1
+defaultAddCapabilities: []
+fsGroup:
+  type: RunAsAny
+groups:
+- system:cluster-admins
+kind: SecurityContextConstraints
+metadata:
+  name: e-library-scc
+  namespace: "e-library"  
+priority: 10
+readOnlyRootFilesystem: false
+requiredDropCapabilities: []
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: MustRunAs
+supplementalGroups:
+  type: RunAsAny
+users:
+- system:serviceaccount:e-library:default
+volumes:
+- configMap
+- downwardAPI
+- emptyDir
+- persistentVolumeClaim
+- projected
+- secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: e-library-frontend
+  namespace: "e-library"  
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: e-library-frontend
+status:
+  loadBalancer: {}
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  name: frontend
+  namespace: "e-library"  
+spec:
+  port:
+    targetPort: 80
+  to:
+    kind: Service
+    name: e-library-frontend
+    weight: 100
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: e-library-frontend
+  name: e-library-frontend
+  namespace: "e-library"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: e-library-frontend
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        run: e-library-frontend
+    spec:
+      volumes:
+      - name: config-volume
+        configMap:
+          name: env.js       
+      containers:
+      - image: karansingh/e-library-frontend-ks:latest
+        name: e-library-frontend      
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/share/nginx/html/env            

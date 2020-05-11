@@ -1,16 +1,29 @@
-To access the Openshift console:
 
-Click on the _Dashboard_ tab in the workshop dashboard. You will be presented with the OpenShift login screen.
 
-![Web Console Login](./prometheus-api-client/assets/03-openshift-login-page.png)
+### Accessing the OpenShift Console
 
-For the credentials, enter:
+You don't need to access the OpenShift Console for the purposes of this workshop. <br>
+But if you want to look at what's going on under the hood, you can follow the instructions below:
 
-* **Username:** ``developer``{{copy}}
-* **Password:** ``developer``{{copy}}
+To access the OpenShift console:
 
-Once you have logged in, you should be shown the list of projects you have access to. A project called ``myproject`` has already been created for you to use in this workshop.
+* Click on the _Dashboard_ tab in the workshop dashboard. You will be presented with the OpenShift login screen.
 
-In this project you should be able to see a Prometheus instance and a Jupyter Deployment.
+  ![Web Console Login](../../assets/ai-machine-learning/prometheus-api-client/03-openshift-login-page.png)
 
-![Web Console Project](./prometheus-api-client/assets/03-openshift-console-page.png)
+  For the credentials, enter:
+
+  * **Username:** ``developer``{{copy}}
+  * **Password:** ``developer``{{copy}}
+
+Once you have logged in, you should be shown the list of projects you have access to. A project called `myproject` is where this workshop is deployed.
+
+* In this project you should be able to see two different applications that have been deployed. <br>
+  ![Web Console Project](../../assets/ai-machine-learning/prometheus-api-client/03-openshift-console-page.png)
+
+  * The `prometheus-anomaly-detection-workshop` application is the Jupyter notebook environment.
+
+  * The `prometheus-demo` application is the Prometheus instance with the test metric data.
+
+While playing around the backend keep in mind that this environment will only be active for 1 hour. <br>
+The source for this scenario is available [here](https://github.com/openshift-labs/learn-katacoda/tree/master/ai-machine-learning/prometheus-api-client).

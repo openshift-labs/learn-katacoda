@@ -1,26 +1,29 @@
-Next, let's make it possible to customize the replica count for our [nginx deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)** by adding an `nginx_replicas` variable to the DeploymentConfig template and filling the variable value dynamically with Ansible.
+Next, let's make it possible to customize the replica count for our [nginx deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment) by adding an `nginx_replicas` variable to the Deployment template and filling the variable value dynamically with Ansible.
 
 ---
 
 ###### **a. Modify vars file `example-role/defaults/main.yml`, setting `nginx_replicas: 2`**
 
-<pre class="file"
- data-filename="/root/tutorial/example-role/defaults/main.yml"
-  data-target="replace">
+<pre class="file">
 ---
 state: present
 nginx_replicas: 2
 
 </pre>
 
+You can easily update this file by running the following command:
+
+```
+wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-k8s-modules/assets/defaultsmain2.yml -O /root/tutorial/example-role/defaults/main.yml
+```{{execute}}
+<br>
+
 ---
 
 ###### **b. Modify nginx deployment definition `nginx-deployment.yml.j2` to read `replicas` from the `nginx_replicas` variable**
 
- <pre class="file"
-  data-filename="/root/tutorial/example-role/templates/nginx-deployment.yml.j2"
-   data-target="replace">
-kind: DeploymentConfig
+ <pre class="file">
+kind: Deployment
 apiVersion: v1
 metadata:
   name: nginx-deployment
@@ -35,16 +38,22 @@ spec:
           image: nginx:1.15.4
           ports:
           - containerPort: 80
-  replicas: "{{ nginx_replicas }}"
+  replicas: {{ nginx_replicas }}
   selector:
     name: nginx
  </pre>
 
+You can easily update this file by running the following command:
+
+```
+wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-k8s-modules/assets/nginx-deployment-updated.yml.j2 -O /root/tutorial/example-role/templates/nginx-deployment.yml.j2
+```{{execute}}
+<br>
 ---
 
 ###### **c. Run the Playbook to change the nginx replica count**
 
-Running the Playbook again will read the variable `nginx_replicas` and use the provided value to customize the nginx DeploymentConfig.
+Running the Playbook again will read the variable `nginx_replicas` and use the provided value to customize the nginx Deployment.
 
  `ansible-playbook -i myhosts playbook.yml`{{execute}}
 

@@ -1,8 +1,6 @@
-Modify the PodSet controller logic at `go/src/github.com/redhat/podset-operator/pkg/controller/podset/podset_controller.go`:
+Modify the PodSet controller logic at `go/src/github.com/redhat/podset-operator/pkg/controller/podset/podset_controller.go`
 
-<pre class="file"
- data-filename="/root/tutorial/go/src/github.com/podset-operator/pkg/controller/podset/podset_controller.go"
-  data-target="replace">
+<pre class="file">
 package podset
 
 import (
@@ -19,9 +17,9 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/controller"
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 	"sigs.k8s.io/controller-runtime/pkg/handler"
+	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
-	logf "sigs.k8s.io/controller-runtime/pkg/runtime/log"
 	"sigs.k8s.io/controller-runtime/pkg/source"
 )
 
@@ -70,6 +68,7 @@ func add(mgr manager.Manager, r reconcile.Reconciler) error {
 	return nil
 }
 
+// blank assignment to verify that ReconcilePodSet implements reconcile.Reconciler
 var _ reconcile.Reconciler = &ReconcilePodSet{}
 
 // ReconcilePodSet reconciles a PodSet object
@@ -92,8 +91,8 @@ func (r *ReconcilePodSet) Reconcile(request reconcile.Request) (reconcile.Result
 	reqLogger.Info("Reconciling PodSet")
 
 	// Fetch the PodSet instance
-	podSet := &appv1alpha1.PodSet{}
-	err := r.client.Get(context.TODO(), request.NamespacedName, podSet)
+	instance := &appv1alpha1.PodSet{}
+	err := r.client.Get(context.TODO(), request.NamespacedName, instance)
 	if err != nil {
 		if errors.IsNotFound(err) {
 			// Request object not found, could have been deleted after reconcile request.
@@ -104,102 +103,119 @@ func (r *ReconcilePodSet) Reconcile(request reconcile.Request) (reconcile.Result
 		// Error reading the object - requeue the request.
 		return reconcile.Result{}, err
 	}
-
-	// List all pods owned by this PodSet instance
-	podList := &corev1.PodList{}
-	lbs := map[string]string{
-		"app":     podSet.Name,
-		"version": "v0.1",
-	}
-	labelSelector := labels.SelectorFromSet(lbs)
-	listOps := &client.ListOptions{Namespace: podSet.Namespace, LabelSelector: labelSelector}
-	if err = r.client.List(context.TODO(), listOps, podList); err != nil {
-		return reconcile.Result{}, err
-	}
-
-	// Count the pods that are pending or running as available
-	var available []corev1.Pod
-	for _, pod := range podList.Items {
-		if pod.ObjectMeta.DeletionTimestamp != nil {
-			continue
-		}
-		if pod.Status.Phase == corev1.PodRunning || pod.Status.Phase == corev1.PodPending {
-			available = append(available, pod)
-		}
-	}
-	numAvailable := int32(len(available))
-	availableNames := []string{}
-	for _, pod := range available {
-		availableNames = append(availableNames, pod.ObjectMeta.Name)
-	}
-
-	// Update the status if necessary
-	status := appv1alpha1.PodSetStatus{
-		PodNames: availableNames,
-	}
-	if !reflect.DeepEqual(podSet.Status, status) {
-		podSet.Status = status
-		err = r.client.Status().Update(context.TODO(), podSet)
-		if err != nil {
-			reqLogger.Error(err, "Failed to update PodSet status")
-			return reconcile.Result{}, err
-		}
-	}
-
-	if numAvailable > podSet.Spec.Replicas {
-		reqLogger.Info("Scaling down pods", "Currently available", numAvailable, "Required replicas", podSet.Spec.Replicas)
-		diff := numAvailable - podSet.Spec.Replicas
-		dpods := available[:diff]
-		for _, dpod := range dpods {
-			err = r.client.Delete(context.TODO(), &dpod)
-			if err != nil {
-				reqLogger.Error(err, "Failed to delete pod", "pod.name", dpod.Name)
-				return reconcile.Result{}, err
-			}
-		}
-		return reconcile.Result{Requeue: true}, nil
-	}
-
-	if numAvailable < podSet.Spec.Replicas {
-		reqLogger.Info("Scaling up pods", "Currently available", numAvailable, "Required replicas", podSet.Spec.Replicas)
-		// Define a new Pod object
-		pod := newPodForCR(podSet)
-		// Set PodSet instance as the owner and controller
-		if err := controllerutil.SetControllerReference(podSet, pod, r.scheme); err != nil {
-			return reconcile.Result{}, err
-		}
-		err = r.client.Create(context.TODO(), pod)
-		if err != nil {
-			reqLogger.Error(err, "Failed to create pod", "pod.name", pod.Name)
-			return reconcile.Result{}, err
-		}
-		return reconcile.Result{Requeue: true}, nil
-	}
-
-	return reconcile.Result{}, nil
+        // List all pods owned by this PodSet instance
+	podSet := instance
+        podList := &corev1.PodList{}
+        lbs := map[string]string{
+        "app":     podSet.Name,
+        "version": "v0.1",
 }
+        labelSelector := labels.SelectorFromSet(lbs)
+        listOps := &client.ListOptions{Namespace: podSet.Namespace, LabelSelector: labelSelector}
+        if err = r.client.List(context.TODO(), podList, listOps); err != nil {
+                return reconcile.Result{}, err
+}
+
+
+
+    // Count the pods that are pending or running as available
+    var available []corev1.Pod
+    for _, pod := range podList.Items {
+        if pod.ObjectMeta.DeletionTimestamp != nil {
+            continue
+        }
+        if pod.Status.Phase == corev1.PodRunning || pod.Status.Phase == corev1.PodPending {
+            available = append(available, pod)
+        }
+    }
+    numAvailable := int32(len(available))
+    availableNames := []string{}
+    for _, pod := range available {
+        availableNames = append(availableNames, pod.ObjectMeta.Name)
+    }
+
+
+
+    // Update the status if necessary
+    status := appv1alpha1.PodSetStatus{
+        PodNames: availableNames,
+    }
+    if !reflect.DeepEqual(podSet.Status, status) {
+        podSet.Status = status
+        err = r.client.Status().Update(context.TODO(), podSet)
+        if err != nil {
+            reqLogger.Error(err, "Failed to update PodSet status")
+            return reconcile.Result{}, err
+        }
+    }
+
+
+
+
+    if numAvailable > podSet.Spec.Replicas {
+        reqLogger.Info("Scaling down pods", "Currently available", numAvailable, "Required replicas", podSet.Spec.Replicas)
+        diff := numAvailable - podSet.Spec.Replicas
+        dpods := available[:diff]
+        for _, dpod := range dpods {
+            err = r.client.Delete(context.TODO(), &dpod)
+            if err != nil {
+                reqLogger.Error(err, "Failed to delete pod", "pod.name", dpod.Name)
+                return reconcile.Result{}, err
+            }
+        }
+        return reconcile.Result{Requeue: true}, nil
+    }
+
+    if numAvailable < podSet.Spec.Replicas {
+        reqLogger.Info("Scaling up pods", "Currently available", numAvailable, "Required replicas", podSet.Spec.Replicas)
+        // Define a new Pod object
+        pod := newPodForCR(podSet)
+        // Set PodSet instance as the owner and controller
+        if err := controllerutil.SetControllerReference(podSet, pod, r.scheme); err != nil {
+            return reconcile.Result{}, err
+        }
+        err = r.client.Create(context.TODO(), pod)
+        if err != nil {
+            reqLogger.Error(err, "Failed to create pod", "pod.name", pod.Name)
+            return reconcile.Result{}, err
+        }
+        return reconcile.Result{Requeue: true}, nil
+    }
+
+    return reconcile.Result{}, nil
+}
+
+
+
 
 // newPodForCR returns a busybox pod with the same name/namespace as the cr
 func newPodForCR(cr *appv1alpha1.PodSet) *corev1.Pod {
-	labels := map[string]string{
-		"app":     cr.Name,
-		"version": "v0.1",
-	}
-	return &corev1.Pod{
-		ObjectMeta: metav1.ObjectMeta{
-			GenerateName: cr.Name + "-pod",
-			Namespace:    cr.Namespace,
-			Labels:       labels,
-		},
-		Spec: corev1.PodSpec{
-			Containers: []corev1.Container{
-				{
-					Name:    "busybox",
-					Image:   "busybox",
-					Command: []string{"sleep", "3600"},
-				},
-			},
-		},
-	}
-}
+        labels := map[string]string{
+            "app":     cr.Name,
+            "version": "v0.1",
+        }
+        return &corev1.Pod{
+            ObjectMeta: metav1.ObjectMeta{
+                GenerateName: cr.Name + "-pod",
+                Namespace:    cr.Namespace,
+                Labels:       labels,
+            },
+            Spec: corev1.PodSpec{
+                Containers: []corev1.Container{
+                    {
+                        Name:    "busybox",
+                        Image:   "busybox",
+                        Command: []string{"sleep", "3600"},
+                    },
+                },
+            },
+        }
+    }
 </pre>
+
+You can easily update this file by running the following command:
+
+```
+wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/podset_controller.go -O pkg/controller/podset/podset_controller.go
+```{{execute}}
+

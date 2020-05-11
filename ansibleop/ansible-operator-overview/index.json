@@ -26,14 +26,11 @@
 			"title": "Customize the Operator Logic",
 			"text": "step6.md"
     }, {
-			"title": "Build and run the Operator",
+			"title": "Create the Custom Resource Definition",
 			"text": "step7.md"
     }, {
-			"title": "Using the Operator",
+			"title": "Run and Use the Operator",
 			"text": "step8.md"
-    }, {
-			"title": "Running the Operator Locally (Outside the Cluster)",
-			"text": "step9.md"
     }],
     "intro": {
       "code": "set-env.sh",
@@ -49,13 +46,12 @@
   },
   "files": [],
   "environment": {
-    "uilayout": "editor-terminal",
-    "uieditorpath": "/root/tutorial",
-    "showdashboard": true,
-    "dashboard": "Dashboard"
-  },
+        "showdashboard": true,
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "terminal-iframe"
+    },
   "backend": {
-    "imageid": "openshift-3-11",
+    "imageid": "openshift-4-2",
     "port": 8443
   }
 }

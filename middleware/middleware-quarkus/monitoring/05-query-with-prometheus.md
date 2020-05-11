@@ -1,5 +1,15 @@
 ## Generate Load
 
+Click the following command to verify openssl is installed. If it is not, you may need to wait a few seconds and click the command again until it reports a proper version"
+
+`openssl version`{{execute}}
+
+Then you should see
+
+```console
+OpenSSL 1.1.1c FIPS  28 May 2019
+```
+
 With our app deployed to OpenShift, let's setup a loop that will test random numbers for primeness. Click the following command to endlessly run `curl` every 2 seconds with a random prime number:
 
 `while [ true ] ; do

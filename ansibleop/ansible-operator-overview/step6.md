@@ -81,9 +81,7 @@ in `watches.yaml` and executes Ansible Role `Memcached`.
 
 Since we have swapped out the original Role for one from Ansible Galaxy, lets change the Watches file to reflect this:
 
-<pre class="file"
- data-filename="/root/tutorial/memcached-operator/watches.yaml"
-  data-target="replace">
+<pre class="file">
 ---
 - version: v1alpha1
   group: cache.example.com
@@ -91,5 +89,12 @@ Since we have swapped out the original Role for one from Ansible Galaxy, lets ch
   role: /opt/ansible/roles/dymurray.memcached_operator_role
   
 </pre>
+
+Update this file by running the following command:
+
+```
+wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-operator-overview/assets/watches.yaml -O /root/tutorial/memcached-operator/watches.yaml
+```{{execute}}
+<br>
 
 In the next step, we'll build and run our Ansible Operator.

@@ -61,7 +61,7 @@ For now, all you need to do is apply the associated YAML file to subscribe to th
 ## Approve and Verify the Operator Installation
 Normally, the subscription might be set to an Automatic install plan approval, which would handle the approval for you.  In our case the `installPlanApproval: Manual` in our Subscription requires the admin to approve the *installplan* in order for it to begin.  In these cases it might be easiest to see this from the OpenShift Web Console and approve the changes as shown in the picture below.
 
-![installplan](assets/01-prepare/installplan.png "Approve Install Plan")
+![installplan](/openshift/assets/middleware/serverless/01-prepare/installplan.png "Approve Install Plan")
 
 In this tutorial we will find the installplan and approve it using the CLI.  To do so click and run the script below where we automate approving the installplan.
 
@@ -199,5 +199,12 @@ controller-55b4748bc5-ndv4p         1/1     Running   0          84s
 networking-istio-679dfcd5d7-2pbl4   1/1     Running   0          82s
 webhook-55b96d44f6-sxj7p            1/1     Running   0          84s
 ```
+
+## Login as a Developer and Create a Project
+Before beginning we should change to the non-priviledged user `developer` and create a new `project` for the tutorial.
+
+To change to the non-priviledged user in our envirnoment we can execute: `oc login -u developer -p developer`{{execute}}
+
+Next create a new project by executing: `oc new-project serverless-tutorial`{{execute}}
 
 There we go! You are all set to kickstart your serverless journey with **OpenShift Serverless**. Click `continue` to go to next module on how to deploy your first severless service.

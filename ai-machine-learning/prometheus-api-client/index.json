@@ -1,6 +1,6 @@
 {
     "icon": "fa-openshift",
-    "title": "Playing with the Prometheus API Client",
+    "title": "Working with Prometheus Metrics in Python",
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
@@ -24,7 +24,7 @@
             "title": "Accessing the workshop environment",
             "text": "02-loading-the-notebook-templates.md"
         }, {
-            "title": "Accessing the workshop environment",
+            "title": "Accessing the workshop environment (Backend)",
             "text": "03-accessing-the-web-console.md"
         }],
         "intro": {
@@ -38,7 +38,9 @@
         "assets": {
           "host01": [{"file": "deploy-prometheus.yaml", "target": "~/"},
                      {"file": "volumes.json", "target": "~/"},
-                     {"file": "generate-metrics.yaml", "target": "~/"}
+                     {"file": "generate-metrics.yaml", "target": "~/"},
+                     {"file": "notebook-imagestream.yaml", "target": "~/"},
+                     {"file": "setup.sh", "target": "~/"}
                     ]
         }
     }

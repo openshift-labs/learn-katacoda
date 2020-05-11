@@ -1,3 +1,5 @@
+# Todo, integrate this section throughout the tutorial instead of leaving it to the end.
+
 # Knative Client
 Knative Client is the command line utility aimed at enhancing the developer experience when doing Serverless Serving and Eventing tasks.
 

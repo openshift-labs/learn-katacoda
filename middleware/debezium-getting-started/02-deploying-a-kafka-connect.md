@@ -27,7 +27,7 @@ and a new service is deployed.
 
 We will use a binary build to create a Connect node with a Debezium plugin inside
 
-``oc start-build my-connect-cluster-connect --from-archive http://central.maven.org/maven2/io/debezium/debezium-connector-mysql/0.10.0.Final/debezium-connector-mysql-0.10.0.Final-plugin.tar.gz --follow``{{execute}}
+``oc start-build my-connect-cluster-connect --from-archive https://repo.maven.apache.org/maven2/io/debezium/debezium-connector-mysql/1.1.1.Final/debezium-connector-mysql-1.1.1.Final-plugin.tar.gz --follow``{{execute}}
 
 The Connect node should be redeployed after the build completes
 

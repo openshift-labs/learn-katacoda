@@ -1,0 +1,46 @@
+{
+    "icon": "fa-openshift",
+    "title": "Cortex Certifai Jupyter Notebook Scenario",
+    "description": "See how to use the Cortex Certifai Toolkit from CognitiveScale in a Jupyter notebook",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "30-45 minutes",
+    "backend": {
+        "imageid": "openshift-4-2"
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "terminal-iframe"
+    },
+    "details": {
+        "assets": {
+          "host01": [{"file": "nbtemp.yaml", "target": "/root"}]
+         },
+        "steps": [
+           {
+            "title": "Using the tutorial",
+            "text": "00-helpful-tip.md"
+           },
+           {
+            "title": "Logging in to OpenShift",
+            "text": "01-logging-in-to-openshift.md"
+           },
+           {
+            "title": "Connecting to the notebook",
+            "text": "02-notebook-instructions.md"
+           },
+           {
+            "title": "Step through the notebook",
+            "text": "03-step-through-the-notebook.md"
+           }
+        ],
+        "intro": {
+            "courseData": "env-init.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    }
+}
