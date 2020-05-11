@@ -19,5 +19,25 @@ function find_install_plan {
   echo ""
 }
 
-while [ -z $(find_install_plan 1.4.1) ]; do sleep 10; echo "Checking..."; done
+function wait_for_operator_install {
+  local A=1
+  local sub=$1
+  while : ;
+  do
+    echo "$A: Checking..."
+    phase=`oc get csv -n openshift-operators $sub -o jsonpath='{.status.phase}'`
+    if [ $phase == "Succeeded" ]; then echo "$sub Installed"; break; fi
+    A=$((A+1))
+    sleep 10
+  done
+}
+
+while [ -z $(find_install_plan 1.1.0) ]; do sleep 10; echo "Checking for service mesh CSV..."; done
+approve_csv 1.1.0
+sleep 5
+wait_for_operator_install servicemeshoperator.v1.1.0
+
+while [ -z $(find_install_plan 1.4.1) ]; do sleep 10; echo "Checking for serverless CSV..."; done
 approve_csv 1.4.1
+sleep 5
+wait_for_operator_install serverless-operator.v1.4.1
