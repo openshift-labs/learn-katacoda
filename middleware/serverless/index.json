@@ -49,7 +49,7 @@
     },
     "assets": {
       "client": [
-        { "file": "01-prepare/approve-csv.bash", "target": "~/01-prepare" },
+        { "file": "01-prepare/approve-operators.bash", "target": "~/01-prepare" },
         { "file": "01-prepare/operator-subscription.yaml", "target": "~/01-prepare" },
         { "file": "01-prepare/serving.yaml", "target": "~/01-prepare" },
         { "file": "01-prepare/watch-knative-serving.bash", "target": "~/01-prepare" },
