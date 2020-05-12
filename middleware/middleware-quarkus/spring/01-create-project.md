@@ -2,7 +2,8 @@
 
 Let's create the basic Quarkus _Hello World_ application and include the necessary spring extensions. Click this command to create the project:
 
-`mvn io.quarkus:quarkus-maven-plugin:1.3.2.Final-redhat-00001:create \
+`cd /root/projects/quarkus && \
+  mvn io.quarkus:quarkus-maven-plugin:1.3.2.Final-redhat-00001:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=fruit-taster \
     -DplatformGroupId=com.redhat.quarkus \
