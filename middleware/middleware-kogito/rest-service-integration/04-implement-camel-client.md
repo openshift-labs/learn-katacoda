@@ -112,7 +112,7 @@ Click _Copy to Editor_ to copy the code snippet that injects the `CamelContext` 
 
 <pre class="file" data-filename="./coffeeshop/src/main/java/org/acme/service/CoffeeService.java" data-target="insert" data-marker="//Add CamelContext">
     @Inject
-    CamelContext camelContext;CoffeeResource coffeeResource;
+    CamelContext camelContext;
 </pre>
 
 Click _Copy to Editor_ to add an attribute to our class to hold the `FluentProducerTemplate`.
