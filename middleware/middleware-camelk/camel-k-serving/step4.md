@@ -3,11 +3,12 @@
 
 With the same set of code written in Camel K, you can run it as a Serverless integration:
 
-``kamel run --name api camel-api/MinioCustomizer.java camel-api/API.java --property-file camel-api/minio.properties --open-api camel-api/openapi.yaml -d camel-openapi-java --profile Knative``{{execute}}
+``kamel run --name api helper/MinioCustomizer.java camel-api/API.java --property-file camel-api/minio.properties --open-api helper/openapi.yaml -d camel-openapi-java --profile Knative``{{execute}}
 
 Notice, when you allow, Camel K will automatically deploy the camel routes as Serverless services so the routes can be auto scalable and scale down to zero when not needed.
 
 Check the integrations to see when they are ready:
+
 ``oc get integrations``{{execute}}
 
 We can see the Serverless Service that we just created by executing:
@@ -26,6 +27,7 @@ Invoking the service to see the service scaling up.
 ``URL=$(oc get routes.serving.knative.dev api -o jsonpath='{.status.url}')``{{execute}}
 
 Get the list of objects to wake up the service:
+
 ``curl -i $URL/``{{execute}}
 
 Watch the service scaling up from OpenShift Dev Console. If you wait at another 90 seconds without invoking the API, you'll find that the pod will disappear. Calling the API again will make the pod appear to serve the request.
