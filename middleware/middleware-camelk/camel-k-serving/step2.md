@@ -1,6 +1,6 @@
 ## Running the API integration
 
-You have access to an OpenAPI standard document, that contains operations for:
+You have access to an OpenAPI standard document under `camel-api` called `openapi.yaml`, that contains operations for:
  - Listing the name of the contained objects
  - Creating a new object
  - Getting the content of an object
@@ -149,7 +149,7 @@ camel.context.rest-configuration.api-context-path=/api-doc
 
 We are now ready to start up the application, simply point to the OpenAPI standard document and along with the implemented Camel K application. Notice we are also pointing to the configuration file too.
 
-``kamel run --name api helper/MinioCustomizer.java camel-api/API.java --property-file camel-api/minio.properties --open-api helper/openapi.yaml -d camel-openapi-java``{{execute}}
+``kamel run --name api camel-api/MinioCustomizer.java camel-api/API.java --property-file camel-api/minio.properties --open-api camel-api/openapi.yaml -d camel-openapi-java``{{execute}}
 
 Wait for the integration to be running (you should see the logs streaming in the terminal window).
 

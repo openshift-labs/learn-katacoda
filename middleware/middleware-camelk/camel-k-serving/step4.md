@@ -3,7 +3,7 @@
 
 With the same set of code written in Camel K, you can run it as a Serverless integration:
 
-``kamel run --name api helper/MinioCustomizer.java camel-api/API.java --property-file camel-api/minio.properties --open-api helper/openapi.yaml -d camel-openapi-java --profile Knative``{{execute}}
+``kamel run --name api camel-api/MinioCustomizer.java camel-api/API.java --property-file camel-api/minio.properties --open-api camel-api/openapi.yaml -d camel-openapi-java --profile Knative``{{execute}}
 
 Notice, when you allow, Camel K will automatically deploy the camel routes as Serverless services so the routes can be auto scalable and scale down to zero when not needed.
 

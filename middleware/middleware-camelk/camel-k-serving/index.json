@@ -40,6 +40,15 @@
 	    },
 	    "finish": {
 	      "text": "finish.md"
+	    },
+	    "assets": {
+	      "client": [
+	        { "file": "helper/MinioCustomizer.java", "target": "~/camel-api/MinioCustomizer.java" },
+	        { "file": "helper/openapi.yaml", "target": "~/camel-api/openapi.yaml" },
+	        { "file": "serverless/serving.yaml", "target": "~/serverless/serving.yaml" },
+	        { "file": "serverless/subscription.yaml", "target": "~/serverless/subscription.yaml" },
+	        { "file": "minio/minio.yaml", "target": "~/minio/minio.yaml" }
+	      ]
 	    }
     }
 }

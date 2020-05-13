@@ -47,6 +47,6 @@ Camel K installed in namespace default via OLM subscription
 Lets start Minio, it provide a S3 compatible protocol for storing the objects.
 To create the minio backend, just apply the provided file:
 
-``oc apply -f helper/minio.yaml``{{execute}}
+``oc apply -f minio/minio.yaml``{{execute}}
 
 Now you have a working generic object datastore.
