@@ -37,6 +37,10 @@ To create a new project called ``camel-api`` run the command:
 
 The Catalog Operator is responsible for building, deploying Camel Applications and also creating surrounding resources. It is also responsible for watching any code or configuration updates and automatically updates it. To install simply run the command.
 
+
+``kamel install --olm=false --maven-repository=https://repository.apache.org/content/repositories/snapshots@id=apache-snapshots@snapshots``{{execute}}
+
+DONT DO THIS ONE, WILL ONLY WORK WHEN WITH BUG FIXED!!!!!!!
 ``kamel install --trait-profile OpenShift``{{execute}}
 
 OLM is available in the cluster

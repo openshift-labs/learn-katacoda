@@ -30,7 +30,7 @@ Get the list of objects to wake up the service:
 
 ``curl -i $URL/``{{execute}}
 
-Watch the service scaling up from OpenShift Dev Console. If you wait at another 90 seconds without invoking the API, you'll find that the pod will disappear. Calling the API again will make the pod appear to serve the request.
+Watch the service scaling up from [OpenShift Dev Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com). If you wait at another 90 seconds without invoking the API, you'll find that the pod will disappear. Calling the API again will make the pod appear to serve the request.
 
 ## Congratulations
 
