@@ -27,7 +27,7 @@ Implement the process as follows (note that we can also bypass this step and sim
 * With the Service Task selected, open the property panel on the right-hand-side of the screen by clicking the pencil icon.
 * Expand the _Implementation/Execution_ section. Set the following values:
 ** Implementation: `Java`
-** Interface: `com.redhat.service.CoffeeService`
+** Interface: `org.acme.service.CoffeeService`
 ** Operation: `getCoffees`
 ** Assignments: See image below
 
