@@ -1,0 +1,65 @@
+openapi: 3.0.2
+info:
+    title: Camel K Object API
+    version: 1.0.0
+    description: A CRUD API for an object store
+paths:
+    /:
+        get:
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: string
+                    description: Object list
+            operationId: list
+            summary: List the objects
+    '/{name}':
+        get:
+            responses:
+                '200':
+                    content:
+                        application/octet-stream: {}
+                    description: The object content
+            operationId: get
+            summary: Get the content of an object
+        put:
+            requestBody:
+                description: The object content
+                content:
+                    application/octet-stream: {}
+                required: true
+            responses:
+                '200':
+                    description: The object has been created
+            operationId: create
+            summary: Save an object
+        delete:
+            responses:
+                '204':
+                    description: Object has been deleted
+            operationId: delete
+            summary: Delete an object
+        parameters:
+            -
+                name: name
+                description: Name of the object
+                schema:
+                    type: string
+                in: path
+                required: true
+    /list:
+        get:
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: string
+            operationId: list
+            summary: List the objects
