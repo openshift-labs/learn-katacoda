@@ -4,20 +4,20 @@
   "courses": [
     {
       "pathway_id": "openshift/operatorframework",
-      "course_id": "k8s-api-fundamentals-311",
-      "id": "k8s-api-fundamentals-311",
+      "course_id": "k8s-api-fundamentals",
+      "id": "k8s-api-fundamentals",
       "title": "Kubernetes API Fundamentals"
     },
     {
       "pathway_id": "openshift/operatorframework",
-      "course_id": "etcd-operator-311",
-      "id": "etcd-operator-311",
+      "course_id": "etcd-operator",
+      "id": "etcd-operator",
       "title": "Etcd Operator"
     },
     {
       "pathway_id": "openshift/operatorframework",
-      "course_id": "go-operator-podset-311",
-      "id": "go-operator-podset-311",
+      "course_id": "go-operator-podset",
+      "id": "go-operator-podset",
       "title": "Operator SDK with Go (PodSet)"
     },
     {
@@ -40,8 +40,8 @@
     },
     {
       "pathway_id": "openshift/operatorframework",
-      "course_id": "helm-operator-311",
-      "id": "helm-operator-311",
+      "course_id": "helm-operator",
+      "id": "helm-operator",
       "title": "Operator SDK with Helm"
     }
   ]
