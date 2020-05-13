@@ -22,7 +22,7 @@ Click the following path to open the `pom.xml` file and observe that the require
 
 We will now implement the Camel `RouteBuilder`. In the `RouteBuilder` we implement the Camel route that, in our case, will do a RESTful call to our CoffeeService microservice, and process the response.
 
-Click the following commmanbt to create a new package in which we create our RouteBuilder:
+Click the following commmand to create a new package in which we create our RouteBuilder:
 
 `mkdir -p /root/projects/kogito/coffeeshop/src/main/java/org/acme/camel`{{execute T3}}
 
