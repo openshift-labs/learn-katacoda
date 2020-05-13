@@ -16,7 +16,11 @@ Click on the "Kogito BPMN Tooling" tab next to the "OpenShift Console" tab to op
 
 Implement the process as follows (note that we can also bypass this step and simply copy the pre-made BPMN2 file provided below):
 
-* Click the pencil icon on the right-hand-side of the screen to open the property panel. Expand the _Process Data_ section and add the following _Process Variable_:
+* Click the pencil icon on the right-hand-side of the screen to open the property panel. Set the following name, id and package:
+** Name: `coffeeshop`
+** ID: `coffeeshop`
+** Package: `org.acme`
+* Expand the _Process Data_ section and add the following _Process Variable_:
 ** Name: `coffees`
 ** Data Type: `java.util.Collection`
 * Add the tag `output` to this variable. This controls, among other things, the generation of our RESTful API. I.e., a variable tagged with `output` will not be part of the input model, and thus does not need to be passed when starting a process. It is however part of the output model, and hence will be returned to the client as a response of the RESTful call.
