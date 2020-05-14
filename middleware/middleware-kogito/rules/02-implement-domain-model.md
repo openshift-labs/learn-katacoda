@@ -17,7 +17,7 @@ We will first implement the `Person` class. To do this, we first need to create 
 
 `mkdir -p /root/projects/kogito/adult-service/src/main/java/org/acme/domain`{{execute T2}}
 
-We can no open a new `Person.java` file in this package by clicking: `adult-service/src/main/java/org/acme/domain/Person.java`{{open}}
+We can now open a new `Person.java` file in this package by clicking: `adult-service/src/main/java/org/acme/domain/Person.java`{{open}}
 
 Click on the _Copy to Editor_ link to copy the source code into the new `Person.java`file.
 
