@@ -7,7 +7,7 @@ A Canary release is more effective when you want to reduce the risk of introduci
 To see this in action, apply the following Serverless service definition that will split the traffic 80% to 20% between `greeter-v1` and `greeter-v2`.
 
 ```yaml
-# ./assets/03-traffic-distribution/greeter-canary-service.yaml
+# ./assets/04-canary-releases/greeter-canary-service.yaml
 
 apiVersion: serving.knative.dev/v1
 kind: Service
@@ -43,14 +43,14 @@ spec:
 
 In this service configuration you can see the 80/20 split between v1 and v2 of the greeter service.  We also can see that the current service is set to receive 0% of the traffic using the `latest` tag.
 
-Apply this service configuration by executing: `oc -n serverless-tutorial apply -f 03-traffic-distribution/greeter-canary-service.yaml`{{execute}}
+Apply this service configuration by executing: `oc -n serverless-tutorial apply -f 04-canary-releases/greeter-canary-service.yaml`{{execute}}
 
 As in the previous section on Applying Blue-Green Deployment Pattern deployments, the command will not create a new configuration, revision, or deployment.
 
 To observe the new traffic distribution you need to execute the following:
 
 ```bash
-# ./assets/03-traffic-distribution/poll-svc-10.bash
+# ./assets/04-canary-releases/poll-svc-10.bash
 
 #!/usr/bin/env bash
 for run in {1..10}
