@@ -3,11 +3,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: camel-k-operator
   namespace: camel-api
-  selfLink: >-
-    /apis/rbac.authorization.k8s.io/v1/namespaces/camel-api/roles/camel-k-operator
-  uid: 8de6d99a-9597-11ea-a312-0242ac11000d
-  resourceVersion: '230471'
-  creationTimestamp: '2020-05-14T04:01:14Z'
   labels:
     app: camel-k
 rules:
