@@ -40,8 +40,12 @@
         "text": "03-traffic-distribution.md"
       },
       {
+        "title": "Canary Releases",
+        "text": "04-canary-releases.md"
+      },
+      {
         "title": "Scaling",
-        "text": "04-scaling.md"
+        "text": "05-scaling.md"
       }
     ],
     "finish": {
