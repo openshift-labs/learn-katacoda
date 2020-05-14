@@ -1,3 +1,6 @@
+[hey-github]: https://github.com/rakyll/hey
+[learn-katacoda]: https://github.com/openshift-labs/learn-katacoda
+
 At the end of this chapter you will be able to:
 - Understand `scale-to-zero` in depth and why it’s important.
 - Understand how to configure the `scale-to-zero-grace-period`.
@@ -9,13 +12,13 @@ At the end of this chapter you will be able to:
 ## In depth: Scaling to Zero
 As you might recall from the `Deploying your Service` section of the tutorial, Scale-to-zero is one of the main properties of Serverless. After a defined time of idleness *(called the `stable-window`)* a revision is considered inactive, which causes a few things to happen.  First off, all routes pointing to the now inactive revision will be pointed to the so-called **activator**. 
 
-![serving-flow](/openshift/assets/middleware/serverless/04-scaling/serving-flow.png)
+![serving-flow](/openshift/assets/middleware/serverless/05-scaling/serving-flow.png)
 
-The name `activator` is somewhat misleading these days.  Originally it used to activate inactive revisions, hence the name.  Today it's primary responsibilites are to receive and buffer requests for revisions that are inactive as well as report metrics to the autoscaler.  
+The name `activator` is somewhat misleading these days.  Originally it used to activate inactive revisions, hence the name.  Today its primary responsibilites are to receive and buffer requests for revisions that are inactive as well as report metrics to the autoscaler.  
 
 After the revision has been deemed idle, by not receiving any traffic during the `stable-window`, the revision will be marked inactive.  If **scaling to zero** is enabled then there is an additional grace period before the inactive revision terminates, called the `scale-to-zero-grace-period`.  When **scaling to zero** is enabled the total termination period is equal to the sum of both the `stable-window` (default=60s) and `scale-to-zero-grace-period` (default=30s) = default=90s.
 
-If we try to access the service while it is scaled to zero the activator will pick up the request(s) and buffer them until the **Autoscaler** is able to quickly create pods for the given revison.
+If we try to access the service while it is scaled to zero the activator will pick up the request(s) and buffer them until the **Autoscaler** is able to quickly create pods for the given revision.
 
 > **Note:** *You might have noticed an initial lag when trying to access your service.  The reason for that delay is highly likely that your request is being held by the activator!*
 
@@ -58,14 +61,14 @@ Now, log back in as the developer as we do not need elevated privileges to conti
 ## Minimum Scale
 By default, Serverless Serving allows for 100 concurrent requests into each revision and allows the service to scale down to zero, so you don't use any resources running idle processes!  This is the out of the box configuration, and it works quite well depending on the needs of the specific application.
 
-Sometimes your application traffic is unpredicatble, bursting often, and when the app is scaled to zero it takes some time to come back up -- giving a slow start to your first users.
+Sometimes your application traffic is unpredictable, bursting often, and when the app is scaled to zero it takes some time to come back up -- giving a slow start to your first users.
 
 To solve for this, you might want to allow a few processes sit idle waiting for the initial users by specifying a minimum scale for your service to be able to handle that sudden burst of users.  This can be done via an the annotation `autoscaling.knative.dev/minScale` in your service.
 
 > **Note:** *You can also limit your maximum pods using `autoscaling.knative.dev/maxScale`*
 
 ```yaml
-# ./assets/04-scaling/service-min-max-scale.yaml
+# ./assets/05-scaling/service-min-max-scale.yaml
 
 apiVersion: serving.knative.dev/v1
 kind: Service
@@ -92,15 +95,15 @@ spec:
 
 ```
 
-In the service definition above you can see that we configure the minimum scale to 2.  You might also have noticed that we also specified a maximum scale to 5.
+In that definition above you can see that we configure the minimum scale to 2.  You might also have noticed that we also specified a maximum scale to 5.
 
-Deploy the service by executing: `oc apply -n serverless-tutorial -f 04-scaling/service-min-max-scale.yaml`{{execute}}
+Deploy the service by executing: `oc apply -n serverless-tutorial -f 05-scaling/service-min-max-scale.yaml`{{execute}}
 
 Now we can see that the `prime-generator` is deployed and it will never be scaled outside of 2-5 pods available by checking: `oc get pods -n serverless-tutorial`{{execute}}
 
-We now guarentee that we will have two instances available at all times to provide us with no initial lag at the cost of consuming additional resources.  Let's test the service won't scale past 5.
+We now guarantee that we will have two instances available at all times to provide us with no initial lag at the cost of consuming additional resources.  Let's test the service won't scale past 5.
 
-To load the service we will use [hey](https://github.com/rakyll/hey).  We will send 2550 total requests `-n 2550`, of which 850 will be preformed concurrently each time `-c 850`.  Immediatly after we will get the deployments in our project to be able to see the number of pods running.
+To load the service we will use [hey][hey-github].  We will send 2550 total requests `-n 2550`, of which 850 will be performed concurrently each time `-c 850`.  Immediatly after we will get the deployments in our project to be able to see the number of pods running.
 
 `hey -n 2550 -c 850 -t 60 "http://prime-generator-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/?sleep=3&upto=10000&memload=100" && oc get deployment -n serverless-tutorial`{{execute}}
 
@@ -109,12 +112,12 @@ To load the service we will use [hey](https://github.com/rakyll/hey).  We will s
 Here we should have noticed that `5/5` pods should be marked as `READY`, confirming our max scale.
 
 ## AutoScaling
-As mentioned before, Serverless by default is will scale up when there are 100 concurrent requests coming in at one time.  This scaling factor might work well for some applications, but not all -- fortunately this is a tuneable factor!  In our case you might notice that a given app isn't using it's resources too effectively as each request is CPU-bound.
+As mentioned before, Serverless by default will scale up when there are 100 concurrent requests coming in at one time.  This scaling factor might work well for some applications, but not all -- fortunately this is a tuneable factor!  In our case you might notice that a given app isn't using its resources too effectively as each request is CPU-bound.
 
 To help with this, we can adjust the service to scale up sooner, say 50 concurrent requests.  All we need to do is add an `autoscaling.knative.dev/target` annotation to the definition below.
 
 ```yaml
-# ./assets/04-scaling/service-50.yaml
+# ./assets/05-scaling/service-50.yaml
 
 apiVersion: serving.knative.dev/v1
 kind: Service
@@ -139,9 +142,9 @@ spec:
 
 ```
 
-Let's update the prime-generator service by executing: `oc apply -n serverless-tutorial -f 04-scaling/service-50.yaml`{{execute}}
+Let's update the prime-generator service by executing: `oc apply -n serverless-tutorial -f 05-scaling/service-50.yaml`{{execute}}
 
-Again we can test the scaling by loading our service.  This time we will send 1100 total requests, of which 275 will be preformed concurrently each time.
+Again we can test the scaling by loading our service.  This time we will send 1100 total requests, of which 275 will be performed concurrently each time.
 
 `hey -n 1100 -c 275 -t 60 "http://prime-generator-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/?sleep=3&upto=10000&memload=100" && oc get deployment -n serverless-tutorial`{{execute}}
 
@@ -150,11 +153,11 @@ Here we should have noticed that at least 6 pods should be up and running.  You 
 This will work well, but given that we are CPU-bound instead of request bound we might want to choose a different autoscaling class that is based on CPU load to be able to manage our scaling more effectively.
 
 ## HPA AutoScaling
-CPU based autoscaling metrics are acheived using something called a Horizontal Pod Autoscaler (HPA).  In our example we want to scale up when we start using 70% of the CPU.  We do this by adding three new annotations to our service: `autoscaling.knative.dev/{metric,target,class}`
+CPU based autoscaling metrics are achieved using something called a Horizontal Pod Autoscaler (HPA).  In our example we want to scale up when we start using 70% of the CPU.  We do this by adding three new annotations to our service: `autoscaling.knative.dev/{metric,target,class}`
 
 
 ```yaml
-# ./assets/04-scaling/service-hpa.yaml
+# ./assets/05-scaling/service-hpa.yaml
 
 apiVersion: serving.knative.dev/v1
 kind: Service
@@ -180,9 +183,9 @@ spec:
 
 ```
 
-Let's update the prime-generator service by executing: `oc apply -n serverless-tutorial -f 04-scaling/service-hpa.yaml`{{execute}}
+Let's update the prime-generator service by executing: `oc apply -n serverless-tutorial -f 05-scaling/service-hpa.yaml`{{execute}}
 
-> **Note:** *Getting the service to scale on the large CPU nodes that this tutorial is running on is relatively hard.  If you have any ideas to see this in action let put an issue in at https://github.com/openshift-labs/learn-katacoda*
+> **Note:** *Getting the service to scale on the large CPU nodes that this tutorial is running on is relatively hard.  If you have any ideas to see this in action put an issue in at [this tutorial's github][learn-katacoda]*
 
 ## Delete the Service
 
