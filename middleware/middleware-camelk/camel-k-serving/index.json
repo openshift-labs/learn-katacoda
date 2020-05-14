@@ -46,6 +46,7 @@
 	        { "file": "helper/MinioCustomizer.java", "target": "~/helper/" },
 	        { "file": "helper/openapi.yaml", "target": "~/helper/" },
 	        { "file": "serverless/serving.yaml", "target": "~/serverless/" },
+	        { "file": "serverless/role.yaml", "target": "~/serverless/" },
 	        { "file": "serverless/subscription.yaml", "target": "~/serverless/" },
 	        { "file": "minio/minio.yaml", "target": "~/minio/" }
 	      ]
