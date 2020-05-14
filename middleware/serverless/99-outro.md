@@ -1,13 +1,13 @@
 ## Summary
 In this workshop, you have worked with OpenShift Serverless and learned about underlying Knative Serving concepts. OpenShift Serverless helps developers to deploy and run applications that will scale up or scale to zero on-demand. Applications are packaged as OCI compliant Linux containers that can be run anywhere.
 
-We hope you have found this workshop helpful in learning about OpenShift Serverless and would love any feedback you have on ways to make it better! Feel free to open issues in this workshop’s [GitHub repository](https://github.com/openshift-labs/learn-katacoda), but also reach out to your workshop leaders to share any thoughts on how we can make this a better experience.
+We hope you have found this workshop helpful in learning about OpenShift Serverless and would love any feedback you have on ways to make it better! Feel free to open issues in this workshop’s [GitHub repository](https://github.com/openshift-labs/learn-katacoda).
 
 To learn more about OpenShift Serverless and Knative, the resources below can provide information on everything from getting started to more advanced concepts.
 
-OpenShift Serverless Webpage: https://www.openshift.com/learn/topics/serverlesss
+OpenShift Serverless Webpage: https://www.openshift.com/learn/topics/serverless
 
-OpenShift Serverless Documentation: https://access.redhat.com/documentation/en-us/openshift_container_platform/4.2/html/serverless_applications/index
+OpenShift Serverless Documentation: https://docs.openshift.com/container-platform/4.4/serverless/serverless-getting-started.html
 
 Knative Serving GitHub: https://github.com/knative/serving
 
