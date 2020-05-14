@@ -39,12 +39,24 @@ The Catalog Operator is responsible for building, deploying Camel Applications a
 
 
 ``kamel install --olm=false --maven-repository=https://repository.apache.org/content/repositories/snapshots@id=apache-snapshots@snapshots``{{execute}}
+!!!!!!DO NOT DO THIS ONE, WILL ONLY WORK WHEN WITH BUG FIXED!!!!!!!
+``NONONONONONONONONONOkamel install --trait-profile OpenShift NONONONONONONONONONO``{{execute}}
 
-DONT DO THIS ONE, WILL ONLY WORK WHEN WITH BUG FIXED!!!!!!!
-``kamel install --trait-profile OpenShift``{{execute}}
+ you will see this prompt:
 
-OLM is available in the cluster
-Camel K installed in namespace default via OLM subscription
+```
+Camel K installed in namespace camel-api
+```
+
+To check if Camel K operator has successfully installed,
+``oc get pod -w``{{execute}}
+
+once camel-k-operator starts the Running status, it means it is successfully installed.
+```
+NAME                                READY   STATUS    RESTARTS   AGE
+camel-k-operator-554df8d75c-d2dx5   1/1     Running   0          84s
+```
+
 
 ## Setup the generic object datastore
 

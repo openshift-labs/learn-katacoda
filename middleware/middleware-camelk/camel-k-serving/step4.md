@@ -13,12 +13,12 @@ Check the integrations to see when they are ready:
 
 We can see the Serverless Service that we just created by executing:
 
-``oc get -n api services.serving.knative.dev``{{execute}}
+``oc get services.serving.knative.dev api -n camel-api``{{execute}}
 
 
 We can see the route by executing:
 
-``oc get -n api routes.serving.knative.dev``{{execute}}
+``oc get routes.serving.knative.dev api -n camel-api``{{execute}}
 
 
 The Camel K API service will automatically scale down to zero if it does not get request for approximately 90 seconds. Try watching the service scaling down from OpenShift Dev Console.

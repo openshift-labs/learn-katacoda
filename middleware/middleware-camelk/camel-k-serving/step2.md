@@ -6,7 +6,11 @@ You have access to an OpenAPI standard document under `helper` called `openapi.y
  - Getting the content of an object
  - Deleting an object
 
+#### (OPTIONAL)
 The document is written in YAML, this is what it looks like.
+You can take this and view it in https://www.apicur.io, as a web based UI to design and view your OpenAPI based APIs.
+![serving-terminating](/openshift/assets/middleware/serverless/02-serving/terminating.png)
+
 
 ```
 openapi: 3.0.2
@@ -76,9 +80,10 @@ paths:
             summary: List the objects
 
 ```
-#### (OPTIONAL)
-You can take this and view it in https://www.apicur.io, as a web based UI to design and view your OpenAPI based APIs.
 
+
+
+#### IMPLEMENT API WIH CAMEL K
 Let's create the camel route that implements the operations that was defined in the API.  
 Go to the text editor on the right, under the folder /root/camel-api. Right click on the directory and choose New -> File and name it `API.java`.
 
