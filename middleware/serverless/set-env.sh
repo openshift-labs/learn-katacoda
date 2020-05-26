@@ -27,5 +27,5 @@ oc new-project serverless-tutorial
 
 # Done.
 sleep 3
-clear
+#clear
 echo "Serverless Tutorial Ready!"
