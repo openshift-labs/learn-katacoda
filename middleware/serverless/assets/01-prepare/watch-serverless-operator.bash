@@ -13,4 +13,10 @@ function wait_for_operator_install {
   done
 }
 
-wait_for_operator_install $1
+# Get serverless-operator.v.X.X... name
+# Will be stored in "${BASH_REMATCH[0]}"
+ops=`oc get csv -n openshift-operators`
+pat='(serverless-operator\S+)'
+[[ $ops =~ $pat ]] # From this line
+
+wait_for_operator_install ${BASH_REMATCH[0]}

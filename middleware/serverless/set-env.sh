@@ -7,15 +7,9 @@ oc login -u admin -p admin
 # Apply the serverless operator
 oc apply -f 01-prepare/operator-subscription.yaml
 
-# Get serverless-operator.v.X.X... name
-# Will be stored in "${BASH_REMATCH[0]}"
-ops=`oc get csv -n openshift-operators`
-pat='(serverless-operator\S+)'
-[[ $ops =~ $pat ]] # From this line
-
 echo "Serverless Operator Subscribed, waiting for deployment..."
 # Setup waiting function
-bash 01-prepare/watch-serverless-operator.bash ${BASH_REMATCH[0]}
+bash 01-prepare/watch-serverless-operator.bash
 
 echo "Serverless Operator deployed. Deploying knative-serving..."
 # If we make it this far we have deployed the Serverless Operator!
