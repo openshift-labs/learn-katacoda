@@ -53,7 +53,8 @@
     },
     "assets": {
       "client": [
-        { "file": "01-prepare/watch-serverless-operator.bash", "target": "~/01-prepare" },
+	{ "file": "01-prepare/install-serverless.bash", "target": "~/01-prepare" },
+	{ "file": "01-prepare/watch-serverless-operator.bash", "target": "~/01-prepare" },
         { "file": "01-prepare/operator-subscription.yaml", "target": "~/01-prepare" },
         { "file": "01-prepare/serving.yaml", "target": "~/01-prepare" },
         { "file": "01-prepare/watch-knative-serving.bash", "target": "~/01-prepare" },
