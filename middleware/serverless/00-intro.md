@@ -1,3 +1,10 @@
+[serverless-main]: https://www.openshift.com/learn/topics/serverless
+[amq-docs]: https://developers.redhat.com/products/amq/overview
+[pipelines-main]: https://www.openshift.com/learn/topics/pipelines
+[service-mesh-main]: https://www.openshift.com/learn/topics/service-mesh
+[monitoring-main]: https://docs.openshift.com/container-platform/4.4/monitoring/cluster_monitoring/about-cluster-monitoring.html 
+[metering-main]: https://docs.openshift.com/container-platform/4.4/metering/metering-installing-metering.html
+
 In this self-paced tutorial, you will learn the basics of how to use OpenShift Serverless, which provides a development model to remove the overhead of server provisioning and maintenance from the developer.
 
 In this tutorial, you will:
@@ -16,15 +23,15 @@ The answer is a platform that can run serverless workloads, while also enabling 
 
 ## OpenShift Serverless
 
-In this chapter we introduce you to one such platform -- [OpenShift Serverless](https://www.openshift.com/learn/topics/serverless).  OpenShift Serverless helps developers to deploy and run applications that will scale up or scale to zero on-demand. Applications are packaged as OCI compliant Linux containers that can be run anywhere.  This is known as `Serving`.
+In this chapter we introduce you to one such platform -- [OpenShift Serverless][serverless-main].  OpenShift Serverless helps developers to deploy and run applications that will scale up or scale to zero on-demand. Applications are packaged as OCI compliant Linux containers that can be run anywhere.  This is known as `Serving`.
 
 ![OpenShift Serving](/openshift/assets/middleware/serverless/00-intro/knative-serving-diagram.png)
 
-Serverless has a robust way to allow for applications to be triggered by a variety of event sources, such as events from your own applications, cloud services from multiple providers, Software as a Service (SaaS) systems and Red Hat Services ([AMQ Streams](https://access.redhat.com/products/red-hat-amq)).  This is known as `Eventing`.
+Serverless has a robust way to allow for applications to be triggered by a variety of event sources, such as events from your own applications, cloud services from multiple providers, Software as a Service (SaaS) systems and Red Hat Services ([AMQ Streams][amq-docs]).  This is known as `Eventing`.
 
 ![OpenShift Eventing](/openshift/assets/middleware/serverless/00-intro/knative-eventing-diagram.png)
 
-OpenShift Serverless applications can be integrated with other OpenShift services, such as OpenShift [Pipelines](https://www.openshift.com/learn/topics/pipelines), [Service Mesh](https://www.openshift.com/learn/topics/service-mesh), Monitoring and [Metering](https://github.com/operator-framework/operator-metering), delivering a complete serverless application development and deployment experience.
+OpenShift Serverless applications can be integrated with other OpenShift services, such as OpenShift [Pipelines][pipelines-main], [Service Mesh][service-mesh-main], [Monitoring][monitoring-main] and [Metering][metering-main], delivering a complete serverless application development and deployment experience.
 
 This tutorial will focus on the `Serving` aspect of OpenShift Serverless as the first diagram showcases.  Be on the lookout for additional tutorials to dig further into Serverless, specifically `Eventing`.
 
@@ -36,6 +43,6 @@ The OpenShift environment created for you is running version 4.2 of the OpenShif
 
 > **Note:** *It is possible to skip around in this tutorial.  The only pre-requisite for each section would be the initial `Prepare for Exercises` section.*
 >
-> *For example, you could run the `Prepare for Exercises` section immediatly followed by the `Scaling` section.*
+> *For example, you could run the `Prepare for Exercises` section immediately followed by the `Scaling` section.*
 
 Now, let's get started!

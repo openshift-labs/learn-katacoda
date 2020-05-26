@@ -1,10 +1,13 @@
-OpenShift Serverless is an OpenShift add-on that can be install via an operator that is available within the OpenShift OperatorHub.
+[olm-docs]: https://docs.openshift.com/container-platform/4.4/operators/olm-adding-operators-to-cluster.html
+[serving-docs]: https://github.com/knative/serving-operator#the-knativeserving-custom-resource
+
+OpenShift Serverless is an OpenShift add-on that can be installed via an operator that is available within the OpenShift OperatorHub.
 
 Some operators are able to be installed into single namespaces within a cluster and are only able to monitor resources within that namespace.  The OpenShift Serverless operator is one that installs globally on a cluster so that it is able to monitor and manage Serverless resources for every single project and user within the cluster.
 
 You could install the Serverless operator using the *Operators* tab within the web console, or you can use the CLI tool `oc`.  In this instance, we will use the latter.
 
-## Login and install the operator
+## Log in and install the operator
 To install an operator, you need to log in as an admin.  You can do so by running:
 
 `oc login -u admin -u admin`{{execute}}
@@ -52,18 +55,18 @@ spec:
 
 The channel, name, starting CSV, source, and source namespace are all described in the packagemanifest you just described.
 
-> **Tip:** *You can find more information on how to add operators on the [OpenShift Documentation Page](https://docs.openshift.com/container-platform/latest/operators/olm-adding-operators-to-cluster.html).*
+> **Tip:** *You can find more information on how to add operators on the [OpenShift OLM Documentation Page][olm-docs].*
 
 For now, all you need to do is apply the associated YAML file to subscribe to the OpenShift Serverless and Service Mesh Operator.
 
 `oc apply -f 01-prepare/operator-subscription.yaml`{{execute}}
 
 ## Approve and Verify the Operator Installation
-Normally, the subscription might be set to an Automatic install plan approval, which would handle the approval for you.  In our case the `installPlanApproval: Manual` in our Subscription requires the admin to approve the *installplan* in order for it to begin.  In these cases it might be easiest to see this from the OpenShift Web Console and approve the changes as shown in the picture below.
+Normally, the subscription might be set to an Automatic install plan approval, which would handle the approval for you.  In our case the `installPlanApproval: Manual` in our Subscription requires the admin to approve the *installplan* in order for it to begin.  In these cases it might be easiest to see this from the OpenShift Web Console and approve the changes as shown in the picture below.  However, in this tutorial we will find the installplan and approve it using the CLI. 
 
 ![installplan](/openshift/assets/middleware/serverless/01-prepare/installplan.png "Approve Install Plan")
 
-In this tutorial we will find the installplan and approve it using the CLI.  To do so click and run the script below where we automate approving the installplan.
+To do so click and run the script below where we automate approving the installplan.
 
 ```bash
 # ./assets/01-prepare/approve-operators.bash
@@ -121,14 +124,13 @@ wait_for_operator_install serverless-operator.v1.4.1
 When you see the message "Installed", the OpenShift Serverless and Service Mesh Opeartors are installed.  We can see the new Serverless resources that are available to the cluster by clicking the script below to run:
 
 ```bash
-echo "NAME                                SHORTNAMES         APIGROUP                        NAMESPACED             KIND"
-oc api-resources | grep KnativeServing
+oc api-resources | egrep 'Knative|KIND'
 ```{{execute}}
 
 As you can see, the OpenShift Serverless Operator added two new resources: `operator.knative.dev` and `servings.knative.dev`.  Next, we need to use these resources to install KnativeServing. 
 
 ## Install KnativeServing
-As per the [Knative Serving Operator documentation](https://github.com/knative/serving-operator#the-knativeserving-custom-resource) You must create a `KnativeServing` object to install Knative Serving using the OpenShift Serverless Operator.
+As per the [Knative Serving Operator documentation][serving-docs] You must create a `KnativeServing` object to install Knative Serving using the OpenShift Serverless Operator.
 
 To do so, see the yaml that we are going to apply to the cluster:
 
@@ -201,10 +203,10 @@ webhook-55b96d44f6-sxj7p            1/1     Running   0          84s
 ```
 
 ## Login as a Developer and Create a Project
-Before beginning we should change to the non-priviledged user `developer` and create a new `project` for the tutorial.
+Before beginning we should change to the non-privileged user `developer` and create a new `project` for the tutorial.
 
-To change to the non-priviledged user in our envirnoment we can execute: `oc login -u developer -p developer`{{execute}}
+To change to the non-privileged user in our environment we can execute: `oc login -u developer -p developer`{{execute}}
 
 Next create a new project by executing: `oc new-project serverless-tutorial`{{execute}}
 
-There we go! You are all set to kickstart your serverless journey with **OpenShift Serverless**. Click `continue` to go to next module on how to deploy your first severless service.
+There we go! You are all set to kickstart your serverless journey with **OpenShift Serverless**. Click `continue` to go to the next module on how to deploy your first severless service.

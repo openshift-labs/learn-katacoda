@@ -40,8 +40,12 @@
         "text": "03-traffic-distribution.md"
       },
       {
+        "title": "Canary Releases",
+        "text": "04-canary-releases.md"
+      },
+      {
         "title": "Scaling",
-        "text": "04-scaling.md"
+        "text": "05-scaling.md"
       }
     ],
     "finish": {
@@ -55,14 +59,14 @@
         { "file": "01-prepare/watch-knative-serving.bash", "target": "~/01-prepare" },
         { "file": "02-serving/service.yaml", "target": "~/02-serving" },
         { "file": "02-serving/watch-service.bash", "target": "~/02-serving" },
-        { "file": "03-traffic-distribution/greeter-canary-service.yaml", "target": "~/03-traffic-distribution" },
         { "file": "03-traffic-distribution/greeter-v1-service.yaml", "target": "~/03-traffic-distribution" },
         { "file": "03-traffic-distribution/greeter-v2-service.yaml", "target": "~/03-traffic-distribution" },
-        { "file": "03-traffic-distribution/poll-svc-10.bash", "target": "~/03-traffic-distribution" },
         { "file": "03-traffic-distribution/service-pinned.yaml", "target": "~/03-traffic-distribution" },
-        { "file": "04-scaling/service-50.yaml", "target": "~/04-scaling" },
-        { "file": "04-scaling/service-hpa.yaml", "target": "~/04-scaling" },
-        { "file": "04-scaling/service-min-max-scale.yaml", "target": "~/04-scaling" }
+        { "file": "04-canary-releases/greeter-canary-service.yaml", "target": "~/04-canary-releases" },
+        { "file": "04-canary-releases/poll-svc-10.bash", "target": "~/04-canary-releases" },
+        { "file": "05-scaling/service-50.yaml", "target": "~/05-scaling" },
+        { "file": "05-scaling/service-hpa.yaml", "target": "~/05-scaling" },
+        { "file": "05-scaling/service-min-max-scale.yaml", "target": "~/05-scaling" }
       ]
     }
   }  
