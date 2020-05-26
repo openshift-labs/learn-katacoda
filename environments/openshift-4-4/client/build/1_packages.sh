@@ -29,7 +29,7 @@ curl -o odo.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/
 curl -o kn.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/serverless/0.13.2/kn-linux-amd64-0.13.2.tar.gz && \
     tar -xvf kn.tar.gz && \
     rm -f kn.tar.gz && \
-    mv kn-linux-amd64 /usr/bin/kn && \
+    mv kn /usr/bin/kn && \
     chmod +x /usr/bin/kn
 
 curl -o kamel.tar.gz -L https://github.com/apache/camel-k/releases/download/$KAMEL_VERSION/camel-k-client-$KAMEL_VERSION-linux-64bit.tar.gz && \
@@ -38,7 +38,7 @@ curl -o kamel.tar.gz -L https://github.com/apache/camel-k/releases/download/$KAM
     mv kamel /usr/bin/kamel && \
     chmod +x /usr/bin/kamel
 
-curl -o kogito.tar.gz -L https://github.com/kiegroup/kogito-cloud-operator/releases/download/v$KOGITO_VERSION/kogito-$KOGITO_VERSION-linux-amd64.tar.gz && \
+curl -o kogito.tar.gz -L https://github.com/kiegroup/kogito-cloud-operator/releases/download/$KOGITO_VERSION/kogito-cli-$KOGITO_VERSION-linux-amd64.tar.gz && \
     tar -xvf kogito.tar.gz && \
     rm -f kogito.tar.gz && \
     mv kogito /usr/bin/kogito && \
