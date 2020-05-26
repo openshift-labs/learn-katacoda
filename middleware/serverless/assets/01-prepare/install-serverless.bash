@@ -27,6 +27,7 @@ sleep 3
 oc create -f 01-prepare/serving.yaml
 sleep 3
 
+echo "Serving created, waiting for deployment..."
 # Wait for Serving to install
 bash 01-prepare/watch-knative-serving.bash
 sleep 3
