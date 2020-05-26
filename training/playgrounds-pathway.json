@@ -1,0 +1,13 @@
+{
+  "title": "OpenShift Workshop",
+  "description": "",
+  "courses": [
+    {
+      "pathway_id": "openshift/playgrounds",
+      "course_id": "openshift42",
+      "id": "openshift42",
+      "title": "OpenShift 4.2 Playground"
+    }
+
+  ]
+}
