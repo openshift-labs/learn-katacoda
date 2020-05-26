@@ -11,7 +11,7 @@ do
 done
 
 # Apply the serverless operator
-oc apply -f 01-prepare/operator-subscription.yaml
+oc create -f 01-prepare/operator-subscription.yaml
 sleep 3
 
 echo "Serverless Operator Subscribed, waiting for deployment..."
@@ -22,7 +22,10 @@ sleep 3
 echo "Serverless Operator deployed. Deploying knative-serving..."
 # If we make it this far we have deployed the Serverless Operator!
 # Next, Knative Serving
-oc apply -f 01-prepare/serving.yaml
+oc new-project knative-serving
+sleep 3
+
+oc create -f 01-prepare/serving.yaml
 sleep 3
 
 # Wait for Serving to install
