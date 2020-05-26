@@ -2,7 +2,7 @@
 echo "Setting up Serverless..."
 
 # Login as admin
-oc login -u admin -u admin
+oc login -u admin -p admin
 
 # Apply the serverless operator
 oc apply -f 01-prepare/operator-subscription.yaml
@@ -15,21 +15,7 @@ pat='(serverless-operator\S+)'
 
 echo "Serverless Operator Subscribed, waiting for deployment..."
 # Setup waiting function
-function wait_for_operator_install {
-  local A=1
-  local sub=$1
-  while : ;
-  do
-    echo "$A: Checking..."
-    phase=`oc get csv -n openshift-operators $sub -o jsonpath='{.status.phase}'`
-    if [ $phase == "Succeeded" ]; then echo "$sub Installed"; break; fi
-    A=$((A+1))
-    sleep 10
-  done
-}
-
-# Wait for...
-wait_for_operator_install ${BASH_REMATCH[0]}
+bash 01-prepare/watch-serverless-operator.bash ${BASH_REMATCH[0]}
 
 echo "Serverless Operator deployed. Deploying knative-serving..."
 # If we make it this far we have deployed the Serverless Operator!
