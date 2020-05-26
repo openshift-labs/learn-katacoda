@@ -1,6 +1,8 @@
 [olm-docs]: https://docs.openshift.com/container-platform/4.4/operators/olm-adding-operators-to-cluster.html
 [serving-docs]: https://github.com/knative/serving-operator#the-knativeserving-custom-resource
 
+# This might make sense to move to the set-env.sh and show pictures of the console and the steps to install there while it's automating the install. 
+
 OpenShift Serverless is an OpenShift add-on that can be installed via an operator that is available within the OpenShift OperatorHub.
 
 Some operators are able to be installed into single namespaces within a cluster and are only able to monitor resources within that namespace.  The OpenShift Serverless operator is one that installs globally on a cluster so that it is able to monitor and manage Serverless resources for every single project and user within the cluster.
@@ -23,29 +25,17 @@ From that package manifest, we can see all of the information that you would nee
 
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
-metadata:
-  name: servicemeshoperator
-  namespace: openshift-operators
-spec:
-  channel: stable
-  installPlanApproval: Manual
-  name: servicemeshoperator
-  source: redhat-operators
-  sourceNamespace: openshift-marketplace
-  startingCSV: servicemeshoperator.v1.1.0
----
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: serverless-operator
   namespace: openshift-operators
 spec:
-  channel: techpreview
-  installPlanApproval: Manual
+  channel: "4.4"
+  installPlanApproval: Automatic
   name: serverless-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: serverless-operator.v1.4.1
 
 ```
 
