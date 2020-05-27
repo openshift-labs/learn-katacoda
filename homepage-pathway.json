@@ -15,12 +15,12 @@
       "title": "Building Applications On OpenShift"
     },
     {
-      "external_link": "https://learn.openshift.com/servicemesh/",
-      "title": "Istio"
-    },
-    {
       "external_link": "https://learn.openshift.com/operatorframework/",
       "title": "Building Operators on OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/servicemesh/",
+      "title": "Istio"
     },
     {
       "external_link": "https://learn.openshift.com/ai-machine-learning/",
