@@ -52,4 +52,4 @@ It's working!
 
 You've seen how to create the skeleton of basic Kogito app, and start the application in _Quarkus dev-mode_.
 
-In the next step we'll add the domain model of our application.
+In the next step we'll add the DMN model to our application.
