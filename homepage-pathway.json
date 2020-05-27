@@ -3,20 +3,16 @@
   "private": true,
   "courses": [
     {
+      "external_link": "https://learn.openshift.com/subsystems/",
+      "title": "Linux Container Fundamentals"
+    },
+    {
       "external_link": "https://learn.openshift.com/introduction/",
       "title": "Foundations of OpenShift"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/",
       "title": "Building Applications On OpenShift"
-    },
-    {
-      "external_link": "https://learn.openshift.com/subsystems/",
-      "title": "Subsystems, Components, and Internals"
-    },
-    {
-      "external_link": "https://learn.openshift.com/playgrounds/",
-      "title": "OpenShift Playgrounds"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/",
@@ -33,6 +29,10 @@
     {
       "external_link": "https://learn.openshift.com/persistence/",
       "title": "Adding Persistence to OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/playgrounds/",
+      "title": "OpenShift Playgrounds"
     }
   ]
 }
