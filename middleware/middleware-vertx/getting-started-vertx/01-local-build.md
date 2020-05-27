@@ -72,7 +72,7 @@ We also need to tell the router to map incoming requests to files in the default
 <pre class="file" data-filename="src/main/java/com/example/HttpApplication.java" data-target="insert" data-marker="// TODO: Add a StaticHandler for accepting incoming requests">router.get("/*").handler(StaticHandler.create());</pre>
 
 Now we are ready to start the HTTP server,
-<pre class="file" data-filename="src/main/java/com/example/HttpApplication.java" data-target="insert" data-marker="// TODO: Create the HTTP server listening on port 8080">vertx.createHttpServer().requestHandler(router::accept).listen(8080);</pre>
+<pre class="file" data-filename="src/main/java/com/example/HttpApplication.java" data-target="insert" data-marker="// TODO: Create the HTTP server listening on port 8080">vertx.createHttpServer().requestHandler(router).listen(8080);</pre>
 
 NOTE: As you may have noticed Vert.x will automatically detect when you change and files an immediately redeploy the changes. The automatic redeploy is very convenient for development purposes but can be turned off for production usage.
 
