@@ -9,11 +9,24 @@ By default, Serverless generates random revision names for the service that is b
 
 The following service deployment uses the same greeter service as the last section in the tutorial except it is configured with an arbitrary revision name.
 
-Let's deploy the greeter service again, but this time set its **revision name** to `greeter-v1` by executing: `kn service create greeter --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus --namespace serverless-tutorial --revision-name greeter-v1`{{execute}} 
+Let's deploy the greeter service again, but this time set its **revision name** to `greeter-v1` by executing:
+```bash
+kn service create greeter \
+   --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus \
+   --namespace serverless-tutorial \
+   --revision-name greeter-v1
+```{{execute}} 
 
 > **Note:** *The equivalent yaml for the service above can be seen by executing: `cat 03-traffic-distribution/greeter-v1-service.yaml`{{execute}}*.
 
-Next, we are going to update the greeter service to add a message prefix environment variable and change the revision name to `greeter-v2`.  Do so by executing: `kn service update greeter --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus --namespace serverless-tutorial --revision-name greeter-v2 --env MESSAGE_PREFIX=GreeterV2`{{execute}} 
+Next, we are going to update the greeter service to add a message prefix environment variable and change the revision name to `greeter-v2`.  Do so by executing:
+```bash
+kn service update greeter \
+   --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus \
+   --namespace serverless-tutorial \
+   --revision-name greeter-v2 \
+   --env MESSAGE_PREFIX=GreeterV2
+```{{execute}} 
 
 > **Note:** *The equivalent yaml for the service above can be seen by executing: `cat 03-traffic-distribution/greeter-v2-service.yaml`{{execute}}*.
 
@@ -34,7 +47,14 @@ Serverless offers a simple way of switching 100% of the traffic from one Serverl
 
 With the deployment of `greeter-v2` serverless automatically started to direct 100% of the traffic to `greeter-v2`. Now let us assume that we need to roll back `greeter-v2` to `greeter-v1` for some reason.
 
-Update the greeter service by executing: `kn service update greeter --traffic greeter-v1=100 --tag greeter-v1=current --tag greeter-v2=prev --tag @latest=latest`{{execute}}
+Update the greeter service by executing:
+```bash
+kn service update greeter \
+   --traffic greeter-v1=100 \
+   --tag greeter-v1=current \
+   --tag greeter-v2=prev \
+   --tag @latest=latest
+```{{execute}}
 
 The above service definition creates three sub-routes(named after traffic tags) to the existing `greeter` route.
 - **current**: The revision will receive 100% of the traffic distribution

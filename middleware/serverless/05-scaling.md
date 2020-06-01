@@ -97,8 +97,14 @@ In the definition above the minimum scale is configured to 2 and the maximum sca
 
 Since serverless allows deploying without yaml we will continue to use the `kn` command instead of the above yaml service definition.
 
-Deploy the service by executing: `kn service create prime-generator —namespace serverless-tutorial —
-annotation autoscaling.knative.dev/minScale=“2” —annotation autoscaling.knative.dev/maxScale=“5” —image quay.io/rhdevelopers/prime-generator:v27-quarkus`{{execute}}
+Deploy the service by executing:
+```bash
+kn service create prime-generator \
+   -—namespace serverless-tutorial \
+   —-annotation autoscaling.knative.dev/minScale=“2” \
+   -—annotation autoscaling.knative.dev/maxScale=“5” \
+   —-image quay.io/rhdevelopers/prime-generator:v27-quarkus
+```{{execute}}
 
 See that the `prime-generator` is deployed and it will never be scaled outside of 2-5 pods available by checking: `oc get pods -n serverless-tutorial`{{execute}}
 
@@ -117,8 +123,11 @@ As mentioned before, Serverless by default will scale up when there are 100 conc
 
 To help with this, it is possible to adjust the service to scale up sooner, say 50 concurrent requests via configuring an annotation of `autoscaling.knative.dev/target`.
 
-Update the prime-generator service by executing: `kn service update prime-generator —annotation autoscaling.knative.d
-ev/target=“50”`{{execute}}
+Update the prime-generator service by executing:
+```bash
+kn service update prime-generator \
+   -—annotation autoscaling.knative.dev/target=“50”
+```{{execute}}
 
 > **Note:** *The equivalent yaml for the service above can be seen by executing: `cat 05-scaling/service-50.yaml`{{execute}}*.
 
@@ -133,8 +142,15 @@ This will work well, but given that this application is CPU-bound instead of req
 ## HPA AutoScaling
 CPU based autoscaling metrics are achieved using something called a Horizontal Pod Autoscaler (HPA).  In this example we want to scale up when the service starts using 70% of the CPU.  Do this by adding three new annotations to the service: `autoscaling.knative.dev/{metric,target,class}`
 
-Update the prime-generator service by executing: `kn service update prime-generator —annotation autoscaling.knative.d
-ev/minScale- —annotation autoscaling.knative.dev/maxScale- —annotation autoscaling.knative.dev/target=“70” —annotation autoscaling.knative.dev/metric=cpu —annotation autoscaling.knative.dev/class=hpa.autoscaling.knative.dev`{{execute}}
+Update the prime-generator service by executing:
+```bash
+kn service update prime-generator \
+   -—annotation autoscaling.knative.dev/minScale- \
+   ——annotation autoscaling.knative.dev/maxScale- \
+   -—annotation autoscaling.knative.dev/target=“70” \
+   -—annotation autoscaling.knative.dev/metric=cpu \
+   -—annotation autoscaling.knative.dev/class=hpa.autoscaling.knative.dev
+```{{execute}}
 
 > **Note:** *Notice that the above `kn` command removes, adds, and updates existing annotations to the service.  To delete use `—annotation name-`.*
 >

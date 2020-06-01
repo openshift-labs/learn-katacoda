@@ -64,7 +64,12 @@ We now are deploying an instance of a `Service` that is provided by `serving.kna
 ## Deploy the Serverless Service
 To deploy the service we could deploy the yaml above by executing `oc apply -n serverless-tutorial -f 02-serving/service.yaml`, but one of the best features of serverless is the ability to deploy and work with serverless resources without ever working with yaml.  In this tutorial we will use the `kn` CLI tool to work with serverless. 
 
-To deploy the service execute:`kn service create greeter --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus --namespace serverless-tutorial`{{execute}}
+To deploy the service execute:
+```bash
+kn service create greeter \
+   --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus \
+   --namespace serverless-tutorial
+```{{execute}}
 
 > **Note:** *The equivalent yaml for the service above can be seen by executing: `cat 02-serving/service.yaml`{{execute}}*.
 
@@ -151,7 +156,12 @@ greeter   http://greeter-serverless-tutorial-ks.apps-crc.testing  True
 ### Revision
 Lastly, we can inspect the `Revisions`.  As per the [OpenShift Serverless Documentation][ocp-serving-components], a `Revision` is a point-in-time snapshot of the code and configuration for each modification made to the workload. Revisions are immutable objects and can be retained for as long as needed. Cluster administrators can modify the `revision.serving.knative.dev` resource to enable automatic scaling of Pods in an OpenShift Container Platform cluster.
 
-Before inspecting revisions, update the image of the service by executing: `kn service update greeter --image quay.io/rhdevelopers/knative-tutorial-greeter:latest --namespace serverless-tutorial`{{execute}}.
+Before inspecting revisions, update the image of the service by executing:
+```bash
+kn service update greeter \
+   --image quay.io/rhdevelopers/knative-tutorial-greeter:latest \
+   --namespace serverless-tutorial
+```{{execute}}.
 
 > **Note:** *Updating the image of the service will create a new revision, or point-in-time snapshot of the workload.*
  

@@ -2,13 +2,22 @@ At the end of this step you will be able to:
 - Configure a service to use a `Canary Release` deployment pattern
 
 > **Note:** *If you did not complete the previous Traffic Distribution section please execute both of the following commands:*
-> `kn service create greeter --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus --namespace serverless-tutorial --revision-name greeter-v1`{{execute}}
-> `kn service update greeter --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus --namespace serverless-tutorial --revision-name greeter-v2 --env MESSAGE_PREFIX=GreeterV2`{{execute}} 
+
+```bash
+kn service create greeter --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus --namespace serverless-tutorial --revision-name greeter-v1
+kn service update greeter --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus --namespace serverless-tutorial --revision-name greeter-v2 --env MESSAGE_PREFIX=GreeterV2
+```{{execute}}
 
 ## Applying a Canary Release Pattern
 A Canary release is more effective when looking to reduce the risk of introducing new features. Using this type of deployment model allows a more effective feature-feedback loop before rolling out the change to the entire user base.  Using this deployment approach with Serverless allows splitting the traffic between revisions in increments as small as 1%.
 
-To see this in action, apply the following service update that will split the traffic 80% to 20% between `greeter-v1` and `greeter-v2` by executing: `kn service update greeter --traffic greeter-v1=80 --traffic greeter-v2=20 --traffic @latest=0`{{execute}}
+To see this in action, apply the following service update that will split the traffic 80% to 20% between `greeter-v1` and `greeter-v2` by executing:
+```bash
+kn service update greeter \
+   --traffic greeter-v1=80 \
+   --traffic greeter-v2=20 \
+   --traffic @latest=0
+```{{execute}}
 
 In the service configuration above see the 80/20 split between v1 and v2 of the greeter service.  Also see that the current service is set to receive 0% of the traffic using the `latest` tag.
 

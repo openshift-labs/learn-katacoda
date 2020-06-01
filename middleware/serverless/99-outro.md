@@ -15,4 +15,4 @@ Knative CLI GitHub: https://github.com/knative/client
 
 Knative Website: https://knative.dev/
 
-Read more in the OpenShift blog announcement for OpenShift Serverless: https://www.openshift.com/blog/announcing-openshift-serverless-1-5-0-tech-preview-a-sneak-peek-of-our-ga
+Read more in the OpenShift blog announcement for OpenShift Serverless: https://developers.redhat.com/blog/2020/04/30/serverless-applications-made-faster-and-simpler-with-openshift-serverless-ga/
