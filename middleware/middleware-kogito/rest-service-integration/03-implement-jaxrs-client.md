@@ -8,7 +8,7 @@ Click the following command to add the dependencies to our project.
 
 `mvn quarkus:add-extension -Dextensions=io.quarkus:quarkus-rest-client`{{execute T1}}
 
-Open the `pom.xml` file and observe the the required dependencies have been added: `coffeeshop/pom.xml`{{open}}
+Open the `pom.xml` file and observe that the required dependencies have been added: `coffeeshop/pom.xml`{{open}}
 
 ### JAX-RS Client
 

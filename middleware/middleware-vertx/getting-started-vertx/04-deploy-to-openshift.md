@@ -9,7 +9,7 @@ NOTE: **Openshift** also provides great CI/CD and pipeline functionality, but th
 
 **1. Deploying the application to your private project**
 
-Red Hat OpenShift Application Runtimes includes a powerful maven plugin that can take an existing Vert.x application and generate necessary Kubernetes configuration. You can also add additional config, like ``src/main/fabric8/route.yml``{{open}} which defines a route for our application so that we can access it from a browser.
+Red Hat OpenShift Application Runtimes includes a powerful maven plugin that can take an existing Vert.x application and generate necessary Kubernetes configuration. 
 
 To deploy our application (and route) just execute the following
 

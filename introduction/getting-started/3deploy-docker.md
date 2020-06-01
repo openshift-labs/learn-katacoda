@@ -28,7 +28,7 @@ By default, creating a deployment using the *Container Image* method will also c
 
 Normally, you would keep this box checked, since it's very convenient to have the Route created for you. For the purposes of learning, **un-check the box**. We'll learn more about Routes later in the tutorial, and we'll create the Route ourselves then.
 
-You are ready to deploy the existing container image. Click the blue *Create* button at the bottom of the screen. This should bring you back to the *Topology* view, where you'll see a visual representation of the application you just deployed. As the image deployment progesses, you'll see the ring around the `parksmap-katacoda` deployment progress from white to light blue to blue.
+You are ready to deploy the existing container image. Click the blue *Create* button at the bottom of the screen. This should bring you back to the *Topology* view, where you'll see a visual representation of the application you just deployed. As the image deployment progresses, you'll see the ring around the `parksmap-katacoda` deployment progress from white to light blue to blue.
 
 ![Topology View](../../assets/introduction/getting-started-42/3parksmap-overview.png)
 
