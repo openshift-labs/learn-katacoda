@@ -100,10 +100,10 @@ Since serverless allows deploying without yaml we will continue to use the `kn` 
 Deploy the service by executing:
 ```bash
 kn service create prime-generator \
-   -—namespace serverless-tutorial \
-   —-annotation autoscaling.knative.dev/minScale=“2” \
-   -—annotation autoscaling.knative.dev/maxScale=“5” \
-   —-image quay.io/rhdevelopers/prime-generator:v27-quarkus
+   --namespace serverless-tutorial \
+   --annotation autoscaling.knative.dev/minScale=2 \
+   --annotation autoscaling.knative.dev/maxScale=5 \
+   --image quay.io/rhdevelopers/prime-generator:v27-quarkus
 ```{{execute}}
 
 See that the `prime-generator` is deployed and it will never be scaled outside of 2-5 pods available by checking: `oc get pods -n serverless-tutorial`{{execute}}
@@ -126,7 +126,7 @@ To help with this, it is possible to adjust the service to scale up sooner, say 
 Update the prime-generator service by executing:
 ```bash
 kn service update prime-generator \
-   -—annotation autoscaling.knative.dev/target=“50”
+   --annotation autoscaling.knative.dev/target=50
 ```{{execute}}
 
 > **Note:** *The equivalent yaml for the service above can be seen by executing: `cat 05-scaling/service-50.yaml`{{execute}}*.
@@ -145,11 +145,11 @@ CPU based autoscaling metrics are achieved using something called a Horizontal P
 Update the prime-generator service by executing:
 ```bash
 kn service update prime-generator \
-   -—annotation autoscaling.knative.dev/minScale- \
-   ——annotation autoscaling.knative.dev/maxScale- \
-   -—annotation autoscaling.knative.dev/target=“70” \
-   -—annotation autoscaling.knative.dev/metric=cpu \
-   -—annotation autoscaling.knative.dev/class=hpa.autoscaling.knative.dev
+   --annotation autoscaling.knative.dev/minScale- \
+   --annotation autoscaling.knative.dev/maxScale- \
+   --annotation autoscaling.knative.dev/target=70 \
+   --annotation autoscaling.knative.dev/metric=cpu \
+   --annotation autoscaling.knative.dev/class=hpa.autoscaling.knative.dev
 ```{{execute}}
 
 > **Note:** *Notice that the above `kn` command removes, adds, and updates existing annotations to the service.  To delete use `—annotation name-`.*
