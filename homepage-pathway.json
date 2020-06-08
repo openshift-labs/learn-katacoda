@@ -3,12 +3,20 @@
   "private": true,
   "courses": [
     {
+      "external_link": "https://learn.openshift.com/using-the-cluster/",
+      "title": "Using OpenShift"
+    },
+    {
       "external_link": "https://learn.openshift.com/subsystems/",
       "title": "Linux Container Fundamentals"
     },
     {
-      "external_link": "https://learn.openshift.com/introduction/",
-      "title": "Foundations of OpenShift"
+      "external_link": "https://learn.openshift.com/developing-on-openshift/",
+      "title": "Developing on OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/cicd-application-delivery/",
+      "title": "CI/CD & Application Delivery"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/",
