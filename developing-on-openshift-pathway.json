@@ -1,0 +1,31 @@
+{
+    "title": "Developing on OpenShift",
+    "icon": "fa-openshift",
+    "courses": [
+      {
+        "external_link": "https://learn.openshift.com/introduction/getting-started/",
+        "course_id": "getting-started",
+        "title": "Getting Started with OpenShift for Developers"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/deploying-python/",
+        "course_id": "deploying-python",
+        "title": "Deploying Applications From Source"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/developing-with-odo/",
+        "course_id": "developing-with-odo",
+        "title": "Developing with odo"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/port-forwarding/",
+        "course_id": "port-forwarding",
+        "title": "Connecting to a Database Using Port Forwarding"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/transferring-files/",
+        "course_id": "transferring-files",
+        "title": "Transferring Files in and out of Containers"
+      }
+    ]
+  }
