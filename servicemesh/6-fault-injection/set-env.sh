@@ -11,3 +11,5 @@ until (oc status &> /dev/null); do sleep 1; done
 make -i -f /root/projects/istio-tutorial/Makefile cleanup istio
 /usr/local/bin/launch.sh
 export PATH=$PATH:/root/installation/istio-1.0.5/bin/
+clear
+echo "Tutorial Ready!"
