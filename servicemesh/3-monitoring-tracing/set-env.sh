@@ -15,4 +15,4 @@ until (oc get pods -n tutorial -l app=recommendation 2>/dev/null | grep Running)
 mkdir -p ~/projects && cd ~/projects
 export PATH=$PATH:/root/installation/istio-1.0.5/bin
 clear
-echo "Tutorial Ready!"
+echo "Tutorial Ready."

@@ -15,4 +15,4 @@ until $(tar -tvf /root/installation/istio-1.0.5-linux.tar.gz &> /dev/null); do (
 /usr/local/bin/launch.sh
 mkdir -p /root/installation && cd ~/installation
 clear
-echo "Tutorial Ready!"
+echo "Tutorial Ready."

@@ -26,4 +26,4 @@ ssh root@host01 "oc adm policy add-cluster-role-to-user cluster-admin admin"
 ~/.launch.sh
 ~/init.sh
 clear
-echo "Tutorial Ready!"
+echo "Tutorial Ready."
