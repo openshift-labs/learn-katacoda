@@ -17,16 +17,6 @@ docker pull registry.access.redhat.com/jboss-datagrid-7/datagrid71-client-opensh
 docker pull registry.access.redhat.com/jboss-datavirt-6/datavirt63-openshift
 docker pull registry.access.redhat.com/jboss-datavirt-6/datavirt63-driver-openshift
 
-# Red Hat Decision Manager # Removed by kvarela
-# docker pull registry.access.redhat.com/rhdm-7/rhdm70-decisioncentral-openshift:1.1
-# docker pull registry.access.redhat.com/rhdm-7/rhdm70-kieserver-openshift:1.1
-# docker pull registry.access.redhat.com/rhdm-7/rhdm72-decisioncentral-openshift:1.1
-# docker pull registry.access.redhat.com/rhdm-7/rhdm72-kieserver-openshift:1.1
-
-# Red Hat Process Automation Manager # Removed by kvarela
-# docker pull registry.access.redhat.com/rhpam-7/rhpam72-businesscentral-openshift:1.1
-# docker pull registry.access.redhat.com/rhpam-7/rhpam72-kieserver-openshift:1.1
-
 # Strimzi & Debezium
 STRIMZI_VERSION=0.2
 DEBEZIUM_VERSION=0.7
