@@ -12,6 +12,9 @@ metadata:
   finalizers:
     - finalizer.extensions/v1beta1  
 spec:
+  selector:
+    matchLabels:
+      app: finalizer-test
   replicas: 3
   template:
     metadata:
@@ -94,6 +97,9 @@ metadata:
     app: finalizer-test
   finalizers:
 spec:
+  selector:
+    matchLabels:
+      app: finalizer-test
   replicas: 3
   template:
     metadata:
