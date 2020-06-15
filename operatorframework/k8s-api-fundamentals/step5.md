@@ -12,7 +12,7 @@ Let's create a new Custom Resource Definition (CRD) object manifest for Postgres
 
 ```
 cat >> postgres-crd.yaml <<EOF
-apiVersion: apiextensions.k8s.io/v1beta1
+apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: postgreses.rd.example.com

@@ -8,7 +8,7 @@ Create a ReplicaSet object manifest file:
 
 ```
 cat > replica-set.yaml <<EOF
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: myfirstreplicaset
@@ -62,19 +62,19 @@ oc scale replicaset myfirstreplicaset --replicas=3
 The `oc scale` command interacts with the `/scale` endpoint:
 
 ```
-curl -X GET http://localhost:8001/apis/extensions/v1beta1/namespaces/myproject/replicasets/myfirstreplicaset/scale
+curl -X GET http://localhost:8001/apis/apps/v1/namespaces/myproject/replicasets/myfirstreplicaset/scale
 ```{{execute}}
 <br>
 Use the `PUT` method against the `/scale` endpoint to change the number of replicas to 5:
 
 ```
-curl  -X PUT localhost:8001/apis/extensions/v1beta1/namespaces/myproject/replicasets/myfirstreplicaset/scale -H "Content-type: application/json" -d '{"kind":"Scale","apiVersion":"extensions/v1beta1","metadata":{"name":"myfirstreplicaset","namespace":"myproject"},"spec":{"replicas":5}}'
+curl  -X PUT localhost:8001/apis/apps/v1/namespaces/myproject/replicasets/myfirstreplicaset/scale -H "Content-type: application/json" -d '{"kind":"Scale","apiVersion":"extensions/v1beta1","metadata":{"name":"myfirstreplicaset","namespace":"myproject"},"spec":{"replicas":5}}'
 ```{{execute}}
 <br>
 You can also get information regarding the pod by using the `GET` method against the `/status` endpoint
 
 ```
-curl -X GET http://localhost:8001/apis/extensions/v1beta1/namespaces/myproject/replicasets/myfirstreplicaset/status
+curl -X GET http://localhost:8001/apis/apps/v1/namespaces/myproject/replicasets/myfirstreplicaset/status
 ```{{execute}}
 <br>
 The status endpoint's primary purpose is to allow a controller (with proper RBAC permissions) to send a `PUT` method along with the desired status.

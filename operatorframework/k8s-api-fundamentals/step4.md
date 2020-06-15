@@ -2,7 +2,7 @@ Create a manifest for a Deployment with a Finalizer:
 
 ```
 cat > finalizer-test.yaml<<EOF
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: finalizer-test
@@ -85,7 +85,7 @@ Update the Deployment with the Finalizer value unset.
 
 ```
 cat > finalizer-test-remove.yaml<<EOF
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: finalizer-test
