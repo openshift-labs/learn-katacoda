@@ -1,27 +1,36 @@
 {
   "icon": "fa-openshift",
-  "title": "Mcrouter Operator powered by Ansible Operator",
-  "description": "Deploy and test the Mcrouter Operator",
+  "title": "Ansible Operator Overview",
+  "description": "Overview of the Ansible Operator",
   "pathwayTitle": "OpenShift",
   "difficulty": "beginner",
   "time": "30 minutes",
   "details": {
     "steps": [
     {
-    	"title": "Deploying the Mcrouter Operator",
+    	"title": "The Ansible Operator",
     	"text": "step1.md"
     }, {
-			"title": "Creating the Mcrouter Custom Resource",
+			"title": "The role of the Watches File",
 			"text": "step2.md"
 		}, {
-			"title": "Using Mcrouter",
+			"title": "The Custom Resource File",
 			"text": "step3.md"
     }, {
-			"title": "Testing Modification of the Mcrouter Custom Resource",
+			"title": "Handle Extra Vars",
 			"text": "step4.md"
     }, {
-			"title": "Testing Mcrouter failover",
+			"title": "Create a new Operator",
 			"text": "step5.md"
+    }, {
+			"title": "Customize the Operator Logic",
+			"text": "step6.md"
+    }, {
+			"title": "Create the Custom Resource Definition",
+			"text": "step7.md"
+    }, {
+			"title": "Run and Use the Operator",
+			"text": "step8.md"
     }],
     "intro": {
       "code": "set-env.sh",
@@ -42,7 +51,7 @@
         "uilayout": "terminal-iframe"
     },
   "backend": {
-    "imageid": "openshift-4-4",
+    "imageid": "openshift-4-2",
     "port": 8443
   }
 }
