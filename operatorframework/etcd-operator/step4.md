@@ -1,3 +1,9 @@
+Ensure you are currently scoped to the `myproject` Namespace:
+
+```
+oc project myproject
+```{{execute}}
+
 Create an Etcd cluster by referring to the new Custom Resource, `EtcdCluster`, defined in the Custom Resource Definition on Step 1:
 
 ```
