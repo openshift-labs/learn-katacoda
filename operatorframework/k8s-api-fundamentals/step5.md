@@ -26,7 +26,14 @@ spec:
     shortNames:
     - pg
   scope: Namespaced
-  version: v1alpha1
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        type: object
+        x-kubernetes-preserve-unknown-fields: true
+    served: true
+    storage: true
 EOF
 ```{{execute}}
 <br>
