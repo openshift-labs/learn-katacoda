@@ -1,33 +1,39 @@
 {
   "icon": "fa-openshift",
-  "title": "Operator SDK with Go",
-  "description": "Operator SDK with Go",
+  "title": "Operator SDK with Helm",
+  "description": "Operator SDK with Helm",
   "pathwayTitle": "OpenShift",
   "difficulty": "beginner",
   "time": "30 minutes",
   "details": {
     "steps": [
     {
-    	"title": "Creating a New Project",
+    	"title": "Initialize the Project",
     	"text": "step1.md"
     },{
-			"title": "Adding a New Custom API",
+			"title": "Update the Watches File",
 			"text": "step2.md"
 		},{
-			"title": "Defining the Spec and Status",
+			"title": "Apply the CockroachDB Custom Resource Definition",
 			"text": "step3.md"
     },{
-			"title": "Adding a New Controller",
+			"title": "Apply the CockroachDB Custom Resource",
 			"text": "step4.md"
     },{
-			"title": "Customize the Operator Logic",
+			"title": "Access the CockroachDB Web UI",
 			"text": "step5.md"
     },{
-			"title": "Running the Operator Locally (Inside the Cluster)",
+			"title": "Connect to the CockroachDB Cluster",
 			"text": "step6.md"
     },{
-                        "title": "Creating the Custom Resource",
-                        "text": "step7.md"
+      "title": "Update the CockroachDB Custom Resource",
+      "text": "step7.md"
+    },{
+      "title": "Test CockroachDB Cluster Failover",
+      "text": "step8.md"
+    },{
+      "title": "Clean Up",
+      "text": "step9.md"
     }],
     "intro": {
       "code": "set-env.sh",
@@ -38,7 +44,7 @@
       "text": "finish.md"
     },
     "assets": {
-      "client": [{"file": ".init.sh", "target": "/root", "chmod": "+x"},{"file": "op-sdk-setup.sh", "target": "/root", "chmod": "+x"}]
+      "host01": [{"file": ".init.sh", "target": "~/", "chmod": "+x"}]
     }
   },
   "files": [],
@@ -48,8 +54,7 @@
         "uilayout": "terminal-iframe"
     },
   "backend": {
-    "imageid": "openshift-4-4",
+    "imageid": "openshift-4-2",
     "port": 8443
   }
 }
-
