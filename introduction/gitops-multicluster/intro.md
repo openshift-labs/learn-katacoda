@@ -1,8 +1,20 @@
-In the [previous scenario](https://learn.openshift.com/introduction/gitops-introduction) we covered the basics around GitOps with OpenShift, in this scenario we are going to explore Multi-cluster GitOps with OpenShift.
+## Goal
 
-In case you haven't read it yet, we encourage you to read our blog post [Multi-cluster Management with GitOps](https://blog.openshift.com) where you will learn
-the basics around managing multi-cluster infrastructures using GitOps with OpenShift.
+Learn how to use [GitOps practices on OpenShift to deploy an application on multiple clusters][gitops-multi-openshift], configure the application for each cluster, then perform a canary deployment of a new application version.
 
-This course will guide you through the deployment of a simple application to multiple clusters, customize the application by cluster and perform a canary deployment, all of this using GitOps with OpenShift.
+## Concepts
 
-We will use [ArgoCD](https://argoproj.github.io/argo-cd/) as our GitOps tool to deploy a simple application into our clusters, first we will deploy our application from the command line using the Argo CD CLI, after that we will re-deploy our application through the WebUI.
+* GitOps practices from the [Introduction to GitOps on OpenShift][gitops-intro-learn]
+* [ArgoCD][argocd] continuous deployment server
+* Employing two or more OpenShift clusters
+* OpenShift Projects and Applications
+
+## Use case
+
+You can establish an automated GitOps process to deploy and maintain versioned source, container images, and resource specs for an application, with specific variations for each cluster that runs it. For example, you can divide development and production deployments between two OpenShift installations.
+
+These OpenShift clusters will self-destruct in one hour.
+
+[argocd]: https://argoproj.github.io/argo-cd/
+[gitops-intro-learn]: https://learn.openshift.com/introduction/gitops-introduction
+[gitops-multi-openshift]: https://www.openshift.com/blog/multi-cluster-management-with-gitops
