@@ -3,28 +3,32 @@
   "private": true,
   "courses": [
     {
-      "external_link": "https://learn.openshift.com/introduction/",
-      "title": "Foundations of OpenShift"
+      "external_link": "https://learn.openshift.com/using-the-cluster/",
+      "title": "Using OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/subsystems/",
+      "title": "Linux Container Fundamentals"
+    },
+    {
+      "external_link": "https://learn.openshift.com/developing-on-openshift/",
+      "title": "Developing on OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/cicd-application-delivery/",
+      "title": "CI/CD & Application Delivery"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/",
       "title": "Building Applications On OpenShift"
     },
     {
-      "external_link": "https://learn.openshift.com/subsystems/",
-      "title": "Subsystems, Components, and Internals"
-    },
-    {
-      "external_link": "https://learn.openshift.com/playgrounds/",
-      "title": "OpenShift Playgrounds"
+      "external_link": "https://learn.openshift.com/operatorframework/",
+      "title": "Building Operators on OpenShift"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/",
-      "title": "Service Mesh Workshop with Istio"
-    },
-    {
-      "external_link": "https://learn.openshift.com/operatorframework/",
-      "title": "Building Operators on OpenShift"
+      "title": "Istio"
     },
     {
       "external_link": "https://learn.openshift.com/ai-machine-learning/",
@@ -33,6 +37,10 @@
     {
       "external_link": "https://learn.openshift.com/persistence/",
       "title": "Adding Persistence to OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/playgrounds/",
+      "title": "OpenShift Playgrounds"
     }
   ]
 }

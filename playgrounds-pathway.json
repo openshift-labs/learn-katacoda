@@ -3,11 +3,6 @@
   "icon": "fa-openshift",
   "courses": [
     {
-      "external_link": "https://learn.openshift.com/playgrounds/openshift36/",
-      "course_id": "openshift36",
-      "title": "OpenShift 3.6 Playground"
-    },
-    {
       "external_link": "https://learn.openshift.com/playgrounds/openshift311/",
       "course_id": "openshift311",
       "title": "OpenShift 3.11 Playground"
@@ -16,6 +11,11 @@
       "external_link": "https://learn.openshift.com/playgrounds/openshift42/",
       "course_id": "openshift42",
       "title": "OpenShift 4.2 Playground"
+    },
+    {
+      "external_link": "https://learn.openshift.com/playgrounds/openshift44/",
+      "course_id": "openshift44",
+      "title": "OpenShift 4.4 Playground"
     }
   ]
 }

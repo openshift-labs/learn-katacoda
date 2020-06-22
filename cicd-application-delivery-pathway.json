@@ -1,0 +1,21 @@
+{
+  "title": "CI/CD & Application Delivery",
+  "icon": "fa-openshift",
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/introduction/gitops-introduction/",
+      "course_id": "gitops-introduction",
+      "title": "Introduction to GitOps with OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/introduction/gitops-multicluster/",
+      "course_id": "gitops-multicluster",
+      "title": "Multi-cluster GitOps with OpenShift"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/pipelines/",
+      "course_id": "pipelines",
+      "title": "Using OpenShift Pipelines"
+    }
+  ]
+}
