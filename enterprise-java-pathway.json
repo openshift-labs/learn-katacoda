@@ -1,0 +1,42 @@
+{
+    "title": "Enterprise Java Development",
+    "icon": "fa-openshift",
+    "courses": [
+        {
+          "external_link": "https://learn.openshift.com/middleware/middleware-javaee8/",
+          "count": 1,
+          "course_id": "middleware-javaee8",
+          "title": "Java EE 8 Development"
+        },
+        {
+          "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-k-basic/",
+          "course_id": "camel-k-basic",
+          "title": "Getting Started with Camel K"
+        },
+        {
+          "external_link": "https://learn.openshift.com/middleware/amq-getting-started-broker/",
+          "course_id": "amq-getting-started-broker",
+          "title": "Application Messaging with Openshift"
+        },
+        {
+          "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-thorntail/",
+          "course_id": "rhoar-getting-started-thorntail",
+          "title": "Thorntail development"
+        },
+        {
+          "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-rhdg/",
+          "course_id": "rhoar-getting-started-rhdg",
+          "title": "Red Hat Data Grid development"
+        },
+        {
+          "external_link": "https://learn.openshift.com/middleware/java-batch-processing/",
+          "course_id": "java-batch-processing",
+          "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret"
+        },
+        {
+          "external_link": "https://learn.openshift.com/middleware/debezium-getting-started/",
+          "course_id": "debezium-getting-started",
+          "title": "Debezium deployment"
+        }
+    ]
+}
