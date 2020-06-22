@@ -1,53 +1,31 @@
 At the end of this step you will be able to:
 - Configure a service to use a `Canary Release` deployment pattern
 
+> **Note:** *If you did not complete the previous Traffic Distribution section please execute both of the following commands:*
+
+```bash
+kn service create greeter --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus --namespace serverless-tutorial --revision-name greeter-v1
+kn service update greeter --image quay.io/rhdevelopers/knative-tutorial-greeter:quarkus --namespace serverless-tutorial --revision-name greeter-v2 --env MESSAGE_PREFIX=GreeterV2
+```{{execute}}
+
 ## Applying a Canary Release Pattern
-A Canary release is more effective when you want to reduce the risk of introducing new features. Using this type of deployment model allows you a more effective feature-feedback loop before rolling out the change to your entire user base.  Using this deployment approach with Serverless allows you to split the traffic between revisions in increments as small as 1%.
+A Canary release is more effective when looking to reduce the risk of introducing new features. Using this type of deployment model allows a more effective feature-feedback loop before rolling out the change to the entire user base.  Using this deployment approach with Serverless allows splitting the traffic between revisions in increments as small as 1%.
 
-To see this in action, apply the following Serverless service definition that will split the traffic 80% to 20% between `greeter-v1` and `greeter-v2`.
+To see this in action, apply the following service update that will split the traffic 80% to 20% between `greeter-v1` and `greeter-v2` by executing:
+```bash
+kn service update greeter \
+   --traffic greeter-v1=80 \
+   --traffic greeter-v2=20 \
+   --traffic @latest=0
+```{{execute}}
 
-```yaml
-# ./assets/04-canary-releases/greeter-canary-service.yaml
+In the service configuration above see the 80/20 split between v1 and v2 of the greeter service.  Also see that the current service is set to receive 0% of the traffic using the `latest` tag.
 
-apiVersion: serving.knative.dev/v1
-kind: Service
-metadata:
-  name: greeter
-  namespace: serverless-tutorial
-spec:
-  template:
-    spec:
-      containers:
-        - image: quay.io/rhdevelopers/knative-tutorial-greeter:quarkus
-          env:
-            - name: MESSAGE_PREFIX
-              value: GreeterV2
-          livenessProbe:
-            httpGet:
-              path: /healthz
-          readinessProbe:
-            httpGet:
-              path: /healthz
-  traffic:
-    - tag: v1
-      revisionName: greeter-v1
-      percent: 80
-    - tag: v2
-      revisionName: greeter-v2
-      percent: 20
-    - tag: latest
-      latestRevision: true
-      percent: 0
-
-```
-
-In this service configuration you can see the 80/20 split between v1 and v2 of the greeter service.  We also can see that the current service is set to receive 0% of the traffic using the `latest` tag.
-
-Apply this service configuration by executing: `oc -n serverless-tutorial apply -f 04-canary-releases/greeter-canary-service.yaml`{{execute}}
+> **Note:** *The equivalent yaml for the service above can be seen by executing: `cat 04-canary-releases/greeter-canary-service.yaml`{{execute}}
 
 As in the previous section on Applying Blue-Green Deployment Pattern deployments, the command will not create a new configuration, revision, or deployment.
 
-To observe the new traffic distribution you need to execute the following:
+To observe the new traffic distribution execute the following:
 
 ```bash
 # ./assets/04-canary-releases/poll-svc-10.bash
@@ -55,11 +33,11 @@ To observe the new traffic distribution you need to execute the following:
 #!/usr/bin/env bash
 for run in {1..10}
 do
-  curl http://greeter-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
+  curl http://greeter-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
 done
 ```{{execute}}
 
-You will see that 80% of the responses are returned from greeter-v1 and 20% from greeter-v2. See the listing below for sample output:
+80% of the responses are returned from greeter-v1 and 20% from greeter-v2. See the listing below for sample output:
 
 ```bash
 Hi  greeter => '6fee83923a9f' : 1
@@ -74,7 +52,7 @@ Hi  greeter => '6fee83923a9f' : 7
 Hi  greeter => '6fee83923a9f' : 8
 ```
 
-We can also notice that two pods are running, representing both greeter-v1 and greeter-v2: `oc get pods -n serverless-tutorial`{{execute}}
+Also notice that two pods are running, representing both greeter-v1 and greeter-v2: `oc get pods -n serverless-tutorial`{{execute}}
 
 ```bash
 NAME                                     READY   STATUS    RESTARTS   AGE
@@ -88,6 +66,6 @@ greeter-v2-deployment-1dc2dd145c-41aab   2/2     Running   0          20s
 
 ## Delete the Service
 
-We will need to cleanup the project for our next section by executing: `oc -n serverless-tutorial delete services.serving.knative.dev greeter`{{execute}}
+We will need to cleanup the project for our next section by executing: `kn service delete greeter`{{execute}}
 
 Congrats! You now are able to apply a few different deployment patterns using Serverless.  In the next section we will see how we dig a little deeper into the scaling components of Serverless.
