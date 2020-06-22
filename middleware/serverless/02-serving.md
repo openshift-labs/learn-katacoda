@@ -107,7 +107,7 @@ The output should be similar to:
 
 ```bash
 NAME      URL                                                     LATEST            AGE     CONDITIONS   READY   REASON
-greeter   http://greeter-serverless-tutorial-ks.apps-crc.testing  greeter-fyrxn-1   6m28s   3 OK / 3     True    
+greeter   http://greeter-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com  greeter-fyrxn-1   6m28s   3 OK / 3     True    
 ```
 
 > **Note:** *It also is possible to use the `oc` command to see the serverless resources, to see the services execute: `oc get -n serverless-tutorial services.serving.knative.dev`{{execute}}*
@@ -121,7 +121,7 @@ The output should be similar to:
 Name:       greeter
 Namespace:  serverless-tutorial
 Age:        15m
-URL:        http://greeter-serverless-tutorial-ks.apps-crc.testing
+URL:        http://greeter-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
 
 Revisions:  
   100%  @latest (greeter-fyrxn-1) [1] (15m)
@@ -150,7 +150,7 @@ We can see the route by executing: `kn route list`{{execute}}
 See the `NAME` of the route, the `URL`, as well as if it is `READY`:
 ```bash
 NAME      URL                                                     READY
-greeter   http://greeter-serverless-tutorial-ks.apps-crc.testing  True
+greeter   http://greeter-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com  True
 ```
 
 ### Revision
@@ -177,7 +177,7 @@ greeter-fyrxn-1   greeter                    1            33m     3 OK / 4     T
 Here we can see each revision and details including the percantage of `TRAFFIC` it is receiving.  We can also see the generational number of this revision, **which is incremented on each update of the service**.
 
 ### Invoke the Service
-Now that we have seen a a few of the underlying resouces that get created when deploying a Serverless Service, we can test the deployment.  To do so we will need to use the URL returned by the serverless route.  To invoke the service we can execute the command `curl http://greeter-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute}}
+Now that we have seen a a few of the underlying resouces that get created when deploying a Serverless Service, we can test the deployment.  To do so we will need to use the URL returned by the serverless route.  To invoke the service we can execute the command `curl http://greeter-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com`{{execute}}
 
 The service will return a response like **Hi  greeter => '6fee83923a9f' : 1**
 

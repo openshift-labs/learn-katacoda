@@ -33,7 +33,7 @@ To observe the new traffic distribution execute the following:
 #!/usr/bin/env bash
 for run in {1..10}
 do
-  curl http://greeter-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
+  curl http://greeter-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
 done
 ```{{execute}}
 
