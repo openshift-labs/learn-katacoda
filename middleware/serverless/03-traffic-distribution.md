@@ -78,11 +78,11 @@ Service:    greeter
 
 Traffic Targets:  
     0%  @latest (greeter-v2) #latest
-        URL:  http://latest-greeter-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
+        URL:  http://latest-greeter-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
   100%  greeter-v1 #current
-        URL:  http://current-greeter-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
+        URL:  http://current-greeter-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
     0%  greeter-v2 #prev
-        URL:  http://prev-greeter-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
+        URL:  http://prev-greeter-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
 
 Conditions:  
   OK TYPE                  AGE REASON

@@ -112,7 +112,7 @@ This now guarantee that there will always be at least two instances available at
 
 To load the service we will use [hey][hey-github].  We will configure `hey` to send 2550 total requests `-n 2550`, of which 850 will be performed concurrently each time `-c 850`.  Immediatly after we will show the deployments in the project to be able to see the number of pods running.
 
-`hey -n 2550 -c 850 -t 60 "http://prime-generator-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/?sleep=3&upto=10000&memload=100" && oc get deployment -n serverless-tutorial`{{execute}}
+`hey -n 2550 -c 850 -t 60 "http://prime-generator-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/?sleep=3&upto=10000&memload=100" && oc get deployment -n serverless-tutorial`{{execute}}
 
 > **Note:** *This might take a few moments!*
 
@@ -133,7 +133,7 @@ kn service update prime-generator \
 
 Again test the scaling by loading the service.  This time send 275 concurrent requests totaling 1100.
 
-`hey -n 1100 -c 275 -t 60 "http://prime-generator-serverless-tutorial-ks.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/?sleep=3&upto=10000&memload=100" && oc get deployment -n serverless-tutorial`{{execute}}
+`hey -n 1100 -c 275 -t 60 "http://prime-generator-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/?sleep=3&upto=10000&memload=100" && oc get deployment -n serverless-tutorial`{{execute}}
 
 Notice that at least 6 pods should be up and running.  There might be more than 6 as `hey` could be overloading the amount of concurrent workers at one time.
 
