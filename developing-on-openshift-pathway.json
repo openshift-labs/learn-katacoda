@@ -18,6 +18,11 @@
         "title": "Developing with odo"
       },
       {
+        "external_link": "https://learn.openshift.com/developing/serverless/",
+        "course_id": "serverless",
+        "title": "Introduction to Serverless with OpenShift"
+      },
+      {
         "external_link": "https://learn.openshift.com/introduction/port-forwarding/",
         "course_id": "port-forwarding",
         "title": "Connecting to a Database Using Port Forwarding"
