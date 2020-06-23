@@ -74,11 +74,6 @@
       "external_link": "https://learn.openshift.com/middleware/pipelines/",
       "course_id": "pipelines",
       "title": "Using OpenShift Pipelines"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/serverless/",
-      "course_id": "serverless",
-      "title": "Introduction to Serverless with OpenShift"
     }
   ]
 }

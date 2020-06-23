@@ -28,7 +28,7 @@ services          kservice,ksvc   serving.knative.dev   true         Service
 
 The diagram below shows how each of the components of the Serving module fit together.
 
-![Serving](/openshift/assets/middleware/serverless/02-serving/serving.png)
+![Serving](/openshift/assets/developing-on-openshift/serverless/02-serving/serving.png)
 
 We will discuss what each one of these new resources are used for in the coming sections.  Let's start with `services`.
 

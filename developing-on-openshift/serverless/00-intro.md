@@ -25,11 +25,11 @@ The answer is a platform that can run serverless workloads, while also enabling 
 
 In this chapter we introduce you to one such platform -- [OpenShift Serverless][serverless-main].  OpenShift Serverless helps developers to deploy and run applications that will scale up or scale to zero on-demand. Applications are packaged as OCI compliant Linux containers that can be run anywhere.  This is known as `Serving`.
 
-![OpenShift Serving](/openshift/assets/middleware/serverless/00-intro/knative-serving-diagram.png)
+![OpenShift Serving](/openshift/assets/developing-on-openshift/serverless/00-intro/knative-serving-diagram.png)
 
 Serverless has a robust way to allow for applications to be triggered by a variety of event sources, such as events from your own applications, cloud services from multiple providers, Software as a Service (SaaS) systems and Red Hat Services ([AMQ Streams][amq-docs]).  This is known as `Eventing`.
 
-![OpenShift Eventing](/openshift/assets/middleware/serverless/00-intro/knative-eventing-diagram.png)
+![OpenShift Eventing](/openshift/assets/developing-on-openshift/serverless/00-intro/knative-eventing-diagram.png)
 
 OpenShift Serverless applications can be integrated with other OpenShift services, such as OpenShift [Pipelines][pipelines-main], [Service Mesh][service-mesh-main], [Monitoring][monitoring-main] and [Metering][metering-main], delivering a complete serverless application development and deployment experience.
 
