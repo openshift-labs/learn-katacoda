@@ -1,6 +1,6 @@
 On the _Topology_ view, select _Container Image_. This should present the option of deploying an image by performing a search for the image on an image registry.
 
-![Image Search](../../assets/introduction/deploying-images-42/02-image-search.png)
+![Image Search](../../assets/introduction/deploying-images-44/02-image-search.png)
 
 For this example, the application image we are going to deploy is being hosted on the Docker Hub Registry.
 
@@ -10,7 +10,7 @@ In the _Image Name_ field enter:
 
 Press _Enter_, or click on the magnifying glass to the right of the field. This should trigger a query to pull down the details of the image from the Docker Hub Registry, including information on when the image was last updated, the size of the image and the number of layers.
 
-![Application Image Details](../../assets/introduction/deploying-images-42/02-image-name-details.png)
+![Application Image Details](../../assets/introduction/deploying-images-44/02-image-name-details.png)
 
 From the name of the image, the _Application Name_ and deployment _Name_ fields will be automatically populated.
 
@@ -24,6 +24,6 @@ At the bottom of this page you will see that the checkbox for creating a route t
 
 When you are ready, at the bottom of the page click on _Create_. This will return you to the _Topology_ view, but this time you will see a representation of the deployment, rather than the options for deploying an application.
 
-![Topology View](../../assets/introduction/deploying-images-42/02-topology-view.png)
+![Topology View](../../assets/introduction/deploying-images-44/02-topology-view.png)
 
-You may see the colour of the ring in the visualisation change from white, to light blue and then blue. This represents the phases of deployment as the container for the application starts up.
+You may see the color of the ring in the visualization change from white, to light blue and then blue. This represents the phases of deployment as the container for the application starts up.

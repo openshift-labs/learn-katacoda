@@ -1,21 +1,21 @@
-In this course you learnt about deploying an application from source code using a Source-to-Image (S2I) builder. You first deployed the application from the web console, following that up with using the command line. You also learnt about using binary input source builds to run builds using source code from a local directory on your own computer.
+In this course you learned about deploying an application from source code using a Source-to-Image (S2I) builder. You first deployed the application from the web console, following that up with using the command line. You also learnt about using binary input source builds to run builds using source code from a local directory on your own computer.
 
 The web application you deployed was implemented using the Python programming language. OpenShift provides S2I builders for a number of different programming languages/frameworks in addition to Python. These include Java, NodeJS, Perl, PHP and Ruby.
 
-You can find a summary of the key commands covered below. To see more information on each ``oc`` command, run it with the ``--help`` option.
+## Continue Learning
 
-``oc new-app <image:tag>~<source-code> --name <name>``: Deploy an application from source code hosted on a Git repository using the specified S2I builder image.
+You can continue learning more about OpenShift and how to develop applications on the platform by completing other tutorials at https://learn.openshift.com.
 
-``oc start-build <name>``: Trigger a new build and deployment of the application where source code is taken from the hosted Git repository specified to ``oc new-app`` when the build configuration was created.
+For developer-related resources about OpenShift, visit https://developers.redhat.com/products/openshift/getting-started.
 
-``oc start-build <name> --from-dir=.``: Trigger a new build and deployment of the application where source code is taken from the current working directory of the local machine where the ``oc`` command is being run.
+### Run OpenShift Locally with CodeReady Containers
 
-``oc cancel-build <build>``: Cancel a running build.
+CodeReady Containers allows you to run a minimal, pre-configured OpenShift 4 cluster on your local machine. The project supports Windows 10, macOS, and Linux.  To find out more or download CodeReady Containers, visit https://developers.redhat.com/products/codeready-containers/overview
 
-``oc logs bc/<name> --follow``: Monitor the log output from the current build for the application.
+### Compare Hosted, Managed, or On Premises OpenShift
 
-``oc get builds``: Display a list of all builds, completed, cancelled and running.
+Learn more about the different OpenShift platform variants here: https://www.openshift.com/products
 
-``oc get builds --watch``: Monitor the progress of any active builds.
+### Browse the Documentation
 
-``oc get pods --watch``: Monitor any activity related to pods in the project. This will include pods run to handle building and deployment of an application.
+If you want to learn about particular OpenShift concepts in more depth, visit the documentation: https://docs.openshift.com/container-platform/latest
