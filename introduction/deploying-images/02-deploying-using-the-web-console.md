@@ -1,16 +1,14 @@
 On the _Topology_ view, select _Container Image_. This should present the option of deploying an image by performing a search for the image on an image registry.
 
-![Image Search](../../assets/introduction/deploying-images-44/02-image-search.png)
-
 For this example, the application image we are going to deploy is being hosted on the Docker Hub Registry.
 
-In the _Image Name_ field enter:
+In the _Image name from external registry_ field enter:
 
 ``openshiftkatacoda/blog-django-py``{{copy}}
 
-Press _Enter_, or click on the magnifying glass to the right of the field. This should trigger a query to pull down the details of the image from the Docker Hub Registry, including information on when the image was last updated, the size of the image and the number of layers.
+Press tab or click outside of the text field. This should trigger a query validate the image.
 
-![Application Image Details](../../assets/introduction/deploying-images-44/02-image-name-details.png)
+![Image Search](../../assets/introduction/deploying-images-44/02-image-search.png)
 
 From the name of the image, the _Application Name_ and deployment _Name_ fields will be automatically populated.
 
