@@ -1,4 +1,4 @@
-Let's scale our application up to 2 instances of the pods. You can do this by clicking inside the circle for the `parksmap-katacoda` application from *Topology* view to open the side panel. In the side panel, click the *Overview* tab, and then click the "up" arrow next to
+Let's scale our application up to 2 instances of the pods. You can do this by clicking inside the circle for the `parksmap-katacoda` application from *Topology* view to open the side panel. In the side panel, click the *Details* tab, and then click the "up" arrow next to
 the *Pod* in side panel.
 
 ![Scaling using arrows](../../assets/introduction/getting-started-44/4scaling-arrows.png)
@@ -16,7 +16,7 @@ is already cached on the node.
 
 ### Application "Self Healing"
 
-OpenShift's *DeploymentConfigs* are constantly monitoring to see that the desired number
+OpenShift's *Deployments* are constantly monitoring to see that the desired number
 of *Pods* is actually running. Therefore, if the actual state ever deviates from the desired state (i.e., 2 pods running), OpenShift will work to fix the situation.
 
 Since we have two *Pods* running right now, let's see what happens if we

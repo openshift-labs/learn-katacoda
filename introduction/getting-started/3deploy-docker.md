@@ -12,15 +12,15 @@ Choose the **Container Image** option.
 
 In the future, to get back to this menu of ways to add content to your project, you can click *+Add* in the left navigation.
 
-Within the *Deploy Image* page, enter the following for *Image Name*: 
+Within the *Deploy Image* page, enter the following for *Image name from external registry*: 
 
 `docker.io/openshiftroadshow/parksmap-katacoda:1.2.0`{{copy}}
 
-Press enter or click on the magnifying glass icon to the right of the text entry box to be presented with information about the image:
+Press tab or click outside of the text box to validate the image:
 
 ![Deploy Image](../../assets/introduction/getting-started-44/3deploy-parksmap-image.png)
 
-At this point, OpenShift will pull down and display key information about the image and the pending deployment, as well as populate the *Application Name* field with `parksmap-katacoda-app` and the *Name* field with `parksmap-katacoda`. This name will be what is used for your application and the various components created that relate to it. Leave this as the generated value as steps given in the upcoming sections will use this name.
+The *Application Name* field will be populated with `parksmap-katacoda-app` and the *Name* field with `parksmap-katacoda`. This name will be what is used for your application and the various components created that relate to it. Leave this as the generated value as steps given in the upcoming sections will use this name.
 
 By default, creating a deployment using the *Container Image* method will also create a Route for your application. A Route makes your application available at a publicly accessible URL. 
 
@@ -32,4 +32,4 @@ You are ready to deploy the existing container image. Click the blue *Create* bu
 
 ![Topology View](../../assets/introduction/getting-started-44/3parksmap-overview.png)
 
-These are all the steps you need to run to get a "vanilla" container image deployed on OpenShift. This should work with any container image that follows best practices, such as defining the port any service is exposed on, not needing to run specifically as the *root user* or other dedicated user, and which embeds a default command for running the application.
+These are the only steps you need to run to get a "vanilla" container image deployed on OpenShift. This should work with any container image that follows best practices, such as defining the port any service is exposed on, not needing to run specifically as the *root user* or other dedicated user, and which embeds a default command for running the application.
