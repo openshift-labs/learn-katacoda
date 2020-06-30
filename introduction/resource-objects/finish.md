@@ -1,45 +1,19 @@
-In this course you learnt about ``oc`` commands you would use for querying and updating the resource objects that OpenShift uses to track the state of the cluster.
+In this course you learned about ``oc`` commands you would use for querying and updating the resource objects that OpenShift uses to track the state of the cluster.
 
-You can find a summary of the key commands covered below. To see more information on each ``oc`` command, run it with the ``--help`` option.
+## Continue Learning
 
-``oc api-resources``: Outputs a list of all resource types supported by the cluster.
+You can continue learning more about OpenShift and how to develop applications on the platform by completing other tutorials at https://learn.openshift.com.
 
-``oc explain <setting-path>``: Shows a description of the purpose of a specific resource object type setting.
+For developer-related resources about OpenShift, visit https://developers.redhat.com/products/openshift/getting-started.
 
-``oc get <type>``: Shows summary details of all resource objects of a specific type.
+### Run OpenShift Locally with CodeReady Containers
 
-``oc get <type> --selector app=<name>``: Shows summary details of all resource objects of a type with the specified label.
+CodeReady Containers allows you to run a minimal, pre-configured OpenShift 4 cluster on your local machine. The project supports Windows 10, macOS, and Linux.  To find out more or download CodeReady Containers, visit https://developers.redhat.com/products/codeready-containers/overview
 
-``oc get <type/name>``: Show summary details of a resource object.
+### Compare Hosted, Managed, or On Premises OpenShift
 
-``oc get <type/name> -o <json|yaml>``: Shows raw details of a resource object type as JSON or YAML.
+Learn more about the different OpenShift platform variants here: https://www.openshift.com/products
 
-``oc get all``: Shows summary details of the key resource objects in a project. The list of resource object types matched by ``all`` includes ``buildconfigs``, ``builds``, ``imagestreams``, ``deploymentconfigs``, ``replicationcontrollers``, ``routes``, ``services`` and ``pods``.
+### Browse the Documentation
 
-``oc get all --selector app=<name>``: Shows summary details of the key resource objects in a project with the specified label.
-
-``oc describe <type/name>``: Shows human readable long form description of a resource object.
-
-``oc edit <type/name> -o <json|yaml>``: Edit the raw details of a resource object type as JSON or YAML. 
-
-``oc create -f <definition.json>``: Create a resource object from a definition stored in a file. The format of the definition must be JSON or YAML. The ``metadata.name`` field of the definition must not correspond to an existing resource object.
-
-``oc replace -f <definition.json>``: Replace the definition of a resource object with that stored in a file. The format of the definition must be JSON or YAML. The ``metadata.name`` field of the definition must correspond to an existing resource object.
-
-``oc apply -f <definition.json>``: Replace the definition of a resource object if it exists with that stored in a file. The format of the definition must be JSON or YAML. The ``metadata.name`` field of the definition must correspond to an existing resource object. If the resource object does not already exist, it will be created.
-
-``oc patch <type/name> --patch <patch>``: Update a resource object using a patch specification.
-
-``oc label <type/name> <name=value>``: Add a label to a resource object.
-
-``oc label <type/name> <name->``: Remove a label from a resource object.
-
-``oc delete <type/name>``: Delete a resource object.
-
-``oc delete <type> --selector app=<name>``: Delete all resource objects of a type with the specified label.
-
-``oc delete <type> --all``: Delete all resource objects of a specific type.
-
-``oc delete all --all``: Delete all key resource objects in a project. The list of resource object types matched by ``all`` includes ``buildconfigs``, ``builds``, ``imagestreams``, ``deploymentconfigs``, ``replicationcontrollers``, ``routes``, ``services`` and ``pods``.
-
-``oc delete all --selector app=<name>``: Delete all key resource objects in a project with the specified label.
+If you want to learn about particular OpenShift concepts in more depth, visit the documentation: https://docs.openshift.com/container-platform/latest
