@@ -1,0 +1,43 @@
+{
+    "icon": "fa-openshift",
+    "title": "Getting Started with Helm 3 on OpenShift",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "30 minutes",
+    "backend": {
+      "imageid": "openshift-4-4"
+    },
+    "environment": {
+      "showdashboard": true,
+      "dashboards": [
+        {
+          "name": "OpenShift Web Console",
+          "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+        }
+      ],
+      "uilayout": "terminal-iframe",
+      "uieditorpath": "/root/",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+    },
+    "details": {
+      "intro": {
+        "courseData": "env-init.sh",
+        "text": "00-intro.md",
+        "code": "set-env.sh"
+      },
+      "steps": [
+        {
+          "title": "Explore Helm CLI",
+          "text": "01-cli.md"
+        },
+        {
+          "title": "Install NodeJS Helm Chart",
+          "text": "02-nodejs-chart.md"
+        }
+      ],
+      "finish": {
+        "text": "99-outro.md"
+      }
+    }  
+  }
