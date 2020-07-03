@@ -1,6 +1,5 @@
 At the end of this chapter you will be able to:
 - Create your own `Helm Chart`
-- Manage multiple `Helm Revisions` for your Helm Chart
 - Understand `Helm Templates`
 - Understand Helm integrations with `Kubernetes`
 
@@ -14,72 +13,68 @@ After having discovered `helm` CLI to install and manage Helm Charts, we can now
 
 Helm uses a packaging format called charts. A chart is a collection of files that describe a related set of Kubernetes resources, and it organized as a collection of files inside of a directory. The directory name is the name of the chart.
 
-## Create your first Helm Chart
+## Creating a new Helm Chart
 
-As example, let's create our own NGINX Chart, just launching this command with `helm` CLI:
+With `helm create` command you can create a chart directory along with the common files and directories used in a chart.
 
-`helm create mychart`{{execute}}
 
-This will create the base structure for a new Helm Chart, that we can manipulate and customize through `Helm Template` system.
+Our code has been already generated with this command:
+
+`helm create my-chart`
+
 
 Inside `mychart/` folder you will find these files:
 
-`tree mychart`{{execute}}
+`tree my-chart`{{execute}}
 
-* `Chart.yaml`: is a YAML file containing multiple fields describing the chart
-* `values.yaml`: is a YAML file containing default values for a chart, those may be overridden by users during helm install or helm upgrade.
-* `templates/NOTES.txt`: a test to be displayed to your users when they run helm install.
-* `templates/deployment.yaml`: a basic manifest for creating a Kubernetes deployment
-* `templates/service.yaml`: a basic manifest for creating a service endpoint for your deployment
-* `templates/_helpers.tpl`: a place to put template helpers that you can re-use throughout the chart
+* `Chart.yaml`{{open}}: is a YAML file containing multiple fields describing the chart
+* `values.yaml`{{open}}:: is a YAML file containing default values for a chart, those may be overridden by users during helm install or helm upgrade.
+* `templates/NOTES.txt`{{open}}: a test to be displayed to your users when they run helm install.
+* `templates/deployment.yaml`{{open}}: a basic manifest for creating a Kubernetes deployment
+* `templates/service.yaml`{{open}}: a basic manifest for creating a service endpoint for your deployment
+* `templates/_helpers.tpl`{{open}}: a place to put template helpers that you can re-use throughout the chart
 
 This command generates a skeleton of your Helm Chart, and by default there is an NGINX image as example:
 
-Let's review generated `Chart.yaml`{{open}}
 
-And `values.yaml`{{open}}
+**1. Chart description**
+
+Let's review our `Chart.yaml`{{open}}. This contains `version` of the package and `appVersion` that we are managing, typically this can be refered to a container image tag.
 
 
-Now let's change this image to use `bitnami/nginx` from previous chapter, modifying field `image.repository` from `values.yaml`: 
+**2. Fill chart with custom values**
 
-`sed -i 's/nginx/bitnami\/nginx/' mychart/values.yaml`{{execute}}
+In our example, we are working on a Helm Template `templates/deployment.yaml`{{open}} describing a Kubernetes Deployment for our app, containing this structure for `spec.containers.image`:
 
-And install our custom Helm Chart:
+`image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"`
 
-`helm install mychart ./mychart`{{execute}}
+> **Note:** *By default `appVersion` from `Chart.yaml` is used as image tag*
 
-This will install NGINX like in previous chapter, and we can follow installation like before:
+
+In `values.yaml`{{open}} add `image.repository` variable to define the container image for our chart. Click the **Copy to Editor** button below to place this code in `values.yaml`{{open}}:
+
+<pre class="file" data-filename="values.yaml" data-target="insert" data-marker="# TODO: image repository">repository: bitnami/nginx</pre>
+
+
+Now let's define which tag to use for this container image. Click the **Copy to Editor** button below to place this code in `values.yaml`{{open}}:
+
+<pre class="file" data-filename="values.yaml" data-target="insert" data-marker="# TODO: image tag">tag: latest</pre>
+
+
+**3. Install**
+
+Install our custom Helm Chart from local folder.
+
+`helm install my-chart ./my-chart`{{execute}}
+
+This will install NGINX like in previous chapter, and we can follow installation like in previous chapter, either from Terminal than OpenShift Console:
 
 `oc get pods`{{execute}}
+
+<img src="../../assets/developing-on-openshift/helm/my-chart-helm-chart.png" width="800" />
 
 Review installed revision:
 
 `helm ls`{{execute}}
 
-## Upgrade and Rollback revisions
-
-When we install a Helm Chart on OpenShift, we publish a release into the cluster that we can control in terms of upgrades and rollbacks.
-
-To change something in any already published chart, we can use `helm upgrade` command with parameters to inject dynamically in our `values.yaml`.
-
-Let's update our existing release changing `image.pullPolicy` from chart's default value `IfNotPresent` to `Always`, using same method we adopted previously for changing `service.type` with option `--set`:
-
-`helm upgrade mychart ./mychart --set image.pullPolicy=Always`{{execute}}
-
-Let's verify that our changes is reflected into resulting `Deployment`:
-
-`oc get deployment mychart -o yaml | grep imagePullPolicy`{{execute}}
-
-Now that our new release is published and verified, we can decide to rollback it if we need to with `helm rollback` command.
-
-It is also possible to dry-run the rollback with `--dry-run` option:
-
-`helm rollback mychart 1 --dry-run`{{execute}}
-
-Rollback to starting revision:
-
-`helm rollback mychart 1`{{execute}}
-
-
-
-
+In next chapter we will add OpenShift Route as an Helm Template, like for `Service`, to be published in a new revision.

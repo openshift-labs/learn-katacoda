@@ -72,7 +72,7 @@ Check your Helm releases:
 
 `helm ls`{{execute}}
 
-Verify all the pods are in Running state:
+Verify all the pods are in Running state and Ready:
 
 `oc get pods`{{execute}}
 
@@ -104,16 +104,28 @@ Next, click on the Topology tab on the left side of the web console if you don't
 
 <img src="../../assets/developing-on-openshift/helm/nginx-helm-chart-route.png" width="800" />
 
-You'll notice the `HelmResource` CR label and Helm icon below, this means that this application is managed by Helm, and you can overview all resources managed by Helm for this app from left side menu, Helm section:
+You'll notice the `HelmResource` CR label and Helm icon below, this means that this application is managed by Helm, and you can overview Helm `Releases` for this app from left side menu, Helm section:
 
-<img src="../../assets/developing-on-openshift/helm/nginx-helm-resources.png" width="800" />
+<img src="../../assets/developing-on-openshift/helm/nginx-helm-releases.png" width="800" />
 
+Explore all `Resources` managed by Helm, click on `my-nginx` and then click on `Resouces` tab:
+
+<img src="../../assets/developing-on-openshift/helm/nginx-helm-resources-view.png" width="800" />
+
+
+# Uninstall and clean
 
 Come back to Terminal clicking on Terminal tab.
 
 Uninstall `my-nginx` release:
 
 `helm uninstall my-nginx`{{execute}}
+
+Delete previously created `route`:
+
+`oc delete route my-nginx`{{execute}}
+
+
 
 
 

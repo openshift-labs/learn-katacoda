@@ -1,13 +1,16 @@
 ## Summary
 In this workshop, you have worked with OpenShift and learned about how Helm 3 integration helps developers to deploy and run applications.
 
-We hope you have found this workshop helpful in learning about OpenShift Serverless and would love any feedback you have on ways to make it better! Feel free to open issues in this workshop’s [GitHub repository](https://github.com/openshift-labs/learn-katacoda).
+As follow-up of this workshop, we recommend the [Operator SDK with Helm](https://learn.openshift.com/operatorframework/helm-operator/) workshop, also available as self-paced lab.
 
-To learn more about Operators, the resources below can provide information on everything from getting started to more advanced concepts.
+We hope you have found this workshop helpful in learning about Helm on OpenShift, and would love any feedback you have on ways to make it better! Feel free to open issues in this workshop’s [GitHub repository](https://github.com/openshift-labs/learn-katacoda).
 
-OpenShift Serverless Documentation: https://docs.openshift.com/container-platform/4.4/serverless/serverless-getting-started.html
+To learn more about Helm, the resources below can provide information on everything from getting started to more advanced concepts.
+
+Helm Documentation: https://helm.sh
+
+Getting Started with Helm 3 on OpenShift: https://docs.openshift.com/container-platform/4.4/cli_reference/helm_cli/getting-started-with-helm-on-openshift-container-platform.html
 
 
-
-
-Read more in the OpenShift blog announcement for Helm on OpenShift:
+Read more in the Developers blog:
+https://developers.redhat.com/blog/2020/04/30/application-deployment-improvements-in-openshift-4-4/

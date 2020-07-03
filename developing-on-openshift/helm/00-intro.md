@@ -5,10 +5,8 @@ In this self-paced tutorial, you will learn the basics of [Helm 3](https://helm.
 In this tutorial, you will:
 * Explore `helm` CLI.
 * Deploy an `Helm Chart`.
-* Create you own `helm chart` and deploy it.
-* Understand helm `templating system`.
-* Convert helm charts into `Helm Operator` with Operator SDK.
-
+* Create you own `helm chart` and deploy it on OpenShift.
+* Understand helm `Revisions`, `Upgrade` and `Rollback` releases.
 
 ## What is Helm? 
 
@@ -20,7 +18,7 @@ When a user instructs the Helm CLI to install a Helm Chart, the information abou
 
 ![Helm on OpenShift](../../assets/developing-on-openshift/helm/helm-diagram.png)
 
-Helm Charts are particularly useful for installation and upgrade of stateless applications given that the Kubernetes resources and the application image can simply be updated to newer versions. In this scenario, you will also convert your Helm Charts into an Operator, starting using [Operator Framework](https://github.com/operator-framework) for a complete Day 2 experience for your apps.
+Helm Charts are particularly useful for installation and upgrade of stateless applications given that the Kubernetes resources and the application image can simply be updated to newer versions. The follow-up for this Day 1 experience, is to convert Helm Charts into an Operator, using [Operator Framework](https://github.com/operator-framework) for a complete Day 2 experience for your apps.
 
 Helm 3 is GA and available on OpenShift 4.4, removing Tiller depencies like in Helm 2 which was source of major security concerns.
 
