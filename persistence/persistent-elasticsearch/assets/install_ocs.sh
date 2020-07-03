@@ -31,7 +31,7 @@ metadata:
   namespace: openshift-marketplace
 spec:
   sourceType: grpc
-  image: quay.io/mulbc/ocs-registry:katacoda
+  image: quay.io/mulbc/ocs-registry:katacoda-44
   displayName: OpenShift Container Storage
   publisher: Red Hat
 EOF
@@ -60,7 +60,7 @@ metadata:
   name: local-storage-operator
   namespace: local-storage
 spec:
-  channel: "4.2"
+  channel: "4.4"
   installPlanApproval: Automatic
   name: local-storage-operator
   source: redhat-operators
