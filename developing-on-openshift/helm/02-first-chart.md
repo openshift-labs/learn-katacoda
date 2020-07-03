@@ -4,7 +4,7 @@ At the end of this chapter you will be able to:
 - Understand Helm integrations with `Kubernetes`
 
 
-After having discovered `helm` CLI to install and manage Helm Charts, we can now create our first one from scratch. Before doing that, let's review Helm core concepts from [official documentation](https://helm.sh/docs/topics/charts/):
+After having discovered `helm` CLI to install and manage Helm Charts, we can now create our first one from scratch. Before doing that, let's review the core concepts from [official documentation](https://helm.sh/docs/topics/charts/):
 
 - A `Chart` is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster.
 - A `Repository` is the place where charts can be collected and shared.
@@ -23,7 +23,7 @@ Our code has been already generated with this command:
 `helm create my-chart`
 
 
-Inside `mychart/` folder you will find these files:
+Inside `my-chart/` folder you will find these files:
 
 `tree my-chart`{{execute}}
 
@@ -67,7 +67,7 @@ Install our custom Helm Chart from local folder.
 
 `helm install my-chart ./my-chart`{{execute}}
 
-This will install NGINX like in previous chapter, and we can follow installation like in previous chapter, either from Terminal than OpenShift Console:
+This will install NGINX like in previous chapter, and we can follow installation like in previous chapter, either from Terminal or OpenShift Console:
 
 `oc get pods`{{execute}}
 
@@ -77,4 +77,4 @@ Review installed revision:
 
 `helm ls`{{execute}}
 
-In next chapter we will add OpenShift Route as an Helm Template, like for `Service`, to be published in a new revision.
+In next chapter we will add an OpenShift Route as a Helm Template, like for `Service`, to be published in a new revision.

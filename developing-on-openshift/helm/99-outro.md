@@ -14,3 +14,5 @@ Getting Started with Helm 3 on OpenShift: https://docs.openshift.com/container-p
 
 Read more in the Developers blog:
 https://developers.redhat.com/blog/2020/04/30/application-deployment-improvements-in-openshift-4-4/
+
+Try it out on your workstation! Download [CodeReady Containers](https://developers.redhat.com/products/codeready-containers/overview) to have a local instance of OpenShift Container Platform 4 where to run Helm Charts: https://www.openshift.com/try

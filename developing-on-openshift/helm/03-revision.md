@@ -1,7 +1,7 @@
 At the end of this chapter you will be able to:
 - Manage multiple `Helm Revisions` for your Helm Chart
 - `Upgrade` revisions for new changes
-- Reverting changes with `Rollback` of revisions
+- Revert changes with `Rollback` of revisions
 
 ## Upgrade revisions
 
