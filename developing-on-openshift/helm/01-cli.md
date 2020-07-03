@@ -1,3 +1,9 @@
+At the end of this chapter you will be able to:
+- Use `helm` CLI
+- Install `helm repository`
+- Search, install and uninstall `Helm Charts`
+- Review Helm Charts from `OpenShift Console`
+
 ## Helm Command Line Interface (CLI)
 
 In this scenario you will find the Helm CLI already installed for you, which can be retrieved from [GitHub](https://helm.sh/docs/intro/install/).
@@ -17,6 +23,10 @@ This will log you in using the credentials:
 * **Password:** ``developer``{{copy}}
 
 Use the same credentials to log into the Web Console.
+
+Create a new OpenShift Project to have a namespace for our  helm charts to work with.
+
+`oc new-project helm`{{execute}}
 
 ## Exercise: Explore CLI
 Let's get started by using `helm` getting CLI version :
@@ -44,11 +54,15 @@ Once added, verify it is present:
 
 `helm repo list`{{execute}}
 
-Create a new Project for our NGINX installation:
+You can search for Helm Charts also inside repos, like in just installed one:
 
-`oc new-project helm`{{execute}}
+`helm search repo bitnami/nginx`{{execute}}
 
-Install [NGINX Chart](https://hub.helm.sh/charts/bitnami/nginx):
+## Deploy a Helm Chart
+
+You can use `helm install` command to deploy your charts and start managing revisions.
+ 
+To install [NGINX Chart](https://hub.helm.sh/charts/bitnami/nginx):
 
 `helm install my-nginx bitnami/nginx --set service.type=ClusterIP`{{execute}}
 
@@ -96,10 +110,6 @@ You'll notice the `HelmResource` CR label and Helm icon below, this means that t
 
 
 Come back to Terminal clicking on Terminal tab.
-
-Verify all deployed releases:
-
-`helm list`{{execute}}
 
 Uninstall `my-nginx` release:
 

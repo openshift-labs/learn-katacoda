@@ -32,8 +32,8 @@
           "text": "01-cli.md"
         },
         {
-          "title": "Install NodeJS Helm Chart",
-          "text": "02-nodejs-chart.md"
+          "title": "Create your first Helm Chart",
+          "text": "02-first-chart.md"
         }
       ],
       "finish": {
