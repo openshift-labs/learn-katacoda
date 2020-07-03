@@ -26,24 +26,6 @@ Inside `mychart/` folder you will find these files:
 
 `tree mychart`{{execute}}
 
-
-
-```bash
-mychart
-├── charts
-├── Chart.yaml
-├── templates
-│   ├── deployment.yaml
-│   ├── _helpers.tpl
-│   ├── ingress.yaml
-│   ├── NOTES.txt
-│   ├── serviceaccount.yaml
-│   ├── service.yaml
-│   └── tests
-│       └── test-connection.yaml
-└── values.yaml
-```
-
 * `Chart.yaml`: is a YAML file containing multiple fields describing the chart
 * `values.yaml`: is a YAML file containing default values for a chart, those may be overridden by users during helm install or helm upgrade.
 * `templates/NOTES.txt`: a test to be displayed to your users when they run helm install.
@@ -53,13 +35,9 @@ mychart
 
 This command generates a skeleton of your Helm Chart, and by default there is an NGINX image as example:
 
-Let's review generated `Chart.yaml`:
+Let's review generated `Chart.yaml`{{open}}
 
-`cat mychart/Chart.yaml`{{execute}}
-
-And `values.yaml` file:
-
-`cat mychart/values.yaml`{{execute}}
+And `values.yaml`{{open}}
 
 
 Now let's change this image to use `bitnami/nginx` from previous chapter, modifying field `image.repository` from `values.yaml`: 
