@@ -8,7 +8,7 @@ Create the Custom Resource Definition (CRD) for the Etcd Operator:
 
 ```
 cat > etcd-operator-crd.yaml<<EOF
-apiVersion: apiextensions.k8s.io/v1beta1
+apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: etcdclusters.etcd.database.coreos.com
@@ -26,6 +26,10 @@ spec:
   version: v1beta2
   versions:
   - name: v1beta2
+    schema:
+      openAPIV3Schema:
+        type: object
+        x-kubernetes-preserve-unknown-fields: true
     served: true
     storage: true
 EOF
