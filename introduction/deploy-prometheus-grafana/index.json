@@ -42,7 +42,7 @@
             "text": "finish.md"
         },
         "assets": {
-          "host01": [{"file": "deploy-prometheus.yaml", "target": "~/"}]
+          "client": [{"file": "deploy-prometheus.yaml", "target": "~"}]
         }
     }
 }

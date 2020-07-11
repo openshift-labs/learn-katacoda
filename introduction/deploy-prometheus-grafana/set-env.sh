@@ -12,7 +12,7 @@ oc expose svc/metrics-demo-app
 # oc create -f ~/volumes.json --as system:admin > /dev/null 2>&1
 #
 oc new-project pad-monitoring
-oc process -f deploy-prometheus.yaml | oc apply -n pad-monitoring -f -
+oc process -f ~/deploy-prometheus.yaml | oc apply -n pad-monitoring -f -
 oc import-image grafana/grafana:6.6.1 --confirm
 
 clear
