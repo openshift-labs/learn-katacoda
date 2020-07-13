@@ -1,4 +1,4 @@
-The Operator Lifecycle Manager (OLM) is included with [OpenShift 4](https://try.openshift.com) and can easily be installed in non-OpenShift Kubernetes environments by running [this simple command](https://operatorhub.io/how-to-install-an-operator#).
+The Operator Lifecycle Manager (OLM) is included with [OpenShift 4](https://try.openshift.com) and can easily be installed in a non-OpenShift Kubernetes environment by running [this simple command](https://operatorhub.io/how-to-install-an-operator#).
 
 Let's get started exploring OLM by viewing its Custom Resource Definitions (CRDs).
 

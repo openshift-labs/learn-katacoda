@@ -6,7 +6,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
   name: example-argocd
-  namespace: argo
+  namespace: myproject
 spec:
   dex:
     image: quay.io/ablock/dex
@@ -18,6 +18,7 @@ spec:
   server:
     route:
       enabled: true
+EOF
 ```{{execute}}
 <br>
 Create the etcd-cluster.
@@ -26,9 +27,10 @@ Create the etcd-cluster.
 oc create -f argocd-cr.yaml
 ```{{execute}}
 <br>
-The ArgoCD Operator should now begin to generate the ArgoCD Operands:
+The ArgoCD Operator should now begin to generate the ArgoCD Operand artifacts:
 
 ```
 oc get deployments
+oc get services
+oc get secrets
 ```{{execute}}
-<br>

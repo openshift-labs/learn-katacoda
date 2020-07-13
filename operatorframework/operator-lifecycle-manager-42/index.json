@@ -8,7 +8,7 @@
   "details": {
     "steps": [
     {
-    	"title": "Introducing OLM",
+    	"title": "Exploring OLM",
     	"text": "step1.md"
     },{
 			"title": "CatalogSources",
