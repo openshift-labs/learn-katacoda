@@ -1,98 +1,53 @@
-The Operator Lifecycle Manager is not installed in our current Katacoda OpenShift environment. We will now install it from scratch by deploying the following objects:
+The Operator Lifecycle Manager (OLM) is included with OpenShift 4.x and can easily be installed in non-OpenShift Kubernetes environments by running [this simple command](https://operatorhub.io/how-to-install-an-operator#).
 
-* **CustomResourceDefinitions**:
-    * `Subscription`, `InstallPlan`, `CatalogSource`, `ClusterServiceVersion`
-* **Namespace**:
-    * `openshift-operator-lifecycle-manager`
-* **Service Account**:
-    * `olm-operator-serviceaccount`
-* **ClusterRole**:
-    * `system:controller:operator-lifecycle-manager`
-* **ClusterRoleBinding**:
-    * `olm-operator-binding-openshift-operator-lifecycle-manager`
+Let's get started exploring OLM by first viewing its Custom Resource Definitions (CRDs).
+
+OLM ships with 6 CRDs:
+
 * **CatalogSource**:
-    * `rh-operators`
-* **ConfigMap**:
-    * `rh-operators`
-* **Deployments**:
-    * `olm-operator`, `catalog-operator`, `package-server`
-  
-**Note:** The initial setup of the Operator Lifecycle Manager (OLM) is a one-time task and is reserved for Kubernetes administrators with cluster-admin privileges. Once OLM is properly setup, Kubernetes administrators can then delegate Operator install privileges to non-admin Kubernetes users.
+    * A collection of operator metadata (ClusterServiceVersions, CRDs, and PackageManifests). OLM uses CatalogSources to build the list of available operators that can be installed from OperatorHub in the OpenShift web console. In OpenShift 4x, the web console has added support for managing the out-of-the-box CatalogSources as well as adding your own custom CatalogSources. You can create a custom CatalogSource using the [OLM Operator Registry](https://github.com/operator-framework/operator-registry).
+* **Subscription**:
+    * Relates an operator to a CatalogSource. Subscriptions describe which channel of an operator package to subscribe to and whether to perform updates automatically or manually. If set to automatic, the Subscription ensures OLM will manage and upgrade the operator to ensure the latest version is always running in the cluster.
+* **ClusterServiceVersion (CSV)**:
+    * The metadata that accompanies your Operator container image. It can be used to populate user interfaces with info like your logo/description/version and it is also a source of technical information needed to run the Operator, like the RBAC rules it requires and which Custom Resources it manages or depends on. OLM will parse this and do all of the hard work to wire up the correct Roles and Role Bindings, ensure that the Operator is started (or updated) within the desired namespace and check for various other requirements, all without the end users having to do anything. You can easily build your own ClusterServiceVersion with this  You can easily build your own CSV with [this handy website](htttp://operatorhub.io/packages) and read about the [full CSV architecture in more detail](https://github.com/operator-framework/operator-lifecycle-manager/blob/master/doc/design/architecture.md#what-is-a-clusterserviceversion).
+* **PackageManifest**:
+    * An entry in the CatalogSource that associates a package identity with sets of CSVs. Within a package, channels point to a particular CSV. Because CSVs explicitly reference the CSV that they replace, a PackageManifest provides OLM with all of the information that is required to update a CSV to the latest version in a channel (stepping through each intermediate version).
+* **InstallPlan**:
+    * Calculated list of resources to be created in order to automatically install or upgrade a CSV.
+* **OperatorGroup**:
+    * Configures all Operators deployed in the same namespace as the OperatorGroup object to watch for their Custom Resource (CR) in a list of namespaces or cluster-wide.
 
-Let's get started by cloning the official OLM repository:
+Let's get started observing the CatalogSources that ship with OLM and OpenShift4x:
 
 ```
-git clone https://github.com/operator-framework/operator-lifecycle-manager
+oc get catalogsources -n openshift-marketplace
 ```{{execute}}
 <br>
-Create the dedicated `openshift-operator-lifecycle-manager` Namespace:
+Here is a brief summary of each CatalogSource:
+
+* **Certified Operators**:
+    * All Certified Operators have passed [Red Hat OpenShift Operator Certification] (http://connect.redhat.com/explore/red-hat-openshift-operator-certification), an offering under Red Hat Partner Connect, our technology partner program. In this program, Red Hat partners can certify their Operators for use on Red Hat OpenShift. With OpenShift Certified Operators, customers can benefit from validated, well-integrated, mature and supported Operators from Red Hat or partner ISVs in their hybrid cloud environments.
+
+To view the contents of the Certified Operators CatalogSource, run the following:
 
 ```
-oc create -f operator-lifecycle-manager/deploy/ocp/manifests/0.7.2/0000_30_00-namespace.yaml
+oc get packagemanifests -l catalog=certified-operators
 ```{{execute}}
 <br>
-Verify the Namespace was successfully created:
+* **Community Operators**:
+    * With access to community Operators, customers can try out Operators at a variety of maturity levels. Delivering the OperatorHub community Operators on OpenShift fosters iterative software development and deployment as developers get self-service access to popular components like databases, message queues or tracing in a managed-service fashion on the platform. These operators are maintained by relevant representatives in the [operator-framework/community-operators GitHub repository](https://github.com/operator-framework/community-operators).
+
+To view the contents of the Certified Operators CatalogSource, run the following:
 
 ```
-oc get namespaces openshift-operator-lifecycle-manager
+oc get packagemanifests -l catalog=community-operators
 ```{{execute}}
 <br>
-Create the `olm-operator-serviceaccount` Service Account, `system:controller:operator-lifecycle-manager` ClusterRole, and `olm-operator-binding-openshift-operator-lifecycle-manager` ClusterRoleBinding:
+* **Red Hat Operators**:
+    * These Operators are packaged, shipped, and supported by Red Hat.
+
+To view the contents of the Certified Operators CatalogSource, run the following:
 
 ```
-oc create -f operator-lifecycle-manager/deploy/ocp/manifests/0.7.2/0000_30_01-olm-operator.serviceaccount.yaml
+oc get packagemanifests -l catalog=redhat-operators
 ```{{execute}}
-<br>
-
-Verify the Service Account, ClusterRole, and ClusterRoleBinding were successfully created:
-
-```
-oc -n openshift-operator-lifecycle-manager get serviceaccount olm-operator-serviceaccount
-```{{execute}}
-```
-oc get clusterrole system:controller:operator-lifecycle-manager
-```{{execute}}
-```
-oc get clusterrolebinding olm-operator-binding-openshift-operator-lifecycle-manager
-```{{execute}}
-
-Create the OLM Custom Resource Definitions (`Subscription`, `InstallPlan`, `CatalogSource`, `ClusterServiceVersion`):
-
-```
-for num in {02..05}; do oc create -f operator-lifecycle-manager/deploy/ocp/manifests/0.7.2/0000_30_$num*; done
-```{{execute}}
-<br>
-Verify all four OLM CRDs are present:
-
-```
-oc get crds
-```{{execute}}
-<br>
-Create the internal `rh-operators` CatalogSource and `rh-operators` ConfigMap which contains manifests for some popular Operators:
-
-```
-for num in {06,09}; do oc create -f operator-lifecycle-manager/deploy/ocp/manifests/0.7.2/0000_30_$num*; done
-```{{execute}}
-<br>
-Verify the CatalogSource and ConfigMap were successfully created:
-
-```
-oc -n openshift-operator-lifecycle-manager get catalogsource rh-operators
-```{{execute}}
-```
-oc -n openshift-operator-lifecycle-manager get configmap rh-operators
-```{{execute}}
-<br>
-Create the remaining OLM objects including OLM, Catalog, and Package Deployments:
-
-```
-for num in {10..13}; do oc create -f operator-lifecycle-manager/deploy/ocp/manifests/0.7.2/0000_30_$num*; done
-```{{execute}}
-<br>
-Verify all three OLM deployments were successfully created:
-
-```
-oc -n openshift-operator-lifecycle-manager get deployments
-```{{execute}}
-<br>
-We have successfully setup the Operator Lifecycle Manager in our OpenShift cluster.
