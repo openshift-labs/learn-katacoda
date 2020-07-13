@@ -23,7 +23,7 @@ Observe these CRDs by running the following command:
 oc get crd | grep -E 'catalogsource|subscription|clusterserviceversion|packagemanifest|installplan|operatorgroup'
 ```{{execute}}
 <br>
-These CRDs are watched by OLM controllers that reside within the `openshift-operator-lifecycle-manager` namespace:
+OLM is powered by controllers that reside within the `openshift-operator-lifecycle-manager` namespace:
 
 ```
 oc -n openshift-operator-lifecycle-manager get deploy
