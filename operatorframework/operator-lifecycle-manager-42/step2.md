@@ -1,12 +1,34 @@
-You can access OLM via the OpenShift console by clicking the [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com) tab to open the dashboard.
+Observe the CatalogSources that ship with OLM and OpenShift4:
 
-You will then able able to login with admin permissions:
+```
+oc get catalogsources -n openshift-marketplace
+```{{execute}}
+<br>
+Here is a brief summary of each CatalogSource:
 
-* **Username:** ``admin``{{copy}}
-* **Password:** ``admin``{{copy}}
+* **Certified Operators**:
+    * All Certified Operators have passed [Red Hat OpenShift Operator Certification] (http://connect.redhat.com/explore/red-hat-openshift-operator-certification), an offering under Red Hat Partner Connect, our technology partner program. In this program, Red Hat partners can certify their Operators for use on Red Hat OpenShift. With OpenShift Certified Operators, customers can benefit from validated, well-integrated, mature and supported Operators from Red Hat or partner ISVs in their hybrid cloud environments.
 
-Navigate to the Operators section of the UI and find the ArgoCD InstallPlan under **Installed Operators**.
+To view the contents of the Certified Operators CatalogSource, run the following:
 
-The OLM panel appears in the `Operators` pane:
+```
+oc get packagemanifests -l catalog=certified-operators
+```{{execute}}
+<br>
+* **Community Operators**:
+    * With access to community Operators, customers can try out Operators at a variety of maturity levels. Delivering the OperatorHub community Operators on OpenShift fosters iterative software development and deployment as developers get self-service access to popular components like databases, message queues or tracing in a managed-service fashion on the platform. These operators are maintained by relevant representatives in the [operator-framework/community-operators GitHub repository](https://github.com/operator-framework/community-operators).
 
-![OLM on the OpenShift Console](https://raw.githubusercontent.com/madorn/learn-katacoda/master/operatorframework/operator-lifecycle-manager/assets/images/olm-console.png)
+To view the contents of the Certified Operators CatalogSource, run the following:
+
+```
+oc get packagemanifests -l catalog=community-operators
+```{{execute}}
+<br>
+* **Red Hat Operators**:
+    * These Operators are packaged, shipped, and supported by Red Hat.
+
+To view the contents of the Certified Operators CatalogSource, run the following:
+
+```
+oc get packagemanifests -l catalog=redhat-operators
+```{{execute}}

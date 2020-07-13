@@ -1,62 +1,12 @@
-Let's begin my creating a new project called `myproject`.
+You can access OLM via the OpenShift console by clicking the [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com) tab to open the dashboard.
 
-```
-oc new-project myproject
-```{{execute}}
-<br>
-Create a Subscription manifest for the [ArgoCD Operator](https://github.com/argoproj-labs/argocd-operator). Ensure the `installPlanApproval` is set to `Manual`. This will allow us to review the `InstallPlan` prior to installing the Operator.
+You will then able able to login with admin permissions:
 
-```
-cat > argocd-subscription.yaml <<EOF
-apiVersion: operators.coreos.com/v1alpha1
-kind: Subscription
-metadata:
-  name: argocd-operator
-  namespace: myproject 
-spec:
-  channel: alpha
-  name: argocd-operator
-  source: community-operators
-  installPlanApproval: Manual
-EOF
-```{{execute}}
-<br>
-Create the Subscription.
+* **Username:** ``admin``{{copy}}
+* **Password:** ``admin``{{copy}}
 
-```
-oc create -f argocd-subscription.yaml
-```{{execute}}
-<br>
-Verify the Subscription and InstallPlan have been created.
+Navigate to the Operators section of the UI and find the ArgoCD InstallPlan under **Installed Operators**.
 
-```
-oc get subscription
-oc get installplan
-```{{execute}}
+The OLM panel appears in the `Operators` pane:
 
-We should also create an OperatorGroup to ensure the ArgoCD Operator watches for ArgoCD CR(s) within the `myproject` namespace.
-
-```
-cat > argocd-operatorgroup.yaml <<EOF
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  name: argocd-operatorgroup
-  namespace: myproject
-spec:
-  targetNamespaces:
-    - myproject
-EOF
-```{{execute}}
-<br>
-Create the OperatorGroup.
-
-```
-oc create -f argocd-operatorgroup.yaml
-```{{execute}}
-<br>
-Verify the OperatorGroup has been successfully created:
-
-```
-oc get operatorgroup argocd-operatorgroup 
-```{{execute}}
+![OLM on the OpenShift Console](https://raw.githubusercontent.com/madorn/learn-katacoda/master/operatorframework/operator-lifecycle-manager/assets/images/olm-console.png)

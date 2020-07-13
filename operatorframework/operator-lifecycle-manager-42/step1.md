@@ -1,4 +1,4 @@
-The Operator Lifecycle Manager (OLM) is included with [OpenShift4](https://try.openshift.com) and can easily be installed in non-OpenShift Kubernetes environments by running [this simple command](https://operatorhub.io/how-to-install-an-operator#).
+The Operator Lifecycle Manager (OLM) is included with [OpenShift 4](https://try.openshift.com) and can easily be installed in non-OpenShift Kubernetes environments by running [this simple command](https://operatorhub.io/how-to-install-an-operator#).
 
 Let's get started exploring OLM by viewing its Custom Resource Definitions (CRDs).
 
@@ -17,37 +17,14 @@ OLM ships with 6 CRDs:
 * **OperatorGroup**:
     * Configures all Operators deployed in the same namespace as the OperatorGroup object to watch for their Custom Resource (CR) in a list of namespaces or cluster-wide.
 
-Observe the CatalogSources that ship with OLM and OpenShift4:
+Observe these CRDs by running the following command:
 
 ```
-oc get catalogsources -n openshift-marketplace
+oc get crd | grep -E 'catalogsource|subscription|clusterserviceversion|packagemanifest|installplan|operatorgroup'
 ```{{execute}}
 <br>
-Here is a brief summary of each CatalogSource:
-
-* **Certified Operators**:
-    * All Certified Operators have passed [Red Hat OpenShift Operator Certification] (http://connect.redhat.com/explore/red-hat-openshift-operator-certification), an offering under Red Hat Partner Connect, our technology partner program. In this program, Red Hat partners can certify their Operators for use on Red Hat OpenShift. With OpenShift Certified Operators, customers can benefit from validated, well-integrated, mature and supported Operators from Red Hat or partner ISVs in their hybrid cloud environments.
-
-To view the contents of the Certified Operators CatalogSource, run the following:
+These CRDs are watched by OLM controllers that reside within the `openshift-operator-lifecycle-manager` namespace:
 
 ```
-oc get packagemanifests -l catalog=certified-operators
-```{{execute}}
-<br>
-* **Community Operators**:
-    * With access to community Operators, customers can try out Operators at a variety of maturity levels. Delivering the OperatorHub community Operators on OpenShift fosters iterative software development and deployment as developers get self-service access to popular components like databases, message queues or tracing in a managed-service fashion on the platform. These operators are maintained by relevant representatives in the [operator-framework/community-operators GitHub repository](https://github.com/operator-framework/community-operators).
-
-To view the contents of the Certified Operators CatalogSource, run the following:
-
-```
-oc get packagemanifests -l catalog=community-operators
-```{{execute}}
-<br>
-* **Red Hat Operators**:
-    * These Operators are packaged, shipped, and supported by Red Hat.
-
-To view the contents of the Certified Operators CatalogSource, run the following:
-
-```
-oc get packagemanifests -l catalog=redhat-operators
+oc -n openshift-operator-lifecycle-manager get deploy
 ```{{execute}}

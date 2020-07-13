@@ -2,9 +2,7 @@
 
 The [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager) project is a component of the Operator Framework, an open source toolkit to manage Kubernetes native applications, called Operators, in an effective, automated, and scalable way.
 
-OLM extends Kubernetes to provide a declarative way to install, manage, and upgrade operators and their dependencies in a cluster.
-
-It also enforces some constraints on the components it manages in order to ensure a good user experience.
+OLM extends Kubernetes to provide a declarative way to install, manage, and upgrade operators and their dependencies in a cluster. It also enforces some constraints on the components it manages in order to ensure a good user experience.
 
 OLM enables users to do the following:
 
@@ -14,7 +12,7 @@ Kubernetes clusters are being kept up to date using elaborate update mechanisms 
 
 # Dependency Model
 
-With OLMs packaging format Operators can express dependencies on the platform and on other Operators. They can rely on OLM to respect these requirements as long as the cluster is up. In this way, OLMs dependency model ensures Operators stay working during their long lifecycle across multiple updates of the platform or other Operators.
+With OLM's packaging format, Operators can express dependencies on the platform and on other Operators. They can rely on OLM to respect these requirements as long as the cluster is up. In this way, OLM's dependency model ensures Operators stay working during their long lifecycle across multiple updates of the platform or other Operators.
 
 # Discoverability
 

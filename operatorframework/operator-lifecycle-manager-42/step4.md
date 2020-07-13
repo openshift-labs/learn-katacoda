@@ -1,27 +1,64 @@
-Fetch the InstallPlan and observe the Kubernetes objects that will be created once approved:
+Let's begin my creating a new project called `myproject`.
 
 ```
-ARGOCD_INSTALLPLAN=`oc get installplan -o jsonpath={$.items[0].metadata.name}`
-oc get installplan $ARGOCD_INSTALLPLAN -o yaml
+oc new-project myproject
+```{{execute}}
+<br>
+Create a Subscription manifest for the [ArgoCD Operator](https://github.com/argoproj-labs/argocd-operator). Ensure the `installPlanApproval` is set to `Manual`. This will allow us to review the `InstallPlan` prior to installing the Operator.
+
+```
+cat > argocd-subscription.yaml <<EOF
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: argocd-operator
+  namespace: myproject 
+spec:
+  channel: alpha
+  installPlanApproval: Manual
+  name: argocd-operator
+  source: community-operators
+  sourceNamespace: openshift-marketplace
+  installPlanApproval: Manual
+EOF
+```{{execute}}
+<br>
+Create the Subscription.
+
+```
+oc create -f argocd-subscription.yaml
+```{{execute}}
+<br>
+Verify the Subscription and InstallPlan have been created.
+
+```
+oc get subscription
+oc get installplan
 ```{{execute}}
 
-You can a better view of the `InstallPlan` by navigating to the ArgoCD Operator in the [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/.
-
-Navigate to the Operators section of the UI and find the ArgoCD InstallPlan under **Installed Operators**.
-
-Once reviewed, you can install the Operator by approving the InstallPlan via the OpenShift console or with the following command:
+We should also create an OperatorGroup to ensure the ArgoCD Operator watches for ArgoCD CR(s) within the `myproject` namespace.
 
 ```
-oc patch installplan $ARGOCD_INSTALLPLAN --type='json' -p '[{"op": "replace", "path": "/spec/approved", "value":true}]'
-```
+cat > argocd-operatorgroup.yaml <<EOF
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: argocd-operatorgroup
+  namespace: myproject
+spec:
+  targetNamespaces:
+    - myproject
+EOF
+```{{execute}}
 <br>
-Once the InstallPlan is approved, you will see the newly provisioned ClusterServiceVersion, ClusterResourceDefinition, Role and RoleBindings, Service Accounts, and argocd-operator Deployment.
+Create the OperatorGroup.
 
 ```
-oc get clusterserviceversion
-oc get crd | grep argocd
-oc get sa
-oc get roles
-oc get rolebindings
-oc get deployments
+oc create -f argocd-operatorgroup.yaml
+```{{execute}}
+<br>
+Verify the OperatorGroup has been successfully created:
+
+```
+oc get operatorgroup argocd-operatorgroup 
 ```{{execute}}
