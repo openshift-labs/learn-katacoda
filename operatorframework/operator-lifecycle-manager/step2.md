@@ -32,3 +32,12 @@ To view the Operators included with the **RedHat Operators** CatalogSource, run 
 ```
 oc get packagemanifests -l catalog=redhat-operators
 ```{{execute}}
+
+* **Red Hat Marketplace**:
+    * Built in partnership by Red Hat and IBM, the Red Hat Marketplace helps organizations deliver enterprise software and improve workload portability. Learn more at [marketplace.redhat.com](https://marketplace.redhat.com).
+
+To view the Operators included in the **Red Hat Marketplace** CatalogSource, run the following:
+
+```
+oc get packagemanifests -l catalog=redhat-marketplace
+```{{execute}}

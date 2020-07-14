@@ -7,9 +7,9 @@ oc get installplan $ARGOCD_INSTALLPLAN -o yaml
 
 You can a better view of the InstallPlan by navigating to the ArgoCD Operator in the [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/).
 
-Navigate to the Operators section of the UI and select the ArgoCD Operator under **Installed Operators**. You should click on the InstallPlan on the bottom right of the screen.
+Navigate to the Operators section of the UI and select the ArgoCD Operator under **Installed Operators**. Ensure you are scoped to the **myproject** namespace. You should click on the InstallPlan on the bottom right of the screen:
 
-![InstallPlan on the OpenShift Console](https://raw.githubusercontent.com/madorn/learn-katacoda/master/operatorframework/operator-lifecycle-manager/assets/images/olm-console.png)
+![InstallPlan on the OpenShift Console](https://raw.githubusercontent.com/madorn/learn-katacoda/master/operatorframework/operator-lifecycle-manager/assets/images/olm-installplan.png)
 
 You can install the Operator by approving the InstallPlan via the OpenShift console or with the following command:
 
@@ -43,7 +43,7 @@ oc get rolebindings | grep argocd
 oc get deployments
 ```{{execute}}
 <br>
-When the ArgoCD Operator is finally running, we can observe its logs by running the following:
+When the ArgoCD Operator is running, we can observe its logs by running the following:
 
 ```
 ARGOCD_OPERATOR=`oc get pods -o jsonpath={$.items[0].metadata.name}`

@@ -1,4 +1,4 @@
-Let's deply our ArgoCD Server by creating the ArgoCD manifest via the CLI. You can also do this on the OpenShift console.
+Let's deploy our ArgoCD Server "operand" by creating the ArgoCD manifest via the CLI. You can also do this on the OpenShift console.
 
 ```
 cat > argocd-cr.yaml <<EOF
@@ -27,10 +27,11 @@ Create the ArgoCD Custom Resource:
 oc create -f argocd-cr.yaml
 ```{{execute}}
 <br>
-The ArgoCD Operator should now begin to generate the ArgoCD Operand artifacts. This can take up to a few minutes:
+The ArgoCD Operator should now begin to generate the ArgoCD Operand artifacts. This can take up to one minute:
 
 ```
 oc get deployments
-oc get services
 oc get secrets
+oc get services
+oc get routes
 ```{{execute}}

@@ -23,7 +23,7 @@ Observe these CRDs by running the following command:
 oc get crd | grep -E 'catalogsource|subscription|clusterserviceversion|packagemanifest|installplan|operatorgroup'
 ```{{execute}}
 <br>
-OLM is powered by controllers that reside within the `openshift-operator-lifecycle-manager` namespace as 3 deployments(catalog-operator, olm-operator, and packageserver):
+OLM is powered by controllers that reside within the `openshift-operator-lifecycle-manager` namespace as three Deployments (catalog-operator, olm-operator, and packageserver):
 
 ```
 oc -n openshift-operator-lifecycle-manager get deploy
