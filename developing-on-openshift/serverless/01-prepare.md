@@ -15,11 +15,11 @@ Since the install will take some time, let's take a moment to review the install
 ## Log in and install the operator
 To install an operator, you need to log in as an admin.
 
-![01-login](/openshift/assets/developing-on-openshift/serverless/01-prepare/01–login.png “Login to OpenShift”)
+![01-login](/openshift/assets/developing-on-openshift/serverless/01-prepare/01–login.png)
 
 Now logged in as an admin, open the *Operator Hub* and find and select the `OpenShift Serverless` operator.
 
-![02-operatorhub](/openshift/assets/developing-on-openshift/serverless/01-prepare/02-operatorhub.png “OpenShift OperatorHub Serverless Operator”)
+![02-operatorhub](/openshift/assets/developing-on-openshift/serverless/01-prepare/02-operatorhub.png)
 
 > **Note:** *We can inspect the details of the `serverless-operator` packagemanifest within the CLI via `oc describe packagemanifest serverless-operator -n openshift-marketplace`.*
 >
@@ -27,13 +27,13 @@ Now logged in as an admin, open the *Operator Hub* and find and select the `Open
 
 Next, install the Serverless Operator into the `openshift-operators` project.  We choose the update channel of `4.4` to match the OpenShift Container Platform version that we are using.
 
-![03-serverlessoperator](/openshift/assets/developing-on-openshift/serverless/01-prepare/03-serverlessoperator.png “OpenShift Serverless Operator”)
+![03-serverlessoperator](/openshift/assets/developing-on-openshift/serverless/01-prepare/03-serverlessoperator.png)
 
-![04-serverlesssubscription](/openshift/assets/developing-on-openshift/serverless/01-prepare/04-serverlesssubscription.png “OpenShift Serverless Operator Subscription”)
+![04-serverlesssubscription](/openshift/assets/developing-on-openshift/serverless/01-prepare/04-serverlesssubscription.png)
 
 Open the **Installed Operators** tab and watch the **OpenShift Serverless Operator**.  The operator is installed and ready when the `Status=Succeeded`.
 
-![05-succeeded](/openshift/assets/developing-on-openshift/serverless/01-prepare/05-succeeded.png “OpenShift Serverless deployed”)
+![05-succeeded](/openshift/assets/developing-on-openshift/serverless/01-prepare/05-succeeded.png)
 
 > **Note:** *We can inspect the additional api resouces that the serverless operator added to the cluster via the CLI command `oc api-resources | egrep 'Knative|KIND'`*.
 
@@ -46,17 +46,17 @@ As per the [Knative Serving Operator documentation][serving-docs] you must creat
 
 First we create the `knative-serving` project.
 
-![06-kservingproject](/openshift/assets/developing-on-openshift/serverless/01-prepare/06-kservingproject.png “Knative Serving Project”)
+![06-kservingproject](/openshift/assets/developing-on-openshift/serverless/01-prepare/06-kservingproject.png)
 
 Within the `knative-serving` project open the **Installed Operators** tab and the **OpenShift Serverless Operator**.  Then create an instance of **Knative Serving**.
 
-![07-kservinginstance](/openshift/assets/developing-on-openshift/serverless/01-prepare/07-kservinginstance.png “Knative Serving Instance”)
+![07-kservinginstance](/openshift/assets/developing-on-openshift/serverless/01-prepare/07-kservinginstance.png)
 
-![08-kservinginstance](/openshift/assets/developing-on-openshift/serverless/01-prepare/08-kservinginstance.png “Knative Serving Instance”)
+![08-kservinginstance](/openshift/assets/developing-on-openshift/serverless/01-prepare/08-kservinginstance.png)
 
 Open the Knative Serving instance.  It is deployed when the **Condition** `Ready=True`.
 
-![09-kservingready](/openshift/assets/developing-on-openshift/serverless/01-prepare/09-kservingready.png “Knative Serving Ready”)
+![09-kservingready](/openshift/assets/developing-on-openshift/serverless/01-prepare/09-kservingready.png)
 
 OpenShift Serverless should now be installed!
 
