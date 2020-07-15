@@ -1,35 +1,10 @@
-Let's begin my creating a new project called `myproject`.
+You can access OLM via the OpenShift console by clicking the [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com) tab to open the dashboard.
 
-```
-oc new-project myproject
-```{{execute}}
-<br>
-Create a Subscription manifest for the Etcd Operator. Ensure the Approval is set to `Manual`.
+You will then able able to login with admin permissions:
 
-```
-cat > etcd-alpha-subscription.yaml <<EOF
-apiVersion: operators.coreos.com/v1alpha1
-kind: Subscription
-metadata:
-  name: etcd
-  namespace: myproject 
-spec:
-  channel: alpha
-  name: etcd
-  source: rh-operators
-  installPlanApproval: Manual
-EOF
-```{{execute}}
-<br>
-Create the Subscription.
+* **Username:** ``admin``{{copy}}
+* **Password:** ``admin``{{copy}}
 
-```
-oc create -f etcd-alpha-subscription.yaml
-```{{execute}}
-<br>
-Verify the Subscription and InstallPlan have been created.
+The OLM panel appears in the **Operators** pane:
 
-```
-oc get subscription
-oc get installplan
-```{{execute}}
+![OLM on the OpenShift Console](../../assets/operatorframework/operator-lifecycle-manager/olm-console.png)
