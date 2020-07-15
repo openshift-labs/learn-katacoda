@@ -24,7 +24,7 @@ wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/a
 
  <pre class="file">
 kind: Deployment
-apiVersion: v1
+apiVersion: apps/v1
 metadata:
   name: nginx-deployment
 spec:
