@@ -9,21 +9,21 @@
     "steps": [
     {
       "title": "Exploring OLM",
-    	"text": "step1.md"
+      "text": "step1.md"
     },{
-			"title": "CatalogSources",
-			"text": "step2.md"
-		},{
-			"title": "Accessing OLM on the OpenShift Console",
-			"text": "step3.md"
+      "title": "CatalogSources",
+      "text": "step2.md"
     },{
-			"title": "Creating the OperatorGroup and Subscription",
-			"text": "step4.md"
+      "title": "Accessing OLM on the OpenShift Console",
+      "text": "step3.md"
     },{
-			"title": "Reviewing the InstallPlan and Installing the Operator",
+      "title": "Creating the OperatorGroup and Subscription",
+      "text": "step4.md"
+    },{
+      "title": "Reviewing the InstallPlan and Installing the Operator",
       "text": "step5.md"
     },{
-			"title": "Creating the Custom Resource",
+      "title": "Creating the Custom Resource",
       "text": "step6.md"
     },{
       "title": "Accessing the ArgoCD Dashboard",
