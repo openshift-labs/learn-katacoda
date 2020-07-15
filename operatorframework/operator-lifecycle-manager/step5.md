@@ -9,14 +9,15 @@ You can a better view of the InstallPlan by navigating to the ArgoCD Operator in
 
 Navigate to the Operators section of the UI and select the ArgoCD Operator under **Installed Operators**. Ensure you are scoped to the **myproject** namespace. You should click on the InstallPlan on the bottom right of the screen:
 
-![InstallPlan on the OpenShift Console](https://raw.githubusercontent.com/madorn/learn-katacoda/master/operatorframework/operator-lifecycle-manager/assets/images/olm-installplan.png)
+![InstallPlan on the OpenShift Console](../../assets/operatorframework/operator-lifecycle-manager/olm-installplan.png)
 
 You can install the Operator by approving the InstallPlan via the OpenShift console or with the following command:
 
 ```
 oc patch installplan $ARGOCD_INSTALLPLAN --type='json' -p '[{"op": "replace", "path": "/spec/approved", "value":true}]'
 ```{{execute}}
-<br>
+
+
 Once the InstallPlan is approved, you will see the newly provisioned ClusterServiceVersion, ClusterResourceDefinition, Role and RoleBindings, Service Accounts, and Argo-CD Operator Deployment.
 
 ```
@@ -42,7 +43,8 @@ oc get rolebindings | grep argocd
 ```
 oc get deployments
 ```{{execute}}
-<br>
+
+
 When the ArgoCD Operator is running, we can observe its logs by running the following:
 
 ```

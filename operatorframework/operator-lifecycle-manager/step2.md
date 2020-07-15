@@ -3,7 +3,8 @@ Observe the CatalogSources that ship with OLM and OpenShift 4:
 ```
 oc get catalogsources -n openshift-marketplace
 ```{{execute}}
-<br>
+
+
 Here is a brief summary of each CatalogSource:
 
 * **Certified Operators**:

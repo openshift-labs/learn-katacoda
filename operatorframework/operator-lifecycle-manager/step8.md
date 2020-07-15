@@ -17,7 +17,8 @@ oc delete -f argocd-subscription.yaml
 ARGOCD_CSV=`oc get csv -o jsonpath={$.items[0].metadata.name}`
 oc delete csv $ARGOCD_CSV
 ```{{execute}}
-<br>
+
+
 Once the Subscription and ClusterServiceVersion have been removed, the Operator and associated artifacts will be removed from the cluster:
 
 ```

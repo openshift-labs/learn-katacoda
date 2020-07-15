@@ -3,7 +3,8 @@ Let's begin my creating a new project called `myproject`.
 ```
 oc new-project myproject
 ```{{execute}}
-<br>
+
+
 We should first create an [OperatorGroup](https://operator-framework.github.io/olm-book/docs/operator-scoping.html) to ensure Operators installed to this namespace will be capable of watching for Custom Resources within the `myproject` namespace:
 
 ```
@@ -18,13 +19,15 @@ spec:
     - myproject
 EOF
 ```{{execute}}
-<br>
+
+
 Create the OperatorGroup:
 
 ```
 oc create -f argocd-operatorgroup.yaml
 ```{{execute}}
-<br>
+
+
 Verify the OperatorGroup has been successfully created:
 
 ```
@@ -48,19 +51,22 @@ spec:
   installPlanApproval: Manual
 EOF
 ```{{execute}}
-<br>
+
+
 Create the Subscription:
 
 ```
 oc create -f argocd-subscription.yaml
 ```{{execute}}
-<br>
+
+
 Verify the Subscription was created:
 
 ```
 oc get subscription
 ```{{execute}}
-<br>
+
+
 The creation of the subscription will also trigger OLM to automatically generate an InstallPlan:
 
 ```

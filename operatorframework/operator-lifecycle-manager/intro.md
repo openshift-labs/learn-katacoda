@@ -1,4 +1,4 @@
-![Operator Lifecycle Manager](https://raw.githubusercontent.com/madorn/learn-katacoda/master/operatorframework/operator-lifecycle-manager/assets/images/olm-logo.png)
+![Operator Lifecycle Manager](../../assets/operatorframework/operator-lifecycle-manager/olm-logo.png)
 
 The [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager) project is a component of the Operator Framework, an open source toolkit to manage Kubernetes native applications, called Operators, in an effective, automated, and scalable way.
 

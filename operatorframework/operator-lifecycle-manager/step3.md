@@ -7,4 +7,4 @@ You will then able able to login with admin permissions:
 
 The OLM panel appears in the **Operators** pane:
 
-![OLM on the OpenShift Console](https://raw.githubusercontent.com/madorn/learn-katacoda/master/operatorframework/operator-lifecycle-manager/assets/images/olm-console.png)
+![OLM on the OpenShift Console]((../../assets/operatorframework/operator-lifecycle-manager/olm-console.png)

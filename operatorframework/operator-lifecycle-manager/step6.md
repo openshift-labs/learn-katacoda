@@ -20,13 +20,15 @@ spec:
       enabled: true
 EOF
 ```{{execute}}
-<br>
+
+
 Create the ArgoCD Custom Resource:
 
 ```
 oc create -f argocd-cr.yaml
 ```{{execute}}
-<br>
+
+
 The ArgoCD Operator should now begin to generate the ArgoCD Operand artifacts. This can take up to one minute:
 
 ```
