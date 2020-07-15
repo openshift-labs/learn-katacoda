@@ -22,6 +22,12 @@ You can easily update this file by running the following command:
 wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/app.example.com_v1alpha1_podset_cr.yaml -O deploy/crds/app.example.com_v1alpha1_podset_cr.yaml
 ```{{execute}}
 <br>
+Ensure you are currently scoped to the `myproject` Namespace:
+
+```
+oc project myproject
+```{{execute}}
+<br>
 Deploy your PodSet Custom Resource to the live OpenShift Cluster:
 
 ```

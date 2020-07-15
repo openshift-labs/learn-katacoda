@@ -14,17 +14,17 @@ you should see that the user has access to no projects.
 
 To grant this user access to your project, go to the list of projects in the web console and select on the drop down menu to the right of the project name and select on _Edit Project_.
 
-![Edit Project Details](../../assets/introduction/cluster-access-42/03-edit-project-option.png)
+![Edit Project Details](../../assets/introduction/cluster-access-44/03-edit-project-option.png)
 
 When the project details are displayed, select on the _Role Bindings_ tab.
 
-![Project Role Bindings](../../assets/introduction/cluster-access-42/03-project-role-bindings.png)
+![Project Role Bindings](../../assets/introduction/cluster-access-44/03-project-role-bindings.png)
 
 You will see that only the ``developer`` user is a member of the project at this point, with the user having `admin` access.
 
 Click on _Create Binding_ to grant an additional user access to the project.
 
-![Create Role Binding](../../assets/introduction/cluster-access-42/03-create-role-binding.png)
+![Create Role Binding](../../assets/introduction/cluster-access-44/03-create-role-binding.png)
 
 For the name of the role binding use ``user1-edit``{{copy}}.
 

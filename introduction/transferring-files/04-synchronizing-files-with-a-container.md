@@ -78,7 +78,7 @@ Monitor the re-deployment of the application by running:
 
 Because the existing pod has been shutdown, we will need to capture again the new name for the pod.
 
-``POD=`pod app=blog`; echo $POD``{{execute}}
+``POD=`pod deploymentconfig=blog`; echo $POD``{{execute}}
 
 You may also notice that the synchronization process we had running in the background may have stopped. This is because the pod it was connected to had been shutdown.
 

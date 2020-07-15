@@ -61,21 +61,6 @@
       "title": "Node.js development"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/brms-loan-application/",
-      "course_id": "brms-loan-application",
-      "title": "JBoss BRMS Loan Application demo"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/dm7-loan-application/",
-      "course_id": "dm7-loan-application",
-      "title": "Red Hat Decision Manager Loan Application demo"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/dm7-dmn-introduction/",
-      "course_id": "dm7-dmn-introduction",
-      "title": "Red Hat Decision Manager DMN Introduction"
-    },
-    {
       "external_link": "https://learn.openshift.com/middleware/java-batch-processing/",
       "course_id": "java-batch-processing",
       "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret"
@@ -89,11 +74,6 @@
       "external_link": "https://learn.openshift.com/middleware/pipelines/",
       "course_id": "pipelines",
       "title": "Using OpenShift Pipelines"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/serverless/",
-      "course_id": "serverless",
-      "title": "Introduction to Serverless with OpenShift"
     }
   ]
 }

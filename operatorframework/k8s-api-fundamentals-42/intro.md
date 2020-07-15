@@ -1,0 +1,1 @@
+Before diving into the [Operator Framework](https://github.com/operator-framework), this section will give an overview of Kubernetes API fundamentals.  Although the [Operator SDK](https://github.com/operator-framework/operator-sdk) makes creating an Operator fun and easy, understanding the structure and features of the Kubernetes API is required.

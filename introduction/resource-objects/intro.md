@@ -1,3 +1,16 @@
-When you create a build or deployment in OpenShift, expose a service, work with persistent storage, or adjust existing configuration, you are creating or operating on resource objects. These resource objects are central to how OpenShift and your applications are managed. They define how everything should look and also control what you can do within the OpenShift cluster. In this course we provide a guide for how to determine what resource objects have been created related to your application, and how you can query or update them.
+## Goal
 
-You will be using just the ``oc`` command line tool in this exercise. We have left the OpenShift web console enabled if you wish to also explore the resource objects using it. The OpenShift web console can be reached by selecting _Dashboard_.
+Learn how to enumerate, describe, and update application resource objects on OpenShift.
+
+## Concepts
+
+* OpenShift Projects and Applications
+* Applications on OpenShift as Builds and Deployments
+* Application resources like Services, Persistent Volumes, and configuration
+* OpenShift `oc` command line tool
+
+## Use case
+
+You can find, query, and change the OpenShift resources that make up an application.
+
+This OpenShift cluster will self-destruct in one hour.

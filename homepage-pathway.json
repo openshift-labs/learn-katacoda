@@ -15,12 +15,28 @@
       "title": "Developing on OpenShift"
     },
     {
-      "external_link": "https://learn.openshift.com/cicd-application-delivery/",
-      "title": "CI/CD & Application Delivery"
+      "external_link": "https://learn.openshift.com/enterprise-java/",
+      "title": "Enterprise Java Development"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/",
-      "title": "Building Applications On OpenShift"
+      "external_link": "https://learn.openshift.com/developing-with-quarkus/",
+      "title": "Developing with Quarkus"
+    },
+    {
+      "external_link": "https://learn.openshift.com/developing-with-vertx/",
+      "title": "Developing with Eclipse Vert.x"
+    },
+    {
+      "external_link": "https://learn.openshift.com/developing-with-spring/",
+      "title": "Developing with Spring and Spring Boot"
+    },
+    {
+      "external_link": "https://learn.openshift.com/developing-with-kogito/",
+      "title": "Developing with Kogito"
+    },
+    {
+      "external_link": "https://learn.openshift.com/cicd-application-delivery/",
+      "title": "CI/CD & Application Delivery"
     },
     {
       "external_link": "https://learn.openshift.com/operatorframework/",

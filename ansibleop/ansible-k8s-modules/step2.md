@@ -14,7 +14,7 @@ Next, we'll use the Ansible k8s module to leverage existing Kubernetes and OpenS
 $ cat ./example-role/templates/nginx-deployment.yml.j2
 
 kind: Deployment
-apiVersion: v1
+apiVersion: apps/v1
 metadata:
   name: nginx-deployment
 spec:
