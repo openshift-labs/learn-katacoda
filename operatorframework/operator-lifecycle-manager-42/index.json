@@ -8,7 +8,7 @@
   "details": {
     "steps": [
     {
-    	"title": "Exploring OLM",
+      "title": "Exploring OLM",
     	"text": "step1.md"
     },{
 			"title": "CatalogSources",
@@ -44,12 +44,12 @@
       "host01": [{"file": ".init.sh", "target": "~/", "chmod": "+x"},{"file": "op-sdk-setup.sh", "target": "~/", "chmod": "+x"}]
     }
   },
- "files": [],
+  "files": [],
   "environment": {
-        "showdashboard": true,
-        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
-        "uilayout": "terminal-iframe"
-    },
+    "showdashboard": true,
+    "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+    "uilayout": "terminal-iframe"
+  },
   "backend": {
     "imageid": "openshift-4-2",
     "port": 8443
