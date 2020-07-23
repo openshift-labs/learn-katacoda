@@ -10,7 +10,7 @@ Argo CD has a built-in [Kustomize](https://kustomize.io/) feature, we are going 
 
 ## Reviewing Kustomized files
 
-It can take some time for these files to be processed and created. Check their existence in the project repository at the links below:
+It can take some time for these files to be processed and created. Check their existence in the project repository at the links below. Proceed once both sets of Base and Kustomized files are present.
 
 * Preproduction Files
   * [Base Route File](http://gogs.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/student/gitops-lab/src/pre/reversewords_app/base/route.yaml)
