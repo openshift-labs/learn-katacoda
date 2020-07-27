@@ -24,6 +24,13 @@
           "description": "Use familiar Spring APIs and annotations to build a Quarkus app"
         },
         {
+          "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/qute",
+          "pathway_id": "middleware/middleware-quarkus",
+          "course_id": "qute",
+          "title": "Templating with Qute Templating Engine",
+          "description": "Render templatized content with Quarkus and Qute Templating Engine"
+        },
+        {
           "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/monitoring",
           "pathway_id": "middleware/middleware-quarkus",
           "course_id": "monitoring",
