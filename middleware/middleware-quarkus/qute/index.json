@@ -1,0 +1,42 @@
+{
+  "pathwayTitle": "Templating with Qute",
+  "icon": "fa-java",
+  "title": "Using the Qute Templating Engine",
+  "description": "In this exercise, you will create type=safe Qute templates and tie them into code",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "details": {
+    "steps": [
+      { "title": "Step 1", "text": "01-basics.md" },
+      { "title": "Step 2", "text": "02-typesafe.md" },
+      { "title": "Step 3", "text": "03-parameters.md" },
+      { "title": "Step 4", "text": "04-extensions.md" },
+      { "title": "Step 5", "text": "05-periodic.md" },
+      { "title": "Step 6", "text": "06-reactive.md" }
+    ],
+    "intro": {
+      "text": "00-intro.md",
+      "courseData": "env-init.sh",
+      "code": "set-env.sh"
+    },
+    "finish": {
+      "text": "99-outro.md"
+    }
+  },
+  "files": [
+
+  ],
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [{"name":"Local Web Browser","href": "https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com"},{"name":"OpenShift Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+    "uilayout": "editor-terminal",
+    "uisettings": "java",
+    "hideintro": false,
+    "uieditorpath": "/root/projects/quarkus",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "openshift-4-2",
+    "port": 8443
+  }
+}
