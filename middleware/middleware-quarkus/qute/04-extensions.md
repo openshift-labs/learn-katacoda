@@ -52,11 +52,11 @@ Here we declare a static template extension method that can be used to add "comp
 
 [Click here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/item/1) to reload the page and see the result for Apples:
 
-<!-- ![Apple](../../../assets/middleware/quarkus/qute-apple.png) -->
+![Apple](/openshift/assets/middleware/quarkus/qute-apple.png)
 
 Since Apples cost less than $100, no discount for you! But [try with Mangos](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/item/4).
 
-<!-- ![Mango](../../../assets/middleware/quarkus/qute-mango.png) -->
+![Mango](/openshift/assets/middleware/quarkus/qute-mango.png)
 
 What a deal!
 
