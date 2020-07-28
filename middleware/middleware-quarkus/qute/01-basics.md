@@ -9,6 +9,8 @@ Let's create the basic Quarkus _Hello World_ application and include the necessa
     -Dextensions="quarkus-resteasy-qute,quarkus-vertx-web,quarkus-qute,quarkus-scheduler" \
     -Dpath="/hello"`{{execute T1}}
 
+> The first time you create an app, new dependencies may be downloaded via maven and take a minute or so. This should only happen once, after that things will go even faster.
+
 This will use the Quarkus Maven Plugin and generate a basic Maven project for you in the `qute` subdirectory and include the `quarkus-resteasy-qute` extension which includes the templating engine and integration with JAX-RS via RestEasy. We've also included a few other extensions we'll use later on.
 
 Once generated, look at the `qute/pom.xml`{{open}}. You will find the import of the Quarkus BOM, allowing to omit the version on the different Quarkus dependencies.
