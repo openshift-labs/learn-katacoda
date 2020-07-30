@@ -131,6 +131,6 @@ oc get pods
 <br>
 See the following:
 
-[Deployment Controller (DeletionTimestamp != nil)](https://github.com/kubernetes/kubernetes/blob/master/pkg/controller/deployment/deployment_controller.go#L610-L612)
+[Deployment Controller (DeletionTimestamp != nil)](https://github.com/kubernetes/kubernetes/blob/release-1.18/pkg/controller/deployment/deployment_controller.go#L613-L615)
 
-[SyncStatusOnly Method](https://github.com/kubernetes/kubernetes/blob/master/pkg/controller/deployment/sync.go#L35-L44)
+[SyncStatusOnly Method](https://github.com/kubernetes/kubernetes/blob/release-1.18/pkg/controller/deployment/sync.go#L36-L45)
