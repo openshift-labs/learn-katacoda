@@ -68,7 +68,7 @@ curl -X GET http://localhost:8001/apis/apps/v1/namespaces/myproject/replicasets/
 Use the `PUT` method against the `/scale` endpoint to change the number of replicas to 5:
 
 ```
-curl  -X PUT localhost:8001/apis/apps/v1/namespaces/myproject/replicasets/myfirstreplicaset/scale -H "Content-type: application/json" -d '{"kind":"Scale","apiVersion":"apps/v1","metadata":{"name":"myfirstreplicaset","namespace":"myproject"},"spec":{"replicas":5}}'
+curl  -X PUT localhost:8001/apis/apps/v1/namespaces/myproject/replicasets/myfirstreplicaset/scale -H "Content-type: application/json" -d '{"kind":"Scale","apiVersion":"autoscaling/v1","metadata":{"name":"myfirstreplicaset","namespace":"myproject"},"spec":{"replicas":5}}'
 ```{{execute}}
 <br>
 You can also get information regarding the pod by using the `GET` method against the `/status` endpoint
