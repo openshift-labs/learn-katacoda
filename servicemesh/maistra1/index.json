@@ -42,7 +42,7 @@
     },
     "assets": {
       "client": [
-	{ "file": "install-ossm.bash", "target": "~/" }
+	{ "file": "install-ossm.bash", "target": "/root/" }
       ]
     }
   }  
