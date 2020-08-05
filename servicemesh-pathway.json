@@ -8,6 +8,11 @@
       "title": "Istio Introduction"
     },
     {
+      "external_link": "https://learn.openshift.com/servicemesh/maistra1",
+      "course_id": "maistra1",
+      "title": "maistra1"
+    },
+    {
       "external_link": "https://learn.openshift.com/servicemesh/2-deploy-microservices",
       "course_id": "2-deploy-microservices",
       "title": "Deploy Microservices"
