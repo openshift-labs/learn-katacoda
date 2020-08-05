@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Starting OpenShift Service Mesh install."
+echo "Please wait..."
+echo "Subscribing to the operators..."
 #install the ServiceMesh operator
 cat <<EOM | oc apply -f -
 apiVersion: operators.coreos.com/v1alpha1
@@ -62,7 +65,7 @@ do
 done
 
 #wait for service mesh operator deployment
-local servicemesh_deployment=$(oc get deployment -n openshift-operators -o name 2>/dev/null | grep istio)
+servicemesh_deployment=$(oc get deployment -n openshift-operators -o name 2>/dev/null | grep istio)
 while [ "${servicemesh_deployment}" == "" ]
 do
     sleep 2
@@ -70,7 +73,7 @@ do
 done
 
 #wait for Kiali operator deployment
-local kiali_deployment=$(oc get deployment -n openshift-operators -o name 2>/dev/null | grep kiali)
+kiali_deployment=$(oc get deployment -n openshift-operators -o name 2>/dev/null | grep kiali)
 while [ "${kiali_deployment}" == "" ]
 do
     sleep 2
@@ -78,14 +81,14 @@ do
 done
 
 #wait for Jaeger operator deployment
-local jaeger_deployment=$(oc get deployment -n openshift-operators -o name 2>/dev/null | grep jaeger)
+jaeger_deployment=$(oc get deployment -n openshift-operators -o name 2>/dev/null | grep jaeger)
 while [ "${jaeger_deployment}" == "" ]
 do
     sleep 2
     jaeger_deployment=$(oc get deployment -n openshift-operators -o name 2>/dev/null | grep jaeger)
 done
 
-infomsg "Waiting for operator deployments to start..."
+echo "Waiting for operator deployments to start..."
 for op in ${servicemesh_deployment} ${kiali_deployment} ${jaeger_deployment}
 do
     echo -n "Waiting for ${op} to be ready..."
@@ -99,6 +102,7 @@ do
     echo "done."
 done
 
+echo "Creating the scmp/smmr..."
 #create our smcp
 cat <<EOM | oc apply -n istio-system -f -
 apiVersion: maistra.io/v1
@@ -123,9 +127,22 @@ spec:
 EOM
 
 # install bookinfo
-export CONTROL_PLANE_NS=istio-system
+echo "Success, deploying bookinfo..."
 export BOOKINFO_NS=bookinfo
+export CONTROL_PLANE_NS=istio-system
 oc new-project ${BOOKINFO_NS}
+
+#wait for smcp to fully install
+echo -n "Waiting for smcp to fully install (this will take a few moments) ..."
+min_install_smcp=$(oc get smcp -n ${CONTROL_PLANE_NS} minimal-install 2>/dev/null | grep InstallSuccessful)
+while [ "${min_install_smcp}" == "" ]
+do
+    echo -n '.'
+    sleep 5
+    min_install_smcp=$(oc get smcp -n ${CONTROL_PLANE_NS} minimal-install 2>/dev/null | grep InstallSuccessful)
+done
+echo "done."
+
 oc -n ${CONTROL_PLANE_NS} patch --type='json' smmr default -p '[{"op": "add", "path": "/spec/members", "value":["'"${BOOKINFO_NS}"'"]}]'
 oc -n ${BOOKINFO_NS} apply -f https://raw.githubusercontent.com/Maistra/istio/maistra-1.1/samples/bookinfo/platform/kube/bookinfo.yaml
 oc -n ${BOOKINFO_NS} apply -f https://raw.githubusercontent.com/Maistra/istio/maistra-1.1/samples/bookinfo/networking/bookinfo-gateway.yaml
