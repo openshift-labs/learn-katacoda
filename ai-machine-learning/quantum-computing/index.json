@@ -22,6 +22,10 @@
             "code": "set-env.sh",
             "text": "intro.md"
         },
+        {
+            "title": "Step 1- Installing",
+            "text": "01-installation.md"
+        },
         "finish": {
             "text": "finish.md"
         },
