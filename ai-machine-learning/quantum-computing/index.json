@@ -1,0 +1,36 @@
+{
+    "icon": "fa-openshift",
+    "title": "Qiskit (OpenShift 4.4)",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "60 minutes",
+    "backend": {
+        "imageid": "openshift-4-4"
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "terminal-iframe"
+    },
+    "details": {
+        "steps": [{
+            "title": "Qiskit for Quantum Computing",
+            "text": "tips.md"
+        }],
+        "intro": {
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        {
+            "title": "Step 1- Installing",
+            "text": "01-installation.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+          "client": [{"file": "configure-scenario.sh", "target": "/var/tmp/"}]
+        }
+    }
+}
