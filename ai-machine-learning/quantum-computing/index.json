@@ -1,12 +1,12 @@
 {
     "icon": "fa-openshift",
-    "title": "Qiskit (OpenShift 4.4)",
+    "title": "Qiskit (OpenShift 4.2)",
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
     "time": "60 minutes",
     "backend": {
-        "imageid": "openshift-4-4"
+        "imageid": "openshift-4-2"
     },
     "environment": {
         "showdashboard": true,
