@@ -17,10 +17,6 @@
         "steps": [{
             "title": "Qiskit for Quantum Computing",
             "text": "tips.md"
-        },
-	{
-            "title": "Step 1 - Installation",
-            "text": "01-installation.md"
         }],
         "intro": {
             "code": "set-env.sh",
