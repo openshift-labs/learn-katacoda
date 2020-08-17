@@ -3,7 +3,7 @@
     "title": "Qiskit (OpenShift 4.4)",
     "description": "",
     "pathwayTitle": "OpenShift",
-    "difficulty": "intermediate",
+    "difficulty": "beginner",
     "time": "60 minutes",
     "backend": {
         "imageid": "openshift-4-4"
