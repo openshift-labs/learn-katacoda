@@ -41,5 +41,9 @@ token = your_IBMQ_account_token
 
 NOTE: When the pods are running enter Ctrl+c
 
+
+## Deploy an instance of the custom resource:
+``oc create -f operators-examples/qiskit-dev-operator/operator/deploy/crds/singhp11.io_v1_qiskitplayground_cr.yaml``{{execute}}
+
 ## The notebook is found on the exposed route
 ``oc get routes``{{execute}}
