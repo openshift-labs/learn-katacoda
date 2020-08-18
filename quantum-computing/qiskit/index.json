@@ -1,9 +1,9 @@
 {
     "icon": "fa-openshift",
-    "title": "Qiskit (OpenShift 4.4)",
+    "title": "Qiskit Quantum Computing on OpenShift (OpenShift 4.4)",
     "description": "",
     "pathwayTitle": "OpenShift",
-    "difficulty": "beginner",
+    "difficulty": "advanced",
     "time": "60 minutes",
     "backend": {
         "imageid": "openshift-4-4"

@@ -47,10 +47,6 @@
       "course_id": "thoth-s2i-provenance",
       "title": "Thoth S2I build with Provenance check on OpenShift"
     },
-      "external_link": "https://learn.openshift.com/ai-machine-learning/quantum-computing/",
-      "course_id": "quantum-computing",
-      "title": "Quantum Computing"
-    },
     {
       "external_link": "https://learn.openshift.com/ai-machine-learning/thoth-cli/",
       "course_id": "thoth-cli",
