@@ -6,7 +6,7 @@ This installation method will use the latest version of the operator image that 
 
 ## Custom Resource Definition
 Deploy the custom resource definition (CRD)
-``oc create -f operators-examples/qiskit-dev-operator/operator/deploy/crds/dobtech.io_qiskitplaygrounds_crd.yaml``{{execute}}
+``oc create -f operators-examples/qiskit-dev-operator/operator/deploy/crds/singhp11.io_v1_qiskitplayground_cr.yaml``{{execute}}
 
 ## Deploy the RBAC configuration:
 ``oc apply -f operators-examples/qiskit-dev-operator/operator/deploy/role.yaml``{{execute}}
@@ -15,27 +15,19 @@ Deploy the custom resource definition (CRD)
 
 ## Setting up authorization with IBMQ Account token
  
- - Edit the configuration file:
+Insert the value of the account token into the secret.cfg file.
+
 ``vi operators-examples/qiskit-dev-operator/operator/deploy/secret.cfg``{{execute}}
+
+NOTE: Use the token provided to you at https://quantum-computing.ibm.com/account.
+
+```
 [AUTH TOKENS]
 token = your_IBMQ_account_token
-``
-   - Convert the configuration to base64:
-``
-cat secret.cfg | base64
 ```
-  - Place the output in deploy/secret.yaml as:
-```
-apiVersion: v1
-kind: Secret
-metadata:
-	name: qiskit-secret
-type: Opaque
-data:
-	qiskit-secret.cfg: <base64 encoded secret.cfg>
-``
-## Deploy the secret
-``oc apply -f operators-examples/qiskit-dev-operator/operator/deploy/secret.yaml``{{execute}}
+
+## Create the secret
+``oc create secret generic qiskit-secret --from-file=qiskit-secret.cfg=operators-examples/qiskit-dev-operator/operator/deploy/secret.cfg``{{execute}}
 
 
 ## Deploy the operator itself:
