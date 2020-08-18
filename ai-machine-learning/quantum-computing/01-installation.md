@@ -6,6 +6,7 @@ This installation method will use the latest version of the operator image that 
 
 ## Custom Resource Definition
 Deploy the custom resource definition (CRD)
+``oc create -f operators-examples/qiskit-dev-operator/operator/deploy/crds/singhp11.io_qiskitplaygrounds_crd.yaml``{{execute}}
 ``oc create -f operators-examples/qiskit-dev-operator/operator/deploy/crds/singhp11.io_v1_qiskitplayground_cr.yaml``{{execute}}
 
 ## Deploy the RBAC configuration:
@@ -38,8 +39,7 @@ token = your_IBMQ_account_token
 
 ``oc get pods -w``{{execute}}
 
-## Deploy an instance of the custom resource:
-``oc apply -f operators-examples/qiskit-dev-operator/operator/deploy/crds/dobtech.io_v1_qiskitplayground_cr.yaml``{{execute}}
+NOTE: When the pods are running enter Ctrl+c
 
 ## The notebook is found on the exposed route
 ``oc get routes``{{execute}}
