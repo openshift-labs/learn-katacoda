@@ -17,6 +17,14 @@
         "steps": [{
             "title": "Installation",
             "text": "01-installation.md"
+        },
+	        {
+            "title": "Step 2 - Exploring the Deployment",
+            "text": "02-exploring-the-deploy.md"
+        },
+        {
+            "title": "Step 3 - Example workload",
+            "text": "03-example-workload.md"
         }],
         "intro": {
             "code": "set-env.sh",
