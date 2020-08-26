@@ -23,8 +23,8 @@ echo "create tutorial dir"
 mkdir -p $HOME/tutorial
 
 echo "setup GoLang Environment"
-wget https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz -P /tmp
-tar -C /usr/local -xzf /tmp/go1.13.1.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.15.linux-amd64.tar.gz-P /tmp
+tar -C /usr/local -xzf /tmp/go1.15.linux-amd64.tar.gz
 echo "export GOPATH=$HOME/tutorial/go" >> ~/.bashrc
 echo "export GOROOT=/usr/local/go" >> ~/.bashrc
 echo "export GOBIN=$GOPATH/bin" >> ~/.bashrc
@@ -39,6 +39,6 @@ echo "ensure needed dirs exists at GOPATH"
 mkdir -p $GOPATH/{src,pkg,bin}
 
 echo "install Operator sdk"
-wget https://github.com/operator-framework/operator-sdk/releases/download/v0.15.2/operator-sdk-v0.15.2-x86_64-linux-gnu 
-chmod +x operator-sdk-v0.15.2-x86_64-linux-gnu 
-mv operator-sdk-v0.15.2-x86_64-linux-gnu /root/tutorial/go/bin/operator-sdk
+wget https://github.com/operator-framework/operator-sdk/releases/download/v1.0.0/operator-sdk-v1.0.0-x86_64-linux-gnu 
+chmod +x operator-sdk-v1.0.0-x86_64-linux-gnu
+mv operator-sdk-v1.0.0-x86_64-linux-gnu /root/tutorial/go/bin/operator-sdk
