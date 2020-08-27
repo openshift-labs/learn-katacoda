@@ -26,8 +26,7 @@ Click the following command to create a new package in which we create our Route
 
 `mkdir -p /root/projects/kogito/coffeeshop/src/main/java/org/acme/camel`{{execute T3}}
 
-Click on the following path to create the `Coffee.java` file: `coffeeshop/src/main/java/org/acme/camel/CoffeeRouteBuilder.java`{{open}}
-
+Click on the following path to create the `CoffeeRouteBuilder.java` file: `coffeeshop/src/main/java/org/acme/camel/CoffeeRouteBuilder.java`{{open}}
 
 Click _Copy to Editor_ to implement the `CoffeeRouteBuilder`.
 

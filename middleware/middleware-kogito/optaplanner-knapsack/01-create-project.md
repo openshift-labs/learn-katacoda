@@ -15,7 +15,7 @@ OptaPlanner is an A.I. constraint satisfaction solver that enables us to find th
 
 The easiest way to create a new Quarkus project is to click the following Maven command:
 
-`mvn io.quarkus:quarkus-maven-plugin:1.4.1.Final:create \
+`mvn io.quarkus:quarkus-maven-plugin:1.7.0.Final:create \
     -DprojectGroupId=com.redhat \
     -DprojectArtifactId=knapsack-optaplanner-quarkus \
     -DclassName="com.redhat.knapsackoptaplanner.solver.KnapsackResource" \

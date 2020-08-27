@@ -5,7 +5,7 @@ In this step, we will create a Kogito application skeleton.
 
 To create a new Quarkus project with the Kogito extension, click the following command.
 
-`mvn io.quarkus:quarkus-maven-plugin:1.4.1.Final:create \
+`mvn io.quarkus:quarkus-maven-plugin:1.7.0.Final:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=coffeeshop \
     -Dextensions="org.kie.kogito:kogito-quarkus,io.quarkus:quarkus-smallrye-openapi"`{{execute}}
