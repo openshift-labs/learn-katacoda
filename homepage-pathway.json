@@ -5,58 +5,72 @@
     {
       "external_link": "https://learn.openshift.com/using-the-cluster/",
       "title": "Using OpenShift"
+      "description": "Learn the basics of OpenShift through deploying and managing a container"
     },
     {
       "external_link": "https://learn.openshift.com/subsystems/",
       "title": "Linux Container Fundamentals"
+      "description": "Understand container images, uses, and orchestration"
     },
     {
       "external_link": "https://learn.openshift.com/developing-on-openshift/",
       "title": "Developing on OpenShift"
+      "description": "Get started with the OpenShift console, odo, and building applications"
     },
     {
       "external_link": "https://learn.openshift.com/enterprise-java/",
       "title": "Enterprise Java Development"
+      "description": "Use Java runtimes and services hands-on with OpenShift"
     },
     {
       "external_link": "https://learn.openshift.com/developing-with-quarkus/",
       "title": "Developing with Quarkus"
+      "description": "Build applications using Quarkus, a Kubernetes Native Java stack"
     },
     {
       "external_link": "https://learn.openshift.com/developing-with-vertx/",
       "title": "Developing with Eclipse Vert.x"
+      "description": "Work with Eclipse Vert.x, a Java VM reactive toolkit"
     },
     {
       "external_link": "https://learn.openshift.com/developing-with-spring/",
       "title": "Developing with Spring and Spring Boot"
+      "description": "Discover REST apps, load balancing, & more using the Spring Boot runtime"
     },
     {
       "external_link": "https://learn.openshift.com/developing-with-kogito/",
       "title": "Developing with Kogito"
+      "description": "Automate business processes and workflow using the Kogito stack"
     },
     {
       "external_link": "https://learn.openshift.com/cicd-application-delivery/",
       "title": "CI/CD & Application Delivery"
+      "description": "Use GitOps and OpenShift Pipelines to automate and manage app deployment"
     },
     {
       "external_link": "https://learn.openshift.com/operatorframework/",
       "title": "Building Operators on OpenShift"
+      "description": "Create, configure, and manage apps using Kubernetes Operators"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/",
       "title": "Istio"
+      "description": "Learn Istio, the service mesh management platform for Kubernetes"
     },
     {
       "external_link": "https://learn.openshift.com/ai-machine-learning/",
       "title": "AI and Machine Learning on OpenShift"
+      "description": "Develop AI/ML on OpenShift with Jupyter, Prometheus, and Thoth"
     },
     {
       "external_link": "https://learn.openshift.com/persistence/",
       "title": "Adding Persistence to OpenShift"
+      "description": "Work with Container Storage and provision Persistent Volumes"
     },
     {
       "external_link": "https://learn.openshift.com/playgrounds/",
       "title": "OpenShift Playgrounds"
+      "description": "Feel free to play around with your own OpenShift cluster"
     }
   ]
 }
