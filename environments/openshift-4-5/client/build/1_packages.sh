@@ -2,7 +2,7 @@ yum install -y nc
 yum install -y vim man curl wget unzip zip git zsh tmux java-1.8.0-openjdk-devel tree git bash-completion net-tools python36 glibc-langpack-en rsync
 
 export MVN_VERSION=3.6.3
-export KUBECTL_VERSION=
+export KUBECTL_VERSION=v1.19.0
 export OC_VERSION=4.5
 export CAMEL_K_VERSION=1.0
 export HELM_VERSION=3.2.3
@@ -18,7 +18,7 @@ RUN wget http://www.eu.apache.org/dist/maven/maven-3/$MVN_VERSION/binaries/apach
 	mv apache-maven-$MVN_VERSION/ /usr/local/maven/ && \
 	alternatives --install /usr/bin/mvn mvn /usr/local/maven/apache-maven-$MVN_VERSION/bin/mvn 1
 
-curl -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.17.1/bin/linux/amd64/kubectl && chmod a+x /usr/local/bin/kubectl
+curl -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl && chmod a+x /usr/local/bin/kubectl
 
 curl -o oc.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/oc/$OC_VERSION/linux/oc.tar.gz && \
     tar -xvf oc.tar.gz && \
