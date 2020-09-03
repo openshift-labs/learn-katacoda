@@ -6,7 +6,7 @@ class from **TestNGCitrusTestDesigner**.
 
 _Note that you could also use JUnit in combination with Citrus._
 
-At first, lets test whether the TodoApp is responsive, by requesting the list of current todo entries from the apps API. 
+At first, let´s test whether the TodoApp is responsive, by requesting the list of current todo entries from the apps API. 
 <pre class="file" data-filename="citrus-sample/src/test/java/org/citrus/samples/TodoAppIT.java" data-target="insert" data-marker="// TODO: implement testGet">
 http(http -> http
            .client(todoClient)
@@ -33,7 +33,7 @@ You can run all Citrus tests with Maven by calling
  
 `mvn clean verify -f citrus-sample/pom.xml`{{execute}}
 
-You will see some log out put in the terminal window showing the incoming request processing.
+You will see some log output in the terminal window showing the incoming request processing.
 
 You can also start a single test by adding its name to the command:
 
