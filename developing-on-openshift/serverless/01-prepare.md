@@ -15,7 +15,7 @@ Since the install will take some time, let's take a moment to review the install
 ## Log in and install the operator
 To install an operator, you need to log in as an admin.
 
-![01-login](/openshift/assets/developing-on-openshift/serverless/01-prepare/01–login.png)
+![01-login](/openshift/assets/developing-on-openshift/serverless/01-prepare/01-login.png)
 
 Now logged in as an admin, open the *Operator Hub* and find and select the `OpenShift Serverless` operator.
 
@@ -42,7 +42,7 @@ Next, we need to use these new resources provided by the serverless operator to 
 ## Install KnativeServing
 As per the [Knative Serving Operator documentation][serving-docs] you must create a `KnativeServing` object to install Knative Serving using the OpenShift Serverless Operator.
 
-> **Note:** *Rembmer, these steps are for informational purposes only. **Do not** follow them in this instance as there already is an automated install running in the terminal.*
+> **Note:** *Remember, these steps are for informational purposes only. **Do not** follow them in this instance as there already is an automated install running in the terminal.*
 
 First we create the `knative-serving` project.
 
@@ -63,7 +63,7 @@ OpenShift Serverless should now be installed!
 ## Login as a Developer and Create a Project
 Before beginning we should change to the non-privileged user `developer` and create a new `project` for the tutorial.
 
-> **Note:** *Rembmer, these steps are for informational purposes only. **Do not** follow them in this instance as there already is an automated install running in the terminal.*
+> **Note:** *Remember, these steps are for informational purposes only. **Do not** follow them in this instance as there already is an automated install running in the terminal.*
 
 To change to the non-privileged user in our environment we login as username: `developer`, password: `developer`
 
