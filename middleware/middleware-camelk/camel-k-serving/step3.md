@@ -2,9 +2,6 @@
 
 The API integration can also run as Knative service and be able to scale to zero and scale out automatically, based on the received load.
 
-Setting RBAC for Camel K so it has right to work with Serverless.
-``oc apply -f serverless/role.yaml -n camel-api``{{execute}}
-
 To expose the integration as Knative service, you need to have OpenShift Serverless installed in the cluster. Let's subscribe to the OpenShift Serverless.
 
 ``oc apply -f serverless/subscription.yaml``{{execute}}
@@ -20,10 +17,9 @@ The KnativeServing instance will take a minute to install. As you might have not
 
 
 
-
 We can further validate an install being successful by seeing the following pods in knative-serving project:
 
-``oc get pod -n knative-serving -W``{{execute}}
+``oc get pod -n knative-serving -w ``{{execute}}
 
 When completed, you should see all pods with the status of Running.
 
@@ -38,3 +34,5 @@ webhook-55b96d44f6-k7qmk            1/1     Running   0          2m6s
 ```
 
 Ctrl-C to exit.
+
+Congratulations, you now have a serverless platform installed, lets move on and make our API application serverless.

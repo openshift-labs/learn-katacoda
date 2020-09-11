@@ -9,7 +9,7 @@ You have access to an OpenAPI standard document under `helper` called `openapi.y
 #### (OPTIONAL)
 The document is written in YAML, this is what it looks like.
 You can take this and view it in https://www.apicur.io, as a web based UI to design and view your OpenAPI based APIs.
-![serving-terminating](/openshift/assets/middleware/serverless/02-serving/terminating.png)
+![apicurio](/openshift/assets/middleware/middleware-camelk/camel-k-serving/Serving-Step2-01-API.png)
 
 
 ```
@@ -176,16 +176,22 @@ After the integration has reached the running state, you can get the route corre
 ``URL=http://$(oc get route api -o jsonpath='{.spec.host}')``{{execute}}
 
 Get the list of objects:
-``curl -i $URL/``{{execute}}
+``curl $URL/``{{execute}}
+
+Since there are nothing in the storage, you won't see anything for now.
 
 Upload an object:
-``curl -i -X PUT --header "Content-Type: application/octet-stream" --data-binary "@API.java" $URL/example``{{execute}}
+``curl -i -X PUT --header "Content-Type: application/octet-stream" --data-binary "/root/camel-api/API.java" $URL/example``{{execute}}
 
 Get the new list of objects:
 ``curl -i $URL/``{{execute}}
 
+You will see the *['example']* that we have just uploaded from previous step
+
 Get the content of a file:
 ``curl -i $URL/example``{{execute}}
+
+You will see what was in your *API.java* file
 
 Delete the file:
 ``curl -i -X DELETE $URL/example``{{execute}}
@@ -193,4 +199,10 @@ Delete the file:
 Get the list of objects for the last time:
 ``curl -i $URL/``{{execute}}
 
+The storage is emtpy again, so nothing will return.
+
 Congratulations, you now have a running Restful web Application base on the OpenAPI Document.
+
+Now, let's go ahead and uninstall the API instance.
+
+``kamel delete api``{{execute}}

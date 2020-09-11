@@ -21,16 +21,23 @@ We can see the route by executing:
 ``oc get routes.serving.knative.dev api -n camel-api``{{execute}}
 
 
-The Camel K API service will automatically scale down to zero if it does not get request for approximately 90 seconds. Try watching the service scaling down from OpenShift Dev Console.
+The Camel K API service will automatically scale down to zero if it does not get request for approximately 90 seconds. Try watching the service scaling down from [OpenShift Dev Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/camel-api/graph).
+
+![scalezero](/openshift/assets/middleware/middleware-camelk/camel-k-serving/Serving-Step4-01-scalezero.png)
 
 Invoking the service to see the service scaling up.
 ``URL=$(oc get routes.serving.knative.dev api -o jsonpath='{.status.url}')``{{execute}}
 
-Get the list of objects to wake up the service:
+Get the list of objects:
 
 ``curl -i $URL/``{{execute}}
 
-Watch the service scaling up from [OpenShift Dev Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com). If you wait at another 90 seconds without invoking the API, you'll find that the pod will disappear. Calling the API again will make the pod appear to serve the request.
+It should be empty.
+
+Watch the service scaling up from [OpenShift Dev Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/camel-api/graph). If you wait at another 90 seconds without invoking the API, you'll find that the pod will disappear. Calling the API again will make the pod appear to serve the request.
+
+![scaleup](/openshift/assets/middleware/middleware-camelk/camel-k-serving/Serving-Step4-02-scaleup.png)
+
 
 ## Congratulations
 
