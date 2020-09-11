@@ -1,0 +1,64 @@
+{
+    "icon": "fa-openshift",
+    "title": "Qiskit Quantum Computing on OpenShift (OpenShift 4.4)",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "advanced",
+    "time": "60 minutes",
+    "backend": {
+        "imageid": "openshift-4-4"
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [
+            {
+                "name": "Console",
+                "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+            }
+        ],
+        "uilayout": "terminal-iframe"
+    },
+    "details": {
+        "steps": [
+            {
+                "title": "Installation",
+                "text": "01-installation.md"
+            },
+            {
+                "title": "Step 2 - Exploring the Deployment",
+                "text": "02-exploring-the-deploy.md"
+            },
+            {
+                "title": "Step 3 - Example workload",
+                "text": "03-example-workload.md"
+            },
+            {
+                "title": "Step 4 - Introduction to OpenShift IBM Quantum Operator",
+                "text": "04-intro-ocp-ibm-quantum-operator.md"
+            },
+            {
+                "title": "Step 5 - Installing OpenShift IBM Quantum Operator",
+                "text": "05-installation-ocp-ibm-quantum-op.md"
+            },
+            {
+                "title": "Step 6 - Testing IBM Quantum Operator",
+                "text": "06-exploring-the-deploy.md"
+            }
+        ],
+        "intro": {
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+            "client": [
+                {
+                    "file": "configure-scenario.sh",
+                    "target": "/var/tmp/"
+                }
+            ]
+        }
+    }
+}
