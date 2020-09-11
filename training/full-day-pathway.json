@@ -16,16 +16,16 @@
         },
         {
             "pathway_id": "openshift/introduction",
-            "id": "deploying-images",
-            "course_id": "deploying-images",
-            "title": "Deploying Applications From Images"
-        },
-        {
-            "pathway_id": "openshift/introduction",
             "id": "getting-started",
             "course_id": "getting-started",
             "title": "Getting Started with OpenShift for Developers"
-        },        
+        }, 
+        {
+            "pathway_id": "openshift/introduction",
+            "id": "deploying-images",
+            "course_id": "deploying-images",
+            "title": "Deploying Applications From Images"
+        },               
         {
             "pathway_id": "openshift/introduction",
             "id": "deploying-python",
@@ -39,52 +39,22 @@
             "title": "Getting Started with Helm 3 on OpenShift"
         },
         {
-            "pathway_id": "openshift/developing-on-openshift",
-            "id": "serverless",
-            "course_id": "serverless",
-            "title": "Getting Started with OpenShift Serverless"
+            "pathway_id": "openshift/introduction",
+            "id": "resource-objects",
+            "course_id": "resource-objects",
+            "title": "Using the CLI to Manage Resource Objects"
         },
         {
-            "pathway_id": "openshift/middleware",
-            "id": "middleware-javaee8",
-            "course_id": "middleware-javaee8",
-            "title": "Java EE 8 Development"
+            "pathway_id": "openshift/introduction",
+            "id": "developing-with-odo",
+            "course_id": "developing-with-odo",
+            "title": "Developing with odo"
         },
         {
-            "pathway_id": "openshift/middleware/middleware-camelk",
-            "id": "camel-k-basic",
-            "course_id": "camel-k-basic",
-            "title": "Getting Started with Camel K"
-        },
-        {
-            "pathway_id": "openshift/middleware",
-            "id": "amq-getting-started-broker",
-            "course_id": "amq-getting-started-broker",
-            "title": "Application Messaging with Openshift"
-        },
-        {
-            "pathway_id": "openshift/middleware",
-            "id": "rhoar-getting-started-thorntail",
-            "course_id": "rhoar-getting-started-thorntail",
-            "title": "Thorntail development"
-        },
-        {
-            "pathway_id": "openshift/middleware",
-            "id": "rhoar-getting-started-rhdg",
-            "course_id": "rhoar-getting-started-rhdg",
-            "title": "Red Hat Data Grid development"
-        },
-        {
-            "pathway_id": "openshift/middleware",
-            "id": "java-batch-processing",
-            "course_id": "java-batch-processing",
-            "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret"
-        },
-        {
-            "pathway_id": "openshift/middleware",
-            "id": "debezium-getting-started",
-            "course_id": "debezium-getting-started",
-            "title": "Debezium deployment"
+            "pathway_id": "openshift/introduction",
+            "id": "port-forwarding",
+            "course_id": "port-forwarding",
+            "title": "Connecting to a Database Using Port Forwarding"
         },
         {
             "pathway_id": "openshift/middleware/middleware-quarkus",
@@ -92,111 +62,6 @@
             "course_id": "getting-started",
             "title": "Quarkus workshop: Getting Started with Quarkus",
             "description": "Supersonic, Subatomic Java with Quarkus"
-        },
-        {
-        "pathway_id": "openshift/middleware/middleware-quarkus",
-            "id": "kafka",
-            "course_id": "kafka",
-            "title": "Reactive Streaming with Quarkus and Kafka",
-            "description": "How Quarkus uses MicroProfile Reactive Messaging to interact with Apache Kafka"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-quarkus",
-            "id": "spring",
-            "course_id": "spring",
-            "title": "Quarkus for Spring Boot Developers",
-            "description": "Use familiar Spring APIs and annotations to build a Quarkus app"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-quarkus",
-            "id": "monitoring",
-            "course_id": "monitoring",
-            "title": "Monitoring Quarkus with Prometheus and Grafana",
-            "description": "Visualizing Quarkus application metrics with open source monitoring tools"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-quarkus",
-            "id": "reactive-sql",
-            "course_id": "reactive-sql",
-            "title": "Reactive programming with Quarkus Reactive SQL",
-            "description": "Reactive programming with Quarkus and the Reactive SQL extension"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-quarkus",
-            "id": "panache",
-            "course_id": "panache",
-            "title": "Quarkus workshop: Effective Data with Hibernate and Panache",
-            "description": "Making entities trivial and fun to write in Quarkus"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-spring-boot",
-            "id": "spring-getting-started",
-            "course_id": "spring-getting-started",
-            "title": "Getting Started with Spring",
-            "description": "Basic Introduction to Spring on Red Hat OpenShift"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-spring-boot",
-            "id": "spring-mvc",
-            "course_id": "spring-mvc",
-            "title": "Spring MVC",
-            "description": "Model/View/Controller pattern with Spring's MVC framework."
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-spring-boot",
-            "id": "spring-rest-services",
-            "course_id": "spring-rest-services",
-            "title": "Spring REST",
-            "description": "RESTful applications using Spring Rest"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-spring-boot",
-            "id": "spring-db-access",
-            "course_id": "spring-db-access",
-            "title": "Spring Data with JPA/Hibernate",
-            "description": "Database Integration in Spring Boot on OpenShift"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-spring-boot",
-            "id": "spring-messaging",
-            "course_id": "spring-messaging",
-            "title": "Spring Messaging with Red Hat AMQ",
-            "description": "Modern Distributed microservices using Red Hat messaging"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-spring-boot",
-            "id": "arquillian-cube",
-            "course_id": "arquillian-cube",
-            "title": "Testing Spring Applications with Arquillian Cube",
-            "description": "Integration testing in a containerized environment"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-spring-boot",
-            "id": "microservices-1",
-            "course_id": "microservices-1",
-            "title": "Externalized Configuration",
-            "description": "Externalized Configuration and Health Checks"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-spring-boot",
-            "id": "microservices-2",
-            "course_id": "microservices-2",
-            "title": "Service Discovery and Load Balancing",
-            "description": "Service Discovery and Load Balancing"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-spring-boot",
-            "id": "microservices-3",
-            "course_id": "microservices-3",
-            "title": "Fault Tolerance and Resiliency",
-            "description": "Circuit Breaking"
-        },
-        {
-            "pathway_id": "openshift/middleware/middleware-spring-boot",
-            "id": "monitoring",
-            "course_id": "monitoring",
-            "title": "Monitoring Spring Applications on OpenShift",
-            "description": "Using Spring monitoring tools on OpenShift to keep your applications healthy"
         },
         {
             "pathway_id": "openshift/introduction",
@@ -215,6 +80,12 @@
             "id": "jupyter-notebooks",
             "course_id": "jupyter-notebooks",
             "title": "Deploying a Jupyter Notebook Image"
+        },
+        {
+            "pathway_id": "openshift/developing-on-openshift",
+            "id": "serverless",
+            "course_id": "serverless",
+            "title": "Getting Started with OpenShift Serverless"
         }  
     ]
 }
