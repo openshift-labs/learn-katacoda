@@ -167,7 +167,15 @@ Make sure the integration is running, by checking its status:
 
 ``oc get integrations``{{execute}}
 
-An integration named api should be present in the list and it should be in status Running. There's also a kamel get command which is an alternative way to list all running integrations.
+An integration named api should be present in the list and it should be in status Running.
+
+``
+NAME    PHASE   KIT
+api     Running kit-bte009bi9eodqqhokkkg
+``
+
+There's also a kamel get command which is an alternative way to list all running integrations.
+``kamel get ``{{execute}}
 
 NOTE: it may take some time, the first time you run the integration, for it to reach the Running state.
 

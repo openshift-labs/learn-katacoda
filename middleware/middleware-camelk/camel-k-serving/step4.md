@@ -11,6 +11,12 @@ Check the integrations to see when they are ready:
 
 ``oc get integrations``{{execute}}
 
+An integration named api should be present in the list and it should be in status Running.
+
+``
+NAME    PHASE   KIT
+api     Running kit-bte009bi9eodqqhokkkg
+``
 We can see the Serverless Service that we just created by executing:
 
 ``oc get services.serving.knative.dev api -n camel-api``{{execute}}
@@ -34,7 +40,7 @@ Get the list of objects:
 
 It should be empty.
 
-Watch the service scaling up from [OpenShift Dev Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/camel-api/graph). If you wait at another 90 seconds without invoking the API, you'll find that the pod will disappear. Calling the API again will make the pod appear to serve the request.
+Watch the service scaling up from [OpenShift Dev Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/camel-api/graph) login with *admin/admin*. If you wait at another 90 seconds without invoking the API, you'll find that the pod will disappear. Calling the API again will make the pod appear to serve the request.
 
 ![scaleup](/openshift/assets/middleware/middleware-camelk/camel-k-serving/Serving-Step4-02-scaleup.png)
 
