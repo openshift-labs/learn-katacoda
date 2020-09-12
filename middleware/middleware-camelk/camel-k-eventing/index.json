@@ -45,7 +45,7 @@
 	      "client": [
 	        { "file": "channel/audit-channel.yaml", "target": "~/channel/" },
 	        { "file": "serverless/serving.yaml", "target": "~/serverless/" },
-	        { "file": "serverless/eventing.yaml", "target": "~/serverless/" }.
+	        { "file": "serverless/eventing.yaml", "target": "~/serverless/" },
 	        { "file": "serverless/subscription.yaml", "target": "~/serverless/" }
 	      ]
 	    }
