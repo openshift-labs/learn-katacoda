@@ -1,0 +1,161 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: camel-k-operator
+  namespace: camel-api
+  labels:
+    app: camel-k
+rules:
+  - verbs:
+      - '*'
+    apiGroups:
+      - camel.apache.org
+    resources:
+      - '*'
+  - verbs:
+      - '*'
+    apiGroups:
+      - serving.knative.dev
+    resources:
+      - '*'
+  - verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    apiGroups:
+      - ''
+    resources:
+      - pods
+      - services
+      - endpoints
+      - persistentvolumeclaims
+      - configmaps
+      - secrets
+      - serviceaccounts
+  - verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    apiGroups:
+      - rbac.authorization.k8s.io
+    resources:
+      - roles
+      - rolebindings
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - ''
+    resources:
+      - events
+  - verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    apiGroups:
+      - apps
+    resources:
+      - deployments
+      - replicasets
+      - statefulsets
+  - verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    apiGroups:
+      - batch
+    resources:
+      - cronjobs
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - apps
+    resources:
+      - daemonsets
+  - verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    apiGroups:
+      - ''
+      - build.openshift.io
+    resources:
+      - buildconfigs
+      - buildconfigs/webhooks
+      - builds
+  - verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    apiGroups:
+      - ''
+      - image.openshift.io
+    resources:
+      - imagestreamimages
+      - imagestreammappings
+      - imagestreams
+      - imagestreams/secrets
+      - imagestreamtags
+  - verbs:
+      - create
+    apiGroups:
+      - ''
+      - build.openshift.io
+    resources:
+      - buildconfigs/instantiate
+      - buildconfigs/instantiatebinary
+      - builds/clone
+  - verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    apiGroups:
+      - ''
+      - route.openshift.io
+    resources:
+      - routes
+  - verbs:
+      - create
+    apiGroups:
+      - ''
+      - route.openshift.io
+    resources:
+      - routes/custom-host

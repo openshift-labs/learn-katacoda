@@ -36,9 +36,11 @@
       "title": "Developing with Kogito"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-k-basic/",
-      "course_id": "camel-k-basic",
-      "title": "Getting Started with Camel K"
+      "action": "Start Course",
+      "count": 2,
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/",
+      "course_id": "middleware-camelk",
+      "title": "Developing with Camel K"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/amq-getting-started-broker/",
