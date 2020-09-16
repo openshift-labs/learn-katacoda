@@ -50,7 +50,7 @@
     {
       "external_link": "https://learn.openshift.com/operatorframework/",
       "title": "Building Operators on OpenShift",
-      "description": "Package, deploy, and manage Kubernetes applications using Operators"
+      "description": "Package, deploy, and manage Kubernetes apps using Operators"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/",
