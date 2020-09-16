@@ -15,17 +15,17 @@
     {
       "external_link": "https://learn.openshift.com/developing-on-openshift/",
       "title": "Developing on OpenShift",
-      "description": "Get started with the OpenShift console, odo, and building applications"
+      "description": "Get started with the OpenShift console, odo, and building apps"
     },
     {
       "external_link": "https://learn.openshift.com/enterprise-java/",
       "title": "Enterprise Java Development",
-      "description": "Use Java runtimes and services hands-on with OpenShift"
+      "description": "Use Java runtimes and services with OpenShift"
     },
     {
       "external_link": "https://learn.openshift.com/developing-with-quarkus/",
       "title": "Developing with Quarkus",
-      "description": "Build applications using Quarkus, a Kubernetes Native Java stack"
+      "description": "Build apps using Quarkus, a Kubernetes Native Java stack"
     },
     {
       "external_link": "https://learn.openshift.com/developing-with-vertx/",
@@ -50,7 +50,7 @@
     {
       "external_link": "https://learn.openshift.com/operatorframework/",
       "title": "Building Operators on OpenShift",
-      "description": "Create, configure, and manage apps using Kubernetes Operators"
+      "description": "Package, deploy, and manage Kubernetes applications using Operators"
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/",
@@ -70,7 +70,7 @@
     {
       "external_link": "https://learn.openshift.com/playgrounds/",
       "title": "OpenShift Playgrounds",
-      "description": "Feel free to play around with your own OpenShift cluster"
+      "description": "Explore and experiment with an OpenShift cluster for 60 minutes"
     }
   ]
 }
