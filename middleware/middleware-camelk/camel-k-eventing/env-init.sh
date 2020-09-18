@@ -8,5 +8,9 @@ echo "test"
 mkdir camel-api
 
 
-oc apply -f serverless/subscription.yaml
-oc apply -f serverless/serving.yaml
+oc apply -f https://raw.githubusercontent.com/weimeilin79/learn-katacoda/master/middleware/middleware-camelk/camel-k-eventing/assets/serverless/subscription.yaml
+
+timeout 30 >nul
+
+oc apply -f https://raw.githubusercontent.com/weimeilin79/learn-katacoda/master/middleware/middleware-camelk/camel-k-eventing/assets/serverless/serving.yaml
+oc apply -f https://raw.githubusercontent.com/weimeilin79/learn-katacoda/master/middleware/middleware-camelk/camel-k-eventing/assets/serverless/eventing.yaml
