@@ -7,5 +7,5 @@ apiVersion: operator.knative.dev/v1alpha1
 kind: KnativeEventing
 metadata:
   name: knative-eventing
-  namespace: knative-serving
+  namespace: knative-eventing
 spec: {}
