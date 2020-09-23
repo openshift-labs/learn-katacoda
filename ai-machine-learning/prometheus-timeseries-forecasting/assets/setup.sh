@@ -12,4 +12,4 @@ oc process notebook-deployer -p APPLICATION_NAME=pad-workshop -p NOTEBOOK_IMAGE=
 clear
 
 echo -e "The environment should be ready in a few minutes."
-echo -e "Once ready, the url to access the Jupyter Notebooks is: \n http://$(oc get route pad-workshop -o jsonpath='{.spec.host}' -n myproject) \n\n"
+echo -e "Once ready, the url to access the Jupyter Notebooks is: \n https://$(oc get route pad-workshop -o jsonpath='{.spec.host}' -n myproject) \n\n"
