@@ -29,5 +29,5 @@ oc rollout latest prometheus-demo
 oc logs bc/prometheus-anomaly-detection-workshop -f
 clear
 echo -e "The environment should be ready in a few seconds"
-echo -e "The url to access the Jupyter Notebooks is: \n http://$(oc get route prometheus-anomaly-detection-workshop -o jsonpath='{.spec.host}' -n myproject) \n\n"
+echo -e "The url to access the Jupyter Notebooks is: \n https://$(oc get route prometheus-anomaly-detection-workshop -o jsonpath='{.spec.host}' -n myproject) \n\n"
 echo -e "Prometheus Console is available at: \n http://$(oc get route prometheus-demo-route -o jsonpath='{.spec.host}' -n myproject)"
