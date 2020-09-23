@@ -6,14 +6,14 @@
     "difficulty": "beginner",
     "time": "30 minutes",
     "backend": {
-        "imageid": "openshift-4-4"
+        "imageid": "openshift-4-5"
     },
     "environment": {
         "showdashboard": true,
         "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
         "uilayout": "editor-terminal",
     		"uisettings": "java",
-        "uieditorpath": "/root/camel-api"
+        "uieditorpath": "/root/camel-eventing"
     },
     "details": {
         "steps": [

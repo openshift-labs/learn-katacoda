@@ -1,141 +1,65 @@
-## Running the API integration
+## Bitcoin realtime trading analyzes system
 
-You have access to an OpenAPI standard document under `helper` called `openapi.yaml`, that contains operations for:
- - Listing the name of the contained objects
- - Creating a new object
- - Getting the content of an object
- - Deleting an object
+The example shows a simplified trading system that analyzes price variations of Bitcoins (BTC / USDT), using different prediction algorithms, and informs downstream services when it's time to buy or sell bitcoins (via CloudEvents). It uses real data from the bitcoin exchange market, obtained in real time via the Camel XChange component.
 
-#### (OPTIONAL)
-The document is written in YAML, this is what it looks like.
-You can take this and view it in https://www.apicur.io, as a web based UI to design and view your OpenAPI based APIs.
-![apicurio](/openshift/assets/middleware/middleware-camelk/camel-k-serving/Serving-Step2-01-API.png)
+####Enabling the Knative Eventing Broker
 
+The central piece of the event mesh that we're going to create is the Knative Eventing broker. It is a publish/subscribe entity that Camel K integrations will use to publish events or subscribe to it in order to being triggered when events of specific types are available. Subscribers of the eventing broker are Knative serving services, that can scale down to zero when no events are available for them.
 
-```
-openapi: 3.0.2
-info:
-    title: Camel K Object API
-    version: 1.0.0
-    description: A CRUD API for an object store
-paths:
-    /:
-        get:
-            responses:
-                '200':
-                    content:
-                        application/json:
-                            schema:
-                                type: array
-                                items:
-                                    type: string
-                    description: Object list
-            operationId: list
-            summary: List the objects
-    '/{name}':
-        get:
-            responses:
-                '200':
-                    content:
-                        application/octet-stream: {}
-                    description: The object content
-            operationId: get
-            summary: Get the content of an object
-        put:
-            requestBody:
-                description: The object content
-                content:
-                    application/octet-stream: {}
-                required: true
-            responses:
-                '200':
-                    description: The object has been created
-            operationId: create
-            summary: Save an object
-        delete:
-            responses:
-                '204':
-                    description: Object has been deleted
-            operationId: delete
-            summary: Delete an object
-        parameters:
-            -
-                name: name
-                description: Name of the object
-                schema:
-                    type: string
-                in: path
-                required: true
-    /list:
-        get:
-            responses:
-                '200':
-                    content:
-                        application/json:
-                            schema:
-                                type: array
-                                items:
-                                    type: string
-            operationId: list
-            summary: List the objects
+Go back to the working namespace
+``oc project camel-knative``{{execute}}
 
-```
+To enable the eventing broker, we create a default broker in the current namespace using namespace labeling:
+``oc label namespace camel-knative knative-eventing-injection=enabled``{{execute}}
 
-
-
-#### IMPLEMENT API WIH CAMEL K
-Let's create the camel route that implements the operations that was defined in the API.  
-Go to the text editor on the right, under the folder /root/camel-api. Right click on the directory and choose New -> File and name it `API.java`.
+#### Loading the external live data
+Now, let's go ahead and start taking live data from the Bitcoin market and pushing it to the event mesh.
+Go to the text editor on the right, under the folder /root/camel-knative. Right click on the directory and choose New -> File and name it `market-source.yaml`.
+Create the camel route loads Bitcoin market data every 10 seconds.   
 
 Paste the following code into the application.
 
-<pre class="file" data-filename="API.java" data-target="replace">
-// camel-k: language=java
-
-import org.apache.camel.builder.AggregationStrategies;
-import org.apache.camel.builder.RouteBuilder;
-
-public class API extends RouteBuilder {
-  @Override
-  public void configure() throws Exception {
-
-    // All endpoints starting from "direct:..." reference an operationId defined in the "openapi.yaml" file.
-
-    // List the object names available in the S3 bucket
-    from("direct:list")
-      .to("aws-s3://{{api.bucket}}?operation=listObjects")
-      .transform().simple("${body.objectSummaries}")
-      .split(simple("${body}"), AggregationStrategies.groupedBody())
-        .transform().simple("${body.key}")
-      .end()
-      .marshal().json();
-
-    // Get an object from the S3 bucket
-    from("direct:get")
-      .setHeader("CamelAwsS3Key", simple("${header.name}"))
-      .to("aws-s3://{{api.bucket}}?operation=getObject")
-      .setHeader("Content-Type", simple("${body.objectMetadata.contentType}"))
-      .transform().simple("${body.objectContent}");
-
-    // Upload a new object into the S3 bucket
-    from("direct:create")
-      .setHeader("CamelAwsS3Key", simple("${header.name}"))
-      .to("aws-s3://{{api.bucket}}");
-
-    // Delete an object from the S3 bucket
-    from("direct:delete")
-    .setHeader("CamelAwsS3Key", simple("${header.name}"))
-    .to("aws-s3://{{api.bucket}}?operation=deleteObject")
-    .setBody().constant("");
-
-  }
-}
+<pre class="file" data-filename="market-source.yaml" data-target="replace">
+# Apache Camel Timer Source
+#
+# Timer Component documentation: https://camel.apache.org/components/latest/timer-component.html
+#
+# List of available Apache Camel components: https://camel.apache.org/components/latest/
+#
+apiVersion: sources.knative.dev/v1alpha1
+kind: CamelSource
+metadata:
+  name: market-source
+spec:
+  source:
+    integration:
+      dependencies:
+      - camel:jackson
+    flow:
+      from:
+        uri: timer:tick
+        parameters:
+          period: 10000
+        steps:
+          - to: "xchange:binance?service=marketdata&method=ticker&currencyPair=BTC/USDT"
+          - marshal:
+              json: {}
+          - log:
+              message: "Sending BTC/USDT data to the broker: ${body}"
+          - set-header:
+              name: CE-Type
+              constant: market.btc.usdt
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1beta1
+      kind: Broker
+      name: default
 
 </pre>
 
-Let's add the for configuring and connecting to Minio.  
-Go to the text editor on the right, under the folder /root/camel-api. Right click on the directory and choose New -> File and name it `minio.properties`.
+Start the Camel K application
 
+``oc apply -f camel-knative/market-source.yaml -n camel-knative`` {{execute}}
 
 <pre class="file" data-filename="minio.properties" data-target="replace">
 # Bucket (referenced in the routes)
