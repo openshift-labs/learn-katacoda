@@ -10,6 +10,27 @@ You will then able able to login with admin permissions with:
 * **Password:** ``admin``{{copy}}
 
 
+## Installing Camel K from the OpenShift OperatorHub
+Camel K Operator can be deployed on the OpenShift cluster from the OperatorHub. The OperatorHub is available from the OpenShift Container Platform web console and provides an interface for cluster administrators to discover and install Operators.
+
+It is responsible for building, deploying Camel Applications and also creating surrounding resources. It is also responsible for watching any code or configuration updates and automatically updates it. To install simply run the command.
+
+Create a new OpenShift project ``camel-knative``, in the left navigation menu, click *Home* > *Project* > *Create Project*.
+Enter a project name, for example, ``camel-knative``, and click *Create*.
+
+In the left navigation menu, click *Catalog* > *OperatorHub*
+In the Filter by keyword text box, enter Camel K to find the *Camel K Operator*.
+Read the information about the Operator, and click *Install*. This displays the Create Operator Subscription page.
+
+Select the following subscription settings:
+- Update Channel > *Stable*
+- Installation Mode > *All namespaces on the cluster (default)*
+- Approval Strategy > Automatic
+
+Click Subscribe. This displays the Operators > Installed Operators page.
+
+Wait a few moments until the Status for the Camel K Operator displays Succeeded and the subscription is Up to Date.
+
 ## Logging in to the Cluster via CLI
 
 Before creating any applications, login as admin. This will be required if you want to log in to the web console and
@@ -25,36 +46,6 @@ This will log you in using the credentials:
 * **Password:** ``admin``
 
 Use the same credentials to log into the web console.
-
-
-## Creating your own Project
-
-To create a new project called ``camel-knative`` run the command:
-
-``oc new-project camel-knative``{{execute}}
-
-## Install Camel K Operator
-
-The Catalog Operator is responsible for building, deploying Camel Applications and also creating surrounding resources. It is also responsible for watching any code or configuration updates and automatically updates it. To install simply run the command.
-
-
-``kamel install``{{execute}}
-
- you will see this prompt:
-
-```
-Camel K installed in namespace camel-knative
-```
-
-To check if Camel K operator has successfully installed,
-``oc get pod -w``{{execute}}
-
-once camel-k-operator starts the Running status, it means it is successfully installed.
-```
-NAME                                READY   STATUS    RESTARTS   AGE
-camel-k-operator-554df8d75c-d2dx5   1/1     Running   0          84s
-```
-Ctrl+C to exit the command.
 
 ## Setup Knative Eventing
 

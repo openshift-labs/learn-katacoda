@@ -2,12 +2,13 @@
 
 The example shows a simplified trading system that analyzes price variations of Bitcoins (BTC / USDT), using different prediction algorithms, and informs downstream services when it's time to buy or sell bitcoins (via CloudEvents). It uses real data from the bitcoin exchange market, obtained in real time via the Camel XChange component.
 
-####Enabling the Knative Eventing Broker
+#### Enabling the Knative Eventing Broker
 
 The central piece of the event mesh that we're going to create is the Knative Eventing broker. It is a publish/subscribe entity that Camel K integrations will use to publish events or subscribe to it in order to being triggered when events of specific types are available. Subscribers of the eventing broker are Knative serving services, that can scale down to zero when no events are available for them.
 
-Go back to the working namespace
-``oc project camel-knative``{{execute}}
+Creating your own Project
+``oc new-project camel-knative``{{execute}}
+
 
 To enable the eventing broker, we create a default broker in the current namespace using namespace labeling:
 ``oc label namespace camel-knative knative-eventing-injection=enabled``{{execute}}
