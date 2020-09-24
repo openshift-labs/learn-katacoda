@@ -2,14 +2,13 @@ yum install -y nc
 yum install -y vim man curl wget unzip zip git zsh tmux java-1.8.0-openjdk-devel tree git bash-completion net-tools python36 glibc-langpack-en rsync
 
 export MVN_VERSION=3.6.3
-export KUBECTL_VERSION=v1.19.0
 export OC_VERSION=4.5
 export CAMEL_K_VERSION=1.0
 export HELM_VERSION=3.2.3
-export ODO_VERSION=1.2.5
+export ODO_VERSION=2.0.0
 export TKN_VERSION=0.11.0
-export KN_VERSION=0.14.0
-export KOGITO_VERSION=0.14.0
+export KN_VERSION=0.15.2
+export KOGITO_VERSION=0.15.0
 
 wget http://www.eu.apache.org/dist/maven/maven-3/$MVN_VERSION/binaries/apache-maven-$MVN_VERSION-bin.tar.gz && \
     tar xzf apache-maven-$MVN_VERSION-bin.tar.gz && \
@@ -18,13 +17,13 @@ wget http://www.eu.apache.org/dist/maven/maven-3/$MVN_VERSION/binaries/apache-ma
     mv apache-maven-$MVN_VERSION/ /usr/local/maven/ && \
     alternatives --install /usr/bin/mvn mvn /usr/local/maven/apache-maven-$MVN_VERSION/bin/mvn 1
 
-curl -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl && chmod a+x /usr/local/bin/kubectl
-
-curl -o oc.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/oc/$OC_VERSION/linux/oc.tar.gz && \
+curl -o oc.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable-$OC_VERSION/openshift-client-linux.tar.gz && \
     tar -xvf oc.tar.gz && \
-    rm -f oc.tar.gz && \
+    rm -f oc.tar.gz README.md && \
     mv oc /usr/bin/oc && \
-    chmod +x /usr/bin/oc
+    mv kubectl /usr/bin/kubectl && \
+    chmod +x /usr/bin/oc && \
+    chmod +x /usr/bin/kubectl
 
 curl -o camel_k.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/camel-k/$CAMEL_K_VERSION/camel-k-client-$CAMEL_K_VERSION-linux-64bit.tar.gz && \
     tar -xvf camel_k.tar.gz && \
