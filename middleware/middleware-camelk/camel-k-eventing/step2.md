@@ -60,7 +60,72 @@ spec:
 
 Start the Camel K application
 
-``oc apply -f camel-knative/market-source.yaml -n camel-knative`` {{execute}}
+``oc apply -f camel-eventing/market-source.yaml -n camel-knative``{{execute}}
+
+The command above will run the integration and wait for it to run, then it will show the logs in the console.
+
+To exit the log view, just click here{.didact} or hit ctrl+c on the terminal window. The integration will keep running on the cluster.
+
+#### Run a prediction algorithms
+
+The market data feed available in the mesh can be now used to create different prediction algorithms that can publish events when they believe it's the right time to sell or buy bitcoins, depending on the trend of the exchange.
+
+In this example, we're going to run the same (basic) algorithm{.didact} with different parameters, obtaining two predictors. The algorithm is basic and it's just computing if the BTC variation respect to the last observed value is higher than a threshold (expressed in percentage). The algorithm is bound to the event mesh via the Predictor.java{.didact} integration file.
+
+In real life, algorithms can be also much more complicated. For example, Camel K can be used to bridge an external machine learning as-a-service system that will compute much more accurate predictions. Algorithms can also be developed with other ad hoc tools and plugged directly inside the Knative mesh using the Knative APIs.
+
+
+
+Go to the text editor on the right, under the folder /root/camel-knative. Right click on the directory and choose New -> File and name it `Predictor.java`.
+Paste the following code into the application.
+
+<pre class="file" data-filename="Predictor.java" data-target="replace">
+// camel-k: language=java
+
+import org.apache.camel.builder.RouteBuilder;
+
+public class Predictor extends RouteBuilder {
+
+  @Override
+  public void configure() throws Exception {
+
+      from("knative:event/market.btc.usdt")
+        .unmarshal().json()
+        .transform().simple("${body[last]}")
+        .log("Latest value for BTC/USDT is: ${body}")
+        .to("seda:evaluate?waitForTaskToComplete=Never")
+        .setBody().constant("");
+
+      from("seda:evaluate")
+        .bean("algorithm")
+        .choice()
+          .when(body().isNotNull())
+            .log("Predicted action: ${body}")
+            .to("direct:publish");
+
+      from("direct:publish")
+        .marshal().json()
+        .removeHeaders("*")
+        .setHeader("CE-Type", constant("predictor.{{predictor.name}}"))
+        .to("knative:event");
+
+  }
+
+}
+
+</pre>
+
+The first predictor that we're going to run is called simple-predictor:
+
+``kamel run --name simple-predictor -p predictor.name=simple camel-eventing/Predictor.java algorithms/SimpleAlgorithm.java -t knative-service.max-scale=1 --logs``{{execute}}
+
+The command above will deploy the integration and wait for it to run, then it will show the logs in the console.
+
+To exit the log view, just click here{.didact} or hit ctrl+c on the terminal window. The integration will keep running on the cluster.
+
+
+Let go ahead and read the market events and create a predictor for market
+
 
 <pre class="file" data-filename="minio.properties" data-target="replace">
 # Bucket (referenced in the routes)
