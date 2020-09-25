@@ -26,7 +26,11 @@ Now, we will deploy Grafana and connect it to our Prometheus instance, so we are
 `oc expose svc/grafana -n pad-monitoring`{{execute}}
 
 * In about a minute, the Grafana console should be available at: <br>
-http://grafana-pad-monitoring.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
+https://grafana-pad-monitoring.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
+
+* You might see a warning like in the image below, this is because we don't generate valid ssl certificates for all our routes. You can click on `Advanced...` and then click on `Accept the Risk and Continue` to continue to the Grafana login page.
+
+  ![Cert Warning Page](../../assets/introduction/deploy-prometheus-grafana/03-cert-warning-page.png)
 
 The default credentials for Grafana are:
   * username: `admin`{{copy}}
