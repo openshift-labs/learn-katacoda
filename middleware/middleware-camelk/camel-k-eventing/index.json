@@ -43,7 +43,7 @@
 	    },
 	    "assets": {
 	      "client": [
-	      	{ "file": "algorithms/SimpleAlgorithm.java", "target": "~/algorithms/" }
+	      	{ "file": "algorithms/SimpleAlgorithm.java", "target": "~/algorithms/" },
 	        { "file": "serverless/serving.yaml", "target": "~/serverless/" },
 	        { "file": "serverless/eventing.yaml", "target": "~/serverless/" },
 	        { "file": "serverless/subscription.yaml", "target": "~/serverless/" }
