@@ -53,6 +53,8 @@ type PodSetStatus struct {
 // +kubebuilder:subresource:status
 
 // PodSet is the Schema for the podsets API
+// +kubebuilder:printcolumn:name="Replicas",type=string,JSONPath=`.spec.replicas`
+// +kubebuilder:printcolumn:name="Pod Names",type=string,JSONPath=`.status.podNames`
 type PodSet struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
@@ -82,28 +84,28 @@ You can easily update this file by running the following command:
 wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/podset_types.go -O pkg/apis/app/v1alpha1/podset_types.go
 ```{{execute}}
 <br>
-After modifying the `*_types.go` file, always run the following command to update the generated code for that resource type:
+After modifying the `*_types.go` file, always run the following command to update the `zz_generated.deepcopy.go` file:
 
 ```
-operator-sdk generate k8s
+make generate
 ```{{execute}}
 <br>
-We can also automatically update the CRD with [OpenAPI v3 schema](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#validation) details based off the newly updated `*_types.go` file:
+Now we can run the `make manifests` command to generate our customized CRD and additional object YAMLs.
 
 ```
-operator-sdk generate crds
+make manifests
 ```{{execute}}
 <br>
-Observe the CRD now reflects the `spec.replicas` and `status.podNames` OpenAPI v3 schema validation in the spec:
+Thanks to our comment markers, observe that we now have a newly generated CRD yaml that reflects the `spec.replicas` and `status.podNames` OpenAPI v3 schema validation and customized print columns.
 
 ```
-cat deploy/crds/app.example.com_podsets_crd.yaml
+cat config/crd/bases/app.example.com_podsets.yaml
 ```{{execute}}
 <br>
 Deploy your PodSet Custom Resource Definition to the live OpenShift Cluster:
 
 ```
-oc create -f deploy/crds/app.example.com_podsets_crd.yaml
+oc apply -f config/crd/bases/app.example.com_podsets.yaml
 ```{{execute}}
 <br>
 Confirm the CRD was successfully created:
