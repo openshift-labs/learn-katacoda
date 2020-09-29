@@ -21,12 +21,10 @@ metadata:
   name: openshift-pipelines-operator
   namespace: openshift-operators 
 spec:
-  channel: dev-preview
-  installPlanApproval: Automatic
-  name: openshift-pipelines-operator
-  source: community-operators 
+  channel: alpha
+  name: openshift-pipelines-operator-rh
+  source: redhat-operators 
   sourceNamespace: openshift-marketplace
-  startingCSV: openshift-pipelines-operator.v0.8.2
 ```
 
 The channel, name, starting CSV, source and source namespace are all described in the package file you just described. 
