@@ -11,23 +11,23 @@
     	"title": "Creating a New Project",
     	"text": "step1.md"
     },{
-			"title": "Adding a New Custom API",
+			"title": "Creating the API and Controller",
 			"text": "step2.md"
 		},{
 			"title": "Defining the Spec and Status",
 			"text": "step3.md"
     },{
-			"title": "Adding a New Controller",
+			"title": "Customizing the Operator Logic",
 			"text": "step4.md"
     },{
-			"title": "Customize the Operator Logic",
+			"title": "Running the Operator Locally (Inside the Cluster)",
 			"text": "step5.md"
     },{
-			"title": "Running the Operator Locally (Inside the Cluster)",
+			"title": "Creating the PodSet Custom Resource",
 			"text": "step6.md"
     },{
-                        "title": "Creating the Custom Resource",
-                        "text": "step7.md"
+      "title": "Deleting the PodSet Custom Resource",
+      "text": "step7.md"
     }],
     "intro": {
       "code": "set-env.sh",

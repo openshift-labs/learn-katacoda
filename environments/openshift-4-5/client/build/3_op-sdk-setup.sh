@@ -38,7 +38,15 @@ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 echo "ensure needed dirs exists at GOPATH"
 mkdir -p $GOPATH/{src,pkg,bin}
 
-echo "install Operator sdk"
-wget https://github.com/operator-framework/operator-sdk/releases/download/v1.0.1/operator-sdk-v1.0.1-x86_64-linux-gnu 
+echo "install operator-sdk 1.0.1"
+wget https://github.com/operator-framework/operator-sdk/releases/download/v1.0.1/operator-sdk-v1.0.1-x86_64-linux-gnu
 chmod +x operator-sdk-v1.0.1-x86_64-linux-gnu
-mv operator-sdk-v1.0.1-x86_64-linux-gnu /root/tutorial/go/bin/operator-sdk
+mv operator-sdk-v1.0.1-x86_64-linux-gnu /root/tutorial/go/bin/operator-sdk -f
+
+echo "install make"
+yum install make -y
+
+echo "install kustomize"
+curl -s "https://raw.githubusercontent.com/\
+kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+mv kustomize /root/tutorial/go/bin/kustomize -f
