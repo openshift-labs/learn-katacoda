@@ -4,9 +4,9 @@
     "description": "Showing how to expose API with Camel K and also making it serverless",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
-    "time": "20 minutes",
+    "time": "30 minutes",
     "backend": {
-        "imageid": "openshift-4-4"
+        "imageid": "openshift-4-5"
     },
     "environment": {
         "showdashboard": true,
