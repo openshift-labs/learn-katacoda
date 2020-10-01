@@ -5,12 +5,12 @@ tar -xvf camel-k-client-1.1.1-linux-64bit.tar.gz
 mv kamel /usr/bin
 
 echo "test"
-mkdir camel-api
+mkdir camel-eventing
 
 
 oc apply -f https://raw.githubusercontent.com/weimeilin79/learn-katacoda/master/middleware/middleware-camelk/camel-k-eventing/assets/serverless/subscription.yaml
 
-timeout 30 >nul
+timeout 60 >nul
 
 #oc apply -f https://raw.githubusercontent.com/weimeilin79/learn-katacoda/master/middleware/middleware-camelk/camel-k-eventing/assets/serverless/eventing.yaml
 oc apply -f https://raw.githubusercontent.com/weimeilin79/learn-katacoda/master/middleware/middleware-camelk/camel-k-eventing/assets/serverless/serving.yaml

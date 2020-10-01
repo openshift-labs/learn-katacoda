@@ -1,38 +1,85 @@
-## Setup Serverless
+#### Run a subscriber investor service
 
-The API integration can also run as Knative service and be able to scale to zero and scale out automatically, based on the received load.
+We are going to deploy a service that will listen to the events from the simple predictor.And Display the result from in log.
 
-To expose the integration as Knative service, you need to have OpenShift Serverless installed in the cluster. Let's subscribe to the OpenShift Serverless.
-
-``oc apply -f serverless/subscription.yaml``{{execute}}
-
-subscription.operators.coreos.com/servicemeshoperator created
-subscription.operators.coreos.com/serverless-operator created
-
-Next up, you must create a KnativeServing object to install Knative Serving using the OpenShift Serverless Operator.
-
-``oc apply -f serverless/serving.yaml``{{execute}}
-
-The KnativeServing instance will take a minute to install. As you might have noticed, the resources for KnativeServing can be found in the knative-serving project.
+Go to the text editor on the right, under the folder /root/camel-knative. Right click on the directory and choose New -> File and name it `Investor.java`.
 
 
+<pre class="file" data-filename="Investor.java " data-target="replace">
+// camel-k: language=java
 
-We can further validate an install being successful by seeing the following pods in knative-serving project:
+import org.apache.camel.builder.RouteBuilder;
 
-``oc get pod -n knative-serving -w ``{{execute}}
+public class Investor extends RouteBuilder {
+  @Override
+  public void configure() throws Exception {
 
-When completed, you should see all pods with the status of Running.
+    from("knative:event/predictor.simple")
+      .unmarshal().json()
+      .log("Let's ${body[operation]} at price ${body[value]} immediately!!")
+      .setBody().constant("");
 
-```
-NAME                                READY   STATUS    RESTARTS   AGE
-activator-d6478496f-x689c           1/1     Running   0          2m10s
-autoscaler-6ff6d5659c-5nq44         1/1     Running   0          2m9s
-autoscaler-hpa-868c8b56b4-s6jln     1/1     Running   0          2m10s
-controller-55b4748bc5-h5wxc         1/1     Running   0          2m6s
-networking-istio-679dfcd5d7-mbt8v   1/1     Running   0          2m4s
-webhook-55b96d44f6-k7qmk            1/1     Running   0          2m6s
-```
+  }
+}
+</pre>
 
-Ctrl-C to exit.
+To run it:
+``kamel run camel-eventing/investor.java --logs``{{execute}}
 
-Congratulations, you now have a serverless platform installed, lets move on and make our API application serverless.
+To exit the log view, just click here or hit ctrl+c on the terminal window. The integration will keep running on the cluster.
+
+
+#### Loading the external live data
+Now, let's go ahead and start taking live data from the Bitcoin market and pushing it to the event mesh.
+Go to the text editor on the right, under the folder /root/camel-knative. Right click on the directory and choose New -> File and name it `market-source.yaml`.
+Create the camel route loads Bitcoin market data every 10 seconds.   
+
+Paste the following code into the application.
+
+<pre class="file" data-filename="market-source.yaml" data-target="replace">
+# Apache Camel Timer Source
+#
+# Timer Component documentation: https://camel.apache.org/components/latest/timer-component.html
+#
+# List of available Apache Camel components: https://camel.apache.org/components/latest/
+#
+apiVersion: sources.knative.dev/v1alpha1
+kind: CamelSource
+metadata:
+  name: market-source
+spec:
+  source:
+    integration:
+      dependencies:
+      - camel:jackson
+    flow:
+      from:
+        uri: timer:tick
+        parameters:
+          period: 10000
+        steps:
+          - to: "xchange:binance?service=marketdata&method=ticker&currencyPair=BTC/USDT"
+          - marshal:
+              json: {}
+          - log:
+              message: "Sending BTC/USDT data to the broker: ${body}"
+          - set-header:
+              name: CE-Type
+              constant: market.btc.usdt
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1beta1
+      kind: Broker
+      name: default
+
+</pre>
+
+Start the Camel K application
+
+``oc apply -f camel-eventing/market-source.yaml -n camel-knative``{{execute}}
+
+To exit the log view, hit ctrl+c on the terminal window. The integration will keep running on the cluster.
+
+After successfully deployed, you will be able to see it in the [Developer Console Topology](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/camel-knative/graph).
+
+When the Bitcoin data start floating into the data, all predictor services and the investor service will automatically start up.
