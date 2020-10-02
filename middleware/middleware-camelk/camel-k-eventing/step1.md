@@ -15,21 +15,25 @@ Camel K Operator can be deployed on the OpenShift cluster from the OperatorHub. 
 
 It is responsible for building, deploying Camel Applications and also creating surrounding resources. It is also responsible for watching any code or configuration updates and automatically updates it. To install simply run the command.
 
-Create a new OpenShift project ``camel-knative``, in the left navigation menu, click *Home* > *Project* > *Create Project*.
-Enter a project name, for example, ``camel-knative``, and click *Create*.
-
 In the left navigation menu, click *Catalog* > *OperatorHub*
 In the Filter by keyword text box, enter Camel K to find the *Camel K Operator*.
 Read the information about the Operator, and click *Install*. This displays the Create Operator Subscription page.
+
+![operatorhub](/openshift/assets/middleware/middleware-camelk/camel-k-eventing/Eventing-Step1-01-operatorhub.png)
 
 Select the following subscription settings:
 - Update Channel > *Stable*
 - Installation Mode > *All namespaces on the cluster (default)*
 - Approval Strategy > Automatic
 
+![installoperator](/openshift/assets/middleware/middleware-camelk/camel-k-eventing/Eventing-Step1-02-installoperator.png)
+
 Click Subscribe. This displays the Operators > Installed Operators page.
 
 Wait a few moments until the Status for the Camel K Operator displays Succeeded and the subscription is Up to Date.
+
+![installed](/openshift/assets/middleware/middleware-camelk/camel-k-eventing/Eventing-Step1-03-installed.png)
+
 
 ## Logging in to the Cluster via CLI
 

@@ -12,7 +12,9 @@ In between these separate serverless services, events are pass through an *event
 
 The central piece of the event mesh that we're going to create is the Knative Eventing broker. It is a publish/subscribe entity that Camel K integrations will use to publish events or subscribe to it in order to being triggered when events of specific types are available. Subscribers of the eventing broker are Knative serving services, that can scale down to zero when no events are available for them.
 
-Creating your own Project:
+
+
+Create a new OpenShift project ``camel-knative``:
 ``oc new-project camel-knative``{{execute}}
 
 
@@ -77,10 +79,21 @@ Run the following command to start the first predictor:
 
 The command above will deploy the integration and wait for it to run, then it will show the logs in the console.
 
+You will see the following log if everything is working correctly.
+```
+[1] 2020-10-02 00:09:32.499 INFO  [main] JacksonDataFormat - The option autoDiscoverObjectMapper is set to false, Camel won't search in the registry
+[1] 2020-10-02 00:09:32.509 INFO  [main] JacksonDataFormat - The option autoDiscoverObjectMapper is set to false, Camel won't search in the registry
+[1] 2020-10-02 00:09:32.811 INFO  [vert.x-eventloop-thread-0] VertxPlatformHttpServer - Vert.x HttpServerstarted on 0.0.0.0:8080
+[1] 2020-10-02 00:09:32.817 INFO  [main] InternalRouteStartupManager - Route: route1 started and consuming from: knative://event/market.btc.usdt
+[1] 2020-10-02 00:09:32.819 INFO  [main] InternalRouteStartupManager - Route: route2 started and consuming from: seda://evaluate
+[1] 2020-10-02 00:09:32.820 INFO  [main] InternalRouteStartupManager - Route: route3 started and consuming from: direct://publish
+[1] 2020-10-02 00:09:32.821 INFO  [main] AbstractCamelContext - Total 3 routes, of which 3 are started
+[1] 2020-10-02 00:09:32.821 INFO  [main] AbstractCamelContext - Apache Camel 3.4.0 (camel-k) started in 0.343 seconds
+Condition "Ready" is "True" for Integration simple-predictor
+```
 To exit the log view, just click here or hit ctrl+c on the terminal window. The integration will keep running on the cluster.
 
-After successfully deployed, you will be able to see it in the
-[Developer Console Topology](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/camel-knative/graph)
+
 
 #### Create the second prediction algorithms
 
@@ -88,6 +101,12 @@ The second predictor with more sensitivity called better-predictor, in the comma
 
 ``kamel run --name better-predictor -p predictor.name=better -p algorithm.sensitivity=0.0005 camel-eventing/Predictor.java algorithms/SimpleAlgorithm.java -t knative-service.max-scale=1``{{execute}}
 
-You can view both predictor from the [Developer Console Topology](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/camel-knative/graph).
+You will be prompted with the following result, but please give a couple of minutes for the route to be deployed.
+``integration "better-predictor" created``
+
+You can view both predictors from the [Developer Console Topology](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/camel-knative/graph).
+(If Katacoda is slow, you might need to refresh the page to see the correct result.)
+
+![predictors](/openshift/assets/middleware/middleware-camelk/camel-k-eventing/Eventing-Step2-01-predictors.png)
 
 It will be running first and shutdown since there are no activities yet.
