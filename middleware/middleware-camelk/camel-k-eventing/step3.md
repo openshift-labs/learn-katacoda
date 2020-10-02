@@ -51,46 +51,25 @@ Create the camel route loads Bitcoin market data every 10 seconds.
 Paste the following code into the application.
 
 <pre class="file" data-filename="market-source.yaml" data-target="replace">
-# Apache Camel Timer Source
-#
-# Timer Component documentation: https://camel.apache.org/components/latest/timer-component.html
-#
-# List of available Apache Camel components: https://camel.apache.org/components/latest/
-#
-apiVersion: sources.knative.dev/v1alpha1
-kind: CamelSource
-metadata:
-  name: market-source
-spec:
-  source:
-    integration:
-      dependencies:
-      - camel:jackson
-    flow:
-      from:
-        uri: timer:tick
-        parameters:
-          period: 10000
-        steps:
-          - to: "xchange:binance?service=marketdata&currencyPair=BTC/USDT&method=ticker"
-          - marshal:
-              json: {}
-          - log:
-              message: "Sending BTC/USDT data to the broker: ${body}"
-          - set-header:
-              name: CE-Type
-              constant: market.btc.usdt
-  sink:
-    ref:
-      apiVersion: eventing.knative.dev/v1beta1
-      kind: Broker
-      name: default
-
+- from:
+    uri: "timer:tick"
+    parameters:
+      period: 10000
+    steps:
+      - to: "xchange:binance?service=marketdata&currencyPair=BTC/USDT&method=ticker"
+      - marshal:
+          json: {}
+      - log:
+          message: "Sending BTC/USDT data to the broker: ${body}"
+      - set-header:
+          constant: market.btc.usdt
+          name: CE-Type
+      - to: "knative:event"
 </pre>
 
 Start the Camel K application
 
-``oc apply -f camel-eventing/market-source.yaml -n camel-knative``{{execute}}
+``kamel run camel-eventing/market-source.yaml -d camel-jackson``{{execute}}
 
 To exit the log view, hit ctrl+c on the terminal window. The integration will keep running on the cluster.
 

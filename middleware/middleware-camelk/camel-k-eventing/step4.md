@@ -6,7 +6,7 @@ When the market closes and updates are no longer pushed into the event mesh, all
 
 To simulate a market close, we will delete the market-source:
 
-``oc delete camelsource market-source``{{execute}}
+``kamel delete market-source``{{execute}}
 
 To see the other services going down, go to the [Developer Console Topology view](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/camel-knative/graph) after two minutes, you will see the pod slowly shutdown.
 
