@@ -71,6 +71,11 @@ storage-version-migration-njtgb     0/1     Completed   0          26m
 webhook-75d6b55d76-xnzrh            1/1     Running     0          26m
 ```
 
+*NOTE* : _IF_ you don't see above result, sometime it is causes by problem in Katacoda, simply run the following command to fix it.
+
+``oc apply -f serverless/serving.yaml``{{execute}}
+
+
 OpenShift Serverless Eventing is designed to address a common need for cloud native development and provides composable primitives to enable late-binding event sources and event consumers. OpenShift Serverless Operator is subscribed in the cluster already.Let's go ahead and setup Knative Eventing to set the ground for the event mesh.
 
 Creating the knative-eventing namespace:
