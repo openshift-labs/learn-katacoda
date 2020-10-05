@@ -56,7 +56,7 @@ Paste the following code into the application.
     parameters:
       period: 10000
     steps:
-      - to: "xchange:binance?service=marketdata&currencyPair=BTC/USDT&method=ticker"
+      - to: "xchange:binance?currencyPair=BTC/USDT&service=marketdata&method=ticker"
       - marshal:
           json: {}
       - log:
@@ -76,3 +76,5 @@ To exit the log view, hit ctrl+c on the terminal window. The integration will ke
 After successfully deployed, you will be able to see it in the [Developer Console Topology](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/camel-knative/graph).
 
 When the Bitcoin data start floating into the data, all predictor services and the investor service will automatically start up.
+
+![startsup](/openshift/assets/middleware/middleware-camelk/camel-k-eventing/Eventing-Step3-01-startsup.png)
