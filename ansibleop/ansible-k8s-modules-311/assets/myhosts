@@ -1,0 +1,2 @@
+[group1]
+host01 ansible_ssh_user=cent ansible_connection=local

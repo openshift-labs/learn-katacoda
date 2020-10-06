@@ -2,9 +2,9 @@
 
 ## Visualizing Metrics using Grafana
 
-Now, we will create a dashboard in Grafana and visualize a simple metric from the demo application.
+Now, we will create a dashboard in Grafana and visualize a simple metric from the food store application.
 
-We will visualize a metric called `flask_http_request_total`, it is the total number of requests served by the ecommerce application.
+We will visualize a metric called `flask_http_request_total`, it is the total number of requests served by the food store application.
 
 ### Creating a Dashboard
 
@@ -18,8 +18,8 @@ We will visualize a metric called `flask_http_request_total`, it is the total nu
 
 * You should see a New Panel like in the picture above. Click on `Add Query`.
 
-You can have multiple panels in a single dashboard, and each panel supports different types of visualizations. [More info](https://grafana.com/docs/grafana/latest/guides/getting_started/#all-users)<br>
-But here we will just look at line charts as we are dealing with time-series data.
+  You can have multiple panels in a single dashboard, and each panel supports different types of visualizations ([more info](https://grafana.com/docs/grafana/latest/guides/getting_started/#all-users)).<br>
+  But here we will just look at line charts as we are dealing with time-series data.
 
 * Below the graphing area, you should have an empty text box for your PromQL queries. <br>
 Enter your query `flask_http_request_total`{{copy}}
@@ -29,7 +29,7 @@ Enter your query `flask_http_request_total`{{copy}}
 Change the duration to `Last 5 minutes`. <br>
 
   *you can choose any other value as well just keep in mind
-that we have just set up the demo application monitoring, so only very recent metric values might be available.*
+that we have just set up the food store application monitoring, so only very recent metric values might be available.*
 
 * Once you can see some lines in your graphing area, click on the left arrow (`<-`) in the upper left corner.
 
@@ -43,7 +43,7 @@ use a different query. <br>
 * Once you have set up the second panel, your dashboard should look something like this <br>
 ![Grafana Create Panel Page](../../assets/introduction/deploy-prometheus-grafana/04-grafana-2-panel-dashboard-page.png)
 
-If your graphs look boring, then go to the [demo application page](http://metrics-demo-app-metrics-demo.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/) and generate some requests. <br>
+If you want to see live changes to the dashboard, go to the [food store application page](http://metrics-demo-app-metrics-demo.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/) and make some purchases. <br>
 Then click on the refresh button in the upper right corner.
 
 That's it! you should have your own monitoring dashboard now.

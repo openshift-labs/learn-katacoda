@@ -1,9 +1,18 @@
-When using OpenShift there are a number of different ways you can add an application. The main methods are:
+## Goal
 
-* Deploy an application from an existing container image.
-* Build and deploy from source code contained in a Git repository using a Source-to-Image builder.
-* Build and deploy from source code contained in a Git repository from a Dockerfile.
+Learn how to deploy an application from its source code using a [Source-to-Image][s2i] build on OpenShift.
 
-In this course you will learn how to deploy an application from source code contained in a Git repository using a Source-to-Image builder.
+## Concepts
 
-The example application which will be deployed is implemented using the Python programming language. You will learn how to deploy the application from the OpenShift web console, and from the command line using ``oc``.
+* Linux containers and building container images
+* OpenShift Source-to-Image (S2I)
+* OpenShift Projects and Applications
+* OpenShift `oc` command line tool
+
+## Use case
+
+You can have OpenShift build an application from source to deploy it, so you don't have to construct a container by hand with every change. OpenShift can then build and deploy new versions automatically when notified of souce code changes.
+
+This OpenShift cluster will self-destruct in one hour.
+
+[s2i]: https://docs.openshift.com/container-platform/4.4/builds/understanding-image-builds.html#build-strategy-s2i_understanding-image-builds

@@ -11,7 +11,7 @@
       { "title": "Step 2", "text": "02-implement-domain-model.md" },
       { "title": "Step 3", "text": "03-implement-the-ruleunit.md" },
       { "title": "Step 4", "text": "04-ruleunit-rules.md" },
-      { "title": "Step 4", "text": "05-ruleunit-variables.md" }
+      { "title": "Step 5", "text": "05-ruleunit-variables.md" }
     ],
     "intro": {
       "text": "00-intro.md",

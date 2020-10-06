@@ -11,28 +11,40 @@ We will be using GraalVM, which includes a native compiler for producing native 
 Within the `getting-started/pom.xml`{{open}} is the declaration for the Quarkus Maven plugin which contains a profile for `native-image`:
 
 ```xml
-  <profile>
-    <id>native</id>
-    <build>
-      <plugins>
-        <plugin>
-          <groupId>io.quarkus</groupId>
-          <artifactId>quarkus-maven-plugin</artifactId>
-          <version>${quarkus.version}</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>native-image</goal>
-              </goals>
-              <configuration>
-                <enableHttpUrlHandler>true</enableHttpUrlHandler>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </build>
-  </profile>
+
+    <profile>
+      <id>native</id>
+      <activation>
+        <property>
+          <name>native</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>${surefire-plugin.version}</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>integration-test</goal>
+                  <goal>verify</goal>
+                </goals>
+                <configuration>
+                  <systemProperties>
+                    <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+                  </systemProperties>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <properties>
+        <quarkus.package.type>native</quarkus.package.type>
+      </properties>
+    </profile>
+
 ```
 We use a profile because, you will see very soon, packaging the native image takes a few seconds. However, this compilation time is only incurred _once_, as opposed to _every_ time the application starts, which is the case with other approaches for building and executing JARs.
 

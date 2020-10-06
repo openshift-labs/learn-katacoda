@@ -2,7 +2,7 @@ Create the Deployment containing the Etcd Operator container image:
 
 ```
 cat > etcd-operator-deployment.yaml<<EOF
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:

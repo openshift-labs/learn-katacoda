@@ -2,7 +2,8 @@ In this self paced tutorial you will learn how to get started in Red Hat Fuse. T
 
 ## Before you get started
 
-Make sure you have completed the first and second steps of the hello world page on  [developers.redhat.com](https://developers.redhat.com/products/fuse/hello-world/)
+1. [Download Red Hat CodeReady Studio](https://developers.redhat.com/products/codeready-studio/download) from the Red Hat Developer program in order to access Fuse Tooling.
+2. Make sure you have completed the first and second steps of the article [Hello World for Fuse Tooling via CodeReady Studio](https://developers.redhat.com/products/fuse/hello-world-fuse-tooling).
 
 ## What is Fuse
 

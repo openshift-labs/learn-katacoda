@@ -39,15 +39,10 @@ Make sure the app is still working as expected (we'll use `curl` this time to ac
 
 `curl -s http://localhost:8080/fruits | jq`{{execute T2}}
 
-You should get back our default fruits data. Nice!
-
 ## Cleanup
 
 In the first Terminal, press `CTRL-C` to stop the running Quarkus native app (or click the `clear`{{execute T1 interrupt}} command to do it for you).
 
 ## Congratulations!
 
-You've now built a Java application as an executable JAR. Quarkus also supports building to _native_ images providing even greater startup speed and memory effeciency which we'll explore later.
-
-Now let's give our app superpowers by deploying to OpenShift as a Linux container image.
-
+You've now built a Java application as an executable JAR. Quarkus also supports building to _native_ images providing even greater startup speed and memory effeciency. Now let's give our app native powers by creating a Quarkus native app.

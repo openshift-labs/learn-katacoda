@@ -1,44 +1,19 @@
-In this course you learnt about how to log into an OpenShift cluster, as well as how you can add other users as collaborators to you project.
+In this course you learned about how to log into an OpenShift cluster, as well as how you can add other users as collaborators to your project.
 
-You can find a summary of the key commands covered below, along with some related commands. To see more information on each ``oc`` command, run it with the ``--help`` option.
+## Continue Learning
 
-``oc login``: Log in to your OpenShift cluster and save the session token for subsequent use. You will be prompted for the user name and password or directed to a web console page where you can obtain a token you must then use to use to login from the command line. The web page will require you to first login in to the web console if you are not already logged in.
+You can continue learning more about OpenShift and how to develop applications on the platform by completing other tutorials at [https://learn.openshift.com](https://learn.openshift.com?ref=learn-cluster-access).
 
-``oc login <server>``:
-    Log in to a specific OpenShift cluster. You will need to specify the name of the server as argument the first time you are using it, or if switching back to it after having used a different cluster.
+For developer-related resources about OpenShift, visit [https://developers.redhat.com/products/openshift/getting-started](https://developers.redhat.com/products/openshift/getting-started?ref=learn-cluster-access).
 
-``oc login --username <user>``:
-    Log in to your OpenShift cluster as a specific user.
+### Run OpenShift Locally with CodeReady Containers
 
-``oc login --username <username> --password <password>``:
-    Log in to your OpenShift cluster as a specific user and supply the password on the command line. Note that this is not recommended for real systems as your password may be logged or retained in command history.
+CodeReady Containers allows you to run a minimal, pre-configured OpenShift 4 cluster on your local machine. The project supports Windows 10, macOS, and Linux.  To find out more or download CodeReady Containers, visit [https://developers.redhat.com/products/codeready-containers/overview](https://developers.redhat.com/products/codeready-containers/overview?ref=learn-cluster-access)
 
-``oc login --token <token>``:
-    Log in to your server using a token for an existing session.
+### Compare Hosted, Managed, or On Premises OpenShift
 
-``oc logout``:
-    Log out of the active session by clearing the session token.
+Learn more about the different OpenShift platform variants here: [https://www.openshift.com/try](https://www.openshift.com/try?ref=learn-cluster-access)
 
-``oc whoami``:
-    Show the name of the user for the current login session.
+### Browse the Documentation
 
-``oc whoami --token``:
-    Show the token for the current login session.
-
-``oc whoami --show-server``:
-    Show which OpenShift cluster you are logged into.
-
-``oc whoami --show-context``:
-    Shows the context for the current session. This will include details about the project, server and name of user, in that order.
-
-``oc config get-clusters``:
-    Show a list of all OpenShift clusters ever logged in to.
-
-``oc config get-contexts``:
-    Show a list of contexts for all sessions ever created. For each context listed, this will include details about the project, server and name of user, in that order.
-
-``oc adm policy add-role-to-user edit <username> -n <project>``: Add another user to a project so that they can work within the project, including creating new deployments or deleting applications.
-
-``oc adm policy add-role-to-user view <username> -n <project>``: Add another user to a project but such that they can only view what is in the project.
-
-``oc adm policy add-role-to-user admin <username> -n <project>``: Add another user to a project such that they are effectively a joint owner of the project and have administration rights over it, including the ability to delete the project.
+If you want to learn about particular OpenShift concepts in more depth, visit the documentation: [https://docs.openshift.com/container-platform/latest](https://docs.openshift.com/container-platform/latest?ref=learn-cluster-access)

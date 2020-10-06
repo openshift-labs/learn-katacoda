@@ -1,8 +1,18 @@
-There are multiple approaches to how to deploy your applications into OpenShift, in this scenario we are going to explore GitOps.
+## Goal
 
-In case you haven't read it yet, we encorage you to read our blog post [Introduction to GitOps with OpenShift](https://blog.openshift.com/introduction-to-gitops-with-openshift/) where you will learn
-the GitOps basic principles and patterns on OpenShift.
+Learn how to apply [GitOps principles][gitops-openshift-intro] to build and deploy an application on OpenShift.
 
-This course will guide you through the deployment of a simple application using GitOps Principles and Patterns on OpenShift.
+## Concepts
 
-We will use [ArgoCD](https://argoproj.github.io/argo-cd/) as our GitOps tool to deploy a simple application into our cluster, first we will deploy our application from the command line using the Argo CD CLI, after that we will re-deploy our application through the WebUI.
+* GitOps declarative, versioned and automated continuous deployment
+* [ArgoCD][argocd] continuous deployment controller on OpenShift
+* `git` file version management
+
+## Use case
+
+You can establish an automated GitOps process to deploy an application and maintain its source, configuration, and infrastructure resource specs in versioned files, with OpenShift automatically building, testing, and deploying new versions when changes are committed.
+
+This OpenShift cluster will self-destruct in one hour.
+
+[argocd]: https://argoproj.github.io/argo-cd/
+[gitops-openshift-intro]: https://blog.openshift.com/introduction-to-gitops-with-openshift/ "Introduction to GitOps with OpenShift"

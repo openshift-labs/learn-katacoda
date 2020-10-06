@@ -68,7 +68,6 @@ public class Predictor extends RouteBuilder {
         .to("knative:event");
 
   }
-
 }
 
 </pre>

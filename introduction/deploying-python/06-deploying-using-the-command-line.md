@@ -1,4 +1,4 @@
-You now have a clean project again, so lets deploy the same web application, but this time using the ``oc`` command line program.
+You now have a clean project again, so lets deploy the same web application, but this time using the ``oc`` command line tool.
 
 The URL of the Git repository containing the web application is:
 

@@ -9,7 +9,6 @@ You will then able able to login with admin permissions with:
 * **Username:** ``admin``{{copy}}
 * **Password:** ``admin``{{copy}}
 
-
 ## Installing Camel K from the OpenShift OperatorHub
 Camel K Operator can be deployed on the OpenShift cluster from the OperatorHub. The OperatorHub is available from the OpenShift Container Platform web console and provides an interface for cluster administrators to discover and install Operators.
 
@@ -33,7 +32,6 @@ Click Subscribe. This displays the Operators > Installed Operators page.
 Wait a few moments until the Status for the Camel K Operator displays Succeeded and the subscription is Up to Date.
 
 ![installed](/openshift/assets/middleware/middleware-camelk/camel-k-eventing/Eventing-Step1-03-installed.png)
-
 
 ## Logging in to the Cluster via CLI
 

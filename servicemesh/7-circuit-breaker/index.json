@@ -36,10 +36,9 @@
     },
     "steps": [
         { "title": "Install microservices", "text": "0install-microservices.md" },
-        { "title": "Install Siege", "text": "1install-siege.md" },
-        { "title": "Fail Fast with Max Connections & Max Pending Requests", "text": "2fail-fast.md" },
-        { "title": "Pool Ejection", "text": "3pool-ejection.md" },
-        { "title": "Ultimate resilience with retries, circuit breaker, and pool ejection", "text": "4ultimate-resilience.md" }
+        { "title": "Fail Fast with Max Connections & Max Pending Requests", "text": "1fail-fast.md" },
+        { "title": "Pool Ejection", "text": "2pool-ejection.md" },
+        { "title": "Ultimate resilience with retries, circuit breaker, and pool ejection", "text": "3ultimate-resilience.md" }
     ]
   }
 }
