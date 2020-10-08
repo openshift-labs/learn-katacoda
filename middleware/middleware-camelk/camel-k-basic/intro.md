@@ -7,7 +7,7 @@ This scenario will introduce [Camel K ](https://camel.apache.org/camel-k/latest/
 ![Logo](https://www.nicolaferraro.me/images/post-logo-apache-camel-d.png)
 
 
-### Your Integration Swiss-Knife native on Kubernetes with Camel K
+### Your Integration Swiss-Army-Knife native on Kubernetes with Camel K
 
 Apache Camel K is a lightweight integration framework built from Apache Camel that runs natively on Kubernetes and is specifically designed for serverless and microservice architectures.
 
