@@ -1,8 +1,6 @@
 # Serverless Eventing Camel K
 
-
 This example demonstrates the idiomatic way of using [Camel K](https://camel.apache.org/camel-k/latest/index.html) in Knative for building event-driven applications. It leverages the Knative eventing broker as the central point that lets various services communicate via event pub/sub. It also shows how Camel K can be used for connecting the Knative event mesh with external systems, with integrations that can play the roles of "event source" or "event sink".
-
 
 ## What is Camel K?
 

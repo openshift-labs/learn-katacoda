@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: e-library-backend-api-service
+  labels:
+    name: "e-library-backend-api"
+  namespace: "e-library"  
+spec:
+  ports:
+  - port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    name: e-library-backend-api
+status:
+  loadBalancer: {}
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  name: e-library-backend-api-route
+  labels:
+    name: "e-library-backend-api"
+  namespace: "e-library"  
+spec:
+  port:
+    targetPort: 3000
+  to:
+    kind: Service
+    name: e-library-backend-api-service
+    weight: 100
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: e-library-backend-api
+  labels:
+    name: "e-library-backend-api"
+  namespace: "e-library"  
+spec:
+  containers:
+  - image: karansingh/e-library-backend-api-ks:latest
+    name: e-library-backend-api
+    env:
+      - name: "NODE_ENV"
+        value: "prod"
+      - name: "ES_HOST"
+        value: "elasticsearch"
+      - name: "PORT"
+        value: "3000"    
+    ports:
+    - containerPort: 3000
+    - containerPort: 9229    
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}

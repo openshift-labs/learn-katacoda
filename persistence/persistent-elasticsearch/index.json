@@ -1,0 +1,68 @@
+{
+    "icon": "fa-openshift",
+    "title": "Persistent Storage for Elasticsearch Powered by OpenShift Container Storage",
+    "description": "e-Library demo app using elasticsearch on Openshift with persistent storage from Openshift Container Storage",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "10-15 minutes",
+    "backend": {
+        "imageid": "openshift-4-2"
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [{"name": "OpenShift Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "terminal-iframe"
+    },
+    "details": {
+        "steps": [
+        {
+            "title": "Create Project and PVC",
+            "text": "01.md"
+        },
+        {
+            "title": "Deploy Elasticsearch on OCS",
+            "text": "02.md"
+        },
+        {
+            "title": "Deploy app backend & frontend",
+            "text": "03.md"
+        },
+        {
+            "title": "Ingest dataset to Elasticsearch",
+            "text": "04.md"
+        }                
+    ],
+        "intro": {
+            "code": "set-env.sh",
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        },
+        "assets": {
+            "client": [],
+            "host01": [
+                {
+                    "file": "1_create_ns_ocs_pvc.yaml",
+                    "target": "/root/"
+                },
+                {
+                    "file": "2_deploy_elasticsearch.yaml",
+                    "target": "/root/"
+                },
+                {
+                    "file": "3_deploy_backend_api.yaml",
+                    "target": "/root/"
+                },
+                {
+                    "file": "4_deploy_frontend_app.yaml",
+                    "target": "/root/"
+                },
+                {
+                    "file": "install_ocs.sh",
+                    "target": "/root/"
+                }                                                
+            ]
+        }
+    }
+}

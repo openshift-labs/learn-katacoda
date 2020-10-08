@@ -1,0 +1,109 @@
+{
+    "title": "OpenShift Workshop",
+    "description": "",
+    "courses": [
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "getting-started",
+        "course_id": "getting-started",
+        "title": "Getting Started with OpenShift for Developers"
+      },
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "cluster-access",
+        "course_id": "cluster-access",
+        "title": "Logging in to an OpenShift Cluster"
+      },
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "developing-with-odo",
+        "course_id": "developing-with-odo",
+        "title": "Developing with odo"
+      },
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "deploying-images",
+        "course_id": "deploying-images",
+        "title": "Deploying Applications From Images"
+      },
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "deploying-python",
+        "course_id": "deploying-python",
+        "title": "Deploying Applications From Source"
+      },
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "resource-objects",
+        "course_id": "resource-objects",
+        "title": "Using the CLI to Manage Resource Objects"
+      },
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "port-forwarding",
+        "course_id": "port-forwarding",
+        "title": "Connecting to a Database Using Port Forwarding"
+      },
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "transferring-files",
+        "course_id": "transferring-files",
+        "title": "Transferring Files in and out of Containers"
+      },
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "gitops-introduction",
+        "course_id": "gitops-introduction",
+        "title": "Introduction to GitOps with OpenShift"
+      },
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "deploy-prometheus-grafana",
+        "title": "How to set up Prometheus and Grafana on OpenShift",
+        "course_id": "deploy-prometheus-grafana"
+      },
+      {
+        "pathway_id": "openshift/subsystems",
+        "id": "container-internals-lab-2-0-part-1",
+        "course_id": "container-internals-lab-2-0-part-1",
+        "title": "Linux Container Internals 2.0 - Lab 1: Introduction to Containers"
+      },
+      {
+        "pathway_id": "openshift/subsystems",
+        "id": "container-internals-lab-2-0-part-2",
+        "course_id": "container-internals-lab-2-0-part-2",
+        "title": "Linux Container Internals 2.0 - Lab 2: Container Images"
+      },
+      {
+        "pathway_id": "openshift/subsystems",
+        "id": "container-internals-lab-2-0-part-3",
+        "course_id": "container-internals-lab-2-0-part-3",
+        "title": "Linux Container Internals 2.0 - Lab 3: Container Registries"
+      },
+      {
+        "pathway_id": "openshift/subsystems",
+        "id": "container-internals-lab-2-0-part-4",
+        "course_id": "container-internals-lab-2-0-part-4",
+        "title": "Linux Container Internals 2.0 - Lab 4: Container Hosts"
+      },
+      {
+        "pathway_id": "openshift/subsystems",
+        "id": "container-internals-lab-2-0-part-5",
+        "course_id": "container-internals-lab-2-0-part-5",
+        "title": "Linux Container Internals 2.0 - Lab 5: Container Orchestration"
+      },
+      {
+        "pathway_id": "openshift/subsystems",
+        "id": "container-internals-lab-2-0-part-6",
+        "course_id": "container-internals-lab-2-0-part-6",
+        "title": "Linux Container Internals 2.0 - Lab 6: Container Standards"
+      },
+      {
+        "pathway_id": "openshift/subsystems",
+        "id": "container-internals-lab-2-0-part-7",
+        "course_id": "container-internals-lab-2-0-part-7",
+        "title": "Linux Container Internals 2.0 - Lab 7: Container Tools Ecosystem"
+      }
+    ]
+  }
+  

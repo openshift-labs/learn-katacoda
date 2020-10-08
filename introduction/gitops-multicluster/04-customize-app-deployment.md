@@ -8,9 +8,9 @@ manifests live in Git.
 
 Argo CD has a built-in [Kustomize](https://kustomize.io/) feature, we are going to use it in order to control which changes we send to our clusters based on the environment we are deploying to.
 
-## Reviewing Kustomized file
+## Reviewing Kustomized files
 
-Some files have been upload to the Git repository for this lab, let's check them:
+It can take some time for these files to be processed and created. Proceed once all of the files linked in the two lists below are present in the project git repository.
 
 * Preproduction Files
   * [Base Route File](http://gogs.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/student/gitops-lab/src/pre/reversewords_app/base/route.yaml)

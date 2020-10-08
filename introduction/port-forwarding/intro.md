@@ -1,9 +1,18 @@
-One of the benefits of OpenShift over a traditional PaaS supporting only 12-factor or cloud native applications is that you have access to persistent volumes. This means you can attach storage to your web applications, or run applications such as databases.
+## Goal
 
-Databases deployed to OpenShift will typically be used to support the operations of a front end web application and therefore only need to be accessible by other applications running in the same OpenShift cluster.
+Learn how to run a database with persistent storage on OpenShift. Access the database server in the cluster with a command-line shell, then use port forwarding to temporarily expose the database service outside of OpenShift so you can access it with any database API tool, like a graphical database manager.
 
-To manage a database, it can though be convenient to use a database client running on your own local machine. This could be a command line client, or a GUI based application.
+## Concepts
 
-In this course you will learn how to access a database using an interactive shell, and also how to use port forwarding to temporarily expose a database outside of OpenShift, allowing you to access it from a database tool running on your own local machine.
+* Persistent Volumes storage on OpenShift clusters
+* Provisional routing of external traffic to cluster services
+* OpenShift Projects and Applications
+* OpenShift `oc` command line deployment tool
 
-You will be using just the ``oc`` command line tool in this exercise.
+## Use case
+
+You can deploy your application's underlying database server on an OpenShift cluster, growing through development toward a production database packaged in an automating [Operator][operator].
+
+This OpenShift cluster will self-destruct in one hour.
+
+[operator]: https://www.openshift.com/learn/topics/operators

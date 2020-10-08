@@ -1,0 +1,48 @@
+{
+    "title": "Developing with Kogito",
+    "icon": "fa-openshift",
+    "courses": [
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-kogito/getting-started",
+        "pathway_id": "middleware/middleware-kogito",
+        "course_id": "getting-started",
+        "title": "Getting Started with Kogito",
+        "description": "Cloud Native Business Automation with Kogito"
+      },
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-kogito/rules",
+        "pathway_id": "middleware/middleware-kogito",
+        "course_id": "rules",
+        "title": "Kogito and Rules with RuleUnits",
+        "description": "Using RuleUnits to implement business rules in Kogito"
+      },
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-kogito/dmn",
+        "pathway_id": "middleware/middleware-kogito",
+        "course_id": "dmn",
+        "title": "DMN decision services with Kogito",
+        "description": "Implementing a DMN decision microservice with Kogito"
+      },
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-kogito/service-task-cdi",
+        "pathway_id": "middleware/middleware-kogito",
+        "course_id": "service-task-cdi",
+        "title": "Kogito and CDI",
+        "description": "Using MicroProfile CDI to implement business automation logic with Kogito"
+      },
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-kogito/rest-service-integration",
+        "pathway_id": "middleware/middleware-kogito",
+        "course_id": "rest-service-integration",
+        "title": "Orchestrating RESTful Services with Kogito",
+        "description": "Using MicroProfile JAX-RS client and Apache Camel to orchestrate RESTful microservices with Kogito."
+      },
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-kogito/optaplanner-knapsack",
+        "pathway_id": "middleware/middleware-kogito",
+        "course_id": "optaplanner-knapsack",
+        "title": "OptaPlanner and Quarkus",
+        "description": "Using OptaPlanner on Quarkus to implement the knapsack problem"
+      }
+    ]
+  }

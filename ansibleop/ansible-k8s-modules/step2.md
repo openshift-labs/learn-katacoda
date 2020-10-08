@@ -13,8 +13,8 @@ Next, we'll use the Ansible k8s module to leverage existing Kubernetes and OpenS
  ```
 $ cat ./example-role/templates/nginx-deployment.yml.j2
 
-kind: DeploymentConfig
-apiVersion: v1
+kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: nginx-deployment
 spec:
@@ -37,9 +37,7 @@ spec:
 
  ###### **b. Update tasks file `example-role/tasks/main.yml` to create the nginx deployment using the k8s module**
 
- <pre class="file"
-  data-filename="/root/tutorial/example-role/tasks/main.yml"
-   data-target="replace">
+ <pre class="file">
 ---
 - name: set test namespace to {{ state }}
   k8s:
@@ -54,6 +52,10 @@ spec:
    definition: "{{ lookup('template', 'nginx-deployment.yml.j2') }}"
    namespace: test
  </pre>
+
+You can easily update this file by running the following command:
+
+`wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-k8s-modules/assets/tasksmain2.yml -O /root/tutorial/example-role/tasks/main.yml`{{execute}}
 
 ---
 

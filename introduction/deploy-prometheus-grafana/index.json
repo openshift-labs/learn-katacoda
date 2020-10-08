@@ -21,7 +21,7 @@
     },
     "details": {
         "steps": [{
-            "title": "Step 1 - Example Prometheus metrics exposing application",
+            "title": "Step 1 - Example of Prometheus metrics being exposed by an application",
             "text": "1deploy-demo-app.md"
         }, {
             "title": "Step 2 - Deploying Prometheus to collect exposed metrics",
@@ -30,7 +30,7 @@
             "title": "Step 3 - Deploying Grafana to visualize Prometheus metrics",
             "text": "3deploy-grafana.md"
         }, {
-            "title": "Step 4 - Visualize Metrics in Grafana",
+            "title": "Step 4 - Visualize metrics in Grafana",
             "text": "4create-dashboard.md"
         }],
         "intro": {
@@ -42,7 +42,7 @@
             "text": "finish.md"
         },
         "assets": {
-          "host01": [{"file": "deploy-prometheus.yaml", "target": "~/"}]
+          "client": [{"file": "deploy-prometheus.yaml", "target": "~"}]
         }
     }
 }

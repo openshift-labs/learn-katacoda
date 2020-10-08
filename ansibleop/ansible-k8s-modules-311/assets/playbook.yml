@@ -1,0 +1,6 @@
+-
+  name: Create a new file named names in the current directory
+  hosts: localhost
+  roles:
+  -
+    example-role

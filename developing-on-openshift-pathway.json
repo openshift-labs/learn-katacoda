@@ -1,0 +1,47 @@
+{
+    "title": "Developing on OpenShift",
+    "icon": "fa-openshift",
+    "courses": [
+      {
+        "external_link": "https://learn.openshift.com/introduction/getting-started/",
+        "pathway_id": "introduction",
+        "course_id": "getting-started",
+        "title": "Getting Started with OpenShift for Developers"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/deploying-python/",
+        "pathway_id": "introduction",
+        "course_id": "deploying-python",
+        "title": "Deploying Applications From Source"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/developing-with-odo/",
+        "pathway_id": "introduction",
+        "course_id": "developing-with-odo",
+        "title": "Developing with odo"
+      },
+      {
+        "external_link": "https://learn.openshift.com/developing-on-openshift/serverless/",
+        "pathway_id": "developing-on-openshift",
+        "course_id": "serverless",
+        "title": "Getting Started with OpenShift Serverless"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/port-forwarding/",
+        "pathway_id": "introduction",
+        "course_id": "port-forwarding",
+        "title": "Connecting to a Database Using Port Forwarding"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/transferring-files/",
+        "pathway_id": "introduction",
+        "course_id": "transferring-files",
+        "title": "Transferring Files in and out of Containers"
+      },
+      {
+        "external_link": "https://learn.openshift.com/developing-on-openshift/helm/",
+        "course_id": "helm",
+        "title": "Getting Started with Helm 3 on OpenShift"
+      }
+    ]
+}

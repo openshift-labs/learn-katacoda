@@ -14,7 +14,7 @@ The command will exit once the deployment has completed and the web application 
 
 The result of the deployment will be the running container. You can see the name of the pods corresponding to the running containers for this application, by running:
 
-``oc get pods --selector app=blog``{{execute}}
+``oc get pods --selector deploymentconfig=blog``{{execute}}
 
 You only have one instance of the application so only one pod will be listed, similar to:
 
@@ -29,7 +29,7 @@ To make it easier to reference the name of the pod in these instructions, we def
 
 The command we will run from the shell function to get out just the name of the pod will be:
 
-``oc get pods --selector app=blog -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}'``{{execute}}
+``oc get pods --selector deploymentconfig=blog -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}'``{{execute}}
 
 As above this uses ``oc get pods`` with a label selector, but we also use a ``jsonpath`` query to extract the name of the running pod.
 
@@ -39,7 +39,7 @@ To create the shell function run:
 
 To capture the name of the pod for this application in the ``POD`` environment variable, run:
 
-``POD=`pod app=blog`; echo $POD``{{execute}}
+``POD=`pod deploymentconfig=blog`; echo $POD``{{execute}}
 
 To create an interactive shell within the same container running the application, you can use the ``oc rsh`` command, supplying it the environment variable holding the name of the pod.
 

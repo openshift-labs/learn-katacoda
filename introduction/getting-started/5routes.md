@@ -18,20 +18,20 @@ Fortunately, creating a _Route_ is a pretty straight-forward process.  First, go
 
 Click the blue *Create Route* button.
 
-![No route](../../assets/introduction/getting-started-42/5no-route.png)
+![No route](../../assets/introduction/getting-started-44/5no-route.png)
 
 Enter `parksmap-katacoda` for the _Route_ Name, select `parksmap-katacoda` for the _Service_, and `8080` for the Target Port. Leave all the other settings as-is.
 
-![Route form](../../assets/introduction/getting-started-42/5create-route.png)
+![Route form](../../assets/introduction/getting-started-44/5create-route.png)
 
 Once you click _Create_, the _Route_ will be created and displayed in the _Route Details_ page.
 
-![Route Details](../../assets/introduction/getting-started-42/5route-details.png)
+![Route Details](../../assets/introduction/getting-started-44/5route-details.png)
 
 You can also view your _Route_ in the *Developer Perspective*. Toggle back to the *Developer Perspective* now, and go to *Topology* view. On the `parksmap-katacoda` visualization you should now see an icon in the top right corner of the circle. This represents the _Route_, and if you click it, it will open the URL in your browser.
 
-![Route created](../../assets/introduction/getting-started-42/5route-created.png)
+![Route created](../../assets/introduction/getting-started-44/5route-created.png)
 
 Once you've clicked the _Route_ icon, you should see this in your browser:
 
-![Application](../../assets/introduction/getting-started-42/5parksmap-empty.png)
+![Application](../../assets/introduction/getting-started-44/5parksmap-empty.png)

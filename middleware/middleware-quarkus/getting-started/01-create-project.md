@@ -6,9 +6,11 @@ In this step, you will create a straightforward application serving a `hello` en
 
 The easiest way to create a new Quarkus project is to click to run the following command:
 
-`mvn io.quarkus:quarkus-maven-plugin:1.0.0.CR1:create \
+`mvn io.quarkus:quarkus-maven-plugin:1.3.2.Final-redhat-00001:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=getting-started \
+    -DplatformGroupId=com.redhat.quarkus \
+    -DplatformVersion=1.3.2.Final-redhat-00001 \
     -DclassName="org.acme.quickstart.GreetingResource" \
     -Dpath="/hello"`{{execute}}
 
@@ -24,52 +26,67 @@ This will use the Quarkus Maven Plugin and generate a basic Maven project for yo
 Once generated, look at the `getting-started/pom.xml`{{open}}. You will find the import of the Quarkus BOM, allowing to omit the version on the different Quarkus dependencies. In addition, you can see the `quarkus-maven-plugin` responsible of the packaging of the application and also providing the development mode.
 
 ```xml
-<dependencyManagement>
+ <dependencyManagement>
     <dependencies>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-bom</artifactId>
-            <version>${quarkus.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
+      <dependency>
+        <groupId>${quarkus.platform.group-id}</groupId>
+        <artifactId>${quarkus.platform.artifact-id}</artifactId>
+        <version>${quarkus.platform.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
-</dependencyManagement>
+  </dependencyManagement>
 
-<build>
+  <build>
     <plugins>
-        <plugin>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-maven-plugin</artifactId>
-            <version>${quarkus.version}</version>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>build</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+      <plugin>
+        <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-maven-plugin</artifactId>
+        <version>${quarkus-plugin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>build</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire-plugin.version}</version>
+        <configuration>
+          <systemProperties>
+            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+          </systemProperties>
+        </configuration>
+      </plugin>
     </plugins>
-</build>
+  </build>
 ```
 
 If we focus on the dependencies section, you can see we are using [Quarkus extensions](https://quarkus.io/extensions/) allowing the development and testing of REST applications:
 ```xml
-<dependency>
-    <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-resteasy</artifactId>
-</dependency>
-<dependency>
-    <groupId>io.quarkus</groupId>
-    <artifactId>quarkus-junit5</artifactId>
-    <scope>test</scope>
-</dependency>
-<dependency>
-    <groupId>io.rest-assured</groupId>
-    <artifactId>rest-assured</artifactId>
-    <scope>test</scope>
-</dependency>
+  <dependencies>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-junit5</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 ```
 
 During the project creation, the `getting-started/src/main/java/org/acme/quickstart/GreetingResource.java`{{open}} file has been created with the following endpoint:
@@ -108,7 +125,7 @@ You should see:
 2019-02-28 17:05:22,771 INFO  [io.quarkus] (main) Installed features: [cdi, resteasy]
 ```
 
-Note the amazingly fast startup time! Once started, you can request the provided endpoint in the browser [using this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello).
+Note the amazingly fast startup time! Once started, you can request the provided endpoint in the browser [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello).
 
 You should see:
 
@@ -117,7 +134,7 @@ hello
 ```
 It's working!
 
-Now, let's exercise the **live reload** capabilities of Quarkus. Click here to open the endpoint:  `getting-started/src/main/java/org/acme/quickstart/GreetingResource.java`{{open}}. Change `return "hello";` to `return "hola";` on line 14 in the editor. Don't save. Don't recompile or restart anything. Just try to reload the brower (or [click here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello) again.)
+Now, let's exercise the **live reload** capabilities of Quarkus. Click here to open the endpoint:  `getting-started/src/main/java/org/acme/quickstart/GreetingResource.java`{{open}}. Change `return "hello";` to `return "hola";` on line 14 in the editor. Don't save. Don't recompile or restart anything. Just try to reload the brower (or [click here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello) again.)
 
 You should see the updated `hola` message.
 

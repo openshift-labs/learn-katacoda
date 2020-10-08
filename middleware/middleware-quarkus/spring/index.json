@@ -12,8 +12,8 @@
       { "title": "Step 3", "text": "03-create-beans.md" },
       { "title": "Step 4", "text": "04-create-web.md" },
       { "title": "Step 5", "text": "05-build-app.md" },
-      { "title": "Step 6", "text": "06-deploy-and-test.md" },
-      { "title": "Step 7", "text": "07-native.md" }
+      { "title": "Step 6", "text": "07-deploy-and-test.md" }
+      
     ],
     "intro": {
       "text": "00-intro.md",
@@ -29,7 +29,7 @@
   ],
   "environment": {
     "showdashboard": true,
-    "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
+    "dashboards": [{"name":"Local Web Browser","href": "https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com"},{"name":"OpenShift Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
     "uilayout": "editor-terminal",
     "uisettings": "java",
     "hideintro": false,
@@ -37,7 +37,7 @@
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "openshift-3-11",
+    "imageid": "openshift-4-2",
     "port": 8443
   }
 }
