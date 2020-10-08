@@ -71,7 +71,7 @@ Start the Camel K application
 
 ``kamel run camel-eventing/market-source.yaml -d camel-jackson``{{execute}}
 
-To exit the log view, hit ctrl+c on the terminal window. The integration will keep running on the cluster.
+The integration will be deployed on the cluster.
 
 After successfully deployed, you will be able to see it in the [Developer Console Topology](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/camel-knative/graph).
 
