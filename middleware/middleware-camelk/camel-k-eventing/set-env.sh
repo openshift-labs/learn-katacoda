@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#!/bin/bash
 function wait_for_operator_install {
   local A=1
   local sub=$1
