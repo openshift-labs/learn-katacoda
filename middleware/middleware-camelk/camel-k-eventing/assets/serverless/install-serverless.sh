@@ -2,6 +2,7 @@
 
 oc login -u admin -p admin
 
+sleep 10
 
 oc apply -f https://raw.githubusercontent.com/weimeilin79/learn-katacoda/master/middleware/middleware-camelk/camel-k-eventing/assets/serverless/subscription.yaml
 
