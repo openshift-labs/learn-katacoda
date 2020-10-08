@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while [ ! -f serverless/install-serverless.sh]
+while [ ! -f serverless/install-serverless.sh ]
 do
 	sleep 5
 done
