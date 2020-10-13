@@ -18,8 +18,7 @@ Deploy the custom resource definition (CRD)
 ``oc apply -f deploy/role_binding.yaml``{{execute}}
 
 ## Setting up authorization with IBMQ Account token
- 
-Insert the value of the account token into the secret.cfg file.
+Navigate to secret.cfg  in the katacoda built in editor and insert the value of the account token into the secret.cfg file.
 
 ``vi deploy/secret.cfg``{{execute}}
 
@@ -47,3 +46,7 @@ NOTE: When the pods are running enter Ctrl+c
 
 ## Deploy an instance of the custom resource:
 ``oc create -f deploy/crds/singhp11.io_v1_qiskitplayground_cr.yaml``{{execute}}
+
+## The notebook is found on the exposed route
+``oc get routes -w``{{execute}}
+

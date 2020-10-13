@@ -1,22 +1,25 @@
 {
     "icon": "fa-openshift",
-    "title": "Qiskit Quantum Computing on OpenShift (OpenShift 4.4)",
-    "description": "",
+    "title": "Quantum Computing on OpenShift using Qiskit(OpenShift 4.5)",
+    "description": "Implement quantum circuits using Qiskit SDK on OpenShift",
     "pathwayTitle": "OpenShift",
-    "difficulty": "advanced",
+    "difficulty": "intermediate",
     "time": "60 minutes",
     "backend": {
-        "imageid": "openshift-4-4"
+        "imageid": "openshift-4-5"
     },
     "environment": {
+        "uilayout": "editor-terminal",
+        "uisettings": "javascript",
+        "uieditorpath": "/root/openshift-quantum-operators/operators-examples/openshift-qiskit-operator/",
         "showdashboard": true,
+        "hideintro": false,
         "dashboards": [
             {
                 "name": "Console",
                 "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
             }
-        ],
-        "uilayout": "terminal-iframe"
+        ]
     },
     "details": {
         "steps": [
