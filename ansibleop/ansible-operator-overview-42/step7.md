@@ -3,7 +3,7 @@ resource definition the Operator will be watching.
 
 ### Deploy the Memcached Custom Resource Definition (CRD):
 
-`oc create -f deploy/crds/cache.example.com_memcacheds_crd.yaml`{{execute}}
+`oc create -f config/crd/bases/cache.example.com_memcacheds.yaml`{{execute}}
 
 By running this command, we are creating a new resource type, `memcached`, on the cluster. __We will give our Operator work to do by creating and modifying resources of this type.__
 

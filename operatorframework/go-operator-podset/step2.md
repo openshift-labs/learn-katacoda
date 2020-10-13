@@ -5,4 +5,3 @@ operator-sdk create api --group=app --version=v1alpha1 --kind=PodSet --resource 
 ```{{execute}}
 <br>
 We should now see the `/api` and `/controllers` and `/config` directories.
-

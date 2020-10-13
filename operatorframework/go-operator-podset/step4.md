@@ -171,6 +171,6 @@ func (r *PodSetReconciler) SetupWithManager(mgr ctrl.Manager) error {
 You can easily update this file by running the following command:
 
 ```
-wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/podset_controller.go -O pkg/controller/podset/podset_controller.go
+\cp /tmp/podset_controller.go controllers/podset_controller.go
 ```{{execute}}
 

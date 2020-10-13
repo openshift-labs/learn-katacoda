@@ -11,15 +11,15 @@ Ensure your `kind: PodSet` Custom Resource (CR) is updated with `spec.replicas`
 apiVersion: app.example.com/v1alpha1
 kind: PodSet
 metadata:
-  name: example-podset
+  name: podset-sample
 spec:
-  replicas: 3
+  size: 3
 </pre>
 
 You can easily update this file by running the following command:
 
 ```
-wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/app.example.com_v1alpha1_podset_cr.yaml -O deploy/crds/app.example.com_v1alpha1_podset_cr.yaml
+cp /tmp/app_v1alpha1_podset.yaml config/samples/app_v1alpha1_podset.yaml
 ```{{execute}}
 <br>
 Ensure you are currently scoped to the `myproject` Namespace:

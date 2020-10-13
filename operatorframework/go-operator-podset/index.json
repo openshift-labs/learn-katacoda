@@ -38,7 +38,7 @@
       "text": "finish.md"
     },
     "assets": {
-      "client": [{"file": ".init.sh", "target": "/root", "chmod": "+x"},{"file": "op-sdk-setup.sh", "target": "/root", "chmod": "+x"}]
+      "client": [{"file": "podset_types.go", "target": "/tmp"},{"file": "podset_controller.go", "target": "/tmp"},{"file": "app_v1alpha1_podset.yaml", "target": "/tmp"}]
     }
   },
   "files": [],
