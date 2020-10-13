@@ -1,5 +1,3 @@
-<br>
-
 # Introduction
 
 ## OpenShift IBM Quantum Operator
