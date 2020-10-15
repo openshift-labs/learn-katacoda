@@ -1,4 +1,4 @@
-Our PodSet controller creates pods containing OwnerReferences in their metadata section. This ensures that they will be removed upon deletion of the podset-sample Custom Resource.
+Our PodSet controller creates pods containing OwnerReferences in their `metadata` section. This ensures they will be removed upon deletion of the `podset-sample` CR.
 
 Observe the OwnerReference set on a Podset's pod:
 
@@ -12,7 +12,7 @@ Delete the podset-sample Custom Resource:
 oc delete podset podset-sample
 ```{{execute}}
 
-All of the pods should now be removed:
+Thanks to OwnerReferences, all of the pods should be deleted:
 
 ```
 oc get pods

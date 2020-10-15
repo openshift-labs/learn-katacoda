@@ -19,7 +19,7 @@ spec:
 You can easily update this file by running the following command:
 
 ```
-cp /tmp/app_v1alpha1_podset.yaml config/samples/app_v1alpha1_podset.yaml
+\cp /tmp/app_v1alpha1_podset.yaml config/samples/app_v1alpha1_podset.yaml
 ```{{execute}}
 <br>
 Ensure you are currently scoped to the `myproject` Namespace:
@@ -32,6 +32,12 @@ Deploy your PodSet Custom Resource to the live OpenShift Cluster:
 
 ```
 oc create -f config/samples/app_v1alpha1_podset.yaml
+```{{execute}}
+<br>
+Verify the Podset exists:
+
+```
+oc get podset
 ```{{execute}}
 <br>
 Verify the PodSet operator has created 3 pods:

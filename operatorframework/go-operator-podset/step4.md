@@ -4,7 +4,7 @@ Let's now observe the default `controllers/podset_controller.go` file:
 cat controllers/podset_controller.go
 ```{{execute}}
 
-This default controller requires additional logic so that we can react (or reconcile) to the add, update, and delete of `kind: PodSet` objects. We also need to modify the controller's `SetupWithManager` method. 
+This default controller requires additional logic so we can trigger our reconciler whenever `kind: PodSet` objects are added, updated, or deleted. We also want to trigger the reconciler whenever Pods owned by a given PodSet are added, updated, and deleted as well. To accomplish this. we modify the controller's `SetupWithManager` method. 
 
 Modify the PodSet controller logic at `controllers/podset_controller.go`:
 
