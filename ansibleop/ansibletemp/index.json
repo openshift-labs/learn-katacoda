@@ -41,7 +41,7 @@
       "text": "finish.md"
     },
     "assets": {
-      "host01": [{"file": ".init.sh", "target": "~/", "chmod": "+x"},{"file": "op-sdk-setup.sh", "target": "~/", "chmod": "+x"}]
+      "client": [{"file": "watches.yaml", "target": "/tmp"},{"file": "cache_v1alpha1_memcached.yaml", "target": "/tmp"}]
     }
   },
   "files": [],
