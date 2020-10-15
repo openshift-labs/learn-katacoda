@@ -129,14 +129,14 @@ Initialize a new Ansible-based Operator SDK project for the Memcached Operator:
 ```
 operator-sdk init --plugins=ansible --domain example.com
 ```{{execute}}
-
+<br>
 Create the Memcached API and generate an Ansible role skeleton.  This will ensure our controller is setup to watch the
 Memcached resource with APIVersion 'cache.example.com/v1alpha1' and Kind 'Memcached'.
 
 ```
 operator-sdk create api --group cache --version v1alpha1 --kind Memcached --generate-role
 ```{{execute}}
-
+<br>
 ## Inspecting the results
 
 Inspect the memcached-operator directory structure for yourself with 'tree', and then 'cd' into it.

@@ -1,4 +1,4 @@
-Thus far, we have created the memcached-operator project specifically for watching the Memcached resource with APIVersion 'cache.example.com/v1apha1' and Kind 'Memcached'.  Now it's time to define the Operator logic.
+Up to this point, we have created the memcached-operator project specifically for watching the Memcached resource with APIVersion 'cache.example.com/v1apha1' and Kind 'Memcached'.  Now it's time to define the Operator logic.
 
 ## Customize the Operator logic
 
@@ -14,7 +14,7 @@ To speed development of our Operator up, we can reuse an existing Role. We will 
 
 [dymurray.memcached_operator_role (galaxy.ansible.com)](https://galaxy.ansible.com/dymurray/memcached_operator_role)
 
-Run to install the Ansible Role inside of the project:
+Run the following to install the Ansible Role inside of the project:
 
 `ansible-galaxy install dymurray.memcached_operator_role -p ./roles`{{execute}}
 
@@ -28,6 +28,8 @@ Since we'll be reusing the logic from 'dymurray.memcached_operator_role', we can
 
 `rm -rf ./roles/memcached`{{execute}}
 
+## Add the updated task
+`\cp /tmp/main.yml roles/dymurray.memcached_operator_role/tasks/`{{execute}}
 
 ## Taking a Closer Look: dymurray.memcached_operator_role
 
@@ -58,8 +60,8 @@ Be sure to examine the memcached Role _tasks/main.yml_ file, which uses the [_k8
       kind: Deployment
       apiVersion: apps/v1
       metadata:
-        name: '{{ meta.name }}-memcached'
-        namespace: '{{ meta.namespace }}'
+        name: '{{ ansible_operator_meta.name }}-memcached'
+        namespace: '{{ ansible_operator_meta.namespace }}'
       spec:
         replicas: "{{size}}"
         selector:
