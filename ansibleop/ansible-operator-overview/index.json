@@ -41,7 +41,7 @@
       "text": "finish.md"
     },
     "assets": {
-      "host01": [{"file": "watches.yaml", "target": "/tmp"},{"file": "main.yml", "target": "/tmp"},{"file": "cache_v1alpha1_memcached.yaml", "target": "/tmp"}]
+      "host01": [{"file": "watches.yaml", "target": "/tmp"},{"file": "cache_v1alpha1_memcached.yaml", "target": "/tmp"}]
     }
   },
   "files": [],

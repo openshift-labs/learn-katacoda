@@ -28,9 +28,6 @@ Since we'll be reusing the logic from 'dymurray.memcached_operator_role', we can
 
 `rm -rf ./roles/memcached`{{execute}}
 
-## Add the updated task
-`\cp /tmp/main.yml roles/dymurray.memcached_operator_role/tasks/`{{execute}}
-
 ## Taking a Closer Look: dymurray.memcached_operator_role
 
 We can use the 'tree' command to get a general sense of the memcached Role installed from Ansible Galaxy.
