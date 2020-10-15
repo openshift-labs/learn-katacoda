@@ -2,9 +2,9 @@ Thank you for taking a closer look at **Operator SDK's Helm Operator**.  For mor
 information, check out the links below:
 
 ## GitHub
- * Helm Operator Getting Started guide: https://github.com/operator-framework/operator-sdk/blob/master/doc/helm/user-guide.md
+ * Helm Operator Getting Started guide: https://sdk.operatorframework.io/docs/building-operators/helm/
  * Operator-Framework: https://github.com/operator-framework
- * Operator-SDK: https://github.com/operator-framework/operator-sdk/
+ * Operator-SDK: https://sdk.operatorframework.io
 
 ## Chat
 * Kubernetes Slack Chat (upstream): #kubernetes-operators at https://kubernetes.slack.com/
