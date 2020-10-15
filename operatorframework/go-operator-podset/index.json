@@ -20,7 +20,7 @@
 			"title": "Customizing the Operator Logic",
 			"text": "step4.md"
     },{
-			"title": "Running the Operator Locally (Inside the Cluster)",
+			"title": "Running the Operator Locally (Outside the Cluster)",
 			"text": "step5.md"
     },{
 			"title": "Creating the PodSet Custom Resource",
