@@ -65,25 +65,11 @@ spec:
 ## Check that the Memcached Operator works as intended 
 Ensure that the memcached-operator creates the deployment for the CR:
 
-<small>
-```sh
-$ oc get deployment
-NAME                 DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
-example-memcached    3       3       3          3         1m
-```
-</small>
+```oc get deployment```{{execute}}
 
 Check the pods to confirm 3 replicas were created:
 
-<small>
-```sh
-$ oc get pods
-NAME                                READY STATUS   RESTARTS AGE
-example-memcached-6cc844747c-2hbln  1/1   Running  0        1m
-example-memcached-6cc844747c-54q26  1/1   Running  0        1m
-example-memcached-6cc844747c-7jfhc  1/1   Running  0        1m
-```
-</small>
+```oc get pods```{{execute}}
 
 ## Change the Memcached CR to deploy 4 replicas
 
@@ -110,12 +96,7 @@ Apply the change:
 
 Confirm that the Operator changes the Deployment size:
 
-<small>
-```sh
-$ oc get deployment
-NAME                DESIRED CURRENT  UP-TO-DATE  AVAILABLE  AGE
-example-memcached   4       4        4           4          53s```
-</small>
+```oc get deployment```{{execute}}
 
 Inspect the YAML list of 'memcached' resources in your project, noting that the 'spec.size' field is now set to 4.
 
