@@ -60,6 +60,7 @@
                 { "file": "operator/subscription.yaml", "target": "~/operator" },
                 { "file": "sampleapp/sampleapp.yaml", "target": "~/sampleapp" },
                 { "file": "tektontasks/openshift-client-task.yaml", "target": "~/tektontasks" },
+                { "file": "tektontasks/sample.yaml", "target": "~/tektontasks" },
                 { "file": "tektontasks/s2i-nodejs-task.yaml", "target": "~/tektontasks" },
                 { "file": "pipeline/deploy-pipeline.yaml", "target": "~/pipeline" },
                 { "file": "resources/git-pipeline-resource.yaml", "target": "~/resources" },
