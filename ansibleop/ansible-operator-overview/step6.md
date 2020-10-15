@@ -20,7 +20,7 @@ Run to install the Ansible Role inside of the project:
 
 ```
 $ ls roles/
-dymurray.memcached_operator_role Memcached
+dymurray.memcached_operator_role memcached
 ```
 
 ## Removing the unneeded Role
@@ -87,13 +87,12 @@ Since we have swapped out the original Role for one from Ansible Galaxy, lets ch
   group: cache.example.com
   kind: Memcached
   role: /opt/ansible/roles/dymurray.memcached_operator_role
-  
 </pre>
 
 Update this file by running the following command:
 
 ```
-wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-operator-overview/assets/watches.yaml -O /root/tutorial/memcached-operator/watches.yaml
+\cp /tmp/watches.yaml watches.yaml
 ```{{execute}}
 <br>
 
