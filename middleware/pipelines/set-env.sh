@@ -10,4 +10,7 @@ tar xvzf tkn_0.13.0_Linux_x86_64.tar.gz -C /usr/local/bin/ tkn
 
 clear
 
+echo -e "Tekton CLI is installed, using version"
+tkn version
+
 echo -e "Welcome to your interactive environment. OpenShift is configured and ready to use."
