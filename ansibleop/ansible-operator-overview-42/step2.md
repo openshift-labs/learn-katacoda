@@ -78,6 +78,5 @@ COPY playbook.yaml ${HOME}/playbook.yaml
 If you know from the start that you want your Operator to use a Playbook instead of a Role, you can generate your project scaffolding with the `--generate-playbook` flag:
 
 ```
-operator-sdk init --plugins=ansible --domain example.com
-operator-sdk create api --group cache --version v1alpha1 --kind Memcached --generate-playbook
+operator-sdk new --type ansible --kind Foo --api-version foo.example.com/v1alpha1 foo-operator --generate-playbook --skip-git-init
 ```

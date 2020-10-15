@@ -1,6 +1,6 @@
 apiVersion: cache.example.com/v1alpha1
 kind: Memcached
 metadata:
-  name: memcached-sample
+  name: example-memcached
 spec:
-  size: 3
+  size: 4
