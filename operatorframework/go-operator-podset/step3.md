@@ -1,4 +1,15 @@
-Modify the `PodSetSpec` and `PodSetStatus` of the `PodSet` Custom Resource(CR) at `go/src/github.com/redhat/podset-operator/pkg/apis/app/v1alpha1/podset_types.go`
+Let's begin by inspecting the newly generated `api/v1alpha1/podset_types.go` file for our PodSet API:
+
+```
+cat api/v1alpha1/podset_types.go
+```{{execute}}
+
+In Kubernetes, every functional object (with some exceptions, i.e. ConfigMap) includes `spec` and `status`. Kubernetes functions by reconciling desired state (Spec) with the actual cluster state. We then record what is observed (Status). 
+
+Also observe the `+kubebuilder` comment markers found throughout the file. `operator-sdk` makes use of a tool called [controler-gen](https://github.com/kubernetes-sigs/controller-tools) (from the [controller-tools](https://github.com/kubernetes-sigs/controller-tools) project) for generating utility code and Kubernetes YAML. More information on markers for config/code generation can be found [here](https://book.kubebuilder.io/reference/markers.html).
+
+Let's now modify the `PodSetSpec` and `PodSetStatus` of the `PodSet` Custom Resource (CR) at `api/v1alpha1/podset_types.go`
+
 <br>
 It should look like the file below:
 
@@ -14,27 +25,25 @@ import (
 
 // PodSetSpec defines the desired state of PodSet
 type PodSetSpec struct {
-        // INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-        // Important: Run "operator-sdk generate k8s" to regenerate code after modifying this file
-        // Add custom validation using kubebuilder tags: https://book-v1.book.kubebuilder.io/beyond_basics/generating_crd.html
-        
-	Replicas int32 `json:"replicas"`
+        // Replicas is the desired number of pods for the PodSet
+        // +kubebuilder:validation:Minimum=1
+        // +kubebuilder:validation:Maximum=10
+        Replicas int32 `json:"replicas,omitempty"`
 }
 
-// PodSetStatus defines the observed state of PodSet
+// PodSetStatus defines the current status of PodSet
 type PodSetStatus struct {
-        // INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
-        // Important: Run "operator-sdk generate k8s" to regenerate code after modifying this file
-        // Add custom validation using kubebuilder tags: https://book-v1.book.kubebuilder.io/beyond_basics/generating_crd.html
-        
-	PodNames []string `json:"podNames"`
+        // +kubebuilder:printcolumn:JSONPath=".status.podNames",name=PodNames,type=string
+        PodNames []string `json:"podNames"`
+		AvailableReplicas	int32	`json:"availableReplicas"`
 }
 
-// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
-
-// PodSet is the Schema for the podsets API
+// +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
-// +kubebuilder:resource:path=podsets,scope=Namespaced
+
+// PodSet is the Schema for the PodSet API
+// +kubebuilder:printcolumn:name="Desired",type=string,JSONPath=`.spec.replicas`
+// +kubebuilder:printcolumn:name="Current",type=string,JSONPath=`.status.availableReplicas`
 type PodSet struct {
         metav1.TypeMeta   `json:",inline"`
         metav1.ObjectMeta `json:"metadata,omitempty"`
@@ -43,7 +52,7 @@ type PodSet struct {
         Status PodSetStatus `json:"status,omitempty"`
 }
 
-// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+// +kubebuilder:object:root=true
 
 // PodSetList contains a list of PodSet
 type PodSetList struct {
@@ -60,31 +69,31 @@ func init() {
 You can easily update this file by running the following command:
 
 ```
-wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/go-operator-podset/assets/podset_types.go -O pkg/apis/app/v1alpha1/podset_types.go
+\cp /tmp/podset_types.go api/v1alpha1/podset_types.go
 ```{{execute}}
 <br>
-After modifying the `*_types.go` file, always run the following command to update the generated code for that resource type:
+After modifying the `*_types.go` file, always run the following command to update the `zz_generated.deepcopy.go` file:
 
 ```
-operator-sdk generate k8s
+make generate
 ```{{execute}}
 <br>
-We can also automatically update the CRD with [OpenAPI v3 schema](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#validation) details based off the newly updated `*_types.go` file:
+Now we can run the `make manifests` command to generate our customized CRD and additional object YAMLs.
 
 ```
-operator-sdk generate crds
+make manifests
 ```{{execute}}
 <br>
-Observe the CRD now reflects the `spec.replicas` and `status.podNames` OpenAPI v3 schema validation in the spec:
+Thanks to our comment markers, observe that we now have a newly generated CRD yaml that reflects the `spec.replicas` and `status.podNames` OpenAPI v3 schema validation and customized print columns.
 
 ```
-cat deploy/crds/app.example.com_podsets_crd.yaml
+cat config/crd/bases/app.example.com_podsets.yaml
 ```{{execute}}
 <br>
 Deploy your PodSet Custom Resource Definition to the live OpenShift Cluster:
 
 ```
-oc create -f deploy/crds/app.example.com_podsets_crd.yaml
+oc apply -f config/crd/bases/app.example.com_podsets.yaml
 ```{{execute}}
 <br>
 Confirm the CRD was successfully created:
