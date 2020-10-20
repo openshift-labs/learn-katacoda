@@ -3,6 +3,7 @@ And we also have access to Kafka cluster in the environment. Let's setup the fun
 
 This tutorial is an simple *Managed File Transfer* scenario, where a laboratory uploads medical reports to an online object store, and we will need to transfer the file from the cloud object store to our local FTP server in order for the legacy system to consume.
 
+![overview](/openshift/assets/middleware/middleware-camelk/camel-kafka-connector/camel-kafka-step01-overview.png)
 
 ## Logging in to the Cluster via CLI
 
@@ -19,7 +20,8 @@ This will log you in using the credentials:
 * **Password:** ``admin``
 
 Use the same credentials to log into the web console.
-(OPTIONAL): Click the [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com) tab to open the dashboard. 
+
+(OPTIONAL): Click the [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com) tab to open the dashboard.
 
 ## Create a new namespace for this tutorial
 
