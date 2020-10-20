@@ -8,6 +8,9 @@ The example shows a simplified trading application that analyzes price variation
 Assume the market only open for couple of hours, serverless application can optimize resource usage.
 In between these separate serverless services, events are pass through an *event mesh*.
 
+![overview](/openshift/assets/middleware/middleware-camelk/camel-k-eventing/Eventing-Step2-00-overview.png)
+
+
 #### Enabling the Knative Eventing Broker
 
 The central piece of the event mesh that we're going to create is the Knative Eventing broker. It is a publish/subscribe entity that Camel K integrations will use to publish events or subscribe to it in order to being triggered when events of specific types are available. Subscribers of the eventing broker are Knative serving services, that can scale down to zero when no events are available for them.
