@@ -19,7 +19,7 @@ This will log you in using the credentials:
 * **Password:** ``admin``
 
 Use the same credentials to log into the web console.
-
+(OPTIONAL): Click the [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com) tab to open the dashboard. 
 
 ## Create a new namespace for this tutorial
 
