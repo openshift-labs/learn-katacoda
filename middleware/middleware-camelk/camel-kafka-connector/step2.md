@@ -11,6 +11,7 @@ And now, you have a working generic object datastore.
 ## Setup the SFTP Server for the file store
 
 Run the following script to start up the SFTP Server in the system:
+
 ``bash sftp/sftp.sh``{{execute}}
 
 If everything goes as planned, you should see the following message:
@@ -41,13 +42,17 @@ deploymentconfig.apps.openshift.io/ftpserver volume updated
 ```
 
 Take note at the secret/sftp-ssh-key, we will be using this secret for configuring our sink connector.
+
 ``oc get secret/sftp-ssh-key``{{execute}}
 
 Waiting until the _RUNNING_ status
+
 ``oc get pod -w | grep ftpserver``{{execute}}
+
 Hit Ctrl+C to exit the mode.
 
 Take a look at the folder, and it should be empty at the moment. This is where we want our file files to be at.
+
 ``oc exec -i `oc get pod -l deploymentconfig=ftpserver -o=jsonpath='{.items[0].metadata.name}'` -- ls /home/foo/upload/``{{execute}}
 
 
@@ -58,7 +63,7 @@ Source2Image will be used to setup and build the connectors.Go to the text edito
 
 Paste the following code into the application.
 
-<pre class="file" data-filename="minio-connector.yaml" data-target="replace">
+<pre class="file" data-filename="kafka-connect-s2i.yaml" data-target="replace">
 apiVersion: kafka.strimzi.io/v1beta1
 kind: KafkaConnectS2I
 metadata:

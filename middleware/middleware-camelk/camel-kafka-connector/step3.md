@@ -65,7 +65,7 @@ spec:
   tasksMax: 1
   config:
     key.converter: org.apache.kafka.connect.storage.StringConverter
-    value.converter: org.apache.kafka.connect.json.StringConverter
+    value.converter: org.apache.kafka.connect.storage.StringConverter
     topics: demo-topic
     camel.source.path.bucketName: camel-kafka
     camel.source.endpoint.initialDelay: 20000
@@ -84,13 +84,16 @@ Now, let's go ahead and place a file in the object store. This is going to copy 
 ``oc rsync ./file/ `oc get pod -l app=minio -o=jsonpath='{.items[0].metadata.name}'`:/data/camel-kafka``{{execute}}
 
 Note the name of the two files.
+
 ```
 WARNING: cannot use rsync: rsync not available in container
 sample01.json
 ```
+
 You will find the file in the Kafka Topic _*demo-topic*_
 
 ``oc exec -i `oc get pods --field-selector status.phase=Running -l strimzi.io/name=my-connect-cluster-connect -o=jsonpath='{.items[0].metadata.name}'` -- bin/kafka-console-consumer.sh --topic demo-topic --from-beginning --bootstrap-server my-cluster-kafka-bootstrap:9092``{{execute}}
+
 
 With content starting like following:
 
@@ -108,5 +111,5 @@ OpenJDK 64-Bit Server VM warning: If the number of processors is expected to inc
     {
       "coding": [
         {
-
+   ............
 ```
