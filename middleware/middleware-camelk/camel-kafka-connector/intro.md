@@ -4,7 +4,7 @@ This scenario will introduce [Camel Kafka Connector ](https://camel.apache.org/c
 ## What is Camel Kafka Connector?
 
 
-![Logo](https://camel.apache.org/_/img/logo-d.svg)
+![Logo](https://upload.wikimedia.org/wikipedia/commons/1/11/Apache_Camel_Logo.svg)
 
 
 ### Kafka Connector with a Camel twist -- connect to ALMOST anything
