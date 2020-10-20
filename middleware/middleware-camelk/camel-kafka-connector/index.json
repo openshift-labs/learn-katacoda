@@ -50,6 +50,7 @@
 	        { "file": "sftp/demo_rsa", "target": "~/sftp/" },
 	        { "file": "sftp/sftp.sh", "target": "~/sftp/" },
 	        { "file": "sftp/users.conf", "target": "~/sftp/" },
+	        { "file": "strimzi/operator-group.yaml", "target": "~/strimzi/" },
 	        { "file": "strimzi/streams-operator.yaml", "target": "~/strimzi/" },
 	        { "file": "strimzi/kafka-cluster.yaml", "target": "~/strimzi/" },
 	        { "file": "plugin/camel-minio-kafka-connector/camel-api-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
