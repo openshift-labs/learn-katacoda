@@ -51,28 +51,6 @@ Use the same credentials to log into the web console.
 
 ## Setup Knative Eventing
 
-Do a quick check and see if Knative Serving is properlly installed.
-You will see all the pod in *Running status*, it means it is successfully installed.
-``oc get pod -w -n knative-serving``{{execute}}
-
-```
-NAME                                    READY   STATUS      RESTARTS   AGE
-activator-78c57d4f4d-bbtvv          1/1     Running     0          26m
-activator-78c57d4f4d-jxmj6          1/1     Running     0          26m
-autoscaler-86995ff7dc-dsnhr         1/1     Running     0          26m
-autoscaler-hpa-c8bd7454b-4rqd8      1/1     Running     0          26m
-autoscaler-hpa-c8bd7454b-9sdpk      1/1     Running     0          26m
-controller-666494b7c-h4kbj          1/1     Running     0          26m
-controller-666494b7c-zsndv          1/1     Running     0          25m
-kn-cli-downloads-6cdf999975-kjrdh   1/1     Running     0          26m
-storage-version-migration-njtgb     0/1     Completed   0          26m
-webhook-75d6b55d76-xnzrh            1/1     Running     0          26m
-```
-
-*NOTE* : _IF_ you don't see above result, sometime it is causes by problem in Katacoda, simply run the following command to fix it.
-
-``oc apply -f serverless/serving.yaml``{{execute}}
-
 
 OpenShift Serverless Eventing is designed to address a common need for cloud native development and provides composable primitives to enable late-binding event sources and event consumers. OpenShift Serverless Operator is subscribed in the cluster already.Let's go ahead and setup Knative Eventing to set the ground for the event mesh.
 
