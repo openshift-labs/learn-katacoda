@@ -9,7 +9,7 @@ oc expose deploy/mcrouter --name mcrouter --type=ClusterIP --target-port=5000
 Create a temporary telnet Pod and connect to Mrouter:
 
 ```
-oc run -it --rm telnet --image=registry.redhat.io/rhel8/support-tools --restart=Never mcrouter 5000
+oc run -it --rm telnet --image=registry.redhat.io/rhel8/support-tools --restart=Never -- telnet mcrouter 5000
 ```{{execute}}
 <br>
 After a few seconds you will see a message `If you don't see a command prompt, try pressing enter.` ***But do not press enter***. Run the following commands to insert the key `ansible` with an 8 byte value of `operator` for 900 seconds and exit:
