@@ -91,7 +91,7 @@ Since we have swapped out the original Role for one from Ansible Galaxy, lets ch
 Update this file by running the following command:
 
 ```
-\cp /tmp/watches.yaml watches.yaml
+cp /tmp/watches.yaml watches.yaml
 ```{{execute}}
 <br>
 
