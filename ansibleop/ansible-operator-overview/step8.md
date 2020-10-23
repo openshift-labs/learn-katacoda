@@ -87,7 +87,7 @@ spec:
 Update this file by running the following command:
 
 ```
-\cp /tmp/cache_v1alpha1_memcached.yaml config/samples/cache_v1alpha1_memcached.yaml
+cp /tmp/cache_v1alpha1_memcached.yaml config/samples/cache_v1alpha1_memcached.yaml
 ```{{execute}}
 <br>
 Apply the change:
