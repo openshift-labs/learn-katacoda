@@ -60,9 +60,17 @@ spec:
   size: 3
 ```
 
+Update this file by running the following command:
+
+```
+\cp /tmp/cache_v1alpha1_memcached.yaml config/samples/cache_v1alpha1_memcached.yaml
+```{{execute}}
+<br>
+
 `oc --namespace tutorial create -f config/samples/cache_v1alpha1_memcached.yaml`{{execute}}
 
-## Check that the Memcached Operator works as intended 
+## Check that the Memcached Operator works as intended
+
 Ensure that the memcached-operator creates the deployment for the CR:
 
 ```oc get deployment```{{execute}}
@@ -81,16 +89,8 @@ kind: Memcached
 metadata:
   name: memcached-sample
 spec:
-  size: 3
+  size: 4
 </pre>
-
-Update this file by running the following command:
-
-```
-\cp /tmp/cache_v1alpha1_memcached.yaml config/samples/cache_v1alpha1_memcached.yaml
-```{{execute}}
-<br>
-Apply the change:
 
 `oc --namespace tutorial apply -f config/samples/cache_v1alpha1_memcached.yaml`{{execute}}
 
