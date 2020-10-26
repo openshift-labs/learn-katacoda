@@ -29,7 +29,7 @@ Inside `my-chart/` folder you will find these files:
 
 * `Chart.yaml`{{open}}: is a YAML file containing multiple fields describing the chart
 * `values.yaml`{{open}}:: is a YAML file containing default values for a chart, those may be overridden by users during helm install or helm upgrade.
-* `templates/NOTES.txt`{{open}}: a test to be displayed to your users when they run helm install.
+* `templates/NOTES.txt`{{open}}: text to be displayed to your users when they run helm install.
 * `templates/deployment.yaml`{{open}}: a basic manifest for creating a Kubernetes deployment
 * `templates/service.yaml`{{open}}: a basic manifest for creating a service endpoint for your deployment
 * `templates/_helpers.tpl`{{open}}: a place to put template helpers that you can re-use throughout the chart
