@@ -13,7 +13,7 @@ By the end of this lab you should be able to:
 - Cluster Debuggin: Troubleshooting in a distributed systems environment
 
 ## Other Material
-This video will give you a background to all of the concepts in this lab
+This presentation will give you a background to all of the concepts in this lab
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/973NBq7AnUTTWA" width="225px" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 
