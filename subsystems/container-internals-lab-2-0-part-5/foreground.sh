@@ -1,5 +1,5 @@
 # General Preparation
-yum install -y podman buildah skopeo tree httpd-tools strace
+yum install -y --quiet podman buildah skopeo tree httpd-tools strace
 git clone --quiet --depth 1 https://github.com/fatherlinux/container-internals-lab.git ~/labs
 cp -f ~/labs/mega-proc.sh /usr/bin/mega-proc.sh
 
