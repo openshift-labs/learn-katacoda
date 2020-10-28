@@ -28,7 +28,7 @@
             "title": "Cluster Performance: Scaling applications horizontally with containers",
             "text": "03-load-testing.md"
         }, {
-            "title": "Cluster Debugging: Troubleshooting in a distributed systems environment",
+            "title": "Distributed Debugging: Troubleshooting in a distributed systems environment",
             "text": "04-troubleshooting-distributed-applications.md"
         }],
         "intro": {
