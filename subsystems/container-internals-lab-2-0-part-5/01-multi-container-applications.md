@@ -15,7 +15,7 @@ Developers and architects can group these objects/resources in a single file to 
 
 First, look at the objects/resources that define the application:
 
-``cat ~/labs/lab4-step1/wordpress-objects.yaml``{{execute}}
+``cat ~/labs/wordpress-demo/wordpress-objects.yaml``{{execute}}
 
 Notice there are two Services defined - one for MySQL and one for Wordpress. This allows these two Services to scale independently. The front end can scale with web traffic demand. The MySQL service could also be made to scale with a technology like Galera, but would require special care. You may also notice that even though there are two Services, there is only a single Route in this definition. That's because Services are internal to the Kubernetes cluster, while Routes expose the service externally. We only want to expose our Web Server externally, not our database.
 
@@ -25,7 +25,7 @@ Containers are ephemeral which means their storage is deleted and recreated ever
 
 Now, let's instantiate some Persistent Volumes:
 
-``oc create -f ~/labs/lab4-step1/persistent-volumes.yaml``{{execute}}
+``oc create -f ~/labs/wordpress-demo/persistent-volumes.yaml``{{execute}}
 
 Notice that the persistent volumes are unbound. They are available and waiting, but will not be utilized until you define an application which consumes storage. This is inline with the way Kubernetes constantly tries to drive the actual state toward the defined state. Currently, there is no definition to consume this storage: 
 
@@ -33,7 +33,7 @@ Notice that the persistent volumes are unbound. They are available and waiting, 
 
 Now, let's instantiate our two tier web application with a single command. This single command can be thought of as an API call which tells Kubernetes the desired state or defined state which it will use as a guide:
 
-``oc create -f ~/labs/lab4-step1/wordpress-objects.yaml``{{execute}}
+``oc create -f ~/labs/wordpress-demo/wordpress-objects.yaml``{{execute}}
 
 Look at the status of the application. The two pods that make up this application will remain in a "pending" state - why? Kubernetes will connect the Persistent Volume Claims with the available Persistent Volumes, pull images, and schedule the pods to a node. Keep running these commands until the pods start:
 
