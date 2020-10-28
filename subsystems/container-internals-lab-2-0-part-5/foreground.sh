@@ -4,9 +4,9 @@ git clone --quiet --depth 1 https://github.com/fatherlinux/container-internals-l
 cp -f ~/labs/mega-proc.sh /usr/bin/mega-proc.sh
 
 # Lab 5
-podman pull registry.access.redhat.com/ubi7/ubi
-podman pull quay.io/fatherlinux/wordpress:csc
-podman pull openshift3/mysql-55-rhel7
+docker pull registry.access.redhat.com/ubi7/ubi
+docker pull quay.io/fatherlinux/wordpress:csc
+docker pull openshift3/mysql-55-rhel7
 git clone --quiet --depth 1 --single-branch --branch lab4-step1 https://github.com/fatherlinux/wordpress-demo.git ~/labs/wordpress-demo
 ~/labs/wordpress-demo/create.sh
 sed -i s/wpfrontend-wordpress.apps.example.com/`hostname`/ ~/labs/wordpress-demo/wordpress-objects.yaml
