@@ -1,0 +1,21 @@
+apiVersion: kafka.strimzi.io/v1alpha1
+kind: KafkaConnector
+metadata:
+  name: sftp-source-connector
+  labels:
+    strimzi.io/cluster: my-connect-cluster
+spec:
+  class: org.apache.camel.kafkaconnector.sftp.CamelSftpSinkConnector
+  tasksMax: 1
+  config:
+    key.converter: org.apache.kafka.connect.storage.StringConverter
+    value.converter: org.apache.kafka.connect.storage.StringConverter
+    topics: demo-topic
+    camel.sink.path.host: ftpserver
+    camel.sink.path.port: 22
+    camel.sink.path.directoryName: upload
+    camel.sink.endpoint.fileName: ${date:now:yyyyMMddhhmmss}.json
+    camel.sink.endpoint.username: foo
+    camel.sink.endpoint.password: pass
+    camel.sink.endpoint.useUserKnownHostsFile: false
+    camel.sink.endpoint.privateKeyFile: /opt/kafka/external-configuration/sftp-ssh-key/demo_rsa

@@ -6,14 +6,14 @@
     "difficulty": "beginner",
     "time": "30 minutes",
     "backend": {
-        "imageid": "openshift-4-4"
+        "imageid": "openshift-4-5"
     },
     "environment": {
         "showdashboard": true,
         "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
         "uilayout": "editor-terminal",
     		"uisettings": "java",
-        "uieditorpath": "/root/camel-api"
+        "uieditorpath": "/root/camel-eventing"
     },
     "details": {
         "steps": [
@@ -36,14 +36,16 @@
 	    ],
 	    "intro": {
 	    	"courseData": "env-init.sh",
-	      "text": "intro.md"
+	      "text": "intro.md",
+	      "code": "set-env.sh"
 	    },
 	    "finish": {
 	      "text": "finish.md"
 	    },
 	    "assets": {
 	      "client": [
-	        { "file": "channel/audit-channel.yaml", "target": "~/channel/" },
+	      	{ "file": "algorithms/SimpleAlgorithm.java", "target": "~/algorithms/" },
+	      	{ "file": "serverless/install-serverless.sh", "target": "~/serverless/" },
 	        { "file": "serverless/serving.yaml", "target": "~/serverless/" },
 	        { "file": "serverless/eventing.yaml", "target": "~/serverless/" },
 	        { "file": "serverless/subscription.yaml", "target": "~/serverless/" }

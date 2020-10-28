@@ -1,7 +1,7 @@
 Open a new terminal window and navigate to the `cockroachdb-operator` top-level directory:
 
 ```
-cd $GOPATH/src/github.com/redhat/cockroachdb-operator
+cd projects/cockroachdb-operator
 ```{{execute}}
 Before applying the CockroachDB Custom Resource, observe the CockroachDB Helm Chart `values.yaml`:
 
@@ -14,10 +14,10 @@ Update the CockroachDB Custom Resource at `go/src/github.com/redhat/cockroachdb-
 * `spec.storage.persistentVolume.storageClass: local-storage`
 
 <pre class="file">
-apiVersion: charts.helm.k8s.io/v1alpha1
+apiVersion: charts.example.com/v1alpha1
 kind: Cockroachdb
 metadata: 
-  name: example
+  name: cockroachdb-sample
 spec: 
   statefulset: 
     replicas: 1
@@ -30,7 +30,7 @@ spec:
 You can easily update this file by running the following command:
 
 ```
-wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/operatorframework/helm-operator/assets/charts.helm.k8s.io_v1alpha1_cockroachdb_cr.yaml -O deploy/crds/charts.helm.k8s.io_v1alpha1_cockroachdb_cr.yaml
+\cp /tmp/charts_v1alpha1_cockroachdb.yaml config/samples/charts_v1alpha1_cockroachdb.yaml
 ```{{execute}}
 <br>
 After updating the CockroachDB Custom Resource with our desired spec, apply it to the cluster. Ensure you are currently scoped to the `myproject` Namespace:
@@ -40,7 +40,7 @@ oc project myproject
 ```{{execute}}
 
 ```
-oc apply -f deploy/crds/charts.helm.k8s.io_v1alpha1_cockroachdb_cr.yaml
+oc apply -f config/samples/charts_v1alpha1_cockroachdb.yaml
 ```{{execute}}
 <br>
 Confirm that the Custom Resource was created:

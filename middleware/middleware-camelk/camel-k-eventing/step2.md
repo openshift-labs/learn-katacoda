@@ -1,208 +1,114 @@
-## Running the API integration
+## Auto Bitcoin Trading System
 
-You have access to an OpenAPI standard document under `helper` called `openapi.yaml`, that contains operations for:
- - Listing the name of the contained objects
- - Creating a new object
- - Getting the content of an object
- - Deleting an object
+The example shows a simplified trading application that analyzes price variations of Bitcoins (BTC / USDT), and automate trading base on the predicted returns. In order to keep the system flexible with pluggable prediction logics, we are going to break the system into three separate parts.
+- *Source* - Load realtime Bitcoins values.
+- *Predictors* - Pluggable predictors with various strategy.  
+- *Seller Alert* - Seller alert (Mainly to display the result).
 
-#### (OPTIONAL)
-The document is written in YAML, this is what it looks like.
-You can take this and view it in https://www.apicur.io, as a web based UI to design and view your OpenAPI based APIs.
-![apicurio](/openshift/assets/middleware/middleware-camelk/camel-k-serving/Serving-Step2-01-API.png)
+Assume the market only open for couple of hours, serverless application can optimize resource usage.
+In between these separate serverless services, events are pass through an *event mesh*.
+
+![overview](/openshift/assets/middleware/middleware-camelk/camel-k-eventing/Eventing-Step2-00-overview.png)
 
 
-```
-openapi: 3.0.2
-info:
-    title: Camel K Object API
-    version: 1.0.0
-    description: A CRUD API for an object store
-paths:
-    /:
-        get:
-            responses:
-                '200':
-                    content:
-                        application/json:
-                            schema:
-                                type: array
-                                items:
-                                    type: string
-                    description: Object list
-            operationId: list
-            summary: List the objects
-    '/{name}':
-        get:
-            responses:
-                '200':
-                    content:
-                        application/octet-stream: {}
-                    description: The object content
-            operationId: get
-            summary: Get the content of an object
-        put:
-            requestBody:
-                description: The object content
-                content:
-                    application/octet-stream: {}
-                required: true
-            responses:
-                '200':
-                    description: The object has been created
-            operationId: create
-            summary: Save an object
-        delete:
-            responses:
-                '204':
-                    description: Object has been deleted
-            operationId: delete
-            summary: Delete an object
-        parameters:
-            -
-                name: name
-                description: Name of the object
-                schema:
-                    type: string
-                in: path
-                required: true
-    /list:
-        get:
-            responses:
-                '200':
-                    content:
-                        application/json:
-                            schema:
-                                type: array
-                                items:
-                                    type: string
-            operationId: list
-            summary: List the objects
+#### Enabling the Knative Eventing Broker
 
-```
+The central piece of the event mesh that we're going to create is the Knative Eventing broker. It is a publish/subscribe entity that Camel K integrations will use to publish events or subscribe to it in order to being triggered when events of specific types are available. Subscribers of the eventing broker are Knative serving services, that can scale down to zero when no events are available for them.
 
 
 
-#### IMPLEMENT API WIH CAMEL K
-Let's create the camel route that implements the operations that was defined in the API.  
-Go to the text editor on the right, under the folder /root/camel-api. Right click on the directory and choose New -> File and name it `API.java`.
+Create a new OpenShift project ``camel-knative``:
+``oc new-project camel-knative``{{execute}}
 
+
+To enable the eventing broker, we create a default broker in the current namespace using namespace labeling:
+``oc label namespace camel-knative knative-eventing-injection=enabled``{{execute}}
+
+Let go ahead create predictors for market and load the market events
+
+#### Run a prediction algorithms
+
+The market data feed available in the mesh can be now used to create different prediction algorithms that can publish events when they believe it's the right time to sell or buy bitcoins, depending on the trend of the exchange.
+
+We're going to run the same (basic) algorithm with different parameters, obtaining two predictors. The algorithm is basic and it's just computing if the BTC variation respect to the last observed value is higher than a threshold (expressed in percentage). The algorithm is bound to the event mesh via the Predictor.java integration file.
+
+In real life, algorithms can be also much more complicated. For example, Camel K can be used to bridge an external machine learning as-a-service system that will compute much more accurate predictions. Algorithms can also be developed with other ad hoc tools and plugged directly inside the Knative mesh using the Knative APIs.
+
+
+#### Create the first prediction algorithms
+
+Go to the text editor on the right, under the folder /root/camel-knative. Right click on the directory and choose New -> File and name it `Predictor.java`.
 Paste the following code into the application.
 
-<pre class="file" data-filename="API.java" data-target="replace">
+<pre class="file" data-filename="Predictor.java" data-target="replace">
 // camel-k: language=java
 
-import org.apache.camel.builder.AggregationStrategies;
 import org.apache.camel.builder.RouteBuilder;
 
-public class API extends RouteBuilder {
+public class Predictor extends RouteBuilder {
+
   @Override
   public void configure() throws Exception {
 
-    // All endpoints starting from "direct:..." reference an operationId defined in the "openapi.yaml" file.
+      from("knative:event/market.btc.usdt")
+        .unmarshal().json()
+        .transform().simple("${body[last]}")
+        .log("Latest value for BTC/USDT is: ${body}")
+        .to("seda:evaluate?waitForTaskToComplete=Never")
+        .setBody().constant("");
 
-    // List the object names available in the S3 bucket
-    from("direct:list")
-      .to("aws-s3://{{api.bucket}}?operation=listObjects")
-      .transform().simple("${body.objectSummaries}")
-      .split(simple("${body}"), AggregationStrategies.groupedBody())
-        .transform().simple("${body.key}")
-      .end()
-      .marshal().json();
+      from("seda:evaluate")
+        .bean("algorithm")
+        .choice()
+          .when(body().isNotNull())
+            .log("Predicted action: ${body}")
+            .to("direct:publish");
 
-    // Get an object from the S3 bucket
-    from("direct:get")
-      .setHeader("CamelAwsS3Key", simple("${header.name}"))
-      .to("aws-s3://{{api.bucket}}?operation=getObject")
-      .setHeader("Content-Type", simple("${body.objectMetadata.contentType}"))
-      .transform().simple("${body.objectContent}");
-
-    // Upload a new object into the S3 bucket
-    from("direct:create")
-      .setHeader("CamelAwsS3Key", simple("${header.name}"))
-      .to("aws-s3://{{api.bucket}}");
-
-    // Delete an object from the S3 bucket
-    from("direct:delete")
-    .setHeader("CamelAwsS3Key", simple("${header.name}"))
-    .to("aws-s3://{{api.bucket}}?operation=deleteObject")
-    .setBody().constant("");
+      from("direct:publish")
+        .marshal().json()
+        .removeHeaders("*")
+        .setHeader("CE-Type", constant("predictor.{{predictor.name}}"))
+        .to("knative:event");
 
   }
 }
 
 </pre>
 
-Let's add the for configuring and connecting to Minio.  
-Go to the text editor on the right, under the folder /root/camel-api. Right click on the directory and choose New -> File and name it `minio.properties`.
+Run the following command to start the first predictor:
 
+``kamel run --name simple-predictor -p predictor.name=simple camel-eventing/Predictor.java algorithms/SimpleAlgorithm.java -t knative-service.max-scale=1 --logs``{{execute}}
 
-<pre class="file" data-filename="minio.properties" data-target="replace">
-# Bucket (referenced in the routes)
-api.bucket=camel-k
+The command above will deploy the integration and wait for it to run, then it will show the logs in the console.
 
-# Minio information injected into the MinioCustomizer
-minio.endpoint=http://minio:9000
-minio.access-key=minio
-minio.secret-key=minio123
-
-
-# General configuration
-camel.context.rest-configuration.api-context-path=/api-doc
-</pre>
-
-
-We are now ready to start up the application, simply point to the OpenAPI standard document and along with the implemented Camel K application. Notice we are also pointing to the configuration file too.
-
-``kamel run --name api helper/MinioCustomizer.java camel-api/API.java --property-file camel-api/minio.properties --open-api helper/openapi.yaml -d camel-openapi-java``{{execute}}
-
-Wait for the integration to be running (you should see the logs streaming in the terminal window).
-
+You will see the following log if everything is working correctly.
 ```
-log
+[1] 2020-10-02 00:09:32.499 INFO  [main] JacksonDataFormat - The option autoDiscoverObjectMapper is set to false, Camel won't search in the registry
+[1] 2020-10-02 00:09:32.509 INFO  [main] JacksonDataFormat - The option autoDiscoverObjectMapper is set to false, Camel won't search in the registry
+[1] 2020-10-02 00:09:32.811 INFO  [vert.x-eventloop-thread-0] VertxPlatformHttpServer - Vert.x HttpServerstarted on 0.0.0.0:8080
+[1] 2020-10-02 00:09:32.817 INFO  [main] InternalRouteStartupManager - Route: route1 started and consuming from: knative://event/market.btc.usdt
+[1] 2020-10-02 00:09:32.819 INFO  [main] InternalRouteStartupManager - Route: route2 started and consuming from: seda://evaluate
+[1] 2020-10-02 00:09:32.820 INFO  [main] InternalRouteStartupManager - Route: route3 started and consuming from: direct://publish
+[1] 2020-10-02 00:09:32.821 INFO  [main] AbstractCamelContext - Total 3 routes, of which 3 are started
+[1] 2020-10-02 00:09:32.821 INFO  [main] AbstractCamelContext - Apache Camel 3.4.0 (camel-k) started in 0.343 seconds
+Condition "Ready" is "True" for Integration simple-predictor
 ```
+To exit the log view, just click here or hit ctrl+c on the terminal window. The integration will keep running on the cluster.
 
-After running the integration API, you should be able to call the API endpoints to check its behavior.
-Make sure the integration is running, by checking its status:
 
-``oc get integrations``{{execute}}
 
-An integration named api should be present in the list and it should be in status Running. There's also a kamel get command which is an alternative way to list all running integrations.
+#### Create the second prediction algorithms
 
-NOTE: it may take some time, the first time you run the integration, for it to reach the Running state.
+The second predictor with more sensitivity called better-predictor, in the command line run:
 
-After the integration has reached the running state, you can get the route corresponding to it via the following command:
+``kamel run --name better-predictor -p predictor.name=better -p algorithm.sensitivity=0.0005 camel-eventing/Predictor.java algorithms/SimpleAlgorithm.java -t knative-service.max-scale=1``{{execute}}
 
-``URL=http://$(oc get route api -o jsonpath='{.spec.host}')``{{execute}}
+You will be prompted with the following result, but please give a couple of minutes for the route to be deployed.
+``integration "better-predictor" created``
 
-Get the list of objects:
-``curl $URL/``{{execute}}
+You can view both predictors from the [Developer Console Topology](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/camel-knative/graph).
+(If Katacoda is slow, you might need to refresh the page to see the correct result.)
 
-Since there are nothing in the storage, you won't see anything for now.
+![predictors](/openshift/assets/middleware/middleware-camelk/camel-k-eventing/Eventing-Step2-01-predictors.png)
 
-Upload an object:
-``curl -i -X PUT --header "Content-Type: application/octet-stream" --data-binary "/root/camel-api/API.java" $URL/example``{{execute}}
-
-Get the new list of objects:
-``curl -i $URL/``{{execute}}
-
-You will see the *['example']* that we have just uploaded from previous step
-
-Get the content of a file:
-``curl -i $URL/example``{{execute}}
-
-You will see what was in your *API.java* file
-
-Delete the file:
-``curl -i -X DELETE $URL/example``{{execute}}
-
-Get the list of objects for the last time:
-``curl -i $URL/``{{execute}}
-
-The storage is emtpy again, so nothing will return.
-
-Congratulations, you now have a running Restful web Application base on the OpenAPI Document.
-
-Now, let's go ahead and uninstall the API instance.
-
-``kamel delete api``{{execute}}
+It will be running first and shutdown since there are no activities yet.

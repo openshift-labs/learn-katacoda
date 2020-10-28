@@ -12,16 +12,11 @@ cp -r ~/tutorial/memcached-operator/roles/dymurray.memcached_operator_role /opt/
 ## Running with 'operator-sdk run --local'
 
 ### Sample Commands
-Running `operator-sdk run --local` to run an Operator locally requires a KUBECONFIG value to connect with a cluster. Some sample commands are shown below.
+Running `make run` to run an Operator locally requires a KUBECONFIG value to connect with a cluster. A sample command is shown below.
 
 Automatically sets KUBECONFIG=$HOME/.kube/config
 ```sh
-$ operator-sdk run --local 
-```
-
-Sets KUBECONFIG to path specified
-```sh
-$ operator-sdk run --local --kubeconfig=/tmp/config
+$ make run
 ```
 
 For this scenario, we will create a new namespace/project called `tutorial`. We will then start up our Operator and ensure our operator only watches for Custom Resources within this namespace.
@@ -30,8 +25,8 @@ For this scenario, we will create a new namespace/project called `tutorial`. We 
 ### Create the Namespace/Project
 `oc new-project tutorial`{{execute}}
 
-### Start the Operator
-`operator-sdk run --local --namespace tutorial`{{execute}}
+### Start the Operator and set the WATCH_NAMESPACE variable 
+`WATCH_NAMESPACE=tutorial make run`{{execute}}
 
 Next open a 2nd terminal window, using the "+" tab and navigate to our Operator.
 
@@ -43,89 +38,65 @@ of memcached.
 
 There is a sample CR in the scaffolding created as part of the Operator SDK:
 
-```YAML
+```yaml
 apiVersion: cache.example.com/v1alpha1
 kind: Memcached
 metadata:
-  name: example-memcached
+  name: memcached-sample
 spec:
-  # Add fields here
-  size: 3
+  foo: bar
 ```
-
-Let's go ahead and apply this in our Tutorial project to deploy 3 memcached pods,
-using our Operator:
 
 ## Create a Memcached CR instance
 
-Inspect `deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml`, and then use it to create a `Memcached` custom resource:
+Inspect `config/samples/cache_v1alpha1_memcached.yaml`, and then update the object to specify 3 replicas:
 
 ```yaml
-# deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml
 apiVersion: cache.example.com/v1alpha1
 kind: Memcached
 metadata:
-  name: example-memcached
+  name: memcached-sample
 spec:
   size: 3
 ```
 
-`oc --namespace tutorial create -f deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml`{{execute}}
+Update this file by running the following command:
 
-## Check that the Memcached Operator works as intended 
+```
+\cp /tmp/cache_v1alpha1_memcached.yaml config/samples/cache_v1alpha1_memcached.yaml
+```{{execute}}
+<br>
+
+`oc --namespace tutorial create -f config/samples/cache_v1alpha1_memcached.yaml`{{execute}}
+
+## Check that the Memcached Operator works as intended
+
 Ensure that the memcached-operator creates the deployment for the CR:
 
-<small>
-```sh
-$ oc get deployment
-NAME                 DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
-example-memcached    3       3       3          3         1m
-```
-</small>
+```oc get deployment```{{execute}}
 
 Check the pods to confirm 3 replicas were created:
 
-<small>
-```sh
-$ oc get pods
-NAME                                READY STATUS   RESTARTS AGE
-example-memcached-6cc844747c-2hbln  1/1   Running  0        1m
-example-memcached-6cc844747c-54q26  1/1   Running  0        1m
-example-memcached-6cc844747c-7jfhc  1/1   Running  0        1m
-```
-</small>
+```oc get pods```{{execute}}
 
 ## Change the Memcached CR to deploy 4 replicas
 
-Change the `spec.size` field in `deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml` from 3 to 4.
+Change the `spec.size` field in `config/samples/cache_v1alpha1_memcached.yaml` from 3 to 4.
 
 <pre class="file">
 apiVersion: cache.example.com/v1alpha1
 kind: Memcached
 metadata:
-  name: example-memcached
+  name: memcached-sample
 spec:
   size: 4
 </pre>
 
-Update this file by running the following command:
-
-```
-wget -q https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/ansibleop/ansible-operator-overview/assets/cache.example.com_v1alpha1_memcached_cr_updated.yaml -O /root/tutorial/memcached-operator/deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml
-```{{execute}}
-<br>
-Apply the change:
-
-`oc --namespace tutorial apply -f deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml`{{execute}}
+`oc --namespace tutorial apply -f config/samples/cache_v1alpha1_memcached.yaml`{{execute}}
 
 Confirm that the Operator changes the Deployment size:
 
-<small>
-```sh
-$ oc get deployment
-NAME                DESIRED CURRENT  UP-TO-DATE  AVAILABLE  AGE
-example-memcached   4       4        4           4          53s```
-</small>
+```oc get deployment```{{execute}}
 
 Inspect the YAML list of 'memcached' resources in your project, noting that the 'spec.size' field is now set to 4.
 
@@ -135,7 +106,7 @@ Inspect the YAML list of 'memcached' resources in your project, noting that the 
 
 First, delete the 'memcached' CR, which will remove the 4 Memcached Pods and the associated Deployment.
 
-`oc --namespace tutorial delete -f deploy/crds/cache.example.com_v1alpha1_memcached_cr.yaml`{{execute}}
+`oc --namespace tutorial delete -f config/samples/cache_v1alpha1_memcached.yaml`{{execute}}
 
 Verify the memcached CR and deployment have been properly removed.
 

@@ -1,6 +1,6 @@
 apiVersion: app.example.com/v1alpha1
 kind: PodSet
 metadata:
-  name: example-podset
+  name: podset-sample
 spec:
   replicas: 3
