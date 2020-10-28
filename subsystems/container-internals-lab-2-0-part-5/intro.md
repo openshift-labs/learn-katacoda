@@ -14,8 +14,8 @@ By the end of this lab you should be able to:
 
 ## Other Material
 This presentation will give you a background to all of the concepts in this lab
-
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/973NBq7AnUTTWA" width="225px" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+- [Google Presentation](https://docs.google.com/presentation/d/1S-JqLQ4jatHwEBRUQRiA5WOuCwpTUnxl2d1qRUoTz5g/edit#slide=id.g20639ff941_0_42) 
+- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 
 ## Outline
 - Multi-Container Applications: The classic two-tiered, wordpress application
