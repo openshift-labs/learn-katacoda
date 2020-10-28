@@ -22,11 +22,14 @@
             "title": "Multi-Container Applications: The classic two-tiered, wordpress application",
             "text": "01-multi-container-applications.md"
         }, {
+            "title": "Inspecting & Troubleshooting: Using the OpenShift web interface",
+            "text": "02-openshift-web-interface.md"
+        }, {
             "title": "Cluster Performance: Scaling applications horizontally with containers",
-            "text": "02-load-testing.md"
+            "text": "03-load-testing.md"
         }, {
             "title": "Cluster Debugging: Troubleshooting in a distributed systems environment",
-            "text": "03-troubleshooting-distributed-applications.md"
+            "text": "04-troubleshooting-distributed-applications.md"
         }],
         "intro": {
             "courseData": "background.sh",
