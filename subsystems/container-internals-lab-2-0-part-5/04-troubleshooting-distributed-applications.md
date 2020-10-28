@@ -22,11 +22,7 @@ You can watch the logs like this. Keep running the following command until you s
 
 ``oc logs goodbad-1-build``{{execute}}
 
-When the above build completes, move on. Before we define the application, we need to patch application defintion because each Katacoda environment is generated dynamically and is different:
-
-``sed -i s#172.30.170.9:5000/lab02-exercise04/goodbad#$(oc get is | grep goodbad | awk '{print $2}')# ~/labs/goodbad/Run.yaml``{{execute}}
-
-Run the test application
+When the above build completes, run the test application:
 
 ``oc create -f ~/labs/goodbad/Run.yaml``{{execute}}
 
