@@ -21,7 +21,7 @@ Notice there are two Services defined - one for MySQL and one for Wordpress. Thi
 
 Containers are ephemeral which means their storage is deleted and recreated everytime they restart. MySQL tables and the Apacheweb root need storage because we don't want our website data deleted everytime a container restarts. To do this, we will define Persistant Volumes in Kubernetes. We will create four persistent volumes - two that have 1GB of storage and two that will have 2GB of storage. In this lab environment, these persistent volumes will reside on the local all-in-one installation, but in a production environment they could reside on shared storage and be accessed from any node in the Kubernetes/OpenShift cluster. In a production environment, they could also be dynamically provisioned with the appropriate resiliancy (Gluster, Ceph, AWS EBS Volumes, NFS, iSCSI, others):
 
-``cat ~/labs/lab4-step1/persistent-volumes.yaml``{{execute}}
+``cat ~/labs/wordpress-demo/persistent-volumes.yaml``{{execute}}
 
 Now, let's instantiate some Persistent Volumes:
 
