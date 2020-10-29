@@ -3,5 +3,5 @@ git clone --quiet --depth 1 https://github.com/fatherlinux/container-internals-l
 yum install --quiet -y podman buildah skopeo skopeo-containers tree httpd-tools strace jq
 
 # Lab 6
-podman pull docker.io/library/fedora
+podman pull registry.fedoraproject.org/fedora
 echo "Container host is now ready."
