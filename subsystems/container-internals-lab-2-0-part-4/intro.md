@@ -27,4 +27,4 @@ This video will give you a background to all of the concepts in this lab
 - [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 
 ## Start Scenario
-Once you have watched the background video, continue to the exercises
+Once you have watched the background video or went throught the presentation, continue to the exercises

@@ -19,4 +19,4 @@ By the end of this lab you should be able to:
 - [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 
 ## Start Scenario
-Continue to the exercises.
+Once you have watched the background video or went throught the presentation, continue to the exercises
