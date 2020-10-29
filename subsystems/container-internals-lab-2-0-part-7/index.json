@@ -6,8 +6,8 @@
     "difficulty": "Intermediate",
     "time": "20-25 minutes",
     "backend": {
-      "trainingid": "centos8",
-      "imageid": "centos8",
+      "trainingid": "rhel8-2",
+      "imageid": "rhel8-2",
         "port": 8443
     },
     "environment": {
