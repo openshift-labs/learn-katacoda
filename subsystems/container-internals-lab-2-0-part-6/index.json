@@ -23,7 +23,7 @@
             "text": "01-overview.md"
         }, {
             "title": "The OCI Image Specification",
-            "text": "02-runtime-specification.md"
+            "text": "02-image-specification.md"
         }, {
             "title": "The OCI Runtime Specification",
             "text": "03-runtime-specification.md"
