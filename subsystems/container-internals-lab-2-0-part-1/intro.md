@@ -15,8 +15,8 @@ By the end of this lab you should be able to:
 - Container Orchestration: Includes Kubernetes/OpenShift
 
 ## Other Material
-- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 - [Presentation](http://bit.ly/2V18QCg)
+- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 
 ## Start Scenario
-Continue to the exercises.
+Once you have watched the background video or went throught the presentation, continue to the exercises

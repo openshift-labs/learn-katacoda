@@ -5,8 +5,8 @@ In this course you learned:
 - Be comfortable using with the basics of an alternative set of tools to Docker
 
 ## Other Material
-- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 - [Presentation](https://goo.gl/h4VK7j)
+- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 
 Also, if you have any questions tweet us at:
 

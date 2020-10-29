@@ -12,9 +12,8 @@ By the end of this lab you should be able to:
 - Skopeo: Moving & Sharing: Simplicity in inspecting, and moving container images around
 
 ## Other Material
-
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/sx364i3G5UriOz" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-
-- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 - [Presentation](https://goo.gl/h4VK7j)
+- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 
+## Start Scenario
+Once you have watched the background video or went throught the presentation, continue to the exercises
