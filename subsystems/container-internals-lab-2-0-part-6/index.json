@@ -19,11 +19,17 @@
     },
     "details": {
         "steps": [{
-            "title": "The OCI Specifications",
-            "text": "01-specs.md"
+            "title": "Overview of The OCI Specifications",
+            "text": "01-overview.md"
+        }, {
+            "title": "The OCI Image Specification",
+            "text": "02-runtime-specification.md"
+        }, {
+            "title": "The OCI Runtime Specification",
+            "text": "03-runtime-specification.md"
         }, {
             "title": "The OCI Runtime Reference Implementation",
-            "text": "02-runc.md"
+            "text": "04-runc.md"
         }],
         "intro": {
             "courseData": "background.sh",
