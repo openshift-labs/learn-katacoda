@@ -6,8 +6,8 @@
     "difficulty": "Intermediate",
     "time": "20-25 minutes",
     "backend": {
-      "trainingid": "rhel-8",
-      "imageid": "rhel-8",
+      "trainingid": "rhel8",
+      "imageid": "rhel8",
         "port": 8443
     },
     "environment": {
