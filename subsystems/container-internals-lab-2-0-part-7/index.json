@@ -19,14 +19,20 @@
     },
     "details": {
         "steps": [{
+            "title": "An Overview of Container Tools",
+            "text": "01-overview-container-tools.md"
+        }, {
+            "title": "Using the Fast and Stable Streams",
+            "text": "02-different-streams.md"
+        }, {
             "title": "Podman: Familiar Territory",
-            "text": "01-podman.md"
+            "text": "03-podman.md"
         }, {
             "title": "Buildah: Granularity & Control",
-            "text": "02-buildah.md"
+            "text": "04-buildah.md"
         }, {
             "title": "Skopeo: Moving & Sharing",
-            "text": "03-skopeo.md"
+            "text": "05-skopeo.md"
         }],
         "intro": {
 		"courseData": "background.sh",
