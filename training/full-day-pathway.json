@@ -1,0 +1,92 @@
+{
+    "title": "OpenShift Workshop",
+    "description": "",
+    "courses": [
+        {
+            "pathway_id": "openshift/introduction",
+            "id": "cluster-access",
+            "course_id": "cluster-access",
+            "title": "Logging in to an OpenShift Cluster"
+        },
+        {
+            "pathway_id": "openshift/introduction",
+            "id": "transferring-files",
+            "course_id": "transferring-files",
+            "title": "Transferring Files in and out of Containers"
+        },
+        {
+            "pathway_id": "openshift/introduction",
+            "id": "getting-started",
+            "course_id": "getting-started",
+            "title": "Getting Started with OpenShift for Developers"
+        }, 
+        {
+            "pathway_id": "openshift/introduction",
+            "id": "deploying-images",
+            "course_id": "deploying-images",
+            "title": "Deploying Applications From Images"
+        },               
+        {
+            "pathway_id": "openshift/introduction",
+            "id": "deploying-python",
+            "course_id": "deploying-python",
+            "title": "Deploying Applications From Source"
+        },
+        {
+            "pathway_id": "openshift/developing-on-openshift",
+            "id": "helm",
+            "course_id": "helm",
+            "title": "Getting Started with Helm 3 on OpenShift"
+        },
+        {
+            "pathway_id": "openshift/introduction",
+            "id": "resource-objects",
+            "course_id": "resource-objects",
+            "title": "Using the CLI to Manage Resource Objects"
+        },
+        {
+            "pathway_id": "openshift/introduction",
+            "id": "developing-with-odo",
+            "course_id": "developing-with-odo",
+            "title": "Developing with odo"
+        },
+        {
+            "pathway_id": "openshift/introduction",
+            "id": "port-forwarding",
+            "course_id": "port-forwarding",
+            "title": "Connecting to a Database Using Port Forwarding"
+        },
+        {
+            "pathway_id": "openshift/middleware/middleware-quarkus",
+            "id": "getting-started",
+            "course_id": "getting-started",
+            "title": "Quarkus workshop: Getting Started with Quarkus",
+            "description": "Supersonic, Subatomic Java with Quarkus"
+        },
+        {
+            "pathway_id": "openshift/introduction",
+            "id": "gitops-introduction",
+            "course_id": "gitops-introduction",
+            "title": "Introduction to GitOps with OpenShift"
+        },
+        {
+            "pathway_id": "openshift/persistence",
+            "id": "persistent-intro",
+            "course_id": "persistent-intro",
+            "title": "Making Persistent Storage Calls in Your Application"
+        },
+        {
+            "pathway_id": "openshift/ai-machine-learning",
+            "id": "jupyter-notebooks",
+            "course_id": "jupyter-notebooks",
+            "title": "Deploying a Jupyter Notebook Image"
+        },
+        {
+            "pathway_id": "openshift/developing-on-openshift",
+            "id": "serverless",
+            "course_id": "serverless",
+            "title": "Getting Started with OpenShift Serverless"
+        }  
+    ]
+}
+  

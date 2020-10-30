@@ -29,7 +29,7 @@ private ConfigRetrieverOptions getConfigurationOptions() {
 }
 ```
 
-For that, we have defined additional config in ``quote-generator/src/main/fabric8/deployment.yml``{{open} that contains the right configuration to:
+For that, we have defined additional config in ``quote-generator/src/main/fabric8/deployment.yml``{{open}} that contains the right configuration to:
 1. define a volume with the config map content
 2. mount this volume in the right directory
 

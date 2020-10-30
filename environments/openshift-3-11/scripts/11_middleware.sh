@@ -17,22 +17,6 @@ docker pull registry.access.redhat.com/jboss-datagrid-7/datagrid71-client-opensh
 docker pull registry.access.redhat.com/jboss-datavirt-6/datavirt63-openshift
 docker pull registry.access.redhat.com/jboss-datavirt-6/datavirt63-driver-openshift
 
-# Red Hat JBoss BRMS
-docker pull registry.access.redhat.com/jboss-decisionserver-6/decisionserver64-openshift
-
-# Red Hat JBoss BPM Suite
-docker pull registry.access.redhat.com/jboss-processserver-6/processserver64-openshift
-
-# Red Hat Decision Manager
-docker pull registry.access.redhat.com/rhdm-7/rhdm70-decisioncentral-openshift:1.1
-docker pull registry.access.redhat.com/rhdm-7/rhdm70-kieserver-openshift:1.1
-docker pull registry.access.redhat.com/rhdm-7/rhdm72-decisioncentral-openshift:1.1
-docker pull registry.access.redhat.com/rhdm-7/rhdm72-kieserver-openshift:1.1
-
-# Red Hat Process Automation Manager
-docker pull registry.access.redhat.com/rhpam-7/rhpam72-businesscentral-openshift:1.1
-docker pull registry.access.redhat.com/rhpam-7/rhpam72-kieserver-openshift:1.1
-
 # Strimzi & Debezium
 STRIMZI_VERSION=0.14.0
 KAFKA_VERSION=2.3.0

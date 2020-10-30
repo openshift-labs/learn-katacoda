@@ -9,13 +9,13 @@ oc expose deploy/mcrouter --name mcrouter --type=ClusterIP --target-port=5000
 Create a temporary telnet Pod and connect to Mrouter:
 
 ```
-oc run -it --rm telnet --image=jess/telnet --restart=Never mcrouter 5000
+oc run -it --rm telnet --image=registry.redhat.io/rhel8/support-tools --restart=Never -- telnet mcrouter 5000
 ```{{execute}}
 <br>
-After a few seconds you will see a message `If you don't see a command prompt, try pressing enter.` ***Do not press enter***. Run the following commands to insert a key/value and exit:
+After a few seconds you will see a message `If you don't see a command prompt, try pressing enter.` ***But do not press enter***. Run the following commands to insert the key `ansible` with an 8 byte value of `operator` for 900 seconds and exit:
 
 ```
-set ansible 0 0 8
+set ansible 0 900 8
 operator
 get ansible
 quit
@@ -29,8 +29,8 @@ This command will create ***1000*** connections to Mcrouter. The connections are
 oc run -it --rm mcperf --image=quay.io/redhat/mcperf --restart=Never -- -s mcrouter -p 5000 --linger=0 --timeout=5 --conn-rate=1000 --call-rate=1000 --num-calls=10 --num-conns=1000 --sizes=u1,16
 ```{{execute}}
 <br>
-We should be able to see a significant spike in CPU/Memory usage from running the above command. You can check it out by selecting the ***Dashboard*** tab which will open the OpenShift dashboard. Log in with username: `kubeadmin`, password: `admin`, and then select ***Monitoring*** --> ***Dashboards***. Also be sure to run the following command:
+We should be able to see a significant spike in CPU/Memory usage from running the above command. You can check it out by selecting the ***Console*** tab which will open the OpenShift dashboard. Log in with username: `admin`, password: `admin`, and then select ***Monitoring*** --> ***Dashboards***. Also be sure to run the following command:
 
 ```
-oc adm policy add-cluster-role-to-user cluster-admin kubeadmin
+oc adm policy add-cluster-role-to-user cluster-admin admin
 ```{{execute}}

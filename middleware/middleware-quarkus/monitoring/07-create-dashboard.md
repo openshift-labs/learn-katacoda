@@ -11,7 +11,7 @@ Click **Add Query**. In the _Metrics_ box, type `performed` to again get an auto
 
 ![Grafana UI](/openshift/assets/middleware/quarkus/grafquery.png)
 
-Choose the only one in the list: `application_org_acme_quickstart_PrimeNumberChecker_performedChecks_total`. The metrics should immediately
+Choose the only one in the list: `application_org_acme_quickstart_PrimeNumberChecker_performedChecks_total`. Then click on **Query Inspector**, the metrics should immediately
 begin to show in the graph above:
 
 ![Grafana UI](/openshift/assets/middleware/quarkus/grafgraf.png)

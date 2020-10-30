@@ -1,0 +1,55 @@
+{
+    "icon": "fa-openshift",
+    "title": "Serverless Eventing Camel K",
+    "description": "Showing how to expose API with Camel K and also making it serverless",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "30 minutes",
+    "backend": {
+        "imageid": "openshift-4-5"
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "editor-terminal",
+    		"uisettings": "java",
+        "uieditorpath": "/root/camel-eventing"
+    },
+    "details": {
+        "steps": [
+	      {
+	        "title": "Step 1",
+	        "text": "step1.md"
+	      },
+	      {
+	        "title": "Step 2",
+	        "text": "step2.md"
+	      },
+	      {
+	        "title": "Step 3",
+	        "text": "step3.md"
+	      },
+	      {
+	        "title": "Step 4",
+	        "text": "step4.md"
+	      }
+	    ],
+	    "intro": {
+	    	"courseData": "env-init.sh",
+	      "text": "intro.md",
+	      "code": "set-env.sh"
+	    },
+	    "finish": {
+	      "text": "finish.md"
+	    },
+	    "assets": {
+	      "client": [
+	      	{ "file": "algorithms/SimpleAlgorithm.java", "target": "~/algorithms/" },
+	      	{ "file": "serverless/install-serverless.sh", "target": "~/serverless/" },
+	        { "file": "serverless/serving.yaml", "target": "~/serverless/" },
+	        { "file": "serverless/eventing.yaml", "target": "~/serverless/" },
+	        { "file": "serverless/subscription.yaml", "target": "~/serverless/" }
+	      ]
+	    }
+    }
+}

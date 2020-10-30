@@ -1,0 +1,55 @@
+{
+    "icon": "fa-openshift",
+    "title": "Serverless Camel K",
+    "description": "Showing how to expose API with Camel K and also making it serverless",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "30 minutes",
+    "backend": {
+        "imageid": "openshift-4-5"
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "editor-terminal",
+    		"uisettings": "java",
+        "uieditorpath": "/root/camel-api"
+    },
+    "details": {
+        "steps": [
+	      {
+	        "title": "Step 1",
+	        "text": "step1.md"
+	      },
+	      {
+	        "title": "Step 2",
+	        "text": "step2.md"
+	      },
+	      {
+	        "title": "Step 3",
+	        "text": "step3.md"
+	      },
+	      {
+	        "title": "Step 4",
+	        "text": "step4.md"
+	      }
+	    ],
+	    "intro": {
+	    	"courseData": "env-init.sh",
+	      "text": "intro.md"
+	    },
+	    "finish": {
+	      "text": "finish.md"
+	    },
+	    "assets": {
+	      "client": [
+	        { "file": "helper/MinioCustomizer.java", "target": "~/helper/" },
+	        { "file": "helper/openapi.yaml", "target": "~/helper/" },
+	        { "file": "serverless/serving.yaml", "target": "~/serverless/" },
+	        { "file": "serverless/role.yaml", "target": "~/serverless/" },
+	        { "file": "serverless/subscription.yaml", "target": "~/serverless/" },
+	        { "file": "minio/minio.yaml", "target": "~/minio/" }
+	      ]
+	    }
+    }
+}

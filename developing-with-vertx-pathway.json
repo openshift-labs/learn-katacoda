@@ -1,0 +1,41 @@
+{
+    "title": "Developing with Eclipse Vert.x",
+    "icon": "fa-openshift",
+    "courses": [
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-vertx/getting-started-vertx",
+        "pathway_id": "middleware/middleware-vertx",
+        "course_id": "getting-started-vertx",
+        "title": "Getting Started with Vert.x",
+        "description": "Basic Introduction to Vert.x on Red Hat OpenShift"
+      },
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-vertx/quote-generator",
+        "pathway_id": "middleware/middleware-vertx",
+        "course_id": "quote-generator",
+        "title": "MicroTrader App Part 1: Quote Generator",
+        "description": "Vert.x Asynchronous APIs, RESTful endpoints, Publishing to Event Bus"
+      },
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-vertx/portfolio-service",
+        "pathway_id": "middleware/middleware-vertx",
+        "course_id": "portfolio-service",
+        "title": "MicroTrader App Part 2: Portfolio Service",
+        "description": "Event Bus Extras, Publishing Services"
+      },
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-vertx/compulsive-traders",
+        "pathway_id": "middleware/middleware-vertx",
+        "course_id": "compulsive-traders",
+        "title": "MicroTrader App Part 3: Compulsive Traders",
+        "description": "Polyglot Services with RX Java 2"
+      },
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-vertx/audit-service",
+        "pathway_id": "middleware/middleware-vertx",
+        "course_id": "audit-service",
+        "title": "MicroTrader App Part 4: Audit Service",
+        "description": "Async JDBC, Vert.x Web Async API, Kubernetes Secrets"
+      }
+     ]
+  }

@@ -1,0 +1,19 @@
+apiVersion: kafka.strimzi.io/v1alpha1
+kind: KafkaConnector
+metadata:
+  name: minio-source-connector
+  labels:
+    strimzi.io/cluster: my-connect-cluster
+spec:
+  class: org.apache.camel.kafkaconnector.minio.CamelMinioSourceConnector
+  tasksMax: 1
+  config:
+    key.converter: org.apache.kafka.connect.storage.StringConverter
+    value.converter: org.apache.kafka.connect.storage.StringConverter
+    topics: demo-topic
+    camel.source.path.bucketName: camel-kafka
+    camel.source.endpoint.initialDelay: 20000
+    camel.source.endpoint.endpoint: http://minio:9000
+    camel.component.minio.accessKey: minio
+    camel.component.minio.secretKey: minio123
+    camel.component.minio.operation: getObject

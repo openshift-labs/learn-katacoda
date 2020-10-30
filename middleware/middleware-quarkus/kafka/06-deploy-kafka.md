@@ -6,7 +6,7 @@ You should already be logged in as an admin user. Click this command to verify:
 
 `oc whoami`{{execute T2}}
 
-It should respond with `system:admin`.
+It should respond with `admin`.
 
 ## Access OpenShift Project
 
@@ -25,7 +25,7 @@ To deploy Kafka, we'll use the _Strimzi_ Operator. Strimzi is an open source pro
 
 First, click this command to deploy the Operator to our new `kafka` namespace:
 
-`curl -s -L https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.13.0/strimzi-cluster-operator-0.13.0.yaml | sed 's/namespace: .*/namespace: kafka/' | oc apply -f -`{{execute T2}}
+`curl -s -L https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.17.0/strimzi-cluster-operator-0.17.0.yaml | sed 's/namespace: .*/namespace: kafka/' | oc apply -f -`{{execute T2}}
 
 Wait for the Operator to be deployed by running this command:
 
@@ -53,10 +53,9 @@ This command creates a simple Kafka object:
 apiVersion: kafka.strimzi.io/v1beta1
 kind: Kafka
 metadata:
-  name: my-cluster
+  name: names-cluster
 spec:
   kafka:
-    version: 2.3.0
     replicas: 3
     listeners:
       ...
@@ -97,29 +96,3 @@ If the pods are still spinning up (not all in the _Running_ state), keep clickin
 
 It will take around 2 minutes to get all the Kafka pods up and running.
 
-## Test Locally
-
-With Kafka deployed, let's test our locally running app (it should still be running in the first Terminal).
-
-We'll use `curl` to access the same streaming endpoint that our web page will eventually access. To access this endpoint, click on the following command:
-
-`curl -i http://localhost:8080/names/stream`{{execute T2}}
-
-This command will connect to the endpoint, recognize it as a streaming endpoint, and begin showing the names from our name generator, with the added honorific. You should see:
-
-```console
-HTTP/1.1 200 OK
-Connection: keep-alive
-Transfer-Encoding: chunked
-Content-Type: text/event-stream
-Date: Mon, 12 Aug 2019 18:50:28 GMT
-
-
-
-data: Mrs. Zest Stealer
-
-data: Sir Sunrise Kitten
-
-data: Lord Mulberry Donkey
-```
-This shows the names coming from our SSE-enabled endpoint. After a few more names, press CTRL-C to end the stream. In the final step we'll deploy our Quarkus app to OpenShift and see these same names as part of a web page visualization. On with the show!

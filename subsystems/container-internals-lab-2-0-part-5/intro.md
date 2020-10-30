@@ -13,14 +13,9 @@ By the end of this lab you should be able to:
 - Cluster Debuggin: Troubleshooting in a distributed systems environment
 
 ## Other Material
-This video will give you a background to all of the concepts in this lab
-
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/973NBq7AnUTTWA" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-
-## Outline
-- Multi-Container Applications: The classic two-tiered, wordpress application
-- Cluster Performance: Scaling applications horizontally with containers
-- Cluster Debuggin: Troubleshooting in a distributed systems environment
+This presentation will give you a background to all of the concepts in this lab
+- [Google Presentation](https://docs.google.com/presentation/d/1S-JqLQ4jatHwEBRUQRiA5WOuCwpTUnxl2d1qRUoTz5g/edit#slide=id.g20639ff941_0_42) 
+- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 
 ## Start Scenario
-Once you have watched the background video, continue to the exercises
+Once you have watched the background video or went throught the presentation, continue to the exercises

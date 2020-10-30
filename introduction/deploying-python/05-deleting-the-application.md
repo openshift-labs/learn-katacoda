@@ -1,6 +1,6 @@
 Instead of deploying the application from the web console, you can use the command line. Before we do that, lets delete the application we have already deployed.
 
-To do this from the web console you could visit each resource type created and delete them one at a time. The simpler way to delete an application is from the command line using the ``oc`` program.
+To do this from the web console you could visit each resource type created and delete them one at a time. The simpler way to delete an application is from the command line using the ``oc`` command line tool.
 
 To see a list of all the resources that have been created in the project so far, you can run the command:
 
@@ -9,12 +9,12 @@ To see a list of all the resources that have been created in the project so far,
 This will display output similar to:
 
 ```
-pod/blog-django-py-1-9vbmf
 pod/blog-django-py-1-build
-pod/blog-django-py-1-deploy
-replicationcontroller/blog-django-py-1
+pod/blog-django-py-64fb76b5c9-6hzhn
 service/blog-django-py
-deploymentconfig.apps.openshift.io/blog-django-py
+deployment.apps/blog-django-py
+replicaset.apps/blog-django-py-64fb76b5c9
+replicaset.apps/blog-django-py-6c7f488b57
 buildconfig.build.openshift.io/blog-django-py
 build.build.openshift.io/blog-django-py-1
 imagestream.image.openshift.io/blog-django-py
@@ -32,7 +32,7 @@ This should display output similar to:
 ```
 Name:                   blog-django-py
 Namespace:              myproject
-Created:                9 minutes ago
+Created:                19 minutes ago
 Labels:                 app=blog-django-py
                         app.kubernetes.io/component=blog-django-py
                         app.kubernetes.io/instance=blog-django-py
@@ -40,11 +40,9 @@ Labels:                 app=blog-django-py
                         app.kubernetes.io/part-of=blog-django-py-app
                         app.openshift.io/runtime=python
                         app.openshift.io/runtime-version=3.6
-Annotations:            app.openshift.io/vcs-ref=master
-                        app.openshift.io/vcs-uri=https://github.com/openshift-katacoda/blog-django-py
-                        openshift.io/host.generated=true
-Requested Host:         blog-django-py-myproject.2886795274-80-frugo03.environments.katacoda.com
-                          exposed on router default (host apps-crc.testing) 9 minutes ago
+Annotations:            openshift.io/host.generated=true
+Requested Host:         blog-django-py-myproject.2886795320-80-simba02.environments.katacoda.com
+                          exposed on router default (host apps-crc.testing) 19 minutes ago
 Path:                   <none>
 TLS Termination:        <none>
 Insecure Policy:        <none>
@@ -52,7 +50,7 @@ Endpoint Port:          8080-tcp
 
 Service:        blog-django-py
 Weight:         100 (100%)
-Endpoints:      10.128.0.206:8080
+Endpoints:      10.128.0.65:8080
 ```
 
 In this case when deploying the application via the OpenShift web console, OpenShift has applied automatically to all resources the label ``app=blog-django-py``. You can confirm this by running the command:

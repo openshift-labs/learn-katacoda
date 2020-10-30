@@ -12,13 +12,13 @@ Open a new BPMN2 file by clicking: `getting-started/src/main/resources/getting-s
 
 BPMN2 allows us to define a graphical representation of a process (or workflow), and as such, we need a BPMN2 editor to implement our process. Kogito provides an online BPMN2 editor that we can use to build our process.
 
-Click on the "Kogito Tooling" tab next to the "Local Web Browser" tab to open the Kogito Tooling, or navigate to: https://bpmn.new
+Click on the "Kogito BPMN Tooling" tab next to the "OpenShift Console" tab to open the Kogito BPMN Tooling, or navigate to: https://bpmn.new
 
 Implement the process as shown in the following video. Make sure to use `getting_started` for the **name** and **id** of the process and `org.acme` for the **package**.
 
 https://youtu.be/babjHSNrZBg
 
-After you've defined your process, click on the **Copy to Clipboard** button to copy the BPMN2 XML definition to your clipboard.
+After you've defined your process, click on the **File Actions -> Copy source** button to copy the BPMN2 XML definition to your clipboard.
 
 Copy the content of your clipboard to the `getting-started/src/main/resources/getting-started.bpmn` file you've created and opened earlier using `Ctrl+v ` or `Command-v` (depending on your type of computer).
 
@@ -188,7 +188,7 @@ Since we haven't defined any Task input and output data yet, we can simply compl
 
 This will complete the task, and the process will continue and reach the *End* node and complete.
 
-![Complete Tasks](/openshift/assets/middleware/middleware-kogito/kogito-getting-started-complete-tasks.png)
+![Complete Tasks](/openshift/assets/middleware/middleware-kogito/kogito-getting-started-complete-task.png)
 
 With the task completed, the process instance will now be completed. Execute the following command again in the Terminal by clicking on it. Notice that there are no process instances returned:
 

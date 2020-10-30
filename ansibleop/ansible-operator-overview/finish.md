@@ -3,7 +3,7 @@ Information, check out the links below:
 
 ## Git Hub
  * Operator-Framework: https://github.com/operator-framework
- * Operator-SDK: https://github.com/operator-framework/operator-sdk/
+ * Operator-SDK: https://sdk.operatorframework.io/docs/building-operators/ansible/
 
 ## YouTube
 * Memcached Ansible Operator Demo: https://www.youtube.com/watch?v=Smk9oQp7YMY

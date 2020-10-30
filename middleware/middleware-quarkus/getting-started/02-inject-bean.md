@@ -60,7 +60,7 @@ public class GreetingResource {
 
 Since we still have our app running using `mvn quarkus:dev`, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live reload them.
 
-Check that it works as expected by loading the new endpoint by [clicking here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello/greeting/quarkus).
+Check that it works as expected by loading the new endpoint by [clicking here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello/greeting/quarkus).
 
 Note we are exercising our new bean using the `/hello/greeting` endpoint, and you should see
 

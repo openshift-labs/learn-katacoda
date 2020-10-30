@@ -10,8 +10,8 @@ In this course you learned:
 - Troubleshoot a basic Open vSwitch setup with Kubernetes/OpenShift
 
 ## Other Material
-- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 - [Presentation](https://goo.gl/UNnLkH)
+- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 
 Also, if you have any questions tweet us at:
 

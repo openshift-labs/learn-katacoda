@@ -1,0 +1,113 @@
+{
+    "icon": "fa-openshift",
+    "title": "Camel Kafka Connect",
+    "description": "This is simple Managed File Transfer excercise with Camel Kafka Connect",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "20 minutes",
+    "backend": {
+        "imageid": "openshift-4-5"
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "editor-terminal",
+    		"uisettings": "java",
+        "uieditorpath": "/root/camel-kafka"
+    },
+    "details": {
+        "steps": [
+	      {
+	        "title": "Step 1",
+	        "text": "step1.md"
+	      },
+	      {
+	        "title": "Step 2",
+	        "text": "step2.md"
+	      },
+	      {
+	        "title": "Step 3",
+	        "text": "step3.md"
+	      },
+	      {
+	        "title": "Step 4",
+	        "text": "step4.md"
+	      }
+	    ],
+	    "intro": {
+	    	"courseData": "env-init.sh",
+	      "text": "intro.md",
+	      "code": "set-env.sh"
+	    },
+	    "finish": {
+	      "text": "finish.md"
+	    },
+	    "assets": {
+	      "client": [
+	      	{ "file": "connect/kafka-topics.yaml", "target": "~/connect/" },
+	      	{ "file": "file/sample01.json", "target": "~/file/" },
+	        { "file": "minio/minio.yaml", "target": "~/minio/" },
+	        { "file": "sftp/demo_rsa", "target": "~/sftp/" },
+	        { "file": "sftp/sftp.sh", "target": "~/sftp/" },
+	        { "file": "sftp/users.conf", "target": "~/sftp/" },
+	        { "file": "strimzi/operator-group.yaml", "target": "~/strimzi/" },
+	        { "file": "strimzi/streams-operator.yaml", "target": "~/strimzi/" },
+	        { "file": "strimzi/kafka-cluster.yaml", "target": "~/strimzi/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-api-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-base-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-core-catalog-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-core-engine-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-core-languages-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-direct-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-kafka-connector-0.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-log-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-main-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-management-api-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-minio-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-minio-kafka-connector-0.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-seda-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-support-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-timer-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-tooling-model-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-util-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/camel-util-json-3.5.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/guava-20.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/jackson-annotations-2.10.5.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/jackson-core-2.10.5.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/jackson-databind-2.10.5.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/jcip-annotations-1.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/jsr305-3.0.2.jar", "target": "~/plugin/camel-minio-kafka-connector/" },
+	        { "file": "plugin/camel-minio-kafka-connector/minio-7.1.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },                      
+          { "file": "plugin/camel-minio-kafka-connector/okhttp-3.14.9.jar", "target": "~/plugin/camel-minio-kafka-connector/" },                    
+          { "file": "plugin/camel-minio-kafka-connector/okio-1.17.2.jar", "target": "~/plugin/camel-minio-kafka-connector/" },                      
+          { "file": "plugin/camel-minio-kafka-connector/simple-xml-safe-2.7.1.jar", "target": "~/plugin/camel-minio-kafka-connector/" },            
+          { "file": "plugin/camel-minio-kafka-connector/slf4j-api-1.7.30.jar", "target": "~/plugin/camel-minio-kafka-connector/" },                 
+          { "file": "plugin/camel-minio-kafka-connector/spotbugs-annotations-4.0.0.jar", "target": "~/plugin/camel-minio-kafka-connector/" },       
+          { "file": "plugin/camel-sftp-kafka-connector/camel-api-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-base-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-cluster-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-core-catalog-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-core-engine-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-core-languages-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-direct-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-file-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+	        { "file": "plugin/camel-sftp-kafka-connector/camel-ftp-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-kafka-connector-0.6.0-SNAPSHOT.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-log-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-main-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-management-api-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-seda-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-sftp-kafka-connector-0.6.0-SNAPSHOT.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-support-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+	        { "file": "plugin/camel-sftp-kafka-connector/camel-timer-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-tooling-model-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-util-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/camel-util-json-3.5.0.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/commons-net-3.6.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/javax.annotation-api-1.3.2.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/jsch-0.1.55.jar", "target": "~/plugin/camel-sftp-kafka-connector/" },
+          { "file": "plugin/camel-sftp-kafka-connector/slf4j-api-1.7.30.jar", "target": "~/plugin/camel-sftp-kafka-connector/" }
+	      ]
+	    }
+    }
+}

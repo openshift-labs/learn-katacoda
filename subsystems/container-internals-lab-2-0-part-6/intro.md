@@ -7,13 +7,14 @@ By the end of this lab you should be able to:
 - Be able to start a container from scratch
 
 ## Outline
-- The OCI Specifications: Understanding configuration bundles and metadata
-- The OCI Runtime Reference Implementation: Understanding how to start a container 
+- An overview of the three OCI specifications
+- The OCI image specification
+- The OCI runtime specification
+- The OCI reference implementation of the runtime specification (runc) and how to start a container
 
 ## Other Material
-
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/4B9x8rsH3enc2D" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-
+- [Presentation](https://docs.google.com/presentation/d/1fC9cKR2-kFW5l-VEk0Z5_1vriYpROXOXM_5rhyVnBi4/edit#slide=id.g20639ff941_0_42)
 - [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
-- [Presentation](https://goo.gl/rVzFoC)
 
+## Start Scenario
+Once you have watched the background video or went throught the presentation, continue to the exercises

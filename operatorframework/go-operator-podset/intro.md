@@ -22,7 +22,7 @@ The following is the workflow for a new **Go-based** Operator with the Operator 
 6. Write the reconciling logic for your Controller.
 7. Run the Operator locally to test your code against your live Kubernetes cluster.
 8. Add your Custom Resource (CR) to your live Kubernetes cluster and watch your Operator in action!
-9. After you are satisifed with your work, use the SDK CLI to build and generate the Operator Deployment manifests.
+9. After you are satisifed with your work, run some Makefile commands to build and generate the Operator Deployment manifests.
 10. Optionally add additional APIs and Controllers using the SDK CLI.
 
 ## PodSet Operator

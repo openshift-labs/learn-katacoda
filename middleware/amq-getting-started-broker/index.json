@@ -33,7 +33,24 @@
             "text": "99-finish.md"
         },
         "assets": {
-            "client": [],
+            "client": [
+                {
+                    "file": "amq-broker-71-basic.yaml",
+                    "target": "/opt/"
+                },
+                {
+                    "file": "amq-7-image-streams.json",
+                    "target": "/opt/"
+                },
+                {
+                    "file": "app.js",
+                    "target": "/root/projects/amq-examples/amq-js-demo/"
+                },
+                {
+                    "file": "package.json",
+                    "target": "/root/projects/amq-examples/amq-js-demo/"
+                }
+            ],
             "host01": [
                 {
                     "file": "amq-broker-71-basic.yaml",
@@ -45,11 +62,11 @@
                 },
                 {
                     "file": "app.js",
-                    "target": "/root/projects/amq-examples/amq-js-demo"
+                    "target": "/root/projects/amq-examples/amq-js-demo/"
                 },
                 {
                     "file": "package.json",
-                    "target": "/root/projects/amq-examples/amq-js-demo"
+                    "target": "/root/projects/amq-examples/amq-js-demo/"
                 }
             ]
         }

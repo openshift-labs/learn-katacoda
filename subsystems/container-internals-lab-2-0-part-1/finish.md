@@ -8,8 +8,8 @@ In this course you learned:
 You can find a copy of the slides and GitHub repo that contains all of the open source code from these labs:
 
 ## Other Material
-- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 - [Presentation](http://bit.ly/2V18QCg)
+- [Lab GitHub Repository](https://github.com/openshift-labs/learn-katacoda)
 
 Also, if you have any questions tweet us at:
 

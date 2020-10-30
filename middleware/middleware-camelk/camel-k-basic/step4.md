@@ -2,7 +2,7 @@
 
 The previous step can be automatically deployed as a Kubernetes CronJob if the delay between executions is changed into a value that can be expressed by a cron tab expression.
 
-For example, you can change the first endpoint (`timer:java?period=3000`) into the following: `timer:java?period=60000` (1 minute between executions).
+For example, you can edit the first endpoint (`timer:java?period=3000`) in *Routing.java* into the following: `timer:java?period=60000` (1 minute between executions).
 
 Now you can run the integration again:
 
@@ -37,7 +37,7 @@ The CronJob behavior is controlled via a Trait called `cron`. Traits are the mai
 
 To disable the cron feature and use the deployment strategy, you can run the integration with:
 
-``kamel run camel-basic/Routing.java --property-file routing.properties -t cron.enabled=false``{{execute}}
+``kamel run camel-basic/Routing.java --property-file camel-basic/routing.properties -t cron.enabled=false``{{execute}}
 
 
 This will disable the cron trait and restore the classic behavior (always running pod).

@@ -5,7 +5,7 @@ To begin, click on the **Console** tab on your screen. This will open the web co
 
 You should see a **Red Hat OpenShift Container Platform** window with **Username** and **Password** forms as shown below:
 
-![OpenShift Web Console](../../assets/introduction/getting-started-42/ocp-login.png)
+![OpenShift Web Console](../../assets/introduction/getting-started-44/2ocp-login.png)
 
 For this scenario, log in by entering the following:
 
@@ -29,7 +29,7 @@ Click the blue **Create Project** button.
 
 You should now see a page for creating your first project in the web console. Fill in the _Name_ field as `myproject`{{copy}}.
 
-![Create Project](../../assets/introduction/getting-started-42/2create-project.png)
+![Create Project](../../assets/introduction/getting-started-44/2create-project.png)
 
 The rest of the form is optional and up to you to fill in or ignore. Click *Create* to continue.
 
@@ -39,7 +39,7 @@ After your project is created, you will see some basic information about your pr
 
 Notice the navigation menu on the left. When you first log in, you'll typically be in the *Administrator Perspective*. If you are not in the *Administrator Perspective*, click the perspective toggle and switch from **Developer** to **Administrator**. 
 
-![Perspective Toggle](../../assets/introduction/getting-started-42/2perspective.png)
+![Perspective Toggle](../../assets/introduction/getting-started-44/2perspective.png)
 
 You're now in the *Administrator Perspective*, where you'll find **Operators**, **Workloads**, **Networking**, **Storage**, **Builds**, and **Administration** menus in the navigation.
 

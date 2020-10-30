@@ -2,11 +2,16 @@ Please wait for a few minutes while the environment loads. (If you want to look 
 
 ### Accessing the Jupyter Notebook Environment
 * The jupyter environment with the workshop notebooks is available here: <br>
-http://pad-workshop-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
+https://pad-workshop-myproject.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
+
+* You might see a warning like in the image below, this is because we don't generate valid ssl certificates for all our routes. You can click on `Advanced...` and then click on `Accept the Risk and Continue` to continue to the Jupyter environment.
+
+  ![Cert Warning Page](../../assets/ai-machine-learning/prometheus-api-client/02-cert-warning-page.png)
 
 * You will need a password to access the environment. <br>
   The password is `secret`{{copy}} <br>
 ![Jupyter Environment Secret](../../assets/ai-machine-learning/prometheus-timeseries-forecasting/02-jupyter-secret.png)
+
 
 * Once you login to the Jupyter environment, you will find the following:
   1. `metrics` folder: This contains sample Prometheus metric data sets which we will use in our notebook for training the time series forecasting (SARIMA) model.

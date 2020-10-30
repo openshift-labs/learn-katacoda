@@ -8,20 +8,29 @@
   "details": {
     "steps": [
     {
-    	"title": "Setting Up OLM",
-    	"text": "step1.md"
+      "title": "Exploring OLM",
+      "text": "step1.md"
     },{
-			"title": "Setting up the UI",
-			"text": "step2.md"
-		},{
-			"title": "Creating the Subscription",
-			"text": "step3.md"
+      "title": "CatalogSources",
+      "text": "step2.md"
     },{
-			"title": "Approving the InstallPlan",
-			"text": "step4.md"
+      "title": "Accessing OLM on the OpenShift Console",
+      "text": "step3.md"
     },{
-			"title": "Creating the Custom Resource",
-			"text": "step5.md"
+      "title": "Creating the OperatorGroup and Subscription",
+      "text": "step4.md"
+    },{
+      "title": "Reviewing the InstallPlan and Installing the Operator",
+      "text": "step5.md"
+    },{
+      "title": "Creating the Custom Resource",
+      "text": "step6.md"
+    },{
+      "title": "Accessing the ArgoCD Dashboard",
+      "text": "step7.md"
+    },{
+      "title": "Uninstalling the Operator",
+      "text": "step8.md"
     }],
     "intro": {
       "code": "set-env.sh",
@@ -37,13 +46,12 @@
   },
   "files": [],
   "environment": {
-    "uilayout": "editor-terminal",
-    "uieditorpath": "/root/tutorial",
     "showdashboard": true,
-    "dashboard": "Dashboard"
+    "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+    "uilayout": "terminal-iframe"
   },
   "backend": {
-    "imageid": "openshift-3-11",
+    "imageid": "openshift-4-4",
     "port": 8443
   }
 }

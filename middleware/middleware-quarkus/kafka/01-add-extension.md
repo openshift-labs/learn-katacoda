@@ -1,3 +1,9 @@
+## Import the code
+
+Let's refresh the code we'll be using. Run the following command to clone the sample project:
+
+`cd /root/projects && rm -rf rhoar-getting-started && git clone https://github.com/openshift-katacoda/rhoar-getting-started`{{execute}}
+
 # The Project
 
 You start with a basic Maven-based application with the usual `pom.xml` entries for a Quarkus app.
@@ -39,9 +45,11 @@ With our extension installed, let's begin Live Coding. Click on the following co
 You should see:
 
 ```console
-Quarkus x.xx.x started in 0.997s. Listening on: http://[::]:8080
-Installed features: [cdi, resteasy, smallrye-context-propagation, smallrye-reactive-messaging, smallrye-reactive-messaging-kafka, smallrye-reactive-streams-operators, vertx]
+people 1.0-SNAPSHOT (powered by Quarkus 1.3.2.Final) started in 1.598s. Listening on: http://0.0.0.0:8080
+Profile dev activated. Live Coding activated.
+Installed features: [cdi, resteasy, smallrye-context-propagation, smallrye-reactive-messaging, smallrye-reactive-messaging-kafka, smallrye-reactive-streams-operators]
 ```
+
 > The first time you build the app, new dependencies may be downloaded via maven. This should only happen once, after that things will go even faster.
 
 Note the amazingly fast startup time! The app is now running "locally" (within the Linux container in which this exercise runs).

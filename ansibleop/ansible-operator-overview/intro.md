@@ -1,4 +1,4 @@
-This section will give a brief overview of the *Ansible Operator* with a step-by-step example of developing an Ansible Operator using [Operator SDK](https://github.com/operator-framework/operator-sdk).
+This section will give a brief overview of the *Ansible Operator* with a step-by-step example of developing an Ansible Operator using [Operator SDK](https://sdk.operatorframework.io).
 
 The reader is expected to have a basic understanding of the *Operator pattern*. 
  - Ansible Operator is an Operator which is _powered by Ansible_. 

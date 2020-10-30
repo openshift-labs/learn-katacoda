@@ -1,0 +1,11 @@
+apiVersion: charts.example.com/v1alpha1
+kind: Cockroachdb
+metadata: 
+  name: cockroachdb-sample
+spec: 
+  statefulset: 
+    replicas: 1
+  storage: 
+    persistentVolume: 
+      size: 1Gi
+      storageClass: local-storage
