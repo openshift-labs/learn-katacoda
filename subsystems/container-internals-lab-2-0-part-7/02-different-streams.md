@@ -6,3 +6,10 @@ Notice there are two types:
 1. container-tools:rhel8 - this is the fast moving stream, it's updated once every 12 weeks and generally fixes bugs by rolling to new versions
 2. container-tools:1.0 - this was released with RHEL 8.0 and supported for 24 months, and receives bug fixes with back ports that keep the API and CLI interfaces stable
 3. container-tools:2.0 - this was released with RHEL 8.2 and supported for 24 months, and receives bug fixes with back ports that keep the API and CLI interfaces stable
+
+Now, let's pretend we are developer looking for access to the latest features in RHEL. For this, we would install the container-tools:rhel8 Application Stream like this:
+
+``yum module install container-tools:rhel8``{{execute}}
+
+Now, we should have a whole set of tools installed:
+
