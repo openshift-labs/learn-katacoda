@@ -9,7 +9,39 @@ Notice there are two types:
 
 Now, let's pretend we are developer looking for access to the latest features in RHEL. For this, we would install the container-tools:rhel8 Application Stream like this:
 
-``yum module install container-tools:rhel8``{{execute}}
+``yum module install -y container-tools:rhel8``{{execute}}
 
-Now, we should have a whole set of tools installed:
+We should have a whole set of tools installed:
 
+``yum module list --installed``{{execute}}
+
+Look at the packages that were installed as part of this Application Stream:
+
+``yum module repoquery --installed container-tools``{{execute}}
+
+Look at the version of Podman that was installed. It should be fairly new, probably within a few months of what's latest upstream:
+
+``podman -v``{{execute}}
+
+Let's clean up the environment, and start from scratch:
+
+``yum module remove -y container-tools
+yum module reset container-tools``{{execute}}
+
+OK, now let's pretend we are a systems administrator or SRE that wants a set of stable tools which are supported for 24 months.
+
+``yum module install container-tools:1.0``{{execute}}
+
+Check the version of Podman again:
+
+``podman -v``{{execute}}
+
+Notice that it's an older version of Podman. This version only gets back ports and will never move beyond Podman 1.0.2. Note, there is no connection between the container-tools version number and the Podman version number. It is purely coincidence that these numbers coincide. The container-tools version number is an arbitrary number representing all of the tools tested together in the Application Stream. This includes, Podman, Buildah, Skopeo, CRIU, etc. 
+
+Now, let's go back to the latest version of the container-tools for the rest of this module:
+
+``yum module remove -y container-tools
+yum module reset container-tools
+yum module install -y container-tools:rhel8``{{execute}}
+
+Notice how easy it was to move between the stable streams and the fast moving stream. This is the power of modularity. Now, let's move on to using the actual tools.
