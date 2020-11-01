@@ -7,7 +7,11 @@ Notice there are two types:
 2. container-tools:1.0 - this was released with RHEL 8.0 and supported for 24 months, and receives bug fixes with back ports that keep the API and CLI interfaces stable
 3. container-tools:2.0 - this was released with RHEL 8.2 and supported for 24 months, and receives bug fixes with back ports that keep the API and CLI interfaces stable
 
-Now, let's pretend we are developer looking for access to the latest features in RHEL. For this, we would install the container-tools:rhel8 Application Stream like this:
+Now, let's pretend we are developer looking for access to the latest features in RHEL. Let's inspect the description of the fast moving stream:
+
+``yum module info container-tools:rhel8``{{execute}}
+
+Now, let's install the fast moving container-tools:rhel8 Application Stream like this:
 
 ``yum module install -y container-tools:rhel8``{{execute}}
 
@@ -26,11 +30,15 @@ Look at the version of Podman that was installed. It should be fairly new, proba
 Let's clean up the environment, and start from scratch:
 
 ``yum module remove -y container-tools
-yum module reset container-tools``{{execute}}
+yum module -v reset container-tools``{{execute}}
 
-OK, now let's pretend we are a systems administrator or SRE that wants a set of stable tools which are supported for 24 months.
+OK, now let's pretend we are a systems administrator or SRE that wants a set of stable tools which are supported for 24 months. First, inspect the stable stream that was released in RHEL 8.0:
 
-``yum module install container-tools:1.0``{{execute}}
+``yum module info container-tools:1.0``{{execute}}
+
+Now, install it:
+
+``yum module install -y container-tools:1.0``{{execute}}
 
 Check the version of Podman again:
 
@@ -41,7 +49,7 @@ Notice that it's an older version of Podman. This version only gets back ports a
 Now, let's go back to the latest version of the container-tools for the rest of this module:
 
 ``yum module remove -y container-tools
-yum module reset container-tools
+yum module reset -y container-tools
 yum module install -y container-tools:rhel8``{{execute}}
 
 Notice how easy it was to move between the stable streams and the fast moving stream. This is the power of modularity. Now, let's move on to using the actual tools.

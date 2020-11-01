@@ -7,6 +7,8 @@ By the end of this lab you should be able to:
 - Be comfortable using with the basics of an alternative set of tools to Docker
 
 ## Outline
+- Understanding the difference between RHEL Server and CoreOS, as well as the difference between the fast and stable streams provided in RHEL Server
+- Understanding how to install the fast and stable streams
 - Podman: Familiar Territory: Learning the basics of how to use podman
 - Buildah: Granularity & Control: Understanding how a container image is really built
 - Skopeo: Moving & Sharing: Simplicity in inspecting, and moving container images around
