@@ -92,8 +92,4 @@ We can even delete all of the locally cached images with a single command:
 
 ``podman rmi --all``{{execute}}
 
-Let's exit back to root for a future lab which requires root:
-
-``exit``{{execute}}
-
 The above commands show how easy and elegant Podman is to use. Podman is like a Chef's knife. It can be used for pretty much anything that you used Docker for, but let's move on to Builah and show some advanced use cases when building container images.

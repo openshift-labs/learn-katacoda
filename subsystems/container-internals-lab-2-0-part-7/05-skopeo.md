@@ -52,6 +52,10 @@ Finally, lets copy from one registry to another. I have set up a writeable repos
 
 This command just synchronized the fedora repository from the Fedora Registry to Quay.io without ever caching it in the local container storage. Very cool right?
 
+Finally, exit the ''rhel'' user because we need root for the next lab:
+
+``exit``{{execute}}
+
 ## Conclusion
 
 You have a new tool in your tool belt for sharing and moving containers. Hopefully, you find other uses for Skopeo.
