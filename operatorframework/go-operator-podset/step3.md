@@ -33,17 +33,16 @@ type PodSetSpec struct {
 
 // PodSetStatus defines the current status of PodSet
 type PodSetStatus struct {
-        // +kubebuilder:printcolumn:JSONPath=".status.podNames",name=PodNames,type=string
-        PodNames []string `json:"podNames"`
-		AvailableReplicas	int32	`json:"availableReplicas"`
+        PodNames        []string        `json:"podNames"`
+	AvailableReplicas	int32	`json:"availableReplicas"`
 }
 
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
 
-// PodSet is the Schema for the PodSet API
-// +kubebuilder:printcolumn:name="Desired",type=string,JSONPath=`.spec.replicas`
-// +kubebuilder:printcolumn:name="Current",type=string,JSONPath=`.status.availableReplicas`
+// PodSet is the Schema for the podsets API
+// +kubebuilder:printcolumn:JSONPath=".spec.replicas",name=Desired,type=string
+// +kubebuilder:printcolumn:JSONPath=".status.availableReplicas",name=Available,type=string
 type PodSet struct {
         metav1.TypeMeta   `json:",inline"`
         metav1.ObjectMeta `json:"metadata,omitempty"`
