@@ -1,0 +1,31 @@
+{
+  "title": "EDA with Apache Kafka",
+  "description": "Getting Started with the Apache Kafka ecosystem",
+  "paid": false,
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-basic",
+      "course_id": "kafka-basic",
+      "title": "Apache Kafka Basics",
+      "description": "This is a simple way to send and receive messages from Apache Kafka"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-k-serving",
+      "course_id": "camel-k-serving",
+      "title": "Serverless Camel K",
+      "description": "This is simple serverless RESTful Camel K"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-k-eventing",
+      "course_id": "camel-k-eventing",
+      "title": "Serverless Eventing with Camel K",
+      "description": "This excercis shows how to creat event driven serverless Camel K application"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-kafka-connector",
+      "course_id": "camel-kafka-connector",
+      "title": "Camel Kafka Connector Basics",
+      "description": "Simple Managed File Transfer scenario using Camel Kafka Connector"
+    }
+  ]
+}
