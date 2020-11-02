@@ -34,7 +34,7 @@ So, in a nutshell, CRIU gives you more flexibility with containerized processes.
 ``podman run -d --name looper busybox /bin/sh -c \
          'i=0; while true; do echo $i; i=$(expr $i + 1); sleep 1; done'``{{execute}}
 
-Now, verify that numbers are being generated. Run this a few times:
+Now, verify that numbers are being generated. Run this a few times to see the numbers incrementing:
 
 ``podman logs -l``{{execute}}
 
@@ -42,11 +42,11 @@ Now, let's dump the contents of memory to disk, and kill the process:
 
 ``podman container checkpoint -l``{{execute}}
 
-Verify that it's not running:
+Verify that it's not running. Notice that that container is in the exited state. This means the copy-on-write layer for the container has not been deleted. Since we used the checkpoint sub-command, the contents of memory are also saved on disk:
 
 ``podman ps -a``{{execute}}
 
-Verify that numbers are not being generated:
+Verify that numbers are not being generated. Run this a few times to verify:
 
 ``podman logs -l``{{execute}}
 
@@ -54,12 +54,14 @@ Restore the container:
 
 ``podman container restore -l``{{execute}}
 
-Now, verify that numbers are being generated:
+Verify the contents of memory and disk are being used and the numbers are incrementing again:
 
 ``podman logs -l``{{execute}}
 
-Clean up:
+We're all done, so clean up. This will kill the process, delete the contents of the copy-on-write layer, and remove all of the meta-data for all containers:
 
 ``podman kill -a``{{execute}}
 
-Now, let's move on to some more tools.
+## Conclusions
+
+Checkpointing and restoring containers is easy with CRIU and Podman. As part of the container-tools application streams, specific versions of Podman and CRIU are tested and verified to work together (not all versions of Podman and CRIU are guaranteed to work together). Now, let's move on to some more tools.
