@@ -37,9 +37,6 @@
             "title": "CRIU: Checkpointing and Restoring",
             "text": "06-criu.md"
         }, {
-            "title": "Udica: Custom SELinux Policies",
-            "text": "07-udica.md"
-        }, {
             "title": "OSCAP Podman: Trust but Verify",
             "text": "08-oscap-podman.md"
         }],
