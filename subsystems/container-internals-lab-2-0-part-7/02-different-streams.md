@@ -7,7 +7,7 @@ Notice there are two types:
 2. container-tools:1.0 - this was released with RHEL 8.0 and supported for 24 months, and receives bug fixes with back ports that keep the API and CLI interfaces stable
 3. container-tools:2.0 - this was released with RHEL 8.2 and supported for 24 months, and receives bug fixes with back ports that keep the API and CLI interfaces stable
 
-Now, let's pretend we are developer looking for access to the latest features in RHEL. Let's inspect the description of the fast moving stream:
+Now, let's pretend we are developer looking for access to the latest features in RHEL. Let's inspect the description of the fast moving stream. Notice that there are multiple versions of the rhel8 application stream. Every time a package is updated the entire group of packages is version controlled and tested together:
 
 ``yum module info container-tools:rhel8``{{execute}}
 
@@ -32,7 +32,7 @@ Let's clean up the environment, and start from scratch:
 ``yum module remove -y container-tools
 yum module reset -v container-tools``{{execute}}
 
-OK, now let's pretend we are a systems administrator or SRE that wants a set of stable tools which are supported for 24 months. First, inspect the stable stream that was released in RHEL 8.0:
+OK, now let's pretend we are a systems administrator or SRE that wants a set of stable tools which are supported for 24 months. First, inspect the stable stream that was released in RHEL 8.0. Notice that there are several versions of this Application Stream. Every time a package is updated a new stream version is generated to snapshot the exact versions of each package together as a stream:
 
 ``yum module info container-tools:1.0``{{execute}}
 
