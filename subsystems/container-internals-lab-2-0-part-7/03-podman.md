@@ -22,7 +22,7 @@ Now, let's move on to some features that differentiates Podman from Docker. Spec
 
 The container host we are working with already has a user called RHEL, so let's switch over to it:
 
-``sudo - rhel``{{execute}}
+``su - rhel``{{execute}}
 
 Now, fire up a simple container in the background:
 
