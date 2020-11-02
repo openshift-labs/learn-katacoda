@@ -41,6 +41,7 @@ type PodSetReconciler struct {
 
 // +kubebuilder:rbac:groups=app.example.com,resources=podsets,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=app.example.com,resources=podsets/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=v1,resources=pods,verbs=get;list;watch;create;update;patch;delete
 
 func (r *PodSetReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
         _ = context.Background()
@@ -91,7 +92,7 @@ func (r *PodSetReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
         // Update the status if necessary
         status := appv1alpha1.PodSetStatus{
                 PodNames: availableNames,
-                AvailableReplicas: numAvailable
+                AvailableReplicas: numAvailable,
         }
         if !reflect.DeepEqual(podSet.Status, status) {
                 podSet.Status = status
