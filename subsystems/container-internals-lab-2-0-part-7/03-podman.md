@@ -26,7 +26,7 @@ The container host we are working with already has a user called RHEL, so let's 
 
 Now, fire up a simple container in the background:
 
-``podman -id ubi8 top``{{execute}}
+``podman run -id ubi8 bash``{{execute}}
 
 Now, lets analyze a couple of interesting things that makes Podman different than Docker - it doesn't use a client server model, which is useful for wiring it into CI/CD systems, and other schedulers like Yarn:
 
@@ -37,21 +37,21 @@ Inspect the process tree on the system:
 You should see something similar to:
 
 ``└─conmon─┬─{conmon}
-         └─top(ipc,mnt,net,pid,uts)``
+         └─bash(ipc,mnt,net,pid,uts)``
 
 There's no Podman process, which might be confusing. Lets explain this a bit. What many people don't know is that containers disconnect from Podman after they are started. Podman keeps track of meta-data in ~/.local/share/containers (/var/lib/containers is only used for containers started by root) which tracks which containers are created, running, and stopped (killed). The meta-data that Podman tracks is what enables a "podman ps" command to work. 
 
 In the case of Podman, containers disconnect from their parent processes so that they don't die when the Podman. In the case of Docker and CRI-O which are daemons, containers disconnect from the parent process so that they don't die when the daemon is restarted. For Podman and CRI-O, there is utility which runs before runc called conmon (Container Monitor). The conmon utility disconnects the container from the engine by doing forking twice (called a double fork). That means, the execution chain looks something like this with Podman:
 
-``bash -> podman -> conmon -> conmon -> runc -> top``
+``bash -> podman -> conmon -> conmon -> runc -> bash``
 
 Or like this with CRI-O:
 
-``systemd -> crio -> conmon -> conmon -> runc -> top``
+``systemd -> crio -> conmon -> conmon -> runc -> bash``
 
 Or like this with Docker engine:
 
-``systemd -> dockerd -> containerd -> docker-shim -> runc -> top``
+``systemd -> dockerd -> containerd -> docker-shim -> runc -> bash``
 
 Conmon is a very small C program that monitors the standard in, standard error, and standard out of the containerized process. The conmon utility and docker-shim both serve the same purpose. When the first conmon finishes calling the second, it exits. This disconnects the second conmon and all of its child processes from the container engine. The second conmon then inherits init system (systemd) as its new parent process. This daemonless and simplified model which Podman uses can be quite useful when wiring it into other larger systems, like CI/CD, scripts, etc.
 
@@ -64,9 +64,9 @@ Podman makes it super easy to see this mapping. Start an nginx container to see 
 
 ``podman run -id registry.access.redhat.com/rhscl/nginx-114-rhel7 nginx -g 'daemon off;'``{{execute}}
 
-Now, execute the Podman top command:
+Now, execute the Podman bash command:
 
-``podman top -l args huser hgroup hpid user group pid seccomp label``{{execute}}
+``podman bash -l args huser hgroup hpid user group pid seccomp label``{{execute}}
 
 Notice that the host user, group and process ID  ''in'' the container all map to different and real IDs on the host system. The container thinks that nginx is running as the user ''default'' and the group ''root'' but really it's running as an arbitrary user and group. This user and group are selected from a range configured for the ''rhel'' user account on this system. This list can easily be inspected with the following commands:
 
@@ -76,7 +76,7 @@ You will see something similar to this:
 
 ``rhel:165536:65536``
 
-The first number represents the starting user ID, and the second number represents the number of user IDs which can be used from the starting number. So, in this example, our RHEL user can use 65,535 user IDs starting with user ID 165536. The Podman top command should show you that nginx is running in this range of UIDs.
+The first number represents the starting user ID, and the second number represents the number of user IDs which can be used from the starting number. So, in this example, our RHEL user can use 65,535 user IDs starting with user ID 165536. The Podman bash command should show you that nginx is running in this range of UIDs.
 
 The user ID mappings on your system might be different because shadow utilities (useradd, usderdel, usermod, groupadd, etc) automatically creates these mappings when a user is added. As a side note, if you've updated from an older version of RHEL, you might need to add entries to /etc/subuid and /etc/subgid manually.
 
@@ -91,5 +91,9 @@ Remove all of the actively defined containers. It should be noted that this migh
 We can even delete all of the locally cached images with a single command:
 
 ``podman rmi --all``{{execute}}
+
+Let's exit back to root for a future lab which requires root:
+
+``exit``{{execute}}
 
 The above commands show how easy and elegant Podman is to use. Podman is like a Chef's knife. It can be used for pretty much anything that you used Docker for, but let's move on to Builah and show some advanced use cases when building container images.

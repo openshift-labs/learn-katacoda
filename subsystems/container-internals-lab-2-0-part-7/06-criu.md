@@ -34,7 +34,7 @@ So, in a nutshell, CRIU gives you more flexibility with containerized processes.
 ``podman run -d --name looper busybox /bin/sh -c \
          'i=0; while true; do echo $i; i=$(expr $i + 1); sleep 1; done'``{{execute}}
 
-Now, verify that numbers are being generated:
+Now, verify that numbers are being generated. Run this a few times:
 
 ``podman logs -l``{{execute}}
 
