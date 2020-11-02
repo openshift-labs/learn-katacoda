@@ -30,7 +30,7 @@ Look at the version of Podman that was installed. It should be fairly new, proba
 Let's clean up the environment, and start from scratch:
 
 ``yum module remove -y container-tools
-yum module -v reset container-tools``{{execute}}
+yum module reset -v container-tools``{{execute}}
 
 OK, now let's pretend we are a systems administrator or SRE that wants a set of stable tools which are supported for 24 months. First, inspect the stable stream that was released in RHEL 8.0:
 
