@@ -9,7 +9,7 @@ Download the meta-data from Red Hat:
 
 First, scan an older image which has unapplied Red Hat Security Advisory (RHSA) patches:
 
-``oscap-podman registry.access.redhat.com/ubi8/ubi:latest oval eval --report ./html/ubi-8.8-126-report.html rhel-8.oval.xml.bz2``{{execute}}
+``oscap-podman registry.access.redhat.com/ubi8/ubi:8.0-126 oval eval --report ./html/ubi-0.8-126-report.html rhel-8.oval.xml.bz2``{{execute}}
 
 Look at the report:
 
