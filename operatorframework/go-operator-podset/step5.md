@@ -1,5 +1,3 @@
-## Ways to Run an Operator
-
 Once the CRD is registered, there are two ways to run the Operator:
 
 * As a Pod inside a Kubernetes cluster
