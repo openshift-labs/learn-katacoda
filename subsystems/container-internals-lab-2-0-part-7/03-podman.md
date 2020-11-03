@@ -20,10 +20,11 @@ List running containers:
 
 Now, let's move on to some features that differentiates Podman from Docker. Specifically, let's cover the two most popular reasons - Podman runs with a daemon (daemonless) and with a root (rootless). Podman does not have a daemon, it's an interactive command more like bash, and like bash it can be run as a regular user (aka. rootless).
 
-The container host we are working with already has a user called RHEL, so let's switch over to it:
+The container host we are working with already has a user called RHEL, so let's switch over to it. Note, we set a couple of environment variables manually because we're using the switch user command. These would normally be set at login:
 
 ``su - rhel
-export XDG_RUNIME_DIR=~/``{{execute}}
+export XDG_RUNIME_DIR=~/
+export XDG_DATA_DIRS=~/.local/share/:/usr/local/share/:/usr/share/``{{execute}}
 
 Now, fire up a simple container in the background:
 
