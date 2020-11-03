@@ -23,8 +23,7 @@ Now, let's move on to some features that differentiates Podman from Docker. Spec
 The container host we are working with already has a user called RHEL, so let's switch over to it. Note, we set a couple of environment variables manually because we're using the switch user command. These would normally be set at login:
 
 ``su - rhel
-export XDG_RUNIME_DIR=~/
-export XDG_DATA_DIRS=~/.local/share/:/usr/local/share/:/usr/share/``{{execute}}
+export XDG_RUNTIME_DIR=/home/rhel``{{execute}}
 
 Now, fire up a simple container in the background:
 
