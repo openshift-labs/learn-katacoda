@@ -6,8 +6,22 @@ The goal of this lab is to introduce you to Buildah and the flexibility it provi
 
 3. External vs. Internal Data: Do you have everything you need to build the image from within the image? Or, do you need to access cached data outside of the build process? For example, It might be convenient to mount a large cached RPM cache inside the container during build, but you would never want to carry that around in the production image. The use cases for build time mounts range from SSH keys to Java build artifacts - for more ideas, see this [GitHub issue](https://github.com/moby/moby/issues/14080).
 
-
 Alright, let's walk through some common scenarios with Buildah.
+
+## Prep Work
+Just like Podman, Buildah can execute in rootless mode, but since you have tools on the container host interacting files in the container image, you need to make Buildah think it's running as root. Buildah comes with a cool sub-command called unshare which does just this. It puts our shell into a user namespace just like when you have a root shell in a container. The difference is, this shell has access to tools installed on the container host, instead of in the container image. Before we complete the rest of this lab, execute the "buildah unshare" command. Think of this as making yourself root, without actually making yourself root:
+
+``buildah unshare``{{execute}}
+
+Now, look at who your shell thinks you are:
+
+``whoami``{{execute}}
+
+It's looks like you are root, but you really aren't, but let's prove it:
+
+``touch /etc/shadow``{{execute}}
+
+The touch command fails because you're not actually root. Really, the touch command executed as an arbitrary user ID in your /etc/subuid range. Let that sink in. Linux containers are mind bending. OK, let's do something useful.
 
 ## Basic Build
 
@@ -95,9 +109,9 @@ We have just created a container image layer from scratch without ever installin
 
 As a final example, lets use a build time mount to show how we can pull data in. This will represent some sort of cached data that we are using outside of the container. This could be a repository of Ansible Playbooks, or even Database test data:
 
-``mkdir /data
-dd if=/dev/zero of=/data/test.bin bs=1MB count=100
-ls -alh /data/test.bin``{{execute}}
+``mkdir ~/data
+dd if=/dev/zero of=~/data/test.bin bs=1MB count=100
+ls -alh ~/data/test.bin``{{execute}}
 
 Now, lets fire up a working container:
 
@@ -106,7 +120,7 @@ buildah mount ubi8-working-container``{{execute}}
 
 To consume the data within the container, we use the buildah-run subcommand. Notice that it takes the -v option just like "run" in Podman. We also use the Z option to reliable the data for SELinux. The dd command simply represents consuming some smaller portion of the data during the build process:
 
-``buildah run -v /data:/data:Z ubi8-working-container dd if=/data/test.bin of=/etc/small-test.bin bs=100 count=2``{{execute}}
+``buildah run -v ~/data:/data:Z ubi8-working-container dd if=/data/test.bin of=/etc/small-test.bin bs=100 count=2``{{execute}}
 
 Commit the new image layer and clean things up:
 
@@ -117,8 +131,14 @@ Test it and note that we only kept the pieces of the data that we wanted. This i
 
 ``podman run -it ubi8-data ls -alh /etc/small-test.bin``{{execute}}
 
+## Cleanup
+
+Exit the user namespace:
+
+``exit``{{execute}}
+
 ## Conclusion
 
-Now, you have a pretty good understanding of the cases where Buildah really shines. You can start from scratch, or an existing image, use tools outside the container, and move data around as needed. This is a very flexible tool that should fit quite nicely in your tool belt.
+Now, you have a pretty good understanding of the cases where Buildah really shines. You can start from scratch, or use an existing image, use tools installed on the container host (not in the container image), and move data around as needed. This is a very flexible tool that should fit quite nicely in your tool belt. Buildah lets you script builds with any language you want, and build tiny images with only the bare minimum of utilities needed inside the image.
 
 Now, lets move on to sharing containers with Skopeo...
