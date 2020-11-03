@@ -30,9 +30,12 @@ The Config and Image Layers are there, but remember we need to rely on a [Graph 
 
 First, let's do a little hack to install Docker CE side by side with Podman on RHEL 8. Don't do this on a production system as this will overwrite the version of runc provided by Red Hat:
 
-``rpm -ivh --nodeps --force https://download.docker.com/linux/centos/8/x86_64/stable/Packages/containerd.io-1.3.7-3.1.el8.x86_64.rpm
-yum install docker-ce
-systemctl enable --now docker``{{execute}}
+``yes|rpm -ivh --nogpgcheck --nodeps --force https://download.docker.com/linux/centos/8/x86_64/stable/Packages/containerd.io-1.3.7-3.1.el8.x86_64.rpm
+yum install docker-ce``{{execute}}
+
+Now, enable the Docker CE service:
+
+``systemctl enable --now docker``{{execute}}
 
 Now that we have Docker and Podman installed side by side with the Docker daemon running, lets copy an image from Podman to Docker. Since we have the image stored locally in .local/share/containers, it's trivial to copy it to /var/lib/docker using the daemon:
 
