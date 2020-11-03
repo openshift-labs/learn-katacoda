@@ -12,6 +12,8 @@ By the end of this lab you should be able to:
 - Podman: Familiar Territory: Learning the basics of how to use podman
 - Buildah: Granularity & Control: Understanding how a container image is really built
 - Skopeo: Moving & Sharing: Simplicity in inspecting, and moving container images around
+- CRIU: Checkpoint and restore the memory contents of containers
+- OSCAP-Podman: verify patched or unpatched vulnerabilities in container images produced by Red Hat
 
 ## Other Material
 - [Presentation](https://goo.gl/h4VK7j)
