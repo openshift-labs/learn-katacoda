@@ -43,14 +43,14 @@
 		},
 		"finish": {
 			"text": "finish.md"
+		},
+		"assets": {
+			"client": [
+				{
+					"file": "operator-install.yaml",
+					"target": "/opt/"
+				}
+			]
 		}
-	},
-	"assets": {
-		"client": [
-			{
-				"file": "operator-install.yaml",
-				"target": "/opt/"
-			}
-		]
 	}
 }
