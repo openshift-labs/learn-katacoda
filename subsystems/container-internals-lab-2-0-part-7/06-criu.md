@@ -31,7 +31,7 @@ To understand CRIU, you need to understand step 6. When this step is executed, P
 
 So, in a nutshell, CRIU gives you more flexibility with containerized processes. Let's see it in action. First, start a simple container which generates incrementing numbers so that we can verify memory contents are really restored:
 
-``podman run -d --name looper busybox /bin/sh -c \
+``podman run -d --name looper ubi8 /bin/sh -c \
          'i=0; while true; do echo $i; i=$(expr $i + 1); sleep 1; done'``{{execute}}
 
 Now, verify that numbers are being generated. Run this a few times to see the numbers incrementing:
