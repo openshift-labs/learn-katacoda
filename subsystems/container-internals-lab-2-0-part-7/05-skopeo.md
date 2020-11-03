@@ -34,7 +34,8 @@ First, let's do a little hack to install Docker CE side by side with Podman on R
 ``yes|sudo rpm -ivh --nodeps --force https://download.docker.com/linux/centos/8/x86_64/stable/Packages/containerd.io-1.3.7-3.1.el8.x86_64.rpm
 sudo yum install -y docker-ce
 sudo usermod -a -G docker rhel
-sudo su - rhel``{{execute}}
+sudo su - rhel
+export XDG_RUNTIME_DIR=/home/rhel``{{execute}}
 
 Now, enable the Docker CE service:
 
