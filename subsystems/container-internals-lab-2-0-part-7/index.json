@@ -4,7 +4,7 @@
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "Intermediate",
-    "time": "20-25 minutes",
+    "time": "35-40 minutes",
     "backend": {
       "trainingid": "rhel8.2",
       "imageid": "rhel8-2",
