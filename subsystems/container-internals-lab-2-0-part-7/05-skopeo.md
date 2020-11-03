@@ -36,7 +36,7 @@ sudo yum install -y docker-ce``{{execute}}
 
 Now, enable the Docker CE service:
 
-``systemctl enable --now docker``{{execute}}
+``sudo systemctl enable --now docker``{{execute}}
 
 Now that we have Docker and Podman installed side by side with the Docker daemon running, lets copy an image from Podman to Docker. Since we have the image stored locally in .local/share/containers, it's trivial to copy it to /var/lib/docker using the daemon:
 
