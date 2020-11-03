@@ -36,6 +36,8 @@ operatorgroup.operators.coreos.com/streams-operatorgroup created
 subscription.operators.coreos.com/amq-streams created
 ```
 
+> You can also deploy the AMQ streams operator from the OpenShift OperatorHub from within the administration console.
+
 ## Check operator deployment
 
 Follow up the operator deployment to validate it is running.
@@ -53,4 +55,4 @@ amq-streams-cluster-operator-v1.5.3-59666d98cb-8ptlz   0/1     Running          
 amq-streams-cluster-operator-v1.5.3-59666d98cb-8ptlz   1/1     Running             0          34s
 ```
 
-Hit Ctrl + C to stop the process.
+`Hit Ctrl + C to stop the process.`{{execute interrupt}}

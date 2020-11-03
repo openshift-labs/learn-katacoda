@@ -25,15 +25,15 @@
 				"text": "step1.md"
 			},
 			{
-				"title": "Step 2",
+				"title": "Deploy your Kafka cluster",
 				"text": "step2.md"
 			},
 			{
-				"title": "Step 3",
+				"title": "Access the cluster from console",
 				"text": "step3.md"
 			},
 			{
-				"title": "Step 4",
+				"title": "Produce and consume records",
 				"text": "step4.md"
 			}
 		],
@@ -48,6 +48,14 @@
 			"client": [
 				{
 					"file": "operator-install.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "kafka-cluster.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "kafka-topic.yaml",
 					"target": "/opt/"
 				}
 			]
