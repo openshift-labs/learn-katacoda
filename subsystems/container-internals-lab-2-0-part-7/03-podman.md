@@ -18,7 +18,7 @@ List running containers:
 
 ``podman ps -a``{{execute}}
 
-Now, let's move on to some features that differentiates Podman from Docker. Specifically, let's cover the two most popular reasons - Podman runs with a daemon (daemonless) and with a root (rootless). Podman does not have a daemon, it's an interactive command more like bash, and like bash it can be run as a regular user (aka. rootless).
+Now, let's move on to some features that differentiates Podman from Docker. Specifically, let's cover the two most popular reasons - Podman runs with a daemon (daemonless) and without root (rootless). Podman does not have a daemon, it's an interactive command more like bash, and like bash it can be run as a regular user (aka. rootless).
 
 The container host we are working with already has a user called RHEL, so let's switch over to it. Note, we set a couple of environment variables manually because we're using the switch user command. These would normally be set at login:
 
@@ -42,7 +42,7 @@ You should see something similar to:
 
 There's no Podman process, which might be confusing. Lets explain this a bit. What many people don't know is that containers disconnect from Podman after they are started. Podman keeps track of meta-data in ~/.local/share/containers (/var/lib/containers is only used for containers started by root) which tracks which containers are created, running, and stopped (killed). The meta-data that Podman tracks is what enables a "podman ps" command to work. 
 
-In the case of Podman, containers disconnect from their parent processes so that they don't die when the Podman. In the case of Docker and CRI-O which are daemons, containers disconnect from the parent process so that they don't die when the daemon is restarted. For Podman and CRI-O, there is utility which runs before runc called conmon (Container Monitor). The conmon utility disconnects the container from the engine by doing forking twice (called a double fork). That means, the execution chain looks something like this with Podman:
+In the case of Podman, containers disconnect from their parent processes so that they don't die when Podman exit exits. In the case of Docker and CRI-O which are daemons, containers disconnect from the parent process so that they don't die when the daemon is restarted. For Podman and CRI-O, there is utility which runs before runc called conmon (Container Monitor). The conmon utility disconnects the container from the engine by doing forking twice (called a double fork). That means, the execution chain looks something like this with Podman:
 
 ``bash -> podman -> conmon -> conmon -> runc -> bash``
 
@@ -56,7 +56,7 @@ Or like this with Docker engine:
 
 Conmon is a very small C program that monitors the standard in, standard error, and standard out of the containerized process. The conmon utility and docker-shim both serve the same purpose. When the first conmon finishes calling the second, it exits. This disconnects the second conmon and all of its child processes from the container engine. The second conmon then inherits init system (systemd) as its new parent process. This daemonless and simplified model which Podman uses can be quite useful when wiring it into other larger systems, like CI/CD, scripts, etc.
 
-Podman doesn't require a daemon and it doesn't require root. These two features really set Podman apart from Docker. Even when you use the Docker CLI as a user, it connects to a daemon running as root, so the user always has the ability to run processes as root and hack the system. 
+Podman doesn't require a daemon and it doesn't require root. These two features really set Podman apart from Docker. Even when you use the Docker CLI as a user, it connects to a daemon running as root, so the user always has the ability escalate a process to root and do whatever they want on the system. Worse, it bypasses sudo rules so it's not easy to track down who did it.
 
 Now, let's move on to some other really interesting features. Rootless containers use a kernel feature called User Namespaces. This maps the one or more user IDs in the container to one or more user IDs outside of the container. This includes the root user ID in the container as well as any others which might be used by programs like Nginx or Apache.
 
