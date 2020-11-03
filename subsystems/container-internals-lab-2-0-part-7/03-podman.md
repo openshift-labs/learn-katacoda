@@ -66,7 +66,7 @@ Podman makes it super easy to see this mapping. Start an nginx container to see 
 
 Now, execute the Podman bash command:
 
-``podman bash -l args huser hgroup hpid user group pid seccomp label``{{execute}}
+``podman top -l args huser hgroup hpid user group pid seccomp label``{{execute}}
 
 Notice that the host user, group and process ID  ''in'' the container all map to different and real IDs on the host system. The container thinks that nginx is running as the user ''default'' and the group ''root'' but really it's running as an arbitrary user and group. This user and group are selected from a range configured for the ''rhel'' user account on this system. This list can easily be inspected with the following commands:
 
