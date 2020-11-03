@@ -68,8 +68,8 @@ Verify that there is nothing in the directory:
 
 Now, lets install some basic tools:
 
-``yum install --installroot $WORKING_MOUNT bash coreutils --releasever 7 --setopt install_weak_deps=false -y
-yum clean all -y --installroot $WORKING_MOUNT --releasever 7``{{execute}}
+``yum install --installroot $WORKING_MOUNT bash coreutils --releasever 8 --setopt install_weak_deps=false -y
+yum clean all -y --installroot $WORKING_MOUNT --releasever 8``{{execute}}
 
 Verify that some files have been added:
 
