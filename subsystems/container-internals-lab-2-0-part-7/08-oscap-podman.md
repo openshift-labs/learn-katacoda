@@ -26,7 +26,7 @@ Notice that there are many orange lines displaying the CVEs/RHSAs. If you built 
 
 Look at the new report: 
 
-https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ubi-latest-report.html
+* https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ubi-latest-report.html
 
 ## Conclusions
 
