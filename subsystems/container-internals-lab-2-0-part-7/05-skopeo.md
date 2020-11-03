@@ -32,10 +32,7 @@ The Config and Image Layers are there, but remember we need to rely on a [Graph 
 First, let's do a little hack to install Docker CE side by side with Podman on RHEL 8. Don't do this on a production system as this will overwrite the version of runc provided by Red Hat:
 
 ``yes|sudo rpm -ivh --nodeps --force https://download.docker.com/linux/centos/8/x86_64/stable/Packages/containerd.io-1.3.7-3.1.el8.x86_64.rpm
-sudo yum install -y docker-ce
-sudo usermod -a -G docker rhel
-sudo su - rhel
-export XDG_RUNTIME_DIR=/home/rhel``{{execute}}
+sudo yum install -y docker-ce``{{execute}}
 
 Now, enable the Docker CE service:
 
@@ -61,8 +58,7 @@ This command just synchronized the fedora repository from the Fedora Registry to
 
 Finally, exit the ''rhel'' user because we need root for the next lab:
 
-``exit
-exit``{{execute}}
+``exit``{{execute}}
 
 ## Conclusion
 
