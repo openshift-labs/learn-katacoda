@@ -2,15 +2,9 @@ The default SELinux rules do a really good job in RHEL with Podman. Most contain
 
 For example, run the following container:
 
-``podman run -v /home:/home:ro -v /var/spool:/var/spool:rw -p 21:21 -it ubi8  bash``{{execute}}
+``podman run -v /home/rhel/test:/home:ro -it ubi8  bash``{{execute}}
 
-The default SELinux policy This container does three things which are not permitted by default: 
-
-Mounts /home as read only
-Mounts /var/spool as read/write
-Exposes port tcp/21
-
-You can see this by looking at the SELinux log. There's no rule to allow a containerized process (container_t):
+The default SELinux policy This container does allow containers runnint as container_t to mount /home as read only. You can see this by looking at the SELinux log. There's no rule to allow a containerized process (container_t):
 
 sesearch -A -s container_t -t home_root_t -c dir -p read
 
