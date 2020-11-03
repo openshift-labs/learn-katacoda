@@ -8,7 +8,8 @@ Create a new Kafka cluster named `my-cluster` with 1 Zookeeper and 1 broker node
 
 Issue the following command:
 
-```cat << EOF | oc create -f -
+```
+cat << EOF | oc create -f -
 apiVersion: kafka.strimzi.io/v1beta1
 kind: Kafka
 metadata:
@@ -37,7 +38,8 @@ When your cluster is ready, create a topic to publish and subscribe from your ex
 
 Create the following `my-topic` custom resource definition with 1 replicas and 1 partitions in the `my-cluster` Kafka cluster:
 
-```cat << EOF | oc create -f -
+```
+cat << EOF | oc create -f -
 apiVersion: kafka.strimzi.io/v1beta1
 kind: KafkaTopic
 metadata:
