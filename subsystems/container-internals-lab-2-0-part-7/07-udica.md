@@ -1,12 +1,32 @@
-The default SELinux rules do a really good job in RHEL with Podman. Most containers "just work" but sometimes as the different types of workloads that we run in containers expands, we bump into places where SELinux blocks us. Udica allows us to customize Linux policies for specific workloads without being an SELinux expert.
+The default Containers SELinux policy does a really good job Podman in RHEL 8. Most containers "just work" but like any security tool, every now and then we need to make some customizations. Sometimes, especially as we expand the types of workloads that we run in containers, we bump into places where SELinux blocks us. Udica allows an administrator to customize the SELinux policy specifically for a workload for without being an SELinux expert.
 
 For example, run the following container:
 
-``podman run -v /home/rhel/test:/home:ro -it ubi8  bash``{{execute}}
+``podman run --name home-test -v /home/:/home:ro -it ubi8 ls /home``{{execute}}
 
-The default SELinux policy This container does allow containers runnint as container_t to mount /home as read only. You can see this by looking at the SELinux log. There's no rule to allow a containerized process (container_t):
+The above command will fail because the default SELinux policy does not allow containers to mount /home as read only. We can verify that there are no allow rules which permit this command to be executed:
 
-sesearch -A -s container_t -t home_root_t -c dir -p read
+``sesearch -A -s container_t -t home_root_t -c dir -p read``{{execute}}
+
+With Udica, we can quickly and easily configure SELinxux to allow us to mount /home as root. First, we have to extract the meta-data from our container:
+
+``podman inspect home-test > home-test.json``{{execute}}
+
+Now, Udica will analyze this data and create a custom SELinux policy for us:
+
+``udica -j home-test.json home_test``{{execute}}
+
+Use the SELinux tools to load the new policy:
+
+``semodule -i home_test.cil``{{execute}}
+
+Now, run the same type of container again, but pass it a security option telling it to label the process to use our new custom policy, and it will execute without being blocked:
+
+``podman run --name home-test2 --security-opt label=type:home_test.process -v /home/:/home:ro -it ubi8 ls /home``{{execute}}``
+
+We can verify that there are rules in place in our new policy to allow this command to execute:
+
+``sesearch -A -s home_test_t -t home_root_t -c dir -p read``{{execute}}
 
 TODO: finish from here: https://fedoramagazine.org/use-udica-to-build-selinux-policy-for-containers/
 
