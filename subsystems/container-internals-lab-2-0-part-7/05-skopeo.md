@@ -61,7 +61,8 @@ This command just synchronized the fedora repository from the Fedora Registry to
 
 Finally, exit the ''rhel'' user because we need root for the next lab:
 
-``exit``{{execute}}
+``exit
+exit``{{execute}}
 
 ## Conclusion
 
