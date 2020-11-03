@@ -55,4 +55,6 @@ amq-streams-cluster-operator-v1.5.3-59666d98cb-8ptlz   0/1     Running          
 amq-streams-cluster-operator-v1.5.3-59666d98cb-8ptlz   1/1     Running             0          34s
 ```
 
-`Hit Ctrl + C to stop the process.`{{execute interrupt}}
+Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
+
+`^C`{{execute ctrl-seq}}
