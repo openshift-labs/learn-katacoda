@@ -11,4 +11,8 @@ podman pull registry.access.redhat.com/rhscl/nginx-114-rhel7
 # Start container for OSCAP reports
 mkdir ~/html
 podman run -p 80:8080 -id --name nginx -v /root/html:/opt/app-root/src/:Z registry.access.redhat.com/rhscl/nginx-114-rhel7 nginx -g 'daemon off;'
+podman generate systemd --restart-policy=always -t 1 nginx > /usr/lib/systemd/system/nginx.service
+systemctl daemon-reload
+systemctl enable --now nginx
+
 echo "Container host is now ready."

@@ -6,9 +6,10 @@ First, lets start with the use case that kicked off the Skopeo project. Sometime
 
 ``skopeo inspect docker://registry.fedoraproject.org/fedora``{{execute}}
 
-We can easily see the "Architecture" and "Os" meta-data which tells us a lot about the image. We can also see the labels, which are consumed by most container engines, and passed to the runtime to be constructed as environment variables. By comparison, here's how to see them in a running container:
+We can easily see the "Architecture" and "Os" meta-data which tells us a lot about the image. We can also see the labels, which are consumed by most container engines, and passed to the runtime to be constructed as environment variables. By comparison, here's how to see this meta-data in a running container:
 
-``podman inspect $(podman create registry.fedoraproject.org/fedora bash)``{{execute}}
+``podman run --name meta-data-container -id registry.fedoraproject.org/fedora bash
+podman inspect meta-data-container``{{execute}}
 
 ## Pulling Images
 
@@ -30,8 +31,8 @@ The Config and Image Layers are there, but remember we need to rely on a [Graph 
 
 First, let's do a little hack to install Docker CE side by side with Podman on RHEL 8. Don't do this on a production system as this will overwrite the version of runc provided by Red Hat:
 
-``yes|rpm -ivh --nogpgcheck --nodeps --force https://download.docker.com/linux/centos/8/x86_64/stable/Packages/containerd.io-1.3.7-3.1.el8.x86_64.rpm
-yum install docker-ce``{{execute}}
+``yes|rpm -ivh --nodeps --force https://download.docker.com/linux/centos/8/x86_64/stable/Packages/containerd.io-1.3.7-3.1.el8.x86_64.rpm
+yum install -y docker-ce``{{execute}}
 
 Now, enable the Docker CE service:
 

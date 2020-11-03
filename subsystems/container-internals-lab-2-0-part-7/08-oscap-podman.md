@@ -22,7 +22,7 @@ https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ubi-8.
 
 Notice that there are many orange lines displaying the CVEs/RHSAs. If you built and ran an application on this very old container image, it would be exposed to these vulnerabilities. Now, let's scan the latest version of UBI provided by Red Hat:
 
-``oscap-podman registry.access.redhat.com/ubi8/ubi:latest oval eval --report ./html/ubi-8.8-126-report.html rhel-8.oval.xml.bz2``{{execute}}
+``oscap-podman registry.access.redhat.com/ubi8/ubi:latest oval eval --report ./html/ubi-latest-report.html rhel-8.oval.xml.bz2``{{execute}}
 
 Look at the new report: 
 

@@ -82,7 +82,7 @@ The user ID mappings on your system might be different because shadow utilities 
 
 OK, now stop all of the running containers. No more one liners like with Docker, it's just built in with Podman:
 
-``podman stop --all``{{execute}}
+``podman kill --all``{{execute}}
 
 Remove all of the actively defined containers. It should be noted that this might be described as deleting the copy-on-write layer, config.json (commonly referred to as the Config Bundle) as well as any state data (whether the container is defined, running, etc):
 
