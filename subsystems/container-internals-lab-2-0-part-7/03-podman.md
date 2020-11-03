@@ -22,7 +22,8 @@ Now, let's move on to some features that differentiates Podman from Docker. Spec
 
 The container host we are working with already has a user called RHEL, so let's switch over to it:
 
-``su - rhel``{{execute}}
+``su - rhel
+export XDG_RUNIME_DIR=~/``{{execute}}
 
 Now, fire up a simple container in the background:
 
