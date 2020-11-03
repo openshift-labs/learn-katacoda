@@ -8,6 +8,8 @@ podman pull registry.access.redhat.com/ubi8/ubi-init
 podman pull registry.access.redhat.com/ubi8/ubi:8.0-126
 podman pull registry.access.redhat.com/rhscl/nginx-114-rhel7
 mkdir /home/rhel/test
+groupadd docker
+usermod -a -G docker rhel
 
 # Start container for OSCAP reports
 mkdir ~/html
