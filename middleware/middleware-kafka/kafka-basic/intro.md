@@ -3,14 +3,18 @@ This scenario will show how to deploy and connecto to [Apache Kafka on Kubernete
 
 ## What is Apache Kafka?
 
-Apache Kafka is an alternative enterprise messaging system that moves massive amounts of data—not just from point A to B, but from points A to Z.
-
-Apache Kafka has become the leading platform for building real-time data pipelines. Today, Kafka is heavily used for developing event-driven applications, where it lets services communicate with each other through events. Using Kubernetes for this type of workload requires adding specialized components such as Kubernetes Operators and connectors to bridge the rest of your systems and applications to the Kafka ecosystem.
-
-### Apache Kafka on Kubernetes
+[Apache Kafka](https://www.redhat.com/en/topics/integration/what-is-apache-kafka) has become the leading platform for building real-time data pipelines. Today, Kafka is heavily used for developing event-driven applications, where it lets services communicate with each other through events. Using Kubernetes for this type of workload requires adding specialized components such as Kubernetes Operators and connectors to bridge the rest of your systems and applications to the Kafka ecosystem.
 
 Apache Kafka is a distributed data streaming platform that is a popular event processing choice. It can handle publishing, subscribing to, storing, and processing event streams in real-time. Apache Kafka supports a range of use cases where high throughput and scalability are vital, and by minimizing the need for point-to-point integrations for data sharing in certain applications, it can reduce latency to milliseconds.
 
-### Strimzi: Kubernetes Operator for Apache Kafka
+## Strimzi: Kubernetes Operator for Apache Kafka
 
-Strimzi is a CNCF Sandbox project which provides the leading community Operators to deploy and manage the components to run an Apache Kafka cluster on Kubernetes in various deployment configurations. This includes the Kafka brokers, Apache ZooKeeper, MirrorMaker and Kafka Connect.
+[Strimzi](https://strimzi.io/) is a CNCF Sandbox project which provides the leading community Operators to deploy and manage the components to run an Apache Kafka cluster on Kubernetes in various deployment configurations. This includes the Kafka brokers, Apache ZooKeeper, MirrorMaker and Kafka Connect.
+
+## Red Hat Integration
+
+To respond to business demands quickly and efficiently, you need a way to integrate applications and data spread across your enterprise. [Red Hat AMQ](https://www.redhat.com/en/technologies/jboss-middleware/amq) — based on open source communities like Apache ActiveMQ and Apache Kafka — is a flexible messaging platform that delivers information reliably, enabling real-time integration and connecting the Internet of Things (IoT).
+
+![Operators within the AMQ Streams architecture](https://access.redhat.com/webassets/avalon/d/Red_Hat_AMQ-7.7-Evaluating_AMQ_Streams_on_OpenShift-en-US/images/320e68d6e4b4080e7469bea094ec8fbf/operators.png)
+
+AMQ streams, a [Red Hat Integration](https://www.redhat.com/en/products/integration) component, makes Apache Kafka “OpenShift native” through the use of powerful operators that simplify the deployment, configuration, management, and use of Apache Kafka on OpenShift.

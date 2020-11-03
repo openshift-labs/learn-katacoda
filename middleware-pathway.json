@@ -47,7 +47,7 @@
       "count": 2,
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/",
       "course_id": "middleware-kafka",
-      "title": "EDA with Apache Kafka "
+      "title": "Event-Driven Architecture with Apache Kafka "
     },
     {
       "external_link": "https://learn.openshift.com/middleware/amq-getting-started-broker/",
