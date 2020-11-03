@@ -42,7 +42,7 @@ Follow up the operator deployment to validate it is running.
 
 To watch the pods status run the following command:
 
-``oc -n kafka get pods -w``{{excute}}
+``oc -n kafka get pods -w``{{execute}}
 
 You will see the status of the operator changing until it gets to `running`. It should look similar to the following:
 

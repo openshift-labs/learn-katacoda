@@ -8,7 +8,7 @@ Create a new Kafka cluster named `my-cluster` with 1 Zookeeper and 1 broker node
 
 Issue the following command:
 
-``cat << EOF | oc create -f -
+```cat << EOF | oc create -f -
 apiVersion: kafka.strimzi.io/v1beta1
 kind: Kafka
 metadata:
@@ -26,7 +26,8 @@ spec:
       type: ephemeral
   entityOperator:
     topicOperator: {}
-EOF``{{execute}}
+EOF
+```{{execute}}
 
 Wait for the cluster to be deployed:
 
@@ -36,7 +37,7 @@ When your cluster is ready, create a topic to publish and subscribe from your ex
 
 Create the following `my-topic` custom resource definition with 1 replicas and 1 partitions in the `my-cluster` Kafka cluster:
 
-``cat << EOF | oc create -f -
+```cat << EOF | oc create -f -
 apiVersion: kafka.strimzi.io/v1beta1
 kind: KafkaTopic
 metadata:
@@ -46,6 +47,7 @@ metadata:
 spec:
   partitions: 1
   replicas: 1
-EOF``{{execute}}
+EOF
+```{{execute}}
 
 This will create a Kafka Topic resource in the cluster where we will be sending and receiving events.
