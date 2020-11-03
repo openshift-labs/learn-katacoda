@@ -18,18 +18,20 @@ Now, Udica will analyze this data and create a custom SELinux policy for us:
 
 Use the SELinux tools to load the new policy:
 
-``semodule -i home_test.cil``{{execute}}
+``semodule -i home_test.cil /usr/share/udica/templates/{base_container.cil,home_container.cil}``{{execute}}
 
 Now, run the same type of container again, but pass it a security option telling it to label the process to use our new custom policy, and it will execute without being blocked:
 
-``podman run --name home-test2 --security-opt label=type:home_test.process -v /home/:/home:ro -it ubi8 ls /home``{{execute}}``
+``podman run --security-opt label=type:home_test.process -v /home/:/home:ro -id ubi8 bash``{{execute}}``
 
-We can verify that there are rules in place in our new policy to allow this command to execute:
+You will notice that the process is running with the "home_test.process" SELinux context:
 
-``sesearch -A -s home_test_t -t home_root_t -c dir -p read``{{execute}}
+``ps -efZ | grep home_test``{{execute}}
 
-TODO: finish from here: https://fedoramagazine.org/use-udica-to-build-selinux-policy-for-containers/
+We can also verify that there is a new rule in this policy to allow our container to mount /home read only:
 
-I'm thinking a simplified version with only one rule might work to shorten the lab.
+``sesearch -A -s home_test.process -t home_root_t -c dir -p read``{{execute}}
 
+## Conclusions
 
+It's always best to have SELinux enabled, especially with containers. It's so easy to create a custom SELinux policy with Udica, that you should never disable it. If you'd like to understand Udica a bit deeper, check out this great article, [Use udica to build SELinux policy for containers](https://fedoramagazine.org/use-udica-to-build-selinux-policy-for-containers/) by Lukas Vrabec. Now, let's move on to another tool. 
