@@ -4,8 +4,8 @@ The RHEL kernel, systemd, and the container tools centered around github.com/con
 
 Here's a quick overview of how to think about RHEL Server versus RHEL CoreOS:
 
-1. ``General Purpose: User -> Podman -> RHEL Server``
-2. ``OpenShift: User -> Kubernetes API -> Kubelet -> CRI-O -> RHEL CoreOS``
+1. General Purpose: User -> Podman -> RHEL Server
+2. OpenShift: User -> Kubernetes API -> Kubelet -> CRI-O -> RHEL CoreOS
 
 In a RHEL Server environment, the end user will create containers directly on the container host with Podman. In an OpenShift environment, the end user will create containers through the Kubernetes API - users generally do not interact directly with CRI-O on individual hosts in the cluster. Stated another way, Podman is the primary container interface in RHEL, while Kubernetes is the primary interface in OpenShift.
 
