@@ -30,7 +30,7 @@ Look at the version of Podman that was installed. It should be fairly new, proba
 Let's clean up the environment, and start from scratch:
 
 ``yum module remove -y container-tools
-yum module reset -v container-tools``{{execute}}
+yum module reset -y container-tools``{{execute}}
 
 OK, now let's pretend we are a systems administrator or SRE that wants a set of stable tools which are supported for 24 months. First, inspect the stable stream that was released in RHEL 8.0. Notice that there are several versions of this Application Stream. Every time a package is updated a new stream version is generated to snapshot the exact versions of each package together as a stream:
 
@@ -38,7 +38,7 @@ OK, now let's pretend we are a systems administrator or SRE that wants a set of 
 
 Now, install it:
 
-``yum module install -y container-tools:1.0``{{execute}}
+``yum module install -y --allowerasing container-tools:1.0``{{execute}}
 
 Check the version of Podman again:
 
