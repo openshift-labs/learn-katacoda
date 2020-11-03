@@ -20,9 +20,13 @@ Use the SELinux tools to load the new policy:
 
 ``semodule -i home_test.cil /usr/share/udica/templates/{base_container.cil,home_container.cil}``{{execute}}
 
-Now, run the same type of container again, but pass it a security option telling it to label the process to use our new custom policy, and it will execute without being blocked:
+Now, run the same type of container again, but pass it a security option telling it to label the process to use our new custom policy, and it will execute without being blocked. First start the contaier:
 
-``podman run --security-opt label=type:home_test.process -v /home/:/home:ro -id ubi8 bash``{{execute}}``
+``podman run --name home-test-2 --security-opt label=type:home_test.process -v /home/:/home:ro -id ubi8 bash``{{execute}}
+
+Execute the ''ls'' command:
+
+``podman exec -it home-test-2 ls /home``{{execute}} 
 
 You will notice that the process is running with the "home_test.process" SELinux context:
 
