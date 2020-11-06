@@ -10,22 +10,10 @@
       "description": "This scenario will show how to deploy and connecto to Apache Kafka on Kubernetes"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-k-serving",
-      "course_id": "camel-k-serving",
-      "title": "Serverless Camel K",
-      "description": "This is simple serverless RESTful Camel K"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-k-eventing",
-      "course_id": "camel-k-eventing",
-      "title": "Serverless Eventing with Camel K",
-      "description": "This excercis shows how to creat event driven serverless Camel K application"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-kafka-connector",
-      "course_id": "camel-kafka-connector",
-      "title": "Camel Kafka Connector Basics",
-      "description": "Simple Managed File Transfer scenario using Camel Kafka Connector"
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-debezium",
+      "course_id": "kafka-debezium",
+      "title": "Change data capture with Debezium",
+      "description": "Debezium allows you to stream changes from your database to Apache Kafka"
     }
   ]
 }
