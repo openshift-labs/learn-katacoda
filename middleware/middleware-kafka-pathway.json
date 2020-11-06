@@ -1,12 +1,12 @@
 {
-  "title": "Event-Driven Architecture with Apache Kafka",
-  "description": "Getting Started with the Apache Kafka ecosystem",
+  "title": "Event-driven architecture with Apache Kafka",
+  "description": "Getting started with the Apache Kafka ecosystem",
   "paid": false,
   "courses": [
     {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-basic",
       "course_id": "kafka-basic",
-      "title": "Apache Kafka Basics",
+      "title": "Apache Kafka basics",
       "description": "This scenario will show how to deploy and connecto to Apache Kafka on Kubernetes"
     },
     {
