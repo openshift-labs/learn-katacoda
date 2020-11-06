@@ -41,22 +41,6 @@
 		},
 		"finish": {
 			"text": "finish.md"
-		},
-		"assets": {
-			"client": [
-				{
-					"file": "operator-install.yaml",
-					"target": "/opt/"
-				},
-				{
-					"file": "kafka-cluster.yaml",
-					"target": "/opt/"
-				},
-				{
-					"file": "kafka-topic.yaml",
-					"target": "/opt/"
-				}
-			]
 		}
 	}
 }
