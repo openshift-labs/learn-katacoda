@@ -6,8 +6,8 @@
     "difficulty": "Intermediate",
     "time": "35-40 minutes",
     "backend": {
-      "trainingid": "rhel8-cluster3",
-      "imageid": "rhel8-cluster3",
+      "trainingid": "openshift-3-11",
+      "imageid": "openshift-3-11",
         "port": 8443
     },
     "environment": {
