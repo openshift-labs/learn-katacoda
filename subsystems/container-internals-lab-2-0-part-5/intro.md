@@ -10,7 +10,7 @@ By the end of this lab you should be able to:
 ## Outline
 - Multi-Container Applications: The classic two-tiered, wordpress application
 - Cluster Performance: Scaling applications horizontally with containers
-- Cluster Debuggin: Troubleshooting in a distributed systems environment
+- Cluster Debugging: Troubleshooting in a distributed systems environment
 
 ## Other Material
 This presentation will give you a background to all of the concepts in this lab
