@@ -3,20 +3,13 @@
 	"title": "Change data capture with Debezium",
 	"description": "Debezium allows you to stream changes from your database to Apache Kafka",
 	"pathwayTitle": "OpenShift",
-	"difficulty": "intermediate",
-	"time": "15 minutes",
+	"difficulty": "Intermediate",
+	"time": "20",
 	"backend": {
 		"imageid": "openshift-4-5"
 	},
 	"environment": {
-		"showdashboard": true,
-		"dashboards": [
-			{
-				"name": "Console",
-				"href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
-			}
-		],
-        "uilayout": "terminal-iframe"
+		"uilayout": "editor-terminal"
 	},
 	"details": {
 		"steps": [
@@ -35,10 +28,10 @@
 		],
 		"intro": {
 			"courseData": "env-init.sh",
-			"text": "intro.md"
+			"text": "00-intro.md"
 		},
 		"finish": {
-			"text": "finish.md"
+			"text": "99-outro.md"
 		}
 	}
 }
