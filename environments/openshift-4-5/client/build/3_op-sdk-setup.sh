@@ -24,6 +24,7 @@ mkdir -p $HOME/tutorial
 
 echo "setup GoLang Environment"
 wget https://golang.org/dl/go1.15.2.linux-amd64.tar.gz -P /tmp
+rm -rf /usr/local/go
 tar -C /usr/local -xzf /tmp/go1.15.2.linux-amd64.tar.gz
 echo "export GOPATH=$HOME/tutorial/go" >> ~/.bashrc
 echo "export GOROOT=/usr/local/go" >> ~/.bashrc
