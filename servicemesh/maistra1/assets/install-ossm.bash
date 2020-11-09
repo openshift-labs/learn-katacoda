@@ -3,18 +3,18 @@
 echo "Starting OpenShift Service Mesh install."
 echo "Please wait..."
 echo "Subscribing to the operators..."
-#install the ServiceMesh operator
+#install the elastic operator
 cat <<EOM | oc apply -f -
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: maistraoperator
+  name: elasticsearch-operator
   namespace: openshift-operators
 spec:
-  channel: 'stable'
+  channel: stable
   installPlanApproval: Automatic
-  name: maistraoperator
-  source: community-operators
+  name: elasticsearch-operator
+  source: redhat-operators
   sourceNamespace: openshift-marketplace
 EOM
 
@@ -23,13 +23,13 @@ cat <<EOM | oc apply -f -
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: kiali
+  name: kiali-ossm
   namespace: openshift-operators
 spec:
-  channel: 'stable'
+  channel: stable
   installPlanApproval: Automatic
-  name: kiali
-  source: community-operators
+  name: kiali-ossm
+  source: redhat-operators
   sourceNamespace: openshift-marketplace
 EOM
 
@@ -38,16 +38,30 @@ cat <<EOM | oc apply -f -
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: jaeger
+  name: jaeger-product
   namespace: openshift-operators
 spec:
-  channel: 'stable'
+  channel: stable
   installPlanApproval: Automatic
-  name: jaeger
-  source: community-operators
+  name: jaeger-product
+  source: redhat-operators
   sourceNamespace: openshift-marketplace
 EOM
 
+#install the ServiceMesh operator
+cat <<EOM | oc apply -f -
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: servicemeshoperator
+  namespace: openshift-operators
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: servicemeshoperator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+EOM
 #todo: wait for operators to deploy
 
 oc new-project istio-system
@@ -88,8 +102,16 @@ do
     jaeger_deployment=$(oc get deployment -n openshift-operators -o name 2>/dev/null | grep jaeger)
 done
 
+#wait for elastic operator deployment
+elastic_deployment=$(oc get deployment -n openshift-operators -o name 2>/dev/null | grep elastic)
+while [ "${elastic_deployment}" == "" ]
+do
+    sleep 2
+    elastic_deployment=$(oc get deployment -n openshift-operators -o name 2>/dev/null | grep elastic)
+done
+
 echo "Waiting for operator deployments to start..."
-for op in ${servicemesh_deployment} ${kiali_deployment} ${jaeger_deployment}
+for op in ${servicemesh_deployment} ${kiali_deployment} ${jaeger_deployment} ${elastic_deployment}
 do
     echo -n "Waiting for ${op} to be ready..."
     readyReplicas="0"
@@ -105,15 +127,31 @@ done
 echo "Creating the scmp/smmr..."
 #create our smcp
 cat <<EOM | oc apply -n istio-system -f -
-apiVersion: maistra.io/v1
+apiVersion: maistra.io/v2
 kind: ServiceMeshControlPlane
 metadata:
-  name: minimal-install
+  namespace: istio-system
+  name: basic
 spec:
-    template: default
-    istio:
-        tracing:
-            enabled: false
+  tracing:
+    sampling: 10000
+    type: Jaeger
+  policy:
+    type: Istiod
+  addons:
+    grafana:
+      enabled: true
+    jaeger:
+      install:
+        storage:
+          type: Memory
+    kiali:
+      enabled: true
+    prometheus:
+      enabled: true
+  version: v2.0
+  telemetry:
+    type: Istiod
 EOM
 
 #create our smmr
@@ -134,17 +172,17 @@ oc new-project ${BOOKINFO_NS}
 
 #wait for smcp to fully install
 echo -n "Waiting for smcp to fully install (this will take a few moments) ..."
-min_install_smcp=$(oc get smcp -n ${CONTROL_PLANE_NS} minimal-install 2>/dev/null | grep InstallSuccessful)
-while [ "${min_install_smcp}" == "" ]
+basic_install_smcp=$(oc get smcp -n ${CONTROL_PLANE_NS} basic 2>/dev/null | grep ComponentsReady)
+while [ "${basic_install_smcp}" == "" ]
 do
     echo -n '.'
     sleep 5
-    min_install_smcp=$(oc get smcp -n ${CONTROL_PLANE_NS} minimal-install 2>/dev/null | grep InstallSuccessful)
+    basic_install_smcp=$(oc get smcp -n ${CONTROL_PLANE_NS} basic 2>/dev/null | grep ComponentsReady)
 done
 echo "done."
 
 oc -n ${CONTROL_PLANE_NS} patch --type='json' smmr default -p '[{"op": "add", "path": "/spec/members", "value":["'"${BOOKINFO_NS}"'"]}]'
-oc -n ${BOOKINFO_NS} apply -f https://raw.githubusercontent.com/Maistra/istio/maistra-1.1/samples/bookinfo/platform/kube/bookinfo.yaml
-oc -n ${BOOKINFO_NS} apply -f https://raw.githubusercontent.com/Maistra/istio/maistra-1.1/samples/bookinfo/networking/bookinfo-gateway.yaml
+oc -n ${BOOKINFO_NS} apply -f https://raw.githubusercontent.com/Maistra/istio/maistra-2.0/samples/bookinfo/platform/kube/bookinfo.yaml
+oc -n ${BOOKINFO_NS} apply -f https://raw.githubusercontent.com/Maistra/istio/maistra-2.0/samples/bookinfo/networking/bookinfo-gateway.yaml
 export GATEWAY_URL=$(oc -n ${CONTROL_PLANE_NS} get route istio-ingressgateway -o jsonpath='{.spec.host}')
-oc -n ${BOOKINFO_NS} apply -f https://raw.githubusercontent.com/Maistra/istio/maistra-1.1/samples/bookinfo/networking/destination-rule-all.yaml
+oc -n ${BOOKINFO_NS} apply -f https://raw.githubusercontent.com/Maistra/istio/maistra-2.0/samples/bookinfo/networking/destination-rule-all.yaml

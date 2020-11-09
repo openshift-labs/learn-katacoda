@@ -6,4 +6,4 @@ do
 	sleep 5
 done
 
-bash install-ossm.bash
+time bash install-ossm.bash
