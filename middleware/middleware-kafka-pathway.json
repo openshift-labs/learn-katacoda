@@ -1,0 +1,19 @@
+{
+  "title": "Event-driven architecture with Apache Kafka",
+  "description": "Getting started with the Apache Kafka ecosystem",
+  "paid": false,
+  "courses": [
+    {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-basic",
+      "course_id": "kafka-basic",
+      "title": "Apache Kafka basics",
+      "description": "This scenario will show how to deploy and connecto to Apache Kafka on Kubernetes"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-debezium",
+      "course_id": "kafka-debezium",
+      "title": "Change data capture with Debezium",
+      "description": "Debezium allows you to stream changes from your database to Apache Kafka"
+    }
+  ]
+}
