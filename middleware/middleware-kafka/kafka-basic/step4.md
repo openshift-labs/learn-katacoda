@@ -22,7 +22,7 @@ Time to read the event that you wrote above
 
 Run the console consumer shell script:
 
-`bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-topic --from-beginning`{{execute}}
+`bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-topic --from-beginning`{{execute interrupt}}
 
 You should get the messages we wrote above. It should look similar to this:
 
