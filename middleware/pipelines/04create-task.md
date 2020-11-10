@@ -21,4 +21,4 @@ spec:
 
 Note that only the requirement for a git repository is declared on the task and not a specific git repository to be used. That allows tasks to be reusable for multiple pipelines and purposes. You can find more examples of reusable tasks in the [Tekton Catalog](https://github.com/tektoncd/catalog) and [OpenShift Catalog](https://github.com/openshift/pipelines-catalog) repositories.
 
-In the next section, you will examine the task definitions that will be needed for our pipeline.
+In the next section, you will examine the task definitions that will be needed for our pipeline.zx

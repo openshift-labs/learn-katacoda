@@ -58,13 +58,10 @@
         "assets": {
             "client": [
                 { "file": "operator/subscription.yaml", "target": "~/operator" },
-                { "file": "sampleapp/sampleapp.yaml", "target": "~/sampleapp" },
-                { "file": "tektontasks/openshift-client-task.yaml", "target": "~/tektontasks" },
-                { "file": "tektontasks/sample.yaml", "target": "~/tektontasks" },
-                { "file": "tektontasks/s2i-nodejs-task.yaml", "target": "~/tektontasks" },
+                { "file": "tasks/apply_manifest_task.yaml", "target": "~/tasks" },
+                { "file": "tasks/update_deployment_task.yaml", "target": "~/tasks" },
                 { "file": "pipeline/pipeline.yaml", "target": "~/pipeline" },
-                { "file": "resources/git-pipeline-resource.yaml", "target": "~/resources" },
-                { "file": "resources/image-pipeline-resource.yaml", "target": "~/resources" }
+                { "file": "resources/persistent_volume_claim.yaml", "target": "~/resources" }
             ]
         }
     }
