@@ -1,14 +1,27 @@
 {
-  "title": "Developing with Camel",
+  "title": "OpenShift Serverless",
   "icon": "fa-openshift",
   "courses": [
+    {
+      "external_link": "https://learn.openshift.com/developing-on-openshift/serverless/",
+      "pathway_id": "developing-on-openshift",
+      "course_id": "serverless",
+      "title": "Getting Started with OpenShift Serverless",
+      "description": "Learn the basics of how to use OpenShift Serverless"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/amq-getting-started-broker/",
+      "course_id": "amq-getting-started-broker",
+      "title": "Application Messaging with Openshift",
+      "description": "Get started with Red Hat AMQ and OpenShift"
+    },
     {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-k-basic",
       "pathway_id": "middleware/middleware-camelk",
       "course_id": "camel-k-basic",
       "title": "Camel K Basics",
       "description": "Learn the basics of Camel K with a hello world example"
-    },    
+    },
     {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-k-serving",
       "pathway_id": "middleware/middleware-camelk",
@@ -22,7 +35,7 @@
       "course_id": "camel-k-eventing",
       "title": "Serverless Eventing with Camel K",
       "description": "Create a serverless event driven Camel K application"
-    },    
+    },
     {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-camelk/camel-kafka-connector",
       "pathway_id": "middleware/middleware-camelk",
