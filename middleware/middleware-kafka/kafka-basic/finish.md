@@ -1,9 +1,14 @@
+During this simple steps, you created and started an Apache Kafka cluster using Red Hat ANQ streams operators and send and receive messages on a Kafka Topics using the included scripts.
+
+New organizations are adopting Apache Kafka as an event backbone every day. CNCF projects like Strimzi make it easier to access the benefits of Kubernetes and deploy Apache Kafka workloads in a cloud-native way.
+
+For those who want an open source development model with enterprise support, Red Hat Integration lets you deploy your Kafka-based event-driven architecture on Red Hat OpenShift, the enterprise Kubernetes. Red Hat AMQ Streams, Debezium, and the Apache Camel Kafka Connect connectors are all available with a Red Hat Integration subscription.
+
 ## Additional Resources
 
-If you’re interested in helping continue to improve Camel K:
+To learn more about and getting started:
 
-* [Camel K](https://github.com/apache/camel-k)
-* [Apache Camel](https://camel.apache.org/)
-* [Camel Quarkus](https://github.com/apache/camel-quarkus)
-* [Camel Kafka Connector](https://github.com/apache/camel-kafka-connector/)
-* [Twitter](https://twitter.com/ApacheCamel)
+* [Red Hat AMQ](https://www.redhat.com/en/technologies/jboss-middleware/amq)
+* [Red Hat Developer's Site](http://developers.redhat.com/products/amq)
+* [Evaluating AMQ Streams on OpenShift](https://access.redhat.com/documentation/en-us/red_hat_amq/7.7/html/evaluating_amq_streams_on_openshift/index)
+* [Apache Kafka](http://kafka.apache.org/)
