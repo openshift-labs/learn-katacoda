@@ -35,17 +35,11 @@
             "title": "Step 6 - Create Pipeline",
             "text": "06create-pipeline.md"
         }, {
-            "title": "Step 7 - Create Pipeline Resources",
-            "text": "07create-pipeline-resources.md"
+            "title": "Step 7 - Trigger a Pipeline",
+            "text": "07trigger-pipeline.md"
         }, {
-            "title": "Step 8 - Trigger a Pipeline",
-            "text": "08trigger-pipeline.md"
-        }, {
-            "title": "Step 9 - Console View of Your Pipeline",
-            "text": "09pipelines-console.md"
-        }, {
-            "title": "Step 10 - Verify Deployment",
-            "text": "10verify-deployment.md"
+            "title": "Step 8 - Verify Deployment",
+            "text": "08verify-deployment.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
