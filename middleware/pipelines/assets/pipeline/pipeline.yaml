@@ -1,70 +1,34 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: build-and-deploy
+  name: deploy-pipeline
+  labels:
+    app: tekton-workshop
 spec:
-  workspaces:
-  - name: shared-workspace
-  params:
-  - name: deployment-name
-    type: string
-    description: name of the deployment to be patched
-  - name: git-url
-    type: string
-    description: url of the git repo for the code of deployment
-  - name: git-revision
-    type: string
-    description: revision to be used from repo of the code for deployment
-    default: "master"
-  - name: IMAGE
-    type: string
-    description: image to be build from the code
+  resources:
+  - name: app-git
+    type: git
+  - name: app-image
+    type: image
   tasks:
-  - name: fetch-repository
+  - name: build
     taskRef:
-      name: git-clone
-      kind: ClusterTask
-    workspaces:
-    - name: output
-      workspace: shared-workspace
+      name: s2i-nodejs
     params:
-    - name: url
-      value: $(params.git-url)
-    - name: subdirectory
-      value: ""
-    - name: deleteExisting
-      value: "true"
-    - name: revision
-      value: $(params.git-revision)
-  - name: build-image
+      - name: TLSVERIFY
+        value: "false"
+    resources:
+      inputs:
+      - name: source
+        resource: app-git
+      outputs:
+      - name: image
+        resource: app-image
+  - name: deploy
     taskRef:
-      name: buildah
-      kind: ClusterTask
+      name: openshift-client
+    runAfter:
+      - build
     params:
-    - name: TLSVERIFY
-      value: "false"
-    - name: IMAGE
-      value: $(params.IMAGE)
-    workspaces:
-    - name: source
-      workspace: shared-workspace
-    runAfter:
-    - fetch-repository
-  - name: apply-manifests
-    taskRef:
-      name: apply-manifests
-    workspaces:
-    - name: source
-      workspace: shared-workspace
-    runAfter:
-    - build-image
-  - name: update-deployment
-    taskRef:
-      name: update-deployment
-    params:
-    - name: deployment
-      value: $(params.deployment-name)
-    - name: IMAGE
-      value: $(params.IMAGE)
-    runAfter:
-    - apply-manifests
+    - name: ARGS
+      value: "rollout latest nodejs-ex"
