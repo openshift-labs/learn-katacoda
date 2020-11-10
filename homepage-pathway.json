@@ -45,7 +45,7 @@
     {
       "external_link": "https://learn.openshift.com/serverless/",
       "title": "OpenShift Serverless",
-      "description": "Build event-driven applications that will scaled based on event triggers"
+      "description": "Build event-driven applications that scale based on event triggers"
     },
     {
       "external_link": "https://learn.openshift.com/cicd-application-delivery/",
