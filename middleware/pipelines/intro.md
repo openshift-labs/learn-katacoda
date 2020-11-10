@@ -1,14 +1,14 @@
 In this self-paced tutorial, you will learn how to use OpenShift Pipelines to automate the deployment of your applications.
 
 In this tutorial, you will:
-* Install the OpenShift Pipelines operator
-* Deploy a partial application
-* Create reusable Tekton `Tasks`
+* Install the OpenShift Pipelines Operator
+* Create a Hello World `Task`
+* Adding a parameter to a `Task`
 * Create a Tekton `Pipeline`
-* Create `PipelineResources`
+* Develop a `PipelineResources` object
 * Trigger the created pipeline to finish your application deployment.
 
-## Let's get started
+## Getting started
 
 OpenShift Pipelines is a cloud-native, continuous integration and delivery (CI/CD)
 solution for building pipelines using [Tekton](https://tekton.dev). Tekton is
@@ -35,20 +35,17 @@ as building blocks to standardize pipeline concepts and provide terminology that
 The custom resources needed to define a pipeline are listed below:
 
 * `Task`: a reusable, loosely coupled number of steps that perform a specific task (e.g. building a container image)
-* `Pipeline`: the definition of the pipeline and the tasks that it should perform
-* `PipelineResource`: inputs (e.g. git repository) and outputs (e.g. image registry) to and out of a pipeline or task
-* `TaskRun`: the execution and result (i.e. success or failure) of running an instance of a task
-* `PipelineRun`: the execution and result (i.e. success or failure) of running a pipeline
-
+* `Pipeline`: the definition of the pipeline and the `Tasks` that it should perform
+* `TaskRun`: the execution and result of running an instance of task
+* `PipelineRun`: the execution and result of running an instance of pipeline, which includes a number of `TaskRuns`
 
 In short, to create a pipeline, one does the following:
 
 * Create custom or install [existing](https://github.com/tektoncd/catalog) reusable `Tasks`
-* Create a `Pipeline` and `PipelineResources` to define your application's delivery `Pipeline`
-* Create a `PipelineRun` to instantiate and invoke the pipeline.
+* Create a Pipeline and PipelineResources to define your application's delivery pipeline
+* Create a PersistentVolumeClaim to provide the volume/filesystem for pipeline execution or provide a VolumeClaimTemplate which creates a PersistentVolumeClaim
+* Create a PipelineRun to instantiate and invoke the pipeline
 
 For further details on pipeline concepts, refer to the [Tekton documentation](https://github.com/tektoncd/pipeline/tree/master/docs#learn-more) that provides an excellent guide for understanding various parameters and attributes available for defining pipelines.
 
-In the following sections, you will go through each of the above steps to define and execute a pipeline.
-
-Let's get started!
+In the following sections, you will go through each of the above steps to define and invoke a pipeline. Let's get started!
