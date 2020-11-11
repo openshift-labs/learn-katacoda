@@ -12,7 +12,7 @@ OpenShift Pipelines Webpage: https://www.openshift.com/learn/topics/pipelines
 
 OpenShift Pipelines Documentation: https://openshift.github.io/pipelines-docs/docs/index.html
 
-Tekton Official Webpage: https://tekton.dev/
+Tekton Official Webpage: https://tekton.dev
 
 Tekton Pipelines GitHub: https://github.com/tektoncd/pipeline
 
