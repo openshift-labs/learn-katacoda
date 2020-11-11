@@ -60,4 +60,4 @@ This YAML file defines various components, such as the `channel` specifying the 
 
 Great! The OpenShift Pipelines Operator is now installed in the default target namespace `openshift-operators`.
 
-Now that you've successfully instakked the OpenShift Pipelines Operator, let's start the workshop.
+Now that you've successfully installed the OpenShift Pipelines Operator, let's start the workshop.

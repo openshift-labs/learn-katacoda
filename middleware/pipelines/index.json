@@ -3,7 +3,7 @@
     "title": "Getting Started with OpenShift Pipelines",
     "description": "",
     "pathwayTitle": "OpenShift",
-    "difficulty": "beginner",
+    "difficulty": "Beginner",
     "time": "30 minutes",
     "backend": {
         "imageid": "openshift-4-5"
