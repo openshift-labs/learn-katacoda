@@ -82,19 +82,19 @@ spec:
     - apply-manifests
 ```
 
-This pipeline helps you to build and deploy backend/frontend, by configuring right resources to pipeline.
+This pipeline helps you to build and deploy backend/frontend, by configuring the right resources to the pipeline.
 
 Pipeline Steps:
 
   1. Clones the source code of the application from a git repository by referring (`git-url` and `git-revision` param)
-  2. Builds the container image of application using the `buildah` clustertask
+  2. Builds the container image of the application using the `buildah` clustertask
   that uses [Buildah](https://buildah.io/) to build the image
-  3. The application image is pushed to an image registry by refering (`image` param)
+  3. The application image is pushed to an image registry by referring (`image` param)
   4. The new application image is deployed on OpenShift using the `apply-manifests` and `update-deployment` tasks.
 
 You might have noticed that there are no references to the git
-repository or the image registry it will be pushed to in pipeline. That's because pipeline in Tekton
-are designed to be generic and re-usable across environments and stages through
+repository or the image registry it will be pushed to in the pipeline. That's because pipeline in Tekton
+is designed to be generic and re-usable across environments and stages through
 the application's lifecycle. Pipelines abstract away the specifics of the git
 source repository and image to be produced as `PipelineResources` or `Params`. When triggering a
 pipeline, you can provide different git repositories and image registries to be
@@ -103,7 +103,7 @@ the next section.
 
 The execution order of task is determined by dependencies that are defined between the tasks via inputs and outputs as well as explicit orders that are defined via `runAfter`.
 
-`workspaces` field allow you to specify one or more volumes that each Task in the Pipeline requires during execution. You specify one or more Workspaces in the `workspaces` field.
+`workspaces` field allows you to specify one or more volumes that each Task in the Pipeline requires during execution. You specify one or more Workspaces in the `workspaces` field.
 
 Create the pipeline by running the following:
 

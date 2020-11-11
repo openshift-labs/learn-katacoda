@@ -67,7 +67,7 @@ Create the `apply-manifests` and `update-deployment` tasks:
 `oc create -f tasks/apply_manifest_task.yaml`{{execute}}
 `oc create -f tasks/update_deployment_task.yaml`{{execute}}
 
-**Note**: For convenience, the tasks have been copied from their original locations in the Tekton and OpenShift catalogue git repositories to the workshop.
+**Note**: For convenience, the tasks have been copied from their original locations in the Tekton and OpenShift catalog git repositories to the workshop.
 
 You can take a look at the tasks you created using the [Tekton CLI](https://github.com/tektoncd/cli/releases):
 
@@ -81,10 +81,11 @@ apply-manifests     10 seconds ago
 update-deployment   4 seconds ago
 ```
 
-We will be using `buildah` clusterTasks, which gets installed along with Operator. Operator installs few ClusterTask which you can see.
+We will be using `buildah` clusterTasks, which gets installed along with Operator. The operator installs a few ClusterTask which you can see.
+
+`tkn clustertasks ls`{{execute}}
 
 ```
-$ tkn clustertasks ls
 NAME                       DESCRIPTION   AGE
 buildah                                  1 day ago
 buildah-v0-14-3                          1 day ago

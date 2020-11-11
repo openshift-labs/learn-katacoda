@@ -2,7 +2,7 @@ OpenShift Pipelines are an OpenShift add-on that can be installed via an operato
 
 Operators may be installed into a single namespace and only monitors resources in that namespace. The OpenShift Pipelines Operator can install globally on the cluster, monitoring and managing pipelines for every single user in the cluster.
 
-You can either install the operator using the OpenShift Pipelines Operator in web console, or by using the CLI tool `oc`. Let's log in to our cluster to make changes and install the operator. You can do so by running:
+You can either install the operator using the OpenShift Pipelines Operator in the web console or by using the CLI tool `oc`. Let's log in to our cluster to make changes and install the operator. You can do so by running:
 
 `oc login -u admin -p admin`{{execute}}
 
@@ -25,7 +25,7 @@ You can install OpenShift Pipelines using the Operator listed in the OpenShift C
 
 ![Web Console Hub](../../assets/middleware/pipelines/web-console-hub.png)
 
-4. Read the brief description about the Operator on the _OpenShift Pipelines Operator_ page. Click _Install_.
+4. Read the brief description of the Operator on the _OpenShift Pipelines Operator_ page. Click _Install_.
 
 5. Select _All namespaces on the cluster (default)_ for installation mode & _Automatic_ for the approval strategy. Click Subscribe!
 
@@ -52,7 +52,7 @@ spec:
   sourceNamespace: openshift-marketplace
 ```
 
-This YAML file defines various components, such as the `channel` specifying the channel name where we want to subscribe, `name` being the name of our Operator, and `source` being the CatalogSource that provides the operator. For your convience, we've placed this exact file in your `/operator` local folder. 
+This YAML file defines various components, such as the `channel` specifying the channel name where we want to subscribe, `name` being the name of our Operator, and `source` being the CatalogSource that provides the operator. For your convenience, we've placed this exact file in your `/operator` local folder. 
 
 2. You can now create the Subscription object similar to any OpenShift object.
 

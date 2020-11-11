@@ -22,7 +22,7 @@ As soon as you start the `build-and-deploy` pipeline, a pipelinerun will be inst
 
 `tkn pipeline list`{{execute}}
 
-Above we have started `build-and-deploy` pipeline, with relevant pipeline resources to deploy backend/frontend application using single pipeline
+Above we have started `build-and-deploy` pipeline, with relevant pipeline resources to deploy backend/frontend application using a single pipeline
 
 `tkn pipelinerun ls`{{execute}}
 

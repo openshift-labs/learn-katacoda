@@ -14,7 +14,7 @@ In addition, you can get the route of the application by executing the following
 
 `oc get route vote-ui --template='http://{{.spec.host}}'`{{execute}}
 
-If you want to re-run the pipeline again, you can use the following short-hand command to rerun the last pipelinerun again that uses the same workspaces, params and service account used in the previous pipeline run:
+If you want to re-run the pipeline again, you can use the following short-hand command to rerun the last pipelinerun that uses the same workspaces, params, and service account used in the previous pipeline run:
 
 `tkn pipeline start build-and-deploy --last`{{execute}}
 
