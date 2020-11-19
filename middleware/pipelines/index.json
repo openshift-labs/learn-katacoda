@@ -56,7 +56,7 @@
                 { "file": "tasks/update_deployment_task.yaml", "target": "~/tasks" },
                 { "file": "pipeline/pipeline.yaml", "target": "~/pipeline" },
                 { "file": "resources/persistent_volume_claim.yaml", "target": "~/resources" },
-                { "file": "resources/hello.yaml", "target": "~/resources" }
+                { "file": "tasks/hello.yaml", "target": "~/tasks" }
             ]
         }
     }
