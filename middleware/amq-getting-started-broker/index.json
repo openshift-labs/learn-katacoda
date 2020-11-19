@@ -26,7 +26,6 @@
         ],
         "intro": {
             "courseData": "env-init.sh",
-            "code": "set-env.sh",
             "text": "00-intro.md"
         },
         "finish": {
@@ -34,24 +33,6 @@
         },
         "assets": {
             "client": [
-                {
-                    "file": "amq-broker-71-basic.yaml",
-                    "target": "/opt/"
-                },
-                {
-                    "file": "amq-7-image-streams.json",
-                    "target": "/opt/"
-                },
-                {
-                    "file": "app.js",
-                    "target": "/root/projects/amq-examples/amq-js-demo/"
-                },
-                {
-                    "file": "package.json",
-                    "target": "/root/projects/amq-examples/amq-js-demo/"
-                }
-            ],
-            "host01": [
                 {
                     "file": "amq-broker-71-basic.yaml",
                     "target": "/opt/"
@@ -77,12 +58,12 @@
         "uisettings": "javascript",
         "uieditorpath": "/root/projects/amq-examples/amq-js-demo",
         "showdashboard": true,
-        "dashboards": [
-            {
-                "name": "OpenShift Console",
-                "port": 8443
-            }
-        ],
+		"dashboards": [
+			{
+				"name": "Console",
+				"href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+			}
+		],
         "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
         "hideintro": false,
         "hidefinish": false
