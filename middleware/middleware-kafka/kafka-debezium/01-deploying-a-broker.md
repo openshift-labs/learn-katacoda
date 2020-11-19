@@ -27,7 +27,7 @@ Create a new Kafka cluster named `my-cluster` with 1 Zookeeper and 1 broker node
 
 Create the Kafka cluster by issuing the following command:
 
-`oc -n kafka apply -f /opt/kafka-cluster.yaml`{{execute}}
+`oc -n debezium apply -f /root/projects/debezium/kafka-cluster.yaml`{{execute}}
 
 ### Check Kafka cluster deployment
 
@@ -35,7 +35,7 @@ Follow up the Zookeeper and Kafka deployment to validate it is running.
 
 To watch the pods status run the following command:
 
-``oc -n kafka get pods -w``{{execute}}
+``oc -n debezium get pods -w``{{execute}}
 
 You will see the pods for Zookeeper, Kafka and the Entity Operator changing the status to `running`. It should look similar to the following:
 

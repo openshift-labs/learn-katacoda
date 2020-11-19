@@ -12,36 +12,33 @@ To deploy the Kafka Connect cluster with the custom image execute the following 
 
 The Kafka Connect node should be deployed after a few moments. To watch the pods status run the following command:
 
-``oc get pods -w -l app=strimzi-connect``{{execute}}
+``oc get pods -w -l app.kubernetes.io/name=kafka-connect``{{execute}}
 
 You will see the pods changing the status to `running`. It should look similar to the following:
 
     NAME                                 READY     STATUS        RESTARTS   AGE
-    my-connect-cluster-connect-1-wktnt   0/1       Terminating   0          50s
-    my-connect-cluster-connect-2-lqqht   0/1       Running       0          26s
+    debezium-cluster-connect-1-wktnt   0/1       Terminating   0          50s
+    debezium-cluster-connect-2-lqqht   0/1       Running       0          26s
 
-**3. Verify that Connect is up and contains Debezium**
+## Verify that Connect is up and contains Debezium
 
-Wait till the Connect node is ready
+When the Connect node is up and running, we can verify the plugins available.
 
-    NAME                                 READY     STATUS    RESTARTS   AGE
-    my-connect-cluster-connect-2-lpnd2   1/1       Running   0          1m
+List all plug-ins available for use.
 
-and list all plug-ins available for use.
+``oc exec -c kafka my-cluster-kafka-0 -- curl -s http://debezium-connect-api:8083/connector-plugins``{{execute}}
 
-``oc exec -c kafka my-cluster-kafka-0 -- curl -s http://my-connect-cluster-connect-api:8083/connector-plugins``{{execute}}
+You should see an output similar to the following:
 
-    [
-        {"class":"io.debezium.connector.mysql.MySqlConnector","type":"source","version":"0.10.0.Final"},
-        {"class":"org.apache.kafka.connect.file.FileStreamSinkConnector","type":"sink","version":"2.3.0"},
-        {"class":"org.apache.kafka.connect.file.FileStreamSourceConnector","type":"source","version":"2.3.0"}
-    ]
+```
+[
+    {"class":"io.debezium.connector.mysql.MySqlConnector","type":"source","version":"0.10.0.Final"},
+    {"class":"org.apache.kafka.connect.file.FileStreamSinkConnector","type":"sink","version":"2.3.0"},
+    {"class":"org.apache.kafka.connect.file.FileStreamSourceConnector","type":"source","version":"2.3.0"}
+]
+```
 
 The Connect node has the Debezium `MySqlConnector` connector plugin available.
-
-## Congratulations
-
-You have now successfully executed the second step in this scenario. 
 
 You have successfully deployed Kafka Connect node and configured it to contain Debezium.
 
