@@ -14,7 +14,7 @@ You will deploy a complete end-to-end solution that will capture events from dat
 
 ### What is Debezium?
 
-![Logo](../../assets/middleware/debezium-getting-started/debezium-logo.png)
+![Logo](../../../assets/middleware/debezium-getting-started/debezium-logo.png)
 
 [Debezium](http://debezium.io/) is a set of distributed services capture row-level changes in your databases so that your applications can see and respond to those changes.
 Debezium records all row-level changes committed to a particular database table in a dedicated message topic.
