@@ -1,4 +1,4 @@
-During this simple steps, you created and started an Apache Kafka cluster using Red Hat ANQ streams operators and send and receive messages on a Kafka Topics using the included scripts.
+During this simple steps, you created and started an Apache Kafka cluster using Red Hat AMQ streams operators and send and receive messages on a Kafka Topics using the included scripts.
 
 New organizations are adopting Apache Kafka as an event backbone every day. CNCF projects like Strimzi make it easier to access the benefits of Kubernetes and deploy Apache Kafka workloads in a cloud-native way.
 
