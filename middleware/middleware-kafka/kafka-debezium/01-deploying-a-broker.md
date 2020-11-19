@@ -1,91 +1,84 @@
-A fresh project named `debezium` is prepared with the necessary resources required to execute the deployment.
-There are multiple resources created for you in the home directory, the project itself or configured in OpenShift
-* an installed [release 0.14.0](https://github.com/strimzi/strimzi-kafka-operator/releases/tag/0.14.0) of [Strimzi](http://strimzi.io) project Kafka operator
-* Strimzi Cluster Operator managing Kafka brokers
-* MySQL instance containing a small set of data to be streamed
-* templates used to deploy components
+Debezium connectors record all events to a [Red Hat AMQ Streams](https://developers.redhat.com/blog/2018/10/29/how-to-run-kafka-on-openshift-the-enterprise-kubernetes-with-amq-streams/) Kafka cluster. Applications then consume those events through AMQ Streams. Debezium uses the Apache Kafka Connect framework, which makes all of Debezium’s connectors into Kafka Connector source connectors. As such, they can be deployed and managed using AMQ Streams’ Kafka Connect custom Kubernetes resources.
 
-**1. Run the following commands to switch to `debezium` project and explore it.**
-> If you click on command it gets automatically copied it into the terminal and is executed
+### Logging in to the Cluster via OpenShift CLI
 
-Switch to `debezium` project
+Before creating any applications, login as admin. This will be required if you want to log in to the web console and use it.
 
-``oc project debezium``{{execute}}
+To login to the OpenShift cluster from the _Terminal_ run:
 
-Check that MySQL instance is running
+``oc login -u developer -p developer``{{execute}}
 
-``oc get pods``{{execute}}
+This will log you in using the credentials:
 
-and that it is exposed as a service
+* **Username:** ``developer``
+* **Password:** ``developer``
 
-``oc get svc``{{execute}}
+Use the same credentials to log into the web console.
 
-The diagram of deployment now looks like
+### Creating your own namespace
 
-![Empty deployment](../../assets/middleware/debezium-getting-started/deployment-step-0.png)
+To create a new (project) namespace called ``debezium`` for the AMQ Streams Kafka Cluster Operator run the command:
 
-**2. Deploy Kafka broker with ZooKeeper.**
+``oc new-project debezium``{{execute}}
 
-The first component to deploy is a Kafka broker.
+### Creating a Kafka cluster
 
-![Broker deployment](../../assets/middleware/debezium-getting-started/deployment-step-1.png)
+Create a new Kafka cluster named `my-cluster` with 1 Zookeeper and 1 broker node using `ephemeral` storage to simplify the deployment. The Red Hat AMQ streams operator is already installed in the cluster.
 
-This task is delegated to [templates](https://github.com/strimzi/strimzi/tree/0.2.0/examples/templates/cluster-controller) and Cluster Controller provided by [Strimzi](http://strimzi.io/) project.
-The templates are already present in the home directory in the cloned repository.
+Create the Kafka cluster by issuing the following command:
 
-The templates by default deploy Kafka broker and ZooKeeper in a high-available configuration with replication factor `3`.
-This is not necessary in the development environment so we reduce the number of nodes and replication factor for system topics to `1`.
+`oc -n kafka apply -f /opt/kafka-cluster.yaml`{{execute}}
 
-We also deploy an *ephemeral* variant of the broker.
-You should use *persistent* variant in production.
+### Check Kafka cluster deployment
 
-To deploy the broker issue a command
+Follow up the Zookeeper and Kafka deployment to validate it is running.
 
-``oc new-app strimzi-ephemeral -p ZOOKEEPER_NODE_COUNT=1 -p KAFKA_NODE_COUNT=1 -p KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 -p KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR=1
-``{{execute}}
+To watch the pods status run the following command:
 
-Now let's wait till both ZooKeeper and Kafka broker are deployed
+``oc -n kafka get pods -w``{{execute}}
 
-``oc get pods -w``{{execute}}
+You will see the pods for Zookeeper, Kafka and the Entity Operator changing the status to `running`. It should look similar to the following:
 
-The final list of pods should be similar to
+```bash
+NAME                                                   READY   STATUS              RESTARTS   AGE
+amq-streams-cluster-operator-v1.5.3-59666d98cb-frcv9   1/1     Running             0          4m27s
+my-cluster-zookeeper-0                                 0/1     ContainerCreating   0          3s
+my-cluster-zookeeper-0                                 0/1     ContainerCreating   0          5s
+my-cluster-zookeeper-0                                 0/1     Running             0          23s
+my-cluster-zookeeper-0                                 1/1     Running             0          38s
+my-cluster-kafka-0                                     0/2     Pending             0          0s
+my-cluster-kafka-0                                     0/2     Pending             0          0s
+my-cluster-kafka-0                                     0/2     ContainerCreating   0          0s
+my-cluster-kafka-0                                     0/2     ContainerCreating   0          2s
+my-cluster-kafka-0                                     0/2     Running             0          4s
+my-cluster-kafka-0                                     1/2     Running             0          20s
+my-cluster-kafka-0                                     2/2     Running             0          27s
+my-cluster-entity-operator-57bb594d9d-z4gs6            0/2     Pending             0          0s
+my-cluster-entity-operator-57bb594d9d-z4gs6            0/2     Pending             0          0s
+my-cluster-entity-operator-57bb594d9d-z4gs6            0/2     ContainerCreating   0          1s
+my-cluster-entity-operator-57bb594d9d-z4gs6            0/2     ContainerCreating   0          3s
+my-cluster-entity-operator-57bb594d9d-z4gs6            0/2     Running             0          4s
+my-cluster-entity-operator-57bb594d9d-z4gs6            1/2     Running             0          18s
+my-cluster-entity-operator-57bb594d9d-z4gs6            2/2     Running             0          21s
+```
 
-    NAME                                          READY     STATUS    RESTARTS   AGE
-    my-cluster-entity-operator-798b74565c-bkjwh   3/3       Running   1          32s
-    my-cluster-kafka-0                            2/2       Running   0          1m
-    my-cluster-zookeeper-0                        2/2       Running   0          1m
-    mysql-1-w7shk                                 1/1       Running   0          9m
-    strimzi-cluster-operator-5658b55c84-89mf5     1/1       Running   0          9m
+> You can notice the Cluster Operator starts the Apache Zookeeper cluster as well as the broker nodes and the Entity Operator. The Zookeeper and Kafka cluster are based in Kubernetes StatetulSets.
 
-> Note: Kafka depends on ZooKeeper so intermittent Kafka failures are expected as ZooKeeper might not be initialized at the time of Kafka start.
+Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
-New services are available
+`^C`{{execute ctrl-seq}}
 
-``oc get svc -l app=strimzi-ephemeral``{{execute}}
-
-    NAME                          TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
-    my-cluster-kafka-bootstrap    ClusterIP   172.30.136.36   <none>        9091/TCP,9092/TCP,9093/TCP   2m
-    my-cluster-kafka-brokers      ClusterIP   None            <none>        9091/TCP,9092/TCP,9093/TCP   2m
-    my-cluster-zookeeper-client   ClusterIP   172.30.82.207   <none>        2181/TCP                     3m
-    my-cluster-zookeeper-nodes    ClusterIP   None            <none>        2181/TCP,2888/TCP,3888/TCP   3m
-
-**3. Verify the broker is up and running.**
-
-> Note: The complete initialization of all components can take a couple of minutes. Please make sure that all pods are in *Running* state and are *Ready* before you try the next steps.
+### Verify the broker is up and running
 
 A successful attempt to send a message to (no output expected here)
 
-``echo "Hello world" | oc exec -i -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test``{{execute}}
+``echo "Hello world" | oc exec -i -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test``{{execute interrupt}}
 
 and receive a message from
 
 ``oc exec -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning --max-messages 1``{{execute}}
 
 the deployed broker indicates that it is available.
-
-## Congratulations
-
-You have now successfully executed the first step in this scenario. 
 
 You have successfully deployed Kafka broker service and made it available to clients to produce and consume messages.
 

@@ -1,37 +1,20 @@
-We are going to use [binary build](https://docs.openshift.org/latest/dev_guide/dev_tutorials/binary_builds.html) feature of OpenShift together with [distribution](http://central.maven.org/maven2/io/debezium/debezium-connector-mysql/0.10.0.Final/) of MySQL [plugin](http://debezium.io/docs/connectors/mysql/) to deploy a Kafka Connect node with Debezium MySQL plugin embedded.
+After setting up a Kafka cluster, you deploy Kafka Connect in a custom container image for Debezium. This service provides a framework for managing the Debezium MySQL connector.
 
-![Debezium deployment](../../assets/middleware/debezium-getting-started/deployment-step-2.png)
+You can create a custom container image by downloading the Debezium MySQL connector archive from the [Red Hat Integration](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?product=red.hat.integration&downloadType=distributions) download site and extracting to create the directory structure for the connector plug-in.
 
-**1. Deploy an empty Kafka Connect node**
+Then you can create and publish a custom Linux container image using `docker build` or `podman build` from a custom Dockerfile.
 
-We will again use a [template](https://raw.githubusercontent.com/strimzi/strimzi/master/examples/templates/cluster-controller/connect-s2i-template.yaml) from Strimzi project that is already installed in the environment.
-As with Kafka broker we need to configure the template to support single-instance-only deployment.
+> However, to save some time, we have already created and image for you. You can check the [documentation](https://access.redhat.com/documentation/en-us/red_hat_integration/2020-q3/html-single/getting_started_with_debezium/index#deploying-kafka-connect) in detail for more information.
 
-``oc new-app strimzi-connect-s2i -p KAFKA_CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR=1 -p KAFKA_CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR=1 -p KAFKA_CONNECT_STATUS_STORAGE_REPLICATION_FACTOR=1``{{execute}}
+To deploy the Kafka Connect cluster with the custom image execute the following command:
 
-A new build config will be created
+``oc -n debezium apply -f /root/projects/debezium/kafka-connect.yaml``{{execute interrupt}}
 
-``oc get bc``{{execute}}
+The Kafka Connect node should be deployed after a few moments. To watch the pods status run the following command:
 
-    NAME                         TYPE      FROM      LATEST
-    my-connect-cluster-connect   Source    Binary    1
+``oc get pods -w -l app=strimzi-connect``{{execute}}
 
-and a new service is deployed.
-
-``oc get svc -l app=strimzi-connect-s2i``{{execute}}
-
-    NAME                             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
-    my-connect-cluster-connect-api   ClusterIP   172.30.89.106   <none>        8083/TCP   11s
-
-**2. Embed Debezium into Connect**
-
-We will use a binary build to create a Connect node with a Debezium plugin inside
-
-``oc start-build my-connect-cluster-connect --from-archive https://repo.maven.apache.org/maven2/io/debezium/debezium-connector-mysql/1.1.1.Final/debezium-connector-mysql-1.1.1.Final-plugin.tar.gz --follow``{{execute}}
-
-The Connect node should be redeployed after the build completes
-
-``oc get pods -w -l app=strimzi-connect-s2i``{{execute}}
+You will see the pods changing the status to `running`. It should look similar to the following:
 
     NAME                                 READY     STATUS        RESTARTS   AGE
     my-connect-cluster-connect-1-wktnt   0/1       Terminating   0          50s

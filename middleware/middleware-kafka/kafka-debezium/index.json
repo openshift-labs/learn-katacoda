@@ -9,7 +9,8 @@
 		"imageid": "openshift-4-5"
 	},
 	"environment": {
-		"uilayout": "editor-terminal"
+		"uilayout": "editor-terminal",
+		"uieditorpath": "/root/projects/debezium"
 	},
 	"details": {
 		"steps": [
@@ -32,6 +33,22 @@
 		},
 		"finish": {
 			"text": "99-outro.md"
+		},
+		"assets": {
+			"client": [
+				{
+					"file": "operator-install.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "kafka-connect.yaml",
+					"target": "/root/projects/debezium/"
+				},
+				{
+					"file": "kafka-cluster.yaml",
+					"target": "/root/projects/debezium/"
+				}
+			]
 		}
 	}
 }
