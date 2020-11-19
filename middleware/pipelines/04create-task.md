@@ -1,24 +1,27 @@
-Tasks consist of several steps that are executed sequentially. Tasks are executed/run by creating TaskRuns. A TaskRun will schedule a Pod. Each step is executed in a separate container within the same pod. They can also have inputs and outputs to interact with other tasks in the pipeline.
-
-Here is an example of a Maven task for building a Maven-based Java application:
+A [`Task`](tasks.md) defines a series of `steps` that run in a desired order and complete a set amount of build work. Every `Task` runs as a Pod on your Kubernetes cluster with each `step` as its own container. For example, the following `Task` outputs "Hello World":
 
 ```
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: maven-build
+  name: hello
 spec:
-  workspaces:
-   -name: filedrop
   steps:
-  - name: build
-    image: maven:3.6.0-jdk-8-slim
-    command:
-    - /usr/bin/mvn
-    args:
-    - install
+    - name: say-hello
+      image: registry.access.redhat.com/ubi8/ubi
+      command:
+        - /bin/bash
+      args: ['-c', 'echo Hello World']
 ```
 
-Note that only the requirement for a git repository is declared on the task and not a specific git repository to be used. That allows tasks to be reusable for multiple pipelines and purposes. You can find more examples of reusable tasks in the [Tekton Catalog](https://github.com/tektoncd/catalog) and [OpenShift Catalog](https://github.com/openshift/pipelines-catalog) repositories.
+Apply this Task to your cluster just like any other Kubernetes object. Then run it using `tkn`, the CLI tool for Tekton.
+
+`oc apply -f resources/hello.yaml`{{execute}}
+
+`tkn task start --showlog hello`{{execute}}
+
+The output will look similar to the following:
+
+
 
 In the next section, you will examine the task definitions that will be needed for our pipeline.
