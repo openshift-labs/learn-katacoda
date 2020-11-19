@@ -1,0 +1,15 @@
+apiVersion: broker.amq.io/v2alpha2
+kind: ActiveMQArtemis
+metadata:
+  name: broker
+spec:
+  acceptors:
+    - name: router
+      port: 5672
+      protocols: amqp
+      sslEnabled: false
+  console:
+    expose: true
+  deploymentPlan:
+    requireLogin: false
+    size: 1

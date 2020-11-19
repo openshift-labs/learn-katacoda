@@ -34,12 +34,12 @@
         "assets": {
             "client": [
                 {
-                    "file": "amq-broker-71-basic.yaml",
+                    "file": "operator-install.yaml",
                     "target": "/opt/"
                 },
                 {
-                    "file": "amq-7-image-streams.json",
-                    "target": "/opt/"
+                    "file": "amq-broker.yaml",
+                    "target": "/root/projects/amq-examples/amq-js-demo/"
                 },
                 {
                     "file": "app.js",
