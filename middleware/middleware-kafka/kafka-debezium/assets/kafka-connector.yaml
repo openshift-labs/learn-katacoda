@@ -8,7 +8,7 @@ spec:
   class: io.debezium.connector.mysql.MySqlConnector
   tasksMax: 1
   config:
-    database.hostname: "mysql"
+    database.hostname: "mysql.default.svc"
     database.port: "3306"
     database.user: "debezium"
     database.password: "dbz"

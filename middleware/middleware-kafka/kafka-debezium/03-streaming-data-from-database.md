@@ -18,18 +18,18 @@ You should see an output similar to the this:
 
 ```bash
 ...
-2020-11-19 22:14:41,170 INFO Transitioning from the snapshot reader to the binlog reader (io.debezium.connector.mysql.ChainedReader) [task-thread-debezium-connector-0]
-2020-11-19 22:14:41,208 INFO Creating thread debezium-mysqlconnector-dbserver-mysql-binlog-client (io.debezium.util.Threads) [task-thread-debezium-connector-0]
-2020-11-19 22:14:41,214 INFO Creating thread debezium-mysqlconnector-dbserver-mysql-binlog-client (io.debezium.util.Threads) [blc-mysql:3306]
-Nov 19, 2020 10:14:41 PM com.github.shyiko.mysql.binlog.BinaryLogClient connect
-INFO: Connected to mysql:3306 at mysql-bin.000003/154 (sid:184054, cid:5)
-2020-11-19 22:14:41,400 INFO Connected to MySQL binlog at mysql:3306, starting at binlog file 'mysql-bin.000003', pos=154, skipping 0 events plus 0 rows (io.debezium.connector.mysql.BinlogReader) [blc-mysql:3306]
-2020-11-19 22:14:41,404 INFO Waiting for keepalive thread to start (io.debezium.connector.mysql.BinlogReader) [task-thread-debezium-connector-0]
-2020-11-19 22:14:41,411 INFO Creating thread debezium-mysqlconnector-dbserver-mysql-binlog-client (io.debezium.util.Threads) [blc-mysql:3306]
-2020-11-19 22:14:41,508 INFO Keepalive thread is running (io.debezium.connector.mysql.BinlogReader) [task-thread-debezium-connector-0]
+2020-11-19 22:44:19,632 INFO Transitioning from the snapshot reader to the binlog reader (io.debezium.connector.mysql.ChainedReader) [task-thread-debezium-connector-0]
+2020-11-19 22:44:19,662 INFO Creating thread debezium-mysqlconnector-dbserver-mysql-binlog-client (io.debezium.util.Threads) [task-thread-debezium-connector-0]
+2020-11-19 22:44:19,667 INFO Creating thread debezium-mysqlconnector-dbserver-mysql-binlog-client (io.debezium.util.Threads) [blc-mysql.default.svc:3306]
+Nov 19, 2020 10:44:19 PM com.github.shyiko.mysql.binlog.BinaryLogClient connect
+INFO: Connected to mysql.default.svc:3306 at mysql-bin.000003/154 (sid:184054, cid:5)
+2020-11-19 22:44:19,817 INFO Connected to MySQL binlog at mysql.default.svc:3306, starting at binlog file 'mysql-bin.000003', pos=154, skipping 0 events plus 0 rows (io.debezium.connector.mysql.BinlogReader) [blc-mysql.default.svc:3306]
+2020-11-19 22:44:19,818 INFO Waiting for keepalive thread to start (io.debezium.connector.mysql.BinlogReader) [task-thread-debezium-connector-0]
+2020-11-19 22:44:19,819 INFO Creating thread debezium-mysqlconnector-dbserver-mysql-binlog-client (io.debezium.util.Threads) [blc-mysql.default.svc:3306]
+2020-11-19 22:44:19,823 INFO Keepalive thread is running (io.debezium.connector.mysql.BinlogReader) [task-thread-debezium-connector-0]
 ```
 
-> You should be able to notice the line that says that you are not connected to `mysql:3306. Output formatted for the sake of readability
+> You should be able to notice the line that says that you are not connected to `mysql.default.svc:3306`. Output formatted for the sake of readability
 
 Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
@@ -68,7 +68,7 @@ test                                                                            
 
 Let's check the contents of `customers` table in MySQL. The command
 
-``oc exec -i deploy/mysql -- bash -c 'mysql -t -u $MYSQL_USER -p$MYSQL_PASSWORD -e "SELECT * from customers" inventory'``{{execute}}
+``oc -n default exec -i deploy/mysql -- bash -c 'mysql -t -u $MYSQL_USER -p$MYSQL_PASSWORD -e "SELECT * from customers" inventory'``{{execute}}
 
 You should get an outcome similar to the following:
 
@@ -306,7 +306,7 @@ Processed a total of 4 messages
 
 If we add a new record to the table with this command:
 
-``oc exec -i deploy/mysql -- bash -c 'mysql -t -u $MYSQL_USER -p$MYSQL_PASSWORD -e "INSERT INTO customers VALUES(default,\"John\",\"Doe\",\"john.doe@example.org\")" inventory'``{{execute}}
+``oc -n default exec -i deploy/mysql -- bash -c 'mysql -t -u $MYSQL_USER -p$MYSQL_PASSWORD -e "INSERT INTO customers VALUES(default,\"John\",\"Doe\",\"john.doe@example.org\")" inventory'``{{execute}}
 
 A new message will be sent to the associated topic. Check the messages with this command:
 
