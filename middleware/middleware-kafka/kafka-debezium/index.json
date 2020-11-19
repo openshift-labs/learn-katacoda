@@ -49,6 +49,10 @@
 					"target": "/root/projects/debezium/"
 				},
 				{
+					"file": "kafka-connector.yaml",
+					"target": "/root/projects/debezium/"
+				},
+				{
 					"file": "kafka-cluster.yaml",
 					"target": "/root/projects/debezium/"
 				}

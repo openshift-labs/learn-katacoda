@@ -26,6 +26,10 @@ debezium-connect-6fc5b7f97d-g4h2l   1/1     Running             0          90s
 
 > This step might take a couple minutes.
 
+Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
+
+`^C`{{execute ctrl-seq}}
+
 ## Verify that Connect is up and contains Debezium
 
 When the Connect node is up and running, we can verify the plugins available. AMQ streams allows us to manage most of the Kafka ecosystem components as Kubernetes custom resources. Hence, the information regarding Kafka Connect, is now available as part of the `status` section of the KafkaConnect resource.
