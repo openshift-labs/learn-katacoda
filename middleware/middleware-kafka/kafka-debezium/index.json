@@ -4,7 +4,7 @@
 	"description": "Debezium allows you to stream changes from your database to Apache Kafka",
 	"pathwayTitle": "OpenShift",
 	"difficulty": "Intermediate",
-	"time": "20",
+	"time": "20 minutes",
 	"backend": {
 		"imageid": "openshift-4-5"
 	},
