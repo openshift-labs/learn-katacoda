@@ -2,6 +2,7 @@ apiVersion: broker.amq.io/v2alpha2
 kind: ActiveMQArtemis
 metadata:
   name: broker
+  namespace: messaging
 spec:
   acceptors:
     - name: router
@@ -11,5 +12,9 @@ spec:
   console:
     expose: true
   deploymentPlan:
+    image: 'registry.redhat.io/amq7/amq-broker:7.7'
+    journalType: aio
+    messageMigration: true
+    persistenceEnabled: true
     requireLogin: false
     size: 1

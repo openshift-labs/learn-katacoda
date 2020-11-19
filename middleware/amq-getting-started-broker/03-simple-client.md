@@ -13,10 +13,6 @@ Click the links below to open each file and inspect its contents:
 
 ### Install Dependencies
 
-Switch to the application directory in the command line by issuing the following command:
-
-```cd /root/projects/amq-examples/amq-js-demo```{{execute}}
-
 Dependencies are listed in the `package.json` file and declare which external projects this sample app requires.
 To download and install them, run the following command:
 
@@ -24,7 +20,7 @@ To download and install them, run the following command:
 
 It will take a few seconds to download, and you should see a final report such as 
 
-```
+```bash
 added 140 packages in 2.937s
 ```
 
