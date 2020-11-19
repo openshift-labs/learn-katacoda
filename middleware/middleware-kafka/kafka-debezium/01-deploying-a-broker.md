@@ -41,7 +41,6 @@ You will see the pods for Zookeeper, Kafka and the Entity Operator changing the 
 
 ```bash
 NAME                                                   READY   STATUS              RESTARTS   AGE
-amq-streams-cluster-operator-v1.5.3-59666d98cb-frcv9   1/1     Running             0          4m27s
 my-cluster-zookeeper-0                                 0/1     ContainerCreating   0          3s
 my-cluster-zookeeper-0                                 0/1     ContainerCreating   0          5s
 my-cluster-zookeeper-0                                 0/1     Running             0          23s

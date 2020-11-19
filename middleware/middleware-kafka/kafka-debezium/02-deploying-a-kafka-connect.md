@@ -16,25 +16,52 @@ The Kafka Connect node should be deployed after a few moments. To watch the pods
 
 You will see the pods changing the status to `running`. It should look similar to the following:
 
-    NAME                                 READY     STATUS        RESTARTS   AGE
-    debezium-cluster-connect-1-wktnt   0/1       Terminating   0          50s
-    debezium-cluster-connect-2-lqqht   0/1       Running       0          26s
+```bash
+NAME                                READY   STATUS              RESTARTS   AGE
+debezium-connect-6fc5b7f97d-g4h2l   0/1     ContainerCreating   0          3s
+debezium-connect-6fc5b7f97d-g4h2l   0/1     ContainerCreating   0          9s
+debezium-connect-6fc5b7f97d-g4h2l   0/1     Running             0          25s
+debezium-connect-6fc5b7f97d-g4h2l   1/1     Running             0          90s
+```
 
 ## Verify that Connect is up and contains Debezium
 
-When the Connect node is up and running, we can verify the plugins available.
+When the Connect node is up and running, we can verify the plugins available. AMQ streams allows us to manage most of the Kafka ecosystem components as Kubernetes custom resources. Hence, the inforamtion regarding Kafka Connect, is now available as part of the `status` section of the KafkaConnect resource.
 
 List all plug-ins available for use.
 
-``oc exec -c kafka my-cluster-kafka-0 -- curl -s http://debezium-connect-api:8083/connector-plugins``{{execute}}
+``oc get kafkaconnect/debezium -o json | jq .status.connectorPlugins``{{execute interrupt}}
 
 You should see an output similar to the following:
 
-```
+```json
 [
-    {"class":"io.debezium.connector.mysql.MySqlConnector","type":"source","version":"0.10.0.Final"},
-    {"class":"org.apache.kafka.connect.file.FileStreamSinkConnector","type":"sink","version":"2.3.0"},
-    {"class":"org.apache.kafka.connect.file.FileStreamSourceConnector","type":"source","version":"2.3.0"}
+  {
+    "class": "io.debezium.connector.db2.Db2Connector",
+    "type": "source",
+    "version": "1.2.4.Final-redhat-00001"
+  },
+  {
+    "class": "io.debezium.connector.mongodb.MongoDbConnector",
+    "type": "source",
+    "version": "1.2.4.Final-redhat-00001"
+  },
+  {
+    "class": "io.debezium.connector.mysql.MySqlConnector",
+    "type": "source",
+    "version": "1.2.4.Final-redhat-00001"
+  },
+  {
+    "class": "io.debezium.connector.postgresql.PostgresConnector",
+    "type": "source",
+    "version": "1.2.4.Final-redhat-00001"
+  },
+  {
+    "class": "io.debezium.connector.sqlserver.SqlServerConnector",
+    "type": "source",
+    "version": "1.2.4.Final-redhat-00001"
+  }
+  ...
 ]
 ```
 

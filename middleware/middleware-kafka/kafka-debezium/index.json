@@ -41,6 +41,10 @@
 					"target": "/opt/"
 				},
 				{
+					"file": "strimzi-admin.yaml",
+					"target": "/opt/"
+				},
+				{
 					"file": "kafka-connect.yaml",
 					"target": "/root/projects/debezium/"
 				},
