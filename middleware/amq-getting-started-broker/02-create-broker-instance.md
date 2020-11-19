@@ -28,7 +28,7 @@ You should see the output:
 activemqartemis.broker.amq.io/broker created
 ```
 
-## Check broker deployment
+### Check broker deployment
 
 Follow up the Zookeeper and Kafka deployment to validate it is running.
 
@@ -36,7 +36,7 @@ To watch the pods status run the following command:
 
 ``oc -n messaging get pods -w``{{execute}}
 
-You will see the pods for Zookeeper, Kafka and the Entity Operator changing the status to `running`. It should look similar to the following:
+You will see the pod for the broker StatefulSet changing the status to `running`. It should look similar to the following:
 
 ```bash
 NAME                                  READY   STATUS              RESTARTS   AGE
@@ -46,5 +46,9 @@ broker-ss-0                           0/1     ContainerCreating   0          6s
 broker-ss-0                           0/1     Running             0          25s
 broker-ss-0                           1/1     Running             0          57s
 ```
+
+Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
+
+`^C`{{execute ctrl-seq}}
 
 When the provisioning of the broker finishes, you will be set to start using the service. In the next step you will deploy a simple messging application.

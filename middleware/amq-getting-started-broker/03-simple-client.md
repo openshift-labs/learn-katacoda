@@ -16,7 +16,7 @@ Click the links below to open each file and inspect its contents:
 Dependencies are listed in the `package.json` file and declare which external projects this sample app requires.
 To download and install them, run the following command:
 
-``npm install``{{execute}}
+``npm install``{{execute interrupt}}
 
 It will take a few seconds to download, and you should see a final report such as 
 
@@ -34,4 +34,29 @@ Build and deploy the project using the following command:
 
 The build and deploy may take a minute or two. Wait for it to complete.
 
-You should see `INFO complete` at the end of the build output, and you should not see any obvious errors or failures. In the next step you will explore OpenShift's web console to check your application is running.
+You should see `INFO complete` at the end of the build output, and you should not see any obvious errors or failures.
+
+### Check application deployment
+
+Follow up the Zookeeper and Kafka deployment to validate it is running.
+
+To watch the pods status run the following command:
+
+``oc -n messaging get pods -w``{{execute}}
+
+You will see the pod for the broker StatefulSet changing the status to `running`. It should look similar to the following:
+
+```bash
+NAME                                  READY   STATUS              RESTARTS   AGE
+amq-broker-operator-6c76986f9-brl67   1/1     Running             0          15m
+broker-ss-0                           0/1     ContainerCreating   0          5s
+broker-ss-0                           0/1     ContainerCreating   0          6s
+broker-ss-0                           0/1     Running             0          25s
+broker-ss-0                           1/1     Running             0          57s
+```
+
+Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
+
+`^C`{{execute ctrl-seq}}
+
+In the next step you will check your application is running.

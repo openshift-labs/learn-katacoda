@@ -70,9 +70,10 @@ You will see the status of the operator changing until it gets to `running`. It 
 
 ```bash
 NAME                                  READY   STATUS              RESTARTS   AGE
-amq-broker-operator-6c76986f9-brl67   0/1     ContainerCreating   0          10s
-amq-broker-operator-6c76986f9-brl67   0/1     Running             0          18s
-amq-broker-operator-6c76986f9-brl67   1/1     Running             0          34s
+amq-broker-operator-6c76986f9-bsrcv   0/1     ContainerCreating   0          1s
+amq-broker-operator-6c76986f9-bsrcv   0/1     ContainerCreating   0          2s
+amq-broker-operator-6c76986f9-bsrcv   0/1     ContainerCreating   0          7s
+amq-broker-operator-6c76986f9-bsrcv   1/1     Running             0          23s
 ```
 
 Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
