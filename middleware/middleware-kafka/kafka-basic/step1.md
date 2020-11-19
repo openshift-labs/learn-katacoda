@@ -1,6 +1,6 @@
 Red Hat AMQ Streams simplifies the process of running Apache Kafka in an OpenShift cluster. This tutorial provides instructions for deploying a working environment of AMQ Streams. 
 
-## Logging in to the Cluster via OpenShift CLI
+### Logging in to the Cluster via OpenShift CLI
 
 Before creating any applications, login as admin. This will be required if you want to log in to the web console and use it.
 
@@ -15,13 +15,13 @@ This will log you in using the credentials:
 
 Use the same credentials to log into the web console.
 
-## Creating your own namespace
+### Creating your own namespace
 
 To create a new (project) namespace called ``kafka`` for the AMQ Streams Kafka Cluster Operator run the command:
 
 ``oc new-project kafka``{{execute}}
 
-## Install AMQ streams operator
+### Install AMQ streams operator
 
 AMQ Streams provides container images and Operators for running Kafka on OpenShift. AMQ Streams Operators are fundamental to the running of AMQ Streams. The Operators provided with AMQ Streams are purpose-built with specialist operational knowledge to effectively manage Kafka.
 
@@ -38,7 +38,7 @@ subscription.operators.coreos.com/amq-streams created
 
 > You can also deploy the AMQ streams operator from the OpenShift OperatorHub from within the administration console.
 
-## Check operator deployment
+### Check operator deployment
 
 Follow up the operator deployment to validate it is running.
 

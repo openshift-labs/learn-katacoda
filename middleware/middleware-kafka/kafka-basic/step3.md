@@ -1,6 +1,6 @@
 Time to check that the deployment is working and that the operator successfully created the topic.
 
-## Access the running Kafka broker pod
+### Access the running Kafka broker pod
 
 AMQ streams provide container images wit the Apache Kafka distribution including the console scritps. Let's connect to the running broker to execute those scritps.
 
@@ -10,7 +10,7 @@ Support for remote container command execution is built into the CLI. `Bash` is 
 
 You are now running a terminal into the Kafka broker container. Here you can execute the scripts available in the `/bin` directory.
 
-## Review the topic information
+### Review the topic information
 
 Use the `kafka-topics` shell script is a command line tool that can alter, create, delete and list topic information from a kafka cluster.
 

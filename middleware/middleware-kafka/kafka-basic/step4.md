@@ -1,6 +1,6 @@
 Kafka clients conenct through the network to the Kafka brokers where the topic has some partitions to write and read events.
 
-## Produce a few events
+### Produce a few events
 
 Similar to the previous step, we will use the producer shell script to write some events.
 
@@ -16,7 +16,7 @@ Try some more lines and finally hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the pro
 
 `^C`{{execute ctrl-seq}}
 
-## Consume the events
+### Consume the events
 
 Time to read the event that you wrote above
 
@@ -35,6 +35,6 @@ Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
 `^C`{{execute ctrl-seq}}
 
-## Congratulations
+### Congratulations
 
 You successfully completed this scenario! You know now how to deploy a simple Apache Kafka cluster on top of OpenShift using the Red Hat Integration AMQ streams operator.

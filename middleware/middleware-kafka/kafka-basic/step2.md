@@ -2,7 +2,7 @@ With AMQ Streams installed, you create a Kafka cluster, then a topic within the 
 
 When you create a cluster, the Cluster Operator you deployed when installing AMQ Streams watches for new Kafka resources.
 
-## Creating a Kafka cluster
+### Creating a Kafka cluster
 
 Create a new Kafka cluster named `my-cluster` with 1 Zookeeper and 1 broker node. Use `ephemeral` storage to simplify the deployment. In production case scenarios, you will want to increase the amount of nodes and use a more persistent approach.
 
@@ -14,7 +14,7 @@ Then create the Kafka cluster by issuing the following command:
 
 `oc -n kafka apply -f /opt/kafka-cluster.yaml`{{execute}}
 
-## Check Kafka cluster deployment
+### Check Kafka cluster deployment
 
 Follow up the Zookeeper and Kafka deployment to validate it is running.
 
@@ -53,7 +53,7 @@ Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
 `^C`{{execute ctrl-seq}}
 
-## Create a Kafka Topic to store your events
+### Create a Kafka Topic to store your events
 
 When your cluster is ready, create a topic to publish and subscribe from your external client.
 
