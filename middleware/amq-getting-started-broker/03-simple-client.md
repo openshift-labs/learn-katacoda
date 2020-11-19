@@ -1,4 +1,4 @@
-The sample project in the upper right part side of the screen, shows the components of your sample Node.js project. This project uses [Red Hat OpenShift Application Runtimes](http://developers.redhat.com/rhoar), a set of open source cloud native application runtimes for modern applications.
+The sample project in the upper right part side of the screen, shows the components of your sample Node.js project. This project uses [Red Hat Runtimes](https://developers.redhat.com/appruntimes), a set of open source cloud native application runtimes for modern applications.
 
 The app implements a simple messaging greeting service that simply sends a Hello World! to a queue and the same application listens in the same queue for greeting messages. We use the Red Hat AMQ JavaScript Client to create a connection to the messaging broker to send and receive messages.
 
@@ -38,21 +38,21 @@ You should see `INFO complete` at the end of the build output, and you should no
 
 ### Check application deployment
 
-Follow up the Zookeeper and Kafka deployment to validate it is running.
+Follow up the application deployment to validate it is running.
 
 To watch the pods status run the following command:
 
 ``oc -n messaging get pods -w``{{execute}}
 
-You will see the pod for the broker StatefulSet changing the status to `running`. It should look similar to the following:
+You will see the pod for the application changing the status to `running`. It should look similar to the following:
 
 ```bash
-NAME                                  READY   STATUS              RESTARTS   AGE
-amq-broker-operator-6c76986f9-brl67   1/1     Running             0          15m
-broker-ss-0                           0/1     ContainerCreating   0          5s
-broker-ss-0                           0/1     ContainerCreating   0          6s
-broker-ss-0                           0/1     Running             0          25s
-broker-ss-0                           1/1     Running             0          57s
+NAME                                  READY   STATUS      RESTARTS   AGE
+amq-broker-operator-6c76986f9-6vjhj   1/1     Running     0          6m5s
+amq-js-demo-1-deploy                  0/1     Completed   0          32s
+amq-js-demo-1-dftm4                   1/1     Running     0          26s
+amq-js-demo-s2i-1-build               0/1     Completed   0          90s
+broker-ss-0                           1/1     Running     0          4m46s
 ```
 
 Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.

@@ -8,7 +8,7 @@ Click the link below to open the custom resource (CR) definition for the cluster
 
 As you can see, we are enabling just one single acceptor and configuring it to accept incomming `AMQP` connections in the default `5672` port.
 
-We are also enabling the _console_ and disable the required login. You will want to set up this last option to `true` for a production ready environment.
+We are also enabling the _console_ and exposing the endpoints for external access too.
 
 ### Creating an AMQ broker
 
@@ -30,7 +30,7 @@ activemqartemis.broker.amq.io/broker created
 
 ### Check broker deployment
 
-Follow up the Zookeeper and Kafka deployment to validate it is running.
+Follow up the AMQ broker deployment to validate it is running.
 
 To watch the pods status run the following command:
 
