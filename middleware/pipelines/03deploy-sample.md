@@ -6,6 +6,8 @@ For this tutorial, you're going to create a simple application that involves a [
 
 You can also deploy the same applications by applying the artifacts available in k8s directory of the respective repo.
 
+## Deploying through Web Console
+
 If you deploy the application directly, you should be able to see the deployment in the OpenShift Web Console by switching over to the **Developer** perspective of the OpenShift Web Console. Change from **Administrator** to **Developer** from the drop-down as shown below:
 
 ![Web Console Developer](../../assets/middleware/pipelines/web-console-developer.png)
