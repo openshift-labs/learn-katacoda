@@ -20,26 +20,23 @@
             "title": "Step 1 - Install the Pipelines Operator",
             "text": "01install-op.md"
         }, {
-            "title": "Step 2 - Pipeline Service Account",
-            "text": "02serviceaccount.md"
+            "title": "Step 2 - Create a New Project",
+            "text": "02new-project.md"
         }, {
-            "title": "Step 3 - Deploying a Sample Application",
-            "text": "03deploy-sample.md"
+            "title": "Step 3 - Create Sample Task",
+            "text": "03create-task.md"
         }, {
-            "title": "Step 4 - Create Tasks",
-            "text": "04create-task.md"
+            "title": "Step 4 - Task Resource Definitions",
+            "text": "04task-resource-def.md"
         }, {
-            "title": "Step 5 - Task Resource Definitions",
-            "text": "05task-resource-def.md"
+            "title": "Step 5 - Create Pipeline",
+            "text": "05create-pipeline.md"
         }, {
-            "title": "Step 6 - Create Pipeline",
-            "text": "06create-pipeline.md"
+            "title": "Step 6 - Trigger a Pipeline",
+            "text": "06trigger-pipeline.md"
         }, {
-            "title": "Step 7 - Trigger a Pipeline",
-            "text": "07trigger-pipeline.md"
-        }, {
-            "title": "Step 8 - Verify Deployment",
-            "text": "08verify-deployment.md"
+            "title": "Step 7 - Verify Deployment",
+            "text": "07verify-deployment.md"
         }],
         "intro": {
             "courseData": "env-init.sh",
