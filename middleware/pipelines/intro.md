@@ -38,13 +38,6 @@ The custom resources needed to define a pipeline are listed below:
 * `TaskRun`: the execution and result of running an instance of task
 * `PipelineRun`: the execution and result of running an instance of pipeline, which includes a number of `TaskRuns`
 
-In short, to create a pipeline, one does the following:
-
-* Create custom or install [existing](https://github.com/tektoncd/catalog) reusable `Tasks`
-* Create a Pipeline and PipelineResources to define your application's delivery pipeline
-* Create a PersistentVolumeClaim to provide the volume/filesystem for pipeline execution or provide a VolumeClaimTemplate which creates a PersistentVolumeClaim
-* Create a PipelineRun to instantiate and invoke the pipeline
-
 For further details on pipeline concepts, refer to the [Tekton documentation](https://github.com/tektoncd/pipeline/tree/master/docs#learn-more) that provides an excellent guide for understanding various parameters and attributes available for defining pipelines.
 
 In the following sections, you will go through each of the above steps to define and invoke a pipeline. Let's get started!

@@ -90,7 +90,7 @@ Pipeline Steps:
   2. Builds the container image of the application using the `buildah` clustertask
   that uses [Buildah](https://buildah.io/) to build the image
   3. The application image is pushed to an image registry by referring (`image` param)
-  4. The new application image is deployed on OpenShift using the `apply-manifests` and `update-deployment` tasks.
+  4. The new application image is deployed on OpenShift using the `apply-manifests` and `update-deployment` tasks
 
 You might have noticed that there are no references to the git repository or the image registry it will be pushed to in the pipeline. That's because pipeline in Tekton is designed to be generic and re-usable across environments and stages through the application's lifecycle. Pipelines abstract away the specifics of the git
 source repository and image to be produced as `PipelineResources` or `Params`. When triggering a pipeline, you can provide different git repositories and image registries to be used during pipeline execution.

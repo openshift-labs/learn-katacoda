@@ -13,3 +13,5 @@ If you deploy the application directly, you should be able to see the deployment
 Make sure you are on the `pipelines-tutorial` project by selecting it from the **Project** dropdown menu. Either search for `pipelines-tutorial` in the search bar or scroll down until you find `pipelines-tutorial` and click on the name of your project.
 
 ![Web Console Login](../../assets/middleware/pipelines/web-console-project.png)
+
+Next, we'll work on creating a sample `Task` that outputs to the console!
