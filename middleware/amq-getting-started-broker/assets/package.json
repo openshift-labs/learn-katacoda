@@ -10,7 +10,7 @@
         "start": "node app.js",
         "producer": "node producer.js",
         "consumer": "node consumer.js",
-        "openshift": "nodeshift --strictSSL=false --dockerImage=registry.access.redhat.com/rhoar-nodejs/nodejs-8 --tryServiceAccount=false --configLocation /openshift.local.config/master/admin.kubeconfig"
+        "openshift": "nodeshift --strictSSL=false --dockerImage=registry.access.redhat.com/rhoar-nodejs/nodejs-8 --tryServiceAccount=false"
     },
     "repository": {
         "type": "git",
@@ -26,9 +26,9 @@
         "rheajs"
     ],
     "dependencies": {
-        "rhea": "^0.2.9"
+        "rhea": "^1.0.24"
     },
     "devDependencies": {
-        "nodeshift": "^1.7.1"
+        "nodeshift": "^7.2.0"
     }
 }

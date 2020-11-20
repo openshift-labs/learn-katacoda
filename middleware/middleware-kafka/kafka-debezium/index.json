@@ -1,0 +1,62 @@
+{
+	"icon": "fa-openshift",
+	"title": "Change data capture with Debezium",
+	"description": "Debezium allows you to stream changes from your database to Apache Kafka",
+	"pathwayTitle": "OpenShift",
+	"difficulty": "Intermediate",
+	"time": "20 minutes",
+	"backend": {
+		"imageid": "openshift-4-5"
+	},
+	"environment": {
+		"uilayout": "editor-terminal",
+		"uieditorpath": "/root/projects/debezium"
+	},
+	"details": {
+		"steps": [
+            {
+                "title": "Deploying a Kafka broker",
+                "text": "01-deploying-a-broker.md"
+            },
+            {
+                "title": "Deploying a Kafka Connect with Debezium",
+                "text": "02-deploying-a-kafka-connect.md"
+            },
+            {
+                "title": "Streaming data from database",
+                "text": "03-streaming-data-from-database.md"
+            }
+		],
+		"intro": {
+			"courseData": "env-init.sh",
+			"text": "00-intro.md"
+		},
+		"finish": {
+			"text": "99-outro.md"
+		},
+		"assets": {
+			"client": [
+				{
+					"file": "operator-install.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "strimzi-admin.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "kafka-connect.yaml",
+					"target": "/root/projects/debezium/"
+				},
+				{
+					"file": "kafka-connector.yaml",
+					"target": "/root/projects/debezium/"
+				},
+				{
+					"file": "kafka-cluster.yaml",
+					"target": "/root/projects/debezium/"
+				}
+			]
+		}
+	}
+}

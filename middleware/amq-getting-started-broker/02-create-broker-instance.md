@@ -1,53 +1,54 @@
 With the project space now available, let's create the broker instance.
 
-To allow ingress traffic to the messaging destinations, configure the required secrets with the following command:
+### Inspect the ActiveMQArtermis custom resource
 
-``oc create sa amq-service-account``{{execute}}
+Click the link below to open the custom resource (CR) definition for the cluster:
 
-Add cluster capabilities to service account
+* `amq-broker.yaml`{{open}}
 
-``oc policy add-role-to-user view system:serviceaccount:messaging:amq-service-account``{{execute}}
+As you can see, we are enabling just one single acceptor and configuring it to accept incomming `AMQP` connections in the default `5672` port.
 
-Create a new app using the OpenShift command:
+We are also enabling the _console_ and exposing the endpoints for external access too.
 
-``oc new-app amq-broker-71-basic -p AMQ_PROTOCOL=openwire,amqp,stomp,mqtt -p AMQ_USER=amquser -p AMQ_PASSWORD=amqpassword -p AMQ_QUEUES=example``{{execute}}
+### Creating an AMQ broker
 
-This command will create a broker instance with the ``OpenWire`` and ``AMQP`` protocols enabled. At the same time, will create a queue named ``example``.
+Switch to the application directory in the command line by issuing the following command:
+
+```cd /root/projects/amq-examples/amq-js-demo```{{execute interrupt}}
+
+Create a new broker using the OpenShift command:
+
+``oc -n messaging apply -f amq-broker.yaml``{{execute}}
+
+This command will create a broker customer resource, the operator then will take notice of the desired state and will create the required deployment and resources missing to run a new instance.
 
 You should see the output:
 
+```bash
+activemqartemis.broker.amq.io/broker created
 ```
---> Deploying template "openshift/amq-broker-71-basic" to project messaging
 
-     JBoss AMQ Broker 7.1 (Ephemeral, no SSL)
-     ---------
-     Application template for JBoss AMQ brokers. These can be deployed as standalone or in a mesh. This template doesn't feature SSL support.
+### Check broker deployment
 
-     A new messaging service has been created in your project. It will handle the protocol(s) "openwire,amqp,stomp,mqtt". The username/password for accessing the service is amquser/amqpassword.
+Follow up the AMQ broker deployment to validate it is running.
 
-     * With parameters:
-        * Application Name=broker
-        * AMQ Protocols=openwire,amqp,stomp,mqtt
-        * Queues=example
-        * Topics=
-        * AMQ Username=amquser
-        * AMQ Password=amqpassword
-        * AMQ Role=admin
-        * AMQ Name=broker
-        * AMQ Global Max Size=100 gb
-        * ImageStream Namespace=openshift
+To watch the pods status run the following command:
 
---> Creating resources ...
-    route "console" created
-    service "broker-amq-jolokia" created
-    service "broker-amq-amqp" created
-    service "broker-amq-mqtt" created
-    service "broker-amq-stomp" created
-    service "broker-amq-tcp" created
-    deploymentconfig "broker-amq" created
---> Success
-    Access your application via route 'console-messaging.2886795275-80-kitek02.environments.katacoda.com'
-    Run 'oc status' to view your app.
+``oc -n messaging get pods -w``{{execute}}
+
+You will see the pod for the broker StatefulSet changing the status to `running`. It should look similar to the following:
+
+```bash
+NAME                                  READY   STATUS              RESTARTS   AGE
+amq-broker-operator-6c76986f9-brl67   1/1     Running             0          15m
+broker-ss-0                           0/1     ContainerCreating   0          5s
+broker-ss-0                           0/1     ContainerCreating   0          6s
+broker-ss-0                           0/1     Running             0          25s
+broker-ss-0                           1/1     Running             0          57s
 ```
+
+Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
+
+`^C`{{execute ctrl-seq}}
 
 When the provisioning of the broker finishes, you will be set to start using the service. In the next step you will deploy a simple messging application.

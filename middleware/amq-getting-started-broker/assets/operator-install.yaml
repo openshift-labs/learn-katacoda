@@ -1,0 +1,21 @@
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: broker-operatorgroup
+  namespace: messaging
+spec:
+  targetNamespaces:
+  - messaging
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: amq-broker
+  namespace: messaging
+spec:
+  channel: current
+  installPlanApproval: Automatic
+  name: amq-broker
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace

@@ -1,0 +1,64 @@
+{
+	"icon": "fa-openshift",
+	"title": "Apache Kafka Basics",
+	"description": "This is a simple way to send and receive messages from Apache Kafka",
+	"pathwayTitle": "OpenShift",
+	"difficulty": "beginner",
+	"time": "15 minutes",
+	"backend": {
+		"imageid": "openshift-4-5"
+	},
+	"environment": {
+		"showdashboard": true,
+		"dashboards": [
+			{
+				"name": "Console",
+				"href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+			}
+		],
+		"uilayout": "terminal-iframe"
+	},
+	"details": {
+		"steps": [
+			{
+				"title": "Install Red Hat AMQ Streams Operator",
+				"text": "step1.md"
+			},
+			{
+				"title": "Deploy your Kafka cluster",
+				"text": "step2.md"
+			},
+			{
+				"title": "Access the cluster from console",
+				"text": "step3.md"
+			},
+			{
+				"title": "Produce and consume records",
+				"text": "step4.md"
+			}
+		],
+		"intro": {
+			"courseData": "env-init.sh",
+			"text": "intro.md"
+		},
+		"finish": {
+			"text": "finish.md"
+		},
+		"assets": {
+			"client": [
+				{
+					"file": "operator-install.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "kafka-cluster.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "kafka-topic.yaml",
+					"target": "/opt/"
+				}
+			]
+		}
+	}
+}
