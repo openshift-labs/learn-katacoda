@@ -1,6 +1,6 @@
-A `Pipeline` defines some tasks that should be executed and how they interact with each other via their inputs and outputs.
+A `Pipeline` defines an ordered series of `Tasks` that you want to execute along with the corresponding inputs and outputs for each `Task`. In fact, tasks should do one single thing so you can reuse them across pipelines or even within a single pipeline.
 
-Below is an overview of the pipeline that will be created, taking our code from Github to be built & deployed on OpenShift:
+Below is an example definition of a `Pipeline`, created using the following diagram:
 
 ![Web Console Developer](../../assets/middleware/pipelines/pipeline-diagram.png)
 
@@ -92,14 +92,8 @@ Pipeline Steps:
   3. The application image is pushed to an image registry by referring (`image` param)
   4. The new application image is deployed on OpenShift using the `apply-manifests` and `update-deployment` tasks.
 
-You might have noticed that there are no references to the git
-repository or the image registry it will be pushed to in the pipeline. That's because pipeline in Tekton
-is designed to be generic and re-usable across environments and stages through
-the application's lifecycle. Pipelines abstract away the specifics of the git
-source repository and image to be produced as `PipelineResources` or `Params`. When triggering a
-pipeline, you can provide different git repositories and image registries to be
-used during pipeline execution. Be patient! You will do that in a little bit in
-the next section.
+You might have noticed that there are no references to the git repository or the image registry it will be pushed to in the pipeline. That's because pipeline in Tekton is designed to be generic and re-usable across environments and stages through the application's lifecycle. Pipelines abstract away the specifics of the git
+source repository and image to be produced as `PipelineResources` or `Params`. When triggering a pipeline, you can provide different git repositories and image registries to be used during pipeline execution.
 
 The execution order of task is determined by dependencies that are defined between the tasks via inputs and outputs as well as explicit orders that are defined via `runAfter`.
 
@@ -109,14 +103,12 @@ Create the pipeline by running the following:
 
 `oc create -f pipeline/pipeline.yaml`{{execute}}
 
+## Creating a Pipeline via Web Console
+
 Alternatively, in the OpenShift Web Console, you can click on the + at the top right of the screen while you are in the pipelines-tutorial project:
 
 ![Web Console Import](../../assets/middleware/pipelines/console-import-yaml.png)
 
 Upon creating the pipeline via the web console, you will be taken to a **Pipeline Details** page that gives an overview of the pipeline you created.
-
-Check the list of pipelines you have created using the CLI:
-
-`tkn pipeline ls`{{execute}}
 
 In the next section, you will focus on creating a trigger to execute the tasks specified in the pipeline.

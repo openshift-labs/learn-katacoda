@@ -1,5 +1,3 @@
-For this tutorial, you're going to use a simple Node.js application that interacts with a MongoDB database. This application needs to deploy in a new project (i.e. Kubernetes namespace). You can start by creating the project with:
-
 For this tutorial, you're going to create a simple application that involves a [frontend](https://github.com/openshift-pipelines/vote-ui) and [backend](https://github.com/openshift-pipelines/vote-api). This application needs to deploy in a new project (i.e. Kubernetes namespace). You can start by creating the project with:
 
 `oc new-project pipelines-tutorial`{{execute}}

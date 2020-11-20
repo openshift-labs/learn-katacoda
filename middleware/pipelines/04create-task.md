@@ -16,12 +16,16 @@ spec:
 
 Apply this Task to your cluster just like any other Kubernetes object. Then run it using `tkn`, the CLI tool for Tekton.
 
-`oc apply -f resources/hello.yaml`{{execute}}
+`oc apply -f tasks/hello.yaml`{{execute}}
 
 `tkn task start --showlog hello`{{execute}}
 
 The output will look similar to the following:
 
-
+```
+TaskRun started: hello-run-9cp8x
+Waiting for logs to be available...
+[say-hello] Hello World
+```
 
 In the next section, you will examine the task definitions that will be needed for our pipeline.

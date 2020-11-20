@@ -8,7 +8,7 @@ Lets start a pipeline to build and deploy backend application using `tkn`:
     -w name=shared-workspace,volumeClaimTemplateFile=resources/persistent_volume_claim.yaml \
     -p deployment-name=vote-api \
     -p git-url=http://github.com/openshift-pipelines/vote-api.git \
-    -p IMAGE=image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/vote-api \`{{execute}}
+    -p IMAGE=image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/vote-api /`{{execute}}
 
 Similarly, start a pipeline to build and deploy frontend application:
 
@@ -16,7 +16,7 @@ Similarly, start a pipeline to build and deploy frontend application:
     -w name=shared-workspace,volumeClaimTemplateFile=resources/persistent_volume_claim.yaml \
     -p deployment-name=vote-ui \
     -p git-url=http://github.com/openshift-pipelines/vote-ui.git \
-    -p IMAGE=image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/vote-ui \`{{execute}}
+    -p IMAGE=image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/vote-ui /`{{execute}}
 
 As soon as you start the `build-and-deploy` pipeline, a pipelinerun will be instantiated and pods will be created to execute the tasks that are defined in the pipeline.
 
@@ -25,10 +25,6 @@ As soon as you start the `build-and-deploy` pipeline, a pipelinerun will be inst
 Above we have started `build-and-deploy` pipeline, with relevant pipeline resources to deploy backend/frontend application using a single pipeline
 
 `tkn pipelinerun ls`{{execute}}
-
-Check out the logs of the pipelinerun as it runs using the `tkn pipeline logs` command which interactively allows you to pick the pipelinerun of your interest and inspect the logs:
-
-`tkn pipeline logs -f`{{execute}}
 
 After a few minutes, the pipeline should finish successfully!
 
