@@ -3,9 +3,8 @@ In this self-paced tutorial, you will learn how to use OpenShift Pipelines to au
 In this tutorial, you will:
 * Install the OpenShift Pipelines Operator
 * Create a Hello World `Task`
-* Adding a parameter to a `Task`
+* Install task resource definitions
 * Create a Tekton `Pipeline`
-* Develop a `PipelineResources` object
 * Trigger the created pipeline to finish your application deployment.
 
 ## Getting started
