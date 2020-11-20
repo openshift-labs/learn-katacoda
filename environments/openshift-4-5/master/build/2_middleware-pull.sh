@@ -42,10 +42,9 @@ sudo podman pull registry.access.redhat.com/rhpam-7/rhpam72-businesscentral-open
 sudo podman pull registry.access.redhat.com/rhpam-7/rhpam72-kieserver-openshift:1.1
 
 # Strimzi & Debezium
-STRIMZI_VERSION=0.20.0
-KAFKA_VERSION=2.5.0
-DEBEZIUM_VERSION=1.3
+STRIMZI_VERSION=0.14.0
+KAFKA_VERSION=2.3.0
+DEBEZIUM_VERSION=0.10
 sudo podman pull debezium/example-mysql:$DEBEZIUM_VERSION
 sudo podman pull strimzi/operator:$STRIMZI_VERSION
 sudo podman pull strimzi/kafka:$STRIMZI_VERSION-kafka-$KAFKA_VERSION
-sudo podman pull debezium/tooling:latest
