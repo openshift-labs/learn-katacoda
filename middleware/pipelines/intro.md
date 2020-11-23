@@ -35,8 +35,8 @@ The custom resources needed to define a pipeline are listed below:
 
 * `Task`: a reusable, loosely coupled number of steps that perform a specific task (e.g. building a container image)
 * `Pipeline`: the definition of the pipeline and the `Tasks` that it should perform
-* `TaskRun`: the execution and result of running an instance of task
-* `PipelineRun`: the execution and result of running an instance of pipeline, which includes a number of `TaskRuns`
+* `TaskRun`: the execution and result of running an instance of a task
+* `PipelineRun`: the execution and result of running an instance of a pipeline, which includes a number of `TaskRuns`
 
 For further details on pipeline concepts, refer to the [Tekton documentation](https://github.com/tektoncd/pipeline/tree/master/docs#learn-more) that provides an excellent guide for understanding various parameters and attributes available for defining pipelines.
 

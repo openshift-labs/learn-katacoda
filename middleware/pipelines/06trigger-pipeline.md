@@ -22,14 +22,20 @@ Similarly, start a pipeline to build and deploy the frontend application:
 
 As soon as you start the `build-and-deploy` pipeline, a `PipelineRun` will be instantiated and pods will be created to execute the tasks that are defined in the pipeline. To display a list of Pipelines, use the following command:
 
-`tkn pipeline list`{{execute}}
+`tkn pipeline ls`{{execute}}
 
-Above, we've started the `build-and-deploy` pipeline, with relevant pipeline resources to deploy backend/frontend application using a single pipeline. Let's list our PipelineRuns
+Again, notice the reusability of pipelines, and how one generic `Pipeline` can be triggered with various `params`. We've started the `build-and-deploy` pipeline, with relevant pipeline resources to deploy backend/frontend application using a single pipeline. Let's list our PipelineRuns:
 
 `tkn pipelinerun ls`{{execute}}
 
 After a few minutes, the pipeline should finish successfully!
 
-`tkn pipelinerun list`{{execute}}
+`tkn pipelinerun ls`{{execute}}
 
-Congrats! Your `Pipeline` has sucessfully ran, and the final step will provide instructions on how to access the deployed image.
+## Access Pipeline via Web Console
+
+To view the `PipelineRun` visually, visit the Pipelines section of the developer perspective. From here, you can see the details of our `Pipeline`, including the YAML file we've applied, the `PipelineRun`, input custom `params`, and more:
+
+![Web Console Pipelines](../../assets/middleware/pipelines/web-console-developer.png)
+
+Congrats! Your `Pipeline` has successfully ran, and the final step will provide instructions on how to access the deployed image.

@@ -1,4 +1,4 @@
-Tasks can also take parameters. This way, you can pass various flags to be used in this Task. These `params` can be instrumental in making your Tasks more generic and reusable across Pipelines. For example, a `Task` could apply a custom Kubernetes manifest, like the example below. This will be needed for deploying an image on OpenShift in our next section.
+Tasks can also take parameters. This way, you can pass various flags to be used in this Task. These `params` can be instrumental in making your Tasks more generic and reusable across Pipelines. For example, a `Task` could apply a custom Kubernetes manifest, like the example below. This will be needed for deploying an image on OpenShift in our next section. In addition, we'll cover the `workspaces` during our `Pipeline` step.
 
 ```
 apiVersion: tekton.dev/v1beta1
@@ -25,9 +25,12 @@ spec:
           echo -----------------------------------
 ```
 
-Create the `apply-manifests` and `update-deployment` tasks:
+Create the `apply-manifests` task:
 
 `oc create -f tasks/apply_manifest_task.yaml`{{execute}}
+
+We'll also create a `update-deployment` task, which can be seen with a `cat` command. 
+
 `oc create -f tasks/update_deployment_task.yaml`{{execute}}
 
 You can take a look at the tasks you created using the [Tekton CLI](https://github.com/tektoncd/cli/releases):
