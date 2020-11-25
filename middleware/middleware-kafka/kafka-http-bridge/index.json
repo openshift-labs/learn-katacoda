@@ -37,6 +37,10 @@
 				{
 					"file": "kafka-cluster.yaml",
 					"target": "/opt/"
+				},
+				{
+					"file": "kafka-bridge.yaml",
+					"target": "/root/projects/http-bridge/"
 				}
 			]
 		}

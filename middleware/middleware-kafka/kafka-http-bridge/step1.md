@@ -16,8 +16,42 @@ This will log you in using the credentials:
 
 Use the same credentials to log into the web console.
 
-### Creating your own namespace
+### Switch your own namespace
 
-To change to the (project) namespace called ``kafka`` where AMQ Streams Kafka Cluster Operator manages the Kafka resources, run the following command:
+Switch to the (project) namespace called ``kafka`` where AMQ Streams Kafka Cluster Operator manages the Kafka resources, run the following command:
 
 ``oc project kafka``{{execute}}
+
+### Deploying Kafka Bridge to your OpenShift cluster
+
+The deployment uses a YAML file to provide the specification to create a `KafkaBridge` resource.
+
+Click the link below to open the custom resource (CR) definition for the bridge:
+
+* `kafka-bridge.yaml`{{open}}
+
+>For information about configuring the KafkaBridge resource, see [Kafka Bridge configuration](https://access.redhat.com/documentation/en-us/red_hat_amq/7.7/html-single/using_amq_streams_on_openshift/index#assembly-deployment-configuration-kafka-bridge-str).
+
+To deploy the Kafka Bridge with the custom image execute the following command:
+
+``oc -n kafka apply -f /root/projects/http-bridge/kafka-bridge.yaml``{{execute interrupt}}
+
+The Kafka Bridge node should be deployed after a few moments. To watch the pods status run the following command:
+
+``oc get pods -w -l app.kubernetes.io/name=kafka-bridge``{{execute}}
+
+You will see the pods changing the status to `running`. It should look similar to the following:
+
+```bash
+NAME                                READY   STATUS              RESTARTS   AGE
+debezium-connect-6fc5b7f97d-g4h2l   0/1     ContainerCreating   0          3s
+debezium-connect-6fc5b7f97d-g4h2l   0/1     ContainerCreating   0          9s
+debezium-connect-6fc5b7f97d-g4h2l   0/1     Running             0          25s
+debezium-connect-6fc5b7f97d-g4h2l   1/1     Running             0          90s
+```
+
+> This step might take a couple minutes.
+
+Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
+
+`^C`{{execute ctrl-seq}}
