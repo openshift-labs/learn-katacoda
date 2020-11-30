@@ -10,4 +10,6 @@ The Red Hat AMQ Streams Kafka Bridge provides an API for integrating HTTP-based 
 
 Users can deploy the Kafka Bridge into an OpenShift cluster by using the AMQ Streams Operator or similar to an AMQ Streams installation, and users can download the Kafka Bridge files for installation on Red Hat Enterprise Linux.
 
+![HTTP integration](https://access.redhat.com/webassets/avalon/d/Red_Hat_AMQ-7.7-Using_AMQ_Streams_on_OpenShift-en-US/images/750556a6bc4af4daeca4b1df0fd24835/kafka-bridge.png)
+
 In the following tutorial, you will deploy the bridge and use it to connect using HTTP with your Apache Kafka cluster.

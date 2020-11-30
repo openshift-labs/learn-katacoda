@@ -2,7 +2,7 @@ In order to verify that the Ingress is working properly, try to hit the /healthy
 
 ``curl -kv https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/healthy``{{execute interrupt}}
 
-If the bridge is reachable through the OpenShift route, it will return an HTTP response with status code `200 OK` but an empty body. 
+If the bridge is reachable through the OpenShift route, it will return an HTTP response with status code `200 OK` but an empty body.
 
 It should look similat to the following example of the output:
 
@@ -38,13 +38,15 @@ The bridge exposes two main REST endpoints in order to send messages:
 
 The first one is used to send a message to a topic `topicname` while the second one allows the user to specify the partition via `partitionid`. Actually, even using the first endpoint the user can specify the destination partition in the body of the message.
 
-The HTTP request payload is always a JSON but the message values can be JSON or binary (encoded in base64 because you are sending binary data in a JSON payload so encoding in a string format is needed).
+The HTTP request payload is always a JSON but the message values can be JSON or binary (encoded in base64 because you are sending binary data in a JSON payload so encoding in a string format is needed). 
+
+When performing producer operations, `POST` requests must provide `Content-Type` headers specifying the desired _embedded data format_, either `json` or `binary`. In this scenario we will be using the **json** format.
 
 Let's send a couple of messages to the `my-topic` topic:
 
-``curl -k -X POST https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/topics/my-topic -H 'content-type: application/vnd.kafka.json.v2+json' -d '{ "records": [ {"key": "key-1","value": "value-1"}, {"key": "key-2","value": "value-2"} ] }'``{{execute}}
+``curl -k -X POST https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/topics/my-topic -H 'content-type: application/vnd.kafka.json.v2+json' -d '{ "records": [ {"key": "key-1","value": "sales-lead-0001"}, {"key": "key-2","value": "sales-lead-0002"} ] }'``{{execute}}
 
-After writing the messages into the topic, the bridge replies with an HTTP status code `200 OK` and a JSON paylod describing in which partition and at which offset the messages are written.
+If the request is successful, the Kafka Bridge returns an `200 OK` with a JSON paylod describing the `offsets` array in which partition and at which offset the messages are written.
 
 In this case, the auto-created topic has just one partition, so the response will look something like this:
 

@@ -60,10 +60,16 @@ Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
 ### Creating an OpenShift route
 
-A **route** is an OpenShift resource for allowing external access via HTTP/HTTPS to internal services, like the HTTP bridge.
+After deployment, the AMQ Streams Kafka Bridge can only be accessed by applications running in the same OpenShift cluster. If you want to make the Kafka Bridge accessible to applications running outside of the OpenShift cluster, you can expose it manually by using one of the following features:
 
-Run the following comand to expose the bridge service:
+* Services of types LoadBalancer or NodePort
+* Ingress resources
+* OpenShift routes
+
+An **OpenShift route** is an OpenShift resource for allowing external access via HTTP/HTTPS to internal services, like the HTTP bridge. We will use this approach for our example.
+
+Run the following comand to expose the bridge service as an OpenShift route:
 
 ``oc expose svc my-bridge-bridge-service``{{execute interrupt}}
 
-When the route is created, the AMQ Streams Kafka Bridge is reacheable through the `https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com` host, so you can use any HTTP client to interact with the REST API exposed by the bridge for sending and receiving messages.
+When the route is created, the AMQ Streams Kafka Bridge is reacheable through the `https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com` host, so you can use any HTTP client to interact with the REST API exposed by the bridge for sending and receiving messages without the requirement to use the native Kafka protocol.
