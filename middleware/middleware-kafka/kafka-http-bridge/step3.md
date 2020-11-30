@@ -8,14 +8,14 @@ We are going to create a Kafka Bridge consumer named `my-consumer` that will joi
 
 Execute the following command to create the consumer:
 
-``curl -k -X POST https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/consumers/my-group -H 'content-type: application/vnd.kafka.v2+json' -d '{"name": "my-consumer","format": "json","auto.offset.reset": "earliest","fetch.min.bytes": 512,"enable.auto.commit": false}'``{{execute}}
+``curl -s -k -X POST https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/consumers/my-group -H 'content-type: application/vnd.kafka.v2+json' -d '{"name": "my-consumer","format": "json","auto.offset.reset": "earliest","fetch.min.bytes": 512,"enable.auto.commit": false}' | jq``{{execute}}
 
 This will create a Kafka consumer connected to the Kafka cluster. If the request is successful, the bridge should reply back with a `200 OK` HTTP code and a JSON payload with the consumer ID (`instance_id`) and base URL (`base_uri`). It should look similar to the following:
 
 ```json
 {
    "instance_id":"my-consumer",
-   "base_uri":"http://my-bridge.io:80/consumers/my-group/instances/my-consumer"
+   "base_uri":"http://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/consumers/my-group/instances/my-consumer"
 }
 ```
 
@@ -27,7 +27,7 @@ Using the HTTP bridge, it’s possible through an HTTP POST to the `/consumers/{
 
 Subscribe your `my-consumer` consumer to the `my-topic` topic with the following command:
 
-``curl -k -X POST http://my-bridge.io/consumers/my-group/instances/my-consumer/subscription -H 'content-type: application/vnd.kafka.v2+json' -d '{"topics": ["my-topic"]}'``{{execute}}
+``curl -i -k -X POST https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/consumers/my-group/instances/my-consumer/subscription -H 'content-type: application/vnd.kafka.v2+json' -d '{"topics": ["my-topic"]}'``{{execute}}
 
 >This will return a `200 OK` HTTP code with an empty body.
 

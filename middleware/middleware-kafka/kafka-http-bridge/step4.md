@@ -6,36 +6,32 @@ Doing an HTTP GET against the above endpoint, actually does a “poll” for get
 
 Submit a `GET` request to the `records` endpoint:
 
-``curl -k -X GET http://my-bridge.io/consumers/my-group/instances/my-consumer/records -H 'accept: application/vnd.kafka.json.v2+json'``{{execute}}
+``curl -s -k -X GET https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/consumers/my-group/instances/my-consumer/records -H 'accept: application/vnd.kafka.json.v2+json' | jq``{{execute}}
 
-Repeat step two to retrieve messages from the Kafka Bridge consumer.
+Repeat step a couple more times until you retrieve all messages from the Kafka Bridge consumer.
 
-``curl -k -X GET http://my-bridge.io/consumers/my-group/instances/my-consumer/records -H 'accept: application/vnd.kafka.json.v2+json'``{{execute}}
+``curl -s -k -X GET https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/consumers/my-group/instances/my-consumer/records -H 'accept: application/vnd.kafka.json.v2+json' | jq``{{execute}}
 
 The Kafka Bridge returns an array of messages — describing the topic name, key, value, partition, and offset — in the response body, along with a `200` code. Messages are retrieved from the latest offset by default.
 
 You should get an output similar to the following:
 
 ```js
-HTTP/1.1 200 OK
-content-type: application/vnd.kafka.json.v2+json
-#...
-[
-  {
-    "topic":"my-topic",
-    "key":"key-1",
-    "value":"sales-lead-0001",
-    "partition":0,
-    "offset":0
+[  {
+    "topic": "my-topic",
+    "key": "key-1",
+    "value": "sales-lead-0001",
+    "partition": 0,
+    "offset": 0
   },
   {
-    "topic":"my-topic",
-    "key":"key-2",
-    "value":"sales-lead-0003",
-    "partition":0,
-    "offset":1
-  },
-#...
+    "topic": "my-topic",
+    "key": "key-2",
+    "value": "sales-lead-0002",
+    "partition": 0,
+    "offset": 1
+  }
+]
 ```
 
 ### Commiting offsets to the log
@@ -44,7 +40,7 @@ Next, use the `/consumers/{groupid}/instances/{name}/offsets` endpoint to manual
 
 Commit offsets to the log for the `my-consumer`:
 
-``curl -X POST http://localhost:8080/consumers/bridge-quickstart-consumer-group/instances/bridge-quickstart-consumer/offsets`{{execute}}
+``curl -i -k -X POST https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/consumers/my-group/instances/my-consumer/offsets``{{execute}}
 
 >Because no request body is submitted, offsets are committed for all the records that have been received by the consumer. Alternatively, the request body can contain an array (OffsetCommitSeekList) that specifies the topics and partitions that you want to commit offsets for.
 

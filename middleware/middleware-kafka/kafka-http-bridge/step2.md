@@ -44,7 +44,7 @@ When performing producer operations, `POST` requests must provide `Content-Type`
 
 Let's send a couple of messages to the `my-topic` topic:
 
-``curl -k -X POST https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/topics/my-topic -H 'content-type: application/vnd.kafka.json.v2+json' -d '{ "records": [ {"key": "key-1","value": "sales-lead-0001"}, {"key": "key-2","value": "sales-lead-0002"} ] }'``{{execute}}
+``curl -s -k -X POST https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/topics/my-topic -H 'content-type: application/vnd.kafka.json.v2+json' -d '{ "records": [ {"key": "key-1","value": "sales-lead-0001"}, {"key": "key-2","value": "sales-lead-0002"} ] }' | jq``{{execute}}
 
 If the request is successful, the Kafka Bridge returns an `200 OK` with a JSON paylod describing the `offsets` array in which partition and at which offset the messages are written.
 
