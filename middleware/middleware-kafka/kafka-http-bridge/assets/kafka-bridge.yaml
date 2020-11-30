@@ -5,5 +5,13 @@ metadata:
 spec:
   replicas: 1
   bootstrapServers: my-cluster-kafka-bootstrap:9092
+  consumer:
+    config:
+      auto.offset.reset: earliest
+      enable.auto.commit: true
+  producer:
+    config:
+      acks: 1
+      delivery.timeout.ms: 300000    
   http:
     port: 8080

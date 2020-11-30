@@ -30,6 +30,8 @@ Click the link below to open the custom resource (CR) definition for the bridge:
 
 * `kafka-bridge.yaml`{{open}}
 
+The bridge has to connect to the Apache Kafka cluster. This is specified in the `bootstrapServers` property. The bridge then uses a native Apache Kafka consumer and producer for interacting with the cluster.
+
 >For information about configuring the KafkaBridge resource, see [Kafka Bridge configuration](https://access.redhat.com/documentation/en-us/red_hat_amq/7.7/html-single/using_amq_streams_on_openshift/index#assembly-deployment-configuration-kafka-bridge-str).
 
 To deploy the Kafka Bridge with the custom image execute the following command:
@@ -44,10 +46,10 @@ You will see the pods changing the status to `running`. It should look similar t
 
 ```bash
 NAME                                READY   STATUS              RESTARTS   AGE
-debezium-connect-6fc5b7f97d-g4h2l   0/1     ContainerCreating   0          3s
-debezium-connect-6fc5b7f97d-g4h2l   0/1     ContainerCreating   0          9s
-debezium-connect-6fc5b7f97d-g4h2l   0/1     Running             0          25s
-debezium-connect-6fc5b7f97d-g4h2l   1/1     Running             0          90s
+my-bridge-bridge-6b6d9f785c-dp6nk   0/1     ContainerCreating   0          5s
+my-bridge-bridge-6b6d9f785c-dp6nk   0/1     ContainerCreating   0          12s
+my-bridge-bridge-6b6d9f785c-dp6nk   0/1     Running             0          27s
+my-bridge-bridge-6b6d9f785c-dp6nk   1/1     Running             0          45s
 ```
 
 > This step might take a couple minutes.
@@ -55,3 +57,13 @@ debezium-connect-6fc5b7f97d-g4h2l   1/1     Running             0          90s
 Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
 `^C`{{execute ctrl-seq}}
+
+### Creating an OpenShift route
+
+A **route** is an OpenShift resource for allowing external access via HTTP/HTTPS to internal services, like the HTTP bridge.
+
+Run the following comand to expose the bridge service:
+
+``oc expose svc my-bridge-bridge-service``{{execute interrrupt}}
+
+When the route is created, the AMQ Streams Kafka Bridge is reacheable through the `https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com` host, so you can use any HTTP client to interact with the REST API exposed by the bridge for sending and receiving messages.

@@ -10,7 +10,7 @@
         "text": "step1.md"
       },
       {
-        "title": "Step 2",
+        "title": "Producing messages",
         "text": "step2.md"
       },
       {
@@ -23,6 +23,7 @@
       }
     ],
     "intro": {
+      "courseData": "env-init.sh",
       "text": "intro.md"
     },
     "finish": {
@@ -36,6 +37,10 @@
 				},
 				{
 					"file": "kafka-cluster.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "strimzi-admin.yaml",
 					"target": "/opt/"
 				},
 				{
