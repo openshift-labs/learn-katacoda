@@ -64,6 +64,6 @@ A **route** is an OpenShift resource for allowing external access via HTTP/HTTPS
 
 Run the following comand to expose the bridge service:
 
-``oc expose svc my-bridge-bridge-service``{{execute interrrupt}}
+``oc expose svc my-bridge-bridge-service``{{execute interrupt}}
 
 When the route is created, the AMQ Streams Kafka Bridge is reacheable through the `https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com` host, so you can use any HTTP client to interact with the REST API exposed by the bridge for sending and receiving messages.

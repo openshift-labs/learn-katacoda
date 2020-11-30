@@ -1,6 +1,6 @@
 In order to verify that the Ingress is working properly, try to hit the /healthy endpoint of the bridge with the following curl command:
 
-``curl -v GET https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/healthy``{{execute interrupt}}
+``curl -kv https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/healthy``{{execute interrupt}}
 
 If the bridge is reachable through the OpenShift route, it will return an HTTP response with status code `200 OK` but an empty body. 
 
@@ -9,31 +9,58 @@ It should look similat to the following example of the output:
 ```sh
 *   Trying 35.201.124.219...
 * TCP_NODELAY set
-* Connected to my-bridge-bridge-service-kafka.2886795276-80-kota02.environments.katacoda.com (35.201.124.219) port 80 (#0)
-> GET /healthy HTTP/1.1> Host: my-bridge-bridge-service-kafka.2886795276-80-kota02.environments.katacoda.com
-> User-Agent: curl/7.61.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Server: nginx/1.15.0
-< Date: Wed, 25 Nov 2020 20:38:54 GMT
-< Content-Length: 0
-< Cache-Control: private
-< Set-Cookie: 93b1d08256cbf837e3463c0bba903028=9460d6ac7471246f5fed015cbe95a63b; Path=/; HttpOnly; Secure; SameSite=None
-< Via: 1.1 google
+* Connected to my-bridge-bridge-service-kafka.2886795272-80-kota02.environments.katacoda.com (35.201.124.219) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+...
+< HTTP/2 200
+< server: nginx/1.15.0
+< date: Mon, 30 Nov 2020 20:57:33 GMT
+< content-length: 0
+< cache-control: private
+< set-cookie: 93b1d08256cbf837e3463c0bba903028=5e173cda84e636b4b3426b7930de7931; Path=/; HttpOnly; Secure; SameSite=None
+< via: 1.1 google
+< alt-svc: clear
 <
-* Connection #0 to host my-bridge-bridge-service-kafka.2886795276-80-kota02.environments.katacoda.com left intact
+* Connection #0 to host my-bridge-bridge-service-kafka.2886795272-80-kota02.environments.katacoda.com left intact
 ```
+
+> Formatted for readability.
 
 ### Producing messages
 
-The Kafka cluster we are working with has topic autocreation enabled, so we can start immediately to send messages through the `/topics/example` endpoint exposed by the HTTP bridge.
+The Kafka cluster we are working with has topic autocreation enabled, so we can start immediately to send messages through the `/topics/my-topic` endpoint exposed by the HTTP bridge.
 
 The bridge exposes two main REST endpoints in order to send messages:
 
 * /topics/{topicname}
 * /topics/{topicname}/partitions/{partitionid}
 
-The first one is used to send a message to a topic topicname while the second one allows the user to specify the partition via partitionid. Actually, even using the first endpoint the user can specify the destination partition in the body of the message.
+The first one is used to send a message to a topic `topicname` while the second one allows the user to specify the partition via `partitionid`. Actually, even using the first endpoint the user can specify the destination partition in the body of the message.
 
 The HTTP request payload is always a JSON but the message values can be JSON or binary (encoded in base64 because you are sending binary data in a JSON payload so encoding in a string format is needed).
+
+Let's send a couple of messages to the `my-topic` topic:
+
+``curl -k -X POST https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/topics/my-topic -H 'content-type: application/vnd.kafka.json.v2+json' -d '{ "records": [ {"key": "key-1","value": "value-1"}, {"key": "key-2","value": "value-2"} ] }'``{{execute}}
+
+After writing the messages into the topic, the bridge replies with an HTTP status code `200 OK` and a JSON paylod describing in which partition and at which offset the messages are written.
+
+In this case, the auto-created topic has just one partition, so the response will look something like this:
+
+```json
+{
+   "offsets":[
+      {
+         "partition":0,
+         "offset":0
+      },
+      {
+         "partition":0,
+         "offset":1
+      }
+   ]
+}
+```
+
+Excellent! You have send your first messages to your Kafka topic through the HTTP Bridge. Now you are set to start consuming those messages.
