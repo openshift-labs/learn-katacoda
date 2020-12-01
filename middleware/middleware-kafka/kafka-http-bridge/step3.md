@@ -29,7 +29,7 @@ Subscribe your `my-consumer` consumer to the `my-topic` topic with the following
 
 ``curl -i -k -X POST https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/consumers/my-group/instances/my-consumer/subscription -H 'content-type: application/vnd.kafka.v2+json' -d '{"topics": ["my-topic"]}'``{{execute}}
 
->This will return a `200 OK` HTTP code with an empty body.
+>This will return a `204 OK` HTTP code with an empty body.
 
 The `topics` array can contain a single topic (as shown here) or multiple topics. If you want to subscribe the consumer to multiple topics that match a regular expression, you can use the `topic_pattern` string instead of the `topics` array.
 

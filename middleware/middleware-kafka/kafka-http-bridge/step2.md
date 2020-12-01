@@ -38,7 +38,7 @@ The bridge exposes two main REST endpoints in order to send messages:
 
 The first one is used to send a message to a topic `topicname` while the second one allows the user to specify the partition via `partitionid`. Actually, even using the first endpoint the user can specify the destination partition in the body of the message.
 
-The HTTP request payload is always a JSON but the message values can be JSON or binary (encoded in base64 because you are sending binary data in a JSON payload so encoding in a string format is needed). 
+The HTTP request payload is always a JSON but the message values can be JSON or binary (encoded in base64 because you are sending binary data in a JSON payload so encoding in a string format is needed).
 
 When performing producer operations, `POST` requests must provide `Content-Type` headers specifying the desired _embedded data format_, either `json` or `binary`. In this scenario we will be using the **json** format.
 
