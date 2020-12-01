@@ -7,11 +7,10 @@ oc -n openshift-operators apply -f /opt/operator-install.yaml
 oc new-project kafka
 
 # Check if operator is installed
-oc get crds kafkas.kafka.strimzi.io
-
-while [ $? -ne 0 ]; do
-    oc get crds kafkas.kafka.strimzi.io
-    sleep 2
+echo -e "Waiting for CRDs... (This might take a couple minutes)"
+until [ "$(oc get crds kafkas.kafka.strimzi.io --ignore-not-found | wc -l &)" = "2" ];
+do
+  sleep 2
 done
 
 # Deploy cluster
