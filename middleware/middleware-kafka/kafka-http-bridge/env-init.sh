@@ -17,6 +17,8 @@ do
   sleep 5
 done
 
+oc wait crd/kafkas.kafka.strimzi.io --for=condition=Established --timeout=300s
+
 # Deploy cluster
 oc -n kafka apply -f /opt/kafka-cluster.yaml
 
