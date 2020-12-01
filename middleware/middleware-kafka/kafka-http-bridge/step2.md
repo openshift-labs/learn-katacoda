@@ -1,31 +1,21 @@
 In order to verify that the Ingress is working properly, try to hit the /healthy endpoint of the bridge with the following curl command:
 
-``curl -kv https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/healthy``{{execute interrupt}}
+``curl -ik https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/healthy``{{execute interrupt}}
 
 If the bridge is reachable through the OpenShift route, it will return an HTTP response with status code `200 OK` but an empty body.
 
 It should look similat to the following example of the output:
 
 ```sh
-*   Trying 35.201.124.219...
-* TCP_NODELAY set
-* Connected to my-bridge-bridge-service-kafka.2886795272-80-kota02.environments.katacoda.com (35.201.124.219) port 443 (#0)
-* ALPN, offering h2
-* ALPN, offering http/1.1
-...
-< HTTP/2 200
-< server: nginx/1.15.0
-< date: Mon, 30 Nov 2020 20:57:33 GMT
-< content-length: 0
-< cache-control: private
-< set-cookie: 93b1d08256cbf837e3463c0bba903028=5e173cda84e636b4b3426b7930de7931; Path=/; HttpOnly; Secure; SameSite=None
-< via: 1.1 google
-< alt-svc: clear
-<
-* Connection #0 to host my-bridge-bridge-service-kafka.2886795272-80-kota02.environments.katacoda.com left intact
+HTTP/2 200
+server: nginx/1.15.0
+date: Tue, 01 Dec 2020 15:01:22 GMT
+content-length: 0
+cache-control: private
+set-cookie: 93b1d08256cbf837e3463c0bba903028=0e558f788ca3bde0c6204c8d9bc783e0; Path=/; HttpOnly; Secure; SameSite=None
+via: 1.1 google
+alt-svc: clear
 ```
-
-> Formatted for readability.
 
 ### Producing messages
 
