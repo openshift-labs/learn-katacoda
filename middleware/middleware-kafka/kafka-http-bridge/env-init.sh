@@ -8,9 +8,13 @@ oc new-project kafka
 
 # Check if operator is installed
 echo -e "Waiting for CRDs... (This might take a couple minutes)"
-until [ "$(oc get crds kafkas.kafka.strimzi.io --ignore-not-found | wc -l &)" = "2" ];
+
+while : ;
 do
-  sleep 2
+  output=`oc get crds kafkas.kafka.strimzi.io --ignore-not-found`
+  echo "$output"
+  if [ -n "$output" ] ; then echo "CRD is ready."; break; fi;
+  sleep 5
 done
 
 # Deploy cluster
