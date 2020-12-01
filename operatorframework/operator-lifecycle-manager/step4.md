@@ -48,7 +48,6 @@ spec:
   name: argocd-operator
   source: community-operators
   sourceNamespace: openshift-marketplace
-  installPlanApproval: Manual
 EOF
 ```{{execute}}
 

@@ -13,7 +13,7 @@ kind: PodSet
 metadata:
   name: podset-sample
 spec:
-  size: 3
+  replicas: 3
 </pre>
 
 You can easily update this file by running the following command:
