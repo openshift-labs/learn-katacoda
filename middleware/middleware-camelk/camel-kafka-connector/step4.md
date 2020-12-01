@@ -63,4 +63,4 @@ OpenJDK 64-Bit Server VM warning: If the number of processors is expected to inc
 
 ## Congratulations
 
-In this scenario you got to play with Camel Kafka Connector. You have initiated an AMQ Streams (Kafka) cluster on Openshift, created an object store, sftp server. Then started a Kafka Connect with your own build of image including the libraries needed. Then you created a source Camel Kafka connector that loads
+In this scenario you got to play with Camel Kafka Connector. You have initiated an AMQ Streams (Kafka) cluster on openshift, created an object store, sftp server. Then started a Kafka Connect with your own build of image including the libraries needed. Then you created a source Camel Kafka connector that loads files from the _AWS2 S3_ like storage, place the file in the kafka topic, and created another Camel Kafka connector that listens to the input from the kafka topic and place the file in the SFTP server.

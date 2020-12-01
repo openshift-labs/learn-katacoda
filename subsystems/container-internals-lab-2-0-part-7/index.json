@@ -4,7 +4,7 @@
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "Intermediate",
-    "time": "20-25 minutes",
+    "time": "35-40 minutes",
     "backend": {
       "trainingid": "openshift-3-11",
       "imageid": "openshift-3-11",
@@ -19,14 +19,29 @@
     },
     "details": {
         "steps": [{
+            "title": "An Overview of Container Tools",
+            "text": "01-overview-container-tools.md"
+        }, {
+            "title": "Using the Fast and Stable Streams",
+            "text": "02-different-streams.md"
+        }, {
             "title": "Podman: Familiar Territory",
-            "text": "01-podman.md"
+            "text": "03-podman.md"
         }, {
             "title": "Buildah: Granularity & Control",
-            "text": "02-buildah.md"
+            "text": "04-buildah.md"
         }, {
             "title": "Skopeo: Moving & Sharing",
-            "text": "03-skopeo.md"
+            "text": "05-skopeo.md"
+        }, {
+            "title": "CRIU: Checkpointing and Restoring",
+            "text": "06-criu.md"
+        }, {
+            "title": "Udica: Custom SELinux Policies",
+            "text": "07-udica.md"
+        }, {
+            "title": "OSCAP Podman: Trust but Verify",
+            "text": "08-oscap-podman.md"
         }],
         "intro": {
 		"courseData": "background.sh",

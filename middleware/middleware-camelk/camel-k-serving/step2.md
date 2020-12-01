@@ -90,7 +90,7 @@ Go to the text editor on the right, under the folder /root/camel-api. Right clic
 Paste the following code into the application.
 
 <pre class="file" data-filename="API.java" data-target="replace">
-// camel-k: language=java
+// camel-k: language=java dependency=camel-quarkus-openapi-java
 
 import org.apache.camel.builder.AggregationStrategies;
 import org.apache.camel.builder.RouteBuilder;
@@ -99,34 +99,35 @@ public class API extends RouteBuilder {
   @Override
   public void configure() throws Exception {
 
-    // All endpoints starting from "direct:..." reference an operationId defined in the "openapi.yaml" file.
+    // All endpoints starting from "direct:..." reference an operationId defined
+    // in the "openapi.yaml" file.
 
     // List the object names available in the S3 bucket
     from("direct:list")
-      .to("aws-s3://{{api.bucket}}?operation=listObjects")
-      .transform().simple("${body.objectSummaries}")
+      .to("aws2-s3://{{api.bucket}}?operation=listObjects")
       .split(simple("${body}"), AggregationStrategies.groupedBody())
         .transform().simple("${body.key}")
       .end()
       .marshal().json();
 
+
     // Get an object from the S3 bucket
     from("direct:get")
       .setHeader("CamelAwsS3Key", simple("${header.name}"))
-      .to("aws-s3://{{api.bucket}}?operation=getObject")
-      .setHeader("Content-Type", simple("${body.objectMetadata.contentType}"))
-      .transform().simple("${body.objectContent}");
+      .to("aws2-s3://{{api.bucket}}?operation=getObject")
+      .convertBodyTo(String.class);
 
     // Upload a new object into the S3 bucket
     from("direct:create")
       .setHeader("CamelAwsS3Key", simple("${header.name}"))
-      .to("aws-s3://{{api.bucket}}");
+      .to("aws2-s3://{{api.bucket}}");
+
 
     // Delete an object from the S3 bucket
     from("direct:delete")
-    .setHeader("CamelAwsS3Key", simple("${header.name}"))
-    .to("aws-s3://{{api.bucket}}?operation=deleteObject")
-    .setBody().constant("");
+      .setHeader("CamelAwsS3Key", simple("${header.name}"))
+      .to("aws2-s3://{{api.bucket}}?operation=deleteObject")
+      .setBody().constant("");
 
   }
 }
@@ -146,6 +147,12 @@ minio.endpoint=http://minio:9000
 minio.access-key=minio
 minio.secret-key=minio123
 
+# Camel AWS2 S3
+camel.component.aws2-s3.region=EU_WEST_1
+camel.component.aws2-s3.access-key={{minio.access-key}}
+camel.component.aws2-s3.secret-key={{minio.secret-key}}
+camel.component.aws2-s3.uri-endpoint-override = {{minio.endpoint}}
+camel.component.aws2-s3.override-endpoint = true
 
 # General configuration
 camel.context.rest-configuration.api-context-path=/api-doc
@@ -154,7 +161,7 @@ camel.context.rest-configuration.api-context-path=/api-doc
 
 We are now ready to start up the application, simply point to the OpenAPI standard document and along with the implemented Camel K application. Notice we are also pointing to the configuration file too.
 
-``kamel run --name api helper/MinioCustomizer.java camel-api/API.java --property-file camel-api/minio.properties --open-api helper/openapi.yaml -d camel-openapi-java``{{execute}}
+``kamel run --name api camel-api/API.java --property-file camel-api/minio.properties --open-api helper/openapi.yaml``{{execute}}
 
 Wait for the integration to be running (you should see the logs streaming in the terminal window).
 

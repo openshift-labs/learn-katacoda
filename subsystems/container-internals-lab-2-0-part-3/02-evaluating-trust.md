@@ -64,10 +64,10 @@ Now, that we have taken a look at several container images, we are going to star
 The Fedora registry provides a very basic experience. You know that it is operated by the Fedora project, so the security should be pretty similar to the ISOs you download. That said, there are no older versions of images, and there is really no stated policy about how often the images are patched, updated, or released.
 
 
-## podmanHub
-- Click: [https://hub.podman.com/_/centos/](https://hub.podman.com/_/centos/)
+## DockerHub
+- Click: [https://hub.docker.com/_/centos/](https://hub.podman.com/_/centos/)
 
-podmanHub provides "official" images for a lot of different pieces of software including things like CentOS, Ubuntu, Wordpress, and PHP. That said, there really isn't standard definition for what "official" means. Each repository appears to have their own processes, rules, time lines, lifecycles, and testing. There really is no shared understanding what official images provide an end user. Users must evaluate each repository for themselves and determine whether they trust that it's connected to the upstream project in any meaningful way.
+DockerHub provides "official" images for a lot of different pieces of software including things like CentOS, Ubuntu, Wordpress, and PHP. That said, there really isn't standard definition for what "official" means. Each repository appears to have their own processes, rules, time lines, lifecycles, and testing. There really is no shared understanding what official images provide an end user. Users must evaluate each repository for themselves and determine whether they trust that it's connected to the upstream project in any meaningful way.
 
 ## Bitnami
 - Click: [https://bitnami.com/containers](https://bitnami.com/containers)
