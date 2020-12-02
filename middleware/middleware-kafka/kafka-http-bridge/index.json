@@ -1,0 +1,60 @@
+{
+  "title": "Exposing Apache Kafka through the HTTP Bridge",
+  "description": "The HTTP Bridge provides a REST API for integrating HTTP based applications with a Kafka cluster.",
+  "difficulty": "Intermediate",
+  "time": "15 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Deploy the HTTP Bridge",
+        "text": "step1.md"
+      },
+      {
+        "title": "Producing messages",
+        "text": "step2.md"
+      },
+      {
+        "title": "Subscribing to the topic",
+        "text": "step3.md"
+      },
+      {
+        "title": "Consuming messages",
+        "text": "step4.md"
+      }
+    ],
+    "intro": {
+      "courseData": "env-init.sh",
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+		"assets": {
+			"client": [
+				{
+					"file": "operator-install.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "kafka-cluster.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "strimzi-admin.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "kafka-bridge.yaml",
+					"target": "/root/projects/http-bridge/"
+				}
+			]
+		}
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/projects/http-bridge"
+  },
+  "backend": {
+    "imageid": "openshift-4-5"
+  }
+}
