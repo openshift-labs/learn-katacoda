@@ -4,9 +4,9 @@ curl -LO https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem > /dev/n
 oc login -u developer -p developer https://master:8443 --certificate-authority=lets-encrypt-x3-cross-signed.pem --insecure-skip-tls-verify=true > /dev/null 2>&1
 
 # Get the tar.xz for tekton CLI
-curl -LO https://github.com/tektoncd/cli/releases/download/v0.13.0/tkn_0.13.0_Linux_x86_64.tar.gz
+curl -LO https://github.com/tektoncd/cli/releases/download/v0.11.0/tkn_0.11.0_Linux_x86_64.tar.gz
 # Extract tkn to your PATH (e.g. /usr/local/bin)
-tar xvzf tkn_0.13.0_Linux_x86_64.tar.gz -C /usr/local/bin/ tkn
+tar xvzf tkn_0.11.0_Linux_x86_64.tar.gz -C /usr/local/bin/ tkn
 
 clear
 
