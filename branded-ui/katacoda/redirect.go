@@ -10,7 +10,7 @@ func getRedirectUrl(course string, scenario string) string {
     "introduction/rhoar-getting-started-wfswarm": "/middleware/rhoar-getting-started-wfswarm",
     "introduction/rhoar-getting-started-spring": "/middleware/rhoar-getting-started-spring",
     "introduction/rhoar-getting-started-vertx": "/middleware/rhoar-getting-started-vertx",
-    "operators": "operatorframework",
+    "operators/": "/operatorframework",
   }
 
   return oldScenarios[course + "/" + scenario]
