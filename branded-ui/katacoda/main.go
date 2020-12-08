@@ -46,8 +46,13 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p interface{}) {
 }
 
 func course(w http.ResponseWriter, r *http.Request) {
-	pageData := CoursePageData{Name: vestigo.Param(r, "course")}
-	renderTemplate(w, "templates/course.html", &pageData)
+	redirect := getRedirectUrl(vestigo.Param(r, "course"), "")
+	if redirect != "" {
+		http.Redirect(w, r, redirect, http.StatusTemporaryRedirect)
+	} else {
+		pageData := CoursePageData{Name: vestigo.Param(r, "course")}
+		renderTemplate(w, "templates/course.html", &pageData)
+	}
 }
 
 func subcourse(w http.ResponseWriter, r *http.Request) {
