@@ -1,0 +1,52 @@
+{
+  "title": "Apache Kafka with Quarkus reactive messaging",
+  "description": "How Quarkus applications use Reactive Messaging with Apache Kafka",
+  "difficulty": "Beginner",
+  "time": "25 min",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "courseData": "env-init.sh",
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+		"assets": {
+			"client": [
+				{
+					"file": "operator-install.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "kafka-cluster.yaml",
+					"target": "/opt/"
+				},
+				{
+					"file": "strimzi-admin.yaml",
+					"target": "/opt/"
+				}
+			]
+		}
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/opt/katacoda-kafka-quarkus"
+  },
+  "backend": {
+    "imageid": "openshift-4-5"
+  }
+}
