@@ -44,7 +44,7 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
-    "uieditorpath": "/opt/katacoda-kafka-quarkus"
+    "uieditorpath": "/opt/projects/kafka-quarkus"
   },
   "backend": {
     "imageid": "openshift-4-5"
