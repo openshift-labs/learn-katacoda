@@ -29,9 +29,13 @@ Create the `apply-manifests` task:
 
 `oc create -f tasks/apply_manifest_task.yaml`{{execute}}
 
-We'll also create a `update-deployment` task, which can be seen with a `cat` command. 
+We'll also create a `update-deployment` task, which can be seen with a `cat` command:
 
 `oc create -f tasks/update_deployment_task.yaml`{{execute}}
+
+Finally, we can create a PersistentVolumeClaim to provide the filesystem for our pipeline execution, explained more in the next step:
+
+`oc create -f resources/persistent_volume_claim.yaml`{{execute}}
 
 You can take a look at the tasks you created using the [Tekton CLI](https://github.com/tektoncd/cli/releases):
 
