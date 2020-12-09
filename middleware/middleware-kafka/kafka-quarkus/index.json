@@ -6,11 +6,11 @@
   "details": {
     "steps": [
       {
-        "title": "Step 1",
+        "title": "Quarkus Reactive Messaging Extension",
         "text": "step1.md"
       },
       {
-        "title": "Step 2",
+        "title": "Create an event generator",
         "text": "step2.md"
       },
       {

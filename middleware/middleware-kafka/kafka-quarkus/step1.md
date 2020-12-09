@@ -1,0 +1,59 @@
+You start this scenario with a basic Maven-based application created using the Quarkus maven plugin.
+
+### Add extension
+
+The current project needs the extensions to be added to integrate Quarkus with Apache Kafka.
+
+Change the current folder to the project one:
+
+``cd /opt/projects/kafka-quarkus``{{execute}}
+
+Install the extension into the project with the following command:
+
+``mvn quarkus:add-extension -Dextension="kafka"``{{execute}}
+
+>The first time you add the extension, new dependencies may be downloaded via maven. This should only happen once, after that things will go even faster.
+
+This will add the necessary entries in your `pom.xml`{{open}} to bring in the Kafka extension. You should see a fragment similar to this:
+
+```xml
+...
+<dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
+</dependency>
+...
+```
+
+### Configure channel
+
+We need to configure the application to define how are we going to connect to the event broker. 
+
+The MicroProfile Reactive Messaging properties are structured as follows:
+
+```properties
+mp.messaging.[outgoing|incoming].{channel-name}.property=value
+```
+
+Where the `channel-name` segment must match the value set in the `@Incoming` and `@Outgoing` annotations. To indicate that a channel is managed by the Kafka connecfor we need:
+
+```properties
+mp.messaging.[outgoing|incoming].{channel-name}.connector=smallrye-kafka
+```
+
+Open the `src/main/resources/application.properties`{{open}} file to add the following configuration:
+
+<pre class="file" data-filename="./src/main/resources/application.properties" data-target="replace">
+# Configuration file
+kafka.bootstrap.servers=localhost:9092
+
+mp.messaging.outgoing.uber.connector=smallrye-kafka
+mp.messaging.outgoing.uber.key.serializer=org.apache.kafka.common.serialization.StringSerializer
+mp.messaging.outgoing.uber.value.serializer=org.apache.kafka.common.serialization.StringSerializer
+</pre>
+
+> You can click in **Copy to Editor** to add the values into the file
+
+You can see we added the kafka bootstrap server hostname and port for the broker locations and the configuration for a channel named `uber`. The `key` and `value` serializers are part of the  [Producer configuration](https://kafka.apache.org/documentation/#producerconfigs) and [Consumer configuration](https://kafka.apache.org/documentation/#consumerconfigs) to encode the message payload.
+
+>You don’t need to set the Kafka topic. By default, it uses the channel name (prices). You can configure the topic attribute to override it.
