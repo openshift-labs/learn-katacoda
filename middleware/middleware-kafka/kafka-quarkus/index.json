@@ -1,5 +1,5 @@
 {
-  "title": "Apache Kafka with Quarkus reactive messaging",
+  "title": "Apache Kafka with Reactive Messaging",
   "description": "How Quarkus applications use Reactive Messaging with Apache Kafka",
   "difficulty": "Beginner",
   "time": "25 min",

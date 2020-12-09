@@ -13,7 +13,13 @@
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-http-bridge",
       "course_id": "kafka-http-bridge",
       "title": "Exposing Apache Kafka through the HTTP Bridge",
-      "description": "The HTTP Bridge provides a REST API for integrating HTTP based applications with a Kafka cluster"
+      "description": "The HTTP Bridge provides a REST API for integrating applications with Kafka"
+    },
+    {
+      "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-quarkus",
+      "course_id": "kafka-quarkus",
+      "title": "Apache Kafka with Reactive Messaging",
+      "description": "This scenario will show how Quarkus applications use Reactive Messaging with Apache Kafka"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-debezium",
