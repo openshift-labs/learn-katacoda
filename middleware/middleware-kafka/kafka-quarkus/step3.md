@@ -12,8 +12,8 @@ quarkus.kubernetes-client.trust-certs=true
 quarkus.container-image.build=true
 quarkus.kubernetes.deploy=true
 quarkus.kubernetes.deployment-target=openshift
-quarkus.openshift.expose=true
-quarkus.openshift.labels.app.openshift.io/runtime=java
+quarkus.openshift.labels.app.openshift.io/runtime=quarkus
+quarkus.s2i.base-jvm-image=registry.access.redhat.com/ubi8/openjdk-8
 </pre>
 
 For more details of the above options:
