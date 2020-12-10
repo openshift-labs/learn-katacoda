@@ -29,4 +29,4 @@ oc adm policy add-cluster-role-to-user strimzi-admin developer
 
 oc adm policy add-role-to-user admin developer -n kafka
 
-rm -rf /opt/projects && git clone https://github.com/openshift-katacoda/rhi-kafka-pathway.git /opt/projects
+git clone https://github.com/openshift-katacoda/rhi-kafka-pathway.git /opt/projects

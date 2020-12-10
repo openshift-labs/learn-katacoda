@@ -41,7 +41,7 @@ Where the `channel-name` segment must match the value set in the `@Incoming` and
 mp.messaging.[outgoing|incoming].{channel-name}.connector=smallrye-kafka
 ```
 
-Open the `src/main/resources/application.properties`{{open}} file to add the following configuration:
+Open the `kafka-quarkus/src/main/resources/application.properties`{{open}} file to add the following configuration:
 
 <pre class="file" data-filename="./src/main/resources/application.properties" data-target="replace">
 # Configuration file
