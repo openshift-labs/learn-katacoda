@@ -10,7 +10,12 @@ You will see the pod changing the status to `running`. You should see an output 
 
 ```sh
 NAME                    READY   STATUS    RESTARTS   AGE
-kafka-quarkus-1-wbvhg   1/1     Running   0          4m46s
+kafka-quarkus-1-mg8cv   0/1     Pending   0          0s
+kafka-quarkus-1-mg8cv   0/1     Pending   0          0s
+kafka-quarkus-1-mg8cv   0/1     ContainerCreating   0          0s
+kafka-quarkus-1-mg8cv   0/1     ContainerCreating   0          2s
+kafka-quarkus-1-mg8cv   0/1     ContainerCreating   0          8s
+kafka-quarkus-1-mg8cv   1/1     Running             0          13s
 ```
 
 Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.

@@ -29,4 +29,4 @@ oc adm policy add-cluster-role-to-user strimzi-admin developer
 
 oc adm policy add-role-to-user admin developer -n kafka
 
-git clone https://github.com/jbossdemocentral/katacoda-kafka-quarkus.git /opt/projects/kafka-quarkus
+git clone https://github.com/openshift-katacoda/rhi-kafka-pathway.git /opt/projects

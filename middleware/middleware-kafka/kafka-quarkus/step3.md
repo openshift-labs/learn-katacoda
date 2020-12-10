@@ -36,9 +36,9 @@ You should see
 ```sh
 Login successful.
 
-You don't have any projects. You can try to create a new project, by running
+You have one project on this server: "kafka"
 
-    oc new-project <projectname>
+Using project "kafka".
 ```
 
 ### Deploy application to OpenShift
