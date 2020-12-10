@@ -1,18 +1,41 @@
 OpenShift Pipelines are an OpenShift add-on that can be installed via an operator that is available in the OpenShift OperatorHub.
 
-Operators may be installed into a single namespace and only monitor resources in that namespace. The OpenShift Pipelines Operator installs globally on the cluster and monitors and manages pipelines for every single user in the cluster.
-
-You can install the operator using the "Operators" tab in the web console, or you can use the CLI tool "oc". In this exercise, we use the latter.
-
-To install the operator, you need to log in as an admin. You can do so by running:
+You can either install the operator using the OpenShift Pipelines Operator in the web console or by using the CLI tool `oc`. Let's log in to our cluster to make changes and install the operator. You can do so by running:
 
 `oc login -u admin -p admin`{{execute}}
 
-Now that you have logged in, you should be able to see the packages available to you to install from the OperatorHub. Let's take a look at the _openshift-pipelines-operator_ one.
+This will log you in using the credentials:
 
-`oc describe packagemanifest openshift-pipelines-operator -n openshift-marketplace`{{execute}}
+* **Username:** ``admin``
+* **Password:** ``admin``
 
-From that package manifest, you can find all the information that you need to create a Subscription to the Pipeline Operator.
+## Installing the OpenShift Pipelines Operator in Web Console
+
+You can install OpenShift Pipelines using the Operator listed in the OpenShift Container Platform OperatorHub. When you install the OpenShift Pipelines Operator, the Custom Resources (CRs) required for the Pipelines configuration are automatically installed along with the Operator.
+
+Firstly, switch to the _Console_ and login to the OpenShift web console using the same credentials you used above.
+
+![Web Console Login](../../assets/middleware/pipelines/web-console-login.png)
+
+In the _Administrator_ perspective of the web console, navigate to Operators → OperatorHub. You can see the list of available operators for OpenShift provided by Red Hat as well as a community of partners and open-source projects.
+
+Use the _Filter by keyword_ box to search for `OpenShift Pipelines Operator` in the catalog. Click the _OpenShift Pipelines Operator_ tile.
+
+![Web Console Hub](../../assets/middleware/pipelines/web-console-hub.png)
+
+Read the brief description of the Operator on the _OpenShift Pipelines Operator_ page. Click _Install_.
+
+Select _All namespaces on the cluster (default)_ for installation mode & _Automatic_ for the approval strategy. Click Subscribe!
+
+![Web Console Login](../../assets/middleware/pipelines/web-console-settings.png)
+
+Be sure to verify that the OpenShift Pipelines Operator has installed through the Operators → Installed Operators page.
+
+## Installing the OpenShift Pipelines Operator using the CLI
+
+You can install OpenShift Pipelines Operator from the OperatorHub using the CLI.
+
+First, you'll want to create a Subscription object YAML file to subscribe a namespace to the OpenShift Pipelines Operator, for example, `subscription.yaml` as shown below:
 
 ```
 apiVersion: operators.coreos.com/v1alpha1
@@ -21,21 +44,17 @@ metadata:
   name: openshift-pipelines-operator
   namespace: openshift-operators 
 spec:
-  channel: dev-preview
-  installPlanApproval: Automatic
-  name: openshift-pipelines-operator
-  source: community-operators 
+  channel: openshift-operators
+  name: openshift-pipelines-operator-rh
+  source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: openshift-pipelines-operator.v0.8.2
 ```
 
-The channel, name, starting CSV, source and source namespace are all described in the package file you just described. 
+This YAML file defines various components, such as the `channel` specifying the channel name where we want to subscribe, `name` being the name of our Operator, and `source` being the CatalogSource that provides the operator. For your convenience, we've placed this exact file in your `/operator` local folder. 
 
-_You can find more information on how to add operators on the [OpenShift documentation page](https://docs.openshift.com/container-platform/latest/operators/olm-adding-operators-to-cluster.html)._
+You can now create the Subscription object similar to any OpenShift object.
 
-For now, all you need to do is apply the associated YAML file.
-
-`oc apply -f ./operator/subscription.yaml`{{execute}}
+`oc apply -f operator/subscription.yaml`{{execute}}
 
 ## Verify installation
 
@@ -51,28 +70,4 @@ done
 echo "Operator ready"
 ```{{execute}}
 
-Once you see the message `Operator ready`, the operator is installed, and you can see the new resources by running: 
-
-`oc api-resources --api-group=tekton.dev`{{execute}}
-
-## Verify user roles
-
-To validate that your user has the appropriate roles, you can use the `oc auth can-i` command to see whether you can create Kubernetes custom resources of the kind needed by the OpenShift Pipelines Operator.
-
-The custom resource you need to create an OpenShift Pipelines pipeline is a resource of the kind pipeline.tekton.dev in the tekton.dev API group. To check that you can create this, run:
-
-`oc auth can-i create pipeline.tekton.dev`{{execute}}
-
-Or you can use the simplified version:
-
-`oc auth can-i create Pipeline`{{execute}}
-
-When run, if the response is yes, you have the appropriate access.
-
-Verify that you can create the rest of the Tekton custom resources needed for this workshop by running the commands below. All of the commands should respond with yes.
-
-`oc auth can-i create Task`{{execute}}
-`oc auth can-i create PipelineResource`{{execute}}
-`oc auth can-i create PipelineRun`{{execute}}
-
-Now that we have verified that you can create the required resources let's start the workshop.
+Great! The OpenShift Pipelines Operator is now installed. Now, let's start the workshop.
