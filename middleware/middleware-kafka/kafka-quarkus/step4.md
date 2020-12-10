@@ -21,7 +21,7 @@ Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
 To verify there was no problem with the application. we can check the logs with the following command:
 
-``oc logs dc/kafka-quarkus -f``{{execute interrupt}
+``oc logs dc/kafka-quarkus -f``{{execute interrupt}}
 
 You should see the information of the Quarkus application connecting to Kafka as well as the output of the sent events.
 
