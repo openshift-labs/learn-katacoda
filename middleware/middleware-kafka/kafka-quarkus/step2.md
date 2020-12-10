@@ -4,23 +4,26 @@ This project has already a `VehicleGenerator` class that will be used to send ev
 
 The Kafka Connector can write Reactive Messaging Messages as Kafka Records.
 
-In the application we will be sending the events to the `uber` channel through the following method:
+Open the `src/main/java/com/redhat/katacoda/kafka/VehicleGenerator`{{open}} file to check the code.
 
-<pre class="file" data-filename="./src/main/resources/application.properties" data-target="append" data-marker="//TODO-publisher">
+We will be sending the events to the `uber` channel through the following method:
+
+<pre class="file" data-filename="./src/main/java/com/redhat/katacoda/kafka/VehicleGenerator" data-target="append" data-marker="//TODO-publisher">
     @Outgoing("uber")
-    public Flowable<KafkaRecord<String, String>> generateUber()
+    public Flowable&lt;KafkaRecord&lt;String, String&gt;&gt; generateUber()
     {
         return Flowable.interval(5000, TimeUnit.MILLISECONDS)
                 .map(tick -> {
                     VehicleInfo vehicle = randomVehicle("uber");
                     LOG.info("dispatching vehicle: {}", vehicle);
-                    return KafkaRecord.of(String.valueOf(vehicle.getVehicleId()), Json.encode(vehicle));
+                    return KafkaRecord.of(String.valueOf(vehicle.getVehicleId()), Json.encodePrettily(vehicle));
                 });
     }
 </pre>
+
+> You can click in **Copy to Editor** to add the values into the file
+
 This simple method:
 
 - Instructs Reactive Messaging to dispatch the items from returned stream to the `uber`channel.
 - Returns an [RX Java 2 stream](https://github.com/ReactiveX/RxJava) (`Flowable`) emitting a random  vehicle information every 5 seconds
-
-The method returns a Reactive Stream. 

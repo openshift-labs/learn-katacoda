@@ -14,8 +14,12 @@
         "text": "step2.md"
       },
       {
-        "title": "Step 3",
+        "title": "Deploy to OpenShift",
         "text": "step3.md"
+      },
+      {
+        "title": "Check the Kafka records",
+        "text": "step4.md"
       }
     ],
     "intro": {

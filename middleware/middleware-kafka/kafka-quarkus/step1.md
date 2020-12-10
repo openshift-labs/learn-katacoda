@@ -10,11 +10,11 @@ Change the current folder to the project one:
 
 Install the extension into the project with the following command:
 
-``mvn quarkus:add-extension -Dextension="kafka"``{{execute}}
+``mvn quarkus:add-extension -Dextension="quarkus-smallrye-reactive-messaging-kafka"``{{execute}}
 
 >The first time you add the extension, new dependencies may be downloaded via maven. This should only happen once, after that things will go even faster.
 
-This will add the necessary entries in your `pom.xml`{{open}} to bring in the Kafka extension. You should see a fragment similar to this:
+This will add the necessary entries in your `pom.xml`{{open}} to bring in the Kafka extension. You should see a fragment similar to this around line 55:
 
 ```xml
 ...
@@ -27,7 +27,7 @@ This will add the necessary entries in your `pom.xml`{{open}} to bring in the Ka
 
 ### Configure channel
 
-We need to configure the application to define how are we going to connect to the event broker. 
+We need to configure the application to define how are we going to connect to the event broker.
 
 The MicroProfile Reactive Messaging properties are structured as follows:
 
@@ -45,7 +45,7 @@ Open the `src/main/resources/application.properties`{{open}} file to add the fol
 
 <pre class="file" data-filename="./src/main/resources/application.properties" data-target="replace">
 # Configuration file
-kafka.bootstrap.servers=localhost:9092
+kafka.bootstrap.servers=my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092
 
 mp.messaging.outgoing.uber.connector=smallrye-kafka
 mp.messaging.outgoing.uber.key.serializer=org.apache.kafka.common.serialization.StringSerializer
@@ -56,4 +56,4 @@ mp.messaging.outgoing.uber.value.serializer=org.apache.kafka.common.serializatio
 
 You can see we added the kafka bootstrap server hostname and port for the broker locations and the configuration for a channel named `uber`. The `key` and `value` serializers are part of the  [Producer configuration](https://kafka.apache.org/documentation/#producerconfigs) and [Consumer configuration](https://kafka.apache.org/documentation/#consumerconfigs) to encode the message payload.
 
->You don’t need to set the Kafka topic. By default, it uses the channel name (prices). You can configure the topic attribute to override it.
+>You don’t need to set the Kafka topic. By default, it uses the channel name (`uber`). You can configure the topic attribute to override it.
