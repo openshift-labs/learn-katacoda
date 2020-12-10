@@ -4,11 +4,11 @@ This project has already a `VehicleGenerator` class that will be used to send ev
 
 The Kafka Connector can write Reactive Messaging Messages as Kafka Records.
 
-Open the `src/main/java/com/redhat/katacoda/kafka/VehicleGenerator`{{open}} file to check the code.
+Open the `src/main/java/com/redhat/katacoda/kafka/VehicleGenerator.java`{{open}} file to check the code.
 
 We will be sending the events to the `uber` channel through the following method:
 
-<pre class="file" data-filename="./src/main/java/com/redhat/katacoda/kafka/VehicleGenerator" data-target="append" data-marker="//TODO-publisher">
+<pre class="file" data-filename="./src/main/java/com/redhat/katacoda/kafka/VehicleGenerator.java" data-target="append" data-marker="//TODO-publisher">
     @Outgoing("uber")
     public Flowable&lt;KafkaRecord&lt;String, String&gt;&gt; generateUber()
     {

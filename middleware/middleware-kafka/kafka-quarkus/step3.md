@@ -69,4 +69,6 @@ At the end you should see an output similar to the folllowing:
 [INFO] ------------------------------------------------------------------------
 ```
 
+>The process should take a few moments to complete.
+
 We are now ready to check the Kafka records.
