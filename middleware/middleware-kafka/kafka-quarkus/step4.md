@@ -1,10 +1,27 @@
 The application should be now generating a new event with Vehicle information every 5 seconds as expected. 
 
+### Wait for the application deployment
+
+The deployment will start the application pods. You can monitor the pods with the following command:
+
+``oc get pods -l deploymentconfig=kafka-quarkus -w``{{execute}}
+
+You will see the pod changing the status to `running`. You should see an output similar to the following:
+
+```sh
+NAME                    READY   STATUS    RESTARTS   AGE
+kafka-quarkus-1-wbvhg   1/1     Running   0          4m46s
+```
+
+Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
+
+`^C`{{execute ctrl-seq}}
+
 # Check the application log
 
 To verify there was no problem with the application. we can check the logs with the following command:
 
-``oc logs dc/kafka-quarkus -f``{{execute}}
+``oc logs dc/kafka-quarkus -f``{{execute interrupt}
 
 You should see the information of the Quarkus application connecting to Kafka as well as the output of the sent events.
 
@@ -34,7 +51,7 @@ Now, let see how it looks like within Kafka.
 
 Check the messages with this command:
 
-``oc exec -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic uber --from-beginning | jq``{{execute}}
+``oc exec -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic uber --from-beginning | jq``{{execute interrupt}}
 
 You should get a similar output:
 
@@ -55,5 +72,9 @@ You should get a similar output:
   "available": true
 }
 ```
+
+Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
+
+`^C`{{execute ctrl-seq}}
 
 Congratulations! You are now sending events to Kafka using the Quarkus Reactive Messaging extension for Kafka.
