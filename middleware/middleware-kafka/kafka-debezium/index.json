@@ -29,7 +29,8 @@
 		],
 		"intro": {
 			"courseData": "env-init.sh",
-			"text": "00-intro.md"
+			"text": "00-intro.md",
+			"code": "set-env.sh"
 		},
 		"finish": {
 			"text": "99-outro.md"
