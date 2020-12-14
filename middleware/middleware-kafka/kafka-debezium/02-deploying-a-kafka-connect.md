@@ -24,7 +24,7 @@ debezium-connect-6fc5b7f97d-g4h2l   0/1     Running             0          25s
 debezium-connect-6fc5b7f97d-g4h2l   1/1     Running             0          90s
 ```
 
-> This step might take a couple minutes.
+> This step might take a couple minutes. Wait until you have **1/1** READY Running pods.
 
 Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 

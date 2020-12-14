@@ -71,7 +71,9 @@ Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
 A successful attempt to send a message to (no output expected here)
 
-``echo "Hello world" | oc exec -i -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test``{{execute interrupt}}
+``echo "Hello world" | oc exec -i -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test``{{execute interrupt}}
+
+>You might see some WARN messages when executing this command. It happens just because the producer is asking for metadata about the topic it wants to write to but that topic doesn't exist in the cluster and the partition leader (where the producer wants to write) doesn't exist yet. Still, the command succeds.
 
 and receive a message from
 
