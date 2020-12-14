@@ -37,7 +37,7 @@ In real life, algorithms can be also much more complicated. For example, Camel K
 
 #### Create the first prediction algorithms
 
-Go to the text editor on the right, under the folder /root/camel-knative. Right click on the directory and choose New -> File and name it `Predictor.java`.
+Go to the text editor on the right, under the folder /root/camel-eventing. Right click on the directory and choose New -> File and name it `Predictor.java`.
 Paste the following code into the application.
 
 <pre class="file" data-filename="Predictor.java" data-target="replace">
