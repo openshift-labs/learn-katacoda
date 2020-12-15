@@ -37,12 +37,19 @@ In real life, algorithms can be also much more complicated. For example, Camel K
 
 #### Create the first prediction algorithms
 
-Go to the text editor on the right, under the folder /root/camel-knative. Right click on the directory and choose New -> File and name it `Predictor.java`.
+Go to the text editor on the right, under the folder /root/camel-eventing. Right click on the directory and choose New -> File and name it `Predictor.java`.
 Paste the following code into the application.
 
 <pre class="file" data-filename="Predictor.java" data-target="replace">
-// camel-k: language=java
 
+// camel-k: language=java
+import org.apache.camel.builder.RouteBuilder;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.camel.BindToRegistry;
+import org.apache.camel.PropertyInject;
 import org.apache.camel.builder.RouteBuilder;
 
 public class Predictor extends RouteBuilder {
@@ -71,13 +78,40 @@ public class Predictor extends RouteBuilder {
         .to("knative:event");
 
   }
+  
+  @BindToRegistry("algorithm")
+  public static class SimpleAlgorithm {
+
+    @PropertyInject(value="algorithm.sensitivity", defaultValue = "0.0001")
+    private double sensitivity;
+
+    private Double previous;
+    
+    public Map<String, Object> predict(double value) {
+      Double reference = previous;
+      this.previous = value;
+
+      if (reference != null && value < reference * (1 - sensitivity)) {
+        Map<String, Object> res = new HashMap<>();
+        res.put("value", value);
+        res.put("operation", "buy");
+        return res;
+      } else if (reference != null && value > reference * (1 + sensitivity)) {
+        Map<String, Object> res = new HashMap<>();
+        res.put("value", value);
+        res.put("operation", "sell");
+        return res;
+      }
+      return null;
+    }
+  }
 }
 
 </pre>
 
 Run the following command to start the first predictor:
 
-``kamel run --name simple-predictor -p predictor.name=simple camel-eventing/Predictor.java algorithms/SimpleAlgorithm.java -t knative-service.max-scale=1 --logs``{{execute}}
+``kamel run --name simple-predictor -p predictor.name=simple camel-eventing/Predictor.java -t knative-service.max-scale=1 --logs``{{execute}}
 
 The command above will deploy the integration and wait for it to run, then it will show the logs in the console.
 
@@ -101,7 +135,7 @@ To exit the log view, just click here or hit ctrl+c on the terminal window. The 
 
 The second predictor with more sensitivity called better-predictor, in the command line run:
 
-``kamel run --name better-predictor -p predictor.name=better -p algorithm.sensitivity=0.0005 camel-eventing/Predictor.java algorithms/SimpleAlgorithm.java -t knative-service.max-scale=1``{{execute}}
+``kamel run --name better-predictor -p predictor.name=better -p algorithm.sensitivity=0.0005 camel-eventing/Predictor.java -t knative-service.max-scale=1``{{execute}}
 
 You will be prompted with the following result, but please give a couple of minutes for the route to be deployed.
 ``integration "better-predictor" created``
