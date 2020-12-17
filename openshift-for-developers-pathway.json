@@ -1,0 +1,23 @@
+{
+    "title": "OpenShift for Developers",
+    "icon": "fa-openshift",
+    "courses": [
+      {
+        "external_link": "https://learn.openshift.com/introduction/getting-started/",
+        "pathway_id": "introduction",
+        "course_id": "getting-started",
+        "title": "Getting Started with OpenShift for Developers"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/deploying-python/",
+        "pathway_id": "introduction",
+        "course_id": "deploying-python",
+        "title": "Deploying Applications From Source"
+      },
+      {
+        "external_link": "https://learn.openshift.com/playgrounds/openshift46/",
+        "course_id": "openshift46",
+        "title": "OpenShift 4.6 Playground"
+      }
+    ]
+}
