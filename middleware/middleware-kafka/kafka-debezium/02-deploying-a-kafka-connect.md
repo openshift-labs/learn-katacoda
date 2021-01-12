@@ -1,20 +1,22 @@
-After setting up a Kafka cluster, you deploy Kafka Connect in a custom container image for Debezium. This service provides a framework for managing the Debezium MySQL connector.
+After you set up a Kafka cluster, deploy Kafka Connect in a custom container image for Debezium. 
+The Kafka Connect service provides a framework for managing Debezium connectors.
 
-You can create a custom container image by downloading the Debezium MySQL connector archive from the [Red Hat Integration](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?product=red.hat.integration&downloadType=distributions) download site and extracting to create the directory structure for the connector plug-in.
+You can create a custom container image by downloading the Debezium MySQL connector archive from the [Red Hat Integration](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?product=red.hat.integration&downloadType=distributions) download site and extracting it to create the directory structure for the connector plugin.
 
-Then you can create and publish a custom Linux container image using `docker build` or `podman build` from a custom Dockerfile.
+After you obtain the connector plugin, you can create and publish a custom Linux container image by running the `docker build` or `podman build` commands with a custom Dockerfile.
 
-> However, to save some time, we have already created and image for you. You can check the [documentation](https://access.redhat.com/documentation/en-us/red_hat_integration/2020-q3/html-single/getting_started_with_debezium/index#deploying-kafka-connect) in detail for more information.
+> To save some time, we have already created an image for you. 
+For detailed information about deploying Kafka Connect with Debezium, see the [Debezium documentation](https://access.redhat.com/documentation/en-us/red_hat_integration/2020-q3/html-single/getting_started_with_debezium/index#deploying-kafka-connect).
 
-To deploy the Kafka Connect cluster with the custom image execute the following command:
+To deploy the Kafka Connect cluster with the custom image that is provided in the scenario, enter the following command:
 
 ``oc -n debezium apply -f /root/projects/debezium/kafka-connect.yaml``{{execute interrupt}}
 
-The Kafka Connect node should be deployed after a few moments. To watch the pods status run the following command:
+After a few minutes, the Kafka Connect node is deployed. To check the pod status, enter the following command:
 
 ``oc get pods -w -l app.kubernetes.io/name=kafka-connect``{{execute}}
 
-You will see the pods changing the status to `running`. It should look similar to the following:
+The command returns status in the following format:
 
 ```bash
 NAME                                READY   STATUS              RESTARTS   AGE
@@ -23,22 +25,23 @@ debezium-connect-6fc5b7f97d-g4h2l   0/1     ContainerCreating   0          9s
 debezium-connect-6fc5b7f97d-g4h2l   0/1     Running             0          25s
 debezium-connect-6fc5b7f97d-g4h2l   1/1     Running             0          90s
 ```
+After a couple of minutes, the pod status changes to `Running`.  
+When the **READY** column shows **1/1**, you are ready to proceed.
 
-> This step might take a couple minutes. Wait until you have **1/1** READY Running pods.
-
-Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
+Enter <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
 `^C`{{execute ctrl-seq}}
 
-## Verify that Connect is up and contains Debezium
+## Verify that Kafka Connect is running with Debezium
 
-When the Connect node is up and running, we can verify the plugins available. AMQ streams allows us to manage most of the Kafka ecosystem components as Kubernetes custom resources. Hence, the information regarding Kafka Connect, is now available as part of the `status` section of the KafkaConnect resource.
+After the Connect node is running, you can verify that the Debezium connectors are available. 
+Because AMQ Streams lets you manage most components of the Kafka ecosystem as Kubernetes custom resources, you can obtain information about Kafka Connect from the `status` section of the `KafkaConnect` resource.
 
-List all plug-ins available for use.
+Enter the following command to list the connector plugins that are available on the Kafka Connect node.
 
 ``oc get kafkaconnect/debezium -o json | jq .status.connectorPlugins``{{execute interrupt}}
 
-You should see an output similar to the following:
+The command returns output that is similar to the following example:
 
 ```json
 [
@@ -71,10 +74,10 @@ You should see an output similar to the following:
 ]
 ```
 
-> Note: Output formatted for the sake of readability
+> Note: The preceding output is formatted to improve readability
 
-The Connect node has the Debezium `MySqlConnector` connector plugin available.
+Our Debezium `MySqlConnector` connector is now available for use on the Connect node.
 
-You have successfully deployed Kafka Connect node and configured it to contain Debezium.
+You have successfully deployed a Kafka Connect node and configured it to contain Debezium.
 
-In next step of this scenario we will finish deployment by creating a connection between database source and Kafka Connect.
+In the next step of this scenario we will finish the deployment by creating a connection between the MySQL database source and Kafka Connect.
