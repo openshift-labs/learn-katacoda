@@ -8,5 +8,5 @@ Continue to discover more about Debezium by exploring these additional resources
 * [Debezium website](https://debezium.io/)
 * [Extended Debezium tutorial](https://debezium.io/docs/tutorial/)
 * [Debezium examples repository](https://github.com/debezium/debezium-examples)
-* [How to run Debezium on Minishift](http://debezium.io/docs/openshift/)
+* [How to run Debezium on Minishift](https://debezium.io/documentation/reference/1.4/operations/openshift.html)
 * The [Strimzi](http://strimzi.io/) project for running Apache Kafka on OpenShift
