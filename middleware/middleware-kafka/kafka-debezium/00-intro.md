@@ -1,26 +1,31 @@
-Change data capture, or CDC, is a well-established software design pattern for monitoring and capturing data changes in a database. CDC captures row-level changes to database tables and passes corresponding change events to a data streaming bus. Applications can read the change-event streams and access change events in the order that they happened.
+Change data capture, or CDC, is a well-established software design pattern for capturing changes to tables in a database. 
+CDC captures row-level changes that occur in database tables and emits event records for those changes to a Kafka data streaming bus. 
+You can configure applications that rely on the data in particular tables to consume the change event streams for those tables.
+Consuming applications read the streams of event records in the order in which the events occurred.
 
 ### What you will learn
 
-In this scenario you will learn more about [Debezium](http://debezium.io/), a component part of [Red Hat Integration](https://www.redhat.com/en/products/integration) that provides change data capture for any of the supported databases:
+In this scenario you will learn about [Debezium](https://debezium.io/), a component of [Red Hat Integration](https://www.redhat.com/en/products/integration) that provides change data capture for the following supported databases:
 
+* Db2 (Technology Preview)
+* Microsoft SQL Server
+* MongoDB
 * MySQL
 * PostgreSQL
-* MongoDB
-* Microsoft SQL Server
-* Db2 (Technical Preview)
 
-You will deploy a complete end-to-end solution that will capture events from database transaction logs and make those events available to processing by downstream consumers via an [Apache Kafka](https://kafka.apache.org/) broker.
+You will deploy a complete end-to-end solution that captures events from database transaction logs and makes those events available for processing by downstream consumers through an [Apache Kafka](https://kafka.apache.org/) broker.
 
 ### What is Debezium?
 
 ![Logo](../../../assets/middleware/debezium-getting-started/debezium-logo.png)
 
-[Debezium](http://debezium.io/) is a set of distributed services capture row-level changes in your databases so that your applications can see and respond to those changes.
-Debezium records all row-level changes committed to a particular database table in a dedicated message topic.
-Each application simply reads the topic(s) they are interested in, and they see all of the events in the same order in which they occurred.
+[Debezium](https://debezium.io/) is a set of distributed services that capture row-level changes in a database. 
+Debezium records the change events for each table in a database to a dedicated Kafka topic. 
+You can configure applications to read from the topics that contain data change event records for specific tables.
+The consuming applications can then respond to change events with minimal latency.
+Applications read event records from a topic in the same order in which the events occurred.
 
-Technically Debezium utilizes the [Apache Kafka](https://kafka.apache.org/) streaming platform to distribute events captured from database.
-It is a set of plug-ins for [Kafka Connect](https://kafka.apache.org/documentation/#connect) that publish messages to a [Kafka broker](https://kafka.apache.org/documentation/#uses_messaging).
+Each Debezium source connector is built as a plugin for [Kafka Connect](https://kafka.apache.org/documentation/#connect).
+A Debezium source connector captures change events from a database and uses the [Apache Kafka](https://kafka.apache.org/) streaming platform to distribute and publish the captured event records to a [Kafka broker](https://kafka.apache.org/documentation/#uses_messaging).
 
-In the next steps we will deploy the components and get dataflow running from a MySQL database to a Kafka broker.
+In the steps that follow we will deploy a Debezium MySQL connector and use it to set up a data flow between a MySQL database and a Kafka broker.
