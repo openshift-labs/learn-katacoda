@@ -5,7 +5,7 @@ Consuming applications read the streams of event records in the order in which t
 
 ### What you will learn
 
-In this scenario you will learn about [Debezium](http://debezium.io/), a component of [Red Hat Integration](https://www.redhat.com/en/products/integration) that provides change data capture for the following supported databases:
+In this scenario you will learn about [Debezium](https://debezium.io/), a component of [Red Hat Integration](https://www.redhat.com/en/products/integration) that provides change data capture for the following supported databases:
 
 * Db2 (Technology Preview)
 * Microsoft SQL Server
@@ -19,7 +19,7 @@ You will deploy a complete end-to-end solution that captures events from databas
 
 ![Logo](../../../assets/middleware/debezium-getting-started/debezium-logo.png)
 
-[Debezium](http://debezium.io/) is a set of distributed services that capture row-level changes in a database. 
+[Debezium](https://debezium.io/) is a set of distributed services that capture row-level changes in a database. 
 Debezium records the change events for each table in a database to a dedicated Kafka topic. 
 You can configure applications to read from the topics that contain data change event records for specific tables.
 The consuming applications can then respond to change events with minimal latency.

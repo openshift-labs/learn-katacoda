@@ -5,8 +5,8 @@ You learned about the components that are required to deploy a solution based on
 But this is just the beginning.
 Continue to discover more about Debezium by exploring these additional resources:
 
-* [Debezium website](http://debezium.io/)
-* [Extended Debezium tutorial](http://debezium.io/docs/tutorial/)
+* [Debezium website](https://debezium.io/)
+* [Extended Debezium tutorial](https://debezium.io/docs/tutorial/)
 * [Debezium examples repository](https://github.com/debezium/debezium-examples)
 * [How to run Debezium on Minishift](http://debezium.io/docs/openshift/)
 * The [Strimzi](http://strimzi.io/) project for running Apache Kafka on OpenShift
