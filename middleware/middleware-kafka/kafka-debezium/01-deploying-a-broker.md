@@ -1,43 +1,52 @@
-Debezium connectors record all events to a [Red Hat AMQ Streams](https://developers.redhat.com/blog/2018/10/29/how-to-run-kafka-on-openshift-the-enterprise-kubernetes-with-amq-streams/) Kafka cluster. Applications then consume those events through AMQ Streams. Debezium uses the Apache Kafka Connect framework, which makes all of Debezium’s connectors into Kafka Connector source connectors. As such, they can be deployed and managed using AMQ Streams’ Kafka Connect custom Kubernetes resources.
+Debezium uses the Apache Kafka Connect framework, and Debezium connectors are implemented as Kafka Connector source connectors. 
 
-### Logging in to the Cluster via OpenShift CLI
+Debezium connectors capture change events from database tables and emit records of those changes to a [Red Hat AMQ Streams](https://developers.redhat.com/blog/2018/10/29/how-to-run-kafka-on-openshift-the-enterprise-kubernetes-with-amq-streams/) Kafka cluster. 
+Applications can consume event records through AMQ Streams. 
 
-Before creating any applications, login as admin. This will be required if you want to log in to the web console and use it.
+In AMQ Streams, you use Kafka Connect custom Kubernetes resources to deploy and manage the Debezium connectors.
 
-To login to the OpenShift cluster from the _Terminal_ run:
+### Logging in to the cluster from the OpenShift CLI
+
+To log in to the OpenShift cluster from a _terminal_, enter the following command:
 
 ``oc login -u developer -p developer``{{execute}}
 
-This will log you in using the credentials:
+The preceding command logs you in with the following credentials:
 
 * **Username:** ``developer``
 * **Password:** ``developer``
 
-Use the same credentials to log into the web console.
+You can use the same credentials to log into the web console.
 
-### Creating your own namespace
+### Creating a namespace
 
-To create a new (project) namespace called ``debezium`` for the AMQ Streams Kafka Cluster Operator run the command:
+Let's create a namespace (project) with the name ``debezium`` for the AMQ Streams Kafka Cluster Operator.
+Enter the following command:
 
 ``oc new-project debezium``{{execute}}
 
 ### Creating a Kafka cluster
 
-Create a new Kafka cluster named `my-cluster` with 1 Zookeeper and 1 broker node using `ephemeral` storage to simplify the deployment. The Red Hat AMQ streams operator is already installed in the cluster.
+Now we'll create a Kafka cluster named `my-cluster` that has one Zookeeper node and one broker node. 
+To simplify the deployment, the YAML file that we'll use to create the cluster specifies the use of `ephemeral` storage. 
 
-Create the Kafka cluster by issuing the following command:
+> **Note:**
+    The Red Hat AMQ Streams Operator is pre-installed in the cluster. Because we don't have to install the Operators in this scenario,`admin` permissions are not required to complete the steps that follow. In an actual deployment, to make an Operator available from all projects in a cluster, you must be logged in with `admin` permission before you install the Operator.
+
+Enter the following command to create the Kafka cluster:
 
 `oc -n debezium apply -f /root/projects/debezium/kafka-cluster.yaml`{{execute}}
 
-### Check Kafka cluster deployment
+### Checking the status of the Kafka cluster
 
-Follow up the Zookeeper and Kafka deployment to validate it is running.
+Verify that the Zookeeper and Kafka pods are deployed and running in the cluster.
 
-To watch the pods status run the following command:
+Enter the following command to check the status of the pods:
 
 ``oc -n debezium get pods -w``{{execute}}
 
-You will see the pods for Zookeeper, Kafka and the Entity Operator changing the status to `running`. It should look similar to the following:
+After a few minutes, the status of the pods for Zookeeper, Kafka, and the Entity Operator change to `running`. 
+The output of the `get pods` command should look similar to the following example:
 
 ```bash
 NAME                                                   READY   STATUS              RESTARTS   AGE
@@ -61,26 +70,34 @@ my-cluster-entity-operator-57bb594d9d-z4gs6            1/2     Running          
 my-cluster-entity-operator-57bb594d9d-z4gs6            2/2     Running             0          21s
 ```
 
-> You can notice the Cluster Operator starts the Apache Zookeeper cluster as well as the broker nodes and the Entity Operator. The Zookeeper and Kafka cluster are based in Kubernetes StatetulSets.
+> Notice that the Cluster Operator starts the Apache Zookeeper clusters, as well as the broker nodes and the Entity Operator. 
+The Zookeeper and Kafka clusters are based in Kubernetes StatefulSets.
 
-Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
+Enter <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
 `^C`{{execute ctrl-seq}}
 
-### Verify the broker is up and running
+### Verifying that the broker is running
 
-A successful attempt to send a message to (no output expected here)
+Enter the following command to send a message to the broker that you just deployed:
 
 ``echo "Hello world" | oc exec -i -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test``{{execute interrupt}}
 
->You might see some WARN messages when executing this command. It happens just because the producer is asking for metadata about the topic it wants to write to but that topic doesn't exist in the cluster and the partition leader (where the producer wants to write) doesn't exist yet. Still, the command succeds.
+>The command does not return any output unless it fails. 
+If you see warning messages in the the following format, you can ignore them:
 
-and receive a message from
+```
+>[2021-01-11 20:37:29,491] WARN [Producer clientId=console-producer] Error while fetching metadata with correlation id 1 : {test=LEADER_NOT_AVAILABLE} (org.apache.kafka.clients.NetworkClient)
+``` 
+
+These warnings result because the producer requests metadata from the topic that it wants to write to, but that topic and the broker partition leader don't exist yet in the cluster. 
+
+To verify that the broker is available, enter the following command to retrieve a message from the broker:
 
 ``oc exec -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning --max-messages 1``{{execute}}
 
-the deployed broker indicates that it is available.
+The broker processes the message that you sent in the previous command, and it returns the ``Hello world`` string.
 
-You have successfully deployed Kafka broker service and made it available to clients to produce and consume messages.
+You have successfully deployed the Kafka broker service and made it available to clients to produce and consume messages.
 
 In the next step of this scenario, we will deploy a single instance of Debezium.

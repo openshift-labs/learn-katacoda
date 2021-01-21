@@ -1,7 +1,7 @@
 {
 	"icon": "fa-openshift",
 	"title": "Change data capture with Debezium",
-	"description": "Debezium allows you to stream changes from your database to Apache Kafka",
+	"description": "Debezium enables you to stream changes from your database to Apache Kafka",
 	"pathwayTitle": "OpenShift",
 	"difficulty": "Intermediate",
 	"time": "20 minutes",
@@ -19,11 +19,11 @@
                 "text": "01-deploying-a-broker.md"
             },
             {
-                "title": "Deploying a Kafka Connect with Debezium",
+                "title": "Deploying Kafka Connect with Debezium",
                 "text": "02-deploying-a-kafka-connect.md"
             },
             {
-                "title": "Streaming data from database",
+                "title": "Streaming data from a database",
                 "text": "03-streaming-data-from-database.md"
             }
 		],
