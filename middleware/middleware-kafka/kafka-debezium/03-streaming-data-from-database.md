@@ -30,7 +30,7 @@ INFO: Connected to mysql.default.svc:3306 at mysql-bin.000003/154 (sid:184054, c
 2020-11-19 22:44:19,819 INFO Creating thread debezium-mysqlconnector-dbserver-mysql-binlog-client (io.debezium.util.Threads) [blc-mysql.default.svc:3306]
 2020-11-19 22:44:19,823 INFO Keepalive thread is running (io.debezium.connector.mysql.BinlogReader) [task-thread-debezium-connector-0]
 ```
->The preceding output is formatted to improve readability
+>The preceding output is formatted to improve readability.
 
 Notice that a line about midway through the preceding example states `Connected to mysql.default.svc:3306`. 
  
