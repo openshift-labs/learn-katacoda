@@ -20,7 +20,7 @@ If you are working against multiple OpenShift clusters, to switch between them, 
 
 ``oc login https://api.starter-us-east-1.openshift.com``
 
-When switching which OpenShift cluster is used, if you do not explicitly say which user to use, it will use whatever was the last user you were logged in as with that cluster. You can still provide ``--username`` if required.
+When switching between OpenShift clusters, if you do not explicitly say which user to use, it will use whatever was the last user you were logged in as with that cluster. You can still provide ``--username`` if required.
 
 Switching, without needing to supply the password or register with a token is possible as details for each are saved away separately in what is called a context. You can see what the current context is by running:
 
