@@ -1,7 +1,7 @@
-Debezium uses the Apache Kafka Connect framework, and Debezium connectors are implemented as Kafka Connector source connectors. 
+Debezium uses the Apache Kafka Connect framework, and Debezium connectors are implemented as Kafka Connector source connectors.
 
-Debezium connectors capture change events from database tables and emit records of those changes to a [Red Hat AMQ Streams](https://developers.redhat.com/blog/2018/10/29/how-to-run-kafka-on-openshift-the-enterprise-kubernetes-with-amq-streams/) Kafka cluster. 
-Applications can consume event records through AMQ Streams. 
+Debezium connectors capture change events from database tables and emit records of those changes to a [Red Hat AMQ Streams](https://developers.redhat.com/blog/2018/10/29/how-to-run-kafka-on-openshift-the-enterprise-kubernetes-with-amq-streams/) Kafka cluster.
+Applications can consume event records through AMQ Streams.
 
 In AMQ Streams, you use Kafka Connect custom Kubernetes resources to deploy and manage the Debezium connectors.
 
@@ -27,8 +27,8 @@ Enter the following command:
 
 ### Creating a Kafka cluster
 
-Now we'll create a Kafka cluster named `my-cluster` that has one Zookeeper node and one broker node. 
-To simplify the deployment, the YAML file that we'll use to create the cluster specifies the use of `ephemeral` storage. 
+Now we'll create a Kafka cluster named `my-cluster` that has one ZooKeeper node and one broker node.
+To simplify the deployment, the YAML file that we'll use to create the cluster specifies the use of `ephemeral` storage.
 
 > **Note:**
     The Red Hat AMQ Streams Operator is pre-installed in the cluster. Because we don't have to install the Operators in this scenario,`admin` permissions are not required to complete the steps that follow. In an actual deployment, to make an Operator available from all projects in a cluster, you must be logged in with `admin` permission before you install the Operator.
@@ -39,13 +39,13 @@ Enter the following command to create the Kafka cluster:
 
 ### Checking the status of the Kafka cluster
 
-Verify that the Zookeeper and Kafka pods are deployed and running in the cluster.
+Verify that the ZooKeeper and Kafka pods are deployed and running in the cluster.
 
 Enter the following command to check the status of the pods:
 
 ``oc -n debezium get pods -w``{{execute}}
 
-After a few minutes, the status of the pods for Zookeeper, Kafka, and the Entity Operator change to `running`. 
+After a few minutes, the status of the pods for ZooKeeper, Kafka, and the Entity Operator change to `running`.
 The output of the `get pods` command should look similar to the following example:
 
 ```bash
@@ -70,8 +70,8 @@ my-cluster-entity-operator-57bb594d9d-z4gs6            1/2     Running          
 my-cluster-entity-operator-57bb594d9d-z4gs6            2/2     Running             0          21s
 ```
 
-> Notice that the Cluster Operator starts the Apache Zookeeper clusters, as well as the broker nodes and the Entity Operator. 
-The Zookeeper and Kafka clusters are based in Kubernetes StatefulSets.
+> Notice that the Cluster Operator starts the Apache ZooKeeper clusters, as well as the broker nodes and the Entity Operator.
+The ZooKeeper and Kafka clusters are based in Kubernetes StatefulSets.
 
 Enter <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
@@ -83,14 +83,14 @@ Enter the following command to send a message to the broker that you just deploy
 
 ``echo "Hello world" | oc exec -i -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test``{{execute interrupt}}
 
->The command does not return any output unless it fails. 
+>The command does not return any output unless it fails.
 If you see warning messages in the the following format, you can ignore them:
 
 ```
 >[2021-01-11 20:37:29,491] WARN [Producer clientId=console-producer] Error while fetching metadata with correlation id 1 : {test=LEADER_NOT_AVAILABLE} (org.apache.kafka.clients.NetworkClient)
-``` 
+```
 
-These warnings result because the producer requests metadata from the topic that it wants to write to, but that topic and the broker partition leader don't exist yet in the cluster. 
+These warnings result because the producer requests metadata from the topic that it wants to write to, but that topic and the broker partition leader don't exist yet in the cluster.
 
 To verify that the broker is available, enter the following command to retrieve a message from the broker:
 

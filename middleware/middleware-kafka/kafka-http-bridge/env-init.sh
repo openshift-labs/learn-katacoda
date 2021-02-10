@@ -6,7 +6,7 @@ oc -n openshift-operators apply -f /opt/operator-install.yaml
 # Start Kafka
 oc new-project kafka
 
-# Check if operator is installed
+# Check if Operator is installed
 echo -e "Waiting for CRDs... (This might take a couple minutes)"
 
 while : ;
