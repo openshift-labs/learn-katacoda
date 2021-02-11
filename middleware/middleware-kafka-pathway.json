@@ -7,25 +7,25 @@
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-basic",
       "course_id": "kafka-basic",
       "title": "Apache Kafka basics",
-      "description": "This scenario will show how to deploy and connecto to Apache Kafka on Kubernetes"
+      "description": "Deploy and connect to Apache Kafka on Kubernetes"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-http-bridge",
       "course_id": "kafka-http-bridge",
       "title": "Exposing Apache Kafka through the HTTP Bridge",
-      "description": "The HTTP Bridge provides a REST API for integrating applications with Kafka"
+      "description": "Integrate applications with Kafka through the Kafka Bridge REST API"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-quarkus",
       "course_id": "kafka-quarkus",
       "title": "Apache Kafka with Reactive Messaging",
-      "description": "This scenario will show how Quarkus applications use Reactive Messaging with Apache Kafka"
+      "description": "Extend a Quarkus application to use Reactive Messaging with Apache Kafka"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-debezium",
       "course_id": "kafka-debezium",
-      "title": "Change data capture with Debezium",
-      "description": "Debezium allows you to stream changes from your database to Apache Kafka"
+      "title": "Debezium for change data capture",
+      "description": "Stream changes from your database to Apache Kafka with Debezium"
     }
   ]
 }

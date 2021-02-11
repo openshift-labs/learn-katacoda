@@ -9,12 +9,22 @@ Apache Kafka is a distributed data streaming platform that is a popular event pr
 
 ### Strimzi: Kubernetes Operator for Apache Kafka
 
-[Strimzi](https://strimzi.io/) is a CNCF Sandbox project which provides the leading community Operators to deploy and manage the components to run an Apache Kafka cluster on Kubernetes in various deployment configurations. This includes the Kafka brokers, Apache ZooKeeper, MirrorMaker and Kafka Connect.
+[Strimzi](https://strimzi.io/) simplifies the process of running Apache Kafka in a Kubernetes cluster.
+Strimzi is a CNCF Sandbox project which provides the leading community Operators for deploying and managing the components to run an Apache Kafka cluster on Kubernetes in various deployment configurations. This includes the Kafka brokers, Apache ZooKeeper, MirrorMaker and Kafka Connect.
 
 ### Red Hat Integration
 
-To respond to business demands quickly and efficiently, you need a way to integrate applications and data spread across your enterprise. [Red Hat AMQ](https://www.redhat.com/en/technologies/jboss-middleware/amq) — based on open source communities like Apache ActiveMQ and Apache Kafka — is a flexible messaging platform that delivers information reliably, enabling real-time integration and connecting the Internet of Things (IoT).
+To respond to business demands quickly and efficiently, you need a way to integrate applications and data spread across your enterprise. [Red Hat AMQ](https://www.redhat.com/en/technologies/jboss-middleware/amq) — based on open source communities like Apache ActiveMQ and Apache Kafka — is a flexible messaging platform that delivers information reliably, enabling real-time integration, and connecting the Internet of Things (IoT).
+
+AMQ streams is a [Red Hat Integration](https://www.redhat.com/en/products/integration) component that supports Apache Kafka on OpenShift. Through AMQ Streams, Kafka operates as an “OpenShift-native” platform through the use of powerful AMQ Streams Operators that simplify the deployment, configuration, management, and use of Apache Kafka on OpenShift.
 
 ![Operators within the AMQ Streams architecture](https://access.redhat.com/webassets/avalon/d/Red_Hat_AMQ-7.7-Evaluating_AMQ_Streams_on_OpenShift-en-US/images/320e68d6e4b4080e7469bea094ec8fbf/operators.png)
 
-AMQ streams, a [Red Hat Integration](https://www.redhat.com/en/products/integration) component, makes Apache Kafka “OpenShift native” through the use of powerful operators that simplify the deployment, configuration, management, and use of Apache Kafka on OpenShift.
+* **Cluster Operator**
+Deploys and manages Apache Kafka clusters, Kafka Connect, Kafka MirrorMaker, Kafka Bridge, Kafka Exporter, and the Entity Operator
+* **Entity Operator**
+Comprises the Topic Operator and User Operator
+* **Topic Operator**
+Manages Kafka topics
+* **User Operator**
+Manages Kafka users
