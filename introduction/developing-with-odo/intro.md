@@ -12,6 +12,6 @@ Learn how to use the *OpenShift Do* (`odo`) command line tool to build and deplo
 
 ## Use case
 
-Odo is a developer-centric tool for building and running software on OpenShift. Odo streamlines common build and deployment tasks to let you focus on your application’s source code. You can use odo to reduce the cognitive load and rote steps of building components, linking them together, and routing traffic to them on the OpenShift Container Platform.
+Odo is a developer-centric tool for building and running software on OpenShift. Odo streamlines common build and deployment tasks to let you focus on your application’s source code. You can use odo to reduce the cognitive load and rote steps that are typically involved when working on complex applications built using a mixed stack of component solutions.
 
 This OpenShift cluster will self-destruct in one hour.

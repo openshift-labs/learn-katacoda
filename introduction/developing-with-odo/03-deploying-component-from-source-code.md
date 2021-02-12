@@ -61,7 +61,6 @@ Click on **View Logs** where you should eventually see the following logs confir
 
 ```
 CONFIG ERROR: Can't find backend webservices component!
-Use `odo link` to link your front-end component to a backend component.
 Listening on 0.0.0.0, port 8080
 Frontend available at URL_PREFIX: /
 { Error: 'Backend Component Not Configured' }
