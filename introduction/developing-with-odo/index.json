@@ -27,8 +27,8 @@
             "title": "Deploying component from source-code",
             "text": "03-deploying-component-from-source-code.md"
         }, {
-            "title": "Linking components",
-            "text": "04-linking-components.md"
+            "title": "Configuring components",
+            "text": "04-configuring-components.md"
         }, {
             "title": "Exposing components to public",
             "text": "05-exposing-components-to-public.md"
