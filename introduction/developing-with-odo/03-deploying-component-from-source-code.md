@@ -63,7 +63,7 @@ Click on **View Logs** where you should eventually see the following logs confir
 CONFIG ERROR: Can't find backend webservices component!
 Listening on 0.0.0.0, port 8080
 Frontend available at URL_PREFIX: /
-{ Error: 'Backend Component Not Configured' }
+{ Error: 'CONFIG ERROR: backend component config not found: COMPONENT_BACKEND_HOST, COMPONENT_BACKEND_PORT' }
 ```
 
 Don't worry about the error message for now! You'll correct this in the next section.
