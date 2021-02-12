@@ -1,4 +1,4 @@
-We have updated `frontend` to be linked with `backend` to allow our application's components to communicate. Let's now create an external URL for our application so we can see it in action:
+We have updated `frontend` to connect to our `backend`, allowing our application's components to communicate. Let's now create an external URL for our application so we can see it in action:
 
 `odo url create frontend --port 8080`{{execute}}
 

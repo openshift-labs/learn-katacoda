@@ -24,7 +24,7 @@ Since this is the first time running this build, it may take 30-45 seconds to co
 
 With the backend's `.jar` file built, we can use `odo` to deploy and run it atop the Java application server we saw earlier in the catalog. The command below creates a *component* configuration of *component-type* `java` named `backend`:
 
-`odo create java:8 backend --binary target/wildwest-1.0.jar`{{execute}}
+`odo create java backend --s2i --binary target/wildwest-1.0.jar`{{execute}}
 
 As the component configuration is created, `odo` will print the following:
 
