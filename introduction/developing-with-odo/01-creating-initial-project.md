@@ -28,6 +28,7 @@ We will start by creating a new project by running `odo project create`:
 You should see the following output confirming the creation of a new OpenShift project called `myproject` and that `odo` is now using `myproject`:
 
 ```
+ ✓  Project 'myproject' is ready for use
  ✓  New project created and now using project : myproject
 ```
 

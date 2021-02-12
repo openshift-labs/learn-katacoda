@@ -12,7 +12,7 @@ Since `frontend` is written in an interpreted language, there is no build step a
 
 We give this Node.js component the name `frontend`:
 
-`odo create nodejs frontend`{{execute}}
+`odo create nodejs frontend --s2i --app=app`{{execute}}
 
 `odo` will create a `config.yaml` just like with the `backend` component, and you should see the following output:
 
@@ -60,10 +60,10 @@ To see the logs of the `frontend` component, wait for the dark blue ring to appe
 Click on **View Logs** where you should eventually see the following logs confirming `frontend` is running:
 
 ```
-CONFIG ERROR: Can't find backend webservices component!
+CONFIG ERROR: backend component config not found: COMPONENT_BACKEND_HOST, COMPONENT_BACKEND_PORT
 Listening on 0.0.0.0, port 8080
 Frontend available at URL_PREFIX: /
-{ Error: 'CONFIG ERROR: backend component config not found: COMPONENT_BACKEND_HOST, COMPONENT_BACKEND_PORT' }
+{ Error: 'Backend Component Not Configured' }
 ```
 
 Don't worry about the error message for now! You'll correct this in the next section.
