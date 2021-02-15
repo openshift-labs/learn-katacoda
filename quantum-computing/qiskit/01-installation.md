@@ -1,15 +1,15 @@
-# Overview
+# Getting started
 
 This installation method will use the latest version of the operator image that has been built and published to quay.
 
-``cd openshift-quantum-operators/operators-examples/openshift-qiskit-operator/operator``{{execute}}
+<!-- ``cd openshift-quantum-operators/operators-examples/openshift-qiskit-operator/operator``{{execute}} -->
 
 ## Create a project
 
 Create a new project
 ``oc new-project quantum-katacoda``{{execute}}
 
-## Custom Resource Definition
+<!-- ## Custom Resource Definition
 
 Deploy the custom resource definition (CRD)
 ``oc create -f deploy/crds/singhp11.io_qiskitplaygrounds_crd.yaml``{{execute}}
@@ -18,7 +18,7 @@ Deploy the custom resource definition (CRD)
 
 ``oc apply -f deploy/role.yaml``{{execute}}
 ``oc apply -f deploy/service_account.yaml``{{execute}}
-``oc apply -f deploy/role_binding.yaml``{{execute}}
+``oc apply -f deploy/role_binding.yaml``{{execute}} -->
 
 ## Setting up authorization with IBMQ Account token
 
