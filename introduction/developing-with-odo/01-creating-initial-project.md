@@ -69,4 +69,6 @@ Feel free to copy the information for the role binding name and service account 
 
 **Subject Name:** ``default``{{copy}}
 
-Now the service account that the backend uses has **view** access so it can retrieve objects via the API. Note that you could choose **edit** access instead. That would allow the backend to both retrieve and modify or delete objects. If you do that, you can end up destroying certain resources in the game that are not recoverable, which is why we are choosing **view** access for this scenario.
+Alternatively, this step can be completed via the command line by running `oc adm policy add-role-to-user view --rolebinding-name=defaultview -z default`
+
+The default service account provided to the backend container will now have **view** access, allowing it can retrieve objects via the API. Note that you could choose to grant access to the **edit** role instead. Providing **edit** access would allow the backend to view, modify, or delete objects. Enabling this level of access allows the backend to destroy non-recoverable resources that are used to host the game (breaking the user-experience for app users) - which is why we are using **view** access for this scenario.
