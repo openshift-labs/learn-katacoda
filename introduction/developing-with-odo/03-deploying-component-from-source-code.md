@@ -12,7 +12,7 @@ Since `frontend` is written in an interpreted language, there is no build step a
 
 We give this Node.js component the name `frontend`:
 
-`odo create nodejs frontend --s2i --app=app`{{execute}}
+`odo create frontend --app=app`{{execute}}
 
 `odo` will create a `config.yaml` just like with the `backend` component, and you should see the following output:
 
