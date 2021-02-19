@@ -6,7 +6,7 @@
     "difficulty": "beginner",
     "time": "10-15 minutes",
     "backend": {
-      "imageid": "openshift-4-2"
+      "imageid": "openshift-4-4"
     },
     "files": [
         "prometheus-configmap.yaml"
