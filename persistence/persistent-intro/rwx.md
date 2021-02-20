@@ -12,17 +12,17 @@ Create a new project:
 
 Next deploy the example PHP application called `file-uploader`:
 
-`oc new-app openshift/php:7.1~https://github.com/christianh814/openshift-php-upload-demo --name=file-uploader`{{execute}}
+`oc new-app openshift/php:7.2~https://github.com/christianh814/openshift-php-upload-demo --name=file-uploader`{{execute}}
 
 #### Sample Output:
 <pre>
---> Found image 665111f (6 days old) in image stream "openshift/php" under tag "7.1" for "openshift/php:7.1"
+--> Found image e04072d (8 months old) in image stream "openshift/php" under tag "7.2" for "openshift/php:7.2"
 
-    Apache 2.4 with PHP 7.1
-    -----------------------
-    PHP 7.1 available as container is a base platform for building and running various PHP 7.1 applications and frameworks. PHP is an HTML-embedded scripting language. PHP attempts to make it easy for developers to write dynamically generated web pages. PHP also offers built-in database integration for several commercial and non-commercial database management systems, so writing a database-enabled webpage with PHP is fairly simple. The most common use of PHP coding is probably as a replacement for CGI scripts.
+    Apache 2.4 with PHP 7.2 
+    ----------------------- 
+    PHP 7.2 available as container is a base platform for building and running various PHP 7.2 applications and frameworks. PHP is an HTML-embedded scripting language. PHP attempts to make it easy for developers to write dynamically generated web pages. PHP also offers built-in database integration for several commercial and non-commercial database management systems, so writing a database-enabled webpage with PHP is fairly simple. The most common use of PHP coding is probably as a replacement for CGI scripts.
 
-    Tags: builder, php, php71, rh-php71
+    Tags: builder, php, php72, rh-php72
 
     * A source build using source code from https://github.com/christianh814/openshift-php-upload-demo will be created
       * The resulting image will be pushed to image stream tag "file-uploader:latest"
@@ -39,7 +39,7 @@ Next deploy the example PHP application called `file-uploader`:
 --> Success
     Build scheduled, use 'oc logs -f bc/file-uploader' to track its progress.
     Application is not exposed. You can expose services to the outside world by executing one or more of the commands below:
-     'oc expose svc/file-uploader'
+     'oc expose svc/file-uploader' 
     Run 'oc status' to view your app.
 </pre>
 
