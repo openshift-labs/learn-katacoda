@@ -27,10 +27,6 @@
             {
                 "title": "Using RWX storage",
                 "text": "rwx.md"
-            },
-            {
-                "title": "Using OBC storage",
-                "text": "obc.md"
             }
         ],
         "intro": {
