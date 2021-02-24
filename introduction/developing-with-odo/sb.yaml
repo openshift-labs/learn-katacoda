@@ -1,0 +1,14 @@
+#apiVersion: binding.operators.coreos.com/v1alpha1
+apiVersion: apps.openshift.io/v1alpha1
+kind: ServiceBindingRequest
+spec:
+  applicationSelector:
+    resourceRef: frontend
+    group: apps
+    version: v1
+    resource: deployments
+  backingServiceSelector:
+    group: examplebinding.example.com
+    version: v1alpha1
+    kind: Service
+    resourceRef: backend

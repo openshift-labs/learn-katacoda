@@ -1,0 +1,43 @@
+0. update odo version
+curl -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/latest/odo-linux-amd64 -o /usr/bin/odo
+
+TODO:
+1. file bug report regarding use of `--port` flag?
+3. feature request: how do a create a fresh devfile that includes my application's port info?
+3. how do I use the java-wildfly-bootable-jar devfile with a local binary?
+
+--- next chapter:
+Replace env vars with Service Binding
+
+discuss trade offs
+1. add installation of "Beta" version of ServiceBindingOperator
+
+3. Create a new ServiceBinding step 5
+
+4. verify:
+oc get svc/backend-app -o jsonpath='{.metadata.name}'
+oc get svc/backend-app -o jsonpath='{.spec.ports[0].port}'
+
+5. 
+
+oc annotate svc/backend-app service.binding/host: path={.metadata.name}
+oc annotate svc/backend-app service.binding/port: path={.spec.ports[0].port}
+
+
+6. Add serviceBinding creation step 5 
+
+apiVersion: servicebindings.operators.coreos.com/v1beta1
+kind: ServiceBinding
+metadata:
+  name: binding-request
+spec:
+  application:
+    group: app
+    resource: deployments
+    name: frontend
+    version: v1
+  services:
+    - group: service.openshift.io
+      version: v1
+      kind: Service
+      name: backend-app
