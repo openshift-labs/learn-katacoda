@@ -6,7 +6,7 @@
     "difficulty": "beginner",
     "time": "5 minutes",
     "backend": {
-        "imageid": "openshift-4-4"
+        "imageid": "openshift-4-6"
     },
     "environment": {
         "showdashboard": true,
@@ -27,10 +27,6 @@
             {
                 "title": "Using RWX storage",
                 "text": "rwx.md"
-            },
-            {
-                "title": "Using OBC storage",
-                "text": "obc.md"
             }
         ],
         "intro": {
