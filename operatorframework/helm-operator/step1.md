@@ -30,7 +30,7 @@ operator-sdk init --plugins=helm --domain example.com
 <br>
 Automatically fetch the Cockroachdb Helm Chart and generate the CRD/API:
 
-```operator-sdk create api --helm-chart=cockroachdb --helm-chart-repo=https://kubernetes-charts.storage.googleapis.com --helm-chart-version=3.0.7```{{execute}}
+```operator-sdk create api --helm-chart=cockroachdb --helm-chart-repo=https://charts.helm.sh/stable --helm-chart-version=3.0.7```{{execute}}
 <br>
 ### Project Scaffolding Layout
 
