@@ -102,7 +102,6 @@ service SimpleService {
 ```
 
 
-
 **Step 3:** Search the registry for artifacts that contain the term `Bob` and return the results in JSON format.
 
 `curl -s localhost:8080/api/search/artifacts?search=Bob | json_pp -json_opt pretty,canonical`{{execute}}

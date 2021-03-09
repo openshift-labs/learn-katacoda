@@ -1,8 +1,7 @@
 **Congratulations!** You've completed the scenario, ***Working with a Schema Registry Using Apicurio***.
 
-In this scenario you learned basics of [TBP] 
 
-The interactive scenario demonstrated how to:
+This interactive scenario demonstrated how to:
 
 * Installed Apicurio under Docker
 * Added schemas to the registry

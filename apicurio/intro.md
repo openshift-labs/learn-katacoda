@@ -1,6 +1,6 @@
 ## Objective
 
-The objective of this scenario is to familiarize you with the concept of a schema registry and to get experience using one.
+The objectives of this scenario are to familiarize you with the concept of a schema registry and to get experience using one.
 
 In this scenario we'll use the schema registry published by [Apricurio](https://www.apicur.io/registry/).
 
@@ -13,7 +13,7 @@ Essentially a schema registry is a single source of truth for defining data sche
 
 ![using a schema registry](apicurio/assets/schema-registry.png)
 
-Server side developers and machine intelligence can use a schema registry to validate data coming into a service. Client side consumers can use a schema registry to ensure that data being submitted conforms to the structure and types expected by the given service.
+Server side developers and machine intelligence can use a schema registry to validate data coming into a service. Client side consumers can use a schema registry to ensure that data being submitted to a target conforms to the structure and types expected by the given service.
 
 
 ## Contents
