@@ -4,7 +4,7 @@ The objective of this lesson is to add schemas to the registry using the Apicuri
 
 ## What you'll be doing
 
-In this lesson you are going to upload schemas to the Apicurio schema registry via the Apicurio API. Also, you're going to use the Apicurio API to add metadata about each schema. The schema you're going to upload are in files that were automatically added to the Katacoda interactive learning enviornment when the Katacoda virtual machine started for this session.
+In this lesson you are going to upload schemas to the Apicurio schema registry via the Apicurio API. Also, you're going to use the Apicurio API to add metadata about each schema. The schemas you're going to upload are in files that were automatically added to the Katacoda interactive learning enviornment when the Katacoda virtual machine started for this session.
 
 
 ## Adding Schemas

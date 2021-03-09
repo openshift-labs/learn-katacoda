@@ -2,7 +2,6 @@
 The object of this scenario is bring up the Apricurio web site running in the Katacoda interactive learning environment,
 
 
-
 ## Steps
 
 **Step 1:** Bring up the Apicurio web site in a separate tab in your browser by clicking the link below.
