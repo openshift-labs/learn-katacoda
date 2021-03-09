@@ -1,5 +1,5 @@
 ## Objective
-The object of this scenario is bring up the Apricurio web site running in the Katacoda interactive learning environment,
+The object of this scenario is bring up the Apicurio web site running in the Katacoda interactive learning environment,
 
 
 
@@ -9,10 +9,10 @@ The object of this scenario is bring up the Apricurio web site running in the Ka
 
 https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/ui
 
-**BEWARE:** Sometimes it can take a minute or two for Apricurio to initialize the web server that publishes the Web UI. Thus, you might have to click the URL shown above a few times to get page to load without error.
+**BEWARE:** Sometimes it can take a minute or two for Apicurio to initialize the web server that publishes the Web UI. Thus, you might have to click the URL shown above a few times to get the page to load without error.
 
 
-**Step 2:** Notice the the schemas loaded into the schema registry via the Apicurio API now appear in the main web page:
+**Step 2:** Notice that the schemas loaded into the schema registry via the Apicurio API now appear in the main web page:
 
 ![Apicurio UI](apicurio/assets/apicurio.png)
 

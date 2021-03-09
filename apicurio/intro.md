@@ -7,7 +7,7 @@ In this scenario we'll use the schema registry published by [Apricurio](https://
 
 ## What you need to know to start
 
-In order to get full benefit from taking this scenario it's help to have a basic understanding of the usefulness of a schema registry and the pupose it serves when managing data in a distributed architecture.
+In order to get full benefit from taking this scenario it helps to have a basic understanding of the usefulness of a schema registry and the pupose it serves when managing data in a distributed architecture.
 
 Essentially a schema registry is a single source of truth for defining data schemas. Developers store schemas that describe the various data structures used by their services and APIs in a schema registry. Consumers query the schema registry to discover the schema(s) of the data that is to be submitted to and will be emitted from the given service or API.
 
@@ -31,6 +31,6 @@ This scenario is completely interactive. The instructions you'll be given will b
 
 ![Katacoda command line](kind-intro/assets/command.png)
 
-just click on it and the command will execute in the interative terminal window.
+just click on it and the command will execute in the interactive terminal window.
 
 Click the START SCENARIO button to start.

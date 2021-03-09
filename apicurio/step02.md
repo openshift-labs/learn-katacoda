@@ -4,7 +4,7 @@ The objective of this lesson is to add schemas to the registry using the Apicuri
 
 ## What you'll be doing
 
-In this lesson you are going to upload schemas to the Apicurio schema registry via the Apicurio API. Also, you're going to use the Apicurio API to add metadata about each schema. The schema you're going to upload are in files that were automatically added to the Katacoda interactive learning enviornment when the Katacoda virtual machine started for this session.
+In this lesson you are going to upload schemas to the Apicurio schema registry via the Apicurio API. Also, you're going to use the Apicurio API to add metadata about each schema. The schemas you're going to upload are in files that were automatically added to the Katacoda interactive learning enviornment when the Katacoda virtual machine started for this session.
 
 
 ## Adding Schemas
@@ -12,7 +12,7 @@ In the following steps you're going to add an [OpenApi](https://www.openapis.org
 
 ### Add an OpenApi Schema
 
-**Step 1:** Add a schema for in [OpenApi](https://www.openapis.org/) format and assign the data in the response to the environment variable `REPSONSE`.
+**Step 1:** Add a schema in [OpenApi](https://www.openapis.org/) format and assign the data in the response to the environment variable `RESPONSE`.
 
 `RESPONSE=$(curl -s -X POST localhost:8080/api/artifacts -H "Content-Type: application/json" -H "X-Registry-ArtifactType: OPENAPI" --data-binary "@airport-codes.json") && echo $RESPONSE | json_pp -json_opt pretty,canonical`{{execute}}
 
@@ -43,7 +43,7 @@ You'll get output similar to the following. (Your `id` value will differ accordi
 
 `4c4cb7ed-dc8f-4497-b5c7-9ee4f1507fad`
 
-**Step 3:** Use the `curl` command to add the label, `transportation` to the schema entry.
+**Step 3:** Use the `curl` command to add the label `transportation` to the schema entry.
 
 `curl -i -X PUT localhost:8080/api/artifacts/$RESPONSE_ID/meta -H "Content-Type: application/json" --data '{"labels": ["transportation"] }'`{{execute}}
 
@@ -59,7 +59,7 @@ Cache-control: no-cache, no-store, must-revalidate
 
 ### Add a Protocol Buffers Schema
 
-**Step 1:** Add a simple schema in [Protocol Buffers](https://developers.google.com/protocol-buffers/) format and assign the data in the response to the environment variable `REPSONSE`.
+**Step 1:** Add a simple schema in [Protocol Buffers](https://developers.google.com/protocol-buffers/) format and assign the data in the response to the environment variable `RESPONSE`.
 
 `RESPONSE=$(curl -s -X POST localhost:8080/api/artifacts -H "Content-Type: application/x-protobuf" -H "X-Registry-ArtifactType: PROTOBUF" --data-binary "@simple.proto") && echo $RESPONSE`{{execute}}
 
@@ -77,7 +77,7 @@ You'll get output similar to the following. (Your `id` value will differ accordi
 
 `e837f91e-3cab-4bea-914d-0694fb48d5af`
 
-**Step 3:** Name the schema entry in Apricurio, `Simple Schema` using `curl` against the Apricurio API.
+**Step 3:** Name the schema entry in Apicurio, `Simple Schema` using `curl` against the Apicurio API.
 
 `curl -i -X PUT localhost:8080/api/artifacts/$RESPONSE_ID/meta -H "Content-Type: application/json" --data '{"name": "Simple Schema" }'`{{execute}}
 
@@ -92,7 +92,7 @@ Cache-control: no-cache, no-store, must-revalidate
 ```
 ### Add an Advanced Protocol Buffers Schema
 
-**Step 1:** Add a more advanced schema in [Protocol Buffers](https://developers.google.com/protocol-buffers/) format and assign the data in the response to the environment variable `REPSONSE`.
+**Step 1:** Add a more advanced schema in [Protocol Buffers](https://developers.google.com/protocol-buffers/) format and assign the data in the response to the environment variable `RESPONSE`.
 
 `RESPONSE=$(curl -s -X POST localhost:8080/api/artifacts -H "Content-Type: application/x-protobuf" -H "X-Registry-ArtifactType: PROTOBUF" --data-binary "@seatsaver.proto") && echo $RESPONSE`{{execute}}
 
@@ -111,7 +111,7 @@ You'll get output similar to the following. (Your `id` value will differ accordi
 
 `7ca49a5f-7083-49f0-911f-f6be060fd90c`
 
-**Step 3:** Name the schema entry in Apricurio, `Seat Saver` to the schema using `curl` against the Apricurio API.
+**Step 3:** Set the Protocol Buffer schema's Name to `Seat Saver` in Apicurio using `curl` against the Apicurio API.
 
 `curl -i -X PUT localhost:8080/api/artifacts/$RESPONSE_ID/meta -H "Content-Type: application/json" --data '{"name": "Seat Saver" }'`{{execute}}
 
@@ -127,7 +127,7 @@ Cache-control: no-cache, no-store, must-revalidate
 
 ### Add a JSON Schema
 
-**Step 1:** Add a schema in [JSON Schema](https://json-schema.org/) format and assign the data in the response to the environment variable `REPSONSE`.
+**Step 1:** Add a schema in [JSON Schema](https://json-schema.org/) format and assign the data in the response to the environment variable `RESPONSE`.
 
 `RESPONSE=$(curl -s -X POST localhost:8080/api/artifacts -H "Content-Type: application/json" -H "X-Registry-ArtifactType: JSON" --data-binary "@simple.json") && echo $RESPONSE`{{execute}}
 
@@ -144,7 +144,7 @@ You'll get output similar to the following. (Your `id` value will differ accordi
 
 `2411dd45-931a-4706-8cdf-ea3fe3fb56e3`
 
-**Step 3:** Add the labels, `tool` and `utility` to the schema entry in Apicurio.
+**Step 3:** Add the labels `tool` and `utility` to the schema entry in Apicurio.
 
 `curl -i -X PUT localhost:8080/api/artifacts/$RESPONSE_ID/meta -H "Content-Type: application/json" --data '{"labels": ["tool", "utility"] }'`{{execute}}
 
