@@ -19,7 +19,7 @@ You'll get response as follows which makes sense because no schemas have been ad
 
 `[]`
 
-**BEWARE:** Sometimes it can take a minute or two for Apricurio to initialize in the Katacoda VM. Thus, you might have to click the `curl` command shown above in Step 3 a few times to get the expected response.
+**BEWARE:** Sometimes it can take a minute or two for Apicurio to initialize in the Katacoda VM. Thus, you might have to click the `curl` command shown above in Step 3 a few times to get the expected response.
 
 ---
 
