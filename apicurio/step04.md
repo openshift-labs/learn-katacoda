@@ -1,19 +1,19 @@
 ## Objective
-The objective of this lesson is to use the Apicurio API to perform various searches against the schema registry.
+The objective of this lesson is to use the Apicurio API to perform various searches for schemas stored in the schema registry.
 
 ## What you'll be doing
 
-In this lesson you will conduct the following searchs
+In this lesson you will conduct the following searches
 
-* Get a list of all the artifacts IDs stored in the schema registry
-* Get the first schema from the list of artifacts IDs 
+* Get a list of the IDs of all artifacts stored in the schema registry
+* Get the first schema from the list of artifact IDs
 * Get all the schemas or schema descriptions that have the term `Bob`
 * Get all the Protocol Buffer schemas
 
 
 ## Steps
 
-**Step 1:** Get a list of all the artifacts stored in the schema registry. Format the output as JSON.
+**Step 1:** Get a list of IDs of all the artifacts stored in the schema registry. Format the output as JSON.
 
 `SCHEMAS=$(curl -s localhost:8080/api/artifacts) && echo $SCHEMAS`{{execute}}
 
@@ -24,13 +24,13 @@ In this lesson you will conduct the following searchs
 
 `SCHEMA_ID=$(echo $SCHEMAS | jq '.[0]' | sed -e 's/^"//' -e 's/"$//') && echo $SCHEMA_ID`{{execute}}
 
-You'l' get output similar to the following:
+You'll get output similar to the following:
 
 `ce60dcd4-9063-4685-b8cc-7a259da78f17`
 
 `curl -s localhost:8080/api/artifacts/$SCHEMA_ID`{{execute}}
 
-The output you get will be determined by the type of schema retrieved. For example you might get back one of the PROTOBUF schemas. In that case your response will look like the following:
+The output you get will be determined by the type of schema retrieved. For example, you might get back one of the PROTOBUF schemas. In that case your response will look like the following:
 
 ```
 syntax = "proto3";
@@ -102,7 +102,7 @@ service SimpleService {
 ```
 
 
-**Step 3:** Search the for artifacts that contain the term `Bob` and return the results in JSON format.
+**Step 3:** Search the registry for artifacts that contain the term `Bob` and return the results in JSON format.
 
 `curl -s localhost:8080/api/search/artifacts?search=Bob | json_pp -json_opt pretty,canonical`{{execute}}
 
@@ -128,7 +128,7 @@ You'll get results similar to the following:
 
 
 
-**Step 4:** Search the schema registry for schema of type, `PROTOBUF`
+**Step 4:** Search the schema registry for schemas of type, `PROTOBUF`
 
 
 `curl -s localhost:8080/api/search/artifacts?search=PROTOBUF | json_pp -json_opt pretty,canonical`{{execute}}
