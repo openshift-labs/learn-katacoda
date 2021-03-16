@@ -90,7 +90,7 @@ First, change to the directory in which the project was created:
 
 Now we are ready to run our application. Click here to run:
 
-```mvn compile quarkus:dev```{{execute}}
+```mvn compile quarkus:dev -Dquarkus.http.host=0.0.0.0```{{execute}}
 
 You should see:
 
@@ -99,12 +99,12 @@ __  ____  __  _____   ___  __ ____  ______
  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
  -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
 --\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-INFO  [io.quarkus] (Quarkus Main Thread) getting-started 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.x.x.Final) started in 1.194s. Listening on: http://localhost:8080
+INFO  [io.quarkus] (Quarkus Main Thread) getting-started 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.x.x.Final) started in 1.194s. Listening on: http://0.0.0.0:8080
 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, resteasy]
 ```
 
-Note the amazingly fast startup time! Once started, you can request the provided endpoint in the browser [using this link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello).
+Note the amazingly fast startup time! Once started, you can request the provided endpoint in the browser [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello).
 
 You should see:
 
@@ -113,7 +113,7 @@ Hello RESTEasy
 ```
 It's working!
 
-Now, let's exercise the **live reload** capabilities of Quarkus. Click here to open the endpoint:  `getting-started/src/main/java/org/acme/quickstart/GreetingResource.java`{{open}}. Change `return "Hello RESTEasy";` to `return "Hola RESTEasy";` on line 14 in the editor. Don't save. Don't recompile or restart anything. Just try to reload the brower (or [click here](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello) again.)
+Now, let's exercise the **live reload** capabilities of Quarkus. Click here to open the endpoint:  `getting-started/src/main/java/org/acme/quickstart/GreetingResource.java`{{open}}. Change `return "Hello RESTEasy";` to `return "Hola RESTEasy";` on line 14 in the editor. Don't save. Don't recompile or restart anything. Just try to reload the brower (or [click here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello) again.)
 
 You should see the updated `hola` message.
 
