@@ -25,7 +25,7 @@ This will use the Quarkus Maven Plugin and generate a basic Maven project for yo
 * Example `Dockerfile`s for a variety of build targets (native, jvm, etc)
 * The application configuration file
 
-Once generated, look at the `getting-started/pom.xml`{{open}}. You will find the import of the Quarkus BOM, allowing to omit the version on the different Quarkus dependencies. In addition, you can see the `quarkus-maven-plugin` responsible of the packaging of the application and also providing the development mode.
+Once generated, look at the `quarkus/getting-started/pom.xml`{{open}}. You will find the import of the Quarkus BOM, allowing to omit the version on the different Quarkus dependencies. In addition, you can see the `quarkus-maven-plugin` responsible of the packaging of the application and also providing the development mode.
 
 ```xml
   <dependencyManagement>
