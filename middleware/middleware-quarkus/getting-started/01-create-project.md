@@ -122,6 +122,18 @@ Wow, how cool is that? Supersonic Subatomic live reload! Go ahead and change it 
 > `quarkus:dev` runs Quarkus in development mode. This enables live reload with background compilation, which means that when you modify your Java files your resource files and refresh your browser these changes will automatically take effect.
 > This will also listen for a debugger on port `5005`. If your want to wait for the debugger to attach before running you can pass `-Ddebug` on the command line. If you don’t want the debugger at all you can use `-Ddebug=false`.
 
+# The Dev UI
+
+When running in Developer mode, Quarkus apps expose a useful UI for inspecting and making on-the-fly changes to the app (much like live coding mode). It allows you to quickly visualize all the extensions currently loaded, see and edit their configuration values, see their status and go directly to their documentation.
+
+To access the Dev UI for your running app, [click this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/q/dev) which should open up the Dev UI in a new browser tab.
+
+![Dev UI](/openshift/assets/middleware/quarkus/dev-ui-overview.png)
+
+For example, click on the `Config Editor` link within the `Configuration` tile to see and make updates to configuration. This is super useful for developers to confirm code and configuration changes, or experiment with various settings.
+
+> **NOTE** The Dev UI is only enabled when in _developer_ mode. It is not deployed when in production mode, as it's designed for developers to use during development.
+
 # Congratulations!
 
 You've seen how to build a basic app, package it as an executable JAR and start it up very quickly. We'll leave the app running and rely on hot reload for the next steps.
