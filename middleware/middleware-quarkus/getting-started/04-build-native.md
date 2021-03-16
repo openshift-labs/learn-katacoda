@@ -2,9 +2,16 @@ Let’s now produce a native executable for our application. It improves the sta
 
 ![Native process](/openshift/assets/middleware/quarkus/native-image-process.png)
 
-We will be using GraalVM, which includes a native compiler for producing native images for a number of languages, including Java. It's been installed for you:
+We will be using GraalVM, which includes a native compiler for producing native images for a number of languages, including Java. To install GraalVM, run these commands:
 
-`echo $GRAALVM_HOME`{{execute}}
+`wget -O /tmp/graalvm.tar.gz https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.0.0.2/graalvm-ce-java11-linux-amd64-21.0.0.2.tar.gz && \
+pushd /usr/local && \
+tar -xvzf /tmp/graalvm.tar.gz && \
+rm -rf /tmp/graalvm.tar.gz && \
+GRAALVM_HOME="/usr/local/graalvm-ce-java11-21.0.0.2" && \
+$GRAALVM_HOME/bin/gu install native-image &&
+popd
+`{{execute}}
 
 ## Build native image
 
@@ -20,26 +27,7 @@ Within the `getting-started/pom.xml`{{open}} is the declaration for the Quarkus 
         </property>
       </activation>
       <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-failsafe-plugin</artifactId>
-            <version>${surefire-plugin.version}</version>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>integration-test</goal>
-                  <goal>verify</goal>
-                </goals>
-                <configuration>
-                  <systemProperties>
-                    <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
-                  </systemProperties>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
+      ...
       <properties>
         <quarkus.package.type>native</quarkus.package.type>
       </properties>
@@ -48,7 +36,9 @@ Within the `getting-started/pom.xml`{{open}} is the declaration for the Quarkus 
 ```
 We use a profile because, you will see very soon, packaging the native image takes a few seconds. However, this compilation time is only incurred _once_, as opposed to _every_ time the application starts, which is the case with other approaches for building and executing JARs.
 
-Create a native executable by clicking: `mvn clean package -Pnative -DskipTests=true`{{execute}}
+Create a native executable by clicking: `GRAALVM_HOME="/usr/local/graalvm-ce-java11-21.0.0.2" mvn clean package -Pnative -DskipTests=true`{{execute}}
+
+> **NOTE**: You can ignore warnings about `java.lang.ClassNotFoundException: sun.security.ssl.Debug` - this is a known issue when using Java 8 and does not affect the result.
 
 > Since we are on Linux in this environment, and the OS that will eventually run our application is also Linux, we can use our local OS to build the native Quarkus app. If you need to build native Linux binaries when on other OS's like Windows or Mac OS X, you can use `-Dquarkus.native.container-runtime=[podman | docker]`. You'll need either Docker or [Podman](https://podman.io) installed depending on which container runtime you want to use!
 
@@ -84,11 +74,11 @@ And extremely low memory usage as reported by the Linux `ps` utility. Click here
 You should see something like:
 
 ```console
-  PID   RSS  COMMAND
- 4831 14184 target/getting-started-1.0-SNAPSHOT-runner
+  PID   RSS COMMAND
+ 6082 26744 target/getting-started-1.0.0-SNAPSHOT-runner
 ```
 
-This shows that our process is taking around 13.8 MB of memory ([Resident Set Size](https://en.wikipedia.org/wiki/Resident_set_size), or RSS). Pretty compact!
+This shows that our process is taking around 26 MB of memory ([Resident Set Size](https://en.wikipedia.org/wiki/Resident_set_size), or RSS). Pretty compact!
 
 > Note that the RSS and memory usage of any app, including Quarkus, will vary depending your specific environment, and will rise as the application experiences load.
 

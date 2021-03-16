@@ -10,19 +10,21 @@ Package the application:
 
 `mvn package`{{execute}}. It produces 2 jar files:
 
-* `getting-started-1.0-SNAPSHOT.jar` - containing just the classes and resources of the projects, it’s the regular artifact produced by the Maven build
+* `target/getting-started-1.0.0-SNAPSHOT.jar` - containing just the classes and resources of the projects, it’s the regular artifact produced by the Maven build
 
-* `getting-started-1.0-SNAPSHOT-runner.jar` - being an executable jar. Be aware that it’s not an über-jar as the dependencies are copied into the `target/lib` directory.
+* `target/quarkus-app/quarkus-run.jar` - being an executable jar. Be aware that it’s not an über-jar as the dependencies are copied into several subdirectories (and would need to be included in any layered container image).
 
 See the files with this command:
 
-`ls -l target/*.jar`{{execute}}
+`ls -l target/*.jar target/quarkus-app/*.jar`{{execute}}
+
+> **NOTE**: Quarkus uses the _fast-jar_ packaging by default. The fast-jar packaging format is introduced as an alternative to the default jar packaging format. The main goal of this new format is to bring faster startup times.
 
 ## Run the executable JAR
 
 You can run the packaged application by clicking:
 
-`java -jar target/getting-started-1.0-SNAPSHOT-runner.jar`{{execute}}
+`java -jar target/quarkus-app/quarkus-run.jar`{{execute}}
 
 And then test it again using the browser to access the `/hello/greeting` endpoint, passing `quarkus` in the URL using [this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello/greeting/quarkus).
 
@@ -32,7 +34,7 @@ You should see:
 hello quarkus from master
 ```
 
-> The `Class-Path` entry of the `MANIFEST.MF` from the _runner jar_ explicitly lists the jars from the `lib` directory. So if you want to deploy your application somewhere, you need to copy the _runner jar_ as well as the _lib_ directory. If you want to create an Uber-jar with everything included, you can use `mvn pakage -DuberJar`.
+> The `Class-Path` entry of the `MANIFEST.MF` from the _runner jar_ explicitly lists the jars from the subdirectories under `target/quarkus-app`. So if you want to deploy your application somewhere, you need to copy the _runner jar_ as well as the folder structure under `target/quarkus-app`. If you want to create an Uber-jar with everything included, you can use `mvn package -DuberJar`.
 
 ## Cleanup
 
