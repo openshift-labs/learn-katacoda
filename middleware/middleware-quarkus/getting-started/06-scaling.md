@@ -46,8 +46,8 @@ Once they are all up and running, try the same load again:
 
 And witness all 50 pods responding evenly to requests. Try doing that with your average Java app running in a container! This tutorial uses a single node OpenShift cluster, but in practice you'll have many more nodes, and can scale to hundreds or thousands of replicas if and when load goes way up.
 
-> 50 still not enough? Are you feeling lucky? Try **100**: `oc scale --replicas=100 dc/getting-started`{{execute T1}} and watch the magic on the [OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus/overview)
+> 50 still not enough? Are you feeling lucky? Try **100**: `oc scale --replicas=100 dc/getting-started`{{execute T1}} and watch the magic on the [OpenShift Console](https://[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com/console/project/quarkus/overview). It may take a bit of time for all 100 to spin up given this limited resource environment, but they will eventually!
 
 ## Congratulations
 
-In this scenario you got a glimpse of the power of Quarkus apps, both traditional JVM-based as well as native builds. There is much more to Quarkus than fast startup times and low resource usage, so keep on exploring additional scenarios to learn more, and be sure to visit [quarkus.io](https://quarkus.io) to learn even more about the architecture and capabilities of this exciting new framework for Java developers. 
+In this scenario you got a glimpse of the power of Quarkus apps, both traditional JVM-based as well as native builds. There is much more to Quarkus than fast startup times and low resource usage, so keep on exploring additional scenarios to learn more, and be sure to visit [quarkus.io](https://quarkus.io) to learn even more about the architecture and capabilities of this exciting new framework for Java developers.
