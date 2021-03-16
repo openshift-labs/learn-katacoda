@@ -2,6 +2,10 @@ In this step, you will create a straightforward application serving a `hello` en
 
 ![Architecture](/openshift/assets/middleware/quarkus/arch.png)
 
+# Wait for prerequisite downloads
+
+A suitable Java runtime is being installed and should take less than a minute. Once it's done, continue below!
+
 # Create basic project
 
 The easiest way to create a new Quarkus project is to click to run the following command:
