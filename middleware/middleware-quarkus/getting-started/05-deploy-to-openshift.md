@@ -32,7 +32,7 @@ For this scenario, let's create a project that you will use to house your applic
 
 ## Deploy application to OpenShift
 
-Now let's deploy the application itself. Run the following command which will build and deploy a Quarkus native application using the OpenShift extension:
+Now let's deploy the application itself. Run the following command which will build and deploy a Quarkus native application using the OpenShift extension (this will take a few minutes to complete as it rebuilds the native executable, generates a container image and pushes it into OpenShift):
 
 `mvn clean package -Pnative \
 -Dquarkus.kubernetes-client.trust-certs=true \
@@ -51,7 +51,7 @@ For more details of the above options:
 * `quarkus.kubernetes.deploy=true` - Instructs the extension to deploy to OpenShift after the container image is built
 * `quarkus.kubernetes.deployment-target=openshift` - Instructs the extension to generate and create the OpenShift resources (like `DeploymentConfig`s and `Service`s) after building the container
 * `quarkus.openshift.expose=true` - Instructs the extension to generate an OpenShift `Route`.
-* `quarkus.openshift.labels.app.openshift.io/runtime=java` - Adds a nice-looking icon to the app when viewing the OpenShift Developer Toplogy
+* `quarkus.openshift.labels.app.openshift.io/runtime=quarkus` - Adds a nice-looking icon to the app when viewing the OpenShift Developer Topology
 
 Finally, make sure it's actually done rolling out:
 
