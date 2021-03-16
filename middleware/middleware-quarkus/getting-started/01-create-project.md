@@ -90,7 +90,7 @@ First, change to the directory in which the project was created:
 
 Now we are ready to run our application. Click here to run:
 
-```mvn compile quarkus:dev```{{execute}}
+```mvn compile quarkus:dev -Dquarkus.http.host=0.0.0.0```{{execute}}
 
 You should see:
 
@@ -99,7 +99,7 @@ __  ____  __  _____   ___  __ ____  ______
  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
  -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
 --\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-INFO  [io.quarkus] (Quarkus Main Thread) getting-started 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.x.x.Final) started in 1.194s. Listening on: http://localhost:8080
+INFO  [io.quarkus] (Quarkus Main Thread) getting-started 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.x.x.Final) started in 1.194s. Listening on: http://0.0.0.0:8080
 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, resteasy]
 ```
