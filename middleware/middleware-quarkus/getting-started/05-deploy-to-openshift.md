@@ -8,7 +8,6 @@ Run the following command to add it to our project:
 
 `mvn quarkus:add-extension -Dextensions="openshift"`{{execute T1}}
 
-
 ## Login to OpenShift
 
 We'll deploy our app as the `developer` user. Run the following command to login with the OpenShift CLI:
@@ -33,7 +32,7 @@ For this scenario, let's create a project that you will use to house your applic
 
 ## Deploy application to OpenShift
 
-Now let's deploy the application itself. Run the following command which will build and deploy a Quarkus native application using the OpenShift extension:
+Now let's deploy the application itself. Run the following command which will build and deploy a Quarkus native application using the OpenShift extension (this will take a few minutes to complete as it rebuilds the native executable, generates a container image and pushes it into OpenShift):
 
 `mvn clean package -Pnative \
 -Dquarkus.kubernetes-client.trust-certs=true \
@@ -41,7 +40,7 @@ Now let's deploy the application itself. Run the following command which will bu
 -Dquarkus.kubernetes.deploy=true \
 -Dquarkus.kubernetes.deployment-target=openshift \
 -Dquarkus.openshift.expose=true \
--Dquarkus.openshift.labels.app.openshift.io/runtime=java`{{execute T1}}`
+-Dquarkus.openshift.labels.app.openshift.io/runtime=quarkus`{{execute T1}}`
 
 The output should end with `BUILD SUCCESS`.
 
@@ -52,7 +51,7 @@ For more details of the above options:
 * `quarkus.kubernetes.deploy=true` - Instructs the extension to deploy to OpenShift after the container image is built
 * `quarkus.kubernetes.deployment-target=openshift` - Instructs the extension to generate and create the OpenShift resources (like `DeploymentConfig`s and `Service`s) after building the container
 * `quarkus.openshift.expose=true` - Instructs the extension to generate an OpenShift `Route`.
-* `quarkus.openshift.labels.app.openshift.io/runtime=java` - Adds a nice-looking icon to the app when viewing the OpenShift Developer Toplogy
+* `quarkus.openshift.labels.app.openshift.io/runtime=quarkus` - Adds a nice-looking icon to the app when viewing the OpenShift Developer Topology
 
 Finally, make sure it's actually done rolling out:
 
@@ -86,7 +85,7 @@ hello quarkus-on-openshift from getting-started-1-9sgsm
 
 ## Congratulations!
 
-This step covered the deployment of a Quarkus application on OpenShift. However, there is much more, and the integration with these environments has been tailored to make Quarkus applications execution very smooth. For instance, the health extension can be used for [health check](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-application-health); the configuration support allows mounting the application configuration using [config maps](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-configmaps), the metric extension produces data _scrape-able_ by [Prometheus](https://prometheus.io/) and so on.
+This step covered the deployment of a Quarkus application on OpenShift. However, there is much more, and the integration with these environments has been tailored to make Quarkus applications execution very smooth. For instance, the health extension can be used for [health check](https://docs.openshift.com/container-platform/4.6/applications/application-health.html); the configuration support allows mounting the application configuration using [config maps](https://docs.openshift.com/container-platform/4.6/authentication/configmaps.html), the metric extension produces data _scrape-able_ by [Prometheus](https://prometheus.io/) and so on.
 
 But we'll move to the final chapter around scaling and try a few things.
 

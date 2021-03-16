@@ -2,15 +2,17 @@ In this step, you will create a straightforward application serving a `hello` en
 
 ![Architecture](/openshift/assets/middleware/quarkus/arch.png)
 
+# Wait for prerequisite downloads
+
+A suitable Java runtime is being installed and should take less than a minute. Once it's done, continue below!
+
 # Create basic project
 
 The easiest way to create a new Quarkus project is to click to run the following command:
 
-`mvn io.quarkus:quarkus-maven-plugin:1.3.2.Final-redhat-00001:create \
+`mvn io.quarkus:quarkus-maven-plugin:1.12.2.Final:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=getting-started \
-    -DplatformGroupId=com.redhat.quarkus \
-    -DplatformVersion=1.3.2.Final-redhat-00001 \
     -DclassName="org.acme.quickstart.GreetingResource" \
     -Dpath="/hello"`{{execute}}
 
@@ -20,13 +22,13 @@ This will use the Quarkus Maven Plugin and generate a basic Maven project for yo
 * An `org.acme.quickstart.GreetingResource` resource exposed on `/hello`
 * An associated unit test
 * A landing page that is accessible on `http://localhost:8080` after starting the application
-* Example `Dockerfile`s for both native and jvm modes
+* Example `Dockerfile`s for a variety of build targets (native, jvm, etc)
 * The application configuration file
 
 Once generated, look at the `getting-started/pom.xml`{{open}}. You will find the import of the Quarkus BOM, allowing to omit the version on the different Quarkus dependencies. In addition, you can see the `quarkus-maven-plugin` responsible of the packaging of the application and also providing the development mode.
 
 ```xml
- <dependencyManagement>
+  <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>${quarkus.platform.group-id}</groupId>
@@ -37,41 +39,15 @@ Once generated, look at the `getting-started/pom.xml`{{open}}. You will find the
       </dependency>
     </dependencies>
   </dependencyManagement>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>io.quarkus</groupId>
-        <artifactId>quarkus-maven-plugin</artifactId>
-        <version>${quarkus-plugin.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>build</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${compiler-plugin.version}</version>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${surefire-plugin.version}</version>
-        <configuration>
-          <systemProperties>
-            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-          </systemProperties>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 ```
 
 If we focus on the dependencies section, you can see we are using [Quarkus extensions](https://quarkus.io/extensions/) allowing the development and testing of REST applications:
 ```xml
   <dependencies>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-arc</artifactId>
+    </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
@@ -98,7 +74,7 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "hello";
+        return "Hello RESTEasy";
     }
 }
 ```
@@ -119,10 +95,13 @@ Now we are ready to run our application. Click here to run:
 You should see:
 
 ```console
-2019-02-28 17:05:22,347 INFO  [io.qua.dep.QuarkusAugmentor] (main) Beginning quarkus augmentation
-2019-02-28 17:05:22,635 INFO  [io.qua.dep.QuarkusAugmentor] (main) Quarkus augmentation completed in 288ms
-2019-02-28 17:05:22,770 INFO  [io.quarkus] (main) Quarkus started in 0.668s. Listening on: http://localhost:8080
-2019-02-28 17:05:22,771 INFO  [io.quarkus] (main) Installed features: [cdi, resteasy]
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+INFO  [io.quarkus] (Quarkus Main Thread) getting-started 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.x.x.Final) started in 1.194s. Listening on: http://localhost:8080
+INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, resteasy]
 ```
 
 Note the amazingly fast startup time! Once started, you can request the provided endpoint in the browser [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello).
@@ -130,11 +109,11 @@ Note the amazingly fast startup time! Once started, you can request the provided
 You should see:
 
 ```console
-hello
+Hello RESTEasy
 ```
 It's working!
 
-Now, let's exercise the **live reload** capabilities of Quarkus. Click here to open the endpoint:  `getting-started/src/main/java/org/acme/quickstart/GreetingResource.java`{{open}}. Change `return "hello";` to `return "hola";` on line 14 in the editor. Don't save. Don't recompile or restart anything. Just try to reload the brower (or [click here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello) again.)
+Now, let's exercise the **live reload** capabilities of Quarkus. Click here to open the endpoint:  `getting-started/src/main/java/org/acme/quickstart/GreetingResource.java`{{open}}. Change `return "Hello RESTEasy";` to `return "Hola RESTEasy";` on line 14 in the editor. Don't save. Don't recompile or restart anything. Just try to reload the brower (or [click here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello) again.)
 
 You should see the updated `hola` message.
 
@@ -142,6 +121,18 @@ Wow, how cool is that? Supersonic Subatomic live reload! Go ahead and change it 
 
 > `quarkus:dev` runs Quarkus in development mode. This enables live reload with background compilation, which means that when you modify your Java files your resource files and refresh your browser these changes will automatically take effect.
 > This will also listen for a debugger on port `5005`. If your want to wait for the debugger to attach before running you can pass `-Ddebug` on the command line. If you don’t want the debugger at all you can use `-Ddebug=false`.
+
+# The Dev UI
+
+When running in Developer mode, Quarkus apps expose a useful UI for inspecting and making on-the-fly changes to the app (much like live coding mode). It allows you to quickly visualize all the extensions currently loaded, see and edit their configuration values, see their status and go directly to their documentation.
+
+To access the Dev UI for your running app, [click this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/q/dev) which should open up the Dev UI in a new browser tab.
+
+![Dev UI](/openshift/assets/middleware/quarkus/dev-ui-overview.png)
+
+For example, click on the `Config Editor` link within the `Configuration` tile to see and make updates to configuration. This is super useful for developers to confirm code and configuration changes, or experiment with various settings.
+
+> **NOTE** The Dev UI is only enabled when in _developer_ mode. It is not deployed when in production mode, as it's designed for developers to use during development. For more detail on what you can do, check out the [Dev UI Guide](https://quarkus.io/guides/dev-ui).
 
 # Congratulations!
 
