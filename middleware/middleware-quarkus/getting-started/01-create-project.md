@@ -132,7 +132,7 @@ To access the Dev UI for your running app, [click this link](https://[[CLIENT_SU
 
 For example, click on the `Config Editor` link within the `Configuration` tile to see and make updates to configuration. This is super useful for developers to confirm code and configuration changes, or experiment with various settings.
 
-> **NOTE** The Dev UI is only enabled when in _developer_ mode. It is not deployed when in production mode, as it's designed for developers to use during development.
+> **NOTE** The Dev UI is only enabled when in _developer_ mode. It is not deployed when in production mode, as it's designed for developers to use during development. For more detail on what you can do, check out the [Dev UI Guide](https://quarkus.io/guides/dev-ui).
 
 # Congratulations!
 
