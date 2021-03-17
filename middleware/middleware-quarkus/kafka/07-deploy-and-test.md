@@ -15,7 +15,7 @@ quarkus.container-image.build=true
 quarkus.kubernetes.deploy=true
 quarkus.kubernetes.deployment-target=openshift
 quarkus.openshift.expose=true
-quarkus.openshift.labels.app.openshift.io/runtime=java
+quarkus.openshift.labels.app.openshift.io/runtime=quarkus
 </pre>
 
 For more details of the above options:
@@ -25,7 +25,7 @@ For more details of the above options:
 * `quarkus.kubernetes.deploy=true` - Instructs the extension to deploy to OpenShift after the container image is built
 * `quarkus.kubernetes.deployment-target=openshift` - Instructs the extension to generate and create the OpenShift resources (like `DeploymentConfig`s and `Service`s) after building the container
 * `quarkus.openshift.expose=true` - Instructs the extension to generate an OpenShift `Route`.
-* `quarkus.openshift.labels.app.openshift.io/runtime=java` - Adds a nice-looking icon to the app when viewing the OpenShift Developer Toplogy
+* `quarkus.openshift.labels.app.openshift.io/runtime=quarkus` - Adds a nice-looking icon to the app when viewing the OpenShift Developer Toplogy
 
 ## Login to OpenShift
 
@@ -62,10 +62,6 @@ Finally, make sure it's actually done rolling out:
 `oc rollout status -w dc/people`{{execute T2}}
 
 Wait for that command to report `replication controller "people-1" successfully rolled out` before continuing.
-
-You can also add a Java icon to the app if you don't see it in the OpenShift Developer Toplogy:
-
-`oc label dc/people app.openshift.io/runtime=java --overwrite`{{execute T2}}
 
 You can see the app deployed in the [OpenShift Developer Toplogy](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/quarkus-kafka):
 

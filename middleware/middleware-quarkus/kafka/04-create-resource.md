@@ -9,7 +9,7 @@ Next, click **Copy to Editor** to add the following code to this file:
 <pre class="file" data-filename="./src/main/java/org/acme/people/stream/NameResource.java" data-target="replace">
 package org.acme.people.stream;
 
-import io.smallrye.reactive.messaging.annotations.Channel;
+import org.eclipse.microprofile.reactive.messaging.Channel;
 
 import org.reactivestreams.Publisher;
 import javax.inject.Inject;

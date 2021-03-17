@@ -32,6 +32,11 @@ configuration](https://kafka.apache.org/documentation/#producerconfigs) and [Con
 configuration](https://kafka.apache.org/documentation/#consumerconfigs) section from the Kafka documentation.
 
 > **Note**
-> 
+>
 > What about `my-data-stream`? This is an in-memory stream, not connected to a message broker.
 
+# Compilation Test
+
+To make sure you've got a compilable app and code is in its proper place, let's test the build. Run this command to compile and package the app:
+
+`mvn clean package`{{execute}}

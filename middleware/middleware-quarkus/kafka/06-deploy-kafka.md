@@ -25,13 +25,15 @@ To deploy Kafka, we'll use the _Strimzi_ Operator. Strimzi is an open source pro
 
 First, click this command to deploy the Operator to our new `kafka` namespace:
 
-`curl -s -L https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.17.0/strimzi-cluster-operator-0.17.0.yaml | sed 's/namespace: .*/namespace: kafka/' | oc apply -f -`{{execute T2}}
+`oc create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka`{{execute T2}}
 
 Wait for the Operator to be deployed by running this command:
 
 `oc rollout status -w deployment/strimzi-cluster-operator`{{execute T2}}
 
-You should see:
+> If this command seems to be taking a long time, just CTRL-C it and run it again. It make take time to install Kafka depending on system load.
+
+You should eventually see:
 
 ```console
 deployment "strimzi-cluster-operator" successfully rolled out
@@ -84,15 +86,15 @@ Look at the list of pods being spun up and look for the Kafka pods for our clust
 You should see something like:
 
 ``` none
-names-cluster-entity-operator-7fb67dc54d-pxw6t   3/3     Running   0          20s
-names-cluster-kafka-0                            2/2     Running   0          48s
-names-cluster-kafka-1                            2/2     Running   0          48s
-names-cluster-kafka-2                            2/2     Running   0          48s
-names-cluster-zookeeper-0                        2/2     Running   0          1m
-names-cluster-zookeeper-1                        2/2     Running   0          1m
-names-cluster-zookeeper-2                        2/2     Running   0          1m
+names-cluster-entity-operator-6cbfffc465-jthb7   3/3     Running   0          45s
+names-cluster-kafka-0                            1/1     Running   0          99s
+names-cluster-kafka-1                            1/1     Running   0          99s
+names-cluster-kafka-2                            1/1     Running   0          99s
+names-cluster-zookeeper-0                        1/1     Running   0          2m31s
+names-cluster-zookeeper-1                        1/1     Running   0          2m31s
+names-cluster-zookeeper-2                        1/1     Running   0          2m31s
 ```
-If the pods are still spinning up (not all in the _Running_ state), keep clicking the above command until you see 3 _kafka_ pods, 3 _zookeeper_ pods, and the single _entity operator_ pod.
+If the pods are still spinning up (not all in the _Running_ state with `1/1` or `3/3` containers running), keep clicking the above command until you see 3 _kafka_ pods, 3 _zookeeper_ pods, and the single _entity operator_ pod.
 
 It will take around 2 minutes to get all the Kafka pods up and running.
 
