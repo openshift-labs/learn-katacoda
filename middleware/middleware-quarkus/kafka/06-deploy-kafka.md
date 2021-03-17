@@ -25,13 +25,15 @@ To deploy Kafka, we'll use the _Strimzi_ Operator. Strimzi is an open source pro
 
 First, click this command to deploy the Operator to our new `kafka` namespace:
 
-`curl -s -L https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.17.0/strimzi-cluster-operator-0.17.0.yaml | sed 's/namespace: .*/namespace: kafka/' | oc apply -f -`{{execute T2}}
+`create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka`{{execute T2}}
 
 Wait for the Operator to be deployed by running this command:
 
 `oc rollout status -w deployment/strimzi-cluster-operator`{{execute T2}}
 
-You should see:
+> If this command seems to be taking a long time, just CTRL-C it and run it again. It make take time to install Kafka depending on system load.
+
+You should eventually see:
 
 ```console
 deployment "strimzi-cluster-operator" successfully rolled out
