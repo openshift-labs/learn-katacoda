@@ -4,6 +4,22 @@ Let's refresh the code we'll be using. Run the following command to clone the sa
 
 `cd /root/projects && rm -rf rhoar-getting-started && git clone https://github.com/openshift-katacoda/rhoar-getting-started`{{execute}}
 
+# Inspect Java runtime
+
+An appropriate Java runtime has been installed for you. Ensure you can use it by running this command:
+
+`$JAVA_HOME/bin/java --version`{{execute}}
+
+The command should report the version in use, for example (the versions and dates may be slightly different than the below example):
+
+```console
+openjdk 11.0.10 2021-01-19
+OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.10+9)
+OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.10+9, mixed mode)
+```
+
+If the command fails, wait a few moments and try again (it is installed in a background process and make take a few moments depending on system load).
+
 # The Project
 
 You start with a basic Maven-based application with the usual `pom.xml` entries for a Quarkus app.
@@ -66,4 +82,6 @@ you should see
 ```console
 hello
 ```
-Leave the app running, and let's start adding to it.
+## Cleanup
+
+In the terminal, press `CTRL-C` to stop our running app.
