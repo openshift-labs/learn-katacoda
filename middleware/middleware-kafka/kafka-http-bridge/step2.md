@@ -1,10 +1,10 @@
-In order to verify that the Ingress is working properly, try to hit the /healthy endpoint of the bridge with the following curl command:
+To verify that the Ingress is working properly, try to access the ``/healthy` endpoint of the bridge with the following curl command:
 
 ``curl -ik https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/healthy``{{execute interrupt}}
 
-If the bridge is reachable through the OpenShift route, it will return an HTTP response with status code `200 OK` but an empty body.
+If the bridge is reachable through the OpenShift route, it will return an HTTP response with `200 OK` HTTP code, but an empty body.
 
-It should look similat to the following example of the output:
+It should look similar to the following example of the output:
 
 ```sh
 HTTP/2 200
@@ -19,24 +19,24 @@ alt-svc: clear
 
 ### Producing messages
 
-The Kafka cluster we are working with has topic autocreation enabled, so we can start immediately to send messages through the `/topics/my-topic` endpoint exposed by the HTTP bridge.
+The Kafka cluster we are working with has topic auto-creation enabled, so we can immediately start to send messages through the `/topics/my-topic` endpoint exposed by the HTTP bridge.
 
 The bridge exposes two main REST endpoints in order to send messages:
 
 * /topics/{topicname}
 * /topics/{topicname}/partitions/{partitionid}
 
-The first one is used to send a message to a topic `topicname` while the second one allows the user to specify the partition via `partitionid`. Actually, even using the first endpoint the user can specify the destination partition in the body of the message.
+The first endpoint sends a message to a topic `topicname`. The second endpoint allows the user to specify the partition using a `partitionid`. Actually, even using the first endpoint we can specify the destination partition in the body of the message.
 
-The HTTP request payload is always a JSON but the message values can be JSON or binary (encoded in base64 because you are sending binary data in a JSON payload so encoding in a string format is needed).
+The HTTP request payload is always in JSON format, but the message values can be JSON or binary (encoded in base64 because we are sending binary data in a JSON payload so encoding in a string format is needed).
 
-When performing producer operations, `POST` requests must provide `Content-Type` headers specifying the desired _embedded data format_, either `json` or `binary`. In this scenario we will be using the **json** format.
+When performing producer operations, `POST` requests must provide `Content-Type` headers specifying the desired _embedded data format_, either as `json` or `binary`. In this scenario we will be using the **JSON** format.
 
 Let's send a couple of messages to the `my-topic` topic:
 
 ``curl -s -k -X POST https://my-bridge-bridge-service-kafka.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/topics/my-topic -H 'content-type: application/vnd.kafka.json.v2+json' -d '{ "records": [ {"key": "key-1","value": "sales-lead-0001"}, {"key": "key-2","value": "sales-lead-0002"} ] }' | jq``{{execute}}
 
-If the request is successful, the Kafka Bridge returns an `200 OK` with a JSON paylod describing the `offsets` array in which partition and at which offset the messages are written.
+If the request is successful, the Kafka Bridge returns a `200 OK` HTTP code, with a JSON payload describing the `offsets` array, and the partition and offsets in which the messages are written.
 
 In this case, the auto-created topic has just one partition, so the response will look something like this:
 
@@ -55,4 +55,4 @@ In this case, the auto-created topic has just one partition, so the response wil
 }
 ```
 
-Excellent! You have send your first messages to your Kafka topic through the HTTP Bridge. Now you are set to start consuming those messages.
+Excellent! You have sent your first messages to your Kafka topic through the Kafka Bridge. Now you are ready to start consuming those messages.
