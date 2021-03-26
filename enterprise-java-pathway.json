@@ -37,12 +37,6 @@
           "pathway_id": "middleware",
           "course_id": "java-batch-processing",
           "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret"
-        },
-        {
-          "external_link": "https://learn.openshift.com/middleware/debezium-getting-started/",
-          "pathway_id": "middleware",
-          "course_id": "debezium-getting-started",
-          "title": "Debezium deployment"
         }
     ]
 }
