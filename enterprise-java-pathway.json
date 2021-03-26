@@ -27,12 +27,6 @@
           "title": "Application Messaging with Openshift"
         },
         {
-          "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-thorntail/",
-          "pathway_id": "middleware",
-          "course_id": "rhoar-getting-started-thorntail",
-          "title": "Thorntail development"
-        },
-        {
           "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-rhdg/",
           "pathway_id": "middleware",
           "course_id": "rhoar-getting-started-rhdg",
