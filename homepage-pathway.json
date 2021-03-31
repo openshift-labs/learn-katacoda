@@ -76,7 +76,13 @@
       "external_link": "https://learn.openshift.com/playgrounds/",
       "title": "OpenShift Playgrounds",
       "description": "Explore and experiment with an OpenShift cluster for 60 minutes"
+    },
+   {
+      "external_link": "https://learn.openshift.com/gitops/",
+      "title": "GitOps",
+      "description": "Learn ArgoCD and GitOps"
     }
+
   ]
 }
 

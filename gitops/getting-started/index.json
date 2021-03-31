@@ -38,7 +38,7 @@
         {
           "title": "Deploying a Sample Application",
           "text": "03-deploying-sample-application.md"
-        },
+        }
       ],
       "finish": {
         "text": "finish.md"
@@ -50,8 +50,8 @@
             { "file": "argocd-instance/kustomization.yaml", "target": "~/argocd-instance" },
             { "file": "bgd-app/bgd-app.yaml", "target": "~/bgd-app" },
             { "file": "bgd-app/kustomization.yaml", "target": "~/bgd-app" },
-            { "file": "bgdk-app/bgdk-app.yaml", "target": "~/bgd-appk" },
-            { "file": "bgdk-app/kustomization.yaml", "target": "~/bgdk-app" },
+            { "file": "bgdk-appk/bgdk-appk.yaml", "target": "~/bgdk-appk" },
+            { "file": "bgdk-appk/kustomization.yaml", "target": "~/bgdk-appk" },
             { "file": "bgdk-kustomize/bgd-deployment.yaml", "target": "~/bgdk-kustomize" },
             { "file": "bgdk-kustomize/kustomization.yaml", "target": "~/bgdk-kustomize" },
             { "file": "bgd-yaml/bgd-deployment.yaml", "target": "~/bgd-yaml" },

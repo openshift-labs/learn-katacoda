@@ -1,4 +1,3 @@
-$ cat <<EOF > introduction/my-example/00-intro.md
 ## Goal
 
 Learn how to deploy an application on OpenShift with..
