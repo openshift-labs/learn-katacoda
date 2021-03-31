@@ -1,0 +1,3 @@
+resources:
+- argocd-cluster-role.yaml
+- argocd-instance.yaml

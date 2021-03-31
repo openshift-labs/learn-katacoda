@@ -1,0 +1,67 @@
+{
+    "icon": "fa-openshift",
+    "title": "Getting Started with ArgoCD and OpenShift GitOps Operator",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "30 minutes",
+    "backend": {
+      "imageid": "openshift-4-6"
+    },
+    "environment": {
+      "showdashboard": true,
+      "dashboards": [
+        {
+          "name": "OpenShift Web Console",
+          "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+        }
+      ],
+      "uilayout": "terminal-iframe",
+      "uieditorpath": "/root/",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+    },
+    "details": {
+      "intro": {
+        "courseData": "env-init.sh",
+        "text": "00-intro.md",
+        "code": "set-env.sh"
+      },
+      "steps": [
+        {
+          "title": "Installing the OpenShift GitOps Operator",
+          "text": "01-installing-openshift-operator.md"
+        },
+        {
+          "title": "Setting up ArgoCD",
+          "text": "02-setting-up-argocd.md"
+        },
+        {
+          "title": "Deploying a Sample Application",
+          "text": "03-deploying-sample-application.md"
+        },
+      ],
+      "finish": {
+        "text": "finish.md"
+      },
+      "assets": {
+       "client": [
+            { "file": "argocd-instance/argocd-cluster-role.yaml", "target": "~/argocd-instance" },
+            { "file": "argocd-instance/argocd-instance.yaml", "target": "~/argocd-instance" },
+            { "file": "argocd-instance/kustomization.yaml", "target": "~/argocd-instance" },
+            { "file": "bgd-app/bgd-app.yaml", "target": "~/bgd-app" },
+            { "file": "bgd-app/kustomization.yaml", "target": "~/bgd-app" },
+            { "file": "bgdk-app/bgdk-app.yaml", "target": "~/bgd-appk" },
+            { "file": "bgdk-app/kustomization.yaml", "target": "~/bgdk-app" },
+            { "file": "bgdk-kustomize/bgd-deployment.yaml", "target": "~/bgdk-kustomize" },
+            { "file": "bgdk-kustomize/kustomization.yaml", "target": "~/bgdk-kustomize" },
+            { "file": "bgd-yaml/bgd-deployment.yaml", "target": "~/bgd-yaml" },
+            { "file": "bgd-yaml/bgd-namespace.yaml", "target": "~/bgd-yaml" },
+            { "file": "bgd-yaml/bgd-route.yaml", "target": "~/bgd-yaml" },
+            { "file": "bgd-yaml/bgd-svc.yaml", "target": "~/bgd-yaml" },
+            { "file": "bgd-yaml/kustomization.yaml", "target": "~/bgd-yaml" },
+            { "file": "operator-install/kustomization.yaml", "target": "~/operator-install" },
+            { "file": "operator-install/openshift-gitops-operator-sub.yaml", "target": "~/operator-install" }
+       ]
+     }
+    }  
+}
