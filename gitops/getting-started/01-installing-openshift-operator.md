@@ -1,6 +1,18 @@
 The easiest way to install the OpenShift GitOps Operator is via the
 OpenShift UI.
 
+
+## Logging in to the Cluster via Dashboard
+
+Click the [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com) tab to open the dashboard. 
+
+You will then able able to login with admin permissions with:
+
+* **Username:** ``admin``{{copy}}
+* **Password:** ``admin``{{copy}}
+
+## Installing GitOps Operator
+
 You can install the Operator via the UI in the Administrator Perspective:
 
 * Click on `Operators` drop down on the leftside navigation.
