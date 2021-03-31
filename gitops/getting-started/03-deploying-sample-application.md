@@ -3,10 +3,10 @@
 In [this repo](resources/manifests/bgdk-yaml), we have some manifesets
 that you can use to test. This is a simple app that includes:
 
-* A **Namespace**: `bgdk-yaml/bgd-namespace.yaml`{{open}}
-* A **Deployment**: `bgdk-yaml/bgd-deployment.yaml`{{open}}
-* A **Service**: `bgdk-yaml/bgd-svc.yaml`{{open}}
-* A **Route**: `bgdk-yaml/bgd-route.yaml`{{open}}
+* A **Namespace**: `manifests/bgd-yaml/bgd-namespace.yaml`{{open}}
+* A **Deployment**: `manifests/bgd-yaml/bgd-deployment.yaml`{{open}}
+* A **Service**: `manifests/bgd-yaml/bgd-svc.yaml`{{open}}
+* A **Route**: `manifests/bgd-yaml/bgd-route.yaml`{{open}}
 
 Collectively, this is known as an `Application` within ArgoCD. Therefore,
 you must define it as such in order to apply these manifest in your
@@ -54,9 +54,9 @@ Let's break this down a bit.
 
 The `Application` CR (`CustomResource`) can be applied using [this repo](resources/manifests/bgdk-app) by running:
 
-`oc apply -k https://github.com/RedHatWorkshops/argocd-getting-started/resources/manifests/bgdk-app`{{execute}}
+`oc apply -k manifests/bgdk-appk`{{execute}}
 
-This should create the `bgdk-app` in the ArgoCD UI.
+This should create the `bgdk-appk` in the ArgoCD UI.
 
 ![bgdk-app](../../assets/gitops/bgdk-app.png)
 
@@ -67,7 +67,7 @@ Clicking on this takes you to the overview page. You may see it as still progres
 > :heavy_exclamation_mark: **NOTE**: You may have to click on `show hidden resources` on this page to see it all
 
 At this point the application should be up and running. You can see
-all the resources created with the `oc get pods,svc,route -n bgd`
+all the resources created with the `oc get pods,svc,route -n bgd`{{execute}}
 command. The output should look like this:
 
 ```

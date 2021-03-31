@@ -15,12 +15,12 @@ You can install the Operator via the UI in the Administrator Perspective:
 Another way to do this is to use the manifest directly. You can use the
 resources in this repo to install the OpenShift GitOps Operator:
 
-`oc apply -k operator-install`{{execute}}
+`oc apply -k manifests/operator-install`{{execute}}
 
 
 This uses [kustomize](https://kustomize.io/) to load the manifests needed to install the OpenShift GitOps Operator. 
 
-There is only 1 that is needed: `operator-install/openshift-gitops-operator-sub.yaml`{{open}}
+There is only 1 that is needed: `manifests/operator-install/openshift-gitops-operator-sub.yaml`{{open}}
 
 > :bulb: **NOTE**: You don't have to use `kustomize`. You can `oc apply -f` the file individually.
 
