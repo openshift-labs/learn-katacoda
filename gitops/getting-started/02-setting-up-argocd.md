@@ -1,5 +1,3 @@
-# Setting up ArgoCD
-
 Once the Operator is installed, we need to make some customizations for
 this lab. First, we need to patch the manifest so that ArgoCD will ignore
 router differences (since every route will be differnet).

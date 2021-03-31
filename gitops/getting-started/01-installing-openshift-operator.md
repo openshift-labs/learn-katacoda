@@ -1,5 +1,3 @@
-# Installing the OpenShift GitOps Operator
-
 The easiest way to install the OpenShift GitOps Operator is via the
 OpenShift UI.
 
