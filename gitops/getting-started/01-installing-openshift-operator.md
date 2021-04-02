@@ -32,7 +32,7 @@ This uses [kustomize](https://kustomize.io/) to load the manifest needed to inst
 
 In this case, there is only 1 file that is applied: `manifests/operator-install/openshift-gitops-operator-sub.yaml`{{open}}
 
->  **NOTE**: You don't have to use `kustomize`. You can `oc apply -f` directly.
+>  **NOTE**: You don't have to use `kustomize`. You can `oc apply -f` the file directly.
 
 The Operator is a "meta" Operator that installs both Argo CD and
 the Tekton Operator.
