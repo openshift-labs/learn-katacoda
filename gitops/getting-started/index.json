@@ -63,8 +63,7 @@
             { "file": "bgd-yaml/bgd-svc.yaml", "target": "~/manifests/bgd-yaml" },
             { "file": "bgd-yaml/kustomization.yaml", "target": "~/manifests/bgd-yaml" },
             { "file": "operator-install/kustomization.yaml", "target": "~/manifests/operator-install" },
-            { "file": "operator-install/openshift-gitops-operator-sub.yaml", "target": "~/manifests/operator-install" },
-            { "file": "scripts/argocd-postinstall.sh", "target": "~/scripts/post-install" }
+            { "file": "operator-install/openshift-gitops-operator-sub.yaml", "target": "~/manifests/operator-install" }
        ]
      }
     }  
