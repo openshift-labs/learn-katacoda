@@ -4,9 +4,18 @@
 
 #
 ## Check if you're admin. If not, exit.
-if ! oc get ns openshift-gitop -o name 2>&1 >/dev/null ; then
+if ! oc get ns openshift-gitops -o name 2>&1 >/dev/null ; then
     echo "ERROR: Please ensure that you're logged in as admin and that the Operator was installed"
     exit 3
+fi
+
+#
+## Installs the argocd CLI tool.
+wget -q -O /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/v1.8.7/argocd-linux-amd64
+if [[ -f /usr/local/bin/argocd ]] ; then
+    chmod +x /usr/local/bin/argocd
+else
+    echo "FATAL: ArgoCD cli failed to download"
 fi
 # 
 ## This patches the ArgoCD Controller to ignore the .spec.host field
@@ -34,5 +43,15 @@ oc adm policy add-cluster-role-to-user cluster-admin -z argocd-cluster-argocd-ap
 ## This recycles the pods to make sure the new configurations took.
 oc delete pods -l app.kubernetes.io/name=argocd-cluster-server -n openshift-gitops
 
-##
+#
+## Wait for rollout of new pods
+oc rollout status deploy argocd-cluster-server -n openshift-gitops
+
+#
+## Login to argocd locally for the user.
+argoRoute=$(oc get route argocd-cluster-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}')
+argoUser=admin
+argoPass=$(oc get secret/argocd-cluster-cluster -n openshift-gitops -o jsonpath='{.data.admin\.password}' | base64 -d)
+argocd login --insecure --grpc-web --username ${argoUser} --password ${argoPass} ${argoRoute}
+##  
 ##

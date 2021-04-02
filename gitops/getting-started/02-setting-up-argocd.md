@@ -1,22 +1,13 @@
-Once the Operator is installed, we need to make some customizations for
-this lab. First, we need to patch the manifest so that ArgoCD will ignore
-router differences (since every route will be differnet).
+Once the Operator is installed, we need to make some customizations
+specific for this lab environment. We've set these up in a script
+for you.
 
-`oc patch argocd argocd-cluster -n openshift-gitops --type=json \
--p='[{"op": "add", "path": "/spec/resourceCustomizations", "value":"route.openshift.io/Route:\n  ignoreDifferences: |\n    jsonPointers:\n    - /spec/host\n"}]'`{{execute}}
+`bash ~/scripts/argocd-postinstall.sh`{{execute}}
 
-Next, you need to give the ArgoCD Service account permission to
-make changes to your cluster. In practice, you will scope this to a
-specific namespace or a set of access. For this lab we will give it
-`cluster-admin`.
+> **NOTE** Feel free to take a look! It's well commented!
 
-
-`oc adm policy add-cluster-role-to-user cluster-admin -z argocd-cluster-argocd-application-controller -n openshift-gitops`{{execute}}
-
-Delete the ArgoCD server pod so that it can relaunch with the new set of permissions.
-
-`oc delete pods -l app.kubernetes.io/name=argocd-cluster-server -n openshift-gitops`{{execute}}
-
+Once it's done, you can now access the Argo CD UI. The information
+needed to login to the UI can be extracted from the cluster.
 
 The Operator installs the password in a secret. Extract this password to use to login to the ArgoCD instance.
 
@@ -26,8 +17,8 @@ To get the route for the ArgoCD UI:
 
 `oc get route argocd-cluster-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}'`{{execute}}
 
-Once you visit the URL in your browser, you should be presented with
-something that looks like this.
+Open up a new Tab and visit the URL. Once you visit the URL in your browser, you should be presented with something that looks like this.
+
 
 ![ArgoCD Login](../../assets/gitops/argocd-login.png)
 
