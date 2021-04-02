@@ -16,7 +16,7 @@
           "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
         }
       ],
-      "uieditorpath": ["/root/manifests", "/root/scripts"],
+      "uieditorpath": "/root/manifests",
       "uilayout": "editor-terminal",
       "uisettings": "bash",
       "hideintro": false,
