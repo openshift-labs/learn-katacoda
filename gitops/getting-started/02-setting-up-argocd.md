@@ -2,7 +2,7 @@ Once the Operator is installed, we need to make some customizations
 specific for this lab environment. We've set these up in a script
 for you.
 
-`bash ~/scripts/argocd-postinstall.sh`{{execute}}
+`bash ~/scripts/post-install/argocd-postinstall.sh`{{execute}}
 
 > **NOTE** Feel free to take a look! It's well commented!
 
