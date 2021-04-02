@@ -104,6 +104,6 @@ miss it) look at the screen you'll see it out of sync:
 But ArgoCD sees that difference and changes it back to the desired
 state. Preventing drift.
 
-![fullysynced](resources/images/fullysynced.png)
+![fullysynced](../../assets/gitops/fullysynced.png)
 
 > :bulb: **NOTE**: If you're having touble catching the sync. Run your browser window and terminal window side-by-side. This is a good thing, that Argo acts so quickly. :smiley:
