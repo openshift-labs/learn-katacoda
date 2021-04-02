@@ -4,7 +4,7 @@ for you.
 
 `bash ~/scripts/post-install/argocd-postinstall.sh`{{execute}}
 
-> **NOTE** Feel free to take a look! It's well commented!
+> **NOTE** Feel free to take a look at the script! It's well commented!
 
 Once it's done, you can now access the Argo CD UI. The information
 needed to login to the UI can be extracted from the cluster.

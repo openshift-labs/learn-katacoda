@@ -44,8 +44,9 @@ oc adm policy add-cluster-role-to-user cluster-admin -z argocd-cluster-argocd-ap
 oc delete pods -l app.kubernetes.io/name=argocd-cluster-server -n openshift-gitops
 
 #
-## Wait for rollout of new pods
+## Wait for rollout of new pods and the deployment to be available
 oc rollout status deploy argocd-cluster-server -n openshift-gitops
+oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops
 
 #
 ## Login to argocd locally for the user.
