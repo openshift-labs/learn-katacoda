@@ -17,7 +17,9 @@ To get the route for the ArgoCD UI:
 
 `oc get route argocd-cluster-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}'`{{execute}}
 
-Open up a new Tab and visit the URL. Once you visit the URL in your browser, you should be presented with something that looks like this.
+Open up a new Tab and visit the URL. Once you visit the URL in your
+browser, and accept the self signed certificate, you should be
+presented with something that looks like this.
 
 
 ![ArgoCD Login](../../assets/gitops/argocd-login.png)
