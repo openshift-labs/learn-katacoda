@@ -28,19 +28,30 @@ resources in this repo to install the OpenShift GitOps Operator:
 `oc apply -k manifests/operator-install`{{execute}}
 
 
-This uses [kustomize](https://kustomize.io/) to load the manifests needed to install the OpenShift GitOps Operator. 
+This uses [kustomize](https://kustomize.io/) to load the manifest needed to install the OpenShift GitOps Operator. You'll learn more about using `kustomize` in other lessons. 
 
-There is only 1 that is needed: `manifests/operator-install/openshift-gitops-operator-sub.yaml`{{open}}
+In this case, there is only 1 file that is applied: `manifests/operator-install/openshift-gitops-operator-sub.yaml`{{open}}
 
-> :bulb: **NOTE**: You don't have to use `kustomize`. You can `oc apply -f` the file individually.
+>  **NOTE**: You don't have to use `kustomize`. You can `oc apply -f` directly.
 
-The Operator is a "meta" Operator that installs both the ArgoCD Operator
-and Instance; and the Tekton Operator and Instance.
+The Operator is a "meta" Operator that installs both Argo CD and
+the Tekton Operator.
 
-Verify the installation by running `oc get pods -n openshift-gitops`. You should see the following output
+The installation might take a while, so you can wait for the
+deployment to be created.
+
+`until oc wait --for=condition=available --timeout=120s deploy argocd-cluster-server -n openshift-gitops ; do sleep 5 ; done`{{execute}}
+
+Once the deploymnet is created, you can wait for the rollout
+of the deployment.
+
+`oc rollout status deploy argocd-cluster-server -n openshift-gitops`{{execute}}
+
+Verify the installation by running `oc get pods -n openshift-gitops`{{execute}}
+
+You should see the following output.
 
 ```shell
-$ oc get pods -n openshift-gitops
 NAME                                                    READY   STATUS    RESTARTS   AGE
 argocd-cluster-application-controller-6f548f74b-48bvf   1/1     Running   0          54s
 argocd-cluster-redis-6cf68d494d-9qqq4                   1/1     Running   0          54s
@@ -50,4 +61,4 @@ cluster-86f8d97979-lfdhv                                1/1     Running   0     
 kam-7ff6f58c-2jxkm                                      1/1     Running   0          55s
 ```
 
-> :heavy_exclamation_mark: **NOTE**: It'll take some time so you may want to run `watch oc get pods -n openshift-gitops`
+Once you see the all the pods running, you can proceed!
