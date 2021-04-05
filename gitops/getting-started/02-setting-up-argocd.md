@@ -6,20 +6,16 @@ for you.
 
 > **NOTE** Feel free to take a look at the script! It's well commented!
 
-Once it's done, you can now access the Argo CD UI. The information
-needed to login to the UI can be extracted from the cluster.
-
-The Operator installs the password in a secret. Extract this password to use to login to the ArgoCD instance.
+Once it's done, you can now access the Argo CD UI. The password needed
+is stored in a secret. Extract this password to use to login to the
+ArgoCD instance.
 
 `oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute}}
 
-To get the route for the ArgoCD UI:
+Click [HERE](https://argocd-cluster-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com) tab to get to the Argo CD Web UI.
 
-`oc get route argocd-cluster-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}'`{{execute}}
-
-Open up a new Tab and visit the URL. Once you visit the URL in your
-browser, and accept the self signed certificate, you should be
-presented with something that looks like this.
+Once you visit the URL in your browser, and accept the self signed
+certificate, you should be presented with something that looks like this.
 
 
 ![ArgoCD Login](../../assets/gitops/argocd-login.png)
