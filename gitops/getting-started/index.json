@@ -48,9 +48,6 @@
       },
       "assets": {
        "client": [
-            { "file": "argocd-instance/argocd-cluster-role.yaml", "target": "~/resources/argocd-instance" },
-            { "file": "argocd-instance/argocd-instance.yaml", "target": "~/resources/argocd-instance" },
-            { "file": "argocd-instance/kustomization.yaml", "target": "~/resources/argocd-instance" },
             { "file": "bgd-app/bgd-app.yaml", "target": "~/resources/bgd-app" },
             { "file": "bgd-app/kustomization.yaml", "target": "~/resources/bgd-app" },
             { "file": "bgdk-appk/bgdk-appk.yaml", "target": "~/resources/bgdk-appk" },
