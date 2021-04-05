@@ -42,7 +42,9 @@ the Tekton Operator.
 The installation might take a while, so you can wait for the
 deployment to be created.
 
-`until oc wait --for=condition=available --timeout=120s deploy argocd-cluster-server -n openshift-gitops ; do sleep 5 ; done`{{execute}}
+> **NOTE**: It might seem like the command is "hanging", don't worry and let it take it's course.
+
+`until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops ; do sleep 5 ; done`{{execute}}
 
 Once the deploymnet is created, you can wait for the rollout
 of the deployment.
