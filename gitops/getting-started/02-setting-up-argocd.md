@@ -12,7 +12,7 @@ ArgoCD instance.
 
 `oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute}}
 
-Click [HERE](https://argocd-cluster-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com) tab to get to the Argo CD Web UI.
+To get to the Argo CD Web UI; Click [HERE](https://argocd-cluster-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
 Once you visit the URL in your browser, and accept the self signed
 certificate, you should be presented with something that looks like this.

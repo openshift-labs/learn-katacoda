@@ -5,23 +5,23 @@ metadata:
   namespace: openshift-gitops
 spec:
   destination:
-    namespace: openshift-gitops
+    namespace: bgd
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: resources/manifests/bgd-yaml
-    repoURL: https://github.com/RedHatWorkshops/argocd-getting-started
+    path: apps/bgd/base
+    repoURL: https://github.com/redhat-developer-demos/openshift-gitops-examples
     targetRevision: main
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
+      selfHeal: false
   sync:
     comparedTo:
       destination:
-        namespace: openshift-gitops
+        namespace: bgd
         server: https://kubernetes.default.svc
       source:
-        path: resources/manifests/bgd-yaml
-        repoURL: https://github.com/RedHatWorkshops/argocd-getting-started
+        path: apps/bgd/base
+        repoURL: https://github.com/redhat-developer-demos/openshift-gitops-examples
         targetRevision: main

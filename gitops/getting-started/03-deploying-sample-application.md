@@ -1,60 +1,32 @@
-In [this repo](resources/manifests/bgdk-yaml), we have some manifesets
-that you can use to test. This is a simple app that includes:
+In [this environment](examples/bgdk-yaml), we have
+some example manifesets taken from our [sample GitOps
+repo](https://github.com/redhat-developer-demos/openshift-gitops-examples).
+We'll be uisng this repo to test. These manifests include:
 
-* A **Namespace**: `manifests/bgd-yaml/bgd-namespace.yaml`{{open}}
-* A **Deployment**: `manifests/bgd-yaml/bgd-deployment.yaml`{{open}}
-* A **Service**: `manifests/bgd-yaml/bgd-svc.yaml`{{open}}
-* A **Route**: `manifests/bgd-yaml/bgd-route.yaml`{{open}}
+* A **Namespace**: `examples/bgd-yaml/bgd-namespace.yaml`{{open}}
+* A **Deployment**: `examples/bgd-yaml/bgd-deployment.yaml`{{open}}
+* A **Service**: `examples/bgd-yaml/bgd-svc.yaml`{{open}}
+* A **Route**: `examples/bgd-yaml/bgd-route.yaml`{{open}}
 
 Collectively, this is known as an `Application` within ArgoCD. Therefore,
 you must define it as such in order to apply these manifest in your
 cluster.
 
-Here is the `Application` manifest we are going to use:
-
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: bgdk-app
-  namespace: openshift-gitops
-spec:
-  destination:
-    namespace: openshift-gitops
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    path: resources/manifests/bgdk-yaml
-    repoURL: https://github.com/RedHatWorkshops/argocd-getting-started
-    targetRevision: main
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-  sync:
-    comparedTo:
-      destination:
-        namespace: openshift-gitops
-        server: https://kubernetes.default.svc
-      source:
-        path: resources/manifests/bgdk-yaml
-        repoURL: https://github.com/RedHatWorkshops/argocd-getting-started
-        targetRevision: main
-```
+Open up the Argo CD `Application` manifest: `bgd-app/bgd-app.yaml`{{open}}
 
 Let's break this down a bit.
 
 * ArgoCD's concept of a `Project` is different than OpenShift's. Here you're installing the application in ArgoCD's `default` project (`.spec.project`). **NOT** OpenShift's `default` project.
 * The destination server is the server we installed ArgoCD on (noted as `.spec.destination.server`).
 * The manifest repo where the YAML resides and the path to look for the YAML is under `.spec.source`.
-* The `.spec.syncPolicy` is set to automatically sync the repo.
+* The `.spec.syncPolicy` is set to `false`. Note you can have Argo CD automatically sync the repo.
 * The last section `.spec.sync` just says what are you comparing the repo to. (Basically "Compare the running config to the desired config")
 
-The `Application` CR (`CustomResource`) can be applied using [this repo](resources/manifests/bgdk-app) by running:
+The `Application` CR (`CustomResource`) can be applied by running the following:
 
-`oc apply -k manifests/bgdk-appk`{{execute}}
+`oc apply -f resources/bgd-app/bgd-app.yaml`{{execute}}
 
-This should create the `bgdk-appk` in the ArgoCD UI.
+This should create the `bgd-app` in the ArgoCD UI.
 
 ![bgdk-app](../../assets/gitops/bgdk-app.png)
 
@@ -62,14 +34,13 @@ Clicking on this takes you to the overview page. You may see it as still progres
 
 ![synced-app](../../assets/gitops/synced-app.png)
 
-> :heavy_exclamation_mark: **NOTE**: You may have to click on `show hidden resources` on this page to see it all
+> **NOTE**: You may have to click on `show hidden resources` on this page to see it all
 
 At this point the application should be up and running. You can see
 all the resources created with the `oc get pods,svc,route -n bgd`{{execute}}
 command. The output should look like this:
 
-```
-$ oc get pods,svc,route -n bgd
+```shell
 NAME                       READY   STATUS    RESTARTS   AGE
 pod/bgd-788cb756f7-kz448   1/1     Running   0          10m
 
@@ -93,8 +64,7 @@ Your application should look like this.
 Let's introduce a change! Patch the live manifest to change the color
 of the box from blue to green:
 
-`oc -n bgd patch deploy/bgd --type='json' \
--p='[{"op": "replace", "path": "/spec/template/spec/containers/0/env/0/value", "value":"green"}]'`{{execute}}
+`oc -n bgd patch deploy/bgd --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/env/0/value", "value":"green"}]'`{{execute}}
 
 If you quickly (I'm not kidding, you have to be lightning fast or you'll
 miss it) look at the screen you'll see it out of sync:
