@@ -17,23 +17,15 @@ if [[ -f /usr/local/bin/argocd ]] ; then
 else
     echo "FATAL: ArgoCD cli failed to download"
 fi
-# 
-## This patches the ArgoCD Controller to ignore the .spec.host field
-## in the Route objects. This is because Routes will always be different
-## on Katacoda.
-oc patch argocd argocd-cluster -n openshift-gitops --type=json \
--p='[{"op": "add", "path": "/spec/resourceCustomizations", "value":"route.openshift.io/Route:\n  ignoreDifferences: |\n    jsonPointers:\n    - /spec/host\n"}]'
 
 #
-## This patches the ArgoCD Controller to use SSL edge termination. this
-## is because how Katacoda handles routes.
+## This patches the Argo CD Controller in the following ways
+##  - Ignores .spec.host field in routes
+##  - Uses SSL edge termination because of Katacoda
+##  - Uses Argo CD version 1.8.7
 oc patch argocd argocd-cluster -n openshift-gitops --type=merge \
--p='{"spec":{"server":{"insecure":true,"route":{"enabled":true,"tls":{"insecureEdgeTerminationPolicy":"Redirect","termination":"edge"}}}}}'
-
-#
-## This patches the ArgoCD Controller to a version that has helm
-oc patch argocd argocd-cluster -n openshift-gitops --type=merge \
--p='{"spec":{"version":"v1.8.7"}}'
+-p='{"spec":{"resourceCustomizations":"route.openshift.io/Route:\n  ignoreDifferences: |\n    jsonPointers:\n    - /spec/host\n","server":{"insecure":true,"route":{"enabled":true,"tls":{"insecureEdgeTerminationPolicy":"Redirect","termination":"edge"}}},"version":"v1.8.7"}}'
+oc rollout status deploy argocd-cluster-server -n openshift-gitops
 
 #
 ## This gives the serviceAccount for ArgoCD the ability to manage the cluster.
@@ -45,7 +37,7 @@ oc delete pods -l app.kubernetes.io/name=argocd-cluster-server -n openshift-gito
 
 #
 ## Wait for rollout of new pods and the deployment to be available
-until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops;
+until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops ;
 do
     sleep 10
 done
