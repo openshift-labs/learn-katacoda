@@ -2,7 +2,7 @@ Once the Operator is installed, we need to make some customizations
 specific for this lab environment. We've set these up in a script
 for you.
 
-`bash ~/scripts/argocd-postinstall.sh`{{execute}}
+`bash ~/resources/scripts/argocd-postinstall.sh`{{execute}}
 
 > **NOTE** Feel free to take a look at the script! It's well commented!
 
@@ -30,3 +30,5 @@ Go ahead and login as `admin` with the password you've extracted above.
 You should see this screen:
 
 ![ArgoCD](../../assets/gitops/argocd.png)
+
+Keep this tab open for the next exercise.
