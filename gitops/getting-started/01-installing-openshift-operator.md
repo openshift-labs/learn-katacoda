@@ -33,17 +33,13 @@ In this case, there is only 1 file that is applied: `operator-install/openshift-
 
 Which is applied via the `kustomze` file: `operator-install/kustomization.yaml`{{open}}
 
-You'll learn more about using `kustomize` in other scenarios. 
-
->  **NOTE**: You don't have to use `kustomize`. You can `oc apply -f` the file directly.
+> **NOTE** You'll learn more about using `kustomize` in other scenarios. 
 
 The Operator is a "meta" Operator that installs both Argo CD and
 the Tekton Operator.
 
 The installation might take a while, so you can wait for the
 deployment to be created.
-
-> **NOTE**: It might seem like the command is "hanging", don't worry and let it take it's course.
 
 `until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops ; do sleep 5 ; done`{{execute}}
 
@@ -54,7 +50,7 @@ of the deployment.
 
 Verify the installation by running `oc get pods -n openshift-gitops`{{execute}}
 
-You should see the following output.
+You should something similar to the following output.
 
 ```shell
 NAME                                                    READY   STATUS    RESTARTS   AGE
