@@ -45,8 +45,11 @@ oc delete pods -l app.kubernetes.io/name=argocd-cluster-server -n openshift-gito
 
 #
 ## Wait for rollout of new pods and the deployment to be available
+until [[ oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops ]];
+do
+    sleep 10
+done
 oc rollout status deploy argocd-cluster-server -n openshift-gitops
-oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops
 
 #
 ## Login to argocd locally for the user.
