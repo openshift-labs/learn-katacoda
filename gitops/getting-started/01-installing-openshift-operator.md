@@ -30,6 +30,7 @@ resources in this repo to install the OpenShift GitOps Operator:
 This uses [kustomize](https://kustomize.io/) to load the manifest needed to install the OpenShift GitOps Operator.
 
 In this case, there is only 1 file that is applied: `operator-install/openshift-gitops-operator-sub.yaml`{{open}}
+
 Which is applied via the `kustomze` file: `operator-install/kustomization.yaml`{{open}}
 
 You'll learn more about using `kustomize` in other scenarios. 
