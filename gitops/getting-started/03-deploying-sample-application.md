@@ -65,7 +65,7 @@ of the box from blue to green:
 `oc -n bgd patch deploy/bgd --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/env/0/value", "value":"green"}]'`{{execute}}
 
 If you refresh your tab where your [application is
-running](https://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com),
+running](http://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com),
 you should see a green square now.
 
 ![bgd-green](../../assets/gitops/bgd-green.png)
