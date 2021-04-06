@@ -53,7 +53,7 @@ route.route.openshift.io/bgd   bgd-bgd.apps.example.com          bgd        8080
 
 Your output will be slightly different.
 
-Visit your application by clicking [HERE](https://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+Visit your application by clicking [HERE](http://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
 Your application should look like this.
 
