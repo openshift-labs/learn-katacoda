@@ -51,9 +51,7 @@ NAME                           HOST/PORT                                PATH   S
 route.route.openshift.io/bgd   bgd-bgd.apps.example.com          bgd        8080                 None
 ```
 
-Your output will be slightly different.
-
-Visit your application by clicking [HERE](http://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+Visit your application using the route by clicking [HERE](http://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
 Your application should look like this.
 
@@ -63,6 +61,10 @@ Let's introduce a change! Patch the live manifest to change the color
 of the box from blue to green:
 
 `oc -n bgd patch deploy/bgd --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/env/0/value", "value":"green"}]'`{{execute}}
+
+Wait for the rollout to happen:
+
+`oc rollout status deploy/bgd -n bgd`{{execute}}
 
 If you refresh your tab where your [application is
 running](http://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com),
