@@ -31,12 +31,12 @@
       },
       "steps": [
         {
-          "title": "Installing the OpenShift GitOps Operator",
-          "text": "01-installing-openshift-operator.md"
+          "title": "Exploring the OpenShift GitOps Operator",
+          "text": "01-exploring-openshift-operator.md"
         },
         {
-          "title": "Setting up ArgoCD",
-          "text": "02-setting-up-argocd.md"
+          "title": "Connecting to ArgoCD",
+          "text": "02-connecting-to-argocd.md"
         },
         {
           "title": "Deploying a Sample Application",
