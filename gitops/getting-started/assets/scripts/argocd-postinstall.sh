@@ -1,5 +1,5 @@
 #!/bin/bash
-logfile=/var/log/katacoda-argocd-setup.log
+logfile=/root/.katacoda-argocd-setup.log
 
 #
 ## Create logfile
