@@ -66,9 +66,7 @@ Wait for the rollout to happen:
 
 `oc rollout status deploy/bgd -n bgd`{{execute}}
 
-If you refresh your tab where your [application is
-running](http://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com),
-you should see a green square now.
+If you refresh your tab where your application is running you should see a green square now.
 
 ![bgd-green](../../assets/gitops/bgd-green.png)
 
@@ -93,7 +91,7 @@ should have returned to a blue square.
 
 ![bgd](../../assets/gitops/bgd.png)
 
-You can setup Argo CD to correct drift in the `Application` manifest; example:
+You can setup Argo CD to automatically correct drift in the `Application` manifest; example:
 
 ```yaml
 spec:
@@ -102,4 +100,4 @@ spec:
       prune: true
 ```
 
-Or, by running the following command: `argocd app set bgd-app --sync-policy automated`{{execute}}
+Or, as a day 2 task, by running the following command: `argocd app set bgd-app --sync-policy automated`{{execute}}

@@ -43,6 +43,8 @@ deployment to be created.
 
 `until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops ; do sleep 5 ; done`{{execute}}
 
+> **NOTE** Seeing errors here is normal.
+
 Once the deploymnet is created, you can wait for the rollout
 of the deployment.
 
