@@ -64,4 +64,4 @@ cluster-86f8d97979-lfdhv                                1/1     Running   0     
 kam-7ff6f58c-2jxkm                                      1/1     Running   0          55s
 ```
 
-Once you see the all the pods running, you can proceed!
+gnce you see the all the pods running, you can proceed!
