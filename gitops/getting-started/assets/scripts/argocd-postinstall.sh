@@ -15,7 +15,7 @@ echo -n "Setting up lab environment, please wait"
 
 #
 ## Login as admin
-oc login --insecure-skip-tls-verify -u admin -p admin >${logfile} 2>&1
+oc login --insecure-skip-tls-verify -u admin -p admin >>${logfile} 2>&1
 echo -n '.'
 
 #
@@ -27,12 +27,12 @@ fi
 
 #
 ## Install the OpenShift GitOps via Operator
-oc apply -k resources/operator-install >${logfile} 2>&1
+oc apply -k resources/operator-install >>${logfile} 2>&1
 echo -n '.'
 
 #
 ## Wait until the deployment  appears
-until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops >${logfile} 2>&1
+until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops >>${logfile} 2>&1
 do
     sleep 15
     echo -n '.'
@@ -40,7 +40,7 @@ done
 
 #
 ## Wait for the rollout to finish
-oc rollout status deploy argocd-cluster-server -n openshift-gitops >${logfile} 2>&1
+oc rollout status deploy argocd-cluster-server -n openshift-gitops >>${logfile} 2>&1
 echo -n '.'
 
 #
@@ -59,7 +59,7 @@ fi
 ##  - Uses SSL edge termination because of Katacoda
 ##  - Uses Argo CD version 1.8.7
 oc patch argocd argocd-cluster -n openshift-gitops --type=merge \
--p='{"spec":{"resourceCustomizations":"route.openshift.io/Route:\n  ignoreDifferences: |\n    jsonPointers:\n    - /spec/host\n","server":{"insecure":true,"route":{"enabled":true,"tls":{"insecureEdgeTerminationPolicy":"Redirect","termination":"edge"}}},"version":"v1.8.7"}}' >${logfile} 2>&1
+-p='{"spec":{"resourceCustomizations":"route.openshift.io/Route:\n  ignoreDifferences: |\n    jsonPointers:\n    - /spec/host\n","server":{"insecure":true,"route":{"enabled":true,"tls":{"insecureEdgeTerminationPolicy":"Redirect","termination":"edge"}}},"version":"v1.8.7"}}' >>${logfile} 2>&1
 echo -n '.'
 
 #
@@ -72,27 +72,27 @@ echo -n "Halfway there"
 
 #
 ## Wait for the rollout of a new controller
-oc rollout status deploy argocd-cluster-server -n openshift-gitops >${logfile} 2>&1
+oc rollout status deploy argocd-cluster-server -n openshift-gitops >>${logfile} 2>&1
 echo -n '.'
 
 #
 ## This gives the serviceAccount for ArgoCD the ability to manage the cluster.
-oc adm policy add-cluster-role-to-user cluster-admin -z argocd-cluster-argocd-application-controller -n openshift-gitops >${logfile} 2>&1
+oc adm policy add-cluster-role-to-user cluster-admin -z argocd-cluster-argocd-application-controller -n openshift-gitops >>${logfile} 2>&1
 echo -n '.'
 
 #
 ## This recycles the pods to make sure the new configurations took.
-oc delete pods -l app.kubernetes.io/name=argocd-cluster-server -n openshift-gitops >${logfile} 2>&1
+oc delete pods -l app.kubernetes.io/name=argocd-cluster-server -n openshift-gitops >>${logfile} 2>&1
 echo -n '.'
 
 #
 ## Wait for rollout of new pods and the deployment to be available
-until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops >${logfile} 2>&1
+until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops >>${logfile} 2>&1
 do
     sleep 20
     echo -n '.'
 done
-oc rollout status deploy argocd-cluster-server -n openshift-gitops >${logfile} 2>&1
+oc rollout status deploy argocd-cluster-server -n openshift-gitops >>${logfile} 2>&1
 echo -n '.'
 
 #
@@ -104,23 +104,7 @@ sleep 5
 argoRoute=$(oc get route argocd-cluster-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}')
 argoUser=admin
 argoPass=$(oc get secret/argocd-cluster-cluster -n openshift-gitops -o jsonpath='{.data.admin\.password}' | base64 -d)
-argocd login --insecure --grpc-web --username ${argoUser} --password ${argoPass} ${argoRoute} >${logfile} 2>&1
-echo -n '.'
-
-#
-## Change the Argo CD password
-timestamp=$(date +%FT%T%Z)
-oc -n openshift-gitops patch secret argocd-secret \
--p '{"stringData":{"admin.password":"$2y$10$M8JJ/gYLAh1LCSiPfWac/eZ6oGAKu.dszg7mr277k/pByp9p75aUm","admin.passwordMtime":"${timestamp}"}}' >${logfile} 2>&1
-argocd login --insecure --grpc-web --username ${argoUser} --password argocd ${argoRoute} >${logfile} 2>&1
-
-#
-## Recylce the pods
-oc delete pods -l app.kubernetes.io/name=argocd-cluster-server -n openshift-gitops >${logfile} 2>&1
-echo -n '.'
-sleep 5
-echo -n '.'
-oc rollout status deploy argocd-cluster-server -n openshift-gitops >${logfile} 2>&1
+argocd login --insecure --grpc-web --username ${argoUser} --password ${argoPass} ${argoRoute} >>${logfile} 2>&1
 
 echo -n '.'
 
