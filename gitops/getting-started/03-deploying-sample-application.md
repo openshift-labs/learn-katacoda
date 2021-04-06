@@ -1,5 +1,5 @@
-In [this environment](examples/bgdk-yaml), we have
-some example manifesets taken from our [sample GitOps
+In this environment, we have some
+example manifesets taken from our [sample GitOps
 repo](https://github.com/redhat-developer-demos/openshift-gitops-examples).
 We'll be uisng this repo to test. These manifests include:
 
@@ -30,7 +30,7 @@ This should create the `bgd-app` in the ArgoCD UI.
 
 ![bgdk-app](../../assets/gitops/bgdk-app.png)
 
-Clicking on this takes you to the overview page. You may see it as still progressing or full synced. 
+Clicking on this "card" takes you to the overview page. You may see it as still progressing or full synced. 
 
 ![synced-app](../../assets/gitops/synced-app.png)
 
@@ -91,13 +91,15 @@ should have returned to a blue square.
 
 ![bgd](../../assets/gitops/bgd.png)
 
-You can setup Argo CD to automatically correct drift in the `Application` manifest; example:
+You can setup Argo CD to automatically correct drift by editing the
+`Application` manifest. Example:
 
 ```yaml
 spec:
   syncPolicy:
     automated:
       prune: true
+      selfHeal: true
 ```
 
-Or, as a day 2 task, by running the following command: `argocd app set bgd-app --sync-policy automated`{{execute}}
+Or, as a day 2 task, by running the following command: `oc patch application/bgd-app -n openshift-gitops --type=merge -p='{"spec":{"syncPolicy":{"automated":{"prune":true,"selfHeal":true}}}}'`{{execute}}
