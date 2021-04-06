@@ -1,6 +1,10 @@
 #!/bin/bash
 
 #
+## Clear the screen in attempt to make it look neater
+clear
+
+#
 ## Start the setup process
 echo -n "Setting up lab environment, please wait"
 
