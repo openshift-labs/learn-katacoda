@@ -84,7 +84,7 @@ You can sync your app via the Argo CD by:
 
 Conversely, you can run `argocd app sync bgd-app`{{execute}}
 
-After the sync process is done, the Argo CD UI should mark the application in sync.
+After the sync process is done, the Argo CD UI should mark the application as in sync.
 
 ![fullysynced](../../assets/gitops/fullysynced.png)
 
