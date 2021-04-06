@@ -1,6 +1,6 @@
 An Object Bucket Claim (OBC) can be used to request a S3 compatible bucket backend for your workloads. When creating an OBC you get a ConfigMap (CM) and a Secret that together contain all the information your application needs to use the object storage service.
 
-NooBaa is an upstream technology within OCS that allows you to provide multi-cloud object access. For this exercise, we'll be using the NooBaa command to do S3 API calls for your application.
+NooBaa is an upstream technology within ODF that allows you to provide multi-cloud object access. For this exercise, we'll be using the NooBaa command to do S3 API calls for your application.
 
 Creating an OBC is as simple as using the NooBaa CLI:
 
