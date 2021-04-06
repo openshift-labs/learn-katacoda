@@ -109,10 +109,10 @@ echo -n '.'
 
 #
 ## Change the Argo CD password
-###argocd account update-password --insecure --current-password ${argoPass} --new-password "argocd" >${logfile} 2>&1
 timestamp=$(date +%FT%T%Z)
 oc -n openshift-gitops patch secret argocd-secret \
 -p '{"stringData":{"admin.password":"$2y$10$M8JJ/gYLAh1LCSiPfWac/eZ6oGAKu.dszg7mr277k/pByp9p75aUm","admin.passwordMtime":"${timestamp}"}}' >${logfile} 2>&1
+argocd login --insecure --grpc-web --username ${argoUser} --password argocd ${argoRoute} >${logfile} 2>&1
 
 #
 ## Recylce the pods
