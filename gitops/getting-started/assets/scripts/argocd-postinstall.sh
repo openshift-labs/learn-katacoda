@@ -1,13 +1,35 @@
 #!/bin/bash
+
+cat <<EOF
+=======================
+=  SETTING UP LAB ENV =
+=  errors are normal  =
+=======================
+EOF
 #
-## Various postinstall steps needed for the Katacoda environment.
+## Login as admin
+oc login --insecure-skip-tls-verify -u admin -p admin
 
 #
-## Check if you're admin. If not, exit.
-if ! oc get ns openshift-gitops -o name 2>&1 >/dev/null ; then
-    echo "ERROR: Please ensure that you're logged in as admin and that the Operator was installed"
-    exit 3
+## Check if the operator resource is there
+if [[ ! -f resources/operator-install ]]; then
+    echo "ERROR: Operator install resource not found!"
 fi
+
+#
+## Install the OpenShift GitOps via Operator
+oc apply -k resources/operator-install
+
+#
+## Wait until the deployment  appears
+until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops
+do
+    sleep 5
+done
+
+#
+## Wait for the rollout to finish
+oc rollout status deploy argocd-cluster-server -n openshift-gitops
 
 #
 ## Installs the argocd CLI tool.
@@ -25,6 +47,13 @@ fi
 ##  - Uses Argo CD version 1.8.7
 oc patch argocd argocd-cluster -n openshift-gitops --type=merge \
 -p='{"spec":{"resourceCustomizations":"route.openshift.io/Route:\n  ignoreDifferences: |\n    jsonPointers:\n    - /spec/host\n","server":{"insecure":true,"route":{"enabled":true,"tls":{"insecureEdgeTerminationPolicy":"Redirect","termination":"edge"}}},"version":"v1.8.7"}}'
+
+#
+##  Sleep here because CRC is slow to start the rollout process
+sleep 5
+
+#
+## Wait for the rollout of a new controller
 oc rollout status deploy argocd-cluster-server -n openshift-gitops
 
 #
@@ -42,6 +71,10 @@ do
     sleep 10
 done
 oc rollout status deploy argocd-cluster-server -n openshift-gitops
+
+#
+## Sleep here because CRC is slow on the rollout process
+sleep 5
 
 #
 ## Login to argocd locally for the user.
