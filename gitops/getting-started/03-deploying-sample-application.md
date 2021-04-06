@@ -19,7 +19,7 @@ Let's break this down a bit.
 * ArgoCD's concept of a `Project` is different than OpenShift's. Here you're installing the application in ArgoCD's `default` project (`.spec.project`). **NOT** OpenShift's `default` project.
 * The destination server is the server we installed ArgoCD on (noted as `.spec.destination.server`).
 * The manifest repo where the YAML resides and the path to look for the YAML is under `.spec.source`.
-* The `.spec.syncPolicy` is set to `false`. Note you can have Argo CD automatically sync the repo.
+* The `.spec.syncPolicy` is set to `false`. Note that you can have Argo CD automatically sync the repo.
 * The last section `.spec.sync` just says what are you comparing the repo to. (Basically "Compare the running config to the desired config")
 
 The `Application` CR (`CustomResource`) can be applied by running the following:
@@ -53,9 +53,7 @@ route.route.openshift.io/bgd   bgd-bgd.apps.example.com          bgd        8080
 
 Your output will be slightly different.
 
-Visit your application by running the following to get the URL:
-
-`oc get route bgd -n bgd -o jsonpath='{.spec.host}{"\n"}'`{{execute}}
+Visit your application by clicking [HERE](https://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
 Your application should look like this.
 
@@ -66,14 +64,40 @@ of the box from blue to green:
 
 `oc -n bgd patch deploy/bgd --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/env/0/value", "value":"green"}]'`{{execute}}
 
-If you quickly (I'm not kidding, you have to be lightning fast or you'll
-miss it) look at the screen you'll see it out of sync:
+If you refresh your tab where your [application is
+running](https://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com),
+you should see a green square now.
+
+![bgd-green](../../assets/gitops/bgd-green.png)
+
+Looking over at your Argo CD Web UI, you can see that Argo detects your
+application as "Out of Sync".
 
 ![outofsync](../../assets/gitops/out-of-sync.png)
 
-But ArgoCD sees that difference and changes it back to the desired
-state. Preventing drift.
+You can sync your app via the Argo CD by:
+
+* First clicking `SYNC`
+* Then clicking `SYNCHRONIZE`
+
+Conversely, you can run `argocd app sync bgd-app`{{execute}}
+
+After the sync process is done, the Argo CD UI should mark the application in sync.
 
 ![fullysynced](../../assets/gitops/fullysynced.png)
 
-> :bulb: **NOTE**: If you're having touble catching the sync. Run your browser window and terminal window side-by-side. This is a good thing, that Argo acts so quickly. :smiley:
+If you reload the page on the tab where the application is running. It
+should have returned to a blue square.
+
+![bgd](../../assets/gitops/bgd.png)
+
+You can setup Argo CD to correct drift in the `Application` manifest; example:
+
+```yaml
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+```
+
+Or, by running the following command: `argocd app set bgd-app --sync-policy automated`{{execute}}

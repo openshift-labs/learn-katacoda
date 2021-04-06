@@ -1,4 +1,4 @@
-In this course you learned about..
+In this course you learned about the OpenShift GitOps Operator and used it to install and configure Argo CD. You also deployed a sample application and explored what happens when you make an environment change that is not in git.
 
 ## Continue Learning
 
