@@ -93,8 +93,8 @@ should have returned to a blue square.
 
 ![bgd](../../assets/gitops/bgd.png)
 
-You can setup Argo CD to automatically correct drift by editing the
-`Application` manifest. Example:
+You can setup Argo CD to automatically correct drift by setting the
+`Application` manifest to do so. Example:
 
 ```yaml
 spec:
@@ -104,4 +104,6 @@ spec:
       selfHeal: true
 ```
 
-Or, as a day 2 task, by running the following command: `oc patch application/bgd-app -n openshift-gitops --type=merge -p='{"spec":{"syncPolicy":{"automated":{"prune":true,"selfHeal":true}}}}'`{{execute}}
+Or, as in our case, after the fact by running the following command:
+
+`oc patch application/bgd-app -n openshift-gitops --type=merge -p='{"spec":{"syncPolicy":{"automated":{"prune":true,"selfHeal":true}}}}'`{{execute}}
