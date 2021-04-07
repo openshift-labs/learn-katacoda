@@ -51,7 +51,9 @@ NAME                           HOST/PORT                                PATH   S
 route.route.openshift.io/bgd   bgd-bgd.apps.example.com          bgd        8080                 None
 ```
 
-Visit your application using the route by clicking [HERE](http://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+First wait for the rollout to complete `oc rollout status deploy/bgd -n bgd`{{execute}} 
+
+Then visit your application using the route by clicking [HERE](http://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
 Your application should look like this.
 
