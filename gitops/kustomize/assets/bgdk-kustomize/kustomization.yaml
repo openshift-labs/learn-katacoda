@@ -1,0 +1,10 @@
+resources:
+- github.com/RedHatWorkshops/argocd-getting-started/resources/manifests/bgdk-yaml
+patchesJson6902:
+  - target:
+      version: v1
+      group: apps
+      kind: Deployment
+      name: bgd
+      namespace: bgd
+    path: bgd-deployment.yaml

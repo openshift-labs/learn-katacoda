@@ -31,8 +31,8 @@ It automates the deployment of the desired application states in the specified t
 
 This is a simple guide that takes you through the following steps:
 
-* Installing the GitOps Operator
-* Setting up ArgoCD
+* Exploring the OpenShift GitOps Operator
+* Accessing Argo CD via CLI and Web UI
 * Deploying A Sample Application
 
 This OpenShift cluster will self-destruct in one hour.
