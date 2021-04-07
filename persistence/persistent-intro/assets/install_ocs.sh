@@ -4,7 +4,7 @@ set +x
 
 curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&lab=intro&action=start" >/dev/null
 
-echo "Setting up environment for OCS - this will take a few minutes"
+echo "Setting up environment for ODF - this will take a few minutes"
 
 oc label "$(oc get no -o name)" cluster.ocs.openshift.io/openshift-storage='' >/dev/null
 
@@ -187,12 +187,12 @@ spec:
     resources: {}
 EOF
 
-echo "OCS is installing now, please be patient"
+echo "ODF is installing now, please be patient"
 
 oc patch OCSInitialization ocsinit -n openshift-storage --type json --patch '[{ "op": "replace", "path": "/spec/enableCephTools", "value": true }]'
 sleep 3
 oc wait --for=condition=Ready --timeout=10m pod -l app=rook-ceph-tools
 export POD=$(oc get po -l app=rook-ceph-tools -o name)
 
-echo "OCS is installed now"
+echo "ODF is installed now"
 curl -sL "https://katacoda.blum.coffee/track?id=$(hostname)&lab=intro&action=provisioning" >/dev/null
