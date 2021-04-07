@@ -1,56 +1,45 @@
-The easiest way to install the OpenShift GitOps Operator is via the
-OpenShift UI.
-
+Welcome! In this section we will be exploring the OpenShift GitOps
+Operator, what it installs, and how all the components fit together.
 
 ## Logging in to the Cluster via Dashboard
 
-Click the [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com) tab to open the dashboard. 
+Click the [OpenShift Web Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com) tab to open the OpenShift Web UI. 
 
-You will then able able to login with admin permissions with:
+You will then be able to login with admin permissions with:
 
 * **Username:** ``admin``{{copy}}
 * **Password:** ``admin``{{copy}}
 
-## Installing GitOps Operator
+## Exploring the GitOps Operator Installation
 
-You can install the Operator via the UI in the Administrator Perspective:
+The OpenShift GitOps Operator was installed via the Operator Hub. You
+can view this installation via the UI in the Administrator Perspective:
 
 * Click on `Operators` drop down on the leftside navigation.
-* Click on `OperatorHub`
-* In the search box type `openshift gitops`.
-* Select the `Red Hat OpenShift GitOps` card.
-* Click `Install` on the `Red Hat OpenShift GitOps` installation dialog.
-* Accept all the defaults in the `Install Operator` page and click `Install`
+* Click on `Installed Operators`
+* In the `Project` dropdown, make sure `openshift gitops` is selected.
 
-Another way to do this is to use the manifest directly. You can use the
-resources in this repo to install the OpenShift GitOps Operator:
+You should see that the OpenShift GitOps Operator is installed.
 
-`oc apply -k resources/operator-install`{{execute}}
+![OpenShift GitOps Installed](../../assets/gitops/os-gitops-installed.png)
 
-This uses [kustomize](https://kustomize.io/) to load the manifest needed to install the OpenShift GitOps Operator.
+Another way to view what was installed is to run the following:
 
-In this case, there is only 1 file that is applied: `operator-install/openshift-gitops-operator-sub.yaml`{{open}}
+`oc get operators`{{execute}}
 
-Which is applied via the `kustomze` file: `operator-install/kustomization.yaml`{{open}}
+This should have the following output.
 
-> **NOTE** You'll learn more about using `kustomize` in other scenarios. 
+```shell
+NAME                                                  AGE
+openshift-gitops-operator.openshift-operators         25m
+openshift-pipelines-operator-rh.openshift-operators   25m
+```
 
-The Operator is a "meta" Operator that installs both Argo CD and
-the Tekton Operator.
+This Operator is a "meta" Operator that installs both Argo CD and the
+Tekton Operator. This is why you see both the GitOps Operator and the
+Tekton Operator listed.
 
-The installation might take a while, so you can wait for the
-deployment to be created.
-
-`until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops ; do sleep 5 ; done`{{execute}}
-
-> **NOTE** Seeing errors here is normal.
-
-Once the deploymnet is created, you can wait for the rollout
-of the deployment.
-
-`oc rollout status deploy argocd-cluster-server -n openshift-gitops`{{execute}}
-
-Verify the installation by running `oc get pods -n openshift-gitops`{{execute}}
+Finally, you can verify the installation by running `oc get pods -n openshift-gitops`{{execute}}
 
 You should something similar to the following output.
 
@@ -64,4 +53,4 @@ cluster-86f8d97979-lfdhv                                1/1     Running   0     
 kam-7ff6f58c-2jxkm                                      1/1     Running   0          55s
 ```
 
-gnce you see the all the pods running, you can proceed!
+Once you see the all the pods running, you can proceed!

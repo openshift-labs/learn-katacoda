@@ -14,6 +14,10 @@
         {
           "name": "OpenShift Web Console",
           "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+        },
+        {
+          "name": "Argo CD Web Console",
+          "href": "https://argocd-cluster-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"
         }
       ],
       "uieditorpath": "/root/resources",

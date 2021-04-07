@@ -1,30 +1,55 @@
-Once the Operator is installed, we need to make some customizations
-specific for this lab environment. We've set these up in a script
-for you.
+Now that you've verified that Argo CD is up and running, let's explore
+how to access and manage Argo CD.
 
-`bash ~/resources/scripts/argocd-postinstall.sh`{{execute}}
+## The Argo CD CLI
 
-> **NOTE** Feel free to take a look at the script! It's well commented!
+Part of the setup of this lab connects you to the Argo CD instance via
+CLI. Verify this by running the following:
 
-Once it's done, you can now access the Argo CD UI. The password needed
-is stored in a secret. Extract this password to use to login to the
-ArgoCD instance.
+`argocd cluster list`{{execute}}
 
-`oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute}}
+You should see output similar to this:
 
-To get to the Argo CD Web UI; Click [HERE](https://argocd-cluster-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+```shell
+SERVER                          NAME        VERSION  STATUS   MESSAGE
+https://kubernetes.default.svc  in-cluster           Unknown  Cluster has no application and not being monitored.
+```
 
-Once you visit the URL in your browser, and accept the self signed
-certificate, you should be presented with something that looks like this.
+This output lists the clusters that Argo CD manages. In this case
+`in-cluster` in the `NAME` field signifies that Argo CD is managing the
+cluster it's installed on.
 
+> **NOTE** You can connect multiple clusters for Argo CD to manage!
+
+To enable bash completion, run the following command:
+
+`source <(argocd completion bash)`{{execute}}
+
+The Argo CD CLI stores it's configuration under `~/.argocd/config`
+
+> **NOTE** The `argocd cluster add` command used the `~/.kube/config` file to establish connection to the cluster.
+
+`ls ~/.argocd/config`{{execute}}
+
+The `argocd` CLI tool is useful for debugging and viewing status of your apps deployed.
+
+## The Argo CD Web Console
+
+To get to the Argo CD Web UI; click the [Argo CD Web Console](https://argocd-cluster-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com) tab.
+
+Once you have accepted the self signed certificate, you should be
+presented with the Argo CD login screen.
 
 ![ArgoCD Login](../../assets/gitops/argocd-login.png)
 
+You can login with the following
+* **Username:** ``admin``{{copy}}
+* **Password:** `oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute}}
 
-Go ahead and login as `admin` with the password you've extracted above.
+> **NOTE** The Password is stored in a secret on the platform.
 
-You should see this screen:
+Once you've logged in, you should see the following page.
 
 ![ArgoCD](../../assets/gitops/argocd.png)
 
-Keep this tab open for the next exercise.
+This is the Argo CD Web UI. Keep this tab open for the next exercise.
