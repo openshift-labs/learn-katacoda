@@ -48,8 +48,14 @@ you can see that the new label got added to the manifest!
 
 You can use the `kustomize edit` command instead of writing YAML. For example, you can change the image tag this Deployment uses by running the following:
 
-`kustomize edit set image welcome-php=quay.io/redhatworkshops/welcome-php:ffcd15`{{execute}}
+`kustomize edit set image quay.io/redhatworkshops/welcome-php:ffcd15`{{execute}}
 
-You can see how you can take already existing YAML and modify it for your specific environment.
+This will update the
+`~/resources/kustomize-build/kustomization.yaml`{{open}} file with a
+`images` section. Now when you run `kustomize build .`{{execute}} -
+you should see not only the new label but also a new image.
+
+You can see how you can take already existing YAML and modify it for
+your specific environment without the need to copy or edit the original.
 
 ## Exploring Kustomize with Kubectl
