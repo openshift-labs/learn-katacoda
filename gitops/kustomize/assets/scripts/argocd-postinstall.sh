@@ -122,6 +122,6 @@ echo -n '.'
 
 #
 ## Ready!
-echo -e "\nReady!"
+echo -e "\nReady!" | tee -a ${logfile}
 ##  
 ##

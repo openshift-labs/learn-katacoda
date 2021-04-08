@@ -1,6 +1,18 @@
-Now that you've verified that Argo CD is up and running, let's explore
-how to access and manage Argo CD.
+Now that you've explored `kustomize`, let's see how it fits into Argo
+CD and how it can be used in a GitOps workflow.
 
+## Logging in to the Cluster via Dashboard
+
+Click the [OpenShift Web Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com) tab to open the OpenShift Web UI. 
+
+You will then be able to login with admin permissions with:
+
+* **Username:** ``admin``{{copy}}
+* **Password:** ``admin``{{copy}}
+
+
+
+CHX 
 ## The Argo CD CLI
 
 Part of the setup of this lab connects you to the Argo CD instance via

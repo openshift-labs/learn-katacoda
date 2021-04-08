@@ -1,56 +1,55 @@
-Welcome! In this section we will be exploring the OpenShift GitOps
-Operator, what it installs, and how all the components fit together.
+Welcome! In this section we will exploring the `kustomize` CLI and the
+capabilities built into the `kubectl` command.
 
-## Logging in to the Cluster via Dashboard
+## Exploring the Kustomize CLI
 
-Click the [OpenShift Web Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com) tab to open the OpenShift Web UI. 
+The `kustomize` CLI should have been installed as part of the lab
+setup. Verify that it has been installed.
 
-You will then be able to login with admin permissions with:
+`kustomize version --short`{{execute}}
 
-* **Username:** ``admin``{{copy}}
-* **Password:** ``admin``{{copy}}
-
-## Exploring the GitOps Operator Installation
-
-The OpenShift GitOps Operator was installed via the Operator Hub. You
-can view this installation via the UI in the Administrator Perspective:
-
-* Click on `Operators` drop down on the leftside navigation.
-* Click on `Installed Operators`
-* In the `Project` dropdown, make sure `openshift gitops` is selected.
-
-You should see that the OpenShift GitOps Operator is installed.
-
-![OpenShift GitOps Installed](../../assets/gitops/os-gitops-installed.png)
-
-Another way to view what was installed is to run the following:
-
-`oc get operators`{{execute}}
-
-This should have the following output.
+This should display the version, it should look something like this.
 
 ```shell
-NAME                                                  AGE
-openshift-gitops-operator.openshift-operators         25m
-openshift-pipelines-operator-rh.openshift-operators   25m
+{kustomize/v4.0.1  2021-02-13T21:21:14Z  }
 ```
 
-This Operator is a "meta" Operator that installs both Argo CD and the
-Tekton Operator. This is why you see both the GitOps Operator and the
-Tekton Operator listed.
+Kustomize, at it's core, is meant to build native Kubernetes manifests
+based on YAML, while leaving the original YAML in tact. It achives this
+in a "templte-less" templating format. This is done by providing a `kustomization.yaml` file.
 
-Finally, you can verify the installation by running `oc get pods -n openshift-gitops`{{execute}}
+We will be focusing on two sub-commands the `build` command and the
+`edit` command.
 
-You should something similar to the following output.
+The `build` command takes the YAML source (via a path or URL) and creates
+a new YAML that can be piped into `kubectl create`. We will work with
+an example in the `~/resources/kustomize-build` directory.
 
-```shell
-NAME                                                    READY   STATUS    RESTARTS   AGE
-argocd-cluster-application-controller-6f548f74b-48bvf   1/1     Running   0          54s
-argocd-cluster-redis-6cf68d494d-9qqq4                   1/1     Running   0          54s
-argocd-cluster-repo-server-85b9d68f9b-4hj52             1/1     Running   0          54s
-argocd-cluster-server-78467b647-8lcv9                   1/1     Running   0          54s
-cluster-86f8d97979-lfdhv                                1/1     Running   0          56s
-kam-7ff6f58c-2jxkm                                      1/1     Running   0          55s
-```
+`cd ~/resources/kustomize-build`{{execute}}
 
-Once you see the all the pods running, you can proceed!
+Here you should see two files, a `kustomization.yaml` file and a `welcome.yaml` file
+
+`ls -l`{{execute}}
+
+Taking a look at the `~/resources/kustomize-build/welcome.yaml`{{open}}
+file shows nothing special. Just a standard Kubernetes manifest.
+
+What if, for example, we wanted to add a `label` to this manifest without editing it? This is where the `~/resources/kustomize-build/kustomization.yaml`{{open}} file comes in.
+
+As you can see in the output there isn't much. The two sections for this
+example are the `resources` and the `patchesJson6902` sections.
+
+`resources` is an array of individual files, directories, and/or URLs where other manifests are stored. In this example we are just loading in one file. The [`patchesJson6902` is a patching RFC](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patchesjson6902/) that `kustomize` supports. As you can see, in the `patchesJson6902` file, I am adding a label to this manifest.
+
+> **NOTE** You can read about what options are availble for patching in the [official documentaion site](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/)
+
+Build this manifets by running: `kustomize build .`{{execute}} , and
+you can see that the new label got added to the manifest!
+
+You can use the `kustomize edit` command instead of writing YAML. For example, you can change the image tag this Deployment uses by running the following:
+
+`kustomize edit set image welcome-php=quay.io/redhatworkshops/welcome-php:ffcd15`{{execute}}
+
+You can see how you can take already existing YAML and modify it for your specific environment.
+
+## Exploring Kustomize with Kubectl
