@@ -5,7 +5,7 @@ This guide helps you get familiar with how to use Kustomize on Argo CD on OpenSh
 
 ## Concepts
 
-[Kustomize]https://kustomize.io/) traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of `kubectl` (and by extension `oc`). 
+[Kustomize](https://kustomize.io/) traverses a Kubernetes manifest to add, remove or update configuration options without forking. It is available both as a standalone binary and as a native feature of `kubectl` (and by extension `oc`). 
 
 The principals of `kustomize` are:
 
