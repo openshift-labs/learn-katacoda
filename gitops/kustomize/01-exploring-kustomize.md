@@ -31,10 +31,10 @@ Here you should see two files, a `kustomization.yaml` file and a `welcome.yaml` 
 
 `ls -l`{{execute}}
 
-Taking a look at the `~/resources/kustomize-build/welcome.yaml`{{open}}
+Taking a look at the `kustomize-build/welcome.yaml`{{open}}
 file shows nothing special. Just a standard Kubernetes manifest.
 
-What if, for example, we wanted to add a `label` to this manifest without editing it? This is where the `~/resources/kustomize-build/kustomization.yaml`{{open}} file comes in.
+What if, for example, we wanted to add a `label` to this manifest without editing it? This is where the `kustomize-build/kustomization.yaml`{{open}} file comes in.
 
 As you can see in the output there isn't much. The two sections for this
 example are the `resources` and the `patchesJson6902` sections.
@@ -51,7 +51,7 @@ You can use the `kustomize edit` command instead of writing YAML. For example, y
 `kustomize edit set image quay.io/redhatworkshops/welcome-php:ffcd15`{{execute}}
 
 This will update the
-`~/resources/kustomize-build/kustomization.yaml`{{open}} file with a
+`kustomize-build/kustomization.yaml`{{open}} file with a
 `images` section. Now when you run `kustomize build .`{{execute}} -
 you should see not only the new label but also a new image.
 
