@@ -46,14 +46,18 @@ example are the `resources` and the `patchesJson6902` sections.
 Build this manifets by running: `kustomize build .`{{execute}} , and
 you can see that the new label got added to the manifest!
 
-You can use the `kustomize edit` command instead of writing YAML. For example, you can change the image tag this Deployment uses by running the following:
+You can use the `kustomize edit` command instead of writing YAML. For
+example, you can change the image tag this `Deployment` uses from `latest`
+to `ffcd15` by running the following:
 
 `kustomize edit set image quay.io/redhatworkshops/welcome-php:ffcd15`{{execute}}
 
 This will update the
 `kustomize-build/kustomization.yaml`{{open}} file with a
 `images` section. Now when you run `kustomize build .`{{execute}} -
-you should see not only the new label but also a new image.
+you should see not only the new label but also the new `ffcd15` image tag.
+
+> **NOTE** You may have to close the `kustomization.yaml` tab and re-open it to see the changes.
 
 You can see how you can take already existing YAML and modify it for
 your specific environment without the need to copy or edit the original.
