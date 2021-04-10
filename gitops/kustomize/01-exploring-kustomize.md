@@ -91,4 +91,11 @@ Finally run the command to build and apply the manifests: `kubectl apply -k ./`{
 > only requirement is that you have a `kustomization.yaml` file in
 > the path.
 
+This should create the deployment and you should see the pods running in the namespace: `kubectl get pods -n kustomize-test`{{execute}}
+
+You can see the deployment was created with the additional labels: `kubectl get deployment welcome-php -o jsonpath='{.metadata.labels}' | jq -r`{{execute}}
+
+You can see the image was updated as well: `kubectl get deploy welcome-php  -o jsonpath='{.spec.template.spec.containers[].image}{"\n"}'`{{execute}}
+
 As you can see `kustomize` can be a powerful tool.
+
