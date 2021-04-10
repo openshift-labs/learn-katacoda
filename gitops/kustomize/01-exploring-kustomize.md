@@ -75,9 +75,13 @@ Since Kubernetes 1.14, The `kubectl` command (and by extention the
 `oc` cli) has support for Kustomize built in.  You can see this by
 running the `kubectl kustomize --help`{{execute}} command.
 
-This runs the `kustomize build` command. Although you can use this to pipe it into the apply command, you don't have to.
+This runs the `kustomize build` command. You can see this by running: `kubectl kustomize`{{execute}}
 
-The `kubectl apply` command has the `-k` option that will run the build before it applies the manifest. To test this out, first create a project: `oc new-project kustomize-test`{{execute}}
+Although you can use this to pipe it into the apply command, you
+don't have to. The `kubectl apply` command has the `-k` option that
+will run the build before it applies the manifest.
+
+To test this out, first create a project: `oc new-project kustomize-test`{{execute}}
 
 Next make sure you're on the project: `oc project kustomize-test`{{execute}}
 
