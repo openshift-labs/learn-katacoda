@@ -73,15 +73,15 @@ kustomize build . | oc apply -f -
 
 Since Kubernetes 1.14, The `kubectl` command (and by extention the
 `oc` cli) has support for Kustomize built in.  You can see this by
-running the `oc kustomize --help`{{execute}} command.
+running the `kubectl kustomize --help`{{execute}} command.
 
-Tthe `kustomize build` command. Although you can use this to pipe it into the apply command. his is analogous to the `kustomize build` command. Although you can use this to pipe it into the apply command, you don't have to.
+This runs the `kustomize build` command. Although you can use this to pipe it into the apply command, you don't have to.
 
-The `oc apply` command has the `-k` option that will run the build before it applies the manifest. To test this out, first create a project: `oc new-project kustomize-test`{{execute}}
+The `kubectl apply` command has the `-k` option that will run the build before it applies the manifest. To test this out, first create a project: `oc new-project kustomize-test`{{execute}}
 
 Next make sure you're on the project: `oc project kustomize-test`{{execute}}
 
-Finally run the command to build and apply the manifests: `oc apply -k ./`{{execute}}
+Finally run the command to build and apply the manifests: `kubectl apply -k ./`{{execute}}
 
 > **NOTE** You can pass not only directories, but URLs as well. The
 > only requirement is that you have a `kustomization.yaml` file in

@@ -64,6 +64,16 @@ else
     echo -e "\nFATAL: Kustomize cli failed to download"
 fi
 
+#
+## Kustomize v4 requires kubectl v1.21
+wget -O /usr/local/bin/kubectl -q https://dl.k8s.io/release/v1.21.0/bin/linux/amd64/kubectl
+if [[ -f /usr/local/bin/kubectl ]] ; then
+    chmod +x /usr/local/bin/kubectl
+    echo -n '.'
+else
+    echo -e "\nFATAL: kubectl update failed to download"
+fi
+
 
 #
 ## This patches the Argo CD Controller in the following ways
