@@ -65,6 +65,19 @@ manifest so that we get a yellow square instead of a blue one. It
 also deploys the application to the `bgdk` namespace (denoted by
 the `namespace:` section of the file).
 
-Deploy this application:  `kubectl apply -f bgdk-app/bgdk-app.yaml`{{execute}}
+Deploy this application:  `kubectl apply -f resources/bgdk-app/bgdk-app.yaml`{{execute}}
 
 This should show you two apps on the Argo CD UI.
+
+![two-apps](../../assets/gitops/two-apps.png)
+
+Open the applicaiton's route by [CLICKING HERE](http://bgd-bgdk.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+
+![yellow-square](../../assets/gitops/yellow-square.png)
+
+As you can see, the application deployed with your customizations! To review what we just did.
+
+* Deployed an Application called `bgd` with a blue square.
+* Deployed another Application based on `bgd` called `bgdk`
+* The Application `bgdk` was deployed in it's own namespace, with deployment customizations.
+* ALL without having to duplicate YAML!
