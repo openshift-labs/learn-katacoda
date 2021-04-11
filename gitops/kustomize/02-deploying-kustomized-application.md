@@ -19,3 +19,44 @@ You can login with the following
 * **Username:** ``admin``{{copy}}
 * **Password:** `oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute}
 
+## Base Application
+
+In a previous scenario, we deployed a sample appication that had a
+picture of a blue square. To deploy the application, run the following
+command:
+
+`oc apply -f resources/bgd-app/bgd-app.yaml`{{execute}}
+
+You can wait for the rollout of the application by running `oc rollout status deploy/bgd -n bgd`{{execute}}
+
+You can open the application's URL by [CLICKING HERE](http://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+
+It should look something like this.
+
+![bgd](../../assets/gitops/bgd.png)
+
+If you did the previous scenario, this should be familiar. But what
+if I wanted to deploy this application with modifications?
+
+## Kustomized Application
+
+Argo CD has native support for Kustomize. You can use this to avoid
+duplicating YAML for each deployment. This is especially good to
+use if you have different environements or clusters you're deploying
+to.
+
+Take a look at the `Application` definition:  `bgdk-app/bgdk-app.yaml`{{open}}
+
+This application is pointed to the [same repo](https://github.com/redhat-developer-demos/openshift-gitops-examples) but [different directory](https://github.com/redhat-developer-demos/openshift-gitops-examples/tree/main/apps/bgd/overlays/bgdk).
+
+This is using a concept of an "overlay", where you have a "base"
+set of manifests and you overlay your customizations. Take a look
+at the `examples/bgdk-overlay/kustomization.yaml`{{open}} example
+file.
+
+This `kustomization.yaml` take the base application and patches the
+manifest so that we get a yellow square instead of a blue one. It
+also deploys the application to the `bgdk` namespace (denoted by
+the `namespace:` section of the file).
+
+Deploy this application: `kubectl apply -f examples/bgdk-overlay/kustomization.yaml`{{execute}}
