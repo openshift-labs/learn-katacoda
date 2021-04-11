@@ -95,7 +95,7 @@ This should create the deployment and you should see the pods running in the nam
 
 You can see the deployment was created with the additional labels: `kubectl get deployment welcome-php -o jsonpath='{.metadata.labels}' | jq -r`{{execute}}
 
-You can see the image was updated as well: `kubectl get deploy welcome-php  -o jsonpath='{.spec.template.spec.containers[].image}{"\n"}'`{{execute}}
+Also, the image was updated based on the customization that was made: `kubectl get deploy welcome-php  -o jsonpath='{.spec.template.spec.containers[].image}{"\n"}'`{{execute}}
 
 As you can see `kustomize` can be a powerful tool.
 

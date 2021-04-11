@@ -1,27 +1,27 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bgdk-appk
-  namespace: argocd
+  name: bgdk-app
+  namespace: openshift-gitops
 spec:
   destination:
-    namespace: argocd
+    namespace: bgdk
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: resources/manifests/bgdk-kustomize
-    repoURL: https://github.com/RedHatWorkshops/argocd-getting-started
+    path: apps/bgd/overlays/bgdk
+    repoURL: https://github.com/redhat-developer-demos/openshift-gitops-examples
     targetRevision: main
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
+      selfHeal: false
   sync:
     comparedTo:
       destination:
-        namespace: argocd
+        namespace: bgdk
         server: https://kubernetes.default.svc
       source:
-        path: resources/manifests/bgdk-kustomize
-        repoURL: https://github.com/RedHatWorkshops/argocd-getting-started
+        path: apps/bgd/overlays/bgdk
+        repoURL: https://github.com/redhat-developer-demos/openshift-gitops-examples
         targetRevision: main

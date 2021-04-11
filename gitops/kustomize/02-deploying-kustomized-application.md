@@ -1,49 +1,10 @@
-Now that you've explored `kustomize`, let's see how it fits into Argo
+In previous scenarios, you learned that in a GitOps workflow; the
+entire application stack (including infrastructure) is reflected
+in a git repo. The challenge is how to do this without duplicating
+YAML.
+
+So now that you've explored `kustomize`, let's see how it fits into Argo
 CD and how it can be used in a GitOps workflow.
-
-## Logging in to the Cluster via Dashboard
-
-Click the [OpenShift Web Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com) tab to open the OpenShift Web UI. 
-
-You will then be able to login with admin permissions with:
-
-* **Username:** ``admin``{{copy}}
-* **Password:** ``admin``{{copy}}
-
-
-
-CHX 
-## The Argo CD CLI
-
-Part of the setup of this lab connects you to the Argo CD instance via
-CLI. Verify this by running the following:
-
-`argocd cluster list`{{execute}}
-
-You should see output similar to this:
-
-```shell
-SERVER                          NAME        VERSION  STATUS   MESSAGE
-https://kubernetes.default.svc  in-cluster           Unknown  Cluster has no application and not being monitored.
-```
-
-This output lists the clusters that Argo CD manages. In this case
-`in-cluster` in the `NAME` field signifies that Argo CD is managing the
-cluster it's installed on.
-
-> **NOTE** You can connect multiple clusters for Argo CD to manage!
-
-To enable bash completion, run the following command:
-
-`source <(argocd completion bash)`{{execute}}
-
-The Argo CD CLI stores it's configuration under `~/.argocd/config`
-
-> **NOTE** The `argocd cluster add` command used the `~/.kube/config` file to establish connection to the cluster.
-
-`ls ~/.argocd/config`{{execute}}
-
-The `argocd` CLI tool is useful for debugging and viewing status of your apps deployed.
 
 ## The Argo CD Web Console
 
@@ -56,12 +17,5 @@ presented with the Argo CD login screen.
 
 You can login with the following
 * **Username:** ``admin``{{copy}}
-* **Password:** `oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute}}
+* **Password:** `oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute}
 
-> **NOTE** The Password is stored in a secret on the platform.
-
-Once you've logged in, you should see the following page.
-
-![ArgoCD](../../assets/gitops/argocd.png)
-
-This is the Argo CD Web UI. Keep this tab open for the next exercise.
