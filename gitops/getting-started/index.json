@@ -53,8 +53,6 @@
       "assets": {
        "client": [
             { "file": "bgd-app/bgd-app.yaml", "target": "~/resources/bgd-app" },
-            { "file": "bgdk-appk/bgdk-appk.yaml", "target": "~/resources/bgdk-appk" },
-            { "file": "bgdk-appk/kustomization.yaml", "target": "~/resources/bgdk-appk" },
             { "file": "bgdk-kustomize/bgd-deployment.yaml", "target": "~/resources/bgdk-kustomize" },
             { "file": "bgdk-kustomize/kustomization.yaml", "target": "~/resources/bgdk-kustomize" },
             { "file": "examples/bgd-yaml/bgd-deployment.yaml", "target": "~/resources/examples/bgd-yaml" },
