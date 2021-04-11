@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: bgdk
 resources:
 - ../../base
+- bgdk-namespace.yaml
 patchesJson6902:
   - target:
       version: v1
