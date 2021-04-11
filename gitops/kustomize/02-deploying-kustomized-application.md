@@ -66,3 +66,5 @@ also deploys the application to the `bgdk` namespace (denoted by
 the `namespace:` section of the file).
 
 Deploy this application:  `kubectl apply -f bgdk-app/bgdk-app.yaml`{{execute}}
+
+This should show you two apps on the Argo CD UI.

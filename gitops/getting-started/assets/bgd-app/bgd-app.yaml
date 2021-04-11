@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: apps/bgd/base
+    path: apps/bgd/overlays/bgd
     repoURL: https://github.com/redhat-developer-demos/openshift-gitops-examples
     targetRevision: main
   syncPolicy:
@@ -24,6 +24,6 @@ spec:
         namespace: bgd
         server: https://kubernetes.default.svc
       source:
-        path: apps/bgd/base
+        path: apps/bgd/overlays/bgd
         repoURL: https://github.com/redhat-developer-demos/openshift-gitops-examples
         targetRevision: main
