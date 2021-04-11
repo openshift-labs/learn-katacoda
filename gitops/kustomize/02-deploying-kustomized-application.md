@@ -6,6 +6,8 @@ YAML.
 So now that you've explored `kustomize`, let's see how it fits into Argo
 CD and how it can be used in a GitOps workflow.
 
+Before preceeding, move back into the home directory: `cd ~`{{execute}}
+
 ## The Argo CD Web Console
 
 To get to the Argo CD Web UI; click the [Argo CD Web Console](https://argocd-cluster-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com) tab.
