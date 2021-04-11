@@ -76,11 +76,6 @@
       "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/debezium-getting-started/",
-      "course_id": "debezium-getting-started",
-      "title": "Debezium deployment"
-    },
-    {
       "external_link": "https://learn.openshift.com/middleware/pipelines/",
       "course_id": "pipelines",
       "title": "Using OpenShift Pipelines"
