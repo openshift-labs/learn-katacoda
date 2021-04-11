@@ -19,7 +19,7 @@ presented with the Argo CD login screen.
 
 You can login with the following
 * **Username:** ``admin``{{copy}}
-* **Password:** `oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute}
+* **Password:** `oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute}}
 
 ## Base Application
 
@@ -29,9 +29,13 @@ command:
 
 `oc apply -f resources/bgd-app/bgd-app.yaml`{{execute}}
 
+This should create an `Application` in the Argo CD UI.
+
+![bgdk-app](../../assets/gitops/bgdk-app.png)
+
 You can wait for the rollout of the application by running `oc rollout status deploy/bgd -n bgd`{{execute}}
 
-You can open the application's URL by [CLICKING HERE](http://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+Once it's done rolling out, you can open the application's URL by [CLICKING HERE](http://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
 It should look something like this.
 
@@ -61,4 +65,4 @@ manifest so that we get a yellow square instead of a blue one. It
 also deploys the application to the `bgdk` namespace (denoted by
 the `namespace:` section of the file).
 
-Deploy this application: `kubectl apply -f examples/bgdk-overlay/kustomization.yaml`{{execute}}
+Deploy this application:  `kubectl apply -f bgdk-app/bgdk-app.yaml`{{execute}}
