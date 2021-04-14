@@ -83,3 +83,5 @@ view.
 
 If you follow along, you'll note that these manfiests get applied in
 order of their annotated syncwave!
+
+Keep the Argo CD WebUI tab open for the next exercise.
