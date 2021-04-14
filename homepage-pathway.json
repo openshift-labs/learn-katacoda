@@ -29,7 +29,8 @@
     },
     {
       "external_link": "https://learn.openshift.com/eventdriven-with-kafka/",
-      "title": "Event-Driven Architecture with Apache Kafka"
+      "title": "Event-Driven Architecture with Apache Kafka",
+      "description": "Getting started with the Apache Kafka ecosystem"
     },
     {
       "external_link": "https://learn.openshift.com/developing-with-vertx/",
