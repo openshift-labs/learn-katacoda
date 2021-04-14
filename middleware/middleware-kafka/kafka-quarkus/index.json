@@ -6,7 +6,7 @@
   "details": {
     "steps": [
       {
-        "title": "Quarkus Reactive Messaging Extension",
+        "title": "Add a Quarkus Reactive Messaging Extension",
         "text": "step1.md"
       },
       {
@@ -14,7 +14,7 @@
         "text": "step2.md"
       },
       {
-        "title": "Deploy to OpenShift",
+        "title": "Deploy the application to OpenShift",
         "text": "step3.md"
       },
       {
