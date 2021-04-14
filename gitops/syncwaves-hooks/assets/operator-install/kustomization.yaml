@@ -1,0 +1,2 @@
+resources:
+- openshift-gitops-operator-sub.yaml

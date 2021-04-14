@@ -1,6 +1,7 @@
-In this course you learned how `kustomize` can be used as a templating
-engine for Kubernetes. Also, you've explored how you can use Kustomize
-with Argo CD in your GitOps workflows.
+In this scenario, you learned how to order your deployments with
+syncwaves. Furthermore, you got familiar with how resource hooks
+work. Finally, you saw how to further refine your deployments by using
+syncwaves and hooks together.
 
 ## Continue Learning
 

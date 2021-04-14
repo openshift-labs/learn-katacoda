@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: welcome-presyncjob
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - command:
+        - /bin/bash
+        - -c
+        - |
+          sleep 15
+        image: registry.access.redhat.com/ubi8/ubi:latest
+        imagePullPolicy: IfNotPresent
+        name: welcome-sleep-job
+      restartPolicy: Never
