@@ -7,10 +7,10 @@ Controlling your sync operation can be futher redefined by using
 hooks. These hooks can run before, during, and after a sync
 operation. These hooks are:
 
-* `PreSync` - Runs before the sync operation. This can be something like a database backup before a schema change
-* `Sync` - Runs after `PreSync` has successfully ran. This will run alongside your normal manifesets.
-* `PostSync` - Runs after `Sync` has ran successfully. This can be something like a Slack message or an email notification.
-* `SyncFail` - Runs if the `Sync` operation as failed. This is also used to send notifications or do other evasive actions.
+* **PreSync** - Runs before the sync operation. This can be something like a database backup before a schema change
+* **Sync** - Runs after `PreSync` has successfully ran. This will run alongside your normal manifesets.
+* **PostSync** - Runs after `Sync` has ran successfully. This can be something like a Slack message or an email notification.
+* **SyncFail** - Runs if the `Sync` operation as failed. This is also used to send notifications or do other evasive actions.
 
 To enable a sync, annotate the specific object manfiest with
 `argocd.argoproj.io/hook` with the type of sync you want to use for that
@@ -24,9 +24,9 @@ metadata:
 
 You can also have the hooks be deleted after a successful/unsuccessful run.
 
-* `HookSucceeded` - The resouce will be deleted after it has succeeded.
-* `HookFailed` - The resource will be deleted if it has failed.
-* `BeforeHookCreation` - The resource will be deleted before a new one is created (when a new sync is triggered).
+* **HookSucceeded** - The resouce will be deleted after it has succeeded.
+* **HookFailed** - The resource will be deleted if it has failed.
+* **BeforeHookCreation** - The resource will be deleted before a new one is created (when a new sync is triggered).
 
 You can apply these with the `argocd.argoproj.io/hook-delete-policy`
 annotation. For example
@@ -80,12 +80,18 @@ Observe the sync process. You will see that the `PreSync` manifest has
 an anchor icon ⚓ . You will also notice that the other manifests don't
 start applying until the `PreSync` Job is done.
 
-Once the application is fully synced. Take a look at the manifests in
-the namespace: `oc get all -n welcome-hooks`{{execute}}
+Once the application is fully synced. Take a look at the pods and jobs in
+the namespace: `oc get pods,jobs -n welcome-hooks`{{execute}}
 
 You should see that the Job is finished, but still there.
 
 ```shell
+NAME                               READY   STATUS      RESTARTS   AGE
+pod/welcome-php-6986bd99c4-7w7qk   1/1     Running     0          2m43s
+pod/welcome-presyncjob-l9h8n       0/1     Completed   0          3m14s
+
+NAME                           COMPLETIONS   DURATION   AGE
+job.batch/welcome-presyncjob   1/1           30s        3m14s
 ```
 
 Keep this tab open, in the next exercise. We will see how to use Syncwaves
