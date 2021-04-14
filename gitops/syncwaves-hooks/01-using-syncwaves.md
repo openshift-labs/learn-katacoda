@@ -67,4 +67,21 @@ presented with the Argo CD login screen.
 
 You can login with the following
 * **Username:** ``admin``{{copy}}
-* **Password:** `oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute
+* **Password:** `oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute}}
+
+Apply the Argo CD `Application` manifest to get this application deployed.
+
+`oc apply -f ~/resources/apps/welcome-syncwaves.yaml`{{execute}}
+
+This should create the `welcome-syncwaves` application.
+
+![welcome-syncwaves](../../assets/gitops/welcome-syncwaves.png)
+
+Clicking on this "card" will take you to the application overview
+page. Clicking on "show hidden resources" should expand the "tree"
+view and you'll see these manfiests apply in order.
+
+![welcome-syncwaves-tree](../../assets/gitops/welcome-syncwaves-tree.png)
+
+Testing
+![syncwave](../../assets/gitops/syncwave.gif)
