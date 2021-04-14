@@ -1,8 +1,6 @@
 Welcome! In this section we will be exploring how to use syncwaves with
 Argo CD.
 
-
-
 ## Background
 
 A Syncwave is a way to order how Argo CD applies the manifests that are
@@ -53,7 +51,7 @@ CD will apply the Service then the Route.
 
 > **NOTE** Argo CD won't apply the next manifest until the previous reports "healthy".
 
-## Deploying Application
+## Deploying The Application
 
 Before we deploy this application, make sure you've opened the Argo CD
 Web Console.
@@ -79,9 +77,9 @@ This should create the `welcome-syncwaves` application.
 
 Clicking on this "card" will take you to the application overview
 page. Clicking on "show hidden resources" should expand the "tree"
-view and you'll see these manfiests apply in order.
+view.
 
 ![welcome-syncwaves-tree](../../assets/gitops/welcome-syncwaves-tree.png)
 
-Testing
-![syncwave](../../assets/gitops/syncwave.gif)
+If you follow along, you'll note that these manfiests get applied in
+order of their annotated syncwave!
