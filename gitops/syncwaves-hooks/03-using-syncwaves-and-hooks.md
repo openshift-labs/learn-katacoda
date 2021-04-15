@@ -31,7 +31,7 @@ We will be adding the following manifests to the application.
 Here we are adding 3 addition manifests.
 
 * A `PreSync` Job with a syncwave of 0 `examples/syncwaves-and-hooks/welcome-php-presync-job.yaml`{{open}}
-* A `PreSync` Pod with a syncwave of 1 `examples/syncwaves-and-hooks/welcome-php-presync-pod.yaml`{{open}}
+* A `PreSync` Pod with a syncwave of 1 and a hook deletion policy `examples/syncwaves-and-hooks/welcome-php-presync-pod.yaml`{{open}}
 * A `PostSync` Pod with a hook deletion policy `examples/syncwaves-and-hooks/welcome-php-postsync-pod.yaml`{{open}}
 
 The manifest will apply in the following order.
@@ -43,13 +43,13 @@ The manifest will apply in the following order.
 
 ## Deploying the Application
 
-Take a look at the manifest file `apps/welcome-hooks.yaml`{{open}}
+Take a look at the manifest file `apps/welcome-syncwaves-and-hooks.yaml`{{open}}
 
 As before, we are using Kustomize to deploy the same application,
 but in a different namespace and we are loading in the 3 additional
 manifests. You can see the specific implementation in the [git repo](https://github.com/redhat-developer-demos/openshift-gitops-examples/tree/main/apps/welcome-php/overlays/syncwaves-and-hooks)
 
-Create this application `oc apply -f ~/resources/apps/welcome-syncwaves-and-hooks.yaml `{{execute}}
+Create this application `oc apply -f ~/resources/apps/welcome-syncwaves-and-hooks.yaml`{{execute}}
 
 This should create the 3rd application on Argo CD.
 
@@ -59,4 +59,20 @@ Clicking on this card should take you to the tree view.
 
 ![waves-and-hooks-tree](../../assets/gitops/waves-and-hooks-tree.png)
 
-Here you can observe the sync process happening in the order specified!
+Here you can observe the sync process happening in the order
+specified. You will also note that the `PreSync` Pod and the `PostSync`
+pod were deleted after the sync process because of the deletion policy
+annotation.
+
+Take a look to verify: `oc get pods,jobs -n welcome-waves-and-hooks`{{execute}}
+
+You should see the following output.
+
+```shell
+NAME                               READY   STATUS      RESTARTS   AGE
+pod/welcome-php-6986bd99c4-vv499   1/1     Running     0          4m52s
+pod/welcome-presyncjob-8jtqj       0/1     Completed   0          5m24s
+
+NAME                           COMPLETIONS   DURATION   AGE
+job.batch/welcome-presyncjob   1/1           18s        5m24s
+```
