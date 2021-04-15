@@ -28,7 +28,7 @@
       "description": "Build apps using Quarkus, a Kubernetes Native Java stack"
     },
     {
-      "external_link": "https://learn.openshift.com/eventdriven-with-kafka/",
+      "external_link": "https://learn.openshift.com/kafka/",
       "title": "Event-Driven Architecture with Apache Kafka",
       "description": "Getting started with the Apache Kafka ecosystem"
     },

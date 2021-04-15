@@ -31,5 +31,4 @@
         "description": "Stream changes from your database to Apache Kafka"
       }
     ]
-  }
-  
+}
