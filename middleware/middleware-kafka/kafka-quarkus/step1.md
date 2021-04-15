@@ -1,10 +1,10 @@
-You start this scenario with a basic Maven-based application created using the Quarkus maven plugin.
+You start this scenario with a basic Maven-based application, which is created using the Quarkus maven plugin.
 
-### Add extension
+### Add an extension to integrate with Kafka
 
 The current project needs the extensions to be added to integrate Quarkus with Apache Kafka.
 
-Change the current folder to the project one:
+Change to the project folder:
 
 ``cd /opt/projects/kafka-quarkus``{{execute}}
 
@@ -12,9 +12,9 @@ Install the extension into the project with the following command:
 
 ``mvn quarkus:add-extension -Dextension="quarkus-smallrye-reactive-messaging-kafka"``{{execute}}
 
->The first time you add the extension, new dependencies may be downloaded via maven. This should only happen once, after that things will go even faster.
+>The first time you add the extension will take longer, as Maven downloads new dependencies.
 
-This will add the necessary entries in your `pom.xml`{{open}} to bring in the Kafka extension. You should see a fragment similar to this around line 55:
+This will add the necessary entries in your `pom.xml`{{open}} to bring in the Kafka extension. You should see a fragment similar to this around line 50:
 
 ```xml
 ...
@@ -25,9 +25,9 @@ This will add the necessary entries in your `pom.xml`{{open}} to bring in the Ka
 ...
 ```
 
-### Configure channel
+### Configure a channel to integrate with the event broker
 
-We need to configure the application to define how are we going to connect to the event broker.
+Next, we need to configure the application to define how are we going to connect to the event broker.
 
 The MicroProfile Reactive Messaging properties are structured as follows:
 
@@ -35,7 +35,7 @@ The MicroProfile Reactive Messaging properties are structured as follows:
 mp.messaging.[outgoing|incoming].{channel-name}.property=value
 ```
 
-Where the `channel-name` segment must match the value set in the `@Incoming` and `@Outgoing` annotations. To indicate that a channel is managed by the Kafka connecfor we need:
+The `channel-name` segment must match the value set in the `@Incoming` and `@Outgoing` annotations. To indicate that a channel is managed by the Kafka connector we need:
 
 ```properties
 mp.messaging.[outgoing|incoming].{channel-name}.connector=smallrye-kafka
@@ -52,8 +52,8 @@ mp.messaging.outgoing.uber.key.serializer=org.apache.kafka.common.serialization.
 mp.messaging.outgoing.uber.value.serializer=org.apache.kafka.common.serialization.StringSerializer
 </pre>
 
-> You can click in **Copy to Editor** to add the values into the file
+> You can click **Copy to Editor** to add the values into the file
 
 You can see we added the kafka bootstrap server hostname and port for the broker locations and the configuration for a channel named `uber`. The `key` and `value` serializers are part of the  [Producer configuration](https://kafka.apache.org/documentation/#producerconfigs) and [Consumer configuration](https://kafka.apache.org/documentation/#consumerconfigs) to encode the message payload.
 
->You don’t need to set the Kafka topic. By default, it uses the channel name (`uber`). You can configure the topic attribute to override it.
+>You don’t need to set the Kafka topic. By default, it uses the channel name (`uber`). You can, however, configure the topic attribute to override it.
