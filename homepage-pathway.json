@@ -28,6 +28,11 @@
       "description": "Build apps using Quarkus, a Kubernetes Native Java stack"
     },
     {
+      "external_link": "https://learn.openshift.com/eventdriven-with-kafka/",
+      "title": "Event-Driven Architecture with Apache Kafka",
+      "description": "Getting started with the Apache Kafka ecosystem"
+    },
+    {
       "external_link": "https://learn.openshift.com/developing-with-vertx/",
       "title": "Developing with Eclipse Vert.x",
       "description": "Work with Eclipse Vert.x, a Java VM reactive toolkit"
