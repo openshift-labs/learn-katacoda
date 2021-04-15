@@ -1,83 +1,62 @@
-In previous scenarios, you learned that in a GitOps workflow; the
-entire application stack (including infrastructure) is reflected
-in a git repo. The challenge is how to do this without duplicating
-YAML.
+Now that you got your hands on syncwaves and resource hooks, you will
+now use them together to see how you can control how your deployment
+rolls out.
 
-So now that you've explored `kustomize`, let's see how it fits into Argo
-CD and how it can be used in a GitOps workflow.
+## Background
 
-Before preceeding, move back into the home directory: `cd ~`{{execute}}
+In the previous sections you learned how to order the application
+of manifests using syncwaves. You also went over how you phase your
+deployments with resource hooks.
 
-## The Argo CD Web Console
+In this section we will use syncwaves within each phase to show how you
+can further refine the deployment process.
 
-To get to the Argo CD Web UI; click the [Argo CD Web Console](https://argocd-cluster-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com) tab.
+Take a look at the following diagram.
 
-Once you have accepted the self signed certificate, you should be
-presented with the Argo CD login screen.
+![resource-wave-hooks](../../assets/gitops/resource-hooks.png)
 
-![ArgoCD Login](../../assets/gitops/argocd-login.png)
+The workflow can be summarized like this:
 
-You can login with the following
-* **Username:** ``admin``{{copy}}
-* **Password:** `oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute}}
+* The `PreSync` phase will run and manifests will be applied in their syncwave order.
+* Once the `PreSync` phase is successful, the `Sync` phase begins.
+* The `Sync` phase will apply the manifests in the their syncwave order
+* Finally, after the `Sync` phase is done, the `PostSync` phase applies the manifests in the syncwave order.
 
-## Base Application
+## Exploring Manifests
 
-In a previous scenario, we deployed a sample appication that had a
-picture of a blue square. To deploy the application, run the following
-command:
+We will be adding the following manifests to the application. 
 
-`oc apply -f resources/bgd-app/bgd-app.yaml`{{execute}}
+`tree ~/resources/examples/syncwaves-and-hooks`{{execute}}
 
-This should create an `Application` in the Argo CD UI.
+Here we are adding 3 addition manifests.
 
-![bgdk-app](../../assets/gitops/bgdk-app.png)
+* A `PreSync` Job with a syncwave of 0 `examples/syncwaves-and-hooks/welcome-php-presync-job.yaml`{{open}}
+* A `PreSync` Pod with a syncwave of 1 `examples/syncwaves-and-hooks/welcome-php-presync-pod.yaml`{{open}}
+* A `PostSync` Pod with a hook deletion policy `examples/syncwaves-and-hooks/welcome-php-postsync-pod.yaml`{{open}}
 
-You can wait for the rollout of the application by running `oc rollout status deploy/bgd -n bgd`{{execute}}
+The manifest will apply in the following order.
 
-Once it's done rolling out, you can open the application's URL by [CLICKING HERE](http://bgd-bgd.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+* `PreSync` - The Job will start and finish. The the Pod will start and finish. Once these are both done successfully the `PreSync` phase is considered "done".
+* `Sync` - All the manifests will apply in their respective syncwave order. Once this is done successfully, the `Sync` phase is considered done.
+* `PostSync` - The Pod will start and finish. Once it's successfully finished, the resource is deleted.
 
-It should look something like this.
 
-![bgd](../../assets/gitops/bgd.png)
+## Deploying the Application
 
-If you did the previous scenario, this should be familiar. But what
-if I wanted to deploy this application with modifications?
+Take a look at the manifest file `apps/welcome-hooks.yaml`{{open}}
 
-## Kustomized Application
+As before, we are using Kustomize to deploy the same application,
+but in a different namespace and we are loading in the 3 additional
+manifests. You can see the specific implementation in the [git repo](https://github.com/redhat-developer-demos/openshift-gitops-examples/tree/main/apps/welcome-php/overlays/syncwaves-and-hooks)
 
-Argo CD has native support for Kustomize. You can use this to avoid
-duplicating YAML for each deployment. This is especially good to
-use if you have different environements or clusters you're deploying
-to.
+Create this application `oc apply -f ~/resources/apps/welcome-syncwaves-and-hooks.yaml `{{execute}}
 
-Take a look at the `Application` definition:  `bgdk-app/bgdk-app.yaml`{{open}}
+This should create the 3rd application on Argo CD.
 
-This application is pointed to the [same repo](https://github.com/redhat-developer-demos/openshift-gitops-examples) but [different directory](https://github.com/redhat-developer-demos/openshift-gitops-examples/tree/main/apps/bgd/overlays/bgdk).
+![waves-and-hooks-card](../../assets/gitops/waves-and-hooks-card.png)
 
-This is using a concept of an "overlay", where you have a "base"
-set of manifests and you overlay your customizations. Take a look
-at the `examples/bgdk-overlay/kustomization.yaml`{{open}} example
-file.
+Clicking on this card should take you to the tree view.
 
-This `kustomization.yaml` take the base application and patches the
-manifest so that we get a yellow square instead of a blue one. It
-also deploys the application to the `bgdk` namespace (denoted by
-the `namespace:` section of the file).
+![waves-and-hooks-tree](../../assets/gitops/waves-and-hooks-tree.png)
 
-Deploy this application:  `kubectl apply -f resources/bgdk-app/bgdk-app.yaml`{{execute}}
-
-This should show you two apps on the Argo CD UI.
-
-![two-apps](../../assets/gitops/two-apps.png)
-
-Open the applicaiton's route by [CLICKING HERE](http://bgd-bgdk.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
-
-![yellow-square](../../assets/gitops/yellow-square.png)
-
-As you can see, the application deployed with your customizations! To review what we just did.
-
-* Deployed an Application called `bgd` with a blue square.
-* Deployed another Application based on `bgd` called `bgdk`
-* The Application `bgdk` was deployed in it's own namespace, with deployment customizations.
-* ALL without having to duplicate YAML!
+Here you can observe the sync process happening in the order specified!
