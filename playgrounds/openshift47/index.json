@@ -1,20 +1,17 @@
 {
     "icon": "fa-openshift",
-    "title": "Playground (OpenShift 3.10)",
+    "title": "Playground (OpenShift 4.7)",
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
     "time": "60 minutes",
     "backend": {
-        "imageid": "openshift-3-10",
-        "port": 8443
+        "imageid": "openshift-4-7"
     },
     "environment": {
         "showdashboard": true,
-        "dashboard": "Dashboard",
-        "uilayout": "terminal",
-        "hideintro": false,
-        "hidefinish": false
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uilayout": "terminal-iframe"
     },
     "details": {
         "steps": [{
@@ -22,15 +19,11 @@
             "text": "tips.md"
         }],
         "intro": {
-            "courseData": "env-init.sh",
             "code": "set-env.sh",
             "text": "intro.md"
         },
         "finish": {
             "text": "finish.md"
-        },
-        "assets": {
-          "host01": [{"file": "volumes.json", "target": "~/"}]
         }
     }
 }
