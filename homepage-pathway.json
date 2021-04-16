@@ -4,18 +4,18 @@
   "courses": [
     {
       "external_link": "https://learn.openshift.com/using-the-cluster/",
-      "title": "Using OpenShift",
+      "title": "OpenShift Basics",
       "description": "Learn the basics of OpenShift through deploying and managing a container"
-    },
-    {
-      "external_link": "https://learn.openshift.com/subsystems/",
-      "title": "Linux Container Fundamentals",
-      "description": "Understand container images, uses, and orchestration"
     },
     {
       "external_link": "https://learn.openshift.com/developing-on-openshift/",
       "title": "Developing on OpenShift",
       "description": "Get started with the OpenShift console, odo, and building apps"
+    },
+    {
+      "external_link": "https://learn.openshift.com/subsystems/",
+      "title": "Linux Container Fundamentals",
+      "description": "Understand container images, uses, and orchestration"
     },
     {
       "external_link": "https://learn.openshift.com/enterprise-java/",
