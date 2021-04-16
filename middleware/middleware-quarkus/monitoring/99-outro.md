@@ -1,4 +1,4 @@
-This exercise demonstrates how your Quarkus application can utilize the [MicroProfile Metrics](https://github.com/eclipse/microprofile-metrics) specification through the SmallRye Metrics extension. You also consumed these metrics using a popular monitoring stack with Prometheus and Grafana.
+This exercise demonstrates how your Quarkus application can utilize the [Micrometer Metrics extension](https://quarkus.io/guides/micrometer) specification through the SmallRye Metrics extension. You also consumed these metrics using a popular monitoring stack with Prometheus and Grafana.
 
 There are many more possibilities for application metrics, and it's a useful way to not only gather metrics, but act on them through alerting and other features of the monitoring stack you may be using.
 

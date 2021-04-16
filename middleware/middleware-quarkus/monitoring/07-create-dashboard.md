@@ -4,35 +4,37 @@ In the Grafana Dashboard, hover over the `+` button on the left, and select *Cre
 
 ![Grafana UI](/openshift/assets/middleware/quarkus/grafcreate.png)
 
+Next, click **Add an Empty Panel**.
+
 This will create a new dashboard with a single Panel. Each Panel can visualize a computed metric (either a single
 metric, or a more complex query) and display the results in the Panel.
 
-Click **Add Query**. In the _Metrics_ box, type `performed` to again get an autocompleted list of available metrics that match that name:
+In the _Metrics_ box, type `prime` to again get an autocompleted list of available metrics that match that name:
 
 ![Grafana UI](/openshift/assets/middleware/quarkus/grafquery.png)
 
-Choose the only one in the list: `application_org_acme_quickstart_PrimeNumberChecker_performedChecks_total`. Then click on **Query Inspector**, the metrics should immediately
-begin to show in the graph above:
+Choose from the drop-down `prime_number_test_seconds_max`. Then click on the **Refresh** button to begin to show in the graph above:
 
 ![Grafana UI](/openshift/assets/middleware/quarkus/grafgraf.png)
 
-Next click on the *Visualization* tab on the left:
+This is querying the custom `prime.number.test` metric from our earlier Java code we created. With the `seconds_max` suffix it will show the max # of seconds taken to calculate a prime from our `curl` loop still running.
+
+> **Note**: Statistics like max, percentiles, and histogram counts decay over time to give greater weight to recent samples, so you'll see even the `max` value going up and down as older values drop out of the rolling window of samples.
+
+Next click on the *Visualization* section on the right:
 
 ![Grafana UI](/openshift/assets/middleware/quarkus/grafvis.png)
 
-This lets you fine tune the display, along with the type of graph (bar, line, gauge, etc). Leave them for now, and click
-on the *General* tab. Change the name of the panel to `Prime Checks`.
+This lets you fine tune the display, along with the type of graph (bar, line, gauge, etc). Leave them for now, and look up in the _Settings_ section above, and change the name of the panel to `Prime Time`.
 
 ![Grafana UI](/openshift/assets/middleware/quarkus/graftitle.png)
 
 There is an *Alerts* tab you can configure to send alerts (email, etc) when conditions are met for this and other
 queries. We’ll skip this for now.
 
-Click the *Save* icon at the top to save our new dashboard (you can enter a change comment if you want):
+Click *Save* at the top right to save our new dashboard and give it a name such as _My Prime Dashboard_.
 
 ![Grafana UI](/openshift/assets/middleware/quarkus/grafsave.png)
-
-Give your new dashboard a name of **Quarkus Primes** and click **Save**.
 
 # Add more Panels
 
@@ -45,9 +47,16 @@ it.**
 
 Add Panels for:
 
-  - The different quantiles of time it takes to check primes `application_org_acme_quickstart_PrimeNumberChecker_checksTimer_seconds` (configure it to *stack* its values on the *Visualization* tab, and name it "Primes Performance" on the *General* tab).
-  - The Highest Prime tested so far `application_org_acme_quickstart_PrimeNumberChecker_highestPrimeNumberSoFar` (set the visualization type to `SingleStat`, and the title to `Highest So Far` on the *General* tab.
-  - The JVM heap memory Value `base_memory_usedHeap_bytes` (set the visualization type to `Gauge` and the Field Units to `bytes` on the *Visualization* tab, and the title to `Memory` on the *General* tab.
+  - The HTTP endpoint timers `http_server_requests_seconds_count` (name it "Primes HTTP Timer" on the *General* tab).
+  - The RSS Memory used by the app `process_resident_memory_bytes` (set the title to `RSS Memory` on the *General* tab.
+
+To see the quantile metrics, create another panel for the `prime_number_test_seconds_bucket` metric. When you select that metric in Grafana, it will notice you'll want a histogram panel, so click the helpful tip to show the 95% quantile:
+
+![Grafana UI](/openshift/assets/middleware/quarkus/grafhist.png)
+
+The graph will update to show the 95% quantile of the time it takes to evaluate whether a number is prime or not:
+
+![Grafana UI](/openshift/assets/middleware/quarkus/grafhistdata.png)
 
 # Fix layout
 
@@ -62,13 +71,13 @@ Click **Save Dashboad** again to save it. Your final Dashboard should look like:
 
 ![final](/openshift/assets/middleware/quarkus/graffinal.png)
 
-Beautiful, and useful\! You can add many more metrics to monitor and alert for Quarkus apps using these tools.
+You can add many more metrics to monitor and alert for Quarkus apps using these tools.
 
 # Congratulations\!
 
-This exercise demonstrates how your Quarkus application can utilize the [MicroProfile
-Metrics](https://github.com/eclipse/microprofile-metrics) specification through the SmallRye Metrics extension. You also
-consumed these metrics using a popular monitoring stack with Prometheus and Grafana.
+This exercise demonstrates how your Quarkus application can utilize the [Micrometer
+Metrics extension](https://quarkus.io/guides/micrometer) to visualize metrics for Quarkus applications. You also
+consumed these metrics using a popular monitoring stack with Prometheus and Grafana and other APM tools that support Micrometer.
 
 There are many more possibilities for application metrics, and it’s a useful way to not only gather metrics, but act on
 them through alerting and other features of the monitoring stack you may be using.
