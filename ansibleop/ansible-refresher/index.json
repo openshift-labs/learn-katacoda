@@ -61,6 +61,7 @@
     "uieditorpath": "/root/tutorial"
   },
   "backend": {
+    "autoUpgrade": false,
     "imageid": "openshift-3-11",
     "port": 8443
   }

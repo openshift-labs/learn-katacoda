@@ -6,6 +6,7 @@
     "difficulty": "beginner",
     "time": "10-15 minutes",
     "backend": {
+      "autoUpgrade": true,
       "imageid": "openshift-4-6"
     },
     "files": [

@@ -6,6 +6,7 @@
     "difficulty": "beginner",
     "time": "20-30 minutes",
     "backend": {
+        "autoUpgrade": false,
         "imageid": "openshift",
         "port": 8443
     },

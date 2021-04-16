@@ -6,6 +6,7 @@
     "difficulty": "beginner",
     "time": "10-20 minutes",
     "backend": {
+        "autoUpgrade": false,
         "trainingid": "openshift-3-11-cluster",
         "imageid": "openshift-3-11-cluster",
         "port": 8443

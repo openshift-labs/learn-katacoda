@@ -52,6 +52,7 @@
     "uieditorpath": "/opt/projects/kafka-quarkus"
   },
   "backend": {
+    "autoUpgrade": true,
     "imageid": "openshift-4-5"
   }
 }

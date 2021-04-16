@@ -55,6 +55,7 @@
     "uieditorpath": "/root/projects/http-bridge"
   },
   "backend": {
+    "autoUpgrade": true,
     "imageid": "openshift-4-5"
   }
 }

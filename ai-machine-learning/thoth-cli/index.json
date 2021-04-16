@@ -26,6 +26,7 @@
     "uilayout": "editor-terminal"
   },
   "backend": {
+    "autoUpgrade": false,
     "imageid": "centos"
   }
 }
