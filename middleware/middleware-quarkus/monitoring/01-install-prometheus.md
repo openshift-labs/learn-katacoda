@@ -47,13 +47,14 @@ scrape_configs:
     static_configs:
     - targets: ['localhost:9090']
   - job_name: 'hello-app'
+    metrics_path: '/q/metrics'
     static_configs:
     - targets: ['primes:8080']
 EOF
 ```{{execute}}
 
 This file contains basic Prometheus configuration, plus a specific `scrape_config` which instructs Prometheus to
-look for application metrics from both Prometheus itself, and a Quarkus app called `primes` which we'll create later, on HTTP port 8080 at the `/metrics`
+look for application metrics from both Prometheus itself, and a Quarkus app called `primes` which we'll create later, on HTTP port 8080 at the `/q/metrics`
 endpoint.
 
 Next, click this command to create a ConfigMap with the above file:
@@ -64,7 +65,7 @@ Next, click this command to create a ConfigMap with the above file:
 
 Next, deploy and expose Prometheus using its public Docker Hub image:
 
-`oc new-app prom/prometheus && oc expose svc/prometheus`{{execute}}
+`oc new-app quay.io/prometheus/prometheus && oc expose svc/prometheus`{{execute}}
 
 And finally, mount the ConfigMap into the running container:
 
