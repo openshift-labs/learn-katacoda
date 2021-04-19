@@ -6,7 +6,7 @@ Let's start a pipeline to build and deploy our backend application using `tkn`. 
 
 We'll first build and deploy our backend application using the following command, with the params already included for our specific demo:
 
-`tkn pipeline start build-and-deploy -w name=shared-workspace,claimName=source-pvc -p deployment-name=vote-api -p git-url=https://github.com/openshift-pipelines/vote-api.git -p IMAGE=image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/vote-api --showlog`{{execute}}
+`tkn pipeline start build-and-deploy -w name=shared-workspace,claimName=source-pvc -p deployment-name=vote-api -p git-url=https://github.com/openshift/pipelines-vote-api.git -p IMAGE=image-registry.openshift-image-registry.svc:5000/pipelines-tutorial/vote-api --showlog`{{execute}}
 
 Similarly, start a pipeline to build and deploy the frontend application:
 
