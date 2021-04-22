@@ -9,12 +9,6 @@
       "title": "Introduction to GitOps with OpenShift"
     },
     {
-      "external_link": "https://learn.openshift.com/introduction/gitops-multicluster/",
-      "pathway_id": "introduction",
-      "course_id": "gitops-multicluster",
-      "title": "Multi-cluster GitOps with OpenShift"
-    },
-    {
       "external_link": "https://learn.openshift.com/middleware/pipelines/",
       "pathway_id": "middleware",
       "course_id": "pipelines",
