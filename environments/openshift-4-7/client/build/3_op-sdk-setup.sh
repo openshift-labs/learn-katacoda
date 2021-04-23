@@ -48,6 +48,7 @@ echo "install make"
 yum install make -y
 
 echo "install kustomize"
-curl -s "https://raw.githubusercontent.com/\
-kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.1.2/kustomize_v4.1.2_linux_amd64.tar.gz -P /tmp
+tar xvzf /tmp/kustomize_v4.1.2_linux_amd64.tar.gz
+chmod +x kustomize
 mv kustomize /root/tutorial/go/bin/kustomize -f
