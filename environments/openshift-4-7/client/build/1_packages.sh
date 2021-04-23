@@ -2,10 +2,9 @@ yum install -y nc
 yum install -y vim man curl wget unzip zip git zsh tmux java-1.8.0-openjdk-devel tree git bash-completion net-tools python36 glibc-langpack-en rsync
 
 export MVN_VERSION=3.6.3
-export OC_VERSION=4.6
 export CAMEL_K_VERSION=1.2.0
 export HELM_VERSION=3.3.4
-export ODO_VERSION=2.0.1
+export ODO_VERSION=2.1.0
 export TKN_VERSION=0.13.1
 export KN_VERSION=0.16.1
 export KOGITO_VERSION=0.17.0
@@ -16,14 +15,6 @@ wget http://www.eu.apache.org/dist/maven/maven-3/$MVN_VERSION/binaries/apache-ma
     mkdir -p /usr/local/maven && \
     mv apache-maven-$MVN_VERSION/ /usr/local/maven/ && \
     alternatives --install /usr/bin/mvn mvn /usr/local/maven/apache-maven-$MVN_VERSION/bin/mvn 1
-
-curl -o oc.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable-$OC_VERSION/openshift-client-linux.tar.gz && \
-    tar -xvf oc.tar.gz && \
-    rm -f oc.tar.gz README.md && \
-    mv oc /usr/bin/oc && \
-    mv kubectl /usr/bin/kubectl && \
-    chmod +x /usr/bin/oc && \
-    chmod +x /usr/bin/kubectl
 
 curl -o camel_k.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/camel-k/$CAMEL_K_VERSION/camel-k-client-$CAMEL_K_VERSION-linux-64bit.tar.gz && \
     tar -xvf camel_k.tar.gz && \
