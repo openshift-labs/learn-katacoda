@@ -1,6 +1,6 @@
 #!/bin/bash
-GRAALVM_ARCHIVE='https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-19.3.1/graalvm-ce-java11-linux-amd64-19.3.1.tar.gz'
-GRAALVM_BASENAME='graalvm-ce-java11-19.3.1'
+GRAALVM_ARCHIVE='https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.1.0/graalvm-ce-java11-linux-amd64-21.1.0.tar.gz'
+GRAALVM_BASENAME='graalvm-ce-java11-21.1.0'
 
 echo "install gcc and deps"
 yum --enablerepo=extras install epel-release -y
@@ -21,12 +21,10 @@ mvn io.quarkus:quarkus-maven-plugin:1.0.0.CR1:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=getting-started \
     -DclassName="org.acme.quickstart.GreetingResource" \
-    -Dpath="/hello"
-
+    -Dpath="/hello" && \
 mvn -q -f getting-started -fn dependency:resolve-plugins dependency:resolve \
-    dependency:go-offline clean compile package -DskipTests
-
-# and once for the native image
-
+    dependency:go-offline clean compile package -DskipTests && \
 mvn -q -f getting-started -fn dependency:resolve-plugins dependency:resolve \
     dependency:go-offline clean compile package  -DskipTests -Pnative
+
+echo "Quarkus install completed"
