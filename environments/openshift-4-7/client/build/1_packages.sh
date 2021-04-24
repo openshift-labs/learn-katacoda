@@ -1,12 +1,12 @@
 yum install -y nc
 yum install -y vim man curl wget unzip zip git zsh tmux java-1.8.0-openjdk-devel tree git bash-completion net-tools python36 glibc-langpack-en rsync
 
-export MVN_VERSION=3.6.3
+export MVN_VERSION=3.8.1
 export CAMEL_K_VERSION=1.2.0
 export HELM_VERSION=3.3.4
 export ODO_VERSION=2.1.0
-export TKN_VERSION=0.13.1
-export KN_VERSION=0.16.1
+export TKN_VERSION=0.23.0
+export KN_VERSION=0.22.0
 export KOGITO_VERSION=0.17.0
 
 wget http://www.eu.apache.org/dist/maven/maven-3/$MVN_VERSION/binaries/apache-maven-$MVN_VERSION-bin.tar.gz && \
