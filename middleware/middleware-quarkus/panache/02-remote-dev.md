@@ -106,7 +106,7 @@ Run the following command which will build and deploy the Quarkus app in Openshi
 -Dquarkus.kubernetes-client.trust-certs=true \
 -Dquarkus.kubernetes.deployment-target=openshift \
 -Dquarkus.openshift.route.expose=true \
--Dquarkus.openshift.annotations."app.openshift.io/connects-to"=postgres-database \
+-Dquarkus.openshift.annotations.\"app.openshift.io/connects-to\"=postgres-database \
 -Dquarkus.openshift.env-vars.quarkus-launch-devmode.value=true`{{execute}}
 
 The output should end with `BUILD SUCCESS`.
