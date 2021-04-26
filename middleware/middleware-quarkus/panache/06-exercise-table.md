@@ -1,6 +1,6 @@
 Now that we have our app running on OpenShift, let's see what we can do.
 
-Click to [access the graphical frontend which includes our DataTable](http://quarkus-datatable-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+Click to [access the graphical frontend which includes our DataTable](http://people-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
 It should look like:
 
@@ -12,7 +12,11 @@ Skip around a few pages, try some different searches, and notice that the data i
 
 ## Congratulations
 
-In this scenario you got a glimpse of the power of Quarkus apps when dealing with large amounts of data. There is much more to Quarkus than fast startup times and low resource usage, so keep on exploring additional scenarios to learn more, and be sure to visit [quarkus.io](https://quarkus.io) to learn even more about the architecture and capabilities of this exciting new framework for Java developers. 
+In this scenario you got a glimpse of the power of Quarkus apps when dealing with large amounts of data.
+
+You also got to experience Quarkus Remote Development, where local changes are immediately reflected in remote applications. You deployed the app to OpenShift and live-coded changes on the fly.
+
+There is much more to Quarkus than this, so keep on exploring additional scenarios to learn more, and be sure to visit [quarkus.io](https://quarkus.io) to learn even more about the architecture and capabilities of this exciting new framework for Java developers.
 
 # Extra Credit
 

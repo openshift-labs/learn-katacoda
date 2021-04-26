@@ -1,4 +1,4 @@
-In the previous step you added a few more custom queries to your entity and the associated RESTful endpoints. In this step we'll build a slightly more complex query including filtering, searching and paging capabilities. 
+In the previous step you added a few more custom queries to your entity and the associated RESTful endpoints. In this step we'll build a slightly more complex query including filtering, searching and paging capabilities.
 
 # Showing data in tables
 
@@ -14,7 +14,7 @@ Let's use a popular jQuery-based plugin called [DataTables](https://www.datatabl
 * `length` - Total number records to return (or less, if there are less records that meet criteria)
 * `search[value]` - The value of the search box
 * `draw` - DataTables does asnychronous processing, so this value is sent with each request, expecting it to be returned as-is, so DataTables can piece things back together on the frontend if a user clicks things quickly.
-  
+
 Open the `src/main/java/org/acme/person/PersonResource.java`{{open}} resource class and then click **Copy To Editor** once again to inject the new endpoint:
 
 <pre class="file" data-filename="./src/main/java/org/acme/person/PersonResource.java" data-target="insert" data-marker="// TODO: add datatable query">
@@ -48,7 +48,7 @@ DataTables requires a specific JSON payload to be returned from this, and we've 
 * `recordsFiltered` - Total records that match filtering criteria
 * `data` - The actual array of records
 * `error` - Error string, if any
-  
+
 So, in our `PersonResource` endpoint, we'll start with an empty `result` object using the pre-created `DataTable` model. Click **Copy To Editor** to add this code:
 
 <pre class="file" data-filename="./src/main/java/org/acme/person/PersonResource.java" data-target="insert" data-marker="// TODO: Begin result">
@@ -60,7 +60,7 @@ Next, if the request includes a search parameter, let's take care of that by inc
 
 <pre class="file" data-filename="./src/main/java/org/acme/person/PersonResource.java" data-target="insert" data-marker="// TODO: Filter based on search">
 PanacheQuery&lt;Person&gt; filteredPeople;
-            
+
             if (searchVal != null && !searchVal.isEmpty()) {
                 filteredPeople = Person.&lt;Person&gt;find("name like :search",
                   Parameters.with("search", "%" + searchVal + "%"));
@@ -74,17 +74,17 @@ And finally, we use the built-in Panache `page` operator to seek to the correct 
 <pre class="file" data-filename="./src/main/java/org/acme/person/PersonResource.java" data-target="insert" data-marker="// TODO: Page and return">
 int page_number = start / length;
             filteredPeople.page(page_number, length);
-            
+
             result.setRecordsFiltered(filteredPeople.count());
             result.setData(filteredPeople.list());
             result.setRecordsTotal(Person.count());
-            
-            return result;  
+
+            return result;
 </pre>
 
 Let's test out our new endpoint using `curl` to search for names with `yan` in their name:
 
-`curl "http://localhost:8080/person/datatable?draw=1&start=0&length=10&search\[value\]=yan" | jq`{{execute T2}}
+`curl -s "$PEOPLE_URL/person/datatable?draw=1&start=0&length=10&search\[value\]=yan" | jq`{{execute T2}}
 
 This should return a single entity (since in our 3-person sample data, only one has `yan` in their name), embedded in the return object that DataTable is expecting (with the `draw`, `recordsFiltered`, `recordsTotal` etc):
 
