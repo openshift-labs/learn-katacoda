@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  name: welcome-postsync-pod
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  containers:
+  - command:
+    - /bin/bash
+    - -c
+    - |
+      echo "Post deployment work"
+      sleep 10
+    image: registry.access.redhat.com/ubi8/ubi:latest
+    imagePullPolicy: IfNotPresent
+    name: welcome-sleep-pod
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
