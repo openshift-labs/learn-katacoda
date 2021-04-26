@@ -22,7 +22,7 @@ These two queries will find a list of people in our database based on eye color,
 
 > All list methods in Panache-based entities (those that extend from `PanacheEntity`) have equivalent stream versions. So `list` has a `stream` variant, `listAll`-->`streamAll` and so on.
 
-With our custom entity queries implemented in our `Person` entity class, let's add RESTful endpoints to `PersonResource` to access them. 
+With our custom entity queries implemented in our `Person` entity class, let's add RESTful endpoints to `PersonResource` to access them.
 
 Open the `src/main/java/org/acme/person/PersonResource.java`{{open}} resource class and then click **Copy To Editor** once again to inject the new endpoints which will access our new queries:
 
@@ -44,11 +44,13 @@ Open the `src/main/java/org/acme/person/PersonResource.java`{{open}} resource cl
 
 ## Inspect the results
 
-Since we still have our app running using `mvn quarkus:dev`, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live reload them.
+When you make these changes, Quarkus will notice all of these changes and live reload them across the remoet connection.
 
 Check that it works as expected by testing the new endpoints. Let's find all the people with `BLUE` eyes. Execute:
 
-`curl http://localhost:8080/person/eyes/BLUE | jq`{{execute T2}}
+`curl -s $PEOPLE_URL/person/eyes/BLUE | jq`{{execute T2}}
+
+> This will open a new Terminal to execute the command. If the command fails to run just click the above command again!
 
 You should only see **one** person with BLUE eyes:
 
@@ -63,10 +65,11 @@ You should only see **one** person with BLUE eyes:
   }
 ]
 ```
+This also confirms that our remote live coding is working as expected.
 
-And let's find people born in 1990 or earlier:
+Next, let's find people born in 1990 or earlier:
 
-`curl http://localhost:8080/person/birth/before/1990 | jq`{{execute T2}}
+`curl -s $PEOPLE_URL/person/birth/before/1990 | jq`{{execute T2}}
 
 You should see **two** people born in 1990 or earlier:
 

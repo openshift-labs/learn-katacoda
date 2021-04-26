@@ -1,4 +1,8 @@
-ssh root@host01 "git --git-dir=/root/projects/rhoar-getting-started/.git --work-tree=/root/projects/rhoar-getting-started pull"
-ssh root@host01 "yum install tree -y"
-ssh root@host01 "touch /etc/rhsm/ca/redhat-uep.pem"
-ssh root@host01 "echo -w\ \"\n\" >> ~/.curlrc"
+mkdir -p /root/projects/rhoar-getting-started/quarkus/panache
+yum install tree -y
+
+curl -sL -w '' https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/assets/middleware/install-openjdk.sh > /tmp/jdk.sh
+
+chmod a+x /tmp/jdk.sh
+/tmp/jdk.sh
+
