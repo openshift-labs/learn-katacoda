@@ -17,7 +17,7 @@ can view this installation via the UI in the Administrator Perspective:
 
 * Click on `Operators` drop down on the leftside navigation.
 * Click on `Installed Operators`
-* In the `Project` dropdown, make sure `openshift gitops` is selected.
+* In the `Project` dropdown, make sure `openshift-gitops` is selected.
 
 You should see that the OpenShift GitOps Operator is installed.
 
