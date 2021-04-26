@@ -35,7 +35,7 @@
       },
       "steps": [
         {
-          "title": "Exploring Kustomzie",
+          "title": "Exploring Kustomize",
           "text": "01-exploring-kustomize.md"
         },
         {
