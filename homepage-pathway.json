@@ -53,9 +53,9 @@
       "description": "Build event-driven applications that scale based on event triggers"
     },
     {
-      "external_link": "https://learn.openshift.com/cicd-application-delivery/",
-      "title": "CI/CD & Application Delivery",
-      "description": "Use GitOps and OpenShift Pipelines to automate and manage app deployment"
+      "external_link": "https://learn.openshift.com/gitops/",
+      "title": "GitOps",
+      "description": "Use GitOps and OpenShift Pipelines to implement Kubernetes-native CI/CD, automate and manage app deployment"
     },
     {
       "external_link": "https://learn.openshift.com/operatorframework/",
