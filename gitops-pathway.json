@@ -1,7 +1,13 @@
 {
-    "title": "GitOps with OpenShift",
+    "title": "GitOps and Pipelines with OpenShift",
     "icon": "fa-openshift",
     "courses": [
+      {
+       "external_link": "https://learn.openshift.com/middleware/pipelines/",
+       "pathway_id": "middleware",
+       "course_id": "pipelines",
+       "title": "Using OpenShift Pipelines"
+      },
       {
         "external_link": "https://learn.openshift.com/gitops/getting-started/",
         "pathway_id": "gitops",
