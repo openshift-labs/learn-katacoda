@@ -39,12 +39,6 @@
         "title": "Deploying Applications From Source"
       },
       {
-        "external_link": "https://learn.openshift.com/introduction/federated-clusters/",
-        "pathway_id": "introduction",
-        "course_id": "federated-clusters",
-        "title": "Introduction to Federated Clusters with Kubefed"
-      },
-      {
         "external_link": "https://learn.openshift.com/introduction/deploy-prometheus-grafana/",
         "pathway_id": "introduction",
         "title": "How to set up Prometheus and Grafana on OpenShift",
