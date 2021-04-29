@@ -9,7 +9,7 @@
     },
     {
       "external_link": "https://learn.openshift.com/gitops/",
-      "title": "GitOps (New Content!)",
+      "title": "GitOps (New!)",
       "description": "Use GitOps and OpenShift Pipelines to implement Kubernetes-native CI/CD, automate and manage app deployment"
     },
     {
