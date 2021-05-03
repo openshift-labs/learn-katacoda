@@ -1,0 +1,30 @@
+{
+    "title": "GitOps and Pipelines with OpenShift",
+    "icon": "fa-openshift",
+    "courses": [
+      {
+       "external_link": "https://learn.openshift.com/middleware/pipelines/",
+       "pathway_id": "middleware",
+       "course_id": "pipelines",
+       "title": "Using OpenShift Pipelines"
+      },
+      {
+        "external_link": "https://learn.openshift.com/gitops/getting-started/",
+        "pathway_id": "gitops",
+        "course_id": "getting-started",
+        "title": "Getting Started with ArgoCD and OpenShift GitOps Operator"
+      },
+      {
+        "external_link": "https://learn.openshift.com/gitops/kustomize/",
+        "pathway_id": "gitops",
+        "course_id": "kustomize",
+        "title": "Working with Kustomize"
+      },
+      {
+        "external_link": "https://learn.openshift.com/gitops/syncwaves-and-hooks/",
+        "pathway_id": "gitops",
+        "course_id": "syncwaves-hooks",
+        "title": "Syncwaves and Hooks"
+      }
+    ]
+}
