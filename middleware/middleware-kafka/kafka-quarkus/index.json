@@ -6,19 +6,19 @@
   "details": {
     "steps": [
       {
-        "title": "Add a Quarkus Reactive Messaging Extension",
+        "title": "Adding a Quarkus Reactive Messaging Extension",
         "text": "step1.md"
       },
       {
-        "title": "Create an event generator",
+        "title": "Creating an event generator",
         "text": "step2.md"
       },
       {
-        "title": "Deploy the application to OpenShift",
+        "title": "Deploying the application to OpenShift",
         "text": "step3.md"
       },
       {
-        "title": "Check the Kafka records",
+        "title": "Checking Kafka records",
         "text": "step4.md"
       }
     ],

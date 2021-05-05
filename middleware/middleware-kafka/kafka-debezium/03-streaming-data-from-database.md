@@ -8,15 +8,15 @@ So let's create a `KafkaConnector` custom resource that will register a MySQL so
 
 We'll use the following registration resource, which is included in the scenario environment: `kafka-connector.yaml`{{open}}.
 
-Enter the following command to register the database source:
+Register the database source:
 
 ``oc -n debezium apply -f /root/projects/debezium/kafka-connector.yaml``{{execute interrupt}}
 
-Check the Kafka Connect log file to verify that the registration succeeded and that Debezium started:
+Check the Kafka Connect log file to verify that the registration succeeded and Debezium started:
 
 ``oc logs -f deploy/debezium-connect``{{execute}}
 
-The command should return output similar to the following example:
+Connection to the database is confirmed in the output as `Connected to mysql.default.svc:3306`:
 
 ```bash
 ...
@@ -30,10 +30,7 @@ INFO: Connected to mysql.default.svc:3306 at mysql-bin.000003/154 (sid:184054, c
 2020-11-19 22:44:19,819 INFO Creating thread debezium-mysqlconnector-dbserver-mysql-binlog-client (io.debezium.util.Threads) [blc-mysql.default.svc:3306]
 2020-11-19 22:44:19,823 INFO Keepalive thread is running (io.debezium.connector.mysql.BinlogReader) [task-thread-debezium-connector-0]
 ```
->The preceding output is formatted to improve readability.
-
-Notice that a line about midway through the preceding example states `Connected to mysql.default.svc:3306`. 
- 
+>The output shown is formatted to improve readability.
 
 Enter <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
@@ -43,11 +40,11 @@ Enter <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the process.
 
 Now that the database is connected, as changes are committed to the database, Debezium emits change event messages to Kafka topics.
 
-To see a list of the topics that Debezium creates, enter the following command:
+List the topics that Debezium has created:
 
 ``oc get kafkatopics``{{execute interrupt}}
 
-The preceding command shows us the topics that correspond to tables in the database:
+The output shows us the topics that correspond to tables in the database:
 
 ```bash
 NAME                                                                                   PARTITIONS   REPLICATION FACTOR
@@ -70,12 +67,13 @@ test                                                                            
 
 ### Verify that data is emitted from MySQL to Kafka
 
-Now let's check the contents of the `customers` table in MySQL. 
-Enter the following command to display the source table:
+Now let's check the contents of the `customers` table in MySQL.
+
+Display the source table:
 
 ``oc -n default exec -i deploy/mysql -- bash -c 'mysql -t -u $MYSQL_USER -p$MYSQL_PASSWORD -e "SELECT * from customers" inventory'``{{execute}}
 
-The command returns the contents of the `customers` table, as in the following example:
+The command returns the contents of the `customers` table:
 
 ```bash
 mysql: [Warning] Using a password on the command line interface can be insecure.
@@ -89,14 +87,13 @@ mysql: [Warning] Using a password on the command line interface can be insecure.
 +------+------------+-----------+-----------------------+
 ```
 
-The topic `dbserver-mysql.inventory.customers` on the Kafka broker should contain messages that represent the data change events from this table in [Debezium change event format](http://debezium.io/docs/configuration/event-flattening/)
+The topic `dbserver-mysql.inventory.customers` on the Kafka broker contains messages that represent the data change events from this table in [Debezium change event format](http://debezium.io/docs/configuration/event-flattening/)
 
-Let's look at the messages in the topic. 
-Enter the following command:
+Let's look at the messages in the topic:
 
 ``oc exec -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dbserver-mysql.inventory.customers --from-beginning --max-messages 4 | jq``{{execute}}
 
->*Note:* Output formatted for the sake of readability
+From the output, you can see the change events for the table:
 
 ```json
 ...
@@ -312,16 +309,19 @@ Enter the following command:
 Processed a total of 4 messages
 ```
 
-Now, let's add a new customer record to the table by entering the following command:
+>The output shown is formatted to improve readability.
+
+Now, let's add a new customer record to the table:
 
 ``oc -n default exec -i deploy/mysql -- bash -c 'mysql -t -u $MYSQL_USER -p$MYSQL_PASSWORD -e "INSERT INTO customers VALUES(default,\"John\",\"Doe\",\"john.doe@example.org\")" inventory'``{{execute}}
 
-After we add the record to the database, Debezium emits a new message to the associated topic. 
-Enter the following command to view messages in the topic:
+After we add the record to the database, Debezium emits a new message to the associated topic.
+
+View the messages in the topic again:
 
 ``oc exec -c kafka my-cluster-kafka-0 -- /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dbserver-mysql.inventory.customers --from-beginning --max-messages 5 | jq``{{execute}}
 
-The command returns output that includes the newly added record for the user _John Doe_, as shown in the following example:
+The command returns output that includes the newly added record for the user _John Doe_:
 
 ```json
 ...
@@ -539,7 +539,7 @@ Processed a total of 5 messages
 
 ## Congratulations
 
-You have completed the basic deployment scenario.
+You have completed a basic deployment of Debezium to stream changes from a database.
 Now you can add, change, or remove data from MySQL and see how the changes are reflected on the Kafka broker.
 
-See the Red Hat Integration [Debezium documentation](https://access.redhat.com/documentation/en-us/red_hat_integration/2020-q3/html/debezium_user_guide/index) for more tips and details.
+See the Red Hat Integration [Debezium documentation](https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q1/html/debezium_user_guide/index) for more tips and details.

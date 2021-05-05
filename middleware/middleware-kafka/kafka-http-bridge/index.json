@@ -6,7 +6,7 @@
   "details": {
     "steps": [
       {
-        "title": "Deploy the HTTP Bridge",
+        "title": "Deploying the HTTP Bridge",
         "text": "step1.md"
       },
       {
