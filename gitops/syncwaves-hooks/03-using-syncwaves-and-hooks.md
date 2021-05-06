@@ -68,7 +68,7 @@ Take a look to verify: `oc get pods,jobs -n welcome-waves-and-hooks`{{execute}}
 
 You should see the following output.
 
-```
+```shell
 NAME                               READY   STATUS      RESTARTS   AGE
 pod/welcome-php-6986bd99c4-vv499   1/1     Running     0          4m52s
 pod/welcome-presyncjob-8jtqj       0/1     Completed   0          5m24s
