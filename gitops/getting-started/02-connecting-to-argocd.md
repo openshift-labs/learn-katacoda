@@ -35,7 +35,7 @@ The `argocd` CLI tool is useful for debugging and viewing status of your apps de
 
 ## The Argo CD Web Console
 
-To get to the Argo CD Web UI; click the [Argo CD Web Console](https://argocd-cluster-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com) tab.
+To get to the Argo CD Web UI; click the [Argo CD Web Console](https://openshift-gitops-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com) tab.
 
 Once you have accepted the self signed certificate, you should be
 presented with the Argo CD login screen.
@@ -44,7 +44,7 @@ presented with the Argo CD login screen.
 
 You can login with the following
 * **Username:** ``admin``{{copy}}
-* **Password:** `oc extract secret/argocd-cluster-cluster -n openshift-gitops --to=-`{{execute}}
+* **Password:** `oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-`{{execute}}
 
 > **NOTE** The Password is stored in a secret on the platform.
 
