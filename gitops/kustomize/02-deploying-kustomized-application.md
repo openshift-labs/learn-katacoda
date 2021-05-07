@@ -65,7 +65,7 @@ manifest so that we get a yellow square instead of a blue one. It
 also deploys the application to the `bgdk` namespace (denoted by
 the `namespace:` section of the file).
 
-Deploy this application:  `kubectl apply -f resources/bgdk-app/bgdk-app.yaml`{{execute}}
+Deploy this application:  `oc apply -f resources/bgdk-app/bgdk-app.yaml`{{execute}}
 
 This should show you two apps on the Argo CD UI.
 
