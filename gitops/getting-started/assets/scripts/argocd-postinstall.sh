@@ -34,7 +34,7 @@ echo -n '.'
 ## Wait until the deployment  appears
 until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops >>${logfile} 2>&1
 do
-    sleep 15
+    sleep 5
     echo -n '.'
 done
 
@@ -45,7 +45,7 @@ echo -n '.'
 
 #
 ## Installs the argocd CLI tool.
-wget -q -O /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/v1.8.7/argocd-linux-amd64
+wget -q -O /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/v2.0.1/argocd-linux-amd64
 if [[ -f /usr/local/bin/argocd ]] ; then
     chmod +x /usr/local/bin/argocd
     echo -n '.'
@@ -57,18 +57,17 @@ fi
 ## This patches the Argo CD Controller in the following ways
 ##  - Ignores .spec.host field in routes
 ##  - Uses SSL edge termination because of Katacoda
-##  - Uses Argo CD version 1.8.7
-oc patch argocd argocd-cluster -n openshift-gitops --type=merge \
--p='{"spec":{"resourceCustomizations":"route.openshift.io/Route:\n  ignoreDifferences: |\n    jsonPointers:\n    - /spec/host\n","server":{"insecure":true,"route":{"enabled":true,"tls":{"insecureEdgeTerminationPolicy":"Redirect","termination":"edge"}}},"version":"v1.8.7"}}' >>${logfile} 2>&1
+oc patch argocd openshift-gitops -n openshift-gitops --type=merge \
+-p='{"spec":{"resourceCustomizations":"bitnami.com/SealedSecret:\n  health.lua: |\n    hs = {}\n    hs.status = \"Healthy\"\n    hs.message = \"Controller doesnt report resource status\"\n    return hs\nroute.openshift.io/Route:\n  ignoreDifferences: |\n    jsonPointers:\n    - /spec/host\n","server":{"insecure":true,"route":{"enabled":true,"tls":{"insecureEdgeTerminationPolicy":"Redirect","termination":"edge"}}}}}'
 echo -n '.'
-
-#
-##  Sleep here because CRC is slow to start the rollout process
-sleep 5
 
 #
 ## Give the user some hope
 echo -n "Halfway there"
+
+#
+##  Sleep here because CRC is slow to start the rollout process
+sleep 5
 
 #
 ## Wait for the rollout of a new controller
@@ -89,7 +88,7 @@ echo -n '.'
 ## Wait for rollout of new pods and the deployment to be available
 until oc wait --for=condition=available --timeout=60s deploy argocd-cluster-server -n openshift-gitops >>${logfile} 2>&1
 do
-    sleep 20
+    sleep 5
     echo -n '.'
 done
 oc rollout status deploy argocd-cluster-server -n openshift-gitops >>${logfile} 2>&1
