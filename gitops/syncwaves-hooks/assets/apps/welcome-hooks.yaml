@@ -18,12 +18,3 @@ spec:
       selfHeal: false
     syncOptions:
     - CreateNamespace=true
-  sync:
-    comparedTo:
-      destination:
-        namespace: welcome-hooks
-        server: https://kubernetes.default.svc
-      source:
-        path: apps/welcome-php/overlays/hooks
-        repoURL: https://github.com/redhat-developer-demos/openshift-gitops-examples
-        targetRevision: main
