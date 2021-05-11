@@ -44,13 +44,14 @@ Finally, you can verify the installation by running `oc get pods -n openshift-gi
 You should something similar to the following output.
 
 ```shell
-NAME                                                    READY   STATUS    RESTARTS   AGE
-argocd-cluster-application-controller-6f548f74b-48bvf   1/1     Running   0          54s
-argocd-cluster-redis-6cf68d494d-9qqq4                   1/1     Running   0          54s
-argocd-cluster-repo-server-85b9d68f9b-4hj52             1/1     Running   0          54s
-argocd-cluster-server-78467b647-8lcv9                   1/1     Running   0          54s
-cluster-86f8d97979-lfdhv                                1/1     Running   0          56s
-kam-7ff6f58c-2jxkm                                      1/1     Running   0          55s
+NAME                                                          READY   STATUS    RESTARTS   AGE
+cluster-b5798d6f9-p9mt5                                       1/1     Running   0          12m
+kam-69866d7c48-hr92f                                          1/1     Running   0          12m
+openshift-gitops-application-controller-0                     1/1     Running   0          12m
+openshift-gitops-applicationset-controller-6447b8dfdd-2xqw2   1/1     Running   0          12m
+openshift-gitops-redis-74bd8d7d96-72fmd                       1/1     Running   0          12m
+openshift-gitops-repo-server-c999f75d5-7jfc8                  1/1     Running   0          12m
+openshift-gitops-server-6ff4fbc8f6-fpfdp                      1/1     Running   0          7m47s
 ```
 
 Once you see the all the pods running, you can proceed!

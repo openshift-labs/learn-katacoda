@@ -6,7 +6,7 @@
     "difficulty": "beginner",
     "time": "30 minutes",
     "backend": {
-      "imageid": "openshift-4-6"
+      "imageid": "openshift-4-7"
     },
     "environment": {
       "showdashboard": true,
@@ -17,7 +17,7 @@
         },
         {
           "name": "Argo CD Web Console",
-          "href": "https://argocd-cluster-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"
+          "href": "https://openshift-gitops-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"
         }
       ],
       "uieditorpath": "/root/resources",
