@@ -46,6 +46,11 @@
       "external_link": "https://learn.openshift.com/operatorframework/helm-operator/",
       "course_id": "helm-operator",
       "title": "Operator SDK with Helm"
+    },
+    {
+      "external_link": "https://learn.openshift.com/operatorframework/go-operator-memcached/",
+      "course_id": "go-operator-memcached",
+      "title": "Operator SDK with Go, Memcached"
     }
   ]
 }
