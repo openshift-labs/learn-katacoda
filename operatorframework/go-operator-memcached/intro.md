@@ -25,10 +25,14 @@ The following is the workflow for a new **Go-based** Operator with the Operator 
 9. After you are satisifed with your work, run some Makefile commands to build and generate the Operator Deployment manifests.
 10. Optionally add additional APIs and Controllers using the SDK CLI.
 
-## PodSet Operator
+## Memcached Operator
 
-In this tutorial, we will create an Operator called a PodSet. A PodSet is a simple Controller/Operator that manages pods.
+In this tutorial, we will create an Operator called a Memcached. A Memcached is a simple Controller/Operator that will do the following :
 
-A user provides a number of pods specified in `spec.replicas`. The PodSet also conveniently outputs the name of all Pods currently controlled by the PodSet in the `status.PodNames` field.
+1. Create a Memcached Deployment if it doesn't exist
+2. Ensure that the Deployment size is the same as specified by the Memcached CR spec
+3. Update the Memcached CR status using the status writer with the names of the CR's pods
+
+A user provides a number of Deployment size specified in `spec.replicas`. The Memcached also conveniently outputs the status of all Pods currently controlled by the Memcached in the `status.Memcached` field.
 
 Let's begin!

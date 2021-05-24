@@ -1,7 +1,7 @@
-Add a new Custom Resource Definition (CRD) API called PodSet with APIVersion `app.example.com/v1alpha1` and Kind `PodSet`. This command will also create our boilerplate controller logic and [Kustomize](https://kustomize.io) configuration files.
+Add a new Custom Resource Definition (CRD) API called Memcached with APIVersion `cache.example.com/v1alpha1` and Kind `Memcached`. This command will also create our boilerplate controller logic and [Kustomize](https://kustomize.io) configuration files.
 
 ```
-operator-sdk create api --group=app --version=v1alpha1 --kind=PodSet --resource --controller
+operator-sdk create api --group=cache --version=v1alpha1 --kind=Memcached --resource --controller
 ```{{execute}}
 <br>
-We should now see the `/api`, `config`, and `/controllers` directories.
+This will scaffold the Memcached resource API at api/v1alpha1/memcached_types.go and the controller at controllers/memcached_controller.go.

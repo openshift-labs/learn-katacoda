@@ -1,7 +1,9 @@
-Let's now observe the default `controllers/podset_controller.go` file:
+Implement the Controller
+
+Let's now observe the default `controllers/memcached_controller.go` file:
 
 ```
-cat controllers/podset_controller.go
+cat controllers/memcached_controller.go
 ```{{execute}}
 
 This default controller requires additional logic so we can trigger our reconciler whenever `kind: PodSet` objects are added, updated, or deleted. We also want to trigger the reconciler whenever Pods owned by a given PodSet are added, updated, and deleted as well. To accomplish this. we modify the controller's `SetupWithManager` method. 
@@ -9,169 +11,191 @@ This default controller requires additional logic so we can trigger our reconcil
 Modify the PodSet controller logic at `controllers/podset_controller.go`:
 
 <pre class="file">
+
 package controllers
 
 import (
-        "context"
-        "reflect"
+	appsv1 "k8s.io/api/apps/v1"
+	corev1 "k8s.io/api/core/v1"
+	"k8s.io/apimachinery/pkg/api/errors"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/types"
+	"reflect"
 
-        "github.com/go-logr/logr"
-        "k8s.io/apimachinery/pkg/runtime"
-        ctrl "sigs.k8s.io/controller-runtime"
-        "sigs.k8s.io/controller-runtime/pkg/client"
+	"context"
 
-        appv1alpha1 "github.com/redhat/podset-operator/api/v1alpha1"
+	"github.com/go-logr/logr"
+	"k8s.io/apimachinery/pkg/runtime"
+	ctrl "sigs.k8s.io/controller-runtime"
+	"sigs.k8s.io/controller-runtime/pkg/client"
 
-        "k8s.io/apimachinery/pkg/labels"
-        "sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
-        "sigs.k8s.io/controller-runtime/pkg/reconcile"
-
-        "k8s.io/apimachinery/pkg/api/errors"
-        metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-
-        corev1 "k8s.io/api/core/v1"
+	cachev1alpha1 "github.com/example/memcached-operator/api/v1alpha1"
 )
 
-// PodSetReconciler reconciles a PodSet object
-type PodSetReconciler struct {
-        client.Client
-        Log    logr.Logger
-        Scheme *runtime.Scheme
+// MemcachedReconciler reconciles a Memcached object
+type MemcachedReconciler struct {
+	client.Client
+	Log    logr.Logger
+	Scheme *runtime.Scheme
 }
 
-// +kubebuilder:rbac:groups=app.example.com,resources=podsets,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=app.example.com,resources=podsets/status,verbs=get;update;patch
-// +kubebuilder:rbac:groups=v1,resources=pods,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=cache.example.com,resources=memcacheds,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=cache.example.com,resources=memcacheds/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=cache.example.com,resources=memcacheds/finalizers,verbs=update
+//+kubebuilder:rbac:groups=apps,resources=deployments,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=core,resources=pods,verbs=get;list;watch
 
-func (r *PodSetReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
-        _ = context.Background()
-        _ = r.Log.WithValues("podset", req.NamespacedName)
+// Reconcile is part of the main kubernetes reconciliation loop which aims to
+// move the current state of the cluster closer to the desired state.
+// TODO(user): Modify the Reconcile function to compare the state specified by
+// the Memcached object against the actual cluster state, and then
+// perform operations to make the cluster state reflect the state specified by
+// the user.
+//
+// For more details, check Reconcile and its Result here:
+// - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.7.0/pkg/reconcile
+func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+	log := r.Log.WithValues("memcached", req.NamespacedName)
 
-        // Fetch the PodSet instance
-        instance := &appv1alpha1.PodSet{}
-        err := r.Get(context.TODO(), req.NamespacedName, instance)
-        if err != nil {
-                if errors.IsNotFound(err) {
-                        // Request object not found, could have been deleted after reconcile request.
-                        // Owned objects are automatically garbage collected. For additional cleanup logic use finalizers.
-                        // Return and don't requeue
-                        return reconcile.Result{}, nil
-                }
-                // Error reading the object - requeue the request.
-                return reconcile.Result{}, err
-        }
-        // List all pods owned by this PodSet instance
-        podSet := instance
-        podList := &corev1.PodList{}
-        lbs := map[string]string{
-                "app":     podSet.Name,
-                "version": "v0.1",
-        }
-        labelSelector := labels.SelectorFromSet(lbs)
-        listOps := &client.ListOptions{Namespace: podSet.Namespace, LabelSelector: labelSelector}
-        if err = r.List(context.TODO(), podList, listOps); err != nil {
-                return reconcile.Result{}, err
-        }
+	// Fetch the Memcached instance
+	memcached := &cachev1alpha1.Memcached{}
+	err := r.Get(ctx, req.NamespacedName, memcached)
+	if err != nil {
+		if errors.IsNotFound(err) {
+			// Request object not found, could have been deleted after reconcile request.
+			// Owned objects are automatically garbage collected. For additional cleanup logic use finalizers.
+			// Return and don't requeue
+			log.Info("Memcached resource not found. Ignoring since object must be deleted")
+			return ctrl.Result{}, nil
+		}
+		// Error reading the object - requeue the request.
+		log.Error(err, "Failed to get Memcached")
+		return ctrl.Result{}, err
+	}
 
-        // Count the pods that are pending or running as available
-        var available []corev1.Pod
-        for _, pod := range podList.Items {
-                if pod.ObjectMeta.DeletionTimestamp != nil {
-                        continue
-                }
-                if pod.Status.Phase == corev1.PodRunning || pod.Status.Phase == corev1.PodPending {
-                        available = append(available, pod)
-                }
-        }
-        numAvailable := int32(len(available))
-        availableNames := []string{}
-        for _, pod := range available {
-                availableNames = append(availableNames, pod.ObjectMeta.Name)
-        }
+	// Check if the deployment already exists, if not create a new one
+	found := &appsv1.Deployment{}
+	err = r.Get(ctx, types.NamespacedName{Name: memcached.Name, Namespace: memcached.Namespace}, found)
+	if err != nil && errors.IsNotFound(err) {
+		// Define a new deployment
+		dep := r.deploymentForMemcached(memcached)
+		log.Info("Creating a new Deployment", "Deployment.Namespace", dep.Namespace, "Deployment.Name", dep.Name)
+		err = r.Create(ctx, dep)
+		if err != nil {
+			log.Error(err, "Failed to create new Deployment", "Deployment.Namespace", dep.Namespace, "Deployment.Name", dep.Name)
+			return ctrl.Result{}, err
+		}
+		// Deployment created successfully - return and requeue
+		return ctrl.Result{Requeue: true}, nil
+	} else if err != nil {
+		log.Error(err, "Failed to get Deployment")
+		return ctrl.Result{}, err
+	}
 
-        // Update the status if necessary
-        status := appv1alpha1.PodSetStatus{
-                PodNames: availableNames,
-                AvailableReplicas: numAvailable,
-        }
-        if !reflect.DeepEqual(podSet.Status, status) {
-                podSet.Status = status
-                err = r.Status().Update(context.TODO(), podSet)
-                if err != nil {
-                        r.Log.Error(err, "Failed to update PodSet status")
-                        return reconcile.Result{}, err
-                }
-        }
+	// Ensure the deployment size is the same as the spec
+	size := memcached.Spec.Size
+	if *found.Spec.Replicas != size {
+		found.Spec.Replicas = &size
+		err = r.Update(ctx, found)
+		if err != nil {
+			log.Error(err, "Failed to update Deployment", "Deployment.Namespace", found.Namespace, "Deployment.Name", found.Name)
+			return ctrl.Result{}, err
+		}
+		// Spec updated - return and requeue
+		return ctrl.Result{Requeue: true}, nil
+	}
 
-        if numAvailable > podSet.Spec.Replicas {
-                r.Log.Info("Scaling down pods", "Currently available", numAvailable, "Required replicas", podSet.Spec.Replicas)
-                diff := numAvailable - podSet.Spec.Replicas
-                dpods := available[:diff]
-                for _, dpod := range dpods {
-                        err = r.Delete(context.TODO(), &dpod)
-                        if err != nil {
-                                r.Log.Error(err, "Failed to delete pod", "pod.name", dpod.Name)
-                                return reconcile.Result{}, err
-                        }
-                }
-                return reconcile.Result{Requeue: true}, nil
-        }
+	// Update the Memcached status with the pod names
+	// List the pods for this memcached's deployment
+	podList := &corev1.PodList{}
+	listOpts := []client.ListOption{
+		client.InNamespace(memcached.Namespace),
+		client.MatchingLabels(labelsForMemcached(memcached.Name)),
+	}
+	if err = r.List(ctx, podList, listOpts...); err != nil {
+		log.Error(err, "Failed to list pods", "Memcached.Namespace", memcached.Namespace, "Memcached.Name", memcached.Name)
+		return ctrl.Result{}, err
+	}
+	podNames := getPodNames(podList.Items)
 
-        if numAvailable < podSet.Spec.Replicas {
-                r.Log.Info("Scaling up pods", "Currently available", numAvailable, "Required replicas", podSet.Spec.Replicas)
-                // Define a new Pod object
-                pod := newPodForCR(podSet)
-                // Set PodSet instance as the owner and controller
-                if err := controllerutil.SetControllerReference(podSet, pod, r.Scheme); err != nil {
-                        return reconcile.Result{}, err
-                }
-                err = r.Create(context.TODO(), pod)
-                if err != nil {
-                        r.Log.Error(err, "Failed to create pod", "pod.name", pod.Name)
-                        return reconcile.Result{}, err
-                }
-                return reconcile.Result{Requeue: true}, nil
-        }
+	// Update status.Nodes if needed
+	if !reflect.DeepEqual(podNames, memcached.Status.Nodes) {
+		memcached.Status.Nodes = podNames
+		err := r.Status().Update(ctx, memcached)
+		if err != nil {
+			log.Error(err, "Failed to update Memcached status")
+			return ctrl.Result{}, err
+		}
+	}
 
-        return reconcile.Result{}, nil
+	return ctrl.Result{}, nil
 }
 
-// newPodForCR returns a busybox pod with the same name/namespace as the cr
-func newPodForCR(cr *appv1alpha1.PodSet) *corev1.Pod {
-        labels := map[string]string{
-                "app":     cr.Name,
-                "version": "v0.1",
-        }
-        return &corev1.Pod{
-                ObjectMeta: metav1.ObjectMeta{
-                        GenerateName: cr.Name + "-pod",
-                        Namespace:    cr.Namespace,
-                        Labels:       labels,
-                },
-                Spec: corev1.PodSpec{
-                        Containers: []corev1.Container{
-                                {
-                                        Name:    "busybox",
-                                        Image:   "busybox",
-                                        Command: []string{"sleep", "3600"},
-                                },
-                        },
-                },
-        }
+// deploymentForMemcached returns a memcached Deployment object
+func (r *MemcachedReconciler) deploymentForMemcached(m *cachev1alpha1.Memcached) *appsv1.Deployment {
+	ls := labelsForMemcached(m.Name)
+	replicas := m.Spec.Size
+
+	dep := &appsv1.Deployment{
+		ObjectMeta: metav1.ObjectMeta{
+			Name:      m.Name,
+			Namespace: m.Namespace,
+		},
+		Spec: appsv1.DeploymentSpec{
+			Replicas: &replicas,
+			Selector: &metav1.LabelSelector{
+				MatchLabels: ls,
+			},
+			Template: corev1.PodTemplateSpec{
+				ObjectMeta: metav1.ObjectMeta{
+					Labels: ls,
+				},
+				Spec: corev1.PodSpec{
+					Containers: []corev1.Container{{
+						Image:   "memcached:1.4.36-alpine",
+						Name:    "memcached",
+						Command: []string{"memcached", "-m=64", "-o", "modern", "-v"},
+						Ports: []corev1.ContainerPort{{
+							ContainerPort: 11211,
+							Name:          "memcached",
+						}},
+					}},
+				},
+			},
+		},
+	}
+	// Set Memcached instance as the owner and controller
+	ctrl.SetControllerReference(m, dep, r.Scheme)
+	return dep
 }
 
-//SetupWithManager defines how the controller will watch for resources
-func (r *PodSetReconciler) SetupWithManager(mgr ctrl.Manager) error {
-        return ctrl.NewControllerManagedBy(mgr).
-                For(&appv1alpha1.PodSet{}).
-                Owns(&corev1.Pod{}).
-                Complete(r)
+// labelsForMemcached returns the labels for selecting the resources
+// belonging to the given memcached CR name.
+func labelsForMemcached(name string) map[string]string {
+	return map[string]string{"app": "memcached", "memcached_cr": name}
+}
+
+// getPodNames returns the pod names of the array of pods passed in
+func getPodNames(pods []corev1.Pod) []string {
+	var podNames []string
+	for _, pod := range pods {
+		podNames = append(podNames, pod.Name)
+	}
+	return podNames
+}
+
+// SetupWithManager sets up the controller with the Manager.
+func (r *MemcachedReconciler) SetupWithManager(mgr ctrl.Manager) error {
+	return ctrl.NewControllerManagedBy(mgr).
+		For(&cachev1alpha1.Memcached{}).
+		Owns(&appsv1.Deployment{}).
+		Complete(r)
 }
 </pre>
 
 You can easily update this file by running the following command:
 
 ```
-\cp /tmp/podset_controller.go controllers/podset_controller.go
+\cp /tmp/memcached_controller.go controllers/memcached_controller.go
 ```{{execute}}
 
