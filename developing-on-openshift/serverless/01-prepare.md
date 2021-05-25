@@ -1,5 +1,5 @@
 [serverless-install-script]: https://github.com/openshift-labs/learn-katacoda/blob/master/developing-on-openshift/serverless/assets/01-prepare/install-serverless.bash
-[olm-docs]: https://docs.openshift.com/container-platform/4.4/operators/olm-adding-operators-to-cluster.html
+[olm-docs]: https://docs.openshift.com/container-platform/4.7/operators/olm-adding-operators-to-cluster.html
 [serving-docs]: https://github.com/knative/serving-operator#the-knativeserving-custom-resource
 
 OpenShift Serverless is an OpenShift add-on that can be installed via an operator that is available within the OpenShift OperatorHub.
@@ -13,7 +13,7 @@ Since the install will take some time, let's take a moment to review the install
 > **Note:** *These steps are for informational purposes only. **Do not** follow them in this instance as there already is an automated install running in the terminal.*
 
 ## Log in and install the operator
-To install an operator, you need to log in as an admin.
+This section is automated, so you won't need to install the operator.  If you wanted to reproduce these results on another cluster, you'd need to authenticate as an admin to complete the following steps:
 
 ![01-login](/openshift/assets/developing-on-openshift/serverless/01-prepare/01-login.png)
 
@@ -25,7 +25,7 @@ Now logged in as an admin, open the *Operator Hub* and find and select the `Open
 >
 > **Tip:** *You can find more information on how to add operators on the [OpenShift OLM Documentation Page][olm-docs].*
 
-Next, install the Serverless Operator into the `openshift-operators` project.  We choose the update channel of `4.4` to match the OpenShift Container Platform version that we are using.
+Next, install the Serverless Operator into the `openshift-operators` project.  We choose the update channel of `4.7` to match the OpenShift Container Platform version that we are using.
 
 ![03-serverlessoperator](/openshift/assets/developing-on-openshift/serverless/01-prepare/03-serverlessoperator.png)
 
