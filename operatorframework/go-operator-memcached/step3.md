@@ -25,7 +25,7 @@ import (
 
 // MemcachedSpec defines the desired state of Memcached
 type MemcachedSpec struct {
-	//+kubebuilder:validation:Minimum=0
+	// +kubebuilder:validation:Minimum=0
 	// Size is the size of the memcached deployment
 	Size int32 `json:"size"`
 }
@@ -39,7 +39,9 @@ type MemcachedStatus struct {
 Add the +kubebuilder:subresource:status marker to add a status subresource to the CRD manifest so that the controller can update the CR status without changing the rest of the CR object:
 
 // Memcached is the Schema for the memcacheds API
-//+kubebuilder:subresource:status
+// +kubebuilder:printcolumn:JSONPath=".spec.size",name=Desired,type=string
+// +kubebuilder:printcolumn:JSONPath=".status.nodes",name=Nodes,type=string
+// +kubebuilder:subresource:status
 type Memcached struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
@@ -81,7 +83,7 @@ This makefile target will invoke controller-gen to generate the CRD manifests at
 
 
 
-Thanks to our comment markers, observe that we now have a newly generated CRD yaml that reflects the `spec.replicas` and `status.podNames` OpenAPI v3 schema validation and customized print columns.
+Thanks to our comment markers, observe that we now have a newly generated CRD yaml that reflects the `spec.size` and `status.podNames` OpenAPI v3 schema validation and customized print columns.
 
 ```
 cat config/crd/bases/cache.example.com_memcacheds.yaml

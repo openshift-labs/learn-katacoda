@@ -5,3 +5,9 @@ operator-sdk create api --group cache --version=v1alpha1 --kind=Memcached --reso
 ```{{execute}}
 <br>
 This will scaffold the Memcached resource API at api/v1alpha1/memcached_types.go and the controller at controllers/memcached_controller.go.
+
+```
+tree -L 1
+```{{execute}}
+
+We should now see the /api, config, and /controllers directories.
