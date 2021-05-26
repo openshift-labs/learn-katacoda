@@ -57,7 +57,7 @@ func init() {
 You can easily update this file by running the following command:
 
 ```
-\cp /tmp/podset_types.go api/v1alpha1/podset_types.go
+\cp /tmp/memcached_types.go api/v1alpha1/memcached_types.go
 ```{{execute}}
 <br>
 After modifying the `*_types.go` file, always run the following command to update the `zz_generated.deepcopy.go` file:
