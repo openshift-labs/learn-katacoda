@@ -38,7 +38,7 @@
       "text": "finish.md"
     },
     "assets": {
-      "client": [{"file": "podset_types.go", "target": "/tmp"},{"file": "podset_controller.go", "target": "/tmp"},{"file": "app_v1alpha1_podset.yaml", "target": "/tmp"}]
+      "client": [{"file": "memcached_types.go", "target": "/tmp"},{"file": "memcached_controller.go", "target": "/tmp"},{"file": "cache_v1alpha1_podset.yaml", "target": "/tmp"}]
     }
   },
   "files": [],
