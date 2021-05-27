@@ -15,7 +15,7 @@ The Operator SDK is a framework that uses the controller-runtime library to make
 The following is the workflow for a new **Go-based** Operator with the Operator SDK:
 
 1. Create a new Operator project using the SDK CLI.
-2. Create a new Custom Resource Definition API Type using the SDK CLI.
+2. Create a new Custom Resource Definition **API Type** using the SDK CLI.
 3. Add your Custom Resource Definition (CRD) to your live Kubernetes cluster.
 4. Define your Custom Resource Spec and Status.
 5. Create a new Controller for your Custom Resource Definition API.
@@ -30,9 +30,7 @@ The following is the workflow for a new **Go-based** Operator with the Operator 
 In this tutorial, we will create an Operator called a Memcached. A Memcached is a simple Controller/Operator that will do the following :
 
 1. Create a Memcached Deployment if it doesn't exist
-2. Ensure that the Deployment size is the same as specified by the Memcached CR spec
+2. Ensure that the Deployment size is the same as specified in `spec.size`
 3. Update the Memcached CR status using the status writer with the names of the CR's pods
-
-A user provides a number of Deployment size specified in `spec.replicas`. The Memcached also conveniently outputs the status of all Pods currently controlled by the Memcached in the `status.Memcached` field.
 
 Let's begin!

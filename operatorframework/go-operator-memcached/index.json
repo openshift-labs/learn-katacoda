@@ -11,7 +11,7 @@
     	"title": "Creating a New Project",
     	"text": "step1.md"
     },{
-			"title": "Creating the API and Controller",
+			"title": "Create a new API and Controller",
 			"text": "step2.md"
 		},{
 			"title": "Defining the Spec and Status",
