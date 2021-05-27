@@ -13,11 +13,6 @@
       "title": "OpenShift 4.5 Playground"
     },
     {
-      "external_link": "https://learn.openshift.com/playgrounds/openshift46/",
-      "course_id": "openshift46",
-      "title": "OpenShift 4.6 Playground"
-    },
-    {
       "external_link": "https://learn.openshift.com/playgrounds/openshift47/",
       "course_id": "openshift47",
       "title": "OpenShift 4.7 Playground"
