@@ -83,7 +83,7 @@ This makefile target will invoke controller-gen to generate the CRD manifests at
 
 
 
-Thanks to our comment markers, observe that we now have a newly generated CRD yaml that reflects the `spec.size` and `status.podNames` OpenAPI v3 schema validation and customized print columns.
+Thanks to our comment markers, observe that we now have a newly generated CRD yaml that reflects the `spec.size` and `status.nodes` OpenAPI v3 schema validation and customized print columns.
 
 ```
 cat config/crd/bases/cache.example.com_memcacheds.yaml
@@ -98,5 +98,5 @@ oc apply -f config/crd/bases/cache.example.com_memcacheds.yaml
 Confirm the CRD was successfully created:
 
 ```
-oc get crd memcached.cached.example.com -o yaml
+oc get crd memcached.cache.example.com -o yaml
 ```{{execute}}

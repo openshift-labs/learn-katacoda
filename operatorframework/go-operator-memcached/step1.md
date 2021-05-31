@@ -21,11 +21,3 @@ Initialize a new Go-based Operator SDK project for the Memcached Operator:
 ```
 operator-sdk init --domain=example.com --repo=github.com/redhat/memcached-operator
 ```{{execute}}
-
-Now, let's take a look at the project that's scalfolded by operator-sdk and observe these directories, a, b, c.
-
-```
-tree
-```{{execute}}
-
-We should see the operator scaffolded
