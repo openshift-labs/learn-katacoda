@@ -98,5 +98,5 @@ oc apply -f config/crd/bases/cache.example.com_memcacheds.yaml
 Confirm the CRD was successfully created:
 
 ```
-oc get crd memcached.cache.example.com -o yaml
+oc get crd memcacheds.cache.example.com -o yaml
 ```{{execute}}
