@@ -10,10 +10,13 @@ import (
 	...
 )
 
-func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+func (r *MemcachedReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
+  _ = context.Background()
+  ...
+
   // Lookup the Memcached instance for this reconcile request
   memcached := &cachev1alpha1.Memcached{}
-  err := r.Get(ctx, req.NamespacedName, memcached)
+  err := r.Get(context.TODO(), req.NamespacedName, memcached)
   ...
 }
 </pre>

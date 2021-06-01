@@ -7,7 +7,7 @@ The controller needs certain [RBAC](https://kubernetes.io/docs/reference/access-
 //+kubebuilder:rbac:groups=apps,resources=deployments,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=core,resources=pods,verbs=get;list;
 
-func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+func (r *MemcachedReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
   ...
 }
 </pre>

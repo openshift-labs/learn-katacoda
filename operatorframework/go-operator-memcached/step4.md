@@ -1,4 +1,3 @@
-Implement the Controller
 
 **Note:** The next two subsections explain how the controller watches resources and how the reconcile loop is triggered.
 
@@ -10,6 +9,7 @@ cat controllers/memcached_controller.go
 
 This default controller requires additional logic so we can trigger our reconciler whenever `kind: Memcached` objects are added, updated, or deleted. We also want to trigger the reconciler whenever Deployment owned by a given Memcached are added, updated, and deleted as well. To accomplish this. we modify the controller's `SetupWithManager` method. 
 
+Modify the PodSet controller logic at `controllers/memcached_controller.go`:
 
 <pre class="file">
 package controllers
