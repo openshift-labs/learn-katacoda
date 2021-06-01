@@ -22,7 +22,7 @@ cd $HOME/projects/memcached-operator
 Create a new Helm-based Operator SDK project for the Memcached Operator:
 
 ```
-operator-sdk init --plugins helm --domain example.com --group demo --version v1alpha1 --kind Memcached
+operator-sdk init --plugins helm --domain example.com --kind Memcached
 ```{{execute}}
 <br>
 This creates the helm-operator project specifically for watching the Memcached resource with APIVersion demo.example.com/v1alpha1 and Kind Memcached.
@@ -39,7 +39,7 @@ Instead of creating your project with a boilerplate Helm chart, you can also use
 <br>
 Automatically fetch the Memcached Helm Chart and generate the CRD/API:
 
-```operator-sdk create api --helm-chart memcached --helm-chart-repo=https://charts.helm.sh/stable --helm-chart-version=1.0.0```{{execute}}
+```operator-sdk create api --helm-chart memcached --helm-chart-repo=https://charts.helm.sh/stable```{{execute}}
 <br>
 ### Project Scaffolding Layout
 
