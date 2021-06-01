@@ -20,20 +20,14 @@
 			"title": "Apply the Memcached Custom Resource",
 			"text": "step4.md"
     },{
-			"title": "Access the CockroachDB Web UI",
-			"text": "step5.md"
-    },{
-			"title": "Connect to the CockroachDB Cluster",
-			"text": "step6.md"
-    },{
       "title": "Update the Memcached Custom Resource",
-      "text": "step7.md"
+      "text": "step5.md"
     },{
       "title": "Test Memcached Cluster Failover",
-      "text": "step8.md"
+      "text": "step6.md"
     },{
       "title": "Clean Up",
-      "text": "step9.md"
+      "text": "step7.md"
     }],
     "intro": {
       "code": "set-env.sh",

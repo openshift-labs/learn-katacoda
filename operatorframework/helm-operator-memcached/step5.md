@@ -1,13 +1,11 @@
-Verify that you can access the CockroachDB Web UI by first exposing the CockroachDB Service as a publicly accessible OpenShift Route:
+Let's now update the Memcached `example` Custom Resource and increase the desired number of replicas to `3`:
 
 ```
-COCKROACHDB_PUBLIC_SERVICE=`oc get svc -o jsonpath={$.items[1].metadata.name}`
-oc expose --port=http svc $COCKROACHDB_PUBLIC_SERVICE
+oc patch memcached memcached-sample --type='json' -p '[{"op": "replace", "path": "/spec/statefulset/replicaCount", "value":3}]'
 ```{{execute}}
 <br>
-Fetch the OpenShift Route URL and copy/paste it into your browser:
+Verify that the Memcached Stateful Set is creating one additional pods:
 
 ```
-COCKROACHDB_UI_URL=`oc get route -o jsonpath={$.items[0].spec.host}`
-echo $COCKROACHDB_UI_URL
+oc get pods
 ```{{execute}}
