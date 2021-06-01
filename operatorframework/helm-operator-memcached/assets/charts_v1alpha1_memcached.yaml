@@ -4,3 +4,5 @@ metadata:
   name: memcached-sample
 spec:
   replicaCount: 5
+  securityContext:
+    enabled: false

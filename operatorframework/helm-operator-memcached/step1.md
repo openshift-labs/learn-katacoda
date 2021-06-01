@@ -24,8 +24,6 @@ Create a new Helm-based Operator SDK project for the Memcached Operator:
 ```
 operator-sdk init --plugins helm --domain example.com
 ```{{execute}}
-<br>
-This creates the helm-operator project specifically for watching the Memcached resource with APIVersion demo.example.com/v1alpha1 and Kind Memcached.
 
 <br>
 For Helm-based projects, `operator-sdk` init also generates the RBAC rules in `config/rbac/role.yaml` based on the resources that would be deployed by the chart’s default manifest. Be sure to double check that the rules generated in `config/rbac/role.yaml` meet the operator’s permission requirements.
