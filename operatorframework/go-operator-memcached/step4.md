@@ -8,6 +8,7 @@ Let's now observe the default `controllers/memcached_controller.go` file:
 cat controllers/memcached_controller.go
 ```{{execute}}
 
+<pre class="file">
 package controllers
 
 import (
