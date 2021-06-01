@@ -39,7 +39,7 @@ Instead of creating your project with a boilerplate Helm chart, you can also use
 <br>
 Automatically fetch the Memcached Helm Chart and generate the CRD/API:
 
-```operator-sdk create api --helm-chart memcached --helm-chart-repo=https://charts.helm.sh/stable```{{execute}}
+```operator-sdk create api --helm-chart memcached --helm-chart-repo=https://charts.helm.sh/stable --helm-chart-version=1.0.0```{{execute}}
 <br>
 ### Project Scaffolding Layout
 
