@@ -9,7 +9,7 @@ Before applying the Memcached Custom Resource, observe the Memcached Helm Chart 
 
 Update the Memcached Custom Resource at `go/src/github.com/redhat/memcached-operator/deploy/crds/charts.helm.k8s.io_v1alpha1_memcached_cr.yaml` with the following values:
 
-* `spec.replicaCount: 5`
+* `spec.replicaCount: 2`
 
 <pre class="file">
 apiVersion: charts.example.com/v1alpha1
@@ -51,7 +51,7 @@ oc get statefulset
 Confirm that the Stateful Set's pod is currently running:
 
 ```
-oc get pods -l app.kubernetes.io/component=memcached
+oc get pods
 ```{{execute}}
 <br>
 Confirm that the Memcached "internal" and "public" ClusterIP Service were created:
