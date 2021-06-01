@@ -11,14 +11,10 @@ We will now focus on the easiest way to get started developing an Operator:
 * **Helm**:
 Useful for securely running Helm charts without [Tiller](https://helm.sh/docs/glossary/#tiller) and  it doesn’t rely on manual invocation of Helm to reconfigure your apps. Check out the [Helm Operator Getting Started guide](https://sdk.operatorframework.io/docs/building-operators/helm/) for more information.
 
-## Creating a CockroachDB Operator from a Helm Chart
+## Creating a Memcached Operator from a Helm Chart
 
-In this tutorial, we will create a CockroachDB Operator from an existing [CockroachDB Helm Chart](https://github.com/helm/charts/tree/master/stable/cockroachdb).
+In this tutorial, we will create a Memcached Operator from an existing [Memcached Helm Chart](https://github.com/helm/charts/tree/master/stable/memcached).
 
-[CockroachDB](https://www.cockroachlabs.com) is a distributed SQL database built on a transactional and strongly-consistent key-value store. It can:
-
-* Scale horizontally.
-* Survive disk, machine, rack, and even datacenter failures with minimal latency disruption and no manual intervention.
-* Supports strongly-consistent ACID transactions and provides a familiar SQL API for structuring, manipulating, and querying data.
+[Memcached](https://memcached.org/) is a Free & open source, high-performance, distributed memory object caching system, generic in nature, but intended for use in speeding up dynamic web applications by alleviating database load.
 
 Let's begin!
