@@ -1,10 +1,13 @@
 Note: The next two subsections explain how the controller watches resources and how the reconcile loop is triggered. If you’d like to skip this section, head to the deploy section to see how to run the operator.
 
-<h1>Resources watched by the Controller</h1>
-
 The SetupWithManager() function in controllers/memcached_controller.go specifies how the controller is built to watch a CR and other resources that are owned and managed by that controller.
 
-`cat names`{{execute}}
+<pre class="file">
+import (
+	...
+	appsv1 "k8s.io/api/apps/v1"
+	...
+)
 
 func (r *MemcachedReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
@@ -12,6 +15,7 @@ func (r *MemcachedReconciler) SetupWithManager(mgr ctrl.Manager) error {
 		Owns(&appsv1.Deployment{}).
 		Complete(r)
 }
+</pre>
 
 The NewControllerManagedBy() provides a controller builder that allows various controller configurations.
 

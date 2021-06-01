@@ -20,28 +20,28 @@
 			"title": "Customizing the Operator Logic",
 			"text": "step4.md"
     },{
-			"title": "Running the Operator Locally (Outside the Cluster)",
+			"title": "Resources watched by the Controller",
 			"text": "step5.md"
     },{
-			"title": "Creating the PodSet Custom Resource",
+			"title": "Controller Configurations",
 			"text": "step6.md"
     },{
-      "title": "Deleting the PodSet Custom Resource",
+      "title": "Reconcile loop",
       "text": "step7.md"
     },{
-      "title": "Deleting the PodSet Custom Resource",
+      "title": "Return options for a Reconciler:",
       "text": "step8.md"
     },{
-      "title": "Deleting the PodSet Custom Resource",
+      "title": "Specify permissions and generate RBAC manifests",
       "text": "step9.md"
     },{
-      "title": "Deleting the PodSet Custom Resource",
+      "title": "Running the Operator Locally (Outside the Cluster)",
       "text": "step10.md"
     },{
-      "title": "Deleting the PodSet Custom Resource",
+      "title": "Creating the Memcached Custom Resource",
       "text": "step11.md"
     },{
-      "title": "Deleting the PodSet Custom Resource",
+      "title": "Deleting the Memcached Custom Resource",
       "text": "step12.md"
     }],
     "intro": {
