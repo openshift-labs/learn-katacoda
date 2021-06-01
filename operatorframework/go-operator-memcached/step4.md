@@ -1,6 +1,6 @@
 Implement the Controller
 
-Note: The next two subsections explain how the controller watches resources and how the reconcile loop is triggered.
+**Note:** The next two subsections explain how the controller watches resources and how the reconcile loop is triggered.
 
 Let's now observe the default `controllers/memcached_controller.go` file:
 

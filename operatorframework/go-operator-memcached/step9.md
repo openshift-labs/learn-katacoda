@@ -1,8 +1,6 @@
-<h1>Specify permissions and generate RBAC manifests</h1>
+The controller needs certain [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) permissions to interact with the resources it manages. These are specified via [RBAC markers](https://book.kubebuilder.io/reference/markers/rbac.html) like the following:
 
-The controller needs certain RBAC permissions to interact with the resources it manages. These are specified via RBAC markers like the following:
-
-<pre>
+<pre class="file">
 //+kubebuilder:rbac:groups=cache.example.com,resources=memcacheds,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=cache.example.com,resources=memcacheds/status,verbs=get;update;patch
 //+kubebuilder:rbac:groups=cache.example.com,resources=memcacheds/finalizers,verbs=update
@@ -13,3 +11,9 @@ func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
   ...
 }
 </pre>
+
+The `ClusterRole` manifest at `config/rbac/role.yaml` is generated from the above markers via controller-gen with the following command:
+
+```
+make manifests
+```{{execute}}
