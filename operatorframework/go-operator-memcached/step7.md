@@ -1,19 +1,24 @@
-Our PodSet controller creates pods containing OwnerReferences in their `metadata` section. This ensures they will be removed upon deletion of the `podset-sample` CR.
+<h1> Reconcile loop </h1>
 
-Observe the OwnerReference set on a Podset's pod:
+The reconcile function is responsible for enforcing the desired CR state on the actual state of the system. It runs each time an event occurs on a watched CR or resource, and will return some value depending on whether those states match or not.
 
-```
-oc get pods -o yaml | grep ownerReferences -A10
-```{{execute}}
-<br>
-Delete the podset-sample Custom Resource:
+In this way, every Controller has a Reconciler object with a Reconcile() method that implements the reconcile loop. The reconcile loop is passed the Request argument which is a Namespace/Name key used to lookup the primary resource object, Memcached, from the cache:
 
-```
-oc delete podset podset-sample
-```{{execute}}
+import (
+	ctrl "sigs.k8s.io/controller-runtime"
 
-Thanks to OwnerReferences, all of the pods should be deleted:
+	cachev1alpha1 "github.com/example/memcached-operator/api/v1alpha1"
+	...
+)
 
-```
-oc get pods
-```{{execute}}
+func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+  // Lookup the Memcached instance for this reconcile request
+  memcached := &cachev1alpha1.Memcached{}
+  err := r.Get(ctx, req.NamespacedName, memcached)
+  ...
+}
+
+For a guide on Reconcilers, Clients, and interacting with resource Events, see the Client API doc.
+
+
+

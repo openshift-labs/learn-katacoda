@@ -1,65 +1,18 @@
-In a new terminal, inspect the Custom Resource manifest:
+<h1>Controller Configurations</h1>
 
-```
-cd $HOME/projects/podset-operator
-cat config/samples/app_v1alpha1_podset.yaml
-```{{execute}}
-<br>
-Ensure your `kind: PodSet` Custom Resource (CR) is updated with `spec.replicas`
 
-<pre class="file">
-apiVersion: app.example.com/v1alpha1
-kind: PodSet
-metadata:
-  name: podset-sample
-spec:
-  replicas: 3
-</pre>
+There are a number of other useful configurations that can be made when initialzing a controller. For more details on these configurations consult the upstream builder and controller godocs.
 
-You can easily update this file by running the following command:
+Set the max number of concurrent Reconciles for the controller via the MaxConcurrentReconciles option. Defaults to 1.
 
-```
-\cp /tmp/app_v1alpha1_podset.yaml config/samples/app_v1alpha1_podset.yaml
-```{{execute}}
-<br>
-Ensure you are currently scoped to the `myproject` Namespace:
+func (r *MemcachedReconciler) SetupWithManager(mgr ctrl.Manager) error {
+  return ctrl.NewControllerManagedBy(mgr).
+    For(&cachev1alpha1.Memcached{}).
+    Owns(&appsv1.Deployment{}).
+    WithOptions(controller.Options{MaxConcurrentReconciles: 2}).
+    Complete(r)
+}
 
-```
-oc project myproject
-```{{execute}}
-<br>
-Deploy your PodSet Custom Resource to the live OpenShift Cluster:
+Filter watch events using predicates
 
-```
-oc create -f config/samples/app_v1alpha1_podset.yaml
-```{{execute}}
-<br>
-Verify the Podset exists:
-
-```
-oc get podset
-```{{execute}}
-<br>
-Verify the PodSet operator has created 3 pods:
-
-```
-oc get pods
-```{{execute}}
-<br>
-Verify that status shows the name of the pods currently owned by the PodSet:
-
-```
-oc get podset podset-sample -o yaml
-```{{execute}}
-<br>
-Increase the number of replicas owned by the PodSet:
-
-```
-oc patch podset podset-sample --type='json' -p '[{"op": "replace", "path": "/spec/replicas", "value":5}]'
-```{{execute}}
-<br>
-
-Verify that we now have 5 running pods
-```
-oc get pods
-```{{execute}}
+Choose the type of EventHandler to change how a watch event will translate to reconcile requests for the reconcile loop. For operator relationships that are more complex than primary and secondary resources, the EnqueueRequestsFromMapFunc handler can be used to transform a watch event into an arbitrary set of reconcile requests.

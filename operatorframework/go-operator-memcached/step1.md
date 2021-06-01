@@ -19,5 +19,5 @@ cd $HOME/projects/memcached-operator
 Initialize a new Go-based Operator SDK project for the Memcached Operator:
 
 ```
-operator-sdk init --domain=example.com --repo=github.com/redhat/memcached-operator
+operator-sdk init --domain example.com --repo github.com/example/memcached-operator
 ```{{execute}}

@@ -28,6 +28,21 @@
     },{
       "title": "Deleting the PodSet Custom Resource",
       "text": "step7.md"
+    },{
+      "title": "Deleting the PodSet Custom Resource",
+      "text": "step8.md"
+    },{
+      "title": "Deleting the PodSet Custom Resource",
+      "text": "step9.md"
+    },{
+      "title": "Deleting the PodSet Custom Resource",
+      "text": "step10.md"
+    },{
+      "title": "Deleting the PodSet Custom Resource",
+      "text": "step11.md"
+    },{
+      "title": "Deleting the PodSet Custom Resource",
+      "text": "step12.md"
     }],
     "intro": {
       "code": "set-env.sh",

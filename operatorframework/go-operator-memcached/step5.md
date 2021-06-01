@@ -1,12 +1,23 @@
-Once the CRD is registered, there are two ways to run the Operator:
+Note: The next two subsections explain how the controller watches resources and how the reconcile loop is triggered. If you’d like to skip this section, head to the deploy section to see how to run the operator.
 
-* As a Pod inside a Kubernetes cluster
-* As a Go program outside the cluster using Operator-SDK. This is great for local development of your Operator.
+<h1>Resources watched by the Controller</h1>
 
-For the sake of this tutorial, we will run the Operator as a Go program outside the cluster using Operator-SDK and our `kubeconfig` credentials
+The SetupWithManager() function in controllers/memcached_controller.go specifies how the controller is built to watch a CR and other resources that are owned and managed by that controller.
 
-Once running, the command will block the current session. You can continue interacting with the OpenShift cluster by opening a new terminal window. You can quit the session by pressing `CTRL + C`.
+`cat names`{{execute}}
 
-```
-WATCH_NAMESPACE=myproject make run
-```{{execute}}
+func (r *MemcachedReconciler) SetupWithManager(mgr ctrl.Manager) error {
+	return ctrl.NewControllerManagedBy(mgr).
+		For(&cachev1alpha1.Memcached{}).
+		Owns(&appsv1.Deployment{}).
+		Complete(r)
+}
+
+The NewControllerManagedBy() provides a controller builder that allows various controller configurations.
+
+For(&cachev1alpha1.Memcached{}) specifies the Memcached type as the primary resource to watch. For each Memcached type Add/Update/Delete event the reconcile loop will be sent a reconcile Request (a namespace/name key) for that Memcached object.
+
+Owns(&appsv1.Deployment{}) specifies the Deployments type as the secondary resource to watch. For each Deployment type Add/Update/Delete event, the event handler will map each event to a reconcile Request for the owner of the Deployment. Which in this case is the Memcached object for which the Deployment was created.
+
+
+
