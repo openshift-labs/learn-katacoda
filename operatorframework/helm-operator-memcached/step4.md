@@ -17,8 +17,7 @@ kind: Memcached
 metadata: 
   name: memcached-sample
 spec: 
-  statefulset: 
-    replicas: 1
+  replicaCount: 2
 </pre>
 
 You can easily update this file by running the following command:

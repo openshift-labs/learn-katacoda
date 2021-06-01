@@ -1,7 +1,7 @@
 Apply the Memcached Custom Resource Definition to the cluster:
 
 ```
-oc apply -f config/crd/bases/charts.example.com_memcached.yaml
+oc apply -f config/crd/bases/charts.example.com_memcacheds.yaml
 ```{{execute}}
 <br>
 Once the CRD is registered, there are two ways to run the Operator:

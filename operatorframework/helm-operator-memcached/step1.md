@@ -22,7 +22,7 @@ cd $HOME/projects/memcached-operator
 Create a new Helm-based Operator SDK project for the Memcached Operator:
 
 ```
-operator-sdk init --plugins helm --domain example.com --kind Memcached
+operator-sdk init --plugins helm --domain example.com
 ```{{execute}}
 <br>
 This creates the helm-operator project specifically for watching the Memcached resource with APIVersion demo.example.com/v1alpha1 and Kind Memcached.
