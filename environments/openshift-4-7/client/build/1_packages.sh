@@ -5,7 +5,7 @@ export MVN_VERSION=3.8.1
 export CAMEL_K_VERSION=1.2.0
 export HELM_VERSION=3.3.4
 export ODO_VERSION=2.1.0
-export TKN_VERSION=0.23.0
+export TKN_VERSION=0.17.2
 export KN_VERSION=0.22.0
 export KOGITO_VERSION=0.17.0
 
