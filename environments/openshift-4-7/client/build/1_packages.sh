@@ -2,11 +2,11 @@ yum install -y nc
 yum install -y vim man curl wget unzip zip git zsh tmux java-1.8.0-openjdk-devel tree git bash-completion net-tools python36 glibc-langpack-en rsync
 
 export MVN_VERSION=3.8.1
-export CAMEL_K_VERSION=1.2.0
-export HELM_VERSION=3.3.4
-export ODO_VERSION=2.1.0
+export CAMEL_K_VERSION=1.3.0
+export HELM_VERSION=latest
+export ODO_VERSION=latest
+export KN_VERSION=latest
 export TKN_VERSION=0.17.2
-export KN_VERSION=0.22.0
 export KOGITO_VERSION=0.17.0
 
 wget http://www.eu.apache.org/dist/maven/maven-3/$MVN_VERSION/binaries/apache-maven-$MVN_VERSION-bin.tar.gz && \
@@ -36,7 +36,7 @@ curl -o tkn.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/pipe
     mv tkn /usr/bin/tkn && \
     chmod +x /usr/bin/tkn
 
-curl -o kn.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/serverless/$KN_VERSION/kn-linux-amd64-$KN_VERSION.tar.gz && \
+curl -o kn.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/serverless/$KN_VERSION/kn-linux-amd64.tar.gz && \
     tar -xvf kn.tar.gz && \
     rm -f kn.tar.gz && \
     mv kn /usr/bin/kn && \
