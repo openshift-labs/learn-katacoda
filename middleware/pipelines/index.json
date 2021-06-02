@@ -6,8 +6,8 @@
     "difficulty": "Beginner",
     "time": "30 minutes",
     "backend": {
-        "autoUpgrade": false,
-        "imageid": "openshift-4-6"
+        "autoUpgrade": true,
+        "imageid": "openshift-4-7"
     },
     "environment": {
         "showdashboard": true,
