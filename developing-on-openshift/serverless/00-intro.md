@@ -2,8 +2,6 @@
 [amq-docs]: https://developers.redhat.com/products/amq/overview
 [pipelines-main]: https://www.openshift.com/learn/topics/pipelines
 [service-mesh-main]: https://www.openshift.com/learn/topics/service-mesh
-[monitoring-main]: https://docs.openshift.com/container-platform/4.4/monitoring/cluster_monitoring/about-cluster-monitoring.html 
-[metering-main]: https://docs.openshift.com/container-platform/4.4/metering/metering-installing-metering.html
 
 In this self-paced tutorial, you will learn the basics of how to use OpenShift Serverless, which provides a development model to remove the overhead of server provisioning and maintenance from the developer.
 
@@ -31,7 +29,7 @@ Serverless has a robust way to allow for applications to be triggered by a varie
 
 ![OpenShift Eventing](/openshift/assets/developing-on-openshift/serverless/00-intro/knative-eventing-diagram.png)
 
-OpenShift Serverless applications can be integrated with other OpenShift services, such as OpenShift [Pipelines][pipelines-main], [Service Mesh][service-mesh-main], [Monitoring][monitoring-main] and [Metering][metering-main], delivering a complete serverless application development and deployment experience.
+OpenShift Serverless applications can be integrated with other OpenShift services, such as OpenShift [Pipelines][pipelines-main], and [Service Mesh][service-mesh-main], delivering a complete serverless application development and deployment experience.
 
 This tutorial will focus on the `Serving` aspect of OpenShift Serverless as the first diagram showcases.  Be on the lookout for additional tutorials to dig further into Serverless, specifically `Eventing`.
 
@@ -39,7 +37,7 @@ This tutorial will focus on the `Serving` aspect of OpenShift Serverless as the 
 
 During this scenario, you will be using a hosted OpenShift environment that is created just for you. This environment is not shared with other users of the system. Because each user completing this scenario has their own environment, we had to make some concessions to ensure the overall platform is stable and used only for this training. For that reason, your environment will only be active for a one hour period. Keep this in mind before you get started on the content. Each time you start this training, a new environment will be created on the fly.
 
-The OpenShift environment created for you is running version 4.2 of the OpenShift Container Platform. This deployment is a self-contained environment that provides everything you need to be successful learning the platform. This includes a preconfigured command line environment, the OpenShift web console, public URLs, and sample applications.
+The OpenShift environment created for you is running version 4.7 of the OpenShift Container Platform. This deployment is a self-contained environment that provides everything you need to be successful learning the platform. This includes a preconfigured command line environment, the OpenShift web console, public URLs, and sample applications.
 
 > **Note:** *It is possible to skip around in this tutorial.  The only pre-requisite for each section would be the initial `Prepare for Exercises` section.*
 >

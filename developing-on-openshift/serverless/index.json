@@ -7,7 +7,7 @@
   "time": "30 minutes",
   "backend": {
     "autoUpgrade": true,
-    "imageid": "openshift-4-4"
+    "imageid": "openshift-4-7"
   },
   "environment": {
     "showdashboard": true,

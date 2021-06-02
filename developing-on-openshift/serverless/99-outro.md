@@ -7,7 +7,7 @@ To learn more about OpenShift Serverless and Knative, the resources below can pr
 
 OpenShift Serverless Webpage: https://www.openshift.com/learn/topics/serverless
 
-OpenShift Serverless Documentation: https://docs.openshift.com/container-platform/4.4/serverless/serverless-getting-started.html
+OpenShift Serverless Documentation: https://docs.openshift.com/container-platform/4.7/serverless/serverless-getting-started.html
 
 Knative Serving GitHub: https://github.com/knative/serving
 
