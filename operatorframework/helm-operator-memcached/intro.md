@@ -13,7 +13,7 @@ Useful for securely running Helm charts without [Tiller](https://helm.sh/docs/gl
 
 ## Creating a Memcached Operator from a Helm Chart
 
-In this tutorial, we will create a Memcached Operator from an existing [Memcached Helm Chart](https://github.com/helm/charts/tree/master/stable/memcached).
+In this tutorial, we will create a Memcached Operator from an existing [Memcached Helm Chart](https://github.com/helm/charts/blob/master/stable/memcached/Chart.yaml).
 
 [Memcached](https://memcached.org/) is a Free & open source, high-performance, distributed memory object caching system, generic in nature, but intended for use in speeding up dynamic web applications by alleviating database load.
 
