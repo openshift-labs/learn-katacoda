@@ -18,7 +18,7 @@ To save time there is a skeleton project with a prototype version that returns a
 ### Review the current state of the prototype app
 
 **Front-end**
-The web application is a single page `src/main/webapp/index.html`{{open}}.  In short, the front-end uses Bootstrap and jQuery. It uses REST to contact the back-end.
+The web application is a single page `./src/main/webapp/index.html`{{open}}.  In short, the front-end uses Bootstrap and jQuery. It uses REST to contact the back-end.
 
 **Domain model**
 Two Java classes represent the domain model for our application, `src/main/java/com/redhat/example/weather/Country.java`{{open}} and `src/main/java/com/redhat/example/weather/City.java`{{open}}.
