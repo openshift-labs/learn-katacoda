@@ -31,7 +31,7 @@ spec:
 
 Run `helm upgrade` to publish a new revision containing a `my-charm` Route:
 
-`helm upgrade my-chart ./helm/my-chart`{{execute}}
+`helm upgrade my-chart ./my-chart`{{execute}}
 
 Verify new `Route` from Terminal:
 
@@ -52,7 +52,7 @@ Verify new `Route` and new `Revision` from Console:
 
 Let's update again our existing release overriding values in `values.yaml` changing `image.pullPolicy` from chart's default value `IfNotPresent` to `Always`, using same method we adopted previously for changing `service.type` with option `--set`:
 
-`helm upgrade my-chart ./helm/my-chart --set image.pullPolicy=Always`{{execute}}
+`helm upgrade my-chart ./my-chart --set image.pullPolicy=Always`{{execute}}
 
 Let's verify that our changes is reflected into resulting `Deployment`:
 
