@@ -25,7 +25,7 @@ Our code has been already generated with this command:
 
 Inside `my-chart/` folder you will find these files:
 
-`tree my-chart`{{execute}}
+`tree helm/my-chart`{{execute}}
 
 * `Chart.yaml`{{open}}: is a YAML file containing multiple fields describing the chart
 * `values.yaml`{{open}}:: is a YAML file containing default values for a chart, those may be overridden by users during helm install or helm upgrade.

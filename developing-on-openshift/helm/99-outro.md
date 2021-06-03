@@ -12,6 +12,6 @@ Helm Documentation: https://helm.sh
 Getting Started with Helm 3 on OpenShift: https://docs.openshift.com/container-platform/latest/cli_reference/helm_cli/getting-started-with-helm-on-openshift-container-platform.html
 
 Read more in the Helm Topic page:
-https://www.openshift.com/learn/topics/helm4/
+https://www.openshift.com/learn/topics/helm/
 
 Try it out on your workstation! Download [CodeReady Containers](https://developers.redhat.com/products/codeready-containers/overview) to have a local instance of OpenShift Container Platform: https://www.openshift.com/try
