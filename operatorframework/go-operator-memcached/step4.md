@@ -9,9 +9,10 @@ cat controllers/memcached_controller.go
 
 This default controller requires additional logic so we can trigger our reconciler whenever `kind: Memcached` objects are added, updated, or deleted. We also want to trigger the reconciler whenever Deployment owned by a given Memcached are added, updated, and deleted as well. To accomplish this. we modify the controller's `SetupWithManager` method. 
 
-Modify the Memcached controller logic at `controllers/memcached_controller.go`:
+For this example replace the generated controller at `controllers/memcached_controller.go` with the following code.
 
 <pre class="file">
+
 package controllers
 
 import (
@@ -21,13 +22,14 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/types"
 	"reflect"
+	"time"
 
 	"context"
 
-	"github.com/go-logr/logr"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
+	ctrllog "sigs.k8s.io/controller-runtime/pkg/log"
 
 	cachev1alpha1 "github.com/example/memcached-operator/api/v1alpha1"
 )
@@ -35,7 +37,6 @@ import (
 // MemcachedReconciler reconciles a Memcached object
 type MemcachedReconciler struct {
 	client.Client
-	Log    logr.Logger
 	Scheme *runtime.Scheme
 }
 
@@ -53,14 +54,13 @@ type MemcachedReconciler struct {
 // the user.
 //
 // For more details, check Reconcile and its Result here:
-// - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.7.0/pkg/reconcile
-func (r *MemcachedReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
-	log := r.Log.WithValues("memcached", req.NamespacedName)
-        _ = context.Background()
+// - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.8.3/pkg/reconcile
+func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+	log := ctrllog.FromContext(ctx)
 
 	// Fetch the Memcached instance
 	memcached := &cachev1alpha1.Memcached{}
-	err := r.Get(context.TODO(), req.NamespacedName, memcached)
+	err := r.Get(ctx, req.NamespacedName, memcached)
 	if err != nil {
 		if errors.IsNotFound(err) {
 			// Request object not found, could have been deleted after reconcile request.
@@ -76,12 +76,12 @@ func (r *MemcachedReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 
 	// Check if the deployment already exists, if not create a new one
 	found := &appsv1.Deployment{}
-	err = r.Get(context.TODO(), types.NamespacedName{Name: memcached.Name, Namespace: memcached.Namespace}, found)
+	err = r.Get(ctx, types.NamespacedName{Name: memcached.Name, Namespace: memcached.Namespace}, found)
 	if err != nil && errors.IsNotFound(err) {
 		// Define a new deployment
 		dep := r.deploymentForMemcached(memcached)
 		log.Info("Creating a new Deployment", "Deployment.Namespace", dep.Namespace, "Deployment.Name", dep.Name)
-		err = r.Create(context.TODO(), dep)
+		err = r.Create(ctx, dep)
 		if err != nil {
 			log.Error(err, "Failed to create new Deployment", "Deployment.Namespace", dep.Namespace, "Deployment.Name", dep.Name)
 			return ctrl.Result{}, err
@@ -97,13 +97,15 @@ func (r *MemcachedReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 	size := memcached.Spec.Size
 	if *found.Spec.Replicas != size {
 		found.Spec.Replicas = &size
-		err = r.Update(context.TODO(), found)
+		err = r.Update(ctx, found)
 		if err != nil {
 			log.Error(err, "Failed to update Deployment", "Deployment.Namespace", found.Namespace, "Deployment.Name", found.Name)
 			return ctrl.Result{}, err
 		}
-		// Spec updated - return and requeue
-		return ctrl.Result{Requeue: true}, nil
+		// Ask to requeue after 1 minute in order to give enough time for the
+		// pods be created on the cluster side and the operand be able
+		// to do the next update step accurately.
+		return ctrl.Result{RequeueAfter: time.Minute}, nil
 	}
 
 	// Update the Memcached status with the pod names
@@ -113,7 +115,7 @@ func (r *MemcachedReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 		client.InNamespace(memcached.Namespace),
 		client.MatchingLabels(labelsForMemcached(memcached.Name)),
 	}
-	if err = r.List(context.TODO(), podList, listOpts...); err != nil {
+	if err = r.List(ctx, podList, listOpts...); err != nil {
 		log.Error(err, "Failed to list pods", "Memcached.Namespace", memcached.Namespace, "Memcached.Name", memcached.Name)
 		return ctrl.Result{}, err
 	}
@@ -122,7 +124,7 @@ func (r *MemcachedReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 	// Update status.Nodes if needed
 	if !reflect.DeepEqual(podNames, memcached.Status.Nodes) {
 		memcached.Status.Nodes = podNames
-		err := r.Status().Update(context.TODO(), memcached)
+		err := r.Status().Update(ctx, memcached)
 		if err != nil {
 			log.Error(err, "Failed to update Memcached status")
 			return ctrl.Result{}, err
