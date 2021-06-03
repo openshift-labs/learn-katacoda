@@ -25,7 +25,7 @@ Our code has been already generated with this command:
 
 Inside `my-chart/` folder you will find these files:
 
-`tree my-chart`{{execute}}
+`tree helm/my-chart`{{execute}}
 
 * `Chart.yaml`{{open}}: is a YAML file containing multiple fields describing the chart
 * `values.yaml`{{open}}:: is a YAML file containing default values for a chart, those may be overridden by users during helm install or helm upgrade.
@@ -65,7 +65,7 @@ Now let's define which tag to use for this container image. Click the **Copy to 
 
 Install our custom Helm Chart from local folder.
 
-`helm install my-chart ./my-chart`{{execute}}
+`helm install my-chart ./helm/my-chart`{{execute}}
 
 This will install NGINX like in previous chapter, and we can follow installation like in previous chapter, either from Terminal or OpenShift Console:
 
