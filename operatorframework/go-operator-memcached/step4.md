@@ -202,7 +202,7 @@ You can easily update this file by running the following command:
 \cp /tmp/memcached_controller.go controllers/memcached_controller.go
 ```{{execute}}
 
-**go mod tidy**  ensures that the go.mod file matches the source code in the module. It adds any missing module requirements necessary to build the current module's packages and dependencies, and it removes requirements on modules that don't provide any relevant packages. It also adds any missing entries to go.sum and removes unnecessary entries.
+`go mod tidy`  ensures that the go.mod file matches the source code in the module. It adds any missing module requirements necessary to build the current module's packages and dependencies, and it removes requirements on modules that don't provide any relevant packages. It also adds any missing entries to go.sum and removes unnecessary entries.
 
 ```
 go mod tidy
