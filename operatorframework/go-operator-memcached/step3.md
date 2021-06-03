@@ -35,9 +35,11 @@ type MemcachedStatus struct {
 	// Nodes are the names of the memcached pods
 	Nodes []string `json:"nodes"`
 }
+</pre>
 
-Add the +kubebuilder:subresource:status marker to add a status subresource to the CRD manifest so that the controller can update the CR status without changing the rest of the CR object:
+Add the `+kubebuilder:subresource:status` [marker](https://book.kubebuilder.io/reference/generating-crd.html#status) to add a [status subresource](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/#status-subresource) to the CRD manifest so that the controller can update the CR status without changing the rest of the CR object:
 
+<pre class="file">
 // Memcached is the Schema for the memcacheds API
 // +kubebuilder:printcolumn:JSONPath=".spec.size",name=Desired,type=string
 // +kubebuilder:printcolumn:JSONPath=".status.nodes",name=Nodes,type=string
