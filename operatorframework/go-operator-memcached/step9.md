@@ -12,6 +12,10 @@ func (r *MemcachedReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 }
 </pre>
 
+```
+go mod tidy
+```{{execute}}
+
 The `ClusterRole` manifest at `config/rbac/role.yaml` is generated from the above markers via controller-gen with the following command:
 
 ```
