@@ -1,5 +1,9 @@
 **Note:** The next two subsections explain how the controller watches resources and how the reconcile loop is triggered. If you’d like to skip this section, head to the deploy section to see how to run the operator.
 
+```
+cat controllers/memcached_controller.go
+```{{execute}}
+
 The `SetupWithManager()` function in `controllers/memcached_controller.go` specifies how the controller is built to watch a CR and other resources that are owned and managed by that controller.
 
 <pre class="file">
