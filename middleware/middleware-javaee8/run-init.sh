@@ -1,5 +1,6 @@
 mkdir -p /root/projects
 cd /root/projects
+rm -rf rhoar-getting-started
 git clone https://github.com/openshift-katacoda/rhoar-getting-started
 cd /root/projects/rhoar-getting-started/javaee/weather-app
 
