@@ -6,35 +6,45 @@ In this part, you will learn how to setup a simple PostgreSQL database in OpenSh
 
 **1. Remove the internal in-memory database**
 
-If you recall in step 03 we create a datasource definition as part of the deployment. To remove it we have to do delete that file
+If you recall in step 03 we create a datasource definition as part of the deployment. Let's update it to use PostgresQL.
 
-`rm -f src/main/webapp/WEB-INF/weather-ds.xml`{{execute}}
+Open the `src/main/webapp/WEB-INF/weather-ds.xml`{{open}} file and click **Copy To Editor** to replace its content for PostgresQL:
+
+<pre class="file" data-filename="./src/main/webapp/WEB-INF/weather-ds.xml" data-target="replace">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;datasources xmlns="http://www.jboss.org/ironjacamar/schema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd"&gt;
+    &lt;!-- The datasource is bound into JNDI at this location. We reference
+        this in META-INF/persistence.xml --&gt;
+    &lt;datasource jndi-name="java:jboss/datasources/WeatherDS"
+                pool-name="weather" enabled="true"
+                use-java-context="true"&gt;
+        &lt;connection-url&gt;jdbc:postgresql://weather-postgresql:5432/weather-db&lt;/connection-url&gt;
+        &lt;driver&gt;postgresql.jar&lt;/driver&gt;
+        &lt;security&gt;
+            &lt;user-name&gt;weather-app-user&lt;/user-name&gt;
+            &lt;password&gt;secret&lt;/password&gt;
+        &lt;/security&gt;
+    &lt;/datasource&gt;
+&lt;/datasources&gt;
+</pre>
+
+This configures our app to access the database using a hostname of `weather-postgresql` and corresponding ports, usernames, and password. We'll need to deploy Postgres itself to respond to these connection requests.
 
 **2. Start a PostgreSQL database**
 
-To start a PostgreSQL database in OpenShift we can simply use the image provided as part of the OpenShift distribution. 
+To start a PostgreSQL database in OpenShift we can simply use the image provided as part of the OpenShift distribution.
 
-`oc new-app -e POSTGRESQL_USER=weather-app-user -e POSTGRESQL_PASSWORD=secret -e POSTGRESQL_DATABASE=weather-db --name=weather-postgresql postgresql`{{execute}}
+`oc new-app -e POSTGRESQL_USER=weather-app-user -e POSTGRESQL_PASSWORD=secret -e POSTGRESQL_DATABASE=weather-db --name=weather-postgresql -l app.openshift.io/runtime=postgresql postgresql:10`{{execute}}
 
-By using the `-e` flag, we can also pass a set of environment variables that will configure and setup the PostgreSQL database. These environment variables are pretty self explaining.
+By using the `-e` flag, we can also pass a set of environment variables that will configure and setup the PostgreSQL database. These environment variables are pretty self explaining. The `-l` flag adds a nice icon to our deployment topology view for the database.
 
-**3. Add the datasource configuration**
+You can see the new database spinning up on the [Topology view](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/my-project/graph):
 
-Normally, to set up a database we would either use the web console in JBoss EAP or CLI scripts. However, in a cloud native environment, we want all this configuration to be automatic so that if want to scale-up or restart a container this configuration would still be there. For that reason, the JBoss EAP image can automatically create datasource for us based on environment variables. In a minute we will investigate the environment variables closer, but for now, all you need to do is run the following command.
+![Postgres topology view](../../assets/middleware/middleware-javaee8/postgres-topology.png)
 
-```
-oc env dc/weather-app -e DB_SERVICE_PREFIX_MAPPING=weather-postgresql=DB \
-  -e DB_JNDI=java:jboss/datasources/WeatherDS \
-  -e DB_DATABASE=weather-db \
-  -e DB_USERNAME=weather-app-user \
-  -e DB_PASSWORD=secret
-```{{execute}}
-
-The different environment variables that you can use for JBoss EAP 7.2 are documented [here](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/getting_started_with_jboss_eap_for_openshift_container_platform/introduction). In our case the first and most important environment variable is `DB_SERVICE_PREFIX_MAPPING` since that both tell us the name of the service that is hosting the database as well as a prefix to use for reading the other environment variables. The reason it's done like this is to be able to support using multiple datasources in one single application. We could for example add `DB_SERVICE_PREFIX_MAPPING=other-postgresql=OTHERDB` and then the subsequent variables would be `OTHERDB_JNDI`, `OTHERDB_DATABASE`, etc.
-
-However, in our weather app we are only using one datasource, so we are ready to re-deploy it.
-
-**6. Deploying the application**
+**3. Deploying the application**
 
 We are now ready to test our application in OpenShift using an external database.
 
@@ -42,24 +52,38 @@ First, build the application and verify that we do not have any compilation issu
 
 `mvn clean package`{{execute}}
 
-Next, build a container by starting an OpenShift S2I build and provide the WAR file as input.
+Since EAP does not ship with a Postgres DB driver by default, we'll need to download it and include it with our application. Click the following command to download the driver to the `target/` directory:
 
-`oc start-build weather-app --from-file=target/ROOT.war --wait`{{execute}}
+`curl -o target/postgresql.jar https://jdbc.postgresql.org/download/postgresql-42.2.20.jar`{{execute}}
 
-When the build has finished, you can test the REST endpoint directly using for example curl.
+Next, build a container by starting an OpenShift S2I build and provide the files as input.
+
+`oc start-build weather-app --from-dir=target/ --follow`{{execute}}
+
+When the build has finished, you can test the REST endpoint directly using for example curl:
+
+`curl -s "Accept:application/json" http://weather-app-my-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/weather | jq`{{execute}}
+
+> **Note:** that it might take a couple of seconds for the application to start so if the command fails at first, please try again.
+
+You should see the same output as before.
 
 You can also test the web application by clicking [here](http://weather-app-my-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/index.html)
 
 Note: that it might take a couple of seconds for the application to start so if you see an error page wait 30 secs and then try again.
 
-**7. Verify the database**
+**4. Verify the database**
 
-Open [this](http://weather-app-my-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/index.html) link and click on the US flag. Note the weather icon in New York. It should be sunny.
+Open [this](http://weather-app-my-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/index.html) link and click on the US flag. Note the weather icon in New York. It should be sunny:
+
+![Sunny](../../assets/middleware/middleware-javaee8/sunny.png)
 
 Let's update the database and set it to rainy instead.
 
-`oc rsh dc/weather-postgresql`{{execute}}
+`oc rsh deployment/weather-postgresql`{{execute}}
 
 `psql -U $POSTGRESQL_USER $POSTGRESQL_DATABASE -c "update city set weathertype='rainy-5' where id='nyc'";`{{execute}}
 
 Now, reload the weather page for US and check the weather icon in New York. It should now be rainy.
+
+![Rainy](../../assets/middleware/middleware-javaee8/rainy.png)

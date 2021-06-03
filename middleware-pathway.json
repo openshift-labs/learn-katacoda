@@ -26,7 +26,7 @@
       "external_link": "https://learn.openshift.com/middleware/middleware-javaee8/",
       "count": 1,
       "course_id": "middleware-javaee8",
-      "title": "Java EE 8 Development"
+      "title": "Jakarta EE 8 Development"
     },
     {
       "action": "Start Course",
@@ -73,7 +73,7 @@
     {
       "external_link": "https://learn.openshift.com/middleware/java-batch-processing/",
       "course_id": "java-batch-processing",
-      "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret"
+      "title": "Jakarta EE Batch Processing with OpenShift, WildFly & JBeret"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/pipelines/",
