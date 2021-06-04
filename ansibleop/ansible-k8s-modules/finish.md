@@ -1,10 +1,4 @@
-# Summary
-
-In this workshop, you have worked with the Ansible Kubernetes Operator to leverage existing and new Kubernetes as well as OpenShift resource files. We've only touched the surface of what the [Ansible k8s module](https://docs.ansible.com/ansible/latest/modules/k8s_module.html#k8s-info-module) can do!
-
-# Further resources
-
-Thank you for taking a closer look at the *Ansible Operator*. For more
+Thank you for taking a closer look at the *Ansible Operator*.  For more
 Information, check out the links below:
 
 ## K8s Ansible Module
