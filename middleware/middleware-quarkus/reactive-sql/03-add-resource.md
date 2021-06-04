@@ -1,13 +1,13 @@
-In the previous step you created created a PostgreSQL databases for your app, and also added the extensions. In this section we will create our Reactive CoffeResource and its endpoints.
+In the previous step you created created a PostgreSQL databases for your app, and also added the extensions. In this section we will create our Reactive CoffeeResource and its endpoints.
 
 
 ## Add CoffeeResource endpoints
 
-Let’s modify the application and add relevant methods. The CoffeeResource has alredy been created we will add the functionality to it. 
+Let’s modify the application and add relevant methods. The CoffeeResource has alredy been created we will add the functionality to it.
 Open a new file by clicking: `src/main/java/org/acme/reactive/CoffeeResource.java`{{open}}.
 
 **1. Add db initialization**
-Lets add a few quireies to initialize our database. We could have also choosen to omit this step, in that case the database should have had these tables. But since we have a new barebones instance, we can also use this way of initializing. 
+Lets add a few quireies to initialize our database. We could have also choosen to omit this step, in that case the database should have had these tables. But since we have a new barebones instance, we can also use this way of initializing.
 
 Click **Copy to Editor** to add the following code to this file:
 
@@ -49,7 +49,7 @@ Click **Copy to Editor** to add the following code to this file:
 
 
 
-Next lets add the POST and PUT request methods. 
+Next lets add the POST and PUT request methods.
 
 Click **Copy to Editor** to add the following code to this file:
 <pre class="file" data-filename="src/main/java/org/acme/reactive/CoffeeResource.java" data-target="insert" data-marker="// TODO POST">
@@ -86,22 +86,4 @@ Click **Copy to Editor** to add the following code to this file:
 
 </pre>
 
-
-**2. Inspect the application.properties**
-Lets take a final look at our application.properties file, which has been prepared. 
-
-Once generated, look at the `src/main/resources/application.properties`{{open}}
-
-The file should look similar to the following
-<pre class="file">
-# Configuration file
-# key = value
-quarkus.datasource.url=vertx-reactive:postgresql://database.default.svc:5432/sampledb
-quarkus.datasource.username=username
-quarkus.datasource.password=password
-</pre>
-
-Notice that the name of the service is `database.default.svc` this is an internal project/namespace name, the database is not exposed on the outside network. And our application will be in the same project namespace hence we will be able to connect to it.
-If you want to read more about Openshift projects and name spaces you can do it here: [Openshift Docs](https://docs.openshift.com/enterprise/3.0/architecture/core_concepts/projects_and_users.html)
-
-Lets continue further.
+Lets continue further to add reactive accessor methods for our Coffee resource.

@@ -1,9 +1,9 @@
 Lets continue in this section and define are model Class
 
-Let’s modify the application and add relevant methods. The Coffee model class has alredy been created we will add the functionality to it. 
+Let’s modify the application and add relevant methods. The Coffee model class has alredy been created we will add the functionality to it.
 Open a new file by clicking: `src/main/java/org/acme/reactive/Coffee.java`{{open}}.
 
-We only have two fields, one for the ID of the Coffe and one for its name. 
+We only have two fields, one for the ID of the Coffe and one for its name.
 <pre>
 
     public Long id;
@@ -12,7 +12,7 @@ We only have two fields, one for the ID of the Coffe and one for its name.
 
 </pre>
 
-With this simple model we implement some of the accessor methods. e.g save, from, update etc. All of them use a PgPool object, since we are going to use a PostgreSQL database and are using the PostgreSQL reactive driver. 
+With this simple model we implement some of the accessor methods. e.g save, from, update etc. All of them use a PgPool object, since we are going to use a PostgreSQL database and are using the PostgreSQL reactive driver.
 
 Lets add the findById method.
 
@@ -35,13 +35,14 @@ Lets move on to deploy this application
 
 ## Inspect the results
 
-Since we still have our app running using `mvn quarkus:dev`, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live reload them.
+Since we still have our app running and connected remotely using Quarkus' remote development, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live reload them on the remote side.
 
-Check that it works as expected by loading the new endpoint by [clicking here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/).
+Check that it works as expected by revisiting the page by [clicking here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/).
 
+Try to add and remove Coffee elements to the list.
 
 ## Congratulations!
 
-Now you have a running app, with a reactive database extension. 
+Now you have a running app, with a reactive database extension.
 In the next step, we'll package and run it as a standalone executable JAR, which should also be familiar to microservice developers.
 Now Cancel the running dev session by clicking the `clear`{{execute T1 interrupt}} before moving ahead.
