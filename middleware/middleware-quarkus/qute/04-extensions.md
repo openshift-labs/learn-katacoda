@@ -27,11 +27,11 @@ Notice the use of Handlebar-esque `{#if ...}`. It's part of Qute's basic control
 
 Also notice the use of `{item.discountedPrice}`. This field does not exist in our `Item` class (which only has `name` and `price`). We'll add an _extension_ to our java code to make this property be available to the template, and write the code that computes its value in Java.
 
-Click `qute/src/main/java/org/acme/qute/TemplateExtensions.java`{{open}} to open the new file.
+Click `qute/src/main/java/org/acme/resteasyqute/TemplateExtensions.java`{{open}} to open the new file.
 
 Click **Copy to Editor** to create the extensions class where we'll declare our `discountedPrice`:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/TemplateExtensions.java" data-target="replace">
+<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/TemplateExtensions.java" data-target="replace">
 package org.acme.qute;
 
 import java.math.BigDecimal;

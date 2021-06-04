@@ -12,11 +12,11 @@ Quarkus [Reactive routes](https://quarkus.io/guides/reactive-routes) propose an 
 
 You've already added the `quarkus-vertx-web` extension which gives us the ability to declare Reactive Routes.
 
-Click `qute/src/main/java/org/acme/qute/ReactiveResource.java`{{open}} to open a new file.
+Click `qute/src/main/java/org/acme/resteasyqute/ReactiveResource.java`{{open}} to open a new file.
 
 Click **Copy to Editor** to create create a reactive route that will process our Qute template:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/ReactiveResource.java" data-target="replace">
+<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/ReactiveResource.java" data-target="replace">
 package org.acme.qute;
 
 import io.quarkus.qute.Template;

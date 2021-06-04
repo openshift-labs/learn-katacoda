@@ -6,9 +6,9 @@ Templating engine could be also very useful when rendering periodic reports. We 
 
 Now let's create a simple `Sample` object that represents a point-in-time of a value (maybe ambient temperature or blood pressure of a patient):
 
-Click `qute/src/main/java/org/acme/qute/Sample.java`{{open}} to open the file. Click **Copy to Editor** to paste in the code:
+Click `qute/src/main/java/org/acme/resteasyqute/Sample.java`{{open}} to open the file. Click **Copy to Editor** to paste in the code:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/Sample.java" data-target="replace">
+<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/Sample.java" data-target="replace">
 package org.acme.qute;
 
 public class Sample {
@@ -25,9 +25,9 @@ public class Sample {
 }
 </pre>
 
-Now let's ceate a service whose `get()` method returns a random list of samples. Open the file with `qute/src/main/java/org/acme/qute/SampleService.java`{{open}} and click **Copy to Editor** to create the code:
+Now let's ceate a service whose `get()` method returns a random list of samples. Open the file with `qute/src/main/java/org/acme/resteasyqute/SampleService.java`{{open}} and click **Copy to Editor** to create the code:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/SampleService.java" data-target="replace">
+<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/SampleService.java" data-target="replace">
 package org.acme.qute;
 
 import java.util.ArrayList;
@@ -83,11 +83,11 @@ Also note the use of the [elvis operator](https://en.wikipedia.org/wiki/Elvis_op
 
 ## Create periodic reports
 
-Create the ReportGenerator file by clicking `qute/src/main/java/org/acme/qute/ReportGenerator.java`{{open}}.
+Create the ReportGenerator file by clicking `qute/src/main/java/org/acme/resteasyqute/ReportGenerator.java`{{open}}.
 
 And finally click **Copy to Editor** to add code that uses all of the above and generates reports periodically to a file in `/tmp`:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/ReportGenerator.java" data-target="replace">
+<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/ReportGenerator.java" data-target="replace">
 package org.acme.qute;
 
 import java.io.FileWriter;

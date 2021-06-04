@@ -2,9 +2,9 @@
 
 If you declare a parameter declaration in a template, Qute will attempt to validate all expressions that reference this parameter. If an incorrect expression is found the build wil fail. This can greatly reduce developer errors up front. Let's exercise this.
 
-Create a simple class with two fields by clicking `qute/src/main/java/org/acme/qute/Item.java`{{open}} to open the file then click **Copy to Editor**:
+Create a simple class with two fields by clicking `qute/src/main/java/org/acme/resteasyqute/Item.java`{{open}} to open the file then click **Copy to Editor**:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/Item.java" data-target="replace">
+<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/Item.java" data-target="replace">
 package org.acme.qute;
 
 import java.math.BigDecimal;
@@ -46,9 +46,9 @@ Create a Qute template at by clicking `qute/src/main/resources/templates/ItemRes
 
 ## Create Service
 
-And create a simple `ItemService` to mock up a database of items. Click `qute/src/main/java/org/acme/qute/ItemService.java`{{open}} to open the file, then click **Copy To Editor**:
+And create a simple `ItemService` to mock up a database of items. Click `qute/src/main/java/org/acme/resteasyqute/ItemService.java`{{open}} to open the file, then click **Copy To Editor**:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/ItemService.java" data-target="replace">
+<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/ItemService.java" data-target="replace">
 package org.acme.qute;
 
 import java.math.BigDecimal;
@@ -74,9 +74,9 @@ public class ItemService {
 
 ## Create REST endpoint
 
-Now create a resource class that uses this type-safe template. Click `qute/src/main/java/org/acme/qute/ItemResource.java`{{open}} to open the file, then click **Copy To Editor**:
+Now create a resource class that uses this type-safe template. Click `qute/src/main/java/org/acme/resteasyqute/ItemResource.java`{{open}} to open the file, then click **Copy To Editor**:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/ItemResource.java" data-target="replace">
+<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/ItemResource.java" data-target="replace">
 package org.acme.qute;
 
 import javax.inject.Inject;
@@ -151,7 +151,7 @@ Notice the first line - this ia an _optional_ parameter declaration. If declared
 
 Now update the resource class to use the simpler way to inject templates:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/ItemResource.java" data-target="replace">
+<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/ItemResource.java" data-target="replace">
 package org.acme.qute;
 
 import javax.inject.Inject;

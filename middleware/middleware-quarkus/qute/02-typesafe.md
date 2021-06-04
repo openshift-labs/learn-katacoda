@@ -30,7 +30,7 @@ Goodbye {name} from HelloResource!
 
 Now let’s declare and use those templates in the resource class. Click **Copy to Editor** to update our `HelloResource` class:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/HelloResource.java" data-target="replace">
+<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/HelloResource.java" data-target="replace">
 package org.acme.qute;
 
 import javax.ws.rs.GET;
@@ -71,9 +71,9 @@ Keep in mind this style of declaration allows you to reference templates declare
 
 Let's create another resource and reference our `HelloResource.Templates` static class.
 
-Click to open `qute/src/main/java/org/acme/qute/GoodbyeResource.java`{{open}} then click **Copy to Editor** to create a new resource:
+Click to open `qute/src/main/java/org/acme/resteasyqute/GoodbyeResource.java`{{open}} then click **Copy to Editor** to create a new resource:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/GoodbyeResource.java" data-target="replace">
+<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/GoodbyeResource.java" data-target="replace">
 package org.acme.qute;
 
 import javax.ws.rs.GET;
