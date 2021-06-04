@@ -36,6 +36,9 @@ Further more we use a PostgreSQL database, where we create the databses, read fr
 
 Lets get started. We have already created a project for you, and lets continue adding functionality to this bare bones project.
 
+> In this guide, we will use the Mutiny API of the Reactive PostgreSQL Client. If you’re not familiar with Mutiny reactive types, read the [Getting Started with Reactive guide](https://quarkus.io/guides/getting-started-reactive#mutiny) if you want to learn more!
+
+
 ## Add Extension
 
 Like other exercises, we’ll need another extension to start using the PosgtreSQL. Lets install it by clicking on the following command:
@@ -53,4 +56,7 @@ This will add the necessary entries in your `pom.xml`{{open}} to bring in the Re
     <artifactId>quarkus-reactive-pg-client</artifactId>
 </dependency>
 ```
+
+There are a few other extensions we'll use that are already there, including `resteasy-jackson` (for encoding Java objects as JSON objects).
+
 With the app initialized, lets start coding!
