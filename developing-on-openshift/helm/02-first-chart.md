@@ -65,7 +65,7 @@ Now let's define which tag to use for this container image. Click the **Copy to 
 
 Install our custom Helm Chart from local folder.
 
-`helm install my-chart ./helm/my-chart`{{execute}}
+`helm install my-chart ./my-chart`{{execute}}
 
 This will install NGINX like in previous chapter, and we can follow installation like in previous chapter, either from Terminal or OpenShift Console:
 
