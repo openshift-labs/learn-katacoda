@@ -17,7 +17,8 @@ OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.10+9, mixed mode)
 
 Let's create the basic Quarkus _Hello World_ application and include the necessary qute extensions. Click this command to create the project:
 
-`mvn io.quarkus:quarkus-maven-plugin:1.13.6.Final:create \
+`cd /root/projects/quarkus &&
+ mvn io.quarkus:quarkus-maven-plugin:1.13.6.Final:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=qute \
     -Dextensions="quarkus-resteasy-qute,quarkus-vertx-web,quarkus-qute,quarkus-scheduler"`{{execute T1}}
