@@ -24,7 +24,7 @@ curl -o camel_k.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/
 
 curl -o /usr/local/bin/helm https://mirror.openshift.com/pub/openshift-v4/clients/helm/$HELM_VERSION/helm-linux-amd64 && chmod a+x /usr/local/bin/helm
 
-curl -o odo.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/v$ODO_VERSION/odo-linux-amd64.tar.gz && \
+curl -o odo.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/$ODO_VERSION/odo-linux-amd64.tar.gz && \
     tar -xvf odo.tar.gz && \
     rm -f odo.tar.gz && \
     mv odo /usr/bin/odo && \
