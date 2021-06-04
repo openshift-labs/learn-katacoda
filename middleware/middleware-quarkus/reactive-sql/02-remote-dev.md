@@ -54,7 +54,7 @@ Our app will need a Postgres database. Click the next command to quickly deploy 
 
 You'll see the Postgres pod spinning up in the [console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/reactive-sql/graph).
 
-![Postgres pod](/openshift/assets/middleware/quarkus/people-postgres.png)
+![Postgres pod](/openshift/assets/middleware/quarkus/rxpost.png)
 
 ## Add Quarkus OpenShift extension
 
@@ -83,9 +83,9 @@ quarkus.live-reload.password=changeit
 
 # OpenShift Production Configuration
 quarkus.datasource.db-kind=postgresql
-quarkus.datasource.url=vertx-reactive:postgresql://database:5432/sampledb
-quarkus.datasource.username=sa
-quarkus.datasource.password=sa
+quarkus.datasource.reactive.url=postgresql://database:5432/sampledb
+quarkus.datasource.username=username
+quarkus.datasource.password=password
 </pre>
 
 The `quarkus.package.type=mutable-jar` instructs Quarkus to package the app as a _mutable_ app. Mutable applications also include the deployment time parts of Quarkus (need for dev mode), so they take up a bit more disk space. If run normally they start just as fast and use the same memory as an immutable application, however they can also be started in dev mode.
@@ -105,6 +105,7 @@ Run the following command which will build and deploy the Quarkus app in Openshi
 -Dquarkus.kubernetes.deployment-target=openshift \
 -Dquarkus.openshift.route.expose=true \
 -Dquarkus.openshift.annotations.\"app.openshift.io/connects-to\"=database \
+-Dquarkus.openshift.env-vars.QUARKUS_DATASOURCE_DEVSERVICES.value=false \
 -Dquarkus.openshift.env-vars.quarkus-launch-devmode.value=true`{{execute}}
 
 The output should end with `BUILD SUCCESS`.
@@ -117,6 +118,7 @@ For more details of the above options:
 * `quarkus.kubernetes.deployment-target=openshift` - Instructs the extension to generate and create the OpenShift resources (like `DeploymentConfig`s and `Service`s) after building the container
 * `quarkus.openshift.route.expose=true` - Instructs the extension to generate an OpenShift `Route` so we can access it from our browser.
 * `quarkus.kubernetes.annotations."app.openshift.io/connects-to"=database` - Adds a visual connector to show the DB connection in the web console topology view.
+* `quarkus.openshift.env-vars.QUARKUS_DATASOURCE_DEVSERVICES.value=false` - Disables Quarkus dev services, as these are not needed on OpenShift
 * `quarkus.openshift.env-vars.quarkus-launch-devmode` - Sets an environment variable in the container to tell Quarkus to launch in dev mode (not production mode which is the default when deploying to Kubernetes or OpenShift)
 
 Finally, make sure it's actually done rolling out:
@@ -129,7 +131,7 @@ Wait (about 30 seconds) for that command to report `replication controller "reac
 
 You can see it on the [Overview in the OpenShift Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/reactive-sql/graph):
 
-![Quarkus pod](/openshift/assets/middleware/quarkus/people-quarkus.png)
+![Quarkus pod](/openshift/assets/middleware/quarkus/rx-deploy.png)
 
 
 Do a quick test to ensure the remote app is running by [accessing the sample app](http://reactive-sql-reactive-sql.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com) (which will display the GUI but otherwise be non-functional).
@@ -138,7 +140,7 @@ Do a quick test to ensure the remote app is running by [accessing the sample app
 
 You should see:
 
-![Web Console Login](/openshift/assets/middleware/quarkus/login.png)
+![Web Console Login](/openshift/assets/middleware/quarkus/rx-initial.png)
 
 It's working! We'll leave it running and use Quarkus' Remote Live Reload feature to automatically update our app as we make changes.
 
@@ -146,7 +148,7 @@ It's working! We'll leave it running and use Quarkus' Remote Live Reload feature
 
 Now we are ready to run our in dev mode and connect it to the remote application. Click here to run:
 
-```mvn quarkus:remote-dev -Dquarkus.live-reload.url=http://people-quarkus.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com```{{execute}}
+```mvn quarkus:remote-dev -Dquarkus.live-reload.url=http://reactive-sql-reactive-sql.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com```{{execute}}
 
 You should see a bunch of log output including:
 
