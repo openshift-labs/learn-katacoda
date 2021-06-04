@@ -8,7 +8,7 @@ We'll keep our prime number checker running. Click to run the following command 
 
 Verify Grafana is up and running:
 
-`oc rollout status -w dc/grafana`{{execute}}
+`oc rollout status -w deployment/grafana`{{execute}}
 
 You should see `replication controller "grafana-1" successfully rolled out`
 

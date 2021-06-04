@@ -69,14 +69,14 @@ Next, deploy and expose Prometheus using its public Docker Hub image:
 
 And finally, mount the ConfigMap into the running container:
 
-`oc set volume dc/prometheus --add -t configmap --configmap-name=prom -m /etc/prometheus/prometheus.yml --sub-path=prometheus.yml`{{execute}}
+`oc set volume deployment/prometheus --add -t configmap --configmap-name=prom -m /etc/prometheus/prometheus.yml --sub-path=prometheus.yml`{{execute}}
 
 This will cause the contents of the ConfigMap data to be mounted at `/etc/prometheus/prometheus.yml` inside its container
 where Prometheus is expecting it.
 
 Verify Prometheus is up and running:
 
-`oc rollout status -w dc/prometheus`{{execute}}
+`oc rollout status -w deployment/prometheus`{{execute}}
 
 You should see `replication controller "prometheus-2" successfully rolled out`.
 
