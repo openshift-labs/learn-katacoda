@@ -14,7 +14,7 @@ There’s an alternate way to declare your templates in your Java code, which re
 
 Create a directory to hold templates for our HelloResource class:
 
-`mkdir -p src/main/resources/templates/HelloResource`{{execute T2}}
+`cd /root/projects/quarkus/qute && mkdir -p src/main/resources/templates/HelloResource`{{execute T2}}
 
 Next, click to open `qute/src/main/resources/templates/HelloResource/hello.txt`{{open}}. Click **Copy to Editor** to add the code:
 
