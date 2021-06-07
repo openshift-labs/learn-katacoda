@@ -3,6 +3,7 @@ kind: Memcached
 metadata:
   name: memcached-sample
 spec:
-  replicaCount: 2
+  statefulset:
+    replicaCount: 2
   securityContext:
     enabled: false
