@@ -39,10 +39,10 @@ curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 echo "ensure needed dirs exists at GOPATH"
 mkdir -p $GOPATH/{src,pkg,bin}
 
-echo "install operator-sdk 1.6.2"
-wget https://github.com/operator-framework/operator-sdk/releases/download/v1.6.2/operator-sdk-v1.6.2-x86_64-linux-gnu
-chmod +x operator-sdk-v1.6.2-x86_64-linux-gnu
-mv operator-sdk-v1.6.2-x86_64-linux-gnu /root/tutorial/go/bin/operator-sdk -f
+echo "install operator-sdk 1.8.0"
+wget https://github.com/operator-framework/operator-sdk/releases/download/v1.8.0/operator-sdk_linux_amd64
+chmod +x operator-sdk_linux_amd64
+mv operator-sdk_linux_amd64 /root/tutorial/go/bin/operator-sdk -f
 
 echo "install make"
 yum install make -y
