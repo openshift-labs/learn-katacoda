@@ -4,6 +4,6 @@ metadata:
   name: memcached-sample
 spec:
   statefulset:
-    replicaCount: 2
+    replicas: 3
   securityContext:
     enabled: false

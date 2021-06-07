@@ -16,8 +16,11 @@ apiVersion: charts.example.com/v1alpha1
 kind: Memcached
 metadata: 
   name: memcached-sample
-spec: 
-  replicaCount: 2
+spec:
+  statefulset:
+    replicas: 3
+  securityContext:
+    enabled: false
 </pre>
 
 You can easily update this file by running the following command:
