@@ -7,17 +7,51 @@ Before applying the Memcached Custom Resource, observe the Memcached Helm Chart 
 
 [Memcached Helm Chart Values.yaml file](https://github.com/helm/charts/blob/master/stable/memcached/values.yaml)
 
-Update the Memcached Custom Resource at `go/src/github.com/redhat/memcached-operator/deploy/crds/charts.helm.k8s.io_v1alpha1_memcached_cr.yaml` with the following values:
+Update the Memcached Custom Resource at `config/samples/charts_v1alpha1_memcached.yaml` with the following values:
 
-* `spec.replicaCount: 2`
+* `spec.replicaCount: 3`
 
 <pre class="file">
 apiVersion: charts.example.com/v1alpha1
 kind: Memcached
-metadata: 
+metadata:
   name: memcached-sample
-spec: 
-  replicaCount: 2
+spec:
+  # Default values copied from <project_dir>/helm-charts/memcached/values.yaml
+  AntiAffinity: soft
+  affinity: {}
+  extraContainers: ""
+  extraVolumes: ""
+  image: memcached:1.5.20
+  kind: StatefulSet
+  memcached:
+    extendedOptions: modern
+    extraArgs: []
+    maxItemMemory: 64
+    verbosity: v
+  metrics:
+    enabled: false
+    image: quay.io/prometheus/memcached-exporter:v0.6.0
+    resources: {}
+    serviceMonitor:
+      enabled: false
+      interval: 15s
+  nodeSelector: {}
+  pdbMinAvailable: 2
+  podAnnotations: {}
+  replicaCount: 3
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+  securityContext:
+    enabled: false 
+    fsGroup: 1001
+    runAsUser: 1001
+  serviceAnnotations: {}
+  tolerations: {}
+  updateStrategy:
+    type: RollingUpdate
 </pre>
 
 You can easily update this file by running the following command:

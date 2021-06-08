@@ -1,10 +1,11 @@
-Let's now update the Memcached `example` Custom Resource and increase the desired number of replicas to `3`:
+Let's now update the Memcached `example` Custom Resource and increase the desired number of replicas to `5`:
 
 ```
-oc patch memcached memcached-sample --type='json' -p '[{"op": "replace", "path": "/spec/statefulset/replicaCount", "value":3}]'
+oc patch memcached memcached-sample -p '{"spec":{"replicaCount": 5}}' --type=merge
 ```{{execute}}
+
 <br>
-Verify that the Memcached Stateful Set is creating one additional pods:
+Verify that the Memcached Stateful Set is creating two additional pods:
 
 ```
 oc get pods
