@@ -7,7 +7,7 @@ Before applying the Memcached Custom Resource, observe the Memcached Helm Chart 
 
 [Memcached Helm Chart Values.yaml file](https://github.com/helm/charts/blob/master/stable/memcached/values.yaml)
 
-Update the Memcached Custom Resource at `go/src/github.com/redhat/memcached-operator/deploy/crds/charts.helm.k8s.io_v1alpha1_memcached_cr.yaml` with the following values:
+Update the Memcached Custom Resource at `config/samples/charts_v1alpha1_memcached.yaml` with the following values:
 
 * `spec.replicaCount: 3`
 
