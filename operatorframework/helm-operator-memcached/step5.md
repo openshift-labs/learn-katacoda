@@ -1,4 +1,4 @@
-Let's now update the Memcached `example` Custom Resource and increase the desired number of replicas to `3`:
+Let's now update the Memcached `example` Custom Resource and increase the desired number of replicas to `5`:
 
 ```
 oc patch memcached memcached-sample -p '{"spec":{"replicaCount": 5}}' --type=merge
