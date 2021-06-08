@@ -12,27 +12,26 @@ Once you get to the list of downloads, you would need to download the archive sp
 
 To login to the OpenShift cluster used for this course run in the terminal:
 
-``oc login``{{execute}}
-
-This will prompt you to enter your _username_ and _password_. Use the credentials:
-
-* **Username:** ``developer``{{copy}}
-* **Password:** ``developer``{{copy}}
+``oc login -u developer -p developer``{{execute}}
 
 You should see output similar to:
 
 ```
 Authentication required for https://openshift:6443 (openshift)
-Username: developer
-Password:
 Login successful.
 
-You have one project on this server: "myproject"
+You don't have any projects. You can try to create a new project, by running
 
-Using project "myproject".
+    oc new-project <projectname>
 ```
 
-For your own cluster, you would need to know the URL to login to the cluster, and pass it as an argument to ``oc login``.
+Next, create a new project namespace:
+
+``oc new-project myproject``{{execute}}
+
+You can list all the projects you currently have access to by running:
+
+``oc get projects``{{execute}}
 
 Once logged in, you can verify what user you are logged in by running:
 
@@ -41,10 +40,6 @@ Once logged in, you can verify what user you are logged in by running:
 You can verify which server you are logged into by running:
 
 ``oc whoami --show-server``{{execute}}
-
-You can list all the projects you currently have access to by running:
-
-``oc get projects``{{execute}}
 
 In the case of an external authentication service being used as the identity provider, the required steps are a bit different.
 
