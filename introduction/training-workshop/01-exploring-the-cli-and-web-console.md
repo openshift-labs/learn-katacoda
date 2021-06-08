@@ -4,18 +4,16 @@ In this exercise you are going to login to the OpenShift cluster and create a pr
 
 To access OpenShift from the command line you need the `oc` command line tool. In this environment that tool has already been installed for you and is accessible from the _Terminal_ window to the right.
 
-In order to login, run the following command:
+Login with the following command:
 
-``oc login``{{execute}}
+``oc login -u developer``{{execute}}
 
 In this interactive learning environment, whenever you see a command like that above which displays a carriage return icon to the right of the command, you can click on the command and it will be run for you in the _Terminal_ window automatically. You can at any time also enter any command yourself direct into the terminal window.
 
-Once you run the `oc login` command, you will be prompted for the username and
-password combination for your user account:
+After running the `oc login` command, you will be prompted for the
+password associated with the `developer` user:
 
-When prompted, enter the following username and password:
-
-**Username:** ``developer``{{execute}}
+When prompted, enter the following password:
 
 **Password:** ``developer``{{execute}}
 
