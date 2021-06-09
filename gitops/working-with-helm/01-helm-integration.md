@@ -36,6 +36,13 @@ view.
 
 ![quarkus-app-tree](../../assets/gitops/quarkus-app-tree.png)
 
+Grab the URL by running the following command: `oc get route/quarkus-app -n demo  -o jsonpath='{.spec.host}{"\n"}'`{{execute}}
+
+If you visit that URL, you should see the following page.
+
+![gitops-loves-helm](../../assets/gitops/gitops-loves-helm.png)
+
+
 This is a valid, and completely supported way of deploying your Helm
 charts using Argo CD. But this isn't GitOps friendly. Lets see how we
 can use Helm in a GitOps workflow.
