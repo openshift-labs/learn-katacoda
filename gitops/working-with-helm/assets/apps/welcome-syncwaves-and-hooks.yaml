@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: welcome-syncwaves-hooks
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: welcome-waves-and-hooks
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: apps/welcome-php/overlays/syncwaves-and-hooks
+    repoURL: https://github.com/redhat-developer-demos/openshift-gitops-examples
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true

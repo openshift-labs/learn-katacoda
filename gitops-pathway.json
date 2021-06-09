@@ -25,6 +25,12 @@
         "pathway_id": "gitops",
         "course_id": "syncwaves-hooks",
         "title": "Syncwaves and Hooks"
+      },
+      {
+        "external_link": "https://learn.openshift.com/gitops/working-with-helm/",
+        "pathway_id": "gitops",
+        "course_id": "working-with-helm",
+        "title": "Working with Helm"
       }
     ]
 }
