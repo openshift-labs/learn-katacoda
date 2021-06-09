@@ -36,7 +36,7 @@
   },
   "backend": {
     "autoUpgrade": false,
-    "imageid": "openshift-middleware-3-7",
+    "imageid": "openshift-4-7",
     "port": 8443
   }
 }
