@@ -74,6 +74,18 @@ else
     echo -e "\nFATAL: kubectl update failed to download"
 fi
 
+#
+## Install Helm CLI
+wget -O /usr/local/src/helm.tar.gz -q https://get.helm.sh/helm-v3.6.0-linux-amd64.tar.gz
+if [[ -f /usr/local/src/helm.tar.gz ]] ; then
+    tar -xzf /usr/local/src/helm.tar.gz -C /usr/local/src/
+    echo -n '.'
+    mv /usr/local/src/linux-amd64/helm /usr/local/bin/
+    echo -n '.'
+    chmod +x /usr/local/bin/helm
+else
+    echo -e "\nFATAL: helm install failed"
+fi
 
 #
 ## This patches the Argo CD Controller in the following ways
