@@ -39,11 +39,11 @@
           "text": "01-helm-integration.md"
         },
         {
-          "title": "Exploring Resource Hooks",
+          "title": "Helm GitOps Deployment",
           "text": "02-exploring-resource-hooks.md"
         },
         {
-          "title": "Using Syncwaves and Hooks Together",
+          "title": "Deploying Multi-Tiered Application",
           "text": "03-using-syncwaves-and-hooks.md"
         }
       ],
