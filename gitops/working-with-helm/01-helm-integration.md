@@ -29,7 +29,44 @@ native integration in Argo CD.
 
 ## Exploring Manifests
 
-Placeholder
+You can specify your Helm repo, chart, and values directly in the
+`Application` manfiest for Argo CD. Let's take a look at the example
+we're going to deploy. `apps/quarkus-app.yaml`{{open}}
+
+This `Application` deploys a sample Quarkus application. If you take
+a look at the file, you can see the specific configuration under
+`.spec.source.helm`. Let's take a look at this section/snippet of
+the YAML:
+
+```yaml
+spec:
+  source:
+    helm:
+      parameters:
+        - name: build.enabled
+          value: "false"
+        - name: deploy.route.tls.enabled
+          value: "true"
+        - name: image.name
+          value: quay.io/ablock/gitops-helm-quarkus
+    chart: quarkus
+    repoURL: https://redhat-developer.github.io/redhat-helm-charts
+    targetRevision: 0.0.3
+```
+
+Let's break this `.spec.source.helm` section down a bit:
+
+* `parameters` - This section is where you'll enter the parameters you want to pass to the Helm chart. These are the same values that you'd have in your `Values.yaml` file.
+* `chart` - This is the name of the chart you want to deploy from the Helm Repository.
+* `repoURL` - This is the URL of the Helm Repository.
+* `targetRevision` - This is the version of the chart you want to deploy.
+
+This can be used to deploy the Helm chart on to your cluster, which is like using `helm install ...`.
+
+> **NOTE** What actually happens is that Argo CD
+> runs a `helm template ... | kubectl apply -f -`. We'll go over that
+> a little later
+
 
 ## Deploying The Application
 
