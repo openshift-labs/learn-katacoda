@@ -3,7 +3,33 @@ within Argo CD.
 
 ## Background
 
+Helm has become the defacto way of packaging up and deploying application
+stacks on Kubernetes. You can think of Helm as sort of a package manager
+for Kubernetes. The main components of Helm are:
+
+* `Chart` a package consisting of related Kubernetes YAML files used to deploy something (Application/Application Stack/etc).
+* `Repository` a place where Charts can be stored, shared and distributed.
+* `Release` a specific instance of a Chart deployed on a Kubernetes cluster.
+
+Helm works by the user providing parameters (most of the time via a YAML
+file) against a Helm chart via the CLI. These parameters get injected
+into the Helm template YAML to produce a consumable YAML that us deployed
+to the Kubernetes cluster.
+
+![helm-overview](../../assets/gitops/helm-overview.png)
+
+Argo CD has native support for Helm built in. You can directly
+call a Helm chart repo and provide the values directly in the
+[Application](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#applications)
+manifest. Furthermore, you can interact and manage the Helm release on
+your cluster directly with Argo CD via the UI or the CLI.
+
+In this scenario, we will explore how to deploy a Helm chart using the
+native integration in Argo CD.
+
 ## Exploring Manifests
+
+Placeholder
 
 ## Deploying The Application
 
@@ -42,6 +68,32 @@ If you visit that URL, you should see the following page.
 
 ![gitops-loves-helm](../../assets/gitops/gitops-loves-helm.png)
 
+You can now interact with this `Application` using the `argocd` CLI. For instance; if I want to change the scale of my application to 2 replicas, I just modify that value using the `argocd` CLI.
+
+First, check to see how many pods you have running: `oc get pods -n demo`{{execute}}
+
+The output should look like this.
+
+```shell
+NAME                           READY   STATUS              RESTARTS   AGE
+quarkus-app-58f475cb86-rddz2   1/1     Running             0          14m
+```
+
+Now, modfy the Helm values: `argocd app set quarkus-app -p deploy.replicas=2`{{execute}}
+
+You should now have 2 pods for this `Application`: `oc get pods -n demo`{{execute}}
+
+There will now be two pods.
+
+```shell
+NAME                           READY   STATUS              RESTARTS   AGE
+quarkus-app-58f475cb86-rddz2   1/1     Running             0          15m
+quarkus-app-58f475cb86-s9llq   0/1     ContainerCreating   0          1s
+```
+
+The Argo CD UI should show the application with 2 pods and fully healthy/in sync.
+
+![quarkus-2-pods](../../assets/gitops/quarkus-2-pods.png)
 
 This is a valid, and completely supported way of deploying your Helm
 charts using Argo CD. But this isn't GitOps friendly. Lets see how we
