@@ -40,11 +40,11 @@
         },
         {
           "title": "Helm GitOps Deployment",
-          "text": "02-exploring-resource-hooks.md"
+          "text": "02-helm-gitops.md"
         },
         {
           "title": "Deploying Multi-Tiered Application",
-          "text": "03-using-syncwaves-and-hooks.md"
+          "text": "03-helm-multi.md"
         }
       ],
       "finish": {
