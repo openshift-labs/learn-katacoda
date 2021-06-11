@@ -101,7 +101,8 @@ view.
 
 Grab the URL by running the following command: `oc get route/quarkus-app -n demo  -o jsonpath='{.spec.host}{"\n"}'`{{execute}}
 
-If you visit that URL, you should see the following page.
+If you visit [that URL](https://quarkus-app-demo.[[host_subdomain]]-80-[[katacoda_host]].environments.katacoda.com), you should see the following page.
+          
 
 ![gitops-loves-helm](../../assets/gitops/gitops-loves-helm.png)
 

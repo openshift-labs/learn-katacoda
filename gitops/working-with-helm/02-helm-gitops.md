@@ -125,3 +125,46 @@ page. Click on "show hidden resources" if you need to, to expand the
 "tree" view.
 
 ![quarkus-subchart-app-tree](../../assets/gitops/quarkus-subchart-app-tree.png)
+
+That's it! You've now deployed a Helm chart in a GitOps friendly way
+using Argo CD!
+
+There is one important thing to note. We've deployed this Helm chart
+twice, and you can see this using the argocd CLI:
+
+`argocd app list -o name`{{execute}}
+
+This should have the following output:
+
+```shell
+quarkus-app
+quarkus-subchart
+```
+
+You can also see this on the cluster itself:
+
+`oc get applications -n openshift-gitops`{{execute}}
+
+This should have an output similar to this.
+
+```shell
+NAME               SYNC STATUS   HEALTH STATUS
+quarkus-app        Synced        Healthy
+quarkus-subchart   Synced        Healthy
+```
+
+However, when you try and list the applications using the Helm CLI; you don't see it.
+
+`helm ls --all-namespaces`{{exectute}}
+
+This should show no Helm releases.
+
+```shell
+NAME    NAMESPACE       REVISION        UPDATED STATUS  CHART   APP VERSION
+
+```
+
+This is because of how Argo CD deploys the Helm charts. When Argo CD
+deploys a Helm chart, it deploys it by running `helm template` and
+piping that into `kubectl apply -f`. Which means that Argo CD converts
+Helm templates (with the values provided) into "raw", Kubernetes YAML.
