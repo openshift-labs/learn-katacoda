@@ -3,9 +3,9 @@
   "icon": "fa-openshift",
   "courses": [
     {
-      "external_link": "https://learn.openshift.com/servicemesh/maistra1",
-      "course_id": "maistra1",
-      "title": "maistra1"
+      "external_link": "https://learn.openshift.com/servicemesh/1-introduction",
+      "course_id": "1-introduction",
+      "title": "Red Hat OpenShift Service Mesh Introduction and Playground"
     }
   ]
 }

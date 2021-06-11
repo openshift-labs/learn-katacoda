@@ -1,23 +1,25 @@
 {
   "pathwayTitle": "Service Mesh with Istio",
-  "title": "Introduction",
+  "title": "Introduction and Playground for OpenShift Service Mesh",
   "icon": "fa-openshift",
-  "description": "Understand the problem that Istio solves",
+  "description": "Understand the problem that Service Mesh solves",
   "difficulty": "Basic",
   "time": "30 minutes",
-  "files": [],
-  "environment": {
-      "showdashboard": true,
-      "dashboard": "Web Console",
-      "uilayout": "editor-terminal",
-      "uieditorpath": "/root/installation/",
-      "uisettings": "java",
-      "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
-  },
   "backend": {
-    "trainingid": "openshift-3-11", 
-    "autoUpgrade": false,
-    "imageid": "openshift-3-11", "port": 8443
+    "autoUpgrade": true,
+    "imageid": "openshift-4-7"
+  },
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "OpenShift Web Console",
+        "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ],
+    "uilayout": "terminal-iframe",
+    "uieditorpath": "/root/",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "details": {
     "finish": {
@@ -26,13 +28,18 @@
     "intro": {
         "text": "intro.md",
         "credits": "http://developers.redhat.com",
-        "code": "set-env.sh",
-        "courseData": "run-init.sh"
+        "code": "set-env.sh"
     },
     "steps": [
         { "title": "What is Service Mesh and why we need it?", "text": "1what-is-service-mesh.md" },
-        { "title": "Istio Details", "text": "2details.md" },
-        { "title": "Istio installation", "text": "3installation.md" }
-    ]
+        { "title": "Service Mesh Details", "text": "2details.md" },
+        { "title": "Service Mesh Installation", "text": "3installation.md" },
+        { "title": "Service Mesh Playground", "text": "4playground.md" }
+    ],
+    "assets": {
+      "client": [
+	      { "file": "install-ossm.bash", "target": "/root/" }
+      ]
+    }
   }
 }
