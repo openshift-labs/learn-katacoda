@@ -13,10 +13,6 @@ chmod 0777 /data/pv-*; chcon -t svirt_sandbox_file_t /data/pv-*;
 
 clear
 
-odo preference set UpdateNotification false > /dev/null 2>&1
-
-clear
-
 echo "Cloning app repos"
 git clone https://github.com/openshift-evangelists/Wild-West-Backend.git ~/backend > /dev/null 2>&1
 git clone https://github.com/openshift-evangelists/Wild-West-Frontend.git ~/frontend > /dev/null 2>&1
@@ -29,7 +25,7 @@ clear
 # as odo should already be installed via the client, here:
 # https://github.com/openshift-labs/learn-katacoda/blob/master/environments/openshift-4-7/client/build/1_packages.sh#L27-L31
 
-odo preference set -f ConsentTelemetry false 2> /dev/null
+odo preference set -f ConsentTelemetry false > /dev/null 2>&1
 ODO_INSTALL="latest"
 ODO_RESPONSE=$(odo version 2> /dev/null)
 ODO_VERSION=${ODO_RESPONSE:0:10}
@@ -41,8 +37,10 @@ if [[ -z $ODO_VERSION || $ODO_VERSION == "odo v1.0.0" ]]; then
     rm -f odo.tar.gz && \
     mv -f odo /usr/bin/odo && \
     chmod +x /usr/bin/odo && \
-    odo preference set -f ConsentTelemetry false
+    odo preference set -f ConsentTelemetry false > /dev/null 2>&1
 fi
+
+odo preference set UpdateNotification false > /dev/null 2>&1
 
 clear
 
