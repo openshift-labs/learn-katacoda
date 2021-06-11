@@ -1,7 +1,7 @@
 {
-  "pathwayTitle": "Developing with Spring and Spring Boot",
+  "pathwayTitle": "Intro to Red Hat OpenShift Application Runtimes",
   "icon": "fa-openshift",
-  "title": "Getting Started with Spring",
+  "title": "Spring Boot development on OpenShift",
   "description": "In this scenario you will learn more about Spring Boot, one of the runtimes included in Red Hat OpenShift Application Runtimes.",
   "difficulty": "beginner",
   "time": "15 minutes",
