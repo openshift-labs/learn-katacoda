@@ -1,7 +1,7 @@
 {
-  "pathwayTitle": "Intro to Red Hat OpenShift Application Runtimes",
+  "pathwayTitle": "Developing with Spring and Spring Boot",
   "icon": "fa-openshift",
-  "title": "Spring Boot development on OpenShift",
+  "title": "Getting Started with Spring",
   "description": "In this scenario you will learn more about Spring Boot, one of the runtimes included in Red Hat OpenShift Application Runtimes.",
   "difficulty": "beginner",
   "time": "15 minutes",
@@ -22,9 +22,11 @@
       "text": "99-outro.md"
     }
   },
-  "files": [
-
-  ],
+  "assets": {
+    "client": [
+         { "file": "redhat-maven-settings.xml", "target": "~/.m2/settings.xml" }
+    ]
+  },
   "environment": {
     "showdashboard": true,
     "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
