@@ -20,12 +20,12 @@
     },
     "finish": {
       "text": "99-outro.md"
+    },
+    "assets": {
+      "client": [
+        { "file": "redhat-maven-settings.xml", "target": "/root/.m2/settings.xml" }
+      ]
     }
-  },
-  "assets": {
-    "client": [
-         { "file": "redhat-maven-settings.xml", "target": "~/.m2/settings.xml" }
-    ]
   },
   "environment": {
     "showdashboard": true,
@@ -42,3 +42,7 @@
     "port": 8443
   }
 }
+
+
+
+
