@@ -61,6 +61,7 @@
             { "file": "examples/syncwaves-and-hooks/welcome-php-presync-pod.yaml", "target": "~/resources/examples/syncwaves-and-hooks" },
             { "file": "examples/syncwaves-and-hooks/welcome-php-postsync-pod.yaml", "target": "~/resources/examples/syncwaves-and-hooks" },
             { "file": "apps/quarkus-app.yaml", "target": "~/resources/apps" },
+            { "file": "apps/quarkus-subchart.yaml", "target": "~/resources/apps" },
             { "file": "apps/welcome-hooks.yaml", "target": "~/resources/apps" },
             { "file": "apps/welcome-syncwaves-and-hooks.yaml", "target": "~/resources/apps" },
             { "file": "apps/welcome-syncwaves.yaml", "target": "~/resources/apps" },

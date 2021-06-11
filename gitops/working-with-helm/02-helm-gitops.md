@@ -1,9 +1,127 @@
-Intro text
+In this section, we will be exporting GitOps deployment patterns with
+Helm!
 
 ## Background
 
+In the previous section, you saw how you can deploy a Helm chart
+natively with Argo CD. This method had you providing the Helm Repo,
+Chart, and Values directly in the config. I mentioned that, although
+valid, it's not GitOps friendly.
+
+In a GitOps workflow, the state of your application deployment must be
+stored in a SCM repo (like GitHub). In order to do this you must save the
+`values.yaml` in a git repo and reference the Helm repo somehow.
+
+This is where the [Helm Subchart/Dependency](https://github.com/argoproj/argocd-example-apps/blob/master/helm-dependency/README.md)
+deployment strategy comes in.
+
 ## Exploring Manifests
+
+We will be using the [examples repo](https://github.com/redhat-developer-demos/openshift-gitops-examples) for this and we will be targeting the [quarkus-subchart](https://github.com/redhat-developer-demos/openshift-gitops-examples/tree/main/apps/quarkus-subchart) directory. This has already been cloned into your environment you can take a look at it by running:
+
+`tree openshift-gitops-examples/apps/quarkus-subchart`{{execute}}
+
+This should have the following output.
+
+```shell
+openshift-gitops-examples/apps/quarkus-subchart
+├── Chart.yaml
+└── values.yaml
+
+0 directories, 2 files
+```
+
+As you can see, this is made up of only two YAML files. The `Chart.yaml` file and the `values.yaml` file. Taking a look at the chart file:
+
+`cat openshift-gitops-examples/apps/quarkus-subchart/Chart.yaml`{{execute}}
+
+The output should look like this.
+
+```yaml
+apiVersion: v2
+name: quarkus-subchart
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+dependencies:
+- name: quarkus
+  version: 0.0.3
+  repository: https://redhat-developer.github.io/redhat-helm-charts
+```
+
+Here, you're creating an "empty" Helm chart and adding the Helm chart you want to deploy as a dependency in the `dependecies` secion.
+
+> **NOTE** You can deploy more than one Helm chart using this method.
+
+The next file is the `values.yaml` file. Take a look at that file.
+
+`cat openshift-gitops-examples/apps/quarkus-subchart/values.yaml`{{execute}}
+
+You should see the following output of the YAML file.
+
+```yaml
+quarkus:
+  build:
+    enabled: false
+  deploy:
+    route:
+      tls:
+        enabled: true
+    replicas: 1
+  image:
+    name: quay.io/ablock/gitops-helm-quarkus
+```
+
+Here you're specifying the values you want to pass to the Helm chart.
+
+This is more GitOps friendly as now the state of your deployment is
+stored in a git repo. You can now use git workflows to update this
+application if, for example, you want to change the image or the number of
+replicas. You can now PR into this repo as you would in a GitOps workflow.
+
+The Argo CD `Application` should look like a "normal" `git` application.
+
+`apps/quarkus-subchart.yaml`{{open}}
+
+In this snippet, you can see that now we're targeting the git repo instead of the Helm repo.
+
+```yaml
+  source:
+    path: apps/quarkus-subchart/
+    repoURL: https://github.com/redhat-developer-demos/openshift-gitops-examples
+    targetRevision: main
+```
+
+Let's deploy this application!
 
 ## Deploying The Application
 
-![image-sample](../../assets/gitops/image-sample.png)
+Before we deploy this application, make sure you've opened the Argo CD
+Web Console.
+
+To get to the Argo CD Web UI; click the [Argo CD Web Console](https://openshift-gitops-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com) tab.
+
+Once you have accepted the self signed certificate, you should be
+presented with the Argo CD login screen.
+
+![ArgoCD Login](../../assets/gitops/argocd-login.png)
+
+You can login with the following
+* **Username:** ``admin``{{copy}}
+* **Password:** `oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-`{{execute}}
+
+Apply the Argo CD `Application` manifest to get this Helm chart deployed.
+
+`oc apply -f ~/resources/apps/quarkus-subchart.yaml`{{execute}}
+
+This should create the application.
+
+> **NOTE** The Helm logo ⎈ does not appear. It's now a git logo since we're now just loading YAML
+
+![quarkus-subchart-app](../../assets/gitops/quarkus-subchart-app.png)
+
+Clicking on this "card" will take you to the application overview
+page. Click on "show hidden resources" if you need to, to expand the
+"tree" view.
+
+![quarkus-subchart-app-tree](../../assets/gitops/quarkus-subchart-app-tree.png)

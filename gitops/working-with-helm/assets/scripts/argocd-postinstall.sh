@@ -1,5 +1,7 @@
 #!/bin/bash
 logfile=/root/.katacoda-argocd-setup.log
+gitRepo="https://github.com/redhat-developer-demos/openshift-gitops-examples"
+
 
 #
 ## Create logfile
@@ -14,6 +16,15 @@ clear
 echo -n "Setting up lab environment, please wait"
 
 #
+## Git clone the examples repo. Check if it's there.
+echo -n '.'
+git clone -q ${gitRepo}
+if [[ ! -d /root/${gitRepo##*/} ]]; then
+    echo -e "\nERROR: Git clone for ${gitRepo} failed" | tee -a ${logfile}
+    exit 3
+fi
+
+#
 ## Login as admin
 oc login --insecure-skip-tls-verify -u admin -p admin >>${logfile} 2>&1
 echo -n '.'
@@ -21,7 +32,7 @@ echo -n '.'
 #
 ## Check if the operator resource is there
 if [[ ! -d resources/operator-install ]]; then
-    echo -e "\nERROR: Operator install resource not found!"
+    echo -e "\nERROR: Operator install resource not found!" | tee -a ${logfile}
     exit 3
 fi
 
@@ -50,7 +61,7 @@ if [[ -f /usr/local/bin/argocd ]] ; then
     chmod +x /usr/local/bin/argocd
     echo -n '.'
 else
-    echo -e "\nFATAL: ArgoCD cli failed to download"
+    echo -e "\nFATAL: ArgoCD cli failed to download" | tee -a ${logfile}
 fi
 
 #
@@ -61,7 +72,7 @@ if [[ -f /usr/local/bin/kustomize ]] ; then
     chmod +x /usr/local/bin/kustomize
     echo -n '.'
 else
-    echo -e "\nFATAL: Kustomize cli failed to download"
+    echo -e "\nFATAL: Kustomize cli failed to download" | tee -a ${logfile}
 fi
 
 #
@@ -71,7 +82,7 @@ if [[ -f /usr/local/bin/kubectl ]] ; then
     chmod +x /usr/local/bin/kubectl
     echo -n '.'
 else
-    echo -e "\nFATAL: kubectl update failed to download"
+    echo -e "\nFATAL: kubectl update failed to download" | tee -a ${logfile}
 fi
 
 #
@@ -84,7 +95,7 @@ if [[ -f /usr/local/src/helm.tar.gz ]] ; then
     echo -n '.'
     chmod +x /usr/local/bin/helm
 else
-    echo -e "\nFATAL: helm install failed"
+    echo -e "\nFATAL: helm install failed" | tee -a ${logfile}
 fi
 
 #
