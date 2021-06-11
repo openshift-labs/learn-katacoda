@@ -155,7 +155,7 @@ quarkus-subchart   Synced        Healthy
 
 However, when you try and list the applications using the Helm CLI; you don't see it.
 
-`helm ls --all-namespaces`{{exectute}}
+`helm ls --all-namespaces`{{execute}}
 
 This should show no Helm releases.
 
