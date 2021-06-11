@@ -23,7 +23,7 @@
     },
     "assets": {
       "client": [
-        { "file": "redhat-maven-settings.xml", "target": "/root/.m2/settings.xml" }
+        { "file": "maven/settings.xml", "target": "/root/.m2" }
       ]
     }
   },
