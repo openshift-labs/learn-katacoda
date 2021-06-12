@@ -32,7 +32,7 @@ ODO_VERSION=${ODO_RESPONSE:0:10}
 
 # Test to make sure the update is needed before proceeding with the install:
 if [[ -z $ODO_VERSION || $ODO_VERSION == "odo v1.0.0" ]]; then
-  curl -o odo.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/$ODO_inux-amd64.tar.gz && \
+  curl -o odo.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/$ODO_INSTALL/odo-linux-amd64.tar.gz && \
     tar -xvf odo.tar.gz && \
     rm -f odo.tar.gz && \
     mv -f odo /usr/bin/odo && \
