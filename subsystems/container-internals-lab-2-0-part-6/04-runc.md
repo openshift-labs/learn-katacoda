@@ -8,7 +8,7 @@ To get runc to start a new container we need two main things:
 
 2. A config.json file
 
-First, lets create (or steal) a RootFS, which is really nothing more than a Linux distribution extracted into a directory. Podman makes this rediculously easy to to do. The following command will fire up a container, get the ID, mount it, then rsync the filesystem contents out of it into a directory:
+First, lets create (or steal) a RootFS, which is really nothing more than a Linux distribution extracted into a directory. Podman makes this ridiculously easy to to do. The following command will fire up a container, get the ID, mount it, then rsync the filesystem contents out of it into a directory:
 
 ``rsync -av $(podman mount $(podman create fedora bash))/ /root/fedora/rootfs/``{{execute}}
 
