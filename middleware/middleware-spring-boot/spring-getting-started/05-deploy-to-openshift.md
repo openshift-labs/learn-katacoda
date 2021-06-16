@@ -12,14 +12,14 @@ Since this is your own personal project you need to create a database instance t
 ``oc new-app -e POSTGRESQL_USER=luke \
              -e POSTGRESQL_PASSWORD=secret \
              -e POSTGRESQL_DATABASE=my_data \
-             openshift/postgresql-92-centos7 \
+             openshift/postgresql:9.6-el8 \
              --name=my-database``{{execute}}
 
 **2. Review Database configuration**
 
-Take some time and review the ``src/main/fabric8/deployment.yml``{{open}}.
+Take some time and review the ``src/main/jkube/deployment.yml``{{open}}.
 
-As you can see that file specifies a couple of elements that are needed for our deployment. It also uses the username and password from a Kubernetes Secret. For this environment we are providing the secret in this file ``src/main/fabric8/credentials-secret.yml``{{open}}, however in a production environment this would likely be provided to you by the Ops team.
+As you can see that file specifies a couple of elements that are needed for our deployment. It also uses the username and password from a Kubernetes Secret. For this environment we are providing the secret in this file ``src/main/jkube/credentials-secret.yml``{{open}}, however in a production environment this would likely be provided to you by the Ops team.
 
 Now, review the ``src/main/resources/application-openshift.properties``{{open}}
 
@@ -52,9 +52,13 @@ We also need a health check so that OpenShift can detect when our application is
 
 **5. Deploy the application to OpenShift**
 
-Run the following command to deploy the application to OpenShift
+At first, run the following command to create your OpenShift resource descriptors
 
-``mvn package fabric8:deploy -Popenshift -DskipTests``{{execute}}
+``mvn clean oc:resource -Popenshift -DskipTests``{{execute}}
+
+Then, run the following command to deploy the application to OpenShift (the _deploy_ command does a _build_ as well)
+
+``mvn oc:deploy -Popenshift -DskipTests``{{execute}}
 
 After the maven build as finished, it will typically take less than 20 sec for the application to be available. To verify that everything is started run the following command and wait for it to report replication controller "fruits-s2i-1" successfully rolled out:
 
