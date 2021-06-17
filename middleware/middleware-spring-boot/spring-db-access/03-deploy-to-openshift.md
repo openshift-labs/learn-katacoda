@@ -4,13 +4,9 @@ For running locally the H2 Database has been a good choice, but when we now move
 
 Before we deploy the application to OpenShift and verify that it runs correctly, there are a couple of things we have do. We need to add a driver for the PostgreSQL database that we are going to use, and we also need to add health checks so that OpenShift correctly can detect if our application is working. 
 
-**1. Login to OpenShift Container Platform**
+**1. Create a project
 
-To login, we will use the `oc` command and then specify username and password like this:
-
-``oc login [[HOST_SUBDOMAIN]]-6443-[[KATACODA_HOST]].environments.katacoda.com --insecure-skip-tls-verify=true -u developer -p developer``{{execute}}
-
-Now let's create a new project 
+Let's first create a new project
 
 ``oc new-project dev --display-name="Dev - Spring Boot App"``{{execute}}
 
@@ -24,21 +20,9 @@ Since this is your own personal project you need to create a database instance t
              openshift/postgresql:12-el8 \
              --name=my-database``{{execute}}
 
-This command creates a new deployable Postgres instance using the OpenShift Postgresql image named `my-database`. We
-can check the status of the deployment by running `oc status`{{execute}} as mentioned in the output of the above command.
+This command creates a new deployable Postgres instance using the OpenShift Postgresql image named `my-database`. This step may take a minute or two. We can wait for it to complete by running the following command:
 
-When deployed you should see similar output to the following:
-
-```
-$ oc status
-In project Dev - Spring Boot App (dev) on server https://172.17.0.85:8443
-
-svc/my-database - 172.30.167.58:5432
-  dc/my-database deploys istag/my-database:latest
-    deployment #1 deployed about a minute ago - 1 pod
-```
-
-We can see here that 1 pod is deployed with our Database image and it is now ready to consume. 
+``oc rollout status -w deployment/my-database``{{execute}}
 
 **3. Review Database configuration**
 
@@ -78,13 +62,13 @@ We also need a health check so that OpenShift can detect when our application is
 
 Run the following command to deploy the application to OpenShift
 
-``mvn package oc:deploy -Popenshift -DskipTests``{{execute}}
+``mvn oc:deploy -Popenshift -DskipTests``{{execute}}
 
 This step may take some time to do the Maven build and the OpenShift deployment. After the build completes you can verify that everything is started by running the following command:
 
 ``oc rollout status dc/spring-data-jpa-training``{{execute}}
 
-Then either go to the OpenShift web console and click on the route or click [here](http://spring-data-jpa-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/)
+Then either go to the OpenShift web console and click on the route or click [here](http://spring-data-jpa-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/).
 
 Make sure that you can add and remove fruits using the web application.
 
