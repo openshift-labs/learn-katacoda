@@ -34,12 +34,6 @@
       "description": "Modern Distributed microservices using Red Hat messaging"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/arquillian-cube",
-      "course_id": "arquillian-cube",
-      "title": "Testing Spring Applications with Arquillian Cube",
-      "description": "Integration testing in a containerized environment"
-    },
-    {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/microservices-1",
       "course_id": "microservices-1",
       "title": "Externalized Configuration",
