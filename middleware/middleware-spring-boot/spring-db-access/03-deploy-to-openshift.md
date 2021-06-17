@@ -4,7 +4,7 @@ For running locally the H2 Database has been a good choice, but when we now move
 
 Before we deploy the application to OpenShift and verify that it runs correctly, there are a couple of things we have do. We need to add a driver for the PostgreSQL database that we are going to use, and we also need to add health checks so that OpenShift correctly can detect if our application is working. 
 
-**1. Create a project
+**1. Create a project**
 
 Let's first create a new project
 
