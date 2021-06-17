@@ -38,13 +38,6 @@
           "description": "Externalized Configuration and Health Checks"
         },
         {
-          "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/microservices-2",
-          "pathway_id": "middleware/middleware-spring-boot",
-          "course_id": "microservices-2",
-          "title": "Service Discovery and Load Balancing",
-          "description": "Service Discovery and Load Balancing"
-        },
-        {
           "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/microservices-3",
           "pathway_id": "middleware/middleware-spring-boot",
           "course_id": "microservices-3",
