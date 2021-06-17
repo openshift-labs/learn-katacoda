@@ -185,7 +185,7 @@ The last method is an example of the `@Query` annotation which allows you to pro
 
 To verify that the application actually works now we need to actually run the application. Run the application by executing the following command ``mvn spring-boot:run``{{execute}}
 
-Next, click on the **Local Web Browser** tab in the console frame of this browser window which will open another tab or window of your browser pointing to port 8080 on your client. Or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
+Next, click on the **Local Web Browser** tab in the console frame of this browser window which will open another tab or window of your browser pointing to port 8080 on your client. Or use [this](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com) link.
 
 You should now see an HTML page with an `Add a Fruit` textbox on the left and a `Fruits List` view on the right with the three fruits we pre-populated with the `import.sql` file. Adding a new fruit name into the textbox and clicking `Save` should insert the new Fruit name into the right-hand list. Clicking on the `Remove` buttons should also work as expected.
 
