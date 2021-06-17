@@ -4,7 +4,7 @@ In Step 1 you learned how to get started with our project. In this step, we will
 
 **1. Adding JPA (Hibernate) to the application**
 
-Since our application will need to access a database to retrieve and store fruit entries we need to add a Database Connection library. One such implementation in Spring is the Spring Data project which contains the Java Persistence APIs (JPA) and a JPA implementation - Hibernate. Hibernate has been tested and verified as part of the OpenShift Application Runtimes so we are going to use it here. Spring Boot has full knowledge of these libraries as well so we get to take advantage of Spring Boot's auto-configuration with these libraries as well!
+Since our application will need to access a database to retrieve and store fruit entries we need to add a Database Connection library. One such implementation in Spring is the Spring Data JPA project, which contains the Java Persistence APIs (JPA) and a JPA implementation - Hibernate. Hibernate has been tested and verified as part of the Red Hat Runtimes, so we are going to use it here. Spring Boot has full knowledge of these libraries as well so we get to take advantage of Spring Boot's auto-configuration with these libraries as well!
 
 To add Spring Data + JPA and Hibernate to our project all we have to do is to add the following line in ``pom.xml``{{open}}
 
@@ -143,7 +143,6 @@ To see how this repository could be used in a web application we're going to qui
 In order to use our FruitRepository we must first autowire one in our constructor:
 
 ```java
-@Autowired
 public FruitController(FruitRepository repository) {
     this.repository = repository;
 }
