@@ -1,4 +1,4 @@
-# Deploy to OpenShift Application Platform
+# Deploy to OpenShift
 
 For running locally the H2 Database has been a good choice, but when we now move into a container platform we want to use a more production-like database, and for that, we are going to use PostgreSQL. 
 
@@ -8,7 +8,7 @@ Before we deploy the application to OpenShift and verify that it runs correctly,
 
 To login, we will use the `oc` command and then specify username and password like this:
 
-``oc login [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com --insecure-skip-tls-verify=true -u developer -p developer``{{execute}}
+``oc login [[HOST_SUBDOMAIN]]-6443-[[KATACODA_HOST]].environments.katacoda.com --insecure-skip-tls-verify=true -u developer -p developer``{{execute}}
 
 Now let's create a new project 
 
@@ -21,7 +21,7 @@ Since this is your own personal project you need to create a database instance t
 ``oc new-app -e POSTGRESQL_USER=dev \
              -e POSTGRESQL_PASSWORD=secret \
              -e POSTGRESQL_DATABASE=my_data \
-             openshift/postgresql-92-centos7 \
+             openshift/postgresql:12-el8 \
              --name=my-database``{{execute}}
 
 This command creates a new deployable Postgres instance using the OpenShift Postgresql image named `my-database`. We
@@ -42,9 +42,9 @@ We can see here that 1 pod is deployed with our Database image and it is now rea
 
 **3. Review Database configuration**
 
-Take some time and review the ``src/main/fabric8/deployment.yml``{{open}}.
+Take some time and review the ``src/main/jkube/deployment.yml``{{open}}.
 
-As you can see that file specifies a couple of elements that are needed for our deployment. It also uses the username and password from a Kubernetes Secret. For this environment we are providing the secret in this file ``src/main/fabric8/credentials-secret.yml``{{open}}, however in a production environment this would likely be provided to you by the Ops team.
+As you can see that file specifies a couple of elements that are needed for our deployment. It also uses the username and password from a Kubernetes Secret. For this environment we are providing the secret in this file ``src/main/jkube/credentials-secret.yml``{{open}}, however in a production environment this would likely be provided to you by the Ops team.
 
 Now, review the ``src/main/resources/application-openshift.properties``{{open}}
 
@@ -58,7 +58,6 @@ So far our application has only used the H2 embedded Database. We now need to ad
         &lt;dependency&gt;
           &lt;groupId&gt;org.postgresql&lt;/groupId&gt;
           &lt;artifactId&gt;postgresql&lt;/artifactId&gt;
-          &lt;version&gt;${postgresql.version}&lt;/version&gt;
           &lt;scope&gt;runtime&lt;/scope&gt;
         &lt;/dependency&gt;
 </pre>
@@ -79,13 +78,13 @@ We also need a health check so that OpenShift can detect when our application is
 
 Run the following command to deploy the application to OpenShift
 
-``mvn package fabric8:deploy -Popenshift -DskipTests``{{execute}}
+``mvn package oc:deploy -Popenshift -DskipTests``{{execute}}
 
 This step may take some time to do the Maven build and the OpenShift deployment. After the build completes you can verify that everything is started by running the following command:
 
-``oc rollout status dc/rhoar-training``{{execute}}
+``oc rollout status dc/spring-data-jpa-training``{{execute}}
 
-Then either go to the OpenShift web console and click on the route or click [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/)
+Then either go to the OpenShift web console and click on the route or click [here](http://spring-data-jpa-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/)
 
 Make sure that you can add and remove fruits using the web application.
 
