@@ -189,7 +189,7 @@ Next, click on the **Local Web Browser** tab in the console frame of this browse
 
 You should now see an HTML page with an `Add a Fruit` textbox on the left and a `Fruits List` view on the right with the three fruits we pre-populated with the `import.sql` file. Adding a new fruit name into the textbox and clicking `Save` should insert the new Fruit name into the right-hand list. Clicking on the `Remove` buttons should also work as expected.
 
-**4. Stop the application**
+**9. Stop the application**
 
 Before moving on, click in the terminal window and then press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the running application!
 
