@@ -40,12 +40,6 @@
       "description": "Service Discovery and Load Balancing"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/microservices-3",
-      "course_id": "microservices-3",
-      "title": "Fault Tolerance and Resiliency",
-      "description": "Circuit Breaking"
-    },
-    {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/monitoring",
       "course_id": "monitoring",
       "title": "Monitoring Spring Applications on OpenShift",
