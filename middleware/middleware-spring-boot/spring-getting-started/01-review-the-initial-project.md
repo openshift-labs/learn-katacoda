@@ -86,7 +86,7 @@ To begin with, click on the **Local Web Browser** tab in the console frame of th
 
 ![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
 
-or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
+or use [this](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
 You should now see an HTML page that looks like this:
 
