@@ -12,7 +12,7 @@ Since this is your own personal project you need to create a database instance t
 ``oc new-app -e POSTGRESQL_USER=luke \
              -e POSTGRESQL_PASSWORD=secret \
              -e POSTGRESQL_DATABASE=my_data \
-             openshift/postgresql:9.6-el8 \
+             openshift/postgresql:12-el8 \
              --name=my-database``{{execute}}
 
 **2. Review Database configuration**
@@ -52,19 +52,15 @@ We also need a health check so that OpenShift can detect when our application is
 
 **5. Deploy the application to OpenShift**
 
-At first, run the following command to create your OpenShift resource descriptors
+Run the following command to deploy the application to OpenShift:
 
-``mvn clean oc:resource -Popenshift -DskipTests``{{execute}}
+``mvn package oc:deploy -Popenshift -DskipTests``{{execute}}
 
-Then, run the following command to deploy the application to OpenShift (the _deploy_ command does a _build_ as well)
+This step may take some time to do the Maven build and the OpenShift deployment. After the build completes you can verify that everything is started by running the following command:
 
-``mvn oc:deploy -Popenshift -DskipTests``{{execute}}
+``oc rollout status dc/spring-getting-started``{{execute}}
 
-After the maven build as finished, it will typically take less than 20 sec for the application to be available. To verify that everything is started run the following command and wait for it to report replication controller "fruits-s2i-1" successfully rolled out:
-
-``oc rollout status dc/fruits``{{execute}}
-
-Then either go to the openshift web console and click on the route or click [here](http://fruits-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+Then either go to the openshift web console and click on the route or click [here](http://spring-getting-started-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
 Make sure that you can add, edit, and remove fruits, using the web application 
 

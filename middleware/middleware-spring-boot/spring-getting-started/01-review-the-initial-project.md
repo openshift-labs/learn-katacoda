@@ -78,7 +78,7 @@ Run the application by executing the below command:
 
 ``mvn spring-boot:run``{{execute}}
 
->**NOTE:** The Katacoda terminal window is like your local terminal. Everything that you run here you should be able to execute on your local computer as long as you have a `Java SDK 1.8` and `Maven`. In later steps, we will also use the `oc` command line tool.
+>**NOTE:** The Katacoda terminal window is like your local terminal. Everything that you run here you should be able to execute on your local computer as long as you have a `Java JDK 11` and `Maven`. In later steps, we will also use the `oc` command line tool.
 
 **3. Verify the application**
 
