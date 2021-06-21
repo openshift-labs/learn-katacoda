@@ -8,7 +8,7 @@ So that we can access it from a web browser, we also need to expose it by creati
 
 To monitor the deployment of the application run:
 
-``oc rollout status dc/blog``{{execute}}
+``oc rollout status deployment/blog``{{execute}}
 
 The command will exit once the deployment has completed and the web application is ready.
 
