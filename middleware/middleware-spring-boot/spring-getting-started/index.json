@@ -34,7 +34,7 @@
     "uisettings": "java",
     "hideintro": false,
     "hideHiddenFiles": true,
-    "uieditorpath": "/root/rhoar-getting-started/spring/spring-rhoar-intro",
+    "uieditorpath": "/root/projects/rhoar-getting-started/spring/spring-rhoar-intro",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
