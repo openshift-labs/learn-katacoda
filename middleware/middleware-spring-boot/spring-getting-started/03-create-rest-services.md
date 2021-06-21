@@ -142,7 +142,7 @@ Build and start the application again
 
 Now that we have implemented all the services we are now able to see fruits on the page, and also update, create and delete them.
 
-When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
+When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
 ![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
 

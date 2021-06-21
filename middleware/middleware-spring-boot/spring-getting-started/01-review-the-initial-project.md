@@ -1,3 +1,9 @@
+# Import the code
+
+Let's refresh the code we'll be using. Run the following command to clone the sample project:
+
+`cd /root/projects && rm -rf rhoar-getting-started && git clone https://github.com/openshift-katacoda/rhoar-getting-started && cd rhoar-getting-started/spring/spring-rhoar-intro`{{execute}}
+
 # Review the base structure of the application
 
 For your convenience, this scenario has been created with a base project using the Java programming language and the Apache Maven build tool.
@@ -11,27 +17,26 @@ The output should look something like this
 |-- pom.xml
 `-- src
     `-- main
-        |-- fabric8
+        |-- jkube
         |   |-- credentials-secret.yml
         |   |-- deployment.yml
-        |   `-- route.yml
-        |-- java
+        |   |-- route.yml
+        |`-- java
         |   `-- com
         |       `-- example
-        |           |-- Application.java
-        |           `-- booster
-        |               `-- service
+        |           |-- Application.java 
+        |           |`-- service
         `-- resources
             |-- application-local.properties
             |-- application-openshift.properties
             `-- static
-                `-- index.html
+                |-- index.html
 ```
 
 
-As you can see, there are some files that we have prepared for you in the project. Under src/main/resources/index.html we have for example prepared an html file for you. Except for the fabric8 directory and the index.html, this matches very well what you would get if you generate an empty project from the [Spring Initializr](https://start.spring.io) web page. For the moment you can ignore the content of the fabric8 folder (we will discuss this later).
+As you can see, there are some files that we have prepared for you in the project. Under src/main/resources/index.html we have, for example, prepared an HTML file for you. Except for the jkube directory and the index.html, this matches very well what you would get if you generate an empty project from the [Spring Initializr](https://start.spring.io) web page. For the moment you can ignore the content of the jkube folder (we will discuss this later).
 
-One this that differs slightly is the `pom.xml`. Please open the and examine it a bit closer (but do not change anything at this time)
+One that differs slightly is the `pom.xml`. Please open the and examine it a bit closer (but do not change anything at this time)
 
 ``pom.xml``{{open}}
 
@@ -79,7 +84,7 @@ Run the application by executing the below command:
 
 ``mvn spring-boot:run``{{execute}}
 
->**NOTE:** The Katacoda terminal window is like your local terminal. Everything that you run here you should be able to execute on your local computer as long as you have a `Java SDK 1.8` and `Maven`. In later steps, we will also use the `oc` command line tool.
+>**NOTE:** The Katacoda terminal window is like your local terminal. Everything that you run here you should be able to execute on your local computer as long as you have a `Java JDK 11` and `Maven`. In later steps, we will also use the `oc` command line tool.
 
 **3. Verify the application**
 
@@ -87,7 +92,7 @@ To begin with, click on the **Local Web Browser** tab in the console frame of th
 
 ![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
 
-or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
+or use [this](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
 You should now see an HTML page that looks like this:
 
