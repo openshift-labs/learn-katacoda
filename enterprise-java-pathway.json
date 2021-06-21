@@ -24,13 +24,8 @@
           "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-rhdg/",
           "pathway_id": "middleware",
           "course_id": "rhoar-getting-started-rhdg",
-          "title": "Red Hat Data Grid development"
-        },
-        {
-          "external_link": "https://learn.openshift.com/middleware/java-batch-processing/",
-          "pathway_id": "middleware",
-          "course_id": "java-batch-processing",
-          "title": "Jakarta EE Batch Processing with OpenShift, WildFly & JBeret"
+          "title": "Red Hat Data Grid development",
+          "description": "Improve data performance and availability with in-memory data grids"
         }
     ]
 }
