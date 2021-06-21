@@ -6,14 +6,9 @@ OpenShift also ships with a feature rich web console as well as command line too
 
 **1. Login to OpenShift Container Platform**
 
-To login, we will use the `oc` command and then specify username and password like this:
+This sandbox has already authenticated you to OpenShift. To validate, we will use the `oc whoami` command:
 
-``oc login [[HOST_SUBDOMAIN]]-6443-[[KATACODA_HOST]].environments.katacoda.com --insecure-skip-tls-verify=true -u developer -p developer``{{execute}}
-
-Congratulations, you are now authenticated to the OpenShift server.
-
->**IMPORTANT:** If the above `oc login` command doesn't seem to do anything, you may have forgotten to stop the application from the previous
-step. Click on the terminal and press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application and try the above `oc login` command again!
+``oc whoami``{{execute}}
 
 **2. Create project**
 
