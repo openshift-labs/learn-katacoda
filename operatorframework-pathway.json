@@ -23,11 +23,6 @@
       "title": "Operator Lifecycle Manager"
     },
     {
-      "external_link": "https://learn.openshift.com/ansibleop/ansible-refresher/",
-      "course_id": "ansible-refresher",
-      "title": "Ansible Refresher"
-    },
-    {
       "external_link": "https://learn.openshift.com/ansibleop/ansible-k8s-modules/",
       "course_id": "ansible-k8s-modules",
       "title": "Ansible Kubernetes Modules"

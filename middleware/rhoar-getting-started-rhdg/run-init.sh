@@ -1,4 +1,9 @@
-#!/usr/bin/env bash
-#rm -rf ~/projects/rhoar-getting-started
-ssh root@host01 "mkdir -p /root/projects && cd /root/projects
-#ssh root@host01 "yum install tree -y"
+mkdir -p /root/projects
+
+echo "-w \"\n\"" >> ~/.curlrc
+
+curl -sL -w '' https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/assets/middleware/install-openjdk.sh > /tmp/jdk.sh
+
+chmod a+x /tmp/jdk.sh
+/tmp/jdk.sh
+

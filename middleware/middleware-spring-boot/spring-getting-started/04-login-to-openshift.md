@@ -6,14 +6,9 @@ OpenShift also ships with a feature rich web console as well as command line too
 
 **1. Login to OpenShift Container Platform**
 
-To login, we will use the `oc` command and then specify username and password like this:
+This sandbox has already authenticated you to OpenShift. To validate, we will use the `oc whoami` command:
 
-`oc login [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com -u developer -p developer --insecure-skip-tls-verify=true`{{execute interrupt}}
-
-Congratulations, you are now authenticated to the OpenShift server.
-
->**IMPORTANT:** If the above `oc login` command doesn't seem to do anything, you may have forgotten to stop the application from the previous
-step. Click on the terminal and press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application and try the above `oc login` command again!
+``oc whoami``{{execute}}
 
 **2. Create project**
 
@@ -40,7 +35,7 @@ After you have authenticated to the web console, you will be presented with a li
 
 ![Web Console Projects](/openshift/assets/middleware/rhoar-getting-started-spring/projects.png)
 
-Click on your new project name to be taken to the project overview page which will list all of the routes, services, deployments, and pods that you have created as part of your project:
+Click on your new project name to be taken to the project overview page which will show you various options to add content to your project, create an application, component or service:
 
 ![Web Console Overview](/openshift/assets/middleware/rhoar-getting-started-spring/overview.png)
 
