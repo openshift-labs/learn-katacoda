@@ -1,10 +1,5 @@
 #!/bin/bash
-# Remove any previous copy of source code
-rm -rf projects
 
-mkdir projects && cd projects
-git clone https://github.com/openshift-katacoda/rhoar-getting-started.git &&
-cd rhoar-getting-started/spring/spring-rhoar-intro
 launch.sh
 
 # Install Java 11

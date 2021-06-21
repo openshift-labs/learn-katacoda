@@ -1,3 +1,9 @@
+# Import the code
+
+Let's refresh the code we'll be using. Run the following command to clone the sample project:
+
+`cd /root/projects && rm -rf rhoar-getting-started && git clone https://github.com/openshift-katacoda/rhoar-getting-started && cd rhoar-getting-started/spring/spring-getting-started`{{execute}}
+
 # Review the base structure of the application
 
 For your convenience, this scenario has been created with a base project using the Java programming language and the Apache Maven build tool.
@@ -32,7 +38,7 @@ As you can see, there are some files that we have prepared for you in the projec
 
 One that differs slightly is the `pom.xml`. Please open the and examine it a bit closer (but do not change anything at this time)
 
-``spring-rhoar-intro/pom.xml``{{open}}
+``pom.xml``{{open}}
 
 As you review the content, you will notice that there are a lot of **TODO** comments. **Do not remove them!** These comments are used as a marker and without them, you will not be able to finish this scenario.
 
