@@ -31,7 +31,7 @@
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/microservices-1",
       "course_id": "microservices-1",
       "title": "Externalized Configuration",
-      "description": "Externalized Configuration and Health Checks"
+      "description": "Externalized Configuration"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/monitoring",
