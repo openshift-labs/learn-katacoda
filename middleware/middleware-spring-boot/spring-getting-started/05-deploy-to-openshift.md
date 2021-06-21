@@ -33,7 +33,6 @@ So far our application has only used the H2 Database, we now need to add a depen
         &lt;dependency&gt;
           &lt;groupId&gt;org.postgresql&lt;/groupId&gt;
           &lt;artifactId&gt;postgresql&lt;/artifactId&gt;
-          &lt;version&gt;${postgresql.version}&lt;/version&gt;
           &lt;scope&gt;runtime&lt;/scope&gt;
         &lt;/dependency&gt;
 </pre>
