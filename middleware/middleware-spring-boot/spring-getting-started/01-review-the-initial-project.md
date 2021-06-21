@@ -2,7 +2,7 @@
 
 Let's refresh the code we'll be using. Run the following command to clone the sample project:
 
-`cd /root/projects && rm -rf rhoar-getting-started && git clone https://github.com/openshift-katacoda/rhoar-getting-started && cd rhoar-getting-started/spring/spring-getting-started`{{execute}}
+`cd /root/projects && rm -rf rhoar-getting-started && git clone https://github.com/openshift-katacoda/rhoar-getting-started && cd rhoar-getting-started/spring/spring-rhoar-intro`{{execute}}
 
 # Review the base structure of the application
 
