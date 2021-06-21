@@ -32,7 +32,7 @@ As you can see, there are some files that we have prepared for you in the projec
 
 One that differs slightly is the `pom.xml`. Please open the and examine it a bit closer (but do not change anything at this time)
 
-``pom.xml``{{open}}
+``spring-rhoar-intro/pom.xml``{{open}}
 
 As you review the content, you will notice that there are a lot of **TODO** comments. **Do not remove them!** These comments are used as a marker and without them, you will not be able to finish this scenario.
 
