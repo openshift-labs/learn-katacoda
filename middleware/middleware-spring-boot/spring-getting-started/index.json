@@ -1,5 +1,5 @@
 {
-  "pathwayTitle": "Intro to Red Hat OpenShift Application Runtimes",
+  "pathwayTitle": "Intro to Red Hat Runtimes",
   "icon": "fa-java",
   "title": "Spring Boot development on OpenShift",
   "description": "In this scenario you will learn more about Spring Boot, one of the runtimes included in Red Hat Runtimes.",

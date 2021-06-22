@@ -38,8 +38,6 @@ The `@RestController` annotation tells Spring that this is a special kind of Con
 
 `@RequestMapping` is our way to tell Spring which URIs this Controller services. In this case we say we service the `/api/fruits` URI. Spring will thus route HTTP requests to that URI to this Controller.
 
-Note that we do have a repository backing this Controller but it is out of scope for this scenario. Feel free to take a look if you are curious.
-
 **2. Add GET Mappings**
 
 At the moment our Controller doesn't actually do any work. We need to add some handler methods. Let's start with the two HTTP GET methods, one for fetching all fruits and one for fetching a specific fruit. Copy the following at the ``// TODO GET actions`` line (or use to `Copy to Editor` button):
@@ -66,7 +64,7 @@ Run the application by executing the below command:
 
 ``mvn spring-boot:run``{{execute}}
 
-When the console reports that Spring is up and running navigate to [the new REST API](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/api/fruits). You should see something like this in your browser:
+When the console reports that Spring is up and running navigate to [the new REST API](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/api/fruits). You should see something like this in your browser:
 
 ```json
 [{"name":"Cherry"},{"name":"Apple"},{"name":"Banana"}]
