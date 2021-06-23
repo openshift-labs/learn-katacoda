@@ -7,7 +7,7 @@
     "time": "35-40 minutes",
     "backend": {
       "autoUpgrade": false,
-      "trainingid": "rhel8.3",
+      "trainingid": "openshift-3-11",
       "imageid": "rhel8-3",
       "port": 8443
     },
