@@ -91,7 +91,7 @@ Next let's add a handler for accepting HTTP POST requests to create new entries.
 
 For a `@PostMapping` we are expecting a JSON Request Body to be sent to our application that follows the `Fruit` form. As a reminder from above, a Fruit in JSON form looks like `{"name":"Cherry"}`. This Request Body will be automatically deserialized from JSON to a Java Object by Spring if we have a POJO that matches. In this case we have our `Fruit` class. The `@RequestBody` annotation instructs Spring to try to deserialize the Request JSON into a `Fruit` object and inject it as an argument to our handler method. We can then do whatever we need to do with the Java Object (in this case - save it off). We have omitted input checking for brevity but always remember to sanitize your inputs in real applications!
 
-Run the application again by executing the ``mvn spring-boot:run``{{execute}} command. This time we will use the included [web application](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)(click here) to POST new Fruits to the application. Add a Fruit name into the `Add a Fruit` text box and click the `Save` button. If all is well it should show up in the right-hand `Fruits List` view.
+Run the application again by executing the ``mvn spring-boot:run``{{execute}} command. This time we will use the included [web application](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)(click here) to POST new Fruits to the application. Add a Fruit name into the `Add a Fruit` text box and click the `Save` button. If all is well it should show up in the right-hand `Fruits List` view.
 
 >**NOTE:** You can also click the `Local Browser` tab in the right-hand terminal to access the web UI.
 
