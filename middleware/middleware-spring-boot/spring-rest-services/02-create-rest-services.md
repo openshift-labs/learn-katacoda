@@ -128,7 +128,7 @@ Finally, let's add a handler for accepting HTTP DELETE requests to delete existi
 
 We are again utilizing a route segment to specify an ID in the route. Thus this handler will handle routes like `DELETE /api/fruits/1`. 
 
-Run the application once more by executing the ``mvn spring-boot:run``{{execute}} command. This time we will use the included [web application](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)(click here) to DELETE Fruits from the application. Click the `Remove` button next to any of the Fruit entries. If all is well it should remove that Fruit from the List.
+Run the application once more by executing the ``mvn spring-boot:run``{{execute}} command. This time we will use the included [web application](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)(click here) to DELETE Fruits from the application. Click the `Remove` button next to any of the Fruit entries. If all is well it should remove that Fruit from the List.
 
 >**NOTE**: Do not blindly accept IDs like this in your path for deletion in production applications! Make sure there is some level of security to ensure this functionality cannot be abused.
 
