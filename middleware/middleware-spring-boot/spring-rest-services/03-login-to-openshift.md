@@ -6,23 +6,23 @@ OpenShift also ships with a feature rich web console as well as command line too
 
 **1. Login to the OpenShift Container Platform**
 
-This sandbox has already authenticated you to OpenShift. To validate, we will use the `oc whoami` command:
+This sandbox has already authenticated you to OpenShift. To validate, you will use the `oc whoami` command:
 
 ``oc whoami``{{execute}}
 
-Then we'll create the project:
+Then you'll create the project:
 
-``oc new-project fruits --display-name="Dev - Spring Boot App"``{{execute}}
+``oc new-project dev --display-name="Dev - Spring Boot App"``{{execute}}
 
 Now create a database:
 
-``oc new-app -e POSTGRESQL_USER=luke \
+``oc new-app -e POSTGRESQL_USER=dev \
              -e POSTGRESQL_PASSWORD=secret \
              -e POSTGRESQL_DATABASE=my_data \
              openshift/postgresql:12-el8 \
              --name=my-database``{{execute}}
 
-Our application knows how to interact with the database because we defined the properties in the ``src/main/resources/application-openshift.properties``{{open}} file. You can see below that we have supplied the URL, username, password, and driver for the database.
+Our application knows how to interact with the database because you defined the properties in the ``src/main/resources/application-openshift.properties``{{open}} file. You can see below that the URL, username, password, and driver for the database have been supplied.
 ```
 spring.datasource.url=jdbc:postgresql://${MY_DATABASE_SERVICE_HOST}:${MY_DATABASE_SERVICE_PORT}/my_data
 spring.datasource.username=${DB_USERNAME}
@@ -39,7 +39,13 @@ This step may take some time to do the Maven build and the OpenShift deployment.
 ``oc rollout status dc/spring-rest-services``{{execute}}
 
 
-After it's complete we can either go to the OpenShift web console and click on the route or click [here](http://rhoar-training-fruits.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/fruits). You should see the same JSON output as the previous step:
+After the rollout is complete you can go to the OpenShift web console, login with **admin**/**admin** credentials, select **dev** project and find the route to your application under **Routes**. 
+
+![Route from Web Console](/openshift/assets/middleware/rhoar-spring-rest-services/route.png)
+
+You can also click [here](http://spring-rest-services-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/fruits) to directly access the running application. 
+
+You should see the same JSON output as the previous step:
 
 ```json
 [{"name":"Cherry"},{"name":"Apple"},{"name":"Banana"}]

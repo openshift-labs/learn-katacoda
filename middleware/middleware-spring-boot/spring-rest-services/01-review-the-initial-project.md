@@ -10,7 +10,7 @@ Let's refresh the code we'll be using. Run the following command to clone the sa
 
 Since our application will be a web application, we need to use a servlet container like Apache Tomcat or Undertow to handle incoming connections from clients. Since Red Hat offers support for Apache Tomcat (e.g., security patches, bug fixes, etc.), we will use it here. 
 
-In addition we are going to utilize the Spring MVC project which contains many of the abstractions we will use to build our APIs. ``pom.xml``{{open}}
+In addition we are going to utilize the Spring MVC project which contains many of the abstractions we will use to build our APIs. Observe the following code block in the ``pom.xml``{{open}}
 
 `    <dependency>  
       <groupId>org.springframework.boot</groupId>  
