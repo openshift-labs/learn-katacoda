@@ -186,3 +186,4 @@ oc apply -n ${BOOKINFO_NS} -f https://raw.githubusercontent.com/Maistra/istio/ma
 oc apply -n ${BOOKINFO_NS} -f https://raw.githubusercontent.com/Maistra/istio/maistra-2.0/samples/bookinfo/networking/bookinfo-gateway.yaml
 export GATEWAY_URL=$(oc get -n ${CONTROL_PLANE_NS} route istio-ingressgateway -o jsonpath='{.spec.host}')
 oc apply -n ${BOOKINFO_NS} -f https://raw.githubusercontent.com/Maistra/istio/maistra-2.0/samples/bookinfo/networking/destination-rule-all.yaml
+echo "Try bookinfo out by using: \`curl ${GATEWAY_URL}/productpage\`"
