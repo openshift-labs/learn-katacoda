@@ -4,7 +4,13 @@ To demonstrate transferring files to and from a running container we first need 
 
 So that we can access it from a web browser, we also need to expose it by creating a _Route_.
 
-``oc expose svc/blog``{{execute}}
+``oc expose service/blog``{{execute}}
+
+To monitor the deployment of the application run:
+
+``oc rollout status deployment/blog``{{execute}}
+
+The command will exit once the deployment has completed and the web application is ready.
 
 The result of the deployment will be the running container. You can see the name of the pods corresponding to the running containers for this application, by running:
 
