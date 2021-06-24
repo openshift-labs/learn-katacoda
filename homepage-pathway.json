@@ -69,6 +69,11 @@
       "description": "Develop AI/ML on OpenShift with Jupyter, Prometheus, and Thoth"
     },
     {
+      "external_link": "https://learn.openshift.com/subsystems/",
+      "title": "Linux Container Fundamentals",
+      "description": "Understand container images, uses, and orchestration"
+    },
+    {
       "external_link": "https://learn.openshift.com/persistence/",
       "title": "Adding Persistence to OpenShift",
       "description": "Work with Container Storage and provision Persistent Volumes"

@@ -18,7 +18,8 @@ We have ourselves a RootFS directory to work with, check it out:
 
 Now that we have a RootFS, lets create a spec file and modify it:
 
-``runc spec -b /root/fedora/
+``rm -rf /root/fedora/config.json
+runc spec -b /root/fedora/
 sed -i 's/"terminal": true/"terminal": false/' /root/fedora/config.json``{{execute}}
 
 Now, we have ourselves a full "bundle" which is a collequial way of referring to the RootFS and Config together in one directory:

@@ -1,4 +1,4 @@
-In this scenario, you will learn more about developer application using Spring Boot using [Red Hat Runtimes](https://ww.redhat.com/products/runtimes).
+In this scenario, you will learn more about developer application using Spring Boot using [Red Hat Runtimes](https://www.redhat.com/en/products/runtimes).
 
 
 ## What you will learn

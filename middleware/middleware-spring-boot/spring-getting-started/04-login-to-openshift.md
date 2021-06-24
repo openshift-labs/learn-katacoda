@@ -1,6 +1,6 @@
 # Login to OpenShift Container Platform
 
-**Red Hat OpenShift Container Platform** is the preferred runtime for the **Red Hat OpenShift Application Runtimes** like **Vert.x**. OpenShift Container Platform is based on **Kubernetes** which is probably the most used Orchestrator for containers running in production. **OpenShift** is currently the only container platform based on Kuberenetes that offers multitenancy. This means that developers can have their own personal, isolated projects to test and verify application before committing to a shared code repository.
+**Red Hat OpenShift Container Platform** is the preferred runtime for the **Red Hat Runtimes** like **Spring Boot**, **Vert.x** etc. The OpenShift Container Platform is based on **Kubernetes** which is a Container Orchestrator that has grown in popularity and adoption over the last years. **OpenShift** is currently the only container platform based on Kubernetes that offers multitenancy. This means that developers can have their own personal, isolated projects to test and verify application before committing to a shared code repository.
 
 OpenShift also ships with a feature rich web console as well as command line tools to provide users with a friendly interface to work with applications deployed to the platform.
 
