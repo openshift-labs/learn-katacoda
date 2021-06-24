@@ -12,13 +12,22 @@ A developer or non-elevated account:
 * **Password:** `developer`
 
 ## Add your project to the service mesh
-A quick and easy way to add a new project to the service mesh can be found below.  Be sure to set the NEWPROJECT environment variable before running as an administrator:
+A quick and easy way to add a new project to the service mesh can be found below.  Be sure to set the NEWPROJECT environment variable to your project's name using:
 
 ```
 CONTROL_PLANE_NS=istio-system
 NEWPROJECT=default
+```
+
+Now you can add your project to the mesh:
+``` 
 oc patch -n ${CONTROL_PLANE_NS} --type='json' smmr default -p '[{"op": "add", "path": "/spec/members", "value":["'"${NEWPROJECT}"'"]}]'
 ```
+
+## Kiali and Jaeger
+Be sure to check out the Kiali and Jaeger consoles using the links above your terminal window or below.  Login using the OpenShift credentials above.
+* [Kiali](https://kiali-istio-system.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+* [Jaeger](https://jaeger-istio-system.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
 ## Bookinfo
 The installation script deployed the Istio Bookinfo application in the `bookinfo` project.

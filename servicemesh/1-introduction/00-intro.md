@@ -1,12 +1,14 @@
 In this self-paced tutorial, you will learn the basics of how to use OpenShift Service Mesh, which provide a way to control how different parts of an application share data with one another.
 
 In this scenario, you will:
-* Learn what OpenShift Service Mesh is.
-* Use the OpenShift Service Mesh in a playground type environment.
+* Learn what Red Hat OpenShift Service Mesh is.
+* Use the Red Hat OpenShift Service Mesh in a playground type environment.
+
+![Red Hat OpenShift Service Mesh](../../assets/servicemesh/1-introduction/ossm.png)
 
 ## Why Service Mesh?
 
-Red Hat OpenShift Service Mesh provides a platform for behavioral insight and operational control over your networked microservices in a service mesh. With Red Hat OpenShift Service Mesh, you can connect, secure, and monitor microservices in your OpenShift Container Platform environment.
+Red Hat OpenShift Service Mesh provides a platform for behavioral insight and operational control over your networked microservices in a service mesh. With Red Hat OpenShift Service Mesh, you can connect, secure, and monitor microservices in your OpenShift Container Platform environment.  The Red Hat OpenShift Service Mesh uses and is based from the open source projects istio, kiali, and jaeger. 
 
 ## The Environment
 

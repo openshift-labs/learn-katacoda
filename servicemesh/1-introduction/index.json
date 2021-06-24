@@ -15,6 +15,14 @@
       {
         "name": "OpenShift Web Console",
         "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+      },
+      {
+        "name": "Kiali Web Console",
+        "href": "https://kiali-istio-system.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"
+      },
+      {
+        "name": "Jaeger Web Console",
+        "href": "https://jaeger-istio-system.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"
       }
     ],
     "uilayout": "terminal-iframe",

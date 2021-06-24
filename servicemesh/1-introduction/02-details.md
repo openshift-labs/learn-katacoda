@@ -21,7 +21,12 @@ Red Hat OpenShift Service Mesh also provides more complex operational functions 
 
 Red Hat OpenShift Service Mesh is logically split into a data plane and a control plane:
 
-The **data plane** is a set of intelligent proxies deployed as sidecars. These proxies intercept and control all inbound and outbound network communication between microservices in the service mesh.
+![Red Hat OpenShift Service Mesh Architecture](../../assets/servicemesh/1-introduction/ossm-arch.png)
+
+### [Istio](https://istio.io)
+![Istio](../../assets/servicemesh/1-introduction/istio.png)
+
+As mentioned, Istio drives the service mesh and the **data plane** used withn the mesh is a set of intelligent proxies deployed as sidecars. These proxies intercept and control all inbound and outbound network communication between microservices in the service mesh.
 
 * **Envoy proxy** intercepts all inbound and outbound traffic for all services in the service mesh. Envoy is deployed as a sidecar to the relevant service in the same pod.
 
@@ -33,7 +38,9 @@ Secret Discovery Service (SDS) distributes certificates and keys to sidecars dir
 
 Red Hat OpenShift Service Mesh also uses the **istio-operator** to manage the installation of the control plane. An Operator is a piece of software that enables you to implement and automate common activities in your OpenShift cluster. It acts as a controller, allowing you to set or change the desired state of objects in your cluster.
 
-### Kiali
+### [Kiali](https://kiali.io)
+
+![Kiali](../../assets/servicemesh/1-introduction/kiali.png)
 
 Kiali provides observability into the Service Mesh running on OpenShift Container Platform. Kiali helps you define, validate, and observe your Istio service mesh. It helps you to understand the structure of your service mesh by inferring the topology, and also provides information about the health of your service mesh.
 
@@ -41,7 +48,9 @@ Kiali provides an interactive graph view of your namespace in real time that pro
 
 Kiali is installed by default as part of the Red Hat OpenShift Service Mesh.
 
-### Jaeger
+### [Jaeger](https://jaegertracing.io)
+
+![Jaeger](../../assets/servicemesh/1-introduction/jaeger.png)
 
 Every time a user takes an action in an application, a request is executed by the architecture that may require dozens of different services to participate to produce a response. The path of this request is a distributed transaction. Jaeger lets you perform distributed tracing, which follows the path of a request through various microservices that make up an application.
 

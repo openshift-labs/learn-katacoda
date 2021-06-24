@@ -6,5 +6,4 @@ do
 	sleep 5
 done
 
-time bash install-ossm.bash
-echo `#Red Hat OpenShift Service Mesh installed.`
+bash install-ossm.bash

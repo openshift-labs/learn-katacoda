@@ -1,5 +1,5 @@
 {
-  "title": "OpenShift Service Mesh",
+  "title": "OpenShift Service Mesh, Istio, Kiali, and Jaeger Scenarios",
   "icon": "fa-openshift",
   "courses": [
     {
