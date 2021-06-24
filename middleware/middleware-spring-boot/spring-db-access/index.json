@@ -1,8 +1,8 @@
 {
   "pathwayTitle": "RHOARSpringBoot",
-  "icon": "fa-openshift",
-  "title": "Spring Boot Database Access on RHOAR",
-  "description": "In this scenario you will learn more about Spring Boot's Database Access functionality and how this plays into Red Hat OpenShift Application Runtimes.",
+  "icon": "fa-java",
+  "title": "Spring Boot Database Access with Spring Data JPA and Hibernate",
+  "description": "In this scenario you will learn more about Spring Boot's Database Access functionality and how this plays into Red Hat Runtimes.",
   "difficulty": "beginner",
   "time": "15 minutes",
   "details": {
@@ -23,16 +23,26 @@
   "files": [],
   "environment": {
     "showdashboard": true,
-    "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
+    "dashboards": [
+      {
+        "name": "Local Web Browser",
+        "href": "https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com"
+      },
+      {
+        "name": "OpenShift Console",
+        "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ],
     "uilayout": "editor-terminal",
     "uisettings": "java",
     "hideintro": false,
+    "hideHiddenFiles": true,
     "uieditorpath": "/root/projects/rhoar-getting-started/spring/spring-db-access",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
     "autoUpgrade": false,
-    "imageid": "openshift-middleware-3-7",
+    "imageid": "openshift-4-7",
     "port": 8443
   }
 }

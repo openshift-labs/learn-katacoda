@@ -1,19 +1,14 @@
 # Login to OpenShift Container Platform
 
-**Red Hat OpenShift Container Platform** is the preferred runtime for the **Red Hat OpenShift Application Runtimes** like **Vert.x**. OpenShift Container Platform is based on **Kubernetes** which is probably the most used Orchestrator for containers running in production. **OpenShift** is currently the only container platform based on Kuberenetes that offers multitenancy. This means that developers can have their own personal, isolated projects to test and verify application before committing to a shared code repository.
+**Red Hat OpenShift Container Platform** is the preferred runtime for the **Red Hat Runtimes** like **Spring Boot**, **Vert.x** etc. The OpenShift Container Platform is based on **Kubernetes** which is a Container Orchestrator that has grown in popularity and adoption over the last years. **OpenShift** is currently the only container platform based on Kubernetes that offers multitenancy. This means that developers can have their own personal, isolated projects to test and verify application before committing to a shared code repository.
 
 OpenShift also ships with a feature rich web console as well as command line tools to provide users with a friendly interface to work with applications deployed to the platform.
 
 **1. Login to OpenShift Container Platform**
 
-To login, we will use the `oc` command and then specify username and password like this:
+This sandbox has already authenticated you to OpenShift. To validate, we will use the `oc whoami` command:
 
-`oc login [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com -u developer -p developer --insecure-skip-tls-verify=true`{{execute interrupt}}
-
-Congratulations, you are now authenticated to the OpenShift server.
-
->**IMPORTANT:** If the above `oc login` command doesn't seem to do anything, you may have forgotten to stop the application from the previous
-step. Click on the terminal and press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application and try the above `oc login` command again!
+``oc whoami``{{execute}}
 
 **2. Create project**
 
@@ -40,7 +35,7 @@ After you have authenticated to the web console, you will be presented with a li
 
 ![Web Console Projects](/openshift/assets/middleware/rhoar-getting-started-spring/projects.png)
 
-Click on your new project name to be taken to the project overview page which will list all of the routes, services, deployments, and pods that you have created as part of your project:
+Click on your new project name to be taken to the project overview page which will show you various options to add content to your project, create an application, component or service:
 
 ![Web Console Overview](/openshift/assets/middleware/rhoar-getting-started-spring/overview.png)
 

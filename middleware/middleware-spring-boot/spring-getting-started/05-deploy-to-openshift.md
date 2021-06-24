@@ -12,14 +12,14 @@ Since this is your own personal project you need to create a database instance t
 ``oc new-app -e POSTGRESQL_USER=luke \
              -e POSTGRESQL_PASSWORD=secret \
              -e POSTGRESQL_DATABASE=my_data \
-             openshift/postgresql-92-centos7 \
+             openshift/postgresql:12-el8 \
              --name=my-database``{{execute}}
 
 **2. Review Database configuration**
 
-Take some time and review the ``src/main/fabric8/deployment.yml``{{open}}.
+Take some time and review the ``src/main/jkube/deployment.yml``{{open}}.
 
-As you can see that file specifies a couple of elements that are needed for our deployment. It also uses the username and password from a Kubernetes Secret. For this environment we are providing the secret in this file ``src/main/fabric8/credentials-secret.yml``{{open}}, however in a production environment this would likely be provided to you by the Ops team.
+As you can see that file specifies a couple of elements that are needed for our deployment. It also uses the username and password from a Kubernetes Secret. For this environment we are providing the secret in this file ``src/main/jkube/credentials-secret.yml``{{open}}, however in a production environment this would likely be provided to you by the Ops team.
 
 Now, review the ``src/main/resources/application-openshift.properties``{{open}}
 
@@ -33,7 +33,6 @@ So far our application has only used the H2 Database, we now need to add a depen
         &lt;dependency&gt;
           &lt;groupId&gt;org.postgresql&lt;/groupId&gt;
           &lt;artifactId&gt;postgresql&lt;/artifactId&gt;
-          &lt;version&gt;${postgresql.version}&lt;/version&gt;
           &lt;scope&gt;runtime&lt;/scope&gt;
         &lt;/dependency&gt;
 </pre>
@@ -52,15 +51,15 @@ We also need a health check so that OpenShift can detect when our application is
 
 **5. Deploy the application to OpenShift**
 
-Run the following command to deploy the application to OpenShift
+Run the following command to deploy the application to OpenShift:
 
-``mvn package fabric8:deploy -Popenshift -DskipTests``{{execute}}
+``mvn package oc:deploy -Popenshift -DskipTests``{{execute}}
 
-After the maven build as finished, it will typically take less than 20 sec for the application to be available. To verify that everything is started run the following command and wait for it to report replication controller "fruits-s2i-1" successfully rolled out:
+This step may take some time to do the Maven build and the OpenShift deployment. After the build completes you can verify that everything is started by running the following command:
 
-``oc rollout status dc/fruits``{{execute}}
+``oc rollout status dc/spring-getting-started``{{execute}}
 
-Then either go to the openshift web console and click on the route or click [here](http://fruits-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+Then either go to the openshift web console and click on the route or click [here](http://spring-getting-started-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
 Make sure that you can add, edit, and remove fruits, using the web application 
 

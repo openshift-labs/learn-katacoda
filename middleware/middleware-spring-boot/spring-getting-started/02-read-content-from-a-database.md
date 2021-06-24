@@ -6,9 +6,9 @@ In Step 1 you learned how to get started with our project. In this step, we will
 
 Since our applications (like most) will need to access a database to read retrieve and store fruits entries, we need to add Java Persistence API to our project. 
 
-The default implementation in Spring Boot is Hibernate which has been tested as part of the OpenShift Application Runtimes.
+The default implementation in Spring Boot is Hibernate which has been tested as part of the Red Hat Runtimes.
 
->**NOTE:** Hibernate is another Open Source project that is maintained by Red Hat and it will soon be productized (as in fully supported) in OpenShift Application Runtimes. 
+>**NOTE:** Hibernate is another Open Source project that is maintained by Red Hat and it will soon be productized (as in fully supported) in Red Hat Runtimes. 
 
 To add Hibernate to our project all we have to do is to add the following line in ``pom.xml``{{open}}
 

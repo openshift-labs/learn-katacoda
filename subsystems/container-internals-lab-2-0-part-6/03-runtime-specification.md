@@ -17,7 +17,7 @@ cat config.json | jq``{{execute}}
 
 The simple file created by runc is a good introduction, but to truly understand the breadth of what a container engine does, we need to look at a more complex example. Podman has the ability to create a container and generate a spec file without actually starting the container:
 
-``podman create --name fedora -dt fedora bash
+``podman create --name fedora -t fedora bash
 podman init fedora``{{execute}}
 
 The "podman init" command generates a config.json and we can take a look at it in /var/lib/containers:
