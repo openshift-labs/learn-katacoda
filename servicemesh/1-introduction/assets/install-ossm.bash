@@ -186,8 +186,10 @@ oc apply -n ${BOOKINFO_NS} -f https://raw.githubusercontent.com/Maistra/istio/ma
 oc apply -n ${BOOKINFO_NS} -f https://raw.githubusercontent.com/Maistra/istio/maistra-2.0/samples/bookinfo/networking/bookinfo-gateway.yaml
 export GATEWAY_URL=$(oc get -n ${CONTROL_PLANE_NS} route istio-ingressgateway -o jsonpath='{.spec.host}')
 oc apply -n ${BOOKINFO_NS} -f https://raw.githubusercontent.com/Maistra/istio/maistra-2.0/samples/bookinfo/networking/destination-rule-all.yaml
+export BOOKINFO_GATEWAY_URL=$(oc get route -n ${CONTROL_PLANE_NS} | grep ${BOOKINFO_NS} | awk -F ' ' '{print $2}')
+
 echo ""
 echo ""
 echo "Red Hat OpenShift Service Mesh and bookinfo has been deployed!"
-echo "Test the bookinfo application out at: \`${GATEWAY_URL}/productpage\`"
+echo "Test the bookinfo application out at: http://${BOOKINFO_GATEWAY_URL}/productpage"
 echo "Note: It may take a few moments for everything to deploy before the URL above is active."
