@@ -1,11 +1,11 @@
 {
-  "title": "OpenShift Service Mesh, Istio, Kiali, and Jaeger Scenarios",
+  "title": "OpenShift Service Mesh Scenarios",
   "icon": "fa-openshift",
   "courses": [
     {
       "external_link": "https://learn.openshift.com/servicemesh/1-introduction",
       "course_id": "1-introduction",
-      "title": "Red Hat OpenShift Service Mesh Introduction and Playground"
+      "title": "Red Hat OpenShift Service Mesh and Istio Playground"
     }
   ]
 }
