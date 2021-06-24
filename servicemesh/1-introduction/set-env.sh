@@ -7,4 +7,4 @@ do
 done
 
 time bash install-ossm.bash
-# Red Hat OpenShift Service Mesh installed.
+echo `#Red Hat OpenShift Service Mesh installed.`
