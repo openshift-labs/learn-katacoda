@@ -1,56 +1,11 @@
 {
-  "title": "Istio",
+  "title": "OpenShift Service Mesh Scenarios",
   "icon": "fa-openshift",
   "courses": [
     {
       "external_link": "https://learn.openshift.com/servicemesh/1-introduction",
       "course_id": "1-introduction",
-      "title": "Istio Introduction"
-    },
-    {
-      "external_link": "https://learn.openshift.com/servicemesh/2-deploy-microservices",
-      "course_id": "2-deploy-microservices",
-      "title": "Deploy Microservices"
-    },
-    {
-      "external_link": "https://learn.openshift.com/servicemesh/3-monitoring-tracing",
-      "course_id": "3-monitoring-tracing",
-      "title": "Monitoring and Tracing"
-    },
-    {
-      "external_link": "https://learn.openshift.com/servicemesh/4-simple-routerules",
-      "course_id": "4-simple-routerules",
-      "title": "Simple Routing"
-    },
-    {
-      "external_link": "https://learn.openshift.com/servicemesh/5-advanced-routerules",
-      "course_id": "5-advanced-routerules",
-      "title": "Advanced RouteRules"
-    },
-    {
-      "external_link": "https://learn.openshift.com/servicemesh/6-fault-injection",
-      "course_id": "6-fault-injection",
-      "title": "Fault Injection"
-    },
-    {
-      "external_link": "https://learn.openshift.com/servicemesh/7-circuit-breaker",
-      "course_id": "7-circuit-breaker",
-      "title": "Circuit Breaker"
-    },
-    {
-      "external_link": "https://learn.openshift.com/servicemesh/8-egress",
-      "course_id": "8-egress",
-      "title": "Egress"
-    },
-    {
-      "external_link": "https://learn.openshift.com/servicemesh/adv1-kiali",
-      "course_id": "adv1-kiali",
-      "title": "Observing with Kiali"
-    },
-    {
-      "external_link": "https://learn.openshift.com/servicemesh/adv2-mtls",
-      "course_id": "adv2-mTLS",
-      "title": "Mutual TLS"
+      "title": "Red Hat OpenShift Service Mesh and Istio Playground"
     }
   ]
 }
