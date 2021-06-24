@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Starting OpenShift Service Mesh install."
-echo "Please wait..."
+echo "Starting OpenShift Service Mesh install.\n\n"
+echo "Please wait..........................!\n"
 echo "Subscribing to the operators..."
 #install the elastic operator
 cat <<EOM | oc apply -f -

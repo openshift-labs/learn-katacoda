@@ -23,18 +23,17 @@
   },
   "details": {
     "finish": {
-        "text": "finish.md"
+        "text": "99-finish.md"
     },
     "intro": {
-        "text": "intro.md",
+        "text": "00-intro.md",
         "credits": "http://developers.redhat.com",
         "code": "set-env.sh"
     },
     "steps": [
-        { "title": "What is Service Mesh and why we need it?", "text": "1what-is-service-mesh.md" },
-        { "title": "Service Mesh Details", "text": "2details.md" },
-        { "title": "Service Mesh Installation", "text": "3installation.md" },
-        { "title": "Service Mesh Playground", "text": "4playground.md" }
+        { "title": "What is Service Mesh and why we need it?", "text": "01-what-is-service-mesh.md" },
+        { "title": "Service Mesh Details", "text": "02-details.md" },
+        { "title": "Service Mesh Playground", "text": "03-playground.md" }
     ],
     "assets": {
       "client": [
