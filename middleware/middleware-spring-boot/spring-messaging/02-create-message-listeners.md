@@ -8,7 +8,7 @@ Spring Boot offers abstractions for the JMS standard that make it very quick and
 
 First we need a message object. Spring Boot allows us to code in the context of our own Java models when dealing with messages. For this purpose we will create a simple `Fruit` object which contains a String `body`. For this you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/Fruit.java``{{open}}
 
-Then, copy the below content into the file (or use the `Copy to Editor` button):
+Then, copy the below content into the files (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/service/Fruit.java" data-target="replace">
 package com.example.service;
@@ -51,6 +51,42 @@ public class Fruit {
     @Override
     public String toString() {
         return "Fruit{ Name ='" + name + '\'' + " }";
+    }
+}
+</pre>
+
+<pre class="file" data-filename="src/main/java/com/example/service/MemCache.java" data-target="replace">
+package com.example.service;
+
+import org.springframework.stereotype.Service;
+
+import java.util.*;
+import java.util.concurrent.atomic.AtomicLong;
+
+@Service
+public class MemCache {
+
+    private AtomicLong counter = new AtomicLong(0);
+    private Queue<Fruit> messages = new ArrayDeque<>();
+
+    public long getCount() {
+        return counter.get();
+    }
+
+    public void incr() {
+        counter.incrementAndGet();
+    }
+
+    public void addMessage(Fruit fruit) {
+        this.messages.add(fruit);
+
+        if(messages.size() > 5) {
+            this.messages.remove();
+        }
+    }
+
+    public List<Fruit> getMessages() {
+        return new ArrayList<>(messages);
     }
 }
 </pre>
@@ -189,7 +225,7 @@ Run the application by executing the below command:
 
 In the interest of time, we will skip creating test cases for the service and instead test it directly in our web browser.
 
-When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
+When the console reports that Spring is up and running access the web page by either click the Local Web Browser Tab or use [this](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
 
 If everything works you should see a web page with a description banner, a `Count:` column, and a `Last 5 Messages:` column. The count column is the total number of pings while the `Last 5 Messages` column is exactly as the name implies. If you refresh the page these values should change every 3 seconds to reflect the Producer firing.
 

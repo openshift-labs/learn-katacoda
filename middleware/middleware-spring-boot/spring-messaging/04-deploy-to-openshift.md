@@ -13,17 +13,15 @@ Spring Boot provides a nice feature for health checks called Actuator. Actuator 
     &lt;/dependency&gt;
 </pre>
 
-**2. Deploy a JBoss AMQ Instance**
+**2. Deploy a Red Hat AMQ Instance**
 
 The first thing we must do is create a template. This will allow us to generate a deployment based on some preconfigured settings.  After that we'll create a Service account for the AMQ Broker to run as. We then assign the `view` role to that account. We have to do this before deploying the application so that it's able to access the OpenShift API and read the secret we provide. Then we import the certificates into OpenShift as secrets and we're done. Sounds like a lot, but the steps are very simple.
 
 **2.1 Create Messaging Templates**
 
-In order create our template we have to load a `json` file with all of the configuration defined. We don't have permissions to create a template with our developer credentials, so we'll quickly log into a different user to create the template.
+In order create our template we have to load a `json` file with all of the configuration defined. You need 'admin' priileges to execute the following command (you're already authenticated as 'admin)
 
-``oc login $(cat /openshift.local.config/master/admin.kubeconfig | grep admin | cut -d '/' -f2 | sort | uniq | sed -e 's/-/\./g') -u system:admin``{{execute}}
-
-After we're logged in, confirm that we're using the proper project. We should see output that says: `Using project "amq-demo"`. Since we're in the right project, let's go ahead and load up our templates:
+Making sure that you're in the "amq-demo" project, let's go ahead and load up our templates:
 
 ``oc create -n openshift -f https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.4.8/jboss-image-streams.json``{{execute}}
 
