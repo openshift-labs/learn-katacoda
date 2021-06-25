@@ -1,4 +1,4 @@
-Welcome! In this section we will exploring the `kustomize` CLI and the
+Welcome! In this section we will be exploring the `kustomize` CLI and the
 capabilities built into the `kubectl` command.
 
 ## Exploring the Kustomize CLI
@@ -14,9 +14,9 @@ This should display the version, it should look something like this.
 {kustomize/v4.0.5  2021-02-13T21:21:14Z  }
 ```
 
-Kustomize, at it's core, is meant to build native Kubernetes manifests
+Kustomize, at its core, is meant to build native Kubernetes manifests
 based on YAML, while leaving the original YAML in tact. It achives this
-in a "templte-less" templating format. This is done by providing a `kustomization.yaml` file.
+in a "template-less" templating format. This is done by providing a `kustomization.yaml` file.
 
 We will be focusing on two sub-commands the `build` command and the
 `edit` command.
@@ -41,9 +41,9 @@ example are the `resources` and the `patchesJson6902` sections.
 
 `resources` is an array of individual files, directories, and/or URLs where other manifests are stored. In this example we are just loading in one file. The [`patchesJson6902` is a patching RFC](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patchesjson6902/) that `kustomize` supports. As you can see, in the `patchesJson6902` file, I am adding a label to this manifest.
 
-> **NOTE** You can read about what options are availble for patching in the [official documentaion site](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/)
+> **NOTE** You can read about what options are available for patching in the [official documentaion site](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/)
 
-Build this manifets by running: `kustomize build .`{{execute}} , and
+Build this manifest by running: `kustomize build .`{{execute}} , and
 you can see that the new label got added to the manifest!
 
 You can use the `kustomize edit` command instead of writing YAML. For
@@ -59,7 +59,7 @@ you should see not only the new label but also the new `ffcd15` image tag.
 
 > **NOTE** You may have to close the `kustomization.yaml` tab and re-open it to see the changes.
 
-You can see how you can take already existing YAML and modify it for
+You can see how you can take existing YAML and modify it for
 your specific environment without the need to copy or edit the original.
 
 Kustomize can be used to write a new YAML file or be pipped into
@@ -83,7 +83,7 @@ will run the build before it applies the manifest.
 
 To test this out, first create a project: `oc new-project kustomize-test`{{execute}}
 
-Next make sure you're on the project: `oc project kustomize-test`{{execute}}
+Next make sure you are on the project: `oc project kustomize-test`{{execute}}
 
 Finally run the command to build and apply the manifests: `kubectl apply -k ./`{{execute}}
 
