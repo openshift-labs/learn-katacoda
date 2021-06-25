@@ -3,8 +3,8 @@ This lab is focused on understanding how container images are built, tagged, org
 
 By the end of this lab you should be able to:
 - Internalize the difference between base images and multi-layered images
-- Understand the full URL to an image/repository
-- Command a complete understanding of what is inside of a container image
+- Understand the full URL of an image/repository
+- Command a complete understanding of what's inside of a container image
 
 ## Outline
 - Image Layers and Repositories: inspecting base images, layers and history
