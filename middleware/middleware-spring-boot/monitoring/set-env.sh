@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir -p /root/projects/rhoar-getting-started/spring/spring-rest-services
-cd /root/projects/rhoar-getting-started/spring/spring-rest-services
+mkdir -p /root/projects/rhoar-getting-started/spring/spring-monitoring
+cd /root/projects/rhoar-getting-started/spring/spring-monitoring
 
 # Install Java 11
 wget -O /tmp/jdk.tar.gz https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.10%2B9/OpenJDK11U-jdk_x64_linux_hotspot_11.0.10_9.tar.gz && \
