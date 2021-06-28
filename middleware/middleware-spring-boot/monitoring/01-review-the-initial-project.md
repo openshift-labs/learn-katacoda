@@ -6,8 +6,6 @@ Let's refresh the code we'll be using. Run the following command to clone the sa
 
 # Review the base structure of the application
 
->**NOTE**: This project has been automatically deployed to OpenShift. The commands being run in your terminal are the deploy commands. Please do not stop these commands. It may take a few minutes before the deploy is complete.
-
 For your convenience, this scenario has been created with a base project using the Java programming language and the Apache Maven build tool.
 
 As you review the content, you will notice that there are a couple **TODO** comments. **Do not remove them!** These comments are used as markers for later exercises in this scenario. Open ``src/main/java/com/example/service/FruitController.java``{{open}}. This is our rest controller. We will be adding our logging commands here later in this module.

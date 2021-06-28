@@ -19,10 +19,10 @@ This step may take some time to do the Maven build and the OpenShift deployment.
  
 **2. Using a Route to reach the application from the internet** 
 
-Now that our application is deployed to OpenShift, how do external users access it? The answer is with a Route. By using a route, we are able to expose our services and allow for external connections at a given hostname. Open the OpenShift web view and we can see the route that was created for our application. Navigate to the Overview page and expand our deployment tab. Under the `ROUTES External Traffic` section we should see our provided route.
+Now that our application is deployed to OpenShift, how do external users access it? The answer is with a **Route**. By using a route, we are able to expose our services and allow for external connections at a given hostname. Open the OpenShift Console, log in using _admin_/_admin_ credetial and you can view the route that was created for our application under the project _dev_.
 ![Routes](/openshift/assets/middleware/rhoar-monitoring/overviewRoutes.png)
 
-Either click on the route link through the OpenShift web view, or click this link [here](http://spring-monitoring-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/fruits).
+Either click on the route link through the _Location_ column from the above screen, or click this link [here](http://spring-monitoring-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/fruits).
 
 We should now see the same `Success` page that we saw when we first tested our app locally:
 
