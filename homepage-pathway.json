@@ -58,6 +58,11 @@
       "description": "Work with Eclipse Vert.x, a Java VM reactive toolkit"
     },
     {
+      "external_link": "https://learn.openshift.com/servicemesh/",
+      "title": "OpenShift Service Mesh",
+      "description": "Connect, manage, and observe microservices-based applications with security-focused Istio"
+    },
+    {
       "external_link": "https://learn.openshift.com/ai-machine-learning/",
       "title": "AI and Machine Learning on OpenShift",
       "description": "Develop AI/ML on OpenShift with Jupyter, Prometheus, and Thoth"
