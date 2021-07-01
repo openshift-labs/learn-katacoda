@@ -1,6 +1,6 @@
 { 
   "pathwayTitle": "Intro to Red Hat Runtimes",
-  "icon": "fa-openshift",
+  "icon": "fa-java",
   "title": "Spring Boot Messaging on OpenShift",
   "description": "In this scenario you will learn more about Spring Boot's Messaging functionality and how this plays into Red Hat Runtimes and Red Hat AMQ.",
   "difficulty": "beginner",
@@ -23,14 +23,10 @@
     },
     "assets": {
       "client": [
-        { "file": "maven/settings.xml", "target": "/root/.m2" },
-        { "file": "amq-config-files/amq.yaml", "target": "/root/amq-config-files" }
+        { "file": "maven/settings.xml", "target": "/root/.m2" }
       ]
     }
   },
-  "files": [
-
-  ],
   "environment": {
     "showdashboard": true,
     "dashboards": [{"name":"Local Web Browser","href": "https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com"},{"name":"OpenShift Console","href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
