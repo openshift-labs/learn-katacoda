@@ -114,7 +114,7 @@ public class Receiver {
         this.cache = cache;
     }
 
-    @JmsListener(destination = "${queue.boot}")
+    @JmsListener(destination = "${queue.fruits}")
     public void receiveMessage(Fruit fruit) {
         System.out.println("Received: " + fruit);
         cache.incr();
@@ -128,7 +128,7 @@ We annotate the class with `@Component` to get the class picked up by Spring's C
 
 The `@JmsListener` annotation is what sets this class up for JMS Message handling. We're essentially creating a binding: whenever a message of type `Fruit` is sent to the target Queue (called a `destination` here) this method will be called by Spring for processing. Spring will attempt to deserialize the message to an object and then pass that object to our method here.
 
-The `"${queue.fruit}"` String in the destination utilizes the Spring Expression Language to allow parameterization of Queue names. This allows us to place the name of the Queue in our `.properties` files which can change between environments without the need for a code change. You can see the properties for local running by opening the ``src/main/resources/application.properties``{{open}} file.
+The `"${queue.fruits}"` String in the destination utilizes the Spring Expression Language to allow parameterization of Queue names. This allows us to place the name of the Queue in our `.properties` files which can change between environments without the need for a code change. You can see the properties for local running by opening the ``src/main/resources/application.properties``{{open}} file.
 
 There also exists a second annotation parameter, `connectionFactory`, that we can use if we have a custom `ConnectionFactory` Bean but we don't use that here because we are defaulting to use the `ConnectionFactory` Spring Boot automatically creates.
 
@@ -195,7 +195,7 @@ public class FruitController {
 
     private JmsTemplate jmsTemplate;
 
-    @Value("${queue.boot}")
+    @Value("${queue.fruits}")
     private String queue;
 
     @Autowired

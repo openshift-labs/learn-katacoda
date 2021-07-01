@@ -1,6 +1,6 @@
 # Login to OpenShift Container Platform
 
-**Red Hat OpenShift Container Platform** is the preferred runtime for **Red Hat Runtimes** like **Spring Boot**, **Vert.x**, etc. OpenShift Container Platform is based on **Kubernetes** which is a Container Orchestrator that has grown massively over the last couple years. **OpenShift** is currently the only container platform based on Kubernetes that offers multitenancy. This means that developers can have their own personal, isolated projects to test and verify application before committing to a shared code repository.
+**Red Hat OpenShift Container Platform** is the preferred platform for **Red Hat Runtimes** like **Spring Boot**, **Vert.x**, etc. OpenShift Container Platform is based on **Kubernetes** which is a Container Orchestrator that has grown massively over the last couple years. **OpenShift** is currently the only container platform based on Kubernetes that offers multitenancy. This means that developers can have their own personal, isolated projects to test and verify application before committing to a shared code repository.
 
 OpenShift also ships with a feature rich web console as well as command line tools to provide users with a friendly interface to work with applications deployed to the platform. 
 
@@ -26,8 +26,7 @@ works, click on the "OpenShift Console" tab next to the "Local Web Browser" tab.
 
 ![OpenShift Console Tab](/openshift/assets/middleware/rhoar-getting-started-spring/openshift-console-tab.png)
 
-The first screen you will see is the authentication screen. Enter the developer username and password and 
-then login:
+The first screen you will see is the authentication screen. Use `admin/admin` credentials (admin account is required to install the operator):
 
 ![Web Console Login](/openshift/assets/middleware/rhoar-getting-started-spring/login.png)
 
@@ -41,8 +40,18 @@ Click on your new project name to be taken to the project overview page which wi
 
 There's nothing there now, but that's about to change.
 
+**3. Installation of the Red Hat Integration - AMQ Broker operator**
+
+From OpenShift Web Console administrator perspective, navigate the OperatorHub and search for the **Red Hat Integration - AMQ Broker** operator. 
+
+![Red Hat Integration - AMQ Broker operator](/openshift/assets/middleware/rhoar-messaging/amq-operator.png)
+
+Click **Install** and and follow this configuration:
+
+![Red Hat Integration - AMQ Broker operator](/openshift/assets/middleware/rhoar-messaging/operator-configuration.png)
+
 ## Congratulations
 
-You have now learned how to access your openshift environment. 
+You have now learned how to access your openshift environment and install an operator from the OperatorHub. 
 
 In next step of this scenario, we will deploy our application to the OpenShift Container Platform.
