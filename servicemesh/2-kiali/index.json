@@ -1,0 +1,49 @@
+{
+  "icon": "fa-openshift",
+  "title": "Getting Started with OpenShift Service Mesh",
+  "description": "Understand the problem that Istio solves",
+  "pathwayTitle": "OpenShift",
+  "difficulty": "intermediate",
+  "time": "30 minutes",
+  "backend": {
+    "imageid": "openshift-4-7"
+  },
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "OpenShift Web Console",
+        "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ],
+    "uilayout": "terminal-iframe",
+    "uieditorpath": "/root/",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "details": {
+    "intro": {
+      "courseData": "env-init.sh",
+      "text": "intro.md",
+      "code": "set-env.sh"
+    },
+    "steps": [
+      { "title": "What is Service Mesh and why we need it?", "text": "1.what-is-service-mesh.md" },
+      { "title": "Kiali", "text":"2.kiali.md" },
+      { "title": "Routing", "text":"3.routing.md" },
+      { "title": "Mutual TLS", "text":"4.mtls.md" },
+      { "title": "Authentication", "text":"5.authentication.md" },
+      { "title": "Whitelisting and Blacklisting", "text":"6.acl.md" },
+      { "title": "Circuit Breaking", "text":"7.circuit-breaking.md"},
+      { "title": "Rate Limiting", "text": "8.rate-limiting.md"},
+      { "title": "Fault Injection", "text": "9.fault-injection.md"}
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+	{ "file": "install-ossm.bash", "target": "/root/" }
+      ]
+    }
+  }  
+}
