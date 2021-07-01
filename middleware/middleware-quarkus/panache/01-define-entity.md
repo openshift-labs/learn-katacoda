@@ -36,7 +36,7 @@ We need to add a few extensions to the app for Panache and Postgres. We'll use t
 
 Click this command to add the Hibernate ORM with Panache extension:
 
-`mvn -q quarkus:add-extension -Dextensions="hibernate-orm-panache"`{{execute}}
+`mvn quarkus:add-extension -Dextensions="hibernate-orm-panache"`{{execute}}
 
 You should see:
 
@@ -46,7 +46,7 @@ You should see:
 
 And then for Postgres:
 
-`mvn -q quarkus:add-extension -Dextensions="jdbc-postgresql"`{{execute}}
+`mvn quarkus:add-extension -Dextensions="jdbc-postgresql"`{{execute}}
 
 You should see:
 

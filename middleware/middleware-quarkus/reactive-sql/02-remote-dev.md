@@ -62,7 +62,7 @@ Quarkus offers the ability to automatically generate OpenShift resources based o
 
 Click the following command to add it to our project:
 
-`mvn -q quarkus:add-extension -Dextensions="openshift"`{{execute}}
+`mvn quarkus:add-extension -Dextensions="openshift"`{{execute}}
 
 You will see:
 

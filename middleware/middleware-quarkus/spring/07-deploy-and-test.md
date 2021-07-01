@@ -8,7 +8,6 @@ Run the following command to add it to our project:
 
 `mvn quarkus:add-extension -Dextensions="openshift"`{{execute T1}}
 
-
 ## Login to OpenShift
 
 We'll deploy our app as the `developer` user. Run the following command to login with the OpenShift CLI:
@@ -54,15 +53,14 @@ Click: `fruit-taster/src/main/resources/application.properties`{{open}} to open 
 Click **Copy to Editor** to add the following values to the `application.properties` file:
 
 <pre class="file" data-filename="./fruit-taster/src/main/resources/application.properties" data-target="replace">
-%dev.quarkus.datasource.url=jdbc:h2:mem:rest-crud
-%dev.quarkus.datasource.driver=org.h2.Driver
-%dev.quarkus.datasource.max-size=8
-%dev.quarkus.datasource.min-size=2
+%dev.quarkus.datasource.db-kind=h2
+%dev.quarkus.datasource.jdbc.url=jdbc:h2:mem:rest-crud
 %dev.quarkus.hibernate-orm.database.generation=drop-and-create
 %dev.quarkus.hibernate-orm.log.sql=true
 
-quarkus.datasource.url=jdbc:postgresql://postgres-database:5432/fruits
-quarkus.datasource.driver=org.postgresql.Driver
+# OpenShift Production Configuration
+quarkus.datasource.db-kind=postgresql
+quarkus.datasource.jdbc.url=jdbc:postgresql://postgres-database:5432/fruits
 quarkus.datasource.username=sa
 quarkus.datasource.password=sa
 quarkus.hibernate-orm.database.generation=drop-and-create
@@ -81,9 +79,8 @@ Now let's deploy the application itself. Run the following command which will bu
 -Dquarkus.container-image.build=true \
 -Dquarkus.kubernetes.deploy=true \
 -Dquarkus.kubernetes.deployment-target=openshift \
--Dquarkus.openshift.expose=true \
--DskipTests \
--Dquarkus.openshift.labels.app.openshift.io/runtime=java`{{execute T1}}`
+-Dquarkus.openshift.route.expose=true \
+-DskipTests`{{execute T1}}`
 
 The output should end with `BUILD SUCCESS`.
 
@@ -93,8 +90,7 @@ For more details of the above options:
 * `quarkus.container-image.build=true` - Instructs the extension to build a container image
 * `quarkus.kubernetes.deploy=true` - Instructs the extension to deploy to OpenShift after the container image is built
 * `quarkus.kubernetes.deployment-target=openshift` - Instructs the extension to generate and create the OpenShift resources (like `DeploymentConfig`s and `Service`s) after building the container
-* `quarkus.openshift.expose=true` - Instructs the extension to generate an OpenShift `Route`.
-* `quarkus.openshift.labels.app.openshift.io/runtime=java` - Adds a nice-looking icon to the app when viewing the OpenShift Developer Toplogy
+* `quarkus.openshift.route.expose=true` - Instructs the extension to generate an OpenShift `Route` so we can access our application from outside the OpenShift cluster
 
 Finally, make sure it's actually done rolling out:
 
@@ -135,13 +131,13 @@ With that set, let's see how fast our app can scale up to 10 instances:
 
 Back in the [OpenShift Developer Toplogy](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com/topology/ns/quarkus-spring) you'll see the app scaling dynamically up to 10 pods:
 
-![Scaling](/openshift/assets/middleware/quarkus/scaling_spring_.png)
+![Scaling](/openshift/assets/middleware/quarkus/scaling_spring.png)
 
 We now have 10 instances running providing better performance. Make sure it still works:
 
 `curl -s http://fruit-taster-quarkus-spring.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/taster | jq`{{execute T1}}
 
-**10 not enough? Try 100!** Click the command to scale this app to 100 instances:
+**10 not enough? Try 50!** Click the command to scale this app to 100 instances:
 
 `oc scale --replicas=50 dc/fruit-taster`{{execute T1}}
 
@@ -162,4 +158,4 @@ Finally, scale it back down:
 
 ## Congratulations!
 
-This step covered the deployment of a Quarkus application on OpenShift. To try out the native features, try the Getting Started tutorial. There is much more, and the integration with these environments has been tailored to make Quarkus applications execution very smooth. For instance, the health extension can be used for [health check](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-application-health); the configuration support allows mounting the application configuration using [config maps](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-configmaps), the metric extension produces data _scrape-able_ by [Prometheus](https://prometheus.io/) and so on.
+This step covered the deployment of a Quarkus application on OpenShift using Spring compatibility APIs. To try out the native features, try the Getting Started tutorial. There is much more, and the integration with these environments has been tailored to make Quarkus applications execution very smooth.

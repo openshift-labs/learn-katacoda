@@ -1,77 +1,23 @@
 #!/bin/bash
-cd /root/projects
-mkdir -p quarkus
-cd /root/projects/quarkus
 
-mkdir -p /root/.m2
-cat > ~/.m2/settings.xml <<-EOF1
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                      https://maven.apache.org/xsd/settings-1.0.0.xsd">
-    <localRepository>/root/.m2/repository</localRepository>
-    <interactiveMode>false</interactiveMode>
-    <profiles>
-        <profile>
-            <id>jboss-enterprise-maven-repository-ga</id>
-            <repositories>
-                <repository>
-                    <id>jboss-enterprise-maven-repository-ga</id>
-                    <url>https://maven.repository.redhat.com/ga/</url>
-                    <releases>
-                    <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                    <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>jboss-enterprise-maven-repository-ga</id>
-                    <url>https://maven.repository.redhat.com/ga/</url>
-                    <releases>
-                    <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                    <enabled>false</enabled>
-                    </snapshots>
-                </pluginRepository>
-            </pluginRepositories>
-        </profile>
-        <profile>
-            <id>jboss-enterprise-maven-repository-earlyaccess</id>
-            <repositories>
-                <repository>
-                    <id>jboss-enterprise-maven-repository-ea</id>
-                    <url>https://maven.repository.redhat.com/earlyaccess/</url>
-                   <releases>
-                    <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                    <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>jboss-enterprise-maven-repository-ea</id>
-                    <url>https://maven.repository.redhat.com/earlyaccess/</url>
-                    <releases>
-                    <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                    <enabled>false</enabled>
-                    </snapshots>
-                </pluginRepository>
-            </pluginRepositories>
-        </profile>
-    </profiles>
-    <activeProfiles>
-        <activeProfile>jboss-enterprise-maven-repository-ga</activeProfile>
-        <!--<activeProfile>jboss-enterprise-maven-repository-earlyaccess</activeProfile>-->
-    </activeProfiles>
-</settings>
-EOF1
+GRAAL_VERSION=21.0.0.2
+JAVA_VERSION=11.0.10+9
+
+export JAVA_HOME="/usr/local/jdk-${JAVA_VERSION}"
+export PATH=$JAVA_HOME/bin:$PATH
+echo "export JAVA_HOME=$JAVA_HOME" >> ~/.bashrc
+echo "export PATH=$JAVA_HOME/bin:\$PATH" >> ~/.bashrc
+
+export GRAALVM_HOME="/usr/local/graalvm-ce-java11-${GRAAL_VERSION}"
+export PATH=$GRAALVM_HOME/bin:$PATH
+echo "export GRAALVM_HOME=$GRAALVM_HOME" >> ~/.bashrc
+echo "export PATH=$GRAALVM_HOME/bin:\$PATH" >> ~/.bashrc
 
 clear
+echo 'echo Installing the latest Java runtime..' > /tmp/launch.sh
+echo 'until ${JAVA_HOME}/bin/java --version >& /dev/null ; do sleep 1; echo -n .; done' >> /tmp/launch.sh
+echo 'echo' >> /tmp/launch.sh
+echo 'echo "Ready!"' >> /tmp/launch.sh
+chmod a+x /tmp/launch.sh
+clear
+/tmp/launch.sh

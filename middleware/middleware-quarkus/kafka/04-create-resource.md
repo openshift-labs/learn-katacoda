@@ -17,6 +17,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import org.jboss.resteasy.annotations.SseElementType;
 
 /**
  * A simple resource retrieving the in-memory "my-data-stream" and sending the items as server-sent events.
@@ -30,6 +31,7 @@ public class NameResource {
     @GET
     @Path("/stream")
     @Produces(MediaType.SERVER_SENT_EVENTS)
+    @SseElementType("text/plain")
     public Publisher&lt;String&gt; stream() {
         return names;
     }
@@ -39,9 +41,8 @@ public class NameResource {
 This method:
 
   - `@Inject`s the `my-data-stream` stream using the `@Channel` qualifier
-
   - Indicates that the content is sent (`@Produces`) using *Server Sent Events*
-
+  - Indicates that the data contained within the server sent events is of type `text/plain`
   - Returns the stream (Reactive Stream)
 
 The `process()` method is called for every Kafka record from the `names` topic (configured in the application

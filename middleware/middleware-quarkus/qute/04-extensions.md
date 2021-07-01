@@ -27,12 +27,12 @@ Notice the use of Handlebar-esque `{#if ...}`. It's part of Qute's basic control
 
 Also notice the use of `{item.discountedPrice}`. This field does not exist in our `Item` class (which only has `name` and `price`). We'll add an _extension_ to our java code to make this property be available to the template, and write the code that computes its value in Java.
 
-Click `qute/src/main/java/org/acme/resteasyqute/TemplateExtensions.java`{{open}} to open the new file.
+Click `qute/src/main/java/org/acme/TemplateExtensions.java`{{open}} to open the new file.
 
 Click **Copy to Editor** to create the extensions class where we'll declare our `discountedPrice`:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/TemplateExtensions.java" data-target="replace">
-package org.acme.qute;
+<pre class="file" data-filename="./qute/src/main/java/org/acme/TemplateExtensions.java" data-target="replace">
+package org.acme;
 
 import java.math.BigDecimal;
 import io.quarkus.qute.TemplateExtension;
@@ -54,7 +54,7 @@ Here we declare a static template extension method that can be used to add "comp
 
 ![Apple](/openshift/assets/middleware/quarkus/qute-apple.png)
 
-Since Apples cost less than $100, no discount for you! But [try with Mangos](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/item/4).
+Since Apples cost less than $100, no discount for you (you won't see the discounted price)! But [try with Mangos](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/item/4).
 
 ![Mango](/openshift/assets/middleware/quarkus/qute-mango.png)
 

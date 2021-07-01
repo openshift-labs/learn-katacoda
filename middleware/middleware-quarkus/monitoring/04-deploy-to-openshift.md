@@ -13,7 +13,7 @@ Open here to add OpenShift properties: `primes/src/main/resources/application.pr
 Then click **Copy to Editor** to add the following values to the `application.properties` file:
 
 <pre class="file" data-filename="./src/main/resources/application.properties" data-target="append">
-# Configure the OpenShift extension options (we write to it)
+# Configure the OpenShift extension options
 quarkus.kubernetes-client.trust-certs=true
 quarkus.container-image.build=true
 quarkus.kubernetes.deploy=true
@@ -37,6 +37,8 @@ For more details of the above options:
 Now let's deploy the application itself. Run the following command which will build and deploy using the OpenShift extension (it will take a minute or two):
 
 `mvn clean package -DskipTests`{{execute T1}}
+
+> **NOTE**: This command will take a minute or two, as it builds the app, pushes a container image, and finally deploys the container to OpenShift.
 
 The output should end with `BUILD SUCCESS`.
 

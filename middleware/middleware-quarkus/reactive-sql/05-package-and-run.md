@@ -16,6 +16,14 @@ To deploy the application "in production", we can simply re-deploy the applicati
 -Dquarkus.openshift.route.expose=true \
 -Dquarkus.openshift.annotations.\"app.openshift.io/connects-to\"=database`{{execute}}
 
+Finally, make sure it's actually done rolling out:
+
+`oc rollout status -w dc/reactive-sql`{{execute}}
+
+Wait (about 30 seconds) for that command to report `replication controller "reactive-sql-3" successfully rolled out` before continuing.
+
+> If the `oc rollout` command appears to not finish, just `CTRL-C` it and run it again.
+
 The output should end with `BUILD SUCCESS`.
 
 [Open up the web UI](http://reactive-sql-reactive-sql.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com). You should see the front web page load with the List of Coffees, to which you can add (or delete).
