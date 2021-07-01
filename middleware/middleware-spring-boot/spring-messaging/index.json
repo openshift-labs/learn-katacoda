@@ -23,7 +23,8 @@
     },
     "assets": {
       "client": [
-        { "file": "maven/settings.xml", "target": "/root/.m2" }
+        { "file": "maven/settings.xml", "target": "/root/.m2" },
+        { "file": "amq-config-files/amq.yaml", "target": "/root/amq-config-files" }
       ]
     }
   },
