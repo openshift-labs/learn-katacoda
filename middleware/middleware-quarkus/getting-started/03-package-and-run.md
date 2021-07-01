@@ -33,7 +33,7 @@ You should see:
 ```console
 hello quarkus from 4090f59d1a69
 ```
-Note the same hostname as before, and also note that since we're running it as an Uber JAR, Quarkus runs in production mode (and does not enable continuous testing or other developer features).
+Note the same hostname as before, and also note that since we're running it as a fast-jar, Quarkus runs in production mode (and does not enable continuous testing or other developer features).
 
 > The `Class-Path` entry of the `MANIFEST.MF` from the _runner jar_ explicitly lists the jars from the subdirectories under `target/quarkus-app`. So if you want to deploy your application somewhere, you need to copy the _runner jar_ as well as the folder structure under `target/quarkus-app`. If you want to create an Uber-jar with everything included, you can use `mvn package -DuberJar`.
 

@@ -158,6 +158,6 @@ Quarkus analyses your unit tests and only re-runs the tests that are affected by
 
 # Congratulations!
 
-You've seen how to build a basic app, package it as an executable JAR and start it up very quickly. You also saw how Quarkus can run tests continuously to turbocharge your development tasks. We'll leave the app running and rely on hot reload for the next steps.
+You've seen how to build a basic app, package it as an executable JAR and start it up very quickly. You also saw how Quarkus can run tests continuously to turbocharge your development tasks and facilitate test-driven development. We'll leave the app running and rely on hot reload for the next steps.
 
 In the next step we'll inject a custom bean to showcase Quarkus' CDI capabilities.

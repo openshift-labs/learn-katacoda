@@ -77,6 +77,6 @@ Verify Prometheus is up and running:
 
 `oc rollout status -w deployment/prometheus`{{execute}}
 
-You should see `replication controller "prometheus-2" successfully rolled out`.
+You should see `deployment "prometheus" successfully rolled out`.
 
 > If this command appears to hang, just press `CTRL-C` and click it again.
