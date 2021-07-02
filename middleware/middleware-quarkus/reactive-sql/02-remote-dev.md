@@ -105,8 +105,8 @@ Run the following command which will build and deploy the Quarkus app in Openshi
 -Dquarkus.kubernetes.deployment-target=openshift \
 -Dquarkus.openshift.route.expose=true \
 -Dquarkus.openshift.annotations.\"app.openshift.io/connects-to\"=database \
--Dquarkus.openshift.env-vars.QUARKUS_DATASOURCE_DEVSERVICES.value=false \
--Dquarkus.openshift.env-vars.quarkus-launch-devmode.value=true`{{execute}}
+-Dquarkus.openshift.env.vars.QUARKUS_DATASOURCE_DEVSERVICES=false \
+-Dquarkus.openshift.env.vars.quarkus-launch-devmode=true`{{execute}}
 
 The output should end with `BUILD SUCCESS`.
 
@@ -118,8 +118,8 @@ For more details of the above options:
 * `quarkus.kubernetes.deployment-target=openshift` - Instructs the extension to generate and create the OpenShift resources (like `DeploymentConfig`s and `Service`s) after building the container
 * `quarkus.openshift.route.expose=true` - Instructs the extension to generate an OpenShift `Route` so we can access it from our browser.
 * `quarkus.kubernetes.annotations."app.openshift.io/connects-to"=database` - Adds a visual connector to show the DB connection in the web console topology view.
-* `quarkus.openshift.env-vars.QUARKUS_DATASOURCE_DEVSERVICES.value=false` - Disables Quarkus dev services, as these are not needed on OpenShift
-* `quarkus.openshift.env-vars.quarkus-launch-devmode` - Sets an environment variable in the container to tell Quarkus to launch in dev mode (not production mode which is the default when deploying to Kubernetes or OpenShift)
+* `quarkus.openshift.env.vars.QUARKUS_DATASOURCE_DEVSERVICES=false` - Disables Quarkus dev services, as these are not needed on OpenShift
+* `quarkus.openshift.env.vars.quarkus-launch-devmode=true` - Sets an environment variable in the container to tell Quarkus to launch in dev mode (not production mode which is the default when deploying to Kubernetes or OpenShift)
 
 Finally, make sure it's actually done rolling out:
 

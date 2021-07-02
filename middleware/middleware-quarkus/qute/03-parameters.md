@@ -59,12 +59,12 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class ItemService {
 
-    private Map&lt;Integer, Item&gt; items = new HashMap&lt;Integer, Item&gt;() {{
-        put(1, new Item(new BigDecimal(1.99), &quot;Apple&quot;));
-        put(2, new Item(new BigDecimal(2.99), &quot;Pear&quot;));
-        put(3, new Item(new BigDecimal(3.99), &quot;Grape&quot;));
-        put(4, new Item(new BigDecimal(129.99), &quot;Mango&quot;));
-    }};
+    private Map&lt;Integer, Item&gt; items = Map.of(
+        1, new Item(new BigDecimal(1.99), &quot;Apple&quot;),
+        2, new Item(new BigDecimal(2.99), &quot;Pear&quot;),
+        3, new Item(new BigDecimal(3.99), &quot;Grape&quot;),
+        4, new Item(new BigDecimal(129.99), &quot;Mango&quot;)
+    );
 
     public Item findItem(int id) {
         return items.get(id);

@@ -137,7 +137,7 @@ We now have 10 instances running providing better performance. Make sure it stil
 
 `curl -s http://fruit-taster-quarkus-spring.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/taster | jq`{{execute T1}}
 
-**10 not enough? Try 50!** Click the command to scale this app to 100 instances:
+**10 not enough? Try 50!** Click the command to scale this app to 50 instances:
 
 `oc scale --replicas=50 dc/fruit-taster`{{execute T1}}
 
@@ -148,7 +148,7 @@ It will take a bit longer to scale that much. In the meantime the app continues 
 
 You can watch the 50 pods spinning up:
 
-`oc get pods -w -l app=fruit-taster`{{execute T1}}
+`oc get pods -w -l app.kubernetes.io/name=fruit-taster`{{execute T1}}
 
 Watch as long as you like, then `CTRL-C` the pod watcher.
 

@@ -46,7 +46,7 @@ public class TemplateExtensions {
 }
 </pre>
 
-Here we declare a static template extension method that can be used to add "computed properties" to a data class. The class of the first parameter (in this case `Item`) is used to match the base object and the method name is used to match the property name (in this case `discountedPrice`). When we declare `{item.computedPrice}`, the contextual value of `item` is passed to this `discountedPrice` method to compute its value (where we use the `item.price.multiply()` method to apply a 10% discount by multiplying by `0.9`).
+Here we declare a static template extension method that can be used to add "computed properties" to a data class. The class of the first parameter (in this case `Item`) is used to match the base object and the method name is used to match the property name (in this case `discountedPrice`). When we declare `{item.discountedPrice}`, the contextual value of `item` is passed to this `discountedPrice` method to compute its value (where we use the `item.price.multiply()` method to apply a 10% discount by multiplying by `0.9`).
 
 > You can place template extension methods in every class if you annotate them with `@TemplateExtension` but we advise to keep them either grouped by target type, or in a single `TemplateExtensions` class by convention.
 

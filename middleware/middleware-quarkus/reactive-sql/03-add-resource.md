@@ -34,7 +34,7 @@ Click **Copy to Editor** to add the following code to this file:
 
     @GET
     @Path("{id}")
-    public Uni&lt;Response&gt; getSingle(@PathParam Long id) {
+    public Uni&lt;Response&gt; getSingle(@PathParam("id") Long id) {
         return Coffee.findById(client, id)
             .onItem().transform(fruit -> fruit != null ? Response.ok(fruit) : Response.status(Status.NOT_FOUND))
             .onItem().transform(ResponseBuilder::build);
@@ -58,7 +58,7 @@ Click **Copy to Editor** to add the following code to this file:
 
     @PUT
     @Path("{id}")
-    public Uni&lt;Response&gt; update(@PathParam Long id, Coffee coffee) {
+    public Uni&lt;Response&gt; update(@PathParam("id") Long id, Coffee coffee) {
         return coffee.update(client)
             .onItem().transform(updated -> updated ? Status.OK : Status.NOT_FOUND)
             .onItem().transform(status -> Response.status(status).build());
@@ -72,7 +72,7 @@ Click **Copy to Editor** to add the following code to this file:
 <pre class="file" data-filename="src/main/java/org/acme/reactive/CoffeeResource.java" data-target="insert" data-marker="// TODO DELETE">
     @DELETE
     @Path("{id}")
-    public Uni&lt;Response&gt; delete(@PathParam Long id) {
+    public Uni&lt;Response&gt; delete(@PathParam("id") Long id) {
         return Coffee.delete(client, id)
                 .onItem().transform(deleted -> deleted ? Status.NO_CONTENT : Status.NOT_FOUND)
                 .onItem().transform(status -> Response.status(status).build());

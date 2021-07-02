@@ -1,6 +1,6 @@
 # Rendering Periodic Reports
 
-Templating engine could be also very useful when rendering periodic reports. We will use the `quarkus-scheduler` extension which you've alrady added.
+Templating engines can be also very useful when rendering periodic reports. We will use the `quarkus-scheduler` extension which you've already added.
 
 ## Create Samples
 
@@ -30,28 +30,23 @@ Now let's ceate a service whose `get()` method returns a random list of samples.
 <pre class="file" data-filename="./qute/src/main/java/org/acme/SampleService.java" data-target="replace">
 package org.acme;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class SampleService {
-
     private static final String[] names = {&quot;James&quot;, &quot;Deepak&quot;, &quot;Daniel&quot;, &quot;Shaaf&quot;, &quot;Jeff&quot;, &quot;Sally&quot;};
 
     public List&lt;Sample&gt; get() {
         int count = new Random().nextInt(10);
-        List&lt;Sample&gt; result = new ArrayList&lt;&gt;(count);
-        for (int i = 0; i &lt; count; i++) {
-            boolean valid = false;
-            if (Math.random() &gt; 0.5) {
-                valid = true;
-            }
-            result.add(new Sample(valid, names[(int)(Math.random() * names.length)], Math.random() + &quot;&quot;));
-        }
-        return result;
+        return IntStream.range(0, count)
+            .mapToObj(idx -&gt; Math.random() &gt; 0.5)
+            .map(valid -&gt; new Sample(valid, names[(int)(Math.random() * names.length)], Math.random() + &quot;&quot;))
+            .collect(Collectors.toList());
     }
 }
 </pre>

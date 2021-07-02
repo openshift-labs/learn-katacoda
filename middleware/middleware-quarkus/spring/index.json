@@ -12,8 +12,8 @@
       { "title": "Step 3", "text": "03-create-beans.md" },
       { "title": "Step 4", "text": "04-create-web.md" },
       { "title": "Step 5", "text": "05-build-app.md" },
-      { "title": "Step 6", "text": "07-deploy-and-test.md" }
-      
+      { "title": "Step 6", "text": "06-deploy-and-test.md" }
+
     ],
     "intro": {
       "text": "00-intro.md",
