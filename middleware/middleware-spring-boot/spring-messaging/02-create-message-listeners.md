@@ -11,7 +11,7 @@ First we need a message object. Spring Boot allows us to code in the context of 
 
 Start with creating the required directory structure:
 
-``mkdir src/main/java/com/example/domain && mkdir src/main/java/com/example/service``{{execute}}
+``mkdir src/main/java/com/example/{domain,service,config}``{{execute}}
 
 Then you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/domain/Fruit.java``{{open}}
 
