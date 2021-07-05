@@ -15,13 +15,13 @@ Spring Boot provides a nice feature for health checks called Actuator. Actuator 
 
 **2. Deploy a Red Hat AMQ Instance**
 
-Once the operator installation is successful, you will create two instances - an `ActiveMQArtemis` instance and an `ActiveMQArtemisAddress` instance. For your reference, the YAML containing the instance details has been created for you and you can view the file as follows:
+Once the operator installation is successful, you will create two instances - an `ActiveMQArtemis` instance and an `ActiveMQArtemisAddress` instance. For your reference, the YAML file containing the instance details has been created for you and you can view the file as follows:
 
-``cat /root/amq-config-files/amq.yaml``{{execute}}
+``cat amq.yml``{{execute}}
 
-Now, execute the following command to create those two instances:
+You can also observe a **Route** to the AMQ console is defined here, should you choose to play around. Now, execute the following command to create those two instances and the route:
 
-``oc apply -f /root/amq-config-files/amq.yaml``{{execute}}
+``oc create -f amq.yml``{{execute}}
 
 **4. Deploy the application to OpenShift**
 
@@ -35,12 +35,10 @@ The `mvn package` piece of the above command instructs Maven to run the package 
 
 For the deployment to OpenShift we are using the [jkube](https://www.eclipse.org/jkube) tool through the `org.eclipse.jkube:openshift-maven-plugin` which is configured in our ``pom.xml``{{open}} (found in the `<profiles/>` section). Configuration files for jkube are contained in the ``src/main/jkube``{{open}} folder mentioned earlier.
 
-After the Maven build as finished, it will typically take less than 20 sec for the application to be available. Then you can either go to the OpenShift web console and click on the route or click [here](http://spring-messaging-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+After the Maven build as finished, it will typically take less than 20 sec for the application to be available. Then you can either go to the OpenShift web console and click on the route or click [here](http://spring-messaging-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
 
-You should see the same web application as before. The scheduled Producer will continue to deploy messages so clicking refresh should change the values shown every 3 seconds.
+You should see the same web application as before. The scheduled Producer will continue to deploy messages every 3 seconds so you should observe a change in the values shown. The number of items in the list will remain 5. 
 
 ## Congratulations
 
-You have now learned how to deploy a Spring Boot JMS application and a JBoss AMQ resource to the OpenShift Container Platform.
-
-In the final step you'll verify AMQ is receiving messages properly.
+You have now learned how to deploy a Spring Boot JMS application and a Red Hat AMQ resource to the OpenShift Container Platform.

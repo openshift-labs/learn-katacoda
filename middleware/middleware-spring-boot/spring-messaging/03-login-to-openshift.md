@@ -16,7 +16,7 @@ This sandbox has already authenticated you to OpenShift. To validate, we will us
 
 For this scenario, let's create a project that you will use to house your applications.
 
-``oc new-project amq-demo``{{execute}}
+``oc new-project dev``{{execute}}
 
 **3. Open the OpenShift Web Console**
 
@@ -49,6 +49,10 @@ From OpenShift Web Console administrator perspective, navigate the OperatorHub a
 Click **Install** and and follow this configuration:
 
 ![Red Hat Integration - AMQ Broker operator](/openshift/assets/middleware/rhoar-messaging/operator-configuration.png)
+
+The installation might take a few minutes. Wait till the operator installation is complete.
+
+![Red Hat Integration - AMQ Broker operator installation complete](/openshift/assets/middleware/rhoar-messaging/operator-installation-complete.png)
 
 ## Congratulations
 
