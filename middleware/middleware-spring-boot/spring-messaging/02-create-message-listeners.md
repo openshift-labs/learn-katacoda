@@ -4,9 +4,16 @@ The Java Message Service (JMS) is a standard designed to allow applications to c
 
 Spring Boot offers abstractions for the JMS standard that make it very quick and easy to create messages from Java objects, send them to destination queues using the familiar Template pattern (akin to Spring's RestTemplate or JdbcTemplate), and to create Receivers (or Listeners) for specific types of messages on Queues.
 
+
 **1. Create a Message Listener**
 
-First we need a message object. Spring Boot allows us to code in the context of our own Java models when dealing with messages. For this purpose we will create a simple `Fruit` object which contains a String `body`. For this you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/domain/Fruit.java``{{open}}
+First we need a message object. Spring Boot allows us to code in the context of our own Java models when dealing with messages. For this purpose we will create a simple `Fruit` object which contains a String `body`. 
+
+Start with creating the required directory structure:
+
+``mkdir src/main/java/com/example/domain && mkdir src/main/java/com/example/service``{{execute}}
+
+Then you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/domain/Fruit.java``{{open}}
 
 Then, copy the below content into the files (or use the `Copy to Editor` button):
 
