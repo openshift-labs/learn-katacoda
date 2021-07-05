@@ -54,6 +54,7 @@ public class Fruit {
         return "Fruit{ Name ='" + this.name + '\'' + " }";
     }
 }
+
 </pre>
 
 Do the same for ``src/main/java/com/example/domain/MemCache.java``{{open}} which adds/retrives messages to/from the cache.
