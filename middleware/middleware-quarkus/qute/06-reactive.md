@@ -12,18 +12,17 @@ Quarkus [Reactive routes](https://quarkus.io/guides/reactive-routes) propose an 
 
 You've already added the `quarkus-vertx-web` extension which gives us the ability to declare Reactive Routes.
 
-Click `qute/src/main/java/org/acme/resteasyqute/ReactiveResource.java`{{open}} to open a new file.
+Click `qute/src/main/java/org/acme/ReactiveResource.java`{{open}} to open a new file.
 
 Click **Copy to Editor** to create create a reactive route that will process our Qute template:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/ReactiveResource.java" data-target="replace">
-package org.acme.qute;
+<pre class="file" data-filename="./qute/src/main/java/org/acme/ReactiveResource.java" data-target="replace">
+package org.acme;
 
 import io.quarkus.qute.Template;
-import io.quarkus.qute.api.ResourcePath;
+import io.quarkus.qute.Location;
 import io.quarkus.vertx.web.Route;
 import io.quarkus.vertx.web.RoutingExchange;
-import io.vertx.core.http.HttpMethod;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.core.MediaType;
@@ -34,10 +33,10 @@ public class ReactiveResource {
     @Inject
     SampleService service;
 
-    @ResourcePath(&quot;reports/v1/report_01.json.template&quot;)
+    @Location(&quot;reports/v1/report_01.json.template&quot;)
     Template report;
 
-    @Route(path = &quot;/reactive&quot;, methods = HttpMethod.GET, produces = MediaType.APPLICATION_JSON)
+    @Route(path = &quot;/reactive&quot;, methods = Route.HttpMethod.GET, produces = MediaType.APPLICATION_JSON)
     void reactive(RoutingExchange ex) throws Exception {
         report
           .data(&quot;samples&quot;,service.get())

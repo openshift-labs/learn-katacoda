@@ -9,7 +9,7 @@ Run the following command to add it to our project:
 Click **Copy to Editor** to add the following values to the `application.properties` file:
 
 <pre class="file" data-filename="./src/main/resources/application.properties" data-target="append">
-# Configure the OpenShift extension options (we write to it)
+# Configure the OpenShift extension options
 quarkus.kubernetes-client.trust-certs=true
 quarkus.container-image.build=true
 quarkus.kubernetes.deploy=true
@@ -54,6 +54,8 @@ Create a new project into which we'll deploy the app:
 Now let's deploy the application itself. Run the following command which will build and deploy using the OpenShift extension:
 
 `mvn clean package`{{execute T2}}
+
+> **NOTE**: This command will take a minute or two, as it builds the app, pushes a container image, and finally deploys the container to OpenShift.
 
 The output should end with `BUILD SUCCESS`.
 

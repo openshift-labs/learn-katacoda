@@ -18,7 +18,7 @@ OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.10+9, mixed mode)
 Let's create the basic Quarkus _Hello World_ application and include the necessary qute extensions. Click this command to create the project:
 
 `cd /root/projects/quarkus &&
- mvn io.quarkus:quarkus-maven-plugin:1.13.6.Final:create \
+ mvn io.quarkus:quarkus-maven-plugin:2.0.0.Final:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=qute \
     -Dextensions="quarkus-resteasy-qute,quarkus-vertx-web,quarkus-qute,quarkus-scheduler"`{{execute T1}}
@@ -52,11 +52,13 @@ __  ____  __  _____   ___  __ ____  ______
 
 Note the amazingly fast startup time! The app is now running "locally" (within the Linux container in which this exercise runs).
 
-Test that the app is running by accessing the sample app [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/qute/quarks). You should see
+Test that the app is running by accessing the sample page [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/some-page). You should see
 
 ![Qute sample](/openshift/assets/middleware/quarkus/qute-sample.png)
 
-You can click on the _Generate a new Quark_ to create more of them. This page is rendered using the `qute/src/main/resources/templates/page.qute.html`{{open}} HTML template. If you look closely you can see a `{#for}` directive that renders the `quarks` list present in the `qute/src/main/java/org/acme/resteasyqute/QuteResource.java` class and passed into the template renderer in the `get()` method, making the `quarks` list variable available to the renderer and returning the rendered HTML to your browser. This is the basic operation of Qute. Let's dive into more detail.
+This page is rendered using the `qute/src/main/resources/templates/page.qute.html`{{open}} HTML template. If you look closely you can see a `{name ?: "Qute"}` directive that renders the passed-in `name` query present in the `qute/src/main/java/org/acme/SomePage.java` class and passed into the template renderer in the `data()` method, making the `name` variable available to the renderer and returning the rendered HTML to your browser. If you pass a different name, say, `Jerry` using [this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/some-page?name=Jerry) (which adds `?name=Jerry` to the URL) you'll see the new name rendered via the Qute template:
+
+![Qute sample](/openshift/assets/middleware/quarkus/qute-sample-jerry.png)
 
 Let's keep the app running and continue using Quarkus' _Live Coding_ feature. Changes you make are immediately available in the running app when developing Quarkus apps.
 
@@ -82,12 +84,12 @@ Hello {name}!
 
 Now let’s inject the "compiled" template in the resource class.
 
-Click here to open `qute/src/main/java/org/acme/resteasyqute/HelloResource.java`{{open}}.
+Click here to open `qute/src/main/java/org/acme/HelloResource.java`{{open}}.
 
 Click the **Copy to Editor** to update our `HelloResource` class:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/resteasyqute/HelloResource.java" data-target="replace">
-package org.acme.qute;
+<pre class="file" data-filename="./qute/src/main/java/org/acme/HelloResource.java" data-target="replace">
+package org.acme;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

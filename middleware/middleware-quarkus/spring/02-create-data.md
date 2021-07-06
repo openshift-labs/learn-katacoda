@@ -6,12 +6,12 @@ First, we need a data model.
 
 ## Create Model
 
-Click here to create and open a new file for our Remodelpository: `fruit-taster/src/main/java/org/acme/quickstart/Fruit.java`{{open}}.
+Click here to create and open a new file for our Remodelpository: `fruit-taster/src/main/java/org/acme/Fruit.java`{{open}}.
 
 Click **Copy to Editor** to add the code:
 
-<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/quickstart/Fruit.java" data-target="replace">
-package org.acme.quickstart;
+<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/Fruit.java" data-target="replace">
+package org.acme;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -67,12 +67,12 @@ This is a simple POJO representing a Fruit, with a name and color.
 
 ## Create Spring Data Repository
 
-Next, click here to create and open a new file for our Repository: `fruit-taster/src/main/java/org/acme/quickstart/FruitRepository.java`{{open}}.
+Next, click here to create and open a new file for our Repository: `fruit-taster/src/main/java/org/acme/FruitRepository.java`{{open}}.
 
 Click **Copy to Editor** to create the code for the repository:
 
-<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/quickstart/FruitRepository.java" data-target="replace">
-package org.acme.quickstart;
+<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/FruitRepository.java" data-target="replace">
+package org.acme;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -108,19 +108,16 @@ We need to configure our app to define database connection settings. Click: `fru
 Click **Copy to Editor** to add the following values to the `application.properties` file:
 
 <pre class="file" data-filename="./fruit-taster/src/main/resources/application.properties" data-target="replace">
-
-quarkus.datasource.url=jdbc:h2:mem:rest-crud
-quarkus.datasource.driver=org.h2.Driver
-quarkus.datasource.max-size=8
-quarkus.datasource.min-size=2
+quarkus.datasource.db-kind=h2
+quarkus.datasource.jdbc.url=jdbc:h2:mem:rest-crud
 quarkus.hibernate-orm.database.generation=drop-and-create
 quarkus.hibernate-orm.log.sql=true
-
+quarkus.hibernate-orm.sql-load-script=import.sql
 </pre>
 
 That’s it! Now you have a database, domain model (`Fruit`) and a repository (`FruitRepository`) to retrieve the domain model, and some sample data.
 
 > **NOTE**
-> Although we are using `import.sql` to initialize our database in our app, you shouldn't use this in production. Instead, review [suggested uses of Hibernate ORM in production](https://quarkus.io/guides/hibernate-orm-guide#hibernate-orm-in-development-mode).
+> Although we are using `import.sql` to initialize our database in our app, you shouldn't use this in production. Instead, review [suggested uses of Hibernate ORM in production](https://quarkus.io/guides/hibernate-orm#hibernate-orm-in-production-mode).
 
 Next, we'll create some injectable Spring Beans that will give us access to the data using the Spring DI annotations.

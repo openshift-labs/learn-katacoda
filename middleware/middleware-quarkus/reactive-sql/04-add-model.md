@@ -35,7 +35,7 @@ In the above you can see we use a `PgPool` object and once the query is prepared
 
 Since we still have our app running and connected remotely using Quarkus' remote development, when you make these changes and reload the endpoint, Quarkus will notice all of these changes and live reload them on the remote side.
 
-Check that it works as expected by revisiting the page by [clicking here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/).
+Check that it works as expected by revisiting the page by [clicking here](http://reactive-sql-reactive-sql.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com).
 
 Try to add and remove Coffee elements to the list.
 

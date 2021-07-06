@@ -80,7 +80,7 @@ Make sure the app is still working as expected (we'll use `curl` this time to ac
 
 ```console
 curl http://localhost:8080/hello/greeting/quarkus
-hello quarkus from master
+hello quarkus from 4090f59d1a69
 ```
 
 Nice!

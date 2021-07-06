@@ -50,38 +50,3 @@ This will add the necessary entries in your `pom.xml`{{open}} to bring in the Ka
     <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
 </dependency>
 ```
-## Live Coding
-
-**Live Coding** (also referred to as _dev mode_) allows us to run the app and make changes on the fly. Quarkus will automatically re-compile and reload the app when changes are made. This is a powerful and effecient style of developing that you find to be very useful.
-
-With our extension installed, let's begin Live Coding. Click on the following command to start the app in Live Coding mode:
-
-```mvn compile quarkus:dev -Dquarkus.http.host=0.0.0.0```{{execute}}
-
-You should see:
-
-```console
-people 1.0-SNAPSHOT on JVM (powered by Quarkus 1.12.2.Final) started in 1.806s. Listening on: http://0.0.0.0:8080
-Profile dev activated. Live Coding activated.
-Installed features: [cdi, mutiny, resteasy, smallrye-context-propagation, smallrye-reactive-messaging, smallrye-reactive-messaging-kafka, vertx]
-```
-
-> The first time you build the app, new dependencies may be downloaded via maven. This should only happen once, after that things will go even faster.
-
-Note the amazingly fast startup time! The app is now running "locally" (within the Linux container in which this exercise runs).
-
-Test that the app is running by accessing the simple `hello` endpoint:
-
-`cd /root/projects/rhoar-getting-started/quarkus/kafka && \
-  curl http://localhost:8080/hello`{{execute T2}}
-
-> You may need to click this command again in case it doesn't execute properly on first click
-
-you should see
-
-```console
-hello
-```
-## Cleanup
-
-In the terminal, press `CTRL-C` to stop our running app.
