@@ -25,7 +25,7 @@ import java.util.Random;
 
 public class Fruit {
     private String name;
-    private static final List<String> FRUITS = List.of("Apple", "Banana", "Watermelon");
+    private static final List&ltString&gt FRUITS = List.of("Apple", "Banana", "Watermelon");
 
     private static String getRandomFruit() {
         Random rand = new Random();
@@ -72,7 +72,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemCache {
     private static final int CACHE_MAX_SIZE = 5;
-    private Queue<Fruit> messages = new ArrayDeque<>(CACHE_MAX_SIZE);
+    private Queue&ltFruit&gt messages = new ArrayDeque&lt&gt(CACHE_MAX_SIZE);
 
     public long getCount() {
         return this.messages.size();
@@ -86,8 +86,8 @@ public class MemCache {
         }
     }
 
-    public List<Fruit> getMessages() {
-        return new ArrayList<>(this.messages);
+    public List&ltFruit&gt getMessages() {
+        return new ArrayList&lt&gt(this.messages);
     }
 }
 </pre>
