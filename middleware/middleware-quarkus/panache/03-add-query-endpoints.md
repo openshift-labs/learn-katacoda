@@ -57,7 +57,6 @@ You should only see **one** person with BLUE eyes:
 ```console
 [
   {
-    "persistent": true,
     "id": 1,
     "birth": "1974-08-15",
     "eyes": "BLUE",
@@ -76,14 +75,12 @@ You should see **two** people born in 1990 or earlier:
 ```console
 [
   {
-    "persistent": true,
     "id": 1,
     "birth": "1974-08-15",
     "eyes": "BLUE",
     "name": "Farid Ulyanov"
   },
   {
-    "persistent": true,
     "id": 2,
     "birth": "1984-05-24",
     "eyes": "BROWN",
