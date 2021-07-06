@@ -38,14 +38,12 @@ You should get up to 2 records returned, but the total number available should s
 {
   "data": [
     {
-      "persistent": true,
       "id": 1,
       "birth": "1974-08-15",
       "eyes": "BLUE",
       "name": "Farid Ulyanov"
     },
     {
-      "persistent": true,
       "id": 10,
       "birth": "2001-11-26",
       "eyes": "GREEN",
