@@ -9,13 +9,9 @@ Spring Boot offers abstractions for the JMS standard that make it very quick and
 
 First we need a message object. Spring Boot allows us to code in the context of our own Java models when dealing with messages. For this purpose we will create a simple `Fruit` object which contains a String `body`. 
 
-Start with creating the required directory structure:
+Start with clicking on the following link which will open an empty file in the editor: ``src/main/java/com/example/domain/Fruit.java``{{open}}
 
-``mkdir src/main/java/com/example/{domain,service,config}``{{execute}}
-
-Then you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/domain/Fruit.java``{{open}}
-
-Then, copy the below content into the files (or use the `Copy to Editor` button):
+Then, copy part of the below content into the files (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/domain/Fruit.java" data-target="replace">
 package com.example.domain;
@@ -96,7 +92,7 @@ Just a Plain Old Java Object (POJO)!
 
 To receive our Ping messages from a JMS Queue we'll need a class that listens for Queue messages. These components (typically called `Receivers`) in Spring Boot are `@Component`-annotated classes with a method annotated with `@JmsListener`. For this you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/FruitReceiver.java``{{open}}
 
-Then, copy the below content into the file (or use the `Copy to Editor` button):
+Then, copy part of the below content into the file (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/service/FruitReceiver.java" data-target="replace">
 package com.example.service;
@@ -143,7 +139,7 @@ Notice that the argument to our `receiveMessage()` method is our domain class: a
 
 In the first step of this scenario we included the `jackson-databind` dependency in the `pom.xml`. Jackson is a library that has tight integration with Spring Boot which enables marshalling and unmarshalling JSON to and from our objects respectively. For our JMS messages this means Spring Boot will automatically marshall our objects to JSON when we send them and unmarshal JSON to our objects when we receive them. We need to create a Configuration class to utilize this functionality. Click on the following link which will open an empty file in the editor: ``src/main/java/com/example/config/MessageConfig.java``{{open}}
 
-Then, copy the below content into the file (or use the `Copy to Editor` button):
+Then, copy part of the below content into the file (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/config/MessageConfig.java" data-target="replace">
 package com.example.config;;
@@ -172,7 +168,7 @@ This `@Configuration` class has a single Bean - `MessageConverter`. Spring Boot 
 
 Now that we have a listener and a Message model we now need a Message Producer. Normally these would be coming from external systems but for our purposes we are going to send messages to ourselves. To do that we need a Producer class. Click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/FruitPublisher.java``{{open}}
 
-Then, copy the below content into the file (or use the `Copy to Editor` button):
+Then, copy part of the below content into the file (or use the `Copy to Editor` button):
 
 <pre class="file" data-filename="src/main/java/com/example/service/FruitPublisher.java" data-target="replace">
 package com.example.service;
