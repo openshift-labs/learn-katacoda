@@ -111,7 +111,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
@@ -131,7 +130,6 @@ import io.quarkus.runtime.StartupEvent;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
 
 @Path("/person")
-@ApplicationScoped
 @Blocking
 public class PersonResource {
 
