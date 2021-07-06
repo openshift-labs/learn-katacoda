@@ -35,7 +35,9 @@ The `mvn package` piece of the above command instructs Maven to run the package 
 
 For the deployment to OpenShift we are using the [jkube](https://www.eclipse.org/jkube) tool through the `org.eclipse.jkube:openshift-maven-plugin` which is configured in our ``pom.xml``{{open}} (found in the `<profiles/>` section). Configuration files for jkube are contained in the ``src/main/jkube``{{open}} folder mentioned earlier.
 
-After the Maven build/deploy is finished, it will typically take less than 20 sec for the application to be available. Then you can either go to the OpenShift web console and click on the route or click [here](http://spring-messaging-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+After the Maven build/deploy is finished, it will typically take less than 20 sec for the application to be available. Then you can either go to the OpenShift web console from the developer perspective and click on the route from the topology tab (refer to the image below) or click [here](http://spring-messaging-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com)
+
+![Spring Messaging App Route](/openshift/assets/middleware/rhoar-messaging/spring-messaging-training-route.png)
 
 You should see the same web application as before. The scheduled Producer will continue to deploy messages every 3 seconds so you should observe a change in the values shown. The number of items in the list will remain 5. 
 
