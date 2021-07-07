@@ -1,8 +1,8 @@
 { 
-  "pathwayTitle": "RHOARSpringBoot",
-  "icon": "fa-openshift",
-  "title": "Spring Boot Messaging on RHOAR",
-  "description": "In this scenario you will learn more about Spring Boot's Messaging functionality and how this plays into Red Hat OpenShift Application Runtimes and Red Hat AMQ.",
+  "pathwayTitle": "Intro to Red Hat Runtimes",
+  "icon": "fa-java",
+  "title": "Spring Boot Messaging on OpenShift",
+  "description": "In this scenario you will learn more about Spring Boot's Messaging functionality and how this plays into Red Hat Runtimes and Red Hat AMQ.",
   "difficulty": "beginner",
   "time": "15 minutes",
   "details": {
@@ -10,8 +10,7 @@
       { "title": "Step 1", "text": "01-review-the-initial-project.md" },
       { "title": "Step 2", "text": "02-create-message-listeners.md" },
       { "title": "Step 3", "text": "03-login-to-openshift.md" },
-      { "title": "Step 4", "text": "04-deploy-to-openshift.md" },
-      { "title": "Step 5", "text": "05-verify-amq-instance.md" }
+      { "title": "Step 4", "text": "04-deploy-to-openshift.md" }
     ],
     "intro": {
       "text": "00-intro.md",
@@ -20,23 +19,27 @@
     },
     "finish": {
       "text": "99-outro.md"
+    },
+    "assets": {
+      "client": [
+        { "file": "maven/settings.xml", "target": "/root/.m2" },
+        { "file": "amq-config-files/amq.yaml", "target": "/root/amq-config-files" }
+      ]
     }
   },
-  "files": [
-
-  ],
   "environment": {
     "showdashboard": true,
-    "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
+    "dashboards": [{"name":"OpenShift Console","href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
     "uilayout": "editor-terminal",
     "uisettings": "java",
     "hideintro": false,
+    "hideHiddenFiles": true,
     "uieditorpath": "/root/projects/rhoar-getting-started/spring/spring-messaging",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
     "autoUpgrade": false,
-    "imageid": "openshift-middleware-3-7",
+    "imageid": "openshift-4-7",
     "port": 8443
   }
 }
