@@ -84,9 +84,9 @@ echo -n "Halfway there" | tee -a ${logfile}
 
 #
 ## Wait until the deployment  appears
-until oc wait --for=condition=available --timeout=2s deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
+until oc get deployment openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
 do
-    sleep 3
+    sleep 5
     echo -n '.'
 done
 
