@@ -18,8 +18,9 @@ echo -n "Setting up lab environment, please wait" | tee -a ${logfile}
 #
 ## Git clone the examples repo. Check if it's there.
 echo -n '.'
-git clone -q ${gitRepo}
-if [[ ! -d /root/${gitRepo##*/} ]]; then
+git clone -q ${gitRepo} resources/${gitRepo##*/}
+repo=/root/resources/${gitRepo##*/}
+if [[ ! -d ${repo} ]]; then
     echo -e "\nERROR: Git clone for ${gitRepo} failed" | tee -a ${logfile}
     exit 3
 fi
@@ -31,7 +32,7 @@ echo -n '.'
 
 #
 ## Install the OpenShift GitOps via Operator
-oc apply -f /root/${gitRepo##*/}/bootstrap/openshift-gitops-operator-sub.yaml >>${logfile} 2>&1
+oc apply -f ${repo}/bootstrap/openshift-gitops-operator-sub.yaml >>${logfile} 2>&1
 echo -n '.'
 
 #
@@ -100,7 +101,7 @@ echo -n '.'
 ##  - Ignores .spec.host field in routes
 ##  - Uses SSL edge termination because of Katacoda
 oc patch argocd openshift-gitops -n openshift-gitops --type=merge \
---patch "$(cat /root/${gitRepo##*/}/bootstrap/openshift-gitops-operator-patch.yaml)" >>${logfile} 2>&1
+--patch "$(cat ${repo}/bootstrap/openshift-gitops-operator-patch.yaml)" >>${logfile} 2>&1
 echo -n '.'
 
 #

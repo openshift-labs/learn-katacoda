@@ -31,7 +31,7 @@ native integration in Argo CD.
 
 You can specify your Helm repo, chart, and values directly in the
 `Application` manfiest for Argo CD. Let's take a look at the example
-we're going to deploy. `apps/quarkus-app.yaml`{{open}}
+we're going to deploy. `openshift-gitops-examples/components/applications/quarkus-app.yaml`{{open}}
 
 This `Application` deploys a sample Quarkus application. If you take
 a look at the file, you can see the specific configuration under
@@ -86,7 +86,7 @@ You can login with the following
 
 Apply the Argo CD `Application` manifest to get this Helm chart deployed.
 
-`oc apply -f ~/resources/apps/quarkus-app.yaml`{{execute}}
+`oc apply -f ~/resources/openshift-gitops-examples/components/applications/quarkus-app.yaml`{{execute}}
 
 This should create the `quarkus-app` application. Note the Helm icon
 ⎈ denoting it's a Helm application.

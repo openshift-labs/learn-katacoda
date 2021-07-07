@@ -19,7 +19,7 @@ deployment strategy comes in.
 
 We will be using the [examples repo](https://github.com/redhat-developer-demos/openshift-gitops-examples) for this and we will be targeting the [quarkus-subchart](https://github.com/redhat-developer-demos/openshift-gitops-examples/tree/main/apps/quarkus-subchart) directory. This has already been cloned into your environment you can take a look at it by running:
 
-`tree openshift-gitops-examples/apps/quarkus-subchart`{{execute}}
+`tree ~/resources/openshift-gitops-examples/apps/quarkus-subchart`{{execute}}
 
 This should have the following output.
 
@@ -31,46 +31,17 @@ openshift-gitops-examples/apps/quarkus-subchart
 0 directories, 2 files
 ```
 
-As you can see, this is made up of only two YAML files. The `Chart.yaml` file and the `values.yaml` file. Taking a look at the chart file:
+As you can see, this is made up of only two YAML files. The `Chart.yaml` file and the `values.yaml` file. Take a look at the chart file:
 
-`cat openshift-gitops-examples/apps/quarkus-subchart/Chart.yaml`{{execute}}
+`openshift-gitops-examples/apps/quarkus-subchart/Chart.yaml`{{open}}
 
-The output should look like this.
-
-```yaml
-apiVersion: v2
-name: quarkus-subchart
-type: application
-version: 1.0.0
-appVersion: "1.0.0"
-dependencies:
-- name: quarkus
-  version: 0.0.3
-  repository: https://redhat-developer.github.io/redhat-helm-charts
-```
-
-Here, you're creating an "empty" Helm chart and adding the Helm chart you want to deploy as a dependency in the `dependecies` secion.
+This `Chart.yaml` file, is creating an "empty" Helm chart and adding the Helm chart you want to deploy as a dependency in the `dependecies` secion.
 
 > **NOTE** You can deploy more than one Helm chart using this method.
 
 The next file is the `values.yaml` file. Take a look at that file.
 
-`cat openshift-gitops-examples/apps/quarkus-subchart/values.yaml`{{execute}}
-
-You should see the following output of the YAML file.
-
-```yaml
-quarkus:
-  build:
-    enabled: false
-  deploy:
-    route:
-      tls:
-        enabled: true
-    replicas: 1
-  image:
-    name: quay.io/ablock/gitops-helm-quarkus
-```
+`openshift-gitops-examples/apps/quarkus-subchart/values.yaml`{{open}}
 
 Here you're specifying the values you want to pass to the Helm chart.
 
@@ -81,7 +52,7 @@ replicas. You can now PR into this repo as you would in a GitOps workflow.
 
 The Argo CD `Application` should look like a "normal" `git` application.
 
-`apps/quarkus-subchart.yaml`{{open}}
+`openshift-gitops-examples/components/applications/quarkus-subchart.yaml`{{open}}
 
 In this snippet, you can see that now we're targeting the git repo instead of the Helm repo.
 
@@ -112,7 +83,7 @@ You can login with the following
 
 Apply the Argo CD `Application` manifest to get this Helm chart deployed.
 
-`oc apply -f ~/resources/apps/quarkus-subchart.yaml`{{execute}}
+`oc apply -f ~/resources/openshift-gitops-examples/components/applications/quarkus-subchart.yaml`{{execute}}
 
 This should create the application.
 
