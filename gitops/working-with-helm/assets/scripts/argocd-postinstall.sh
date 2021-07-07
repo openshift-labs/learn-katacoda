@@ -88,14 +88,14 @@ fi
 
 #
 ## Give the user some hope
-echo -n "Halfway there"
+echo -n "Halfway there" | tee -a ${logfile}
 
 #
 ## This patches the Argo CD Controller in the following ways
 ##  - Ignores .spec.host field in routes
 ##  - Uses SSL edge termination because of Katacoda
 oc patch argocd openshift-gitops -n openshift-gitops --type=merge \
---patch $(< /root/${gitRepo##*/}/bootstrap/openshift-gitops-operator-patch.yaml) >>${logfile} 2>&1
+--patch "$(cat /root/${gitRepo##*/}/bootstrap/openshift-gitops-operator-patch.yaml)" >>${logfile} 2>&1
 echo -n '.'
 
 #
