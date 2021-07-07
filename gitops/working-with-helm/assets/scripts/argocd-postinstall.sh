@@ -95,7 +95,7 @@ echo -n "Halfway there"
 ##  - Ignores .spec.host field in routes
 ##  - Uses SSL edge termination because of Katacoda
 oc patch argocd openshift-gitops -n openshift-gitops --type=merge \
---patch $(/root/${gitRepo##*/}/bootstrap/openshift-gitops-operator-patch.yaml) >>${logfile} 2>&1
+--patch $(< /root/${gitRepo##*/}/bootstrap/openshift-gitops-operator-patch.yaml) >>${logfile} 2>&1
 echo -n '.'
 
 #
