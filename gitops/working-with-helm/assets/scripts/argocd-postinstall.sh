@@ -79,16 +79,16 @@ else
 fi
 
 #
+## Give the user some hope
+echo -n "Halfway there" | tee -a ${logfile}
+
+#
 ## Wait until the deployment  appears
 until oc wait --for=condition=available --timeout=2s deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
 do
     sleep 3
     echo -n '.'
 done
-
-#
-## Give the user some hope
-echo -n "Halfway there" | tee -a ${logfile}
 
 #
 ## This gives the serviceAccount for ArgoCD the ability to manage the cluster.
@@ -104,14 +104,9 @@ oc patch argocd openshift-gitops -n openshift-gitops --type=merge \
 echo -n '.'
 
 #
-## Wait for rollout of new pods and the deployment to be available
-until oc wait --for=condition=available --timeout=2s deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
-do
-    sleep 3
-    echo -n '.'
-done
-# CRC is slow so wait for the rollout to kick off
+## CRC is slow so wait for the rollout to kick off
 sleep 5
+oc delete pods --all --cascade=foreground -n openshift-gitops --force=true --grace-period=0 >>${logfile} 2>&1
 oc rollout status deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
 echo -n '.'
 
