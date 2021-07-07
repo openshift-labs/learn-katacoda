@@ -92,7 +92,6 @@ This should return a single entity (since in our 3-person sample data, only one 
 {
   "data": [
     {
-      "persistent": true,
       "id": 1,
       "birth": "1974-08-15",
       "eyes": "BLUE",

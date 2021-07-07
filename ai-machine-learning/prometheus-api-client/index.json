@@ -7,7 +7,7 @@
     "time": "15-20 minutes",
     "backend": {
       "autoUpgrade": false,
-      "imageid": "openshift-3-11",
+      "imageid": "openshift-4-7",
       "port": 8443
     },
     "environment": {

@@ -12,3 +12,8 @@ ssh root@host01 'cp -r ~/.kube/config ~/backup/.kube/'
 #ssh root@host01 'rm -rf ~/.kube/config  >> /dev/null'
 
 ssh root@host01 'yum install jq -y'
+
+#Temporarily update operator sdk to v1.9 to fix initialization error
+wget https://github.com/operator-framework/operator-sdk/releases/download/v1.9.0/operator-sdk_linux_amd64
+chmod +x operator-sdk_linux_amd64
+mv operator-sdk-v1.6.2-x86_64-linux-gnu /root/tutorial/go/bin/operator-sdk -f

@@ -23,11 +23,6 @@
       "description": "Build apps using Quarkus, a Kubernetes Native Java stack"
     },
     {
-      "external_link": "https://learn.openshift.com/subsystems/",
-      "title": "Linux Container Fundamentals",
-      "description": "Understand container images, uses, and orchestration"
-    },
-    {
       "external_link": "https://learn.openshift.com/serverless/",
       "title": "OpenShift Serverless",
       "description": "Build event-driven applications that scale based on event triggers"
@@ -64,13 +59,18 @@
     },
     {
       "external_link": "https://learn.openshift.com/servicemesh/",
-      "title": "Istio",
-      "description": "Learn Istio, the service mesh management platform for Kubernetes"
+      "title": "OpenShift Service Mesh",
+      "description": "Connect, manage, and observe microservices-based applications with security-focused Istio"
     },
     {
       "external_link": "https://learn.openshift.com/ai-machine-learning/",
       "title": "AI and Machine Learning on OpenShift",
       "description": "Develop AI/ML on OpenShift with Jupyter, Prometheus, and Thoth"
+    },
+    {
+      "external_link": "https://learn.openshift.com/subsystems/",
+      "title": "Linux Container Fundamentals",
+      "description": "Understand container images, uses, and orchestration"
     },
     {
       "external_link": "https://learn.openshift.com/persistence/",

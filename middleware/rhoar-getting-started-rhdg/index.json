@@ -1,48 +1,39 @@
 {
-    "pathwayTitle": "Intro to Red Hat OpenShift Application Runtimes",
+    "pathwayTitle": "Getting Started with Red Hat Data Grid",
     "icon": "fa-java",
-    "title": "Getting Started with Data Grid on OpenShift",
-    "description": "Quickly get up and running with Data Grid one of the Red Hat OpenShift Application Runtimes.",
-    "difficulty": "intermediate",
-    "time": "5-10 minutes",
+    "title": "Getting Started with Red Hat Data Grid",
+    "description": "In this scenario you will learn how to improve data availability across data centers / availability zones",
+    "difficulty": "beginner",
+    "time": "15 minutes",
     "details": {
-        "steps": [
-            {
-                "title": "Login to OpenShift",
-                "text": "01-login-to-openshift.md"
-            },
-            {
-                "title": "Deploy Data Grid to OpenShift",
-                "text": "02-deploy-to-openshift.md"
-            },
-            {
-                "title": "Perform cache operations over REST",
-                "text": "03-invoke-rest-on-jdg.md"
-            }
-        ],
-        "intro": {
-            "courseData": "run-init.sh",
-            "code": "set-env.sh",
-            "text": "00-intro.md"
-        },
-        "finish": {
-          "text": "99-outro.md"
-        }
+      "steps": [
+        { "title": "Install Operator", "text": "01-op.md" },
+        { "title": "Create Cluster", "text": "02-cluster.md" },
+        { "title": "Test Access", "text": "03-access.md" }
+      ],
+      "intro": {
+        "text": "00-intro.md",
+        "courseData": "run-init.sh",
+        "code": "set-env.sh"
+      },
+      "finish": {
+        "text": "99-outro.md"
+      }
     },
     "files": [
 
     ],
     "environment": {
-        "uilayout": "terminal",
-        "uisettings": "java",
-        "showdashboard": true,
-        "hideintro": false,
-        "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
-        "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+      "showdashboard": true,
+      "dashboards": [{"name": "OpenShift Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],    "uilayout": "editor-terminal",
+      "uisettings": "java",
+      "hideintro": false,
+      "uieditorpath": "/root/projects",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
     },
     "backend": {
-        "autoUpgrade": false,
-        "imageid": "openshift-middleware",
-        "port": 8443
+      "autoUpgrade": true,
+      "imageid": "openshift-4-7",
+      "port": 8443
     }
-}
+  }

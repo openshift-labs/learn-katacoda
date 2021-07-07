@@ -68,17 +68,17 @@ Manually forcing a restart of the web server application processes will get the 
 
 In the case of ``mod_wsgi-express`` and how this web application has been configured, this can be enabled by setting an environment variable for the deployment. To set this environment variable run:
 
-``oc set env dc/blog MOD_WSGI_RELOAD_ON_CHANGES=1``{{execute}}
+``oc set env deployment/blog MOD_WSGI_RELOAD_ON_CHANGES=1``{{execute}}
 
 This command will update the deployment configuration, shutdown the existing pod and replace it with a new instance of our application with the environment variable now being passed through to the application.
 
 Monitor the re-deployment of the application by running:
 
-``oc rollout status dc/blog``{{execute}}
+``oc rollout status deployment/blog``{{execute}}
 
 Because the existing pod has been shutdown, we will need to capture again the new name for the pod.
 
-``POD=`pod deploymentconfig=blog`; echo $POD``{{execute}}
+``POD=`pod deployment=blog`; echo $POD``{{execute}}
 
 You may also notice that the synchronization process we had running in the background may have stopped. This is because the pod it was connected to had been shutdown.
 
@@ -86,11 +86,9 @@ You can check this is the case by running:
 
 ``jobs``{{execute}}
 
-If it is still showing as running, due to shutdown of the pod not yet having been detected, run:
+If it is still showing as running, due to shutdown of the pod not yet having been detected, run the following command to kill it:
 
 ``kill -9 %1``{{execute}}
-
-to kill it.
 
 Ensure the background task has exited:
 

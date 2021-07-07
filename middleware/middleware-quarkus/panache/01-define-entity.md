@@ -34,23 +34,14 @@ As you can see, there are some files that we have prepared for you in the projec
 
 We need to add a few extensions to the app for Panache and Postgres. We'll use the Quarkus Maven Plugin.
 
-Click this command to add the Hibernate ORM with Panache extension:
+Click this command to add the Hibernate ORM with Panache and PostgreSQL JDBC extensions:
 
-`mvn -q quarkus:add-extension -Dextensions="hibernate-orm-panache"`{{execute}}
+`mvn quarkus:add-extension -Dextensions="hibernate-orm-panache, jdbc-postgresql"`{{execute}}
 
 You should see:
 
 ```console
 [SUCCESS] ✅ Extension io.quarkus:quarkus-hibernate-orm-panache has been installed
-```
-
-And then for Postgres:
-
-`mvn -q quarkus:add-extension -Dextensions="jdbc-postgresql"`{{execute}}
-
-You should see:
-
-```console
 [SUCCESS] ✅ Extension io.quarkus:quarkus-jdbc-postgresql has been installed
 ```
 
@@ -120,7 +111,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
@@ -134,12 +124,13 @@ import org.acme.person.model.DataTable;
 import org.acme.person.model.EyeColor;
 import org.acme.person.model.Person;
 
+import io.smallrye.common.annotation.Blocking;
 import io.quarkus.panache.common.Parameters;
 import io.quarkus.runtime.StartupEvent;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
 
 @Path("/person")
-@ApplicationScoped
+@Blocking
 public class PersonResource {
 
     @GET

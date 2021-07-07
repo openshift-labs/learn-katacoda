@@ -6,12 +6,12 @@ This step shows how your Quarkus application can leverage the well known Spring 
 
 ## Create Controllers
 
-Click here to create and open a new file for our basic controller for accessing Fruits: `fruit-taster/src/main/java/org/acme/quickstart/FruitController.java`{{open}}.
+Click here to create and open a new file for our basic controller for accessing Fruits: `fruit-taster/src/main/java/org/acme/FruitController.java`{{open}}.
 
 Click **Copy to Editor** to create the code for the controller:
 
-<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/quickstart/FruitController.java" data-target="replace">
-package org.acme.quickstart;
+<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/FruitController.java" data-target="replace">
+package org.acme;
 
 import java.util.List;
 import java.util.Optional;
@@ -164,12 +164,12 @@ Indicating that the color of our `apple` has changed to `green`.
 
 As a final test let's create another bean to use our injected beans and configuration using Spring DI annotations.
 
-Click here to create and open a new file for our taster controller for tasting Fruits: `fruit-taster/src/main/java/org/acme/quickstart/TasterController.java`{{open}}.
+Click here to create and open a new file for our taster controller for tasting Fruits: `fruit-taster/src/main/java/org/acme/TasterController.java`{{open}}.
 
 Click **Copy to Editor** to create the code for the controller:
 
-<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/quickstart/TasterController.java" data-target="replace">
-package org.acme.quickstart;
+<pre class="file" data-filename="./fruit-taster/src/main/java/org/acme/TasterController.java" data-target="replace">
+package org.acme;
 
 import java.util.ArrayList;
 import java.util.List;
