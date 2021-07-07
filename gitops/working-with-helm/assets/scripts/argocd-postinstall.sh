@@ -121,11 +121,16 @@ echo -n '.'
 
 #
 ## Login to argocd locally for the user.
+sleep 5
 argoRoute=$(oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}')
 argoUser=admin
 argoPass=$(oc get secret/openshift-gitops-cluster -n openshift-gitops -o jsonpath='{.data.admin\.password}' | base64 -d)
+until [[ $(curl -ks -o /dev/null -w "%{http_code}"  https://${argoRoute}) -eq 200 ]]
+do
+    sleep 3
+    echo -n '.'
+done
 argocd login --insecure --grpc-web --username ${argoUser} --password ${argoPass} ${argoRoute} >>${logfile} 2>&1
-
 echo -n '.'
 
 #
