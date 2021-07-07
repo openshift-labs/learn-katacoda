@@ -38,7 +38,7 @@ echo -n '.'
 ## Wait until the deployment  appears
 until oc wait --for=condition=available --timeout=60s deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
 do
-    sleep 5
+    sleep 3
     echo -n '.'
 done
 
@@ -51,6 +51,19 @@ if [[ -f /usr/local/bin/argocd ]] ; then
 else
     echo -e "\nFATAL: ArgoCD cli failed to download" | tee -a ${logfile}
 fi
+
+#
+## Login to argocd locally for the user.
+argoRoute=$(oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}')
+argoUser=admin
+argoPass=$(oc get secret/openshift-gitops-cluster -n openshift-gitops -o jsonpath='{.data.admin\.password}' | base64 -d)
+until [[ $(curl -ks -o /dev/null -w "%{http_code}"  https://${argoRoute}) -eq 200 ]]
+do
+    sleep 3
+    echo -n '.'
+done
+argocd login --insecure --grpc-web --username ${argoUser} --password ${argoPass} ${argoRoute} >>${logfile} 2>&1
+echo -n '.'
 
 #
 ## Installs the kustomize cli
@@ -91,6 +104,11 @@ fi
 echo -n "Halfway there" | tee -a ${logfile}
 
 #
+## This gives the serviceAccount for ArgoCD the ability to manage the cluster.
+oc adm policy add-cluster-role-to-user cluster-admin -z openshift-gitops-argocd-application-controller -n openshift-gitops >>${logfile} 2>&1
+echo -n '.'
+
+#
 ## This patches the Argo CD Controller in the following ways
 ##  - Ignores .spec.host field in routes
 ##  - Uses SSL edge termination because of Katacoda
@@ -99,38 +117,15 @@ oc patch argocd openshift-gitops -n openshift-gitops --type=merge \
 echo -n '.'
 
 #
-## This gives the serviceAccount for ArgoCD the ability to manage the cluster.
-oc adm policy add-cluster-role-to-user cluster-admin -z openshift-gitops-argocd-application-controller -n openshift-gitops >>${logfile} 2>&1
-echo -n '.'
-
-#
-## This recycles the pods to make sure the new configurations took.
-oc delete pods -l app.kubernetes.io/name=openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
-echo -n '.'
-sleep 5
-
-#
 ## Wait for rollout of new pods and the deployment to be available
 until oc wait --for=condition=available --timeout=60s deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
-do
-    sleep 5
-    echo -n '.'
-done
-oc rollout status deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
-echo -n '.'
-
-#
-## Login to argocd locally for the user.
-sleep 5
-argoRoute=$(oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}')
-argoUser=admin
-argoPass=$(oc get secret/openshift-gitops-cluster -n openshift-gitops -o jsonpath='{.data.admin\.password}' | base64 -d)
-until [[ $(curl -ks -o /dev/null -w "%{http_code}"  https://${argoRoute}) -eq 200 ]]
 do
     sleep 3
     echo -n '.'
 done
-argocd login --insecure --grpc-web --username ${argoUser} --password ${argoPass} ${argoRoute} >>${logfile} 2>&1
+# CRC is slow so wait for the rollout to kick off
+sleep 5
+oc rollout status deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
 echo -n '.'
 
 #
