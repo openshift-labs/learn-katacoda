@@ -35,14 +35,6 @@ oc apply -f /root/${gitRepo##*/}/bootstrap/openshift-gitops-operator-sub.yaml >>
 echo -n '.'
 
 #
-## Wait until the deployment  appears
-until oc wait --for=condition=available --timeout=60s deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
-do
-    sleep 3
-    echo -n '.'
-done
-
-#
 ## Installs the argocd CLI tool.
 wget -q -O /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/v2.0.1/argocd-linux-amd64
 if [[ -f /usr/local/bin/argocd ]] ; then
@@ -51,19 +43,6 @@ if [[ -f /usr/local/bin/argocd ]] ; then
 else
     echo -e "\nFATAL: ArgoCD cli failed to download" | tee -a ${logfile}
 fi
-
-#
-## Login to argocd locally for the user.
-argoRoute=$(oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}{"\n"}')
-argoUser=admin
-argoPass=$(oc get secret/openshift-gitops-cluster -n openshift-gitops -o jsonpath='{.data.admin\.password}' | base64 -d)
-until [[ $(curl -ks -o /dev/null -w "%{http_code}"  https://${argoRoute}) -eq 200 ]]
-do
-    sleep 3
-    echo -n '.'
-done
-argocd login --insecure --grpc-web --username ${argoUser} --password ${argoPass} ${argoRoute} >>${logfile} 2>&1
-echo -n '.'
 
 #
 ## Installs the kustomize cli
@@ -100,6 +79,14 @@ else
 fi
 
 #
+## Wait until the deployment  appears
+until oc wait --for=condition=available --timeout=2s deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
+do
+    sleep 3
+    echo -n '.'
+done
+
+#
 ## Give the user some hope
 echo -n "Halfway there" | tee -a ${logfile}
 
@@ -118,7 +105,7 @@ echo -n '.'
 
 #
 ## Wait for rollout of new pods and the deployment to be available
-until oc wait --for=condition=available --timeout=60s deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
+until oc wait --for=condition=available --timeout=2s deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
 do
     sleep 3
     echo -n '.'
@@ -126,6 +113,19 @@ done
 # CRC is slow so wait for the rollout to kick off
 sleep 5
 oc rollout status deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
+echo -n '.'
+
+#
+## Login to argocd locally for the user.
+argoRoute=$(oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}')
+argoUser=admin
+argoPass=$(oc get secret/openshift-gitops-cluster -n openshift-gitops -o jsonpath='{.data.admin\.password}' | base64 -d)
+until [[ $(curl -ks -o /dev/null -w "%{http_code}"  https://${argoRoute}) -eq 200 ]]
+do
+    sleep 3
+    echo -n '.'
+done
+argocd login --insecure --grpc-web --username ${argoUser} --password ${argoPass} ${argoRoute} >>${logfile} 2>&1
 echo -n '.'
 
 #
