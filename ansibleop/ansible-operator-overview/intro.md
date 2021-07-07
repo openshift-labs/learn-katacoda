@@ -1,4 +1,14 @@
-This section will give a brief overview of the *Ansible Operator* with a step-by-step example of developing an Ansible Operator using [Operator SDK](https://sdk.operatorframework.io).
+In this self-paced tutorial, you will learn a brief overview of the *Ansible Operator* with a step-by-step example of developing an Ansible Operator using [Operator SDK](https://sdk.operatorframework.io).
+
+In this tutorial, you will gain a basic understanding of:
+* What the Ansible Operator is
+* How the Ansible Operator maps Custom Resource events to Ansible code
+* How to pass extra variables to Ansible code via the operator
+* How to leverage existing roles from Ansible Galaxy
+* How to deploy and run the Ansible Operator in a OpenShift cluster
+* How to run the Ansible Operator Locally for development
+
+## Getting started
 
 The reader is expected to have a basic understanding of the *Operator pattern*. 
  - Ansible Operator is an Operator which is _powered by Ansible_. 
@@ -6,13 +16,4 @@ The reader is expected to have a basic understanding of the *Operator pattern*.
 
 Ansible Operator development and testing is fully supported as a first-class citizen within the Operator SDK. Operator SDK can be used to create new Operator projects, test existing Operator projects, build Operator images, and generate new Custom Resource Definitions (CRDs) for an Operator.
 
----
-
-By the end of this section the reader should have a basic understanding of:
-
-* What the Ansible Operator is
-* How the Ansible Operator maps Custom Resource events to Ansible code
-* How to pass extra variables to Ansible code via the operator
-* How to leverage existing roles from Ansible Galaxy
-* How to deploy and run the Ansible Operator in a OpenShift cluster
-* How to run the Ansible Operator Locally for development
+In the following sections, you will go through various steps to work with and leverage the Ansible Operator. Let's get started!

@@ -1,4 +1,4 @@
-Thank you for taking a closer look at the *Ansible Operator*.  For more
+Thank you for taking a closer look at the *Mcrouter Operator*. For more
 Information, check out the links below:
 
 ## Git Hub

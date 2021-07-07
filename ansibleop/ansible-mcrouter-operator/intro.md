@@ -1,4 +1,6 @@
-The Mcrouter Operator was built with the [Ansible Operator SDK](https://github.com/operator-framework/operator-sdk/blob/master/doc/ansible/user-guide.md). It is not yet intended for production use.
+In this self-paced tutorial you will learn an overview of the Mcrouter Operator, built with the [Ansible Operator SDK](https://github.com/operator-framework/operator-sdk/blob/master/doc/ansible/user-guide.md). It is not yet intended for production use.
+
+## Getting started
 
 [Mcrouter](https://github.com/facebook/mcrouter) is a Memcached protocol router for scaling [Memcached](http://memcached.org/) deployments. It's a core component of cache infrastructure at Facebook and Instagram where mcrouter handles almost 5 billion requests per second at peak.
 
@@ -15,8 +17,8 @@ Mcrouter features:
 
 Mcrouter is developed and maintained by Facebook.
 
-
-
 At this point in our training, we should have a basic understanding of the *Operator pattern*. 
- - Ansible Operator is an Operator which is _powered by Ansible_. 
- - Custom Resource events trigger Ansible tasks as opposed to the traditional approach of handling these events with Go code.
+- Ansible Operator is an Operator which is _powered by Ansible_. 
+- Custom Resource events trigger Ansible tasks as opposed to the traditional approach of handling these events with Go code.
+
+ In the following sections, you will go through various stages of deployment, usage, and testing of Mcrouter. Let's get started!
