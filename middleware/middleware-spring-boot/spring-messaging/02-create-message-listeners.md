@@ -127,7 +127,7 @@ We annotate the class with `@Component` to get the class picked up by Spring's C
 
 The `@JmsListener` annotation is what sets this class up for JMS Message handling. We're essentially creating a binding: whenever a message of type `Fruit` is sent to the target Queue (called a `destination` here) this method will be called by Spring for processing. Spring will attempt to deserialize the message to an object and then pass that object to our method here.
 
-The `"${queue.name}"` String in the destination utilizes the Spring Expression Language to allow parameterization of Queue names. This allows us to place the name of the Queue in our `.properties` files which can change between environments without the need for a code change. You can see the properties for local running by opening the ``src/main/resources/application.properties``{{open}} file.
+The `"${queue.name}"` String in the destination utilizes the Spring Expression Language to allow parameterization of Queue names. This allows us to place the name of the Queue in our `.properties` files which can change between environments without the need for a code change. You can see the properties for openshift running by opening the ``src/main/resources/application-openshift.properties``{{open}} file.
 
 There also exists a second annotation parameter, `connectionFactory`, that we can use if we have a custom `ConnectionFactory` Bean but we don't use that here because we are defaulting to use the `ConnectionFactory` Spring Boot automatically creates.
 
@@ -211,20 +211,10 @@ The `@Value` annotation is our way of pulling the Queue name from our properties
 
 The `@Scheduled` interface is just a convenience annotation which prompts the Spring Container to call this method every 3000 milliseconds (3 seconds). The exact details is out of scope for this scenario. Just know that this method will automatically fire every 3 seconds.
 
-**4. Test the service from a web browser locally**
+**4. No local execution**
 
-Run the application by executing the below command:
-
-``mvn spring-boot:run``{{execute}}
-
-In the interest of time, we will skip creating test cases for the service and instead test it directly in our web browser.
-
-When the console reports that Spring is up and running access the web page by either click the Local Web Browser Tab or use [this](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
-
-If everything works you should see a web page with a description banner, a `Count:` column, and a `Last 5 Messages:` column. The count column is the total number of pings while the `Last 5 Messages` column is exactly as the name implies. If you refresh the page these values should change every 3 seconds to reflect the Producer firing.
-
-Press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application.
+Typically, you would be running the application locally prior to deploying to OpenShift. Without a local message broker available, the local execution step will be skipped and you'll be deploying the application directly to OpenShift in the following two steps. 
 
 ## Congratulations
 
-You have now learned how to how to create JMS Queue listeners and how to send JMS Messages with Spring Boot! In the next step we will deploy this application to OpenShift and deploy a JBoss AMQ queue instead of a local Queue.
+You have now learned how to how to create JMS Queue listeners and how to send JMS Messages with Spring Boot! In the next step we will deploy this application to OpenShift and deploy a Red Hat AMQ queue via the Red Hat Integration - AMQ Broker operator.
