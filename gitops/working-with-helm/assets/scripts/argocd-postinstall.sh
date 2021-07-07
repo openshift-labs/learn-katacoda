@@ -13,7 +13,7 @@ clear
 
 #
 ## Start the setup process
-echo -n "Setting up lab environment, please wait"
+echo -n "Setting up lab environment, please wait" | tee -a ${logfile}
 
 #
 ## Git clone the examples repo. Check if it's there.
@@ -30,15 +30,8 @@ oc login --insecure-skip-tls-verify -u admin -p admin >>${logfile} 2>&1
 echo -n '.'
 
 #
-## Check if the operator resource is there
-if [[ ! -d resources/operator-install ]]; then
-    echo -e "\nERROR: Operator install resource not found!" | tee -a ${logfile}
-    exit 3
-fi
-
-#
 ## Install the OpenShift GitOps via Operator
-oc apply -k resources/operator-install >>${logfile} 2>&1
+oc apply -f /root/${gitRepo##*/}/bootstrap/openshift-gitops-operator-sub.yaml >>${logfile} 2>&1
 echo -n '.'
 
 #
@@ -48,11 +41,6 @@ do
     sleep 5
     echo -n '.'
 done
-
-#
-## Wait for the rollout to finish
-oc rollout status deploy openshift-gitops-server  -n openshift-gitops >>${logfile} 2>&1
-echo -n '.'
 
 #
 ## Installs the argocd CLI tool.
@@ -103,21 +91,12 @@ fi
 ##  - Ignores .spec.host field in routes
 ##  - Uses SSL edge termination because of Katacoda
 oc patch argocd openshift-gitops -n openshift-gitops --type=merge \
--p='{"spec":{"resourceCustomizations":"bitnami.com/SealedSecret:\n  health.lua: |\n    hs = {}\n    hs.status = \"Healthy\"\n    hs.message = \"Controller doesnt report resource status\"\n    return hs\nroute.openshift.io/Route:\n  ignoreDifferences: |\n    jsonPointers:\n    - /spec/host\n","server":{"insecure":true,"route":{"enabled":true,"tls":{"insecureEdgeTerminationPolicy":"Redirect","termination":"edge"}}}}}' >>${logfile} 2>&1
+--patch $(/root/${gitRepo##*/}/bootstrap/openshift-gitops-operator-patch.yaml) >>${logfile} 2>&1
 echo -n '.'
-
-#
-##  Sleep here because CRC is slow to start the rollout process
-sleep 5
 
 #
 ## Give the user some hope
 echo -n "Halfway there"
-
-#
-## Wait for the rollout of a new controller
-oc rollout status deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
-echo -n '.'
 
 #
 ## This gives the serviceAccount for ArgoCD the ability to manage the cluster.
@@ -128,6 +107,7 @@ echo -n '.'
 ## This recycles the pods to make sure the new configurations took.
 oc delete pods -l app.kubernetes.io/name=openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
 echo -n '.'
+sleep 5
 
 #
 ## Wait for rollout of new pods and the deployment to be available
@@ -138,10 +118,6 @@ do
 done
 oc rollout status deploy openshift-gitops-server -n openshift-gitops >>${logfile} 2>&1
 echo -n '.'
-
-#
-## Sleep here because CRC is slow on the rollout process
-sleep 5
 
 #
 ## Login to argocd locally for the user.
