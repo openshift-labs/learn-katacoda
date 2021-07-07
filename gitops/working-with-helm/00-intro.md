@@ -24,6 +24,5 @@ This is a simple guide that takes you through the following steps:
 
 * Use the native Helm integration in Argo CD
 * Explore a more GitOps friendly approach to Helm chart deployments
-* Deploy a multi-tiered application made of of YAML and Helm Charts
 
 This OpenShift cluster will self-destruct in one hour.

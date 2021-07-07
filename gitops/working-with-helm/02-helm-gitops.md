@@ -5,7 +5,7 @@ Helm!
 
 In the previous section, you saw how you can deploy a Helm chart
 natively with Argo CD. This method had you providing the Helm Repo,
-Chart, and Values directly in the config. I mentioned that, although
+Chart, and Values directly in the config. Before, it was mentioned that, although
 valid, it's not GitOps friendly.
 
 In a GitOps workflow, the state of your application deployment must be
