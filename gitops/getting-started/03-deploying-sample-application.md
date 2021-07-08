@@ -27,7 +27,7 @@ The `Application` CR (`CustomResource`) can be applied by running the following:
 
 This should create the `bgd-app` in the ArgoCD UI.
 
-![bgdk-app](../../assets/gitops/bgdk-app.png)
+![bgdk-app](../../assets/gitops/bgd-app.png)
 
 Clicking on this "card" takes you to the overview page. You may see it as still progressing or full synced. 
 
