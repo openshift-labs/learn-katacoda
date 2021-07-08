@@ -24,15 +24,11 @@ The workflow can be summarized like this:
 
 ## Exploring Manifests
 
-We will be adding the following manifests to the application. 
+Using Kustomize, we will be adding 3 addition manifests.
 
-`tree ~/resources/examples/syncwaves-and-hooks`{{execute}}
-
-Here we are adding 3 addition manifests.
-
-* A `PreSync` Job with a syncwave of 0 `examples/syncwaves-and-hooks/welcome-php-presync-job.yaml`{{open}}
-* A `PreSync` Pod with a syncwave of 1 and a hook deletion policy `examples/syncwaves-and-hooks/welcome-php-presync-pod.yaml`{{open}}
-* A `PostSync` Pod with a hook deletion policy `examples/syncwaves-and-hooks/welcome-php-postsync-pod.yaml`{{open}}
+* A `PreSync` Job with a syncwave of 0 `openshift-gitops-examples/apps/welcome-php/overlays/syncwaves-and-hooks/welcome-php-presync-job.yaml`{{open}}
+* A `PreSync` Pod with a syncwave of 1 and a hook deletion policy `openshift-gitops-examples/apps/welcome-php/overlays/syncwaves-and-hooks/welcome-php-presync-pod.yaml`{{open}}
+* A `PostSync` Pod with a hook deletion policy `openshift-gitops-examples/apps/welcome-php/overlays/syncwaves-and-hooks/welcome-php-postsync-pod.yaml`{{open}}
 
 The manifest will apply in the following order.
 
@@ -43,13 +39,13 @@ The manifest will apply in the following order.
 
 ## Deploying the Application
 
-Take a look at the manifest file `apps/welcome-syncwaves-and-hooks.yaml`{{open}}
+Take a look at the manifest file `openshift-gitops-examples/components/applications/welcome-syncwaves-and-hooks.yaml`{{open}}
 
 As before, we are using Kustomize to deploy the same application,
 but in a different namespace and we are loading in the 3 additional
 manifests. You can see the specific implementation in the [git repo](https://github.com/redhat-developer-demos/openshift-gitops-examples/tree/main/apps/welcome-php/overlays/syncwaves-and-hooks)
 
-Create this application `oc apply -f ~/resources/apps/welcome-syncwaves-and-hooks.yaml`{{execute}}
+Create this application `oc apply -f ~/resources/openshift-gitops-examples/components/applications/welcome-syncwaves-and-hooks.yaml`{{execute}}
 
 This should create the 3rd application on Argo CD.
 
