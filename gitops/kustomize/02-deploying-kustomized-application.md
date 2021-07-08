@@ -51,7 +51,7 @@ duplicating YAML for each deployment. This is especially good to
 use if you have different environements or clusters you're deploying
 to.
 
-Take a look at the `Application` definition:  `openshift-gitops-examples/components/applications/bgd-app.yaml`{{open}}
+Take a look at the `Application` definition:  `openshift-gitops-examples/components/applications/bgdk-app.yaml`{{open}}
 
 This application is pointed to the [same repo](https://github.com/redhat-developer-demos/openshift-gitops-examples) but [different directory](https://github.com/redhat-developer-demos/openshift-gitops-examples/tree/main/apps/bgd/overlays/bgdk).
 
