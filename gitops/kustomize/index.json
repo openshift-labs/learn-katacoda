@@ -48,18 +48,6 @@
       },
       "assets": {
        "client": [
-            { "file": "bgd-app/bgd-app.yaml", "target": "~/resources/bgd-app" },
-            { "file": "bgdk-app/bgdk-app.yaml", "target": "~/resources/bgdk-app" },
-            { "file": "examples/bgd-yaml/bgd-deployment.yaml", "target": "~/resources/examples/bgd-yaml" },
-            { "file": "examples/bgd-yaml/bgd-namespace.yaml", "target": "~/resources/examples/bgd-yaml" },
-            { "file": "examples/bgd-yaml/bgd-route.yaml", "target": "~/resources/examples/bgd-yaml" },
-            { "file": "examples/bgd-yaml/bgd-svc.yaml", "target": "~/resources/examples/bgd-yaml" },
-            { "file": "examples/bgd-yaml/kustomization.yaml", "target": "~/resources/examples/bgd-yaml" },
-            { "file": "examples/bgdk-overlay/kustomization.yaml", "target": "~/resources/examples/bgdk-overlay" },
-            { "file": "operator-install/kustomization.yaml", "target": "~/resources/operator-install" },
-            { "file": "operator-install/openshift-gitops-operator-sub.yaml", "target": "~/resources/operator-install" },
-            { "file": "kustomize-build/kustomization.yaml", "target": "~/resources/kustomize-build" },
-            { "file": "kustomize-build/welcome.yaml", "target": "~/resources/kustomize-build" },
             { "file": "scripts/argocd-postinstall.sh", "target": "~/resources/scripts" }
        ]
      }
