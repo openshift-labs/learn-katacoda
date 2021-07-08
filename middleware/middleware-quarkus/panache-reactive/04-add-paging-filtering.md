@@ -53,32 +53,32 @@ Click **Copy To Editor** to add this code, which performs step 1 in the above se
 <pre class="file" data-filename="./src/main/java/org/acme/person/PersonResource.java" data-target="insert" data-marker="// TODO: Construct query">
 int pageNumber = start / length;
 
-    PanacheQuery&lt;Person&gt; filteredPeople = Optional.ofNullable(searchVal)
-        .filter(val -&gt; !val.isEmpty())
-        .map(val -&gt; Person&lt;Person&gt;find("name like :search", Parameters.with("search", "%" + val + "%")))
-        .orElseGet(() -&gt; Person.findAll())
-        .page(pageNumber, length);
+        PanacheQuery&lt;Person&gt; filteredPeople = Optional.ofNullable(searchVal)
+            .filter(val -&gt; !val.isEmpty())
+            .map(val -&gt; Person.&lt;Person&gt;find("name like :search", Parameters.with("search", "%" + val + "%")))
+            .orElseGet(() -&gt; Person.findAll())
+            .page(pageNumber, length);
 </pre>
 
 Next, execute the pipeline and convert the results into a `DataTable` instance.
 
 <pre class="file" data-filename="./src/main/java/org/acme/person/PersonResource.java" data-target="insert" data-marker="// TODO: Execute pipeline">
 return filteredPeople.list()
-    .map(people -&gt; {   // Convert List&lt;Person&gt; to DataTable
-        DataTable result = new DataTable();
-        result.setDraw(draw);
-        result.setData(people);
+        .map(people -&gt; {   // Convert List&lt;Person&gt; to DataTable
+            DataTable result = new DataTable();
+            result.setDraw(draw);
+            result.setData(people);
 
-        return result;
-    })
-    .flatMap(datatable -&gt; Person.count().map(recordsTotal -&gt; {   // Get the total records count
-        datatable.setRecordsTotal(recordsTotal);
-        return datatable;
-    }))
-    .flatMap(datatable -&gt; filteredPeople.count().map(recordsFilteredCount -&gt; {   // Get the number of records filtered
-        datatable.setRecordsFiltered(recordsFilteredCount);
-        return datatable;
-    }));
+            return result;
+        })
+        .flatMap(datatable -&gt; Person.count().map(recordsTotal -&gt; {   // Get the total records count
+            datatable.setRecordsTotal(recordsTotal);
+            return datatable;
+        }))
+        .flatMap(datatable -&gt; filteredPeople.count().map(recordsFilteredCount -&gt; {   // Get the number of records filtered
+            datatable.setRecordsFiltered(recordsFilteredCount);
+            return datatable;
+        }));
 </pre>
 
 Let's test out our new endpoint using `curl` to search for names with `yan` in their name:
