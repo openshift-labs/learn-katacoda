@@ -1,0 +1,42 @@
+{
+  "pathwayTitle": "Reactive Data access with Quarkus Hibernate Reactive with Panache",
+  "icon": "fa-java",
+  "title": "Reactive Data access with Quarkus Hibernate Reactive with Panache",
+  "description": "In this scenario you will learn how to Build a fully reactive and non-blocking application using Hibernate Reactive with Panache",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "details": {
+    "steps": [
+      { "title": "Define Entity", "text": "01-define-entity.md" },
+      { "title": "Setup Remove Development", "text": "02-remote-dev.md" },
+      { "title": "Add Queries", "text": "03-add-query-endpoints.md" },
+      { "title": "Add Paging/Filtering", "text": "04-add-paging-filtering.md" },
+      { "title": "Add Startup Task", "text": "05-add-lifecycle-task.md" },
+      { "title": "Exercise Table", "text": "06-exercise-table.md" }
+    ],
+    "intro": {
+      "text": "00-intro.md",
+      "courseData": "env-init.sh",
+      "code": "set-env.sh"
+    },
+    "finish": {
+      "text": "99-outro.md"
+    }
+  },
+  "files": [
+
+  ],
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [{"name": "OpenShift Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],    "uilayout": "editor-terminal",
+    "uisettings": "java",
+    "hideintro": false,
+    "uieditorpath": "/root/projects/rhoar-getting-started/quarkus/panache-reactive",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "autoUpgrade": true,
+    "imageid": "openshift-4-7",
+    "port": 8443
+  }
+}
