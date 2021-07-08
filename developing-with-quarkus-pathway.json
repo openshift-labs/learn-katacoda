@@ -50,6 +50,13 @@
           "course_id": "panache",
           "title": "Effective Data with Hibernate and Panache",
           "description": "Making entities trivial and fun to write in Quarkus"
+        },
+        {
+          "external_link": "https://learn.openshift.com/middleware/courses/middleware-quarkus/panache-reactive",
+          "pathway_id": "middleware/middleware-quarkus",
+          "course_id": "panache-reactive",
+          "title": "Reactive Data access with Quarkus Hibernate Reactive with Panache",
+          "description": "Build a fully reactive and non-blocking application using Hibernate Reactive with Panache"
         }
     ]
 }
