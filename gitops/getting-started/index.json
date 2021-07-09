@@ -52,14 +52,6 @@
       },
       "assets": {
        "client": [
-            { "file": "bgd-app/bgd-app.yaml", "target": "~/resources/bgd-app" },
-            { "file": "examples/bgd-yaml/bgd-deployment.yaml", "target": "~/resources/examples/bgd-yaml" },
-            { "file": "examples/bgd-yaml/bgd-namespace.yaml", "target": "~/resources/examples/bgd-yaml" },
-            { "file": "examples/bgd-yaml/bgd-route.yaml", "target": "~/resources/examples/bgd-yaml" },
-            { "file": "examples/bgd-yaml/bgd-svc.yaml", "target": "~/resources/examples/bgd-yaml" },
-            { "file": "examples/bgd-yaml/kustomization.yaml", "target": "~/resources/examples/bgd-yaml" },
-            { "file": "operator-install/kustomization.yaml", "target": "~/resources/operator-install" },
-            { "file": "operator-install/openshift-gitops-operator-sub.yaml", "target": "~/resources/operator-install" },
             { "file": "scripts/argocd-postinstall.sh", "target": "~/resources/scripts" }
        ]
      }

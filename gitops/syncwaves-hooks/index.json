@@ -52,19 +52,6 @@
       },
       "assets": {
        "client": [
-            { "file": "examples/syncwaves/welcome-php-deployment.yaml", "target": "~/resources/examples/syncwaves" },
-            { "file": "examples/syncwaves/welcome-php-ns.yaml", "target": "~/resources/examples/syncwaves" },
-            { "file": "examples/syncwaves/welcome-php-route.yaml", "target": "~/resources/examples/syncwaves" },
-            { "file": "examples/syncwaves/welcome-php-svc.yaml", "target": "~/resources/examples/syncwaves" },
-            { "file": "examples/hooks/welcome-php-presync-job.yaml", "target": "~/resources/examples/hooks" },
-            { "file": "examples/syncwaves-and-hooks/welcome-php-presync-job.yaml", "target": "~/resources/examples/syncwaves-and-hooks" },
-            { "file": "examples/syncwaves-and-hooks/welcome-php-presync-pod.yaml", "target": "~/resources/examples/syncwaves-and-hooks" },
-            { "file": "examples/syncwaves-and-hooks/welcome-php-postsync-pod.yaml", "target": "~/resources/examples/syncwaves-and-hooks" },
-            { "file": "apps/welcome-hooks.yaml", "target": "~/resources/apps" },
-            { "file": "apps/welcome-syncwaves-and-hooks.yaml", "target": "~/resources/apps" },
-            { "file": "apps/welcome-syncwaves.yaml", "target": "~/resources/apps" },
-            { "file": "operator-install/kustomization.yaml", "target": "~/resources/operator-install" },
-            { "file": "operator-install/openshift-gitops-operator-sub.yaml", "target": "~/resources/operator-install" },
             { "file": "scripts/argocd-postinstall.sh", "target": "~/resources/scripts" }
        ]
      }

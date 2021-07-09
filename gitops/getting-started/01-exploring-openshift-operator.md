@@ -32,7 +32,6 @@ This should have the following output.
 ```shell
 NAME                                                  AGE
 openshift-gitops-operator.openshift-operators         25m
-openshift-pipelines-operator-rh.openshift-operators   25m
 ```
 
 This Operator is a "meta" Operator that installs both Argo CD and the

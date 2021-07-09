@@ -1,6 +1,6 @@
 {
     "icon": "fa-openshift",
-    "title": "Working with Kustomize",
+    "title": "Working with Helm",
     "description": "",
     "pathwayTitle": "OpenShift",
     "difficulty": "beginner",
@@ -35,12 +35,12 @@
       },
       "steps": [
         {
-          "title": "Exploring Kustomize",
-          "text": "01-exploring-kustomize.md"
+          "title": "Helm Integration",
+          "text": "01-helm-integration.md"
         },
         {
-          "title": "Deploying Kustomized Applicaton",
-          "text": "02-deploying-kustomized-application.md"
+          "title": "Helm GitOps Deployment",
+          "text": "02-helm-gitops.md"
         }
       ],
       "finish": {

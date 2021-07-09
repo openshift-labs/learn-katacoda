@@ -23,18 +23,18 @@ We will be focusing on two sub-commands the `build` command and the
 
 The `build` command takes the YAML source (via a path or URL) and creates
 a new YAML that can be piped into `kubectl create`. We will work with
-an example in the `~/resources/kustomize-build` directory.
+an example in the `~/resources/openshift-gitops-examples/components/kustomize-build/` directory.
 
-`cd ~/resources/kustomize-build`{{execute}}
+`cd ~/resources/openshift-gitops-examples/components/kustomize-build/`{{execute}}
 
 Here you should see two files, a `kustomization.yaml` file and a `welcome.yaml` file
 
 `ls -l`{{execute}}
 
-Taking a look at the `kustomize-build/welcome.yaml`{{open}}
+Taking a look at the `openshift-gitops-examples/components/kustomize-build/welcome.yaml`{{open}}
 file shows nothing special. Just a standard Kubernetes manifest.
 
-What if, for example, we wanted to add a `label` to this manifest without editing it? This is where the `kustomize-build/kustomization.yaml`{{open}} file comes in.
+What if, for example, we wanted to add a `label` to this manifest without editing it? This is where the `openshift-gitops-examples/components/kustomize-build/kustomization.yaml`{{open}} file comes in.
 
 As you can see in the output there isn't much. The two sections for this
 example are the `resources` and the `patchesJson6902` sections.
@@ -53,7 +53,7 @@ to `ffcd15` by running the following:
 `kustomize edit set image quay.io/redhatworkshops/welcome-php:ffcd15`{{execute}}
 
 This will update the
-`kustomize-build/kustomization.yaml`{{open}} file with a
+`openshift-gitops-examples/components/kustomize-build/kustomization.yaml`{{open}} file with a
 `images` section. Now when you run `kustomize build .`{{execute}} -
 you should see not only the new label but also the new `ffcd15` image tag.
 
@@ -98,4 +98,3 @@ You can see the deployment was created with the additional labels: `kubectl get 
 Also, the image was updated based on the customization that was made: `kubectl get deploy welcome-php  -o jsonpath='{.spec.template.spec.containers[].image}{"\n"}'`{{execute}}
 
 As you can see `kustomize` can be a powerful tool.
-

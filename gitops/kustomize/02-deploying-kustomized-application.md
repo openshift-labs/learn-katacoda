@@ -27,7 +27,7 @@ In a previous scenario, we deployed a sample appication that had a
 picture of a blue square. To deploy the application, run the following
 command:
 
-`oc apply -f resources/bgd-app/bgd-app.yaml`{{execute}}
+`oc apply -f resources/openshift-gitops-examples/components/applications/bgd-app.yaml`{{execute}}
 
 This should create an `Application` in the Argo CD UI.
 
@@ -51,21 +51,21 @@ duplicating YAML for each deployment. This is especially good to
 use if you have different environements or clusters you're deploying
 to.
 
-Take a look at the `Application` definition:  `bgdk-app/bgdk-app.yaml`{{open}}
+Take a look at the `Application` definition:  `openshift-gitops-examples/components/applications/bgdk-app.yaml`{{open}}
 
 This application is pointed to the [same repo](https://github.com/redhat-developer-demos/openshift-gitops-examples) but [different directory](https://github.com/redhat-developer-demos/openshift-gitops-examples/tree/main/apps/bgd/overlays/bgdk).
 
 This is using a concept of an "overlay", where you have a "base"
 set of manifests and you overlay your customizations. Take a look
-at the `examples/bgdk-overlay/kustomization.yaml`{{open}} example
+at the `openshift-gitops-examples/apps/bgd/overlays/bgdk/kustomization.yaml`{{open}} example
 file.
 
-This `kustomization.yaml` take the base application and patches the
+This `kustomization.yaml` takes the base application and patches the
 manifest so that we get a yellow square instead of a blue one. It
 also deploys the application to the `bgdk` namespace (denoted by
 the `namespace:` section of the file).
 
-Deploy this application:  `oc apply -f resources/bgdk-app/bgdk-app.yaml`{{execute}}
+Deploy this application:  `oc apply -f resources/openshift-gitops-examples/components/applications/bgdk-app.yaml`{{execute}}
 
 This should show you two apps on the Argo CD UI.
 

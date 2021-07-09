@@ -1,18 +1,17 @@
 In this environment, we have some
-example manifesets taken from our [sample GitOps
-repo](https://github.com/redhat-developer-demos/openshift-gitops-examples).
+example manifesets taken from our [sample GitOps repo](https://github.com/redhat-developer-demos/openshift-gitops-examples).
 We'll be uisng this repo to test. These manifests include:
 
-* A **Namespace**: `examples/bgd-yaml/bgd-namespace.yaml`{{open}}
-* A **Deployment**: `examples/bgd-yaml/bgd-deployment.yaml`{{open}}
-* A **Service**: `examples/bgd-yaml/bgd-svc.yaml`{{open}}
-* A **Route**: `examples/bgd-yaml/bgd-route.yaml`{{open}}
+* A **Namespace**: `openshift-gitops-examples/apps/bgd/overlays/bgd/bgd-ns.yaml`{{open}}
+* A **Deployment**: `openshift-gitops-examples/apps/bgd/overlays/bgd/bgd-deployment.yaml`{{open}}
+* A **Service**: `openshift-gitops-examples/apps/bgd/overlays/bgd/bgd-svc.yaml`{{open}}
+* A **Route**: `openshift-gitops-examples/apps/bgd/overlays/bgd/bgd-route.yaml`{{open}}
 
 Collectively, this is known as an `Application` within ArgoCD. Therefore,
 you must define it as such in order to apply these manifest in your
 cluster.
 
-Open up the Argo CD `Application` manifest: `bgd-app/bgd-app.yaml`{{open}}
+Open up the Argo CD `Application` manifest: `openshift-gitops-examples/components/applications/bgd-app.yaml`{{open}}
 
 Let's break this down a bit.
 
@@ -24,11 +23,11 @@ Let's break this down a bit.
 
 The `Application` CR (`CustomResource`) can be applied by running the following:
 
-`oc apply -f resources/bgd-app/bgd-app.yaml`{{execute}}
+`oc apply -f ~/resources/openshift-gitops-examples/components/applications/bgd-app.yaml`{{execute}}
 
 This should create the `bgd-app` in the ArgoCD UI.
 
-![bgdk-app](../../assets/gitops/bgdk-app.png)
+![bgdk-app](../../assets/gitops/bgd-app.png)
 
 Clicking on this "card" takes you to the overview page. You may see it as still progressing or full synced. 
 
@@ -94,7 +93,7 @@ should have returned to a blue square.
 ![bgd](../../assets/gitops/bgd.png)
 
 You can setup Argo CD to automatically correct drift by setting the
-`Application` manifest to do so. Example:
+`Application` manifest to do so. Here is an example snippet:
 
 ```yaml
 spec:

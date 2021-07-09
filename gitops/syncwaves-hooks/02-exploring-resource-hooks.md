@@ -48,7 +48,7 @@ To read more about resource hooks, consult the [official documentation](https://
 
 I will be adding the following manifest to the first
 application deployed. Take a look at the manfiest
-`examples/hooks/welcome-php-presync-job.yaml`{{open}}
+`openshift-gitops-examples/apps/welcome-php/overlays/hooks/welcome-php-presync-job.yaml`{{open}}
 
 You'll see that I have the annotation `argocd.argoproj.io/hook: PreSync`
 set. This means that this Job will run in the `PreSync` phase, before
@@ -62,11 +62,11 @@ This sample will be using `kustomize` to create a new application based
 on the one we previously deployed; while adding the `Job`
 with the resource hook. You can see this by [visiting the repo](https://github.com/redhat-developer-demos/openshift-gitops-examples/tree/main/apps/welcome-php/overlays/hooks)
 
-Taking a look at the manifest file `apps/welcome-hooks.yaml`{{open}}
+Taking a look at the manifest file `openshift-gitops-examples/components/applications/welcome-hooks.yaml`{{open}}
 will show that this will deploy the application in the `welcome-hooks`
 namespace.
 
-Create this application `oc apply -f ~/resources/apps/welcome-hooks.yaml `{{execute}}
+Create this application `oc apply -f ~/resources/openshift-gitops-examples/components/applications/welcome-hooks.yaml`{{execute}}
 
 On the Argo CD WebUI, you should see another application appear.
 

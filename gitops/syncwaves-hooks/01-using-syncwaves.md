@@ -32,16 +32,12 @@ Read more about syncwaves on the [official documentation site](https://argoproj.
 
 ## Exploring Manifests
 
-The sample application being deployed has the following manifests:
+The manifests that will be deployed have been annotated with the following values:
 
-`tree ~/resources/examples/syncwaves`{{execute}}
-
-These have been annotated with the following values:
-
-* The Namspace with `0` `examples/syncwaves/welcome-php-ns.yaml`{{open}}
-* The Deployment with `1` `examples/syncwaves/welcome-php-deployment.yaml`{{open}}
-* The Service with `2` `examples/syncwaves/welcome-php-svc.yaml`{{open}}
-* Finally the Route with `3` `examples/syncwaves/welcome-php-route.yaml`{{open}}
+* The Namspace with `0` `openshift-gitops-examples/apps/welcome-php/overlays/syncwaves/welcome-php-ns.yaml`{{open}}
+* The Deployment with `1` `openshift-gitops-examples/apps/welcome-php/base/welcome-php-deployment.yaml`{{open}}
+* The Service with `2` `openshift-gitops-examples/apps/welcome-php/base/welcome-php-svc.yaml`{{open}}
+* Finally the Route with `3` `openshift-gitops-examples/apps/welcome-php/base/welcome-php-route.yaml`{{open}}
 
 Argo CD will apply the Namespace first (since it's the lowest value),
 and make sure it returns a "healthy" status before moving on.
@@ -69,7 +65,7 @@ You can login with the following
 
 Apply the Argo CD `Application` manifest to get this application deployed.
 
-`oc apply -f ~/resources/apps/welcome-syncwaves.yaml`{{execute}}
+`oc apply -f ~/resources/openshift-gitops-examples/components/applications/welcome-syncwaves.yaml`{{execute}}
 
 This should create the `welcome-syncwaves` application.
 
