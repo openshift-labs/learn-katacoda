@@ -70,16 +70,7 @@ Let's deploy this application!
 Before we deploy this application, make sure you've opened the Argo CD
 Web Console.
 
-To get to the Argo CD Web UI; click the [Argo CD Web Console](https://openshift-gitops-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com) tab.
-
-Once you have accepted the self signed certificate, you should be
-presented with the Argo CD login screen.
-
-![ArgoCD Login](../../assets/gitops/argocd-login.png)
-
-You can login with the following
-* **Username:** ``admin``{{copy}}
-* **Password:** `oc extract secret/openshift-gitops-cluster -n openshift-gitops --to=-`{{execute}}
+Like in the previous Step, open the Argo CD Web UI by clicking the [Argo CD Web Console](https://openshift-gitops-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com) tab.
 
 Apply the Argo CD `Application` manifest to get this Helm chart deployed.
 
