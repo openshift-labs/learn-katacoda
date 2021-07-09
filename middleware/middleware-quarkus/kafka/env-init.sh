@@ -1,12 +1,17 @@
+#!/bin/bash
 mkdir -p /root/projects/rhoar-getting-started/quarkus/kafka
 echo "-w \"\n\"" >> ~/.curlrc
 
-wget -O /tmp/jdk.tar.gz https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.10%2B9/OpenJDK11U-jdk_x64_linux_hotspot_11.0.10_9.tar.gz && \
-pushd /usr/local && \
-tar -xvzf /tmp/jdk.tar.gz && \
-rm -rf /tmp/jdk.tar.gz && \
-export JAVA_HOME="/usr/local/jdk-11.0.10+9" && \
-export PATH=$JAVA_HOME/bin:$PATH && \
-echo "export JAVA_HOME=$JAVA_HOME" >> ~/.bashrc && \
-echo "export PATH=$JAVA_HOME/bin:\$PATH" >> ~/.bashrc && \
-popd
+curl -sL -w '' https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/assets/middleware/install-openjdk.sh > /tmp/jdk.sh
+curl -sL -w '' https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/assets/middleware/install-github-cli.sh > /tmp/ghcli.sh
+curl -sL -w '' https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/assets/middleware/setup-xdg-open.sh > /tmp/setup-xdg-open.sh
+curl -sL -w '' https://raw.githubusercontent.com/openshift-labs/learn-katacoda/master/assets/middleware/run-gh-fork.sh > /root/projects/forkrepo.sh
+
+chmod a+x /tmp/jdk.sh
+chmod a+x /tmp/ghcli.sh
+chmod a+x /tmp/setup-xdg-open.sh
+chmod a+x /root/projects/forkrepo.sh
+
+/tmp/setup-xdg-open.sh
+/tmp/jdk.sh
+/tmp/ghcli.sh
