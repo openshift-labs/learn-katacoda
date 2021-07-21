@@ -13,6 +13,7 @@ curl https://raw.githubusercontent.com/jupyter-on-openshift/jupyter-notebooks/2.
 # set up Notebooks
 oc process -f ./notebook-imagestream.yaml | oc apply -f - -n myproject
 # Workaround permission issue in container image quay.io/hveeradh/prometheus-anomaly-detection-workshop
+sleep 10
 oc login -u admin -p admin --certificate-authority=lets-encrypt-x3-cross-signed.pem --insecure-skip-tls-verify=true > /dev/null 2>&1
 oc adm policy add-scc-to-user anyuid -z default -n myproject
 # Deploy Notebooks
