@@ -24,6 +24,6 @@ Make sure you are on the `myproject` project by selecting it from the projects l
 
 In this project you should be able to see a Jupyter deployment. Once the pod is ready, you can login to the Jupyter environment.
 
-![Web Console Project](../../assets/ai-machine-learning/prometheus-api-client/03-openshift-console-page.png)
+![Web Console Project](../../assets/ai-machine-learning/prometheus-timeseries-forecasting/03-openshift-console-page.png)
 
 Go back to Step 2 if you want to continue playing with the notebooks, else you can proceed to exit this scenario. 
