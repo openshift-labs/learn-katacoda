@@ -36,7 +36,7 @@ Now if you check the UI, your app should be running under `Workloads -> Pods`.
 
 Once the application is deployed, you can check the logs from the deployed app using - 
 
-``oc logs -f dc/s2i-example-log``{{execute}}
+``oc logs -f bc/s2i-example-log``{{execute}}
 
 After Thoth finishes processing your stack you should see something similar to this in your report - 
 ![thoth advise pass](https://raw.githubusercontent.com/saisankargochhayat/katacoda-scenarios/master/hello-world/assets/thamos_advise_pass.png)
