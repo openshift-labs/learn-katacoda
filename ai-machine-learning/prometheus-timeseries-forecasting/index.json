@@ -12,7 +12,7 @@
     },
     "environment": {
         "showdashboard": true,
-        "dashboard": "Dashboard",
+        "dashboards": [{"name": "Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
         "uilayout": "terminal-iframe"
     },
     "details": {
