@@ -45,9 +45,9 @@ __  ____  __  _____   ___  __ ____  ______
  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
  -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
 --\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-2021-04-15 16:38:11,352 INFO  [io.quarkus] (Quarkus Main Thread) primes 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.xx.x.Final) started in x.xxxs. Listening on: http://localhost:8080
-2021-04-15 16:38:11,360 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2021-04-15 16:38:11,360 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, micrometer, resteasy]
+INFO  [io.quarkus] (Quarkus Main Thread) primes 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.xx.x.Final) started in x.xxxs. Listening on: http://localhost:8080
+INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, micrometer, resteasy]
 
 --
 Tests paused, press [r] to resume, [h] for more options>
