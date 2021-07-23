@@ -18,7 +18,8 @@ If the command fails, wait a few moments and try again (it is installed in a bac
 
 Let's create the basic Quarkus _Hello World_ application and include the necessary monitoring extensions. Click this command to create the project:
 
-`mvn io.quarkus:quarkus-maven-plugin:2.0.0.Final:create \
+`cd /root/projects/quarkus && \
+mvn io.quarkus:quarkus-maven-plugin:2.0.0.Final:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=primes \
     -DclassName="org.acme.quickstart.GreetingResource" \
