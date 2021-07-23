@@ -12,7 +12,7 @@ First, you might be asking yourself, [what the heck is d_type?](https://linuxer.
 Now, pull an image and verify that the files are just mapped right into the filesystem:
 
 ``podman pull registry.access.redhat.com/ubi7/ubi
-cat $(find /var/lib/containers/storage | grep redhat-release | tail -n 1)``{{execute}}
+cat $(find /var/lib/containers/storage | grep /etc/redhat-release | tail -n 1)``{{execute}}
 
 With both Docker and Podman, as well as most other container engines on the planet, image layers are mapped one for one to some kind of storage, be it thinp snapshots with devicemapper, or directories with overlay2. 
 
