@@ -59,7 +59,7 @@ This step may take some time to do the Maven build and the OpenShift deployment.
 
 ``oc rollout status dc/spring-getting-started``{{execute}}
 
-Then either go to the openshift web console and click on the route or click [here](http://spring-getting-started-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com).
+Then either go to the OpenShift web console and click on the route or click [here](http://spring-getting-started-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com).
 
 Make sure that you can add, edit, and remove fruits, using the web application.
 
