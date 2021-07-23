@@ -49,9 +49,9 @@ __  ____  __  _____   ___  __ ____  ______
  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
  -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
 --\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-2021-07-01 16:26:44,962 INFO  [io.quarkus] (Quarkus Main Thread) fruit-taster 1.0.0-SNAPSHOT on JVM (powered by Quarkus xx.xx.xx.Final) started in xxxs. Listening on: http://0.0.0.0:8080
-2021-07-01 16:26:44,966 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2021-07-01 16:26:44,967 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, jdbc-postgresql, narayana-jta, resteasy, resteasy-jackson, smallrye-context-propagation, spring-data-jpa, spring-di, spring-web]
+INFO  [io.quarkus] (Quarkus Main Thread) fruit-taster 1.0.0-SNAPSHOT on JVM (powered by Quarkus xx.xx.xx.Final) started in xxxs. Listening on: http://0.0.0.0:8080
+INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, jdbc-postgresql, narayana-jta, resteasy, resteasy-jackson, smallrye-context-propagation, spring-data-jpa, spring-di, spring-web]
 
 --
 Tests paused, press [r] to resume, [h] for more options>
