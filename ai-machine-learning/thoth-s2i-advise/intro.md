@@ -3,7 +3,7 @@ Thus getting intelligent recommendation on the software stack during the build p
 
 ## Why to use Thoth s2i build process?
 
-For those who are new to this [s2i](https://docs.openshift.com/container-platform/3.11/using_images/s2i_images/python.html) refers to the Source to image process which
+For those who are new to this [Source-to-Image(s2i)](https://docs.openshift.com/container-platform/latest/openshift_images/using_images/using-s21-images.html) refers to the Source to image process which
 bundles your source code to a image that can be run on OpenShift. 
 
 So when you use, Thoth s2i build process instead of the normal s2i build process, 
@@ -19,5 +19,5 @@ prefix s2i.
 
 We are going to discover more about it in the next step how you can customize the process.
 
-In this demo, we are going to use an Openshift 4.2 playground.<br>
+In this demo, we are going to use an Openshift 4.7 playground.<br>
 We are operating our services on the MassOpen.cloud [#operatefirst](https://massopen.cloud/connected-initiatives/operate-first)
