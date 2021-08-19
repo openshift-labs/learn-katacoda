@@ -40,7 +40,7 @@
     },
   "backend": {
     "autoUpgrade": true,
-    "imageid": "openshift-4-5",
+    "imageid": "openshift-4-7",
     "port": 8443
   }
 }
