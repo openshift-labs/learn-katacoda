@@ -1,9 +1,5 @@
 #!/bin/bash
+CAMELK_VERSION=1.4.0
 
-wget https://github.com/apache/camel-k/releases/download/v1.1.1/camel-k-client-1.1.1-linux-64bit.tar.gz
-tar -xvf camel-k-client-1.1.1-linux-64bit.tar.gz
-mv kamel /usr/bin
-
-
-
-
+wget https://mirror.openshift.com/pub/openshift-v4/clients/camel-k/$CAMELK_VERSION/camel-k-client-$CAMELK_VERSION-linux-64bit.tar.gz \
+    -O - | tar -xz -C /usr/bin/ ./kamel
