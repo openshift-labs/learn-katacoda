@@ -1,0 +1,46 @@
+{
+  "pathwayTitle": "Service Mesh with Istio",
+  "title": "Fault Injection",
+  "icon": "fa-openshift",
+  "description": "Apply some chaos engineering by throwing in some HTTP errors or network delays",
+  "difficulty": "Advanced",
+  "time": "1 hour",
+  "files": [],
+  "environment": {
+      "showdashboard": true,
+      "dashboard": "Web Console",
+      "uilayout": "editor-terminal",
+      "uieditorpath": "/root/projects/istio-tutorial",
+      "uisettings": "java",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
+  },
+  "backend": {
+    "trainingid": "openshift-3-11", 
+    "autoUpgrade": false,
+    "imageid": "openshift-3-11", "port": 8443
+  },
+  "details": {
+    "assets": {
+      "host01": [
+          { "file": "recommendation-v2.diff", "target": "/root/" },
+          { "file": "install-microservices.sh", "target": "/root/", "chmod": "+x"}
+      ]
+    },
+    "finish": {
+        "text": "finish.md"
+    },
+    "intro": {
+      "text": "intro.md",
+      "credits": "http://developers.redhat.com",
+      "code": "set-env.sh",
+      "courseData": "run-init.sh"
+    },
+    "steps": [
+        { "title": "Install microservices", "text": "0install-microservices.md" },
+        { "title": "HTTP Error 503", "text": "1http-error-503.md" },
+        { "title": "Delay", "text": "2delay.md" },
+        { "title": "Retry", "text": "3retry.md" },
+        { "title": "Timeout", "text": "4timeout.md" }
+    ]
+  }
+}

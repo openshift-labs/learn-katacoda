@@ -8,7 +8,7 @@ To get runc to start a new container we need two main things:
 
 2. A config.json file
 
-First, lets create (or steal) a RootFS, which is really nothing more than a Linux distribution extracted into a directory. Podman makes this rediculously easy to to do. The following command will fire up a container, get the ID, mount it, then rsync the filesystem contents out of it into a directory:
+First, lets create (or steal) a RootFS, which is really nothing more than a Linux distribution extracted into a directory. Podman makes this ridiculously easy to to do. The following command will fire up a container, get the ID, mount it, then rsync the filesystem contents out of it into a directory:
 
 ``rsync -av $(podman mount $(podman create fedora bash))/ /root/fedora/rootfs/``{{execute}}
 
@@ -18,7 +18,8 @@ We have ourselves a RootFS directory to work with, check it out:
 
 Now that we have a RootFS, lets create a spec file and modify it:
 
-``runc spec -b /root/fedora/
+``rm -rf /root/fedora/config.json
+runc spec -b /root/fedora/
 sed -i 's/"terminal": true/"terminal": false/' /root/fedora/config.json``{{execute}}
 
 Now, we have ourselves a full "bundle" which is a collequial way of referring to the RootFS and Config together in one directory:

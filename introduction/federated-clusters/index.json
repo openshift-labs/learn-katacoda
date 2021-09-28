@@ -6,6 +6,7 @@
     "difficulty": "intermediate",
     "time": "20-30 minutes",
     "backend": {
+        "autoUpgrade": false,
         "imageid": "openshift-3-11-cluster",
         "port": 8443
     },

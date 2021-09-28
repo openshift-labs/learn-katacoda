@@ -1,24 +1,30 @@
 {
-  "title": "CI/CD & Application Delivery",
-  "icon": "fa-openshift",
-  "courses": [
-    {
-      "external_link": "https://learn.openshift.com/introduction/gitops-introduction/",
-      "pathway_id": "introduction",
-      "course_id": "gitops-introduction",
-      "title": "Introduction to GitOps with OpenShift"
-    },
-    {
-      "external_link": "https://learn.openshift.com/introduction/gitops-multicluster/",
-      "pathway_id": "introduction",
-      "course_id": "gitops-multicluster",
-      "title": "Multi-cluster GitOps with OpenShift"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/pipelines/",
-      "pathway_id": "middleware",
-      "course_id": "pipelines",
-      "title": "Using OpenShift Pipelines"
-    }
-  ]
+    "title": "GitOps and Pipelines with OpenShift",
+    "icon": "fa-openshift",
+    "courses": [
+      {
+       "external_link": "https://learn.openshift.com/middleware/pipelines/",
+       "pathway_id": "middleware",
+       "course_id": "pipelines",
+       "title": "Using OpenShift Pipelines"
+      },
+      {
+        "external_link": "https://learn.openshift.com/gitops/getting-started/",
+        "pathway_id": "gitops",
+        "course_id": "getting-started",
+        "title": "Getting Started with ArgoCD and OpenShift GitOps Operator"
+      },
+      {
+        "external_link": "https://learn.openshift.com/gitops/kustomize/",
+        "pathway_id": "gitops",
+        "course_id": "kustomize",
+        "title": "Working with Kustomize"
+      },
+      {
+        "external_link": "https://learn.openshift.com/gitops/syncwaves-and-hooks/",
+        "pathway_id": "gitops",
+        "course_id": "syncwaves-hooks",
+        "title": "Syncwaves and Hooks"
+      }
+    ]
 }

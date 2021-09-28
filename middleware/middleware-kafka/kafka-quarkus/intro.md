@@ -9,23 +9,23 @@ The Quarkus extension uses [SmallRye Reactive Messaging](https://smallrye.io/sma
 
 ## Channels and Streams
 
-When dealing with event-driven or data streaming application, there are a few concepts and vocabulary to introduce.
+When dealing with an event-driven or data streaming application, there are a few concepts and terms we need to understand.
 
-In the application, `Messages` transit on a _channel_. A _channel_ is a virtual destination identified by a name. SmallRye Reactive Messaging connects the component to channel they read and to channel they populate. The resulting structure is a stream: Messages flow between components through channels.
+In the application, `messages` flow on a _channel_. A _channel_ is a virtual destination identified by a name. SmallRye connects the component to a channel they read and to a channel they populate. The resulting structure is a stream: Messages flow between components through channels.
 
 ## Connectors
 
-The application then interacts with the event broker using _connectors_. A _connector_ is a piece of code that connects to a broker and:
+An application interacts with an event broker, which transmits messages using _connectors_. A _connector_ is a piece of code that connects to a broker to:
 
-1. subscribe / poll / receive messages from the broker and propagate them to the application
-2. send / write / dispatch messages provided by the application to the broker
+1. Receive messages from the event broker and propagate them to the application
+2. Send messages provided by the application to the broker
 
-To achieve this, connectors are configured to map incoming messages to a specific *channel* (consumed by the application) and to collect outgoing messages sent to a specific channel by the application.
+To achieve this, connectors are configured to map incoming messages to a specific *channel* (consumed by the application), and to collect outgoing messages sent to a specific channel by the application.
 
 Each connector has a name. This name is referenced by the application to indicate that a specific channel is managed by this connector.
 
 ## Apache Kafka Connector
 
-The Kafka connector adds support for Kafka to Reactive Messaging. With it you can receive Kafka Records as well as write `message` into Kafka.
+A Kafka connector adds support for Kafka to SmallRye. With it you can receive Kafka Records as well as write `message` into Kafka.
 
 The Kafka Connector is based on the [Vert.x Kafka Client](https://vertx.io/docs/vertx-kafka-client/java/).

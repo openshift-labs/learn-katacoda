@@ -15,11 +15,9 @@ In this tutorial, we're not focusing on the OpenShift CLI, but we want you to be
 ## Exercise: Logging in with the CLI
 Let's get started by logging in. Your task is to enter the following into the console:
 
-`oc login`{{execute}}
+`oc login -u developer`{{execute}}
 
-When prompted, enter the following username and password:
-
-**Username:** `developer`{{execute}}
+When prompted, enter the following password:
 
 **Password:** `developer`{{execute}}
 

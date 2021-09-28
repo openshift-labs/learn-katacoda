@@ -6,9 +6,9 @@ In Step 1 you learned how to get started with our project. In this step, we will
 
 Since our applications (like most) will need to access a database to read retrieve and store fruits entries, we need to add Java Persistence API to our project. 
 
-The default implementation in Spring Boot is Hibernate which has been tested as part of the OpenShift Application Runtimes.
+The default implementation in Spring Boot is Hibernate which has been tested as part of the Red Hat Runtimes.
 
->**NOTE:** Hibernate is another Open Source project that is maintained by Red Hat and it will soon be productized (as in fully supported) in OpenShift Application Runtimes. 
+>**NOTE:** Hibernate is another Open Source project that is maintained by Red Hat and it will soon be productized (as in fully supported) in Red Hat Runtimes. 
 
 To add Hibernate to our project all we have to do is to add the following line in ``pom.xml``{{open}}
 
@@ -121,68 +121,86 @@ Then, copy the below content into the file (or use the `Copy to editor` button):
 <pre class="file" data-filename="src/test/java/com/example/ApplicationTest.java" data-target="replace">
 package com.example;
 
-import java.util.Collections;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.service.Fruit;
 import com.example.service.FruitRepository;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Transactional
 public class ApplicationTest {
 
     @Autowired
     private FruitRepository fruitRepository;
 
-    @Before
-    public void beforeTest() {
-    }
-
     @Test
     public void testGetAll() {
-      assertTrue(fruitRepository.findAll().spliterator().getExactSizeIfKnown()==3);
+        assertThat(this.fruitRepository.findAll())
+          .isNotNull()
+          .hasSize(3);
     }
 
     @Test
     public void getOne() {
-      assertTrue(fruitRepository.findById(1).orElse(null)!=null);
+        assertThat(this.fruitRepository.findById(1))
+          .isNotNull()
+          .isPresent();
     }
 
     @Test
     public void updateAFruit() {
-        Fruit apple = fruitRepository.findById(2).orElse(null);
-        assertTrue(apple!=null);
-        assertTrue(apple.getName().equals("Apple"));
+        Optional&lt;Fruit&gt; apple = this.fruitRepository.findById(2);
 
-        apple.setName("Green Apple");
-        fruitRepository.save(apple);
+        assertThat(apple)
+          .isNotNull()
+          .isPresent()
+          .get()
+          .extracting(Fruit::getName)
+          .isEqualTo("Apple");
 
-        assertTrue(fruitRepository.findById(2).orElse(null).getName().equals("Green Apple"));
+        Fruit theApple = apple.get();
+        theApple.setName("Green Apple");
+        this.fruitRepository.save(theApple);
+
+        assertThat(this.fruitRepository.findById(2))
+          .isNotNull()
+          .isPresent()
+          .get()
+          .extracting(Fruit::getName)
+          .isEqualTo("Green Apple");
     }
 
     @Test
     public void createAndDeleteAFruit() {
-        int orangeId = fruitRepository.save(new Fruit("Orange")).getId();
-        Fruit orange = fruitRepository.findById(orangeId).orElse(null);
-        assertTrue(orange!=null);
-        fruitRepository.delete(orange);
-        assertTrue(fruitRepository.findById(orangeId).orElse(null)==null);
+        int orangeId = this.fruitRepository.save(new Fruit("Orange")).getId();
+        Optional&lt;Fruit&gt; orange = this.fruitRepository.findById(orangeId);
+        assertThat(orange)
+          .isNotNull()
+          .isPresent();
+
+        this.fruitRepository.delete(orange.get());
+
+        assertThat(this.fruitRepository.findById(orangeId))
+          .isNotNull()
+          .isNotPresent();
     }
 
     @Test
     public void getWrongId() {
-      assertTrue(fruitRepository.findById(9999).orElse(null)==null);
+        assertThat(this.fruitRepository.findById(9999))
+          .isNotNull()
+          .isNotPresent();
     }
 }
+
 </pre>
 
 Take some time to review the tests. The `testGetAll` test returns all fruits in the repository, which should be three because of what the content in `import.sql`. The `getOne` test will retrieve the fruit with id 1 (e.g., the Cherry) and then check that it's not null. The `getWrongId` check that if we try to retrieve a fruit id that doesn't exist and check that fruitRepository return null.

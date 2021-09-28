@@ -6,7 +6,7 @@
   "details": {
     "steps": [
       {
-        "title": "Deploy the HTTP Bridge",
+        "title": "Deploying the HTTP Bridge",
         "text": "step1.md"
       },
       {
@@ -55,6 +55,7 @@
     "uieditorpath": "/root/projects/http-bridge"
   },
   "backend": {
+    "autoUpgrade": true,
     "imageid": "openshift-4-5"
   }
 }

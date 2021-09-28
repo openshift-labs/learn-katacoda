@@ -8,17 +8,13 @@ Our application is now up and running on OpenShift and accessible to all users. 
 
 There are two types of probes that we can create; a `liveness probe` and a `readiness probe`. Liveness probes are used to check if the container is still running. Readiness probes are used to determine if containers are ready to service requests. We're going to be creating a health check, which is a liveness probe that we'll use to keep track of our application health.
 
-Our health check will continually poll the application to ensure that the application is up and healthy. If the check fails, OpenShift will be alerted and will restart the container and spin up a brand new instance. You can read more about the specifics [here](https://docs.openshift.org/latest/dev_guide/application_health.html).
+Our health check will continually poll the application to ensure that the application is up and healthy. If the check fails, OpenShift will be alerted and will restart the container and spin up a brand new instance. You can read more about the specifics [here](https://docs.openshift.com/container-platform/4.7/applications/application-health.html).
 
 Since a lack of health checks can cause container issues if they crash, OpenShift will alert you with a warning message if your project is lacking one. 
 
-Click on Applications => Deployment and then select your deployment. You should see something like this: 
+Switch to the 'developer' perspective and from the _Topology_ tab of your project _dev_, select your deployment. You should see something like this:
 
-![Application Deployment](/openshift/assets/middleware/rhoar-monitoring/applicationDeployment.png)
-
-Click on `Configuration` and we can see the warning message here:
-
-![Missing Health Checks](/openshift/assets/middleware/rhoar-monitoring/missingHealthChecks.png)
+![Missing Health Checks](/openshift/assets/middleware/rhoar-monitoring/healthChecks.png)
 
 
 Since we have a Spring Boot application we have an easy option for implementation of health checks. We're able to pull in the `Spring Actuator` library.
@@ -34,13 +30,13 @@ Spring Actuator is a project which exposes health data under the API path `/actu
     &lt;/dependency&gt;
 </pre>
 
-Notice how the error message from before is no longer present in Applications => Deployment => Your App => Configuration. This is because of the dependency that we just added to ourt `pom.xml`. Adding this dependency triggers fabric8 to create Readiness/Liveness probes for OpenShift. These probes will periodically query the new health endpoints to make sure the app is still up.
+Notice how the previous warning message from before regarding missing health checks is no longer present. This is because of the dependency that we just added to ourt `pom.xml`. Adding this dependency triggers jkube to create Readiness/Liveness probes for OpenShift. These probes will periodically query the new health endpoints to make sure the app is still up.
 
 Run the following command again to re-deploy the application to OpenShift:
 
-``mvn package fabric8:undeploy fabric8:deploy -Popenshift``{{execute}}
+``mvn package oc:deploy -Popenshift -DskipTests``{{execute}}
 
-Now that we've added Spring Actuator, we're able to hit their provided `/actuator/health` endpoint. We can navigate to it by either adding `/actuator/health` to our landing page, or by clicking [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/actuator/health) 
+Now that we've added Spring Actuator, we're able to hit their provided `/actuator/health` endpoint. We can navigate to it by either adding `/actuator/health` to our landing page, or by clicking [here](http://spring-monitoring-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/actuator/health) 
 
 We should now see the following response, confirming that our application is up and running properly:
 
@@ -62,23 +58,42 @@ management.endpoints.web.exposure.include=*
 
 If we redeploy the application again with: 
 
-``mvn package fabric8:undeploy fabric8:deploy -Popenshift``{{execute}} 
+``mvn package oc:deploy -Popenshift -DskipTests``{{execute}}
 
-Now we can hit the `/actuator/metrics` endpoint [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/actuator/metrics) and get a list of metrics types accessible to us:
+Now we can hit the `/actuator/metrics` endpoint [here](http://spring-monitoring-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/actuator/metrics) and get a list of metrics types accessible to us:
 
 ```json
 {"names":["jvm.memory.max","jvm.threads.states","process.files.max","jvm.gc.memory.promoted","system.load.average.1m","jvm.memory.used","jvm.gc.max.data.size","jvm.memory.committed","system.cpu.count","logback.events","http.server.requests","tomcat.global.sent","jvm.buffer.memory.used","tomcat.sessions.created","jvm.threads.daemon","system.cpu.usage","jvm.gc.memory.allocated","tomcat.global.request.max","tomcat.global.request","tomcat.sessions.expired","jvm.threads.live","jvm.threads.peak","tomcat.global.received","process.uptime","tomcat.sessions.rejected","process.cpu.usage","tomcat.threads.config.max","jvm.classes.loaded","jvm.classes.unloaded","tomcat.global.error","tomcat.sessions.active.current","tomcat.sessions.alive.max","jvm.gc.live.data.size","tomcat.threads.current","process.files.open","jvm.buffer.count","jvm.gc.pause","jvm.buffer.total.capacity","tomcat.sessions.active.max","tomcat.threads.busy","process.start.time"]}
 ```
 
-We can then navigate to `/acutuator/metrics/[metric-name]`. For example, click this link: [JVM Memory Usage](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/actuator/metrics/jvm.memory.max).
+We can then navigate to `/acutuator/metrics/[metric-name]`. For example, click this link: [JVM Memory Usage](http://spring-monitoring-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/actuator/metrics/jvm.memory.max).
 This will display different types of metric data about the JVM Metrics:
 
 ```json
 {"name":"jvm.memory.max","description":"The maximum amount of memory in bytes that can be used for memory management","baseUnit":"bytes","measurements":[{"statistic":"VALUE","value":2.543321088E9}],"availableTags":[{"tag":"area","values":["heap","nonheap"]},{"tag":"id","values":["Compressed Class Space","PS Survivor Space","PS Old Gen","Metaspace","PS Eden Space","Code Cache"]}]}
 ```
 
-In addition to the different monitoring endpoints we also have informational endpoints like the `/actuator/beans` endpoint [here](http://rhoar-training-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/actuator/beans), which will show all of the configured beans in the application. Spring Actuator provides multiple informational endpoints on top of the monitoring endpoints that can prove useful for information gathering about your deployed Spring application and can be helpful while debugging your applications in OpenShift.
+In addition to the different monitoring endpoints we also have informational endpoints like the `/actuator/beans` endpoint [here](http://spring-monitoring-dev.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/actuator/beans), which will show all of the configured beans in the application. Spring Actuator provides multiple informational endpoints on top of the monitoring endpoints that can prove useful for information gathering about your deployed Spring application and can be helpful while debugging your applications in OpenShift.
+
+# Open the solution in an IDE in the Cloud!
+Want to continue exploring this solution on your own in the cloud? You can use the free [Red Hat CodeReady Workspaces](https://developers.redhat.com/products/codeready-workspaces/overview) IDE running on the free [Red Hat Developer Sandbox](http://red.ht/dev-sandbox). [Click here](https://workspaces.openshift.com) to login or to register if you are a new user. This free service expires after 30 days, but you can always enable a new free 30-day subscription.
+
+Once logged in, [click here](https://workspaces.openshift.com/f?url=https://raw.githubusercontent.com/openshift-katacoda/rhoar-getting-started/solution/spring/spring-monitoring/devfile.yaml) to open the solution for this project in the cloud IDE. While loading, if it asks you to update or install any plugins, you can say no.
+
+# Fork the source code to your own GitHub!
+Want to experiment more with the solution code you just worked with? If so, you can fork the repository containing the solution to your own GitHub repository by clicking on the following command to execute it:
+
+`/root/projects/forkrepo.sh`{{execute T1}}
+- Make sure to follow the prompts. An error saying `Failed opening a web browser at https://github.com/login/device exit status 127` is expected.
+- [Click here](https://github.com/login/device) to open a new browser tab to GitHub and paste in the code you were presented with and you copied.
+- Once done with the GitHub authorization in the browser, close the browser tab and return to the console and press `Enter` to complete the authentication process.
+- If asked to clone the fork, press `n` and then `Enter`.
+- If asked to confirm logout, press `y` and the `Enter`.
+
+   > **NOTE:** This process uses the [GitHub CLI](https://cli.github.com) to authenticate with GitHub. The learn.openshift.com site is not requesting nor will have access to your GitHub credentials.
+
+After completing these steps the `rhoar-getting-started` repo will be forked in your own GitHub account. On the `solution` branch in the repo, the `spring-monitoring` project inside the `spring` folder contains the completed solution for this scenario.
 
 ## Congratulations
 
-You have now included a health check in your Spring Boot application that's living in the OpenShift Container Platform. In the next step, we're going to add some base logging that will help us when debugging our application.
+You have now included a health check in your Spring Boot application that's living in the OpenShift Container Platform.

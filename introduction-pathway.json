@@ -43,21 +43,6 @@
       "title": "Transferring Files in and out of Containers"
     },
     {
-      "external_link": "https://learn.openshift.com/introduction/federated-clusters/",
-      "course_id": "federated-clusters",
-      "title": "Introduction to Federated Clusters with Kubefed"
-    },
-    {
-      "external_link": "https://learn.openshift.com/introduction/gitops-introduction/",
-      "course_id": "gitops-introduction",
-      "title": "Introduction to GitOps with OpenShift"
-    },
-    {
-      "external_link": "https://learn.openshift.com/introduction/gitops-multicluster/",
-      "course_id": "gitops-multicluster",
-      "title": "Multi-cluster GitOps with OpenShift"
-    },
-    {
       "external_link": "https://learn.openshift.com/introduction/deploy-prometheus-grafana/",
       "title": "How to set up Prometheus and Grafana on OpenShift",
       "course_id": "deploy-prometheus-grafana"

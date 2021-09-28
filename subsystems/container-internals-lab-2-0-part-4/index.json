@@ -6,9 +6,10 @@
     "difficulty": "Advanced",
     "time": "20-30 minutes",
     "backend": {
+      "autoUpgrade": false,
       "trainingid": "openshift-3-11",
-      "imageid": "openshift-3-11",
-        "port": 8443
+      "imageid": "openshift-middleware-3-7",
+      "port": 8443
     },
     "environment": {
         "showdashboard": true,

@@ -1,4 +1,4 @@
-[ocp-serving-components]: https://docs.openshift.com/container-platform/4.4/serverless/knative_serving/serverless-knative-serving.html#serverless-serving-resources_serverless-knative-serving
+[ocp-serving-components]: https://docs.openshift.com/container-platform/4.7/serverless/architecture/serverless-serving-architecture.html
 
 At the end of this chapter you will be able to:
 - Deploy your very first application as an OpenShift Serverless `Service`.

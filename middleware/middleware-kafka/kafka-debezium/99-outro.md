@@ -1,6 +1,8 @@
-In this scenario you learned about the change data capture concept and how to run Debezium to establish a CDC data flow.
+In this scenario you learned about the concept of change data capture (CDC) concept and how to run Debezium to establish a CDC data flow.
 
-You learned about the components that are required to deploy a solution based on Debezium, how to deploy an Apache Kafka broker, how to deploy a Kafka Connect instance that includes Debezium, and how to create a link between Kafka Connect and source database.
+You learned about the components that are required to deploy a solution based on Debezium.
+You deployed an Apache Kafka broker and a Kafka Connect instance that included Debezium.
+You then created a link between Kafka Connect and a source database.
 
 But this is just the beginning.
 Continue to discover more about Debezium by exploring these additional resources:

@@ -1,3 +1,19 @@
+# Inspect Java runtime
+
+An appropriate Java runtime has been installed for you. Ensure you can use it by running this command:
+
+> If the command fails, wait a few moments and try again (it is installed in a background process and make take a few moments depending on system load).
+
+`$JAVA_HOME/bin/java --version`{{execute}}
+
+The command should report the version in use, for example (the versions and dates may be slightly different than the below example):
+
+```console
+openjdk 11.0.10 2021-01-19
+OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.10+9)
+OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.10+9, mixed mode)
+```
+
 ## Import the code
 
 Let's refresh the code we'll be using. Run the following command to clone the sample project:
@@ -12,13 +28,16 @@ We've also included a frontend HTML file at `src/main/resources/META-INF/resourc
 
 # The Application You Will Build
 
-The application is a simple CRUD app with a Front end that lists Coffee and gives options to remove and add more Coffee. 
+The application is a simple CRUD app with a Front end that lists Coffee and gives options to remove and add more Coffee.
 
-We also use a CoffeeResource that helps us define those methods with JAX-RS. 
+We also use a CoffeeResource that helps us define those methods with JAX-RS.
 
-Further more we use a PostgreSQL database, where we create the databses, read from and write to it. 
+Further more we use a PostgreSQL database, where we create the databses, read from and write to it.
 
-Lets get started. We have already created a project for you, and lets continue adding functionality to this bare bones project. 
+Lets get started. We have already created a project for you, and lets continue adding functionality to this bare bones project.
+
+> In this guide, we will use the Mutiny API of the Reactive PostgreSQL Client. If you’re not familiar with Mutiny reactive types, read the [Getting Started with Reactive guide](https://quarkus.io/guides/getting-started-reactive#mutiny) if you want to learn more!
+
 
 ## Add Extension
 
@@ -38,39 +57,6 @@ This will add the necessary entries in your `pom.xml`{{open}} to bring in the Re
 </dependency>
 ```
 
-## Starting the database
-To create a database which you can then connect to, run the command:
+There are a few other extensions we'll use that are already there, including `resteasy-jackson` (for encoding Java objects as JSON objects).
 
-``oc new-app postgresql-ephemeral --name database --param DATABASE_SERVICE_NAME=database --param POSTGRESQL_DATABASE=sampledb --param POSTGRESQL_USER=username --param POSTGRESQL_PASSWORD=password``{{execute}}
-
-This will start up an instance of a PostgreSQL database.
-
-Although a database would normally be paired with a persistent volume, we only want to demonstrate how to access the database in this course. The database instance we create here, will therefore only store the database in the filesystem local to the container. This means that if the database were restarted, any changes would be lost. When you deploy a database to be used with your own applications, you would want to look at using persistent volumes.
-
-To monitor progress as the database is deployed and made ready, run the command:
-
-``oc rollout status dc/database``{{execute}}
-
-This command will exit once the database is ready to be used.
-
-When using a database with your front end web application, you will need to configure the web application to know about the database. We are going to skip that in this course.
-
-## Compile in dev mode
-
-With our extension installed, let's begin do a quick compile and check that everything is in place. Click on the following command to start the app in Live Coding mode:
-
-```mvn compile quarkus:dev```{{execute}}
-
-You should see:
-
-```console
-Quarkus x.xx.x started in 0.997s. Listening on: http://[::]:8080
-Installed features: [cdi, reactive-pg-client, resteasy, resteasy-jsonb, vertx]
-```
-> The first time you build the app, new dependencies may be downloaded via maven. This should only happen once, after that things will go even faster.
-
-Note the amazingly fast startup time! The app is now running "locally" (within the Linux container in which this exercise runs).
-
-Test that the app is running using the browser to access the `/` endpoint at [this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
-
-Leave the app running, and let's start adding to it. Everytime we add something to our code, quarkus will hot reload.
+With the app initialized, lets start coding!

@@ -4,7 +4,7 @@ to work in.
 To login to the OpenShift cluster used for this course from the _Terminal_,
 run:
 
-``oc login -u developer -p developer``{{execute HOST1}}
+``oc login -u developer -p developer``{{execute}}
 
 This will log you in using the credentials:
 
@@ -23,7 +23,7 @@ You don't have any projects. You can try to create a new project, by running
 
 To create a new project called ``myproject`` run the command:
 
-``oc new-project myproject``{{execute HOST1}}
+``oc new-project myproject``{{execute}}
 
 You should see output similar to:
 

@@ -65,10 +65,53 @@ Check that it works as expected by loading the new endpoint by [clicking here](h
 Note we are exercising our new bean using the `/hello/greeting` endpoint, and you should see
 
 ```console
-hello quarkus from master
+hello quarkus from 4090f59d1a69
 ```
 
-> In this case, `master` is the hostname of the local host we are running on. It will be different later on when deployed to OpenShift!
+> In this case, `4090f59d1a69` is the hostname of the local host we are running on. It will be different for you!
+
+## Add another test
+
+Let's add another test for Quarkus to run continously for our new endpoint. Open a new file by clicking: `getting-started/src/test/java/org/acme/quickstart/GreetingServiceTest.java`{{open}}.
+
+Next, click **Copy to Editor** to add the following code to this file:
+
+<pre class="file" data-filename="./getting-started/src/test/java/org/acme/quickstart/GreetingServiceTest.java" data-target="replace">
+package org.acme.quickstart;
+
+import io.quarkus.test.junit.QuarkusTest;
+import org.junit.jupiter.api.Test;
+
+import java.util.UUID;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.startsWith;
+
+@QuarkusTest
+public class GreetingServiceTest {
+
+    @Test
+    public void testGreetingEndpoint() {
+        String uuid = UUID.randomUUID().toString();
+        given()
+          .pathParam("name", uuid)
+          .when().get("/hello/greeting/{name}")
+          .then()
+            .statusCode(200)
+            .body(startsWith("hello " + uuid));
+    }
+
+}
+</pre>
+
+This test generates a random string (a UUID), and uses that to call into our new service, looking for the same random name in the returned value.
+
+You should now see that both tests pass:
+
+```
+All 2 tests are passing (0 skipped), 1 tests were run in 429ms. Tests completed at 12:35:33 due to changes to GreetingServiceTest.class.
+```
+As you add more tests, Quarkus will simply continuously run them to produce the result in realtime.
 
 ## Congratulations!
 

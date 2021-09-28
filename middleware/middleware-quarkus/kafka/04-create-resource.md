@@ -39,9 +39,7 @@ public class NameResource {
 This method:
 
   - `@Inject`s the `my-data-stream` stream using the `@Channel` qualifier
-
   - Indicates that the content is sent (`@Produces`) using *Server Sent Events*
-
   - Returns the stream (Reactive Stream)
 
 The `process()` method is called for every Kafka record from the `names` topic (configured in the application

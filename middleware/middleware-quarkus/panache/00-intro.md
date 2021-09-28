@@ -1,4 +1,4 @@
-In this scenario, you will get an introduction to **Panache**, one of the features of [Quarkus](https://quarkus.io).
+In this scenario, you will get an introduction to **Panache**, one of the many features of [Quarkus](https://quarkus.io).
 
 ## What is Panache?
 

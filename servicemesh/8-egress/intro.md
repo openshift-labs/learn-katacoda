@@ -1,1 +1,0 @@
-Egress routes allow you to apply rules to how internal services interact with external APIs/services.

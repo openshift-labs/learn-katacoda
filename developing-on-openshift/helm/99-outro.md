@@ -9,10 +9,9 @@ To learn more about Helm, the resources below can provide information on everyth
 
 Helm Documentation: https://helm.sh
 
-Getting Started with Helm 3 on OpenShift: https://docs.openshift.com/container-platform/4.4/cli_reference/helm_cli/getting-started-with-helm-on-openshift-container-platform.html
+Getting Started with Helm 3 on OpenShift: https://docs.openshift.com/container-platform/latest/cli_reference/helm_cli/getting-started-with-helm-on-openshift-container-platform.html
 
+Read more in the Helm Topic page:
+https://www.openshift.com/learn/topics/helm/
 
-Read more in the Developers blog:
-https://developers.redhat.com/blog/2020/04/30/application-deployment-improvements-in-openshift-4-4/
-
-Try it out on your workstation! Download [CodeReady Containers](https://developers.redhat.com/products/codeready-containers/overview) to have a local instance of OpenShift Container Platform 4 where to run Helm Charts: https://www.openshift.com/try
+Try it out on your workstation! Download [CodeReady Containers](https://developers.redhat.com/products/codeready-containers/overview) to have a local instance of OpenShift Container Platform: https://www.openshift.com/try

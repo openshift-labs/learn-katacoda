@@ -44,7 +44,7 @@ metadata:
   name: openshift-pipelines-operator
   namespace: openshift-operators 
 spec:
-  channel: ocp-4.5
+  channel: stable
   name: openshift-pipelines-operator-rh
   source: redhat-operators
   sourceNamespace: openshift-marketplace

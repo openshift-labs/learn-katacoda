@@ -10,7 +10,7 @@ A suitable Java runtime is being installed and should take less than a minute. O
 
 The easiest way to create a new Quarkus project is to click to run the following command:
 
-`mvn io.quarkus:quarkus-maven-plugin:1.12.2.Final:create \
+`mvn io.quarkus:quarkus-maven-plugin:2.0.0.Final:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=getting-started \
     -DclassName="org.acme.quickstart.GreetingResource" \
@@ -90,7 +90,7 @@ First, change to the directory in which the project was created:
 
 Now we are ready to run our application. Click here to run:
 
-```mvn compile quarkus:dev -Dquarkus.http.host=0.0.0.0```{{execute}}
+```mvn quarkus:dev -Dquarkus.http.host=0.0.0.0```{{execute}}
 
 You should see:
 
@@ -102,6 +102,8 @@ __  ____  __  _____   ___  __ ____  ______
 INFO  [io.quarkus] (Quarkus Main Thread) getting-started 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.x.x.Final) started in 1.194s. Listening on: http://0.0.0.0:8080
 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, resteasy]
+--
+Tests paused, press [r] to resume, [h] for more options>
 ```
 
 Note the amazingly fast startup time! Once started, you can request the provided endpoint in the browser [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/hello).
@@ -134,8 +136,28 @@ For example, click on the `Config Editor` link within the `Configuration` tile t
 
 > **NOTE** The Dev UI is only enabled when in _developer_ mode. It is not deployed when in production mode, as it's designed for developers to use during development. For more detail on what you can do, check out the [Dev UI Guide](https://quarkus.io/guides/dev-ui).
 
+# Continuous Testing
+
+When in developer mode (via `mvn quarkus:dev`), Quarkus can automatically and continuously run your unit tests. You may have noticed in the console `Tests paused, press [r] to resume, [h] for more options>`. This is an indication that you can enter continuous test mode. Type `r` to turn continuous testing mode on in the console.
+
+Earlier, you changed `Hello` to `Hola` which broke the default unit test, and you can now see this in the console:
+
+```
+Response body doesn't match expectation.
+Expected: is "Hello RESTEasy"
+  Actual: Hola RESTEasy
+```
+
+Let's fix the test. Change `Hola RESTEasy` back to `Hello RESTEasy` in the editor. As soon as you fix it, Quarkus automatically re-runs the test and you should now have passing tests:
+
+```
+All 1 tests are passing (0 skipped), 1 tests were run in 389ms. Tests completed at 12:25:40 due to changes to GreetingResource.class.
+```
+
+Quarkus analyses your unit tests and only re-runs the tests that are affected by code changes. It's one of many developer productivity features of Quarkus, providing immediate feedback to developers as they type. We'll leave the tests running continously just to ensure we don't mess up later.
+
 # Congratulations!
 
-You've seen how to build a basic app, package it as an executable JAR and start it up very quickly. We'll leave the app running and rely on hot reload for the next steps.
+You've seen how to build a basic app, package it as an executable JAR and start it up very quickly. You also saw how Quarkus can run tests continuously to turbocharge your development tasks and facilitate test-driven development. We'll leave the app running and rely on hot reload for the next steps.
 
 In the next step we'll inject a custom bean to showcase Quarkus' CDI capabilities.

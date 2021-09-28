@@ -6,7 +6,7 @@ You then learn how to expose the REST endpoint and invoke simple cache operation
 
 ## Introduction to Red Hat Data Grid
 
-![Logo](/openshift/assets/middleware/rhoar-getting-started-rhdg/rhdg-logo.jpg)
+![Logo](/openshift/assets/middleware/dg/logo.png)
 
 Red Hat Data Grid (RHDG) is an open source, in-memory data store that:
 

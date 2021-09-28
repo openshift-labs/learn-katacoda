@@ -26,11 +26,11 @@
       "external_link": "https://learn.openshift.com/middleware/middleware-javaee8/",
       "count": 1,
       "course_id": "middleware-javaee8",
-      "title": "Java EE 8 Development"
+      "title": "Jakarta EE 8 Development"
     },
     {
       "action": "Start Course",
-      "coount": 3,
+      "count": 3,
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-kogito/",
       "course_id": "middleware-kogito",
       "title": "Developing with Kogito"
@@ -56,11 +56,6 @@
       "description": "Get started with Red Hat AMQ and OpenShift"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-thorntail/",
-      "course_id": "rhoar-getting-started-thorntail",
-      "title": "Thorntail development"
-    },
-    {
       "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-rhdg/",
       "course_id": "rhoar-getting-started-rhdg",
       "title": "Red Hat Data Grid development"
@@ -69,11 +64,6 @@
       "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-nodejs/",
       "course_id": "rhoar-getting-started-nodejs",
       "title": "Node.js development"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/java-batch-processing/",
-      "course_id": "java-batch-processing",
-      "title": "Java EE Batch Processing with OpenShift, WildFly & JBeret"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/pipelines/",

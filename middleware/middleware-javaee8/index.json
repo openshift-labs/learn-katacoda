@@ -1,8 +1,8 @@
 {
-    "pathwayTitle": "Intro to Red Hat OpenShift Application Runtimes",
+    "pathwayTitle": "Intro to Red Hat Runtimes",
     "icon": "fa-java",
     "title": "Getting Started with JBoss EAP on OpenShift",
-    "description": "In this scenario you will learn more about JBoss EAP, one of the runtimes included in Red Hat OpenShift Application Runtimes.",
+    "description": "In this scenario you will learn more about JBoss EAP, one of the runtimes included in Red Hat Runtimes.",
     "difficulty": "intermediate",
     "time": "5-10 minutes",
     "details": {
@@ -35,30 +35,24 @@
         },
         "finish": {
           "text": "99-outro.md"
-        },
-        "assets": {
-            "host01": [
-              {
-                "file": "eap72-image-stream.json",
-                "target": "~/"
-              }
-            ]
-          }
+        }
     },
     "files": [
 
     ],
     "environment": {
-        "uilayout": "editor-terminal",
-        "uisettings": "java",
-        "uieditorpath": "/root/projects/weather-app",
+
         "showdashboard": true,
+        "dashboards": [{"name":"Local Web Browser","port":8080}, {"name": "OpenShift Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],
+        "uisettings": "java",
         "hideintro": false,
-        "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
-        "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+        "uieditorpath": "/root/projects/rhoar-getting-started/javaee/weather-app",
+        "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
+        "uilayout": "editor-terminal"
     },
     "backend": {
-        "imageid": "openshift-middleware",
+        "autoUpgrade": true,
+        "imageid": "openshift-4-7",
         "port": 8443
     }
 }

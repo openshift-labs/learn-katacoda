@@ -12,7 +12,7 @@ Now that you have scheduled it in the katacoda terminal on the right, you should
 buildconfig.build.openshift.io/s2i-example-log created
 deploymentconfig.apps.openshift.io/s2i-example-log created
 imagestream.image.openshift.io/s2i-example-log created
-imagestream.image.openshift.io/s2i-thoth-ubi8-py36 created
+imagestream.image.openshift.io/s2i-thoth-ubi8-py38 created
 ```
 
 ### Let's go to Openshift UI and checkout our build process - 

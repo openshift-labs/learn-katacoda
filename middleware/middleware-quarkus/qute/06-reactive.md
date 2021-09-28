@@ -12,18 +12,17 @@ Quarkus [Reactive routes](https://quarkus.io/guides/reactive-routes) propose an 
 
 You've already added the `quarkus-vertx-web` extension which gives us the ability to declare Reactive Routes.
 
-Click `qute/src/main/java/org/acme/qute/ReactiveResource.java`{{open}} to open a new file.
+Click `qute/src/main/java/org/acme/ReactiveResource.java`{{open}} to open a new file.
 
 Click **Copy to Editor** to create create a reactive route that will process our Qute template:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/ReactiveResource.java" data-target="replace">
-package org.acme.qute;
+<pre class="file" data-filename="./qute/src/main/java/org/acme/ReactiveResource.java" data-target="replace">
+package org.acme;
 
 import io.quarkus.qute.Template;
-import io.quarkus.qute.api.ResourcePath;
+import io.quarkus.qute.Location;
 import io.quarkus.vertx.web.Route;
 import io.quarkus.vertx.web.RoutingExchange;
-import io.vertx.core.http.HttpMethod;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.core.MediaType;
@@ -34,10 +33,10 @@ public class ReactiveResource {
     @Inject
     SampleService service;
 
-    @ResourcePath(&quot;reports/v1/report_01.json.template&quot;)
+    @Location(&quot;reports/v1/report_01.json.template&quot;)
     Template report;
 
-    @Route(path = &quot;/reactive&quot;, methods = HttpMethod.GET, produces = MediaType.APPLICATION_JSON)
+    @Route(path = &quot;/reactive&quot;, methods = Route.HttpMethod.GET, produces = MediaType.APPLICATION_JSON)
     void reactive(RoutingExchange ex) throws Exception {
         report
           .data(&quot;samples&quot;,service.get())
@@ -63,6 +62,25 @@ Make sure the endpoint generates a report. Click the following command to try it
 You should see a random report of the samples from earlier, but done so with a _Reactive Route_.
 
 To learn more about Quarkus and reactive programming, check out the [Reactive Programming with Quarkus Reactive SQL exercise](https://learn.openshift.com/middleware/courses/middleware-quarkus/reactive-sql).
+
+# Open the solution in an IDE in the Cloud!
+Want to continue exploring this solution on your own in the cloud? You can use the free [Red Hat CodeReady Workspaces](https://developers.redhat.com/products/codeready-workspaces/overview) IDE running on the free [Red Hat Developer Sandbox](http://red.ht/dev-sandbox). [Click here](https://workspaces.openshift.com) to login or to register if you are a new user. This free service expires after 30 days, but you can always enable a new free 30-day subscription.
+
+Once logged in, [click here](https://workspaces.openshift.com/f?url=https://raw.githubusercontent.com/openshift-katacoda/rhoar-getting-started/solution/quarkus/qute/devfile.yaml) to open the solution for this project in the cloud IDE. While loading, if it asks you to update or install any plugins, you can say no.
+
+# Fork the source code to your own GitHub!
+Want to experiment more with the solution code you just worked with? If so, you can fork the repository containing the solution to your own GitHub repository by clicking on the following command to execute it:
+
+`/root/projects/forkrepo.sh`{{execute T1}}
+- Make sure to follow the prompts. An error saying `Failed opening a web browser at https://github.com/login/device exit status 127` is expected.
+- [Click here](https://github.com/login/device) to open a new browser tab to GitHub and paste in the code you were presented with and you copied.
+- Once done with the GitHub authorization in the browser, close the browser tab and return to the console and press `Enter` to complete the authentication process.
+- If asked to clone the fork, press `n` and then `Enter`.
+- If asked to confirm logout, press `y` and the `Enter`.
+
+   > **NOTE:** This process uses the [GitHub CLI](https://cli.github.com) to authenticate with GitHub. The learn.openshift.com site is not requesting nor will have access to your GitHub credentials.
+
+After completing these steps the `rhoar-getting-started` repo will be forked in your own GitHub account. On the `solution` branch in the repo, the `qute` project inside the `quarkus` folder contains the completed solution for this scenario.
 
 # Wrap-up
 

@@ -1,4 +1,4 @@
-[hey-github]: https://github.com/rakyll/hey
+[apachebench]: https://httpd.apache.org/docs/2.4/programs/ab.html 
 [learn-katacoda]: https://github.com/openshift-labs/learn-katacoda
 
 At the end of this chapter you will be able to:
@@ -110,9 +110,9 @@ See that the `prime-generator` is deployed and it will never be scaled outside o
 
 This now guarantee that there will always be at least two instances available at all times to provide the service with no initial lag at the cost of consuming additional resources.  Next, test the service won't scale past 5.
 
-To load the service we will use [hey][hey-github].  We will configure `hey` to send 2550 total requests `-n 2550`, of which 850 will be performed concurrently each time `-c 850`.  Immediatly after we will show the deployments in the project to be able to see the number of pods running.
+To load the service we will use [apachebench (ab)][apachebench].  We will configure `ab` to send 2550 total requests `-n 2550`, of which 850 will be performed concurrently each time `-c 850`.  Immediatly after we will show the deployments in the project to be able to see the number of pods running.
 
-`hey -n 2550 -c 850 -t 60 "http://prime-generator-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/?sleep=3&upto=10000&memload=100" && oc get deployment -n serverless-tutorial`{{execute}}
+`ab -n 2550 -c 850 -t 60 "http://prime-generator-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/?sleep=3&upto=10000&memload=100" && oc get deployment -n serverless-tutorial`{{execute}}
 
 > **Note:** *This might take a few moments!*
 
@@ -133,9 +133,9 @@ kn service update prime-generator \
 
 Again test the scaling by loading the service.  This time send 275 concurrent requests totaling 1100.
 
-`hey -n 1100 -c 275 -t 60 "http://prime-generator-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/?sleep=3&upto=10000&memload=100" && oc get deployment -n serverless-tutorial`{{execute}}
+`ab -n 1100 -c 275 -t 60 "http://prime-generator-serverless-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/?sleep=3&upto=10000&memload=100" && oc get deployment -n serverless-tutorial`{{execute}}
 
-Notice that at least 6 pods should be up and running.  There might be more than 6 as `hey` could be overloading the amount of concurrent workers at one time.
+Notice that at least 6 pods should be up and running.  There might be more than 6 as `ab` could be overloading the amount of concurrent workers at one time.
 
 This will work well, but given that this application is CPU-bound instead of request bound we might want to choose a different autoscaling class that is based on CPU load to be able to manage scaling more effectively.
 

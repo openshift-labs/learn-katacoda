@@ -2,10 +2,10 @@
 
 If you declare a parameter declaration in a template, Qute will attempt to validate all expressions that reference this parameter. If an incorrect expression is found the build wil fail. This can greatly reduce developer errors up front. Let's exercise this.
 
-Create a simple class with two fields by clicking `qute/src/main/java/org/acme/qute/Item.java`{{open}} to open the file then click **Copy to Editor**:
+Create a simple class with two fields by clicking `qute/src/main/java/org/acme/Item.java`{{open}} to open the file then click **Copy to Editor**:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/Item.java" data-target="replace">
-package org.acme.qute;
+<pre class="file" data-filename="./qute/src/main/java/org/acme/Item.java" data-target="replace">
+package org.acme;
 
 import java.math.BigDecimal;
 
@@ -46,10 +46,10 @@ Create a Qute template at by clicking `qute/src/main/resources/templates/ItemRes
 
 ## Create Service
 
-And create a simple `ItemService` to mock up a database of items. Click `qute/src/main/java/org/acme/qute/ItemService.java`{{open}} to open the file, then click **Copy To Editor**:
+And create a simple `ItemService` to mock up a database of items. Click `qute/src/main/java/org/acme/ItemService.java`{{open}} to open the file, then click **Copy To Editor**:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/ItemService.java" data-target="replace">
-package org.acme.qute;
+<pre class="file" data-filename="./qute/src/main/java/org/acme/ItemService.java" data-target="replace">
+package org.acme;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -59,12 +59,12 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class ItemService {
 
-    private Map&lt;Integer, Item&gt; items = new HashMap&lt;Integer, Item&gt;() {{
-        put(1, new Item(new BigDecimal(1.99), &quot;Apple&quot;));
-        put(2, new Item(new BigDecimal(2.99), &quot;Pear&quot;));
-        put(3, new Item(new BigDecimal(3.99), &quot;Grape&quot;));
-        put(4, new Item(new BigDecimal(129.99), &quot;Mango&quot;));
-    }};
+    private Map&lt;Integer, Item&gt; items = Map.of(
+        1, new Item(new BigDecimal(1.99), &quot;Apple&quot;),
+        2, new Item(new BigDecimal(2.99), &quot;Pear&quot;),
+        3, new Item(new BigDecimal(3.99), &quot;Grape&quot;),
+        4, new Item(new BigDecimal(129.99), &quot;Mango&quot;)
+    );
 
     public Item findItem(int id) {
         return items.get(id);
@@ -74,10 +74,10 @@ public class ItemService {
 
 ## Create REST endpoint
 
-Now create a resource class that uses this type-safe template. Click `qute/src/main/java/org/acme/qute/ItemResource.java`{{open}} to open the file, then click **Copy To Editor**:
+Now create a resource class that uses this type-safe template. Click `qute/src/main/java/org/acme/ItemResource.java`{{open}} to open the file, then click **Copy To Editor**:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/ItemResource.java" data-target="replace">
-package org.acme.qute;
+<pre class="file" data-filename="./qute/src/main/java/org/acme/ItemResource.java" data-target="replace">
+package org.acme;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -87,7 +87,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import io.quarkus.qute.TemplateInstance;
-import io.quarkus.qute.api.CheckedTemplate;
+import io.quarkus.qute.CheckedTemplate;
 
 @Path("item")
 public class ItemResource {
@@ -133,7 +133,7 @@ You can also [click here](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].en
 Alternatively, to declare that a template is expecting an `Item` type, you can declare it in the template file itself to add additional type and parameter checking and simplify the code while still maintaining type checking. Let's update our HTML template a bit. Click **Copy to Editor** to update the template:
 
 <pre class="file" data-filename="./qute/src/main/resources/templates/ItemResource/item.html" data-target="replace">
-{@org.acme.qute.Item item}
+{@org.acme.Item item}
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -151,8 +151,8 @@ Notice the first line - this ia an _optional_ parameter declaration. If declared
 
 Now update the resource class to use the simpler way to inject templates:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/ItemResource.java" data-target="replace">
-package org.acme.qute;
+<pre class="file" data-filename="./qute/src/main/java/org/acme/ItemResource.java" data-target="replace">
+package org.acme;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -162,7 +162,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import io.quarkus.qute.TemplateInstance;
-import io.quarkus.qute.api.ResourcePath;
+import io.quarkus.qute.Location;
 import io.quarkus.qute.Template;
 
 @Path("item")
@@ -172,7 +172,7 @@ public class ItemResource {
     ItemService service;
 
     @Inject
-    @ResourcePath("ItemResource/item")
+    @Location("ItemResource/item")
     Template item;
 
     @GET

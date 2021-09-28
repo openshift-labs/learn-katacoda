@@ -1,6 +1,6 @@
 **1. What is CDI**
 
-CDI, aka Context Dependency Injection, is the core dependency injection framework of the Java EE platform. It provides a uniform architecture for dependency injection and the life cycle management of managed beans. CDI is sometimes compared to Spring Dependency Injection, and it has a lot of similar features, but CDI is tightly integrated with Java EE and is used by many other specifications too, for example, enable control over producing EntityManager from JPA and other resources like JMS queues, etc.
+CDI, aka Context Dependency Injection, is the core dependency injection framework of the Jakarta EE platform. It provides a uniform architecture for dependency injection and the life cycle management of managed beans. CDI is sometimes compared to Spring Dependency Injection, and it has a lot of similar features, but CDI is tightly integrated with Jakarta EE and is used by many other specifications too, for example, enable control over producing EntityManager from JPA and other resources like JMS queues, etc.
 
 **2. Enable CDI**
 To activate CDI we need to create a beans archive and include beans.xml file in the META-INF directory of the classpath. Let's add an empty beans.xml file.
@@ -68,14 +68,16 @@ This command produces a WAR file called ROOT.war under the target directory.
 
 Next, build a container by starting an OpenShift S2I build and provide the WAR file as input.
 
-`oc start-build weather-app --from-file=target/ROOT.war --wait`{{execute}}
+`oc start-build weather-app --from-file=target/ROOT.war --follow`{{execute}}
 
 When the build has finished, you can test the REST endpoint directly using for example curl.
 
-`curl -i -H "Accept:application/json" http://weather-app-my-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/weather`{{execute}}
+`curl -s "Accept:application/json" http://weather-app-my-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/weather | jq`{{execute}}
 
-Note: that it might take a couple of seconds for the application to start so if the command fails at first, please try again.
+> **Note:** that it might take a couple of seconds for the application to start so if the command fails at first, please try again.
+
+You should see the same output as before.
 
 You can also test the web application by clicking [here](http://weather-app-my-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/index.html)
 
-Verify that you can change the languages by clicking the different flags.
+Verify that you can change the cities shown by clicking the different flags.

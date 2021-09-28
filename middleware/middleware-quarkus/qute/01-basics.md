@@ -1,59 +1,72 @@
-## Create basic project
+# Inspect Java runtime
+
+An appropriate Java runtime has been installed for you. Ensure you can use it by running this command:
+
+> If the command fails, wait a few moments and try again (it is installed in a background process and make take a few moments depending on system load).
+
+`$JAVA_HOME/bin/java --version`{{execute}}
+
+The command should report the version in use, for example (the versions and dates may be slightly different than the below example):
+
+```console
+openjdk 11.0.10 2021-01-19
+OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.10+9)
+OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.10+9, mixed mode)
+```
+## Create sample project
 
 Let's create the basic Quarkus _Hello World_ application and include the necessary qute extensions. Click this command to create the project:
 
-`mvn io.quarkus:quarkus-maven-plugin:1.6.1.Final:create \
+`cd /root/projects/quarkus &&
+ mvn io.quarkus:quarkus-maven-plugin:2.0.0.Final:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=qute \
-    -DclassName="org.acme.qute.HelloResource" \
-    -Dextensions="quarkus-resteasy-qute,quarkus-vertx-web,quarkus-qute,quarkus-scheduler" \
-    -Dpath="/hello"`{{execute T1}}
+    -Dextensions="quarkus-resteasy-qute,quarkus-vertx-web,quarkus-qute,quarkus-scheduler"`{{execute T1}}
 
 > The first time you create an app, new dependencies may be downloaded via maven and take a minute or so. This should only happen once, after that things will go even faster.
 
-This will use the Quarkus Maven Plugin and generate a basic Maven project for you in the `qute` subdirectory and include the `quarkus-resteasy-qute` extension which includes the templating engine and integration with JAX-RS via RestEasy. We've also included a few other extensions we'll use later on.
+This will use the Quarkus Maven Plugin and generate a sample Qute project for you in the `qute` subdirectory and include the `quarkus-resteasy-qute` extension which includes the templating engine and integration with JAX-RS via RestEasy. We've also included a few other extensions we'll use later on.
 
 Once generated, look at the `qute/pom.xml`{{open}}. You will find the import of the Quarkus BOM, allowing to omit the version on the different Quarkus dependencies.
 
 ## Start the app
 
-Let's begin Live Coding. Click on the following command to start the app in _Live Coding_ mode:
+Let's begin Live Coding. Click on the following command to start the example app in _Live Coding_ mode:
 
 `cd /root/projects/quarkus/qute && \
-  mvn compile quarkus:dev`{{execute T1}}
+  mvn quarkus:dev -Dquarkus.http.host=0.0.0.0`{{execute T1}}
 
 You should see:
 
 ```console
-INFO  [io.qua.dep.QuarkusAugmentor] (main) Beginning quarkus augmentation
-INFO  [io.qua.dep.QuarkusAugmentor] (main) Quarkus augmentation completed in 1283ms
-INFO  [io.quarkus] (main) Quarkus x.xx.x started in 1.988s. Listening on: http://[::]:8080
-INFO  [io.quarkus] (main) Installed features: [cdi, resteasy, smallrye-metrics]
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+INFO  [io.quarkus] (Quarkus Main Thread) qute 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.xx.x.Final) started in x.xxxs. Listening on: http://0.0.0.0:8080
+INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, mutiny, qute, resteasy, resteasy-qute, scheduler, smallrye-context-propagation, vertx, vertx-web]
 ```
+
 > The first time you build the app, new dependencies may be downloaded via maven. This should only happen once, after that things will go even faster.
 
 Note the amazingly fast startup time! The app is now running "locally" (within the Linux container in which this exercise runs).
 
-Test that the app is running by accessing the simple `hello` endpoint:
+Test that the app is running by accessing the sample page [using this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/some-page). You should see
 
-`cd /root/projects/quarkus/qute && \
-  curl http://localhost:8080/hello`{{execute T2}}
+![Qute sample](/openshift/assets/middleware/quarkus/qute-sample.png)
 
-> You may need to click this command again in case it doesn't execute properly on first click
+This page is rendered using the `qute/src/main/resources/templates/page.qute.html`{{open}} HTML template. If you look closely you can see a `{name ?: "Qute"}` directive that renders the passed-in `name` query present in the `qute/src/main/java/org/acme/SomePage.java` class and passed into the template renderer in the `data()` method, making the `name` variable available to the renderer and returning the rendered HTML to your browser. If you pass a different name, say, `Jerry` using [this link](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/some-page?name=Jerry) (which adds `?name=Jerry` to the URL) you'll see the new name rendered via the Qute template:
 
-you should see
+![Qute sample](/openshift/assets/middleware/quarkus/qute-sample-jerry.png)
 
-```console
-hello
-```
+Let's keep the app running and continue using Quarkus' _Live Coding_ feature. Changes you make are immediately available in the running app when developing Quarkus apps.
 
 ## Create basic template
 
-We’ll start with a very simple template. Create a new directory to hold our templates by clicking this command:
+We’ll start by creating a new and very simple text-based template.
 
-`mkdir -p src/main/resources/templates`{{execute T2}}
-
-Next, click `qute/src/main/resources/templates/hello.txt`{{open}} to create the file.
+Click `qute/src/main/resources/templates/hello.txt`{{open}} to create an empty template file.
 
 Finally, click the **Copy to Editor** to add the template code:
 
@@ -67,16 +80,16 @@ Hello {name}!
 > subdirectories are registered as templates. Templates are validated during startup
 > and watched for changes in the development mode.
 
-## Create REST endpoint to access tempalte
+## Create REST endpoint to access template
 
 Now let’s inject the "compiled" template in the resource class.
 
-Click here to open `qute/src/main/java/org/acme/qute/HelloResource.java`{{open}}.
+Click here to open `qute/src/main/java/org/acme/HelloResource.java`{{open}}.
 
 Click the **Copy to Editor** to update our `HelloResource` class:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/HelloResource.java" data-target="replace">
-package org.acme.qute;
+<pre class="file" data-filename="./qute/src/main/java/org/acme/HelloResource.java" data-target="replace">
+package org.acme;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

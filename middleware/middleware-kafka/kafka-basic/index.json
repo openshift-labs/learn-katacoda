@@ -6,6 +6,7 @@
 	"difficulty": "beginner",
 	"time": "15 minutes",
 	"backend": {
+		"autoUpgrade": true,
 		"imageid": "openshift-4-5"
 	},
 	"environment": {
@@ -21,19 +22,19 @@
 	"details": {
 		"steps": [
 			{
-				"title": "Install Red Hat AMQ Streams Operator",
+				"title": "Installing Red Hat AMQ Streams Operators",
 				"text": "step1.md"
 			},
 			{
-				"title": "Deploy your Kafka cluster",
+				"title": "Deploying a Kafka cluster",
 				"text": "step2.md"
 			},
 			{
-				"title": "Access the cluster from console",
+				"title": "Accessing the Kafka cluster from a console",
 				"text": "step3.md"
 			},
 			{
-				"title": "Produce and consume records",
+				"title": "Producing and consuming records",
 				"text": "step4.md"
 			}
 		],

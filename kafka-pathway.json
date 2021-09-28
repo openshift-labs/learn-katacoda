@@ -1,0 +1,34 @@
+{
+    "title": "Event-driven architecture with Apache Kafka",
+    "icon": "fa-openshift",
+    "courses": [
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-basic",
+        "course_id": "kafka-basic",
+        "pathway_id": "middleware/middleware-kafka",
+        "title": "Apache Kafka basics",
+        "description": "Deploy and connect to Apache Kafka on Kubernetes"
+      },
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-http-bridge",
+        "course_id": "kafka-http-bridge",
+        "pathway_id": "middleware/middleware-kafka",
+        "title": "Exposing Apache Kafka through the HTTP Bridge",
+        "description": "Integrate applications through the Kafka Bridge REST API"
+      },
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-quarkus",
+        "course_id": "kafka-quarkus",
+        "pathway_id": "middleware/middleware-kafka",
+        "title": "Apache Kafka with Reactive Messaging",
+        "description": "Extend a Quarkus application with Apache Kafka"
+      },
+      {
+        "external_link": "https://learn.openshift.com/middleware/courses/middleware-kafka/kafka-debezium",
+        "course_id": "kafka-debezium",
+        "pathway_id": "middleware/middleware-kafka",
+        "title": "Debezium for change data capture",
+        "description": "Stream changes from your database to Apache Kafka"
+      }
+    ]
+}

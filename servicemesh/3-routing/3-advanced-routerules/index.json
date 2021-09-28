@@ -1,0 +1,49 @@
+{
+  "pathwayTitle": "Service Mesh with Istio",
+  "title": "Advanced RouteRules",
+  "icon": "fa-openshift",
+  "description": "Advanced RouteRules with Istio",
+  "difficulty": "Advanced",
+  "time": "1 hour",
+  "files": [],
+  "environment": {
+      "showdashboard": true,
+      "dashboard": "Web Console",
+      "uilayout": "editor-terminal",
+      "uieditorpath": "/root/projects/istio-tutorial",
+      "uisettings": "java",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
+  },
+  "backend": {
+    "trainingid": "openshift-3-11", 
+    "autoUpgrade": false,
+    "imageid": "openshift-3-11", "port": 8443
+  },
+  "details": {
+    "assets": {
+      "host01": [
+          { "file": "recommendation-v2.diff", "target": "/root/" },
+          { "file": "install-microservices.sh", "target": "/root/", "chmod": "+x" }
+      ]
+    },
+    "finish": {
+        "text": "finish.md"
+    },
+    "intro": {
+      "text": "intro.md",
+      "credits": "http://developers.redhat.com",
+      "code": "set-env.sh",
+      "courseData": "run-init.sh"
+    },
+    "NOT_WORKING": [
+      { "title": "Access Control", "text": "3access-control.md" }
+    ],
+    "steps": [
+        { "title": "Install microservices", "text": "0install-microservices.md" },
+        { "title": "Smart routing based on user-agent header (Canary Deployment)", "text": "1useragent-routing.md" },
+        { "title": "Mirroring Traffic (Dark Launch)", "text": "2dark-launch.md" },
+        { "title": "Load Balancer", "text": "4load-balancer.md" },
+        { "title": "Rate Limiting", "text": "5rate-limit.md" }
+    ]
+  }
+}

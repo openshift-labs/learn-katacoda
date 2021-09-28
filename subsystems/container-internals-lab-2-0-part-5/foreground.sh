@@ -14,4 +14,15 @@ sed -i s/wpfrontend-wordpress.apps.example.com/`hostname`/ ~/labs/wordpress-demo
 git clone --quiet --depth 1 --single-branch --branch centos7 https://github.com/fatherlinux/container-supply-chain.git ~/labs/container-supply-chain/
 oc adm policy add-role-to-user cluster-admin admin
 #systemctl restart iptables
+
+# This block is only needed for openshift 3.x environments
+if [[ $(which jq) ]]; then
+  echo "jq installed"
+else
+  echo "installing jq from GH" # yum doen't seem to be working
+  wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+  chmod +x jq-linux64
+  mv jq-linux64 /usr/local/bin/jq
+fi
+
 echo "Container host is now ready."

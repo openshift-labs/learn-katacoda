@@ -69,6 +69,7 @@
         "hidefinish": false
     },
     "backend": {
+        "autoUpgrade": true,
         "imageid": "openshift-4-5"
     }
 }

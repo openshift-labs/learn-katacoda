@@ -52,10 +52,10 @@ Since our environment here is Linux, you can _just run it_:
 Notice the amazingly fast startup time:
 
 ```console
-2019-03-07 18:34:16,642 INFO  [io.quarkus] (main) Quarkus x.xx.x started in 0.004s. Listening on: http://[::]:8080
-2019-03-07 18:34:16,643 INFO  [io.quarkus] (main) Installed features: [cdi, resteasy]
+INFO  [io.quarkus] (main) Quarkus x.xx.x started in 0.011s. Listening on: http://[::]:8080
+INFO  [io.quarkus] (main) Installed features: [cdi, resteasy]
 ```
-That's 4 milliseconds. A _mere 4000 nanoseconds_.
+That's 11 milliseconds!
 
 And extremely low memory usage as reported by the Linux `ps` utility. Click here to run this in your other Terminal tab:
 
@@ -80,7 +80,7 @@ Make sure the app is still working as expected (we'll use `curl` this time to ac
 
 ```console
 curl http://localhost:8080/hello/greeting/quarkus
-hello quarkus from master
+hello quarkus from 4090f59d1a69
 ```
 
 Nice!

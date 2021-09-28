@@ -1,13 +1,13 @@
-Quarkus offers the ability to automatically generate OpenShift resources based on sane default and user supplied configuration. The OpenShift extension is actually a wrapper extension that brings together the [kubernetes](https://quarkus.io/guides/deploying-to-kubernetes) and [container-image-s2i](https://quarkus.io/guides/container-image#s2i) extensions with sensible defaults so that it’s easier for the user to get started with Quarkus on OpenShift.
+With Quarkus, you can automatically generate OpenShift resources from default and user-supplied configuration. The OpenShift extension is a wrapper extension that brings together the [kubernetes](https://quarkus.io/guides/deploying-to-kubernetes) and [container-image-s2i](https://quarkus.io/guides/container-image#s2i) extensions with useful defaults so that it’s easier to get started with Quarkus on OpenShift.
 
-Run the following command to add it to our project:
+Run the following command to add the extension to the project:
 
 `mvn quarkus:add-extension -Dextensions="openshift"`{{execute}}
 
-Get back to the `src/main/resources/application.properties`{{open}} file and click **Copy to Editor** to add the following values to the `application.properties` file:
+Reopen the `src/main/resources/application.properties`{{open}} file and click **Copy to Editor** to add the following values:
 
 <pre class="file" data-filename="./src/main/resources/application.properties" data-target="append">
-# Configure the OpenShift extension options (we write to it)
+# Configures the OpenShift extension options
 quarkus.kubernetes-client.trust-certs=true
 quarkus.container-image.build=true
 quarkus.kubernetes.deploy=true
@@ -16,18 +16,18 @@ quarkus.openshift.labels.app.openshift.io/runtime=quarkus
 quarkus.s2i.base-jvm-image=registry.access.redhat.com/ubi8/openjdk-8
 </pre>
 
-For more details of the above options:
+Here's a summary of of the properties added:
 
-* `quarkus.kubernetes-client.trust-certs=true` - We are using self-signed certs in this simple example, so this simply says to the extension to trust them.
-* `quarkus.container-image.build=true` - Instructs the extension to build a container image
-* `quarkus.kubernetes.deploy=true` - Instructs the extension to deploy to OpenShift after the container image is built
-* `quarkus.kubernetes.deployment-target=openshift` - Instructs the extension to generate and create the OpenShift resources (like `DeploymentConfig`s and `Service`s) after building the container
+* `quarkus.kubernetes-client.trust-certs=true` - We are using self-signed certificates in this example, so this simply says to the extension to trust them.
+* `quarkus.container-image.build=true` - Instructs the extension to build a container image.
+* `quarkus.kubernetes.deploy=true` - Instructs the extension to deploy to OpenShift after the container image is built.
+* `quarkus.kubernetes.deployment-target=openshift` - Instructs the extension to generate and create the OpenShift resources (like `DeploymentConfig`s and `Service`s) after building the container.
 * `quarkus.openshift.expose=true` - Instructs the extension to generate an OpenShift `Route`.
-* `quarkus.openshift.labels.app.openshift.io/runtime=java` - Adds a nice-looking icon to the app when viewing the OpenShift Developer Toplogy
+* `quarkus.openshift.labels.app.openshift.io/runtime=java` - Adds an icon for the application when viewing the application from the Topology view of the OpenShift Developer perspective.
 
 ### Login to OpenShift
 
-We'll deploy our app as the `developer` user. Run the following command to login with the OpenShift CLI:
+We'll deploy the application as the `developer` user. Run the following command to login with the OpenShift `oc` CLI tool:
 
 `oc login -u developer -p developer`{{execute}}
 
@@ -41,9 +41,9 @@ You have one project on this server: "kafka"
 Using project "kafka".
 ```
 
-### Deploy application to OpenShift
+### Deploy the application to OpenShift
 
-Now let's deploy the application itself. Run the following command which will build and deploy using the OpenShift extension:
+Now let's deploy the application itself. Run the following command which will build and deploy the application using the OpenShift extension:
 
 `mvn clean package`{{execute}}
 
@@ -64,11 +64,8 @@ At the end you should see an output similar to the folllowing:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:32 min
-[INFO] Finished at: 2020-12-10T18:11:03Z
-[INFO] ------------------------------------------------------------------------
 ```
 
->The process should take a few moments to complete.
+>The process will take a few moments to complete.
 
 We are now ready to check the Kafka records.

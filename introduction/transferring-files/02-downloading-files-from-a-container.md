@@ -4,23 +4,23 @@ To demonstrate transferring files to and from a running container we first need 
 
 So that we can access it from a web browser, we also need to expose it by creating a _Route_.
 
-``oc expose svc/blog``{{execute}}
+``oc expose service/blog``{{execute}}
 
 To monitor the deployment of the application run:
 
-``oc rollout status dc/blog``{{execute}}
+``oc rollout status deployment/blog``{{execute}}
 
 The command will exit once the deployment has completed and the web application is ready.
 
 The result of the deployment will be the running container. You can see the name of the pods corresponding to the running containers for this application, by running:
 
-``oc get pods --selector deploymentconfig=blog``{{execute}}
+``oc get pods --selector deployment=blog``{{execute}}
 
 You only have one instance of the application so only one pod will be listed, similar to:
 
 ```
-NAME           READY     STATUS    RESTARTS   AGE
-blog-1-9j3p3   1/1       Running   0          1m
+NAME                    READY   STATUS    RESTARTS   AGE
+blog-5dc99d7545-rkvzt   1/1     Running   0          1m12s
 ```
 
 For subsequent commands which need to interact with that pod, you will need to use the name of the pod, as an argument.
@@ -29,7 +29,7 @@ To make it easier to reference the name of the pod in these instructions, we def
 
 The command we will run from the shell function to get out just the name of the pod will be:
 
-``oc get pods --selector deploymentconfig=blog -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}'``{{execute}}
+``oc get pods --selector deployment=blog -o jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}'``{{execute}}
 
 As above this uses ``oc get pods`` with a label selector, but we also use a ``jsonpath`` query to extract the name of the running pod.
 
@@ -39,7 +39,7 @@ To create the shell function run:
 
 To capture the name of the pod for this application in the ``POD`` environment variable, run:
 
-``POD=`pod deploymentconfig=blog`; echo $POD``{{execute}}
+``POD=`pod deployment=blog`; echo $POD``{{execute}}
 
 To create an interactive shell within the same container running the application, you can use the ``oc rsh`` command, supplying it the environment variable holding the name of the pod.
 

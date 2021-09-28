@@ -10,16 +10,10 @@ Then, copy the below content into the file (or use the `Copy to editor` button):
 <pre class="file" data-filename="src/main/java/com/example/service/FruitController.java" data-target="replace">
 package com.example.service;
 
-import java.util.List;
 import java.util.Objects;
-import java.util.Spliterator;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,26 +21,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping(value = "/api/fruits")
+@RestController
+@RequestMapping("/api/fruits")
 public class FruitController {
 
     private final FruitRepository repository;
 
-    @Autowired
     public FruitController(FruitRepository repository) {
         this.repository = repository;
     }
 
-    @ResponseBody
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Fruit> getAll() {
-        return StreamSupport
-                .stream(repository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+    public Iterable&lt;Fruit&gt; getAll() {
+        return this.repository.findAll();
     }
 
 //TODO: Add additional service calls here
@@ -65,7 +55,7 @@ Run the application by executing the below command:
 
 In the interest of time, we will skip creating test cases for the service and instead test it directly in our web browser.
 
-When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
+When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com) link.
 
 ![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
 
@@ -80,32 +70,28 @@ Press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application.
 Add the following methods to the Fruit Controller at the TODO marker.
 
 <pre class="file" data-filename="src/main/java/com/example/service/FruitController.java" data-target="insert" data-marker="//TODO: Add additional service calls here">
-    @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Fruit post(@RequestBody(required = false) Fruit fruit) {
         verifyCorrectPayload(fruit);
 
-        return repository.save(fruit);
+        return this.repository.save(fruit);
     }
 
-    @ResponseBody
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Fruit get(@PathVariable("id") Integer id) {
         verifyFruitExists(id);
 
-        return repository.findById(id).orElse(null);
+        return this.repository.findById(id).orElse(null);
     }
 
-    @ResponseBody
-    @ResponseStatus(HttpStatus.OK)
-    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Fruit put(@PathVariable("id") Integer id, @RequestBody(required = false) Fruit fruit) {
         verifyFruitExists(id);
         verifyCorrectPayload(fruit);
 
         fruit.setId(id);
-        return repository.save(fruit);
+        return this.repository.save(fruit);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -113,11 +99,11 @@ Add the following methods to the Fruit Controller at the TODO marker.
     public void delete(@PathVariable("id") Integer id) {
         verifyFruitExists(id);
 
-        repository.deleteById(id);
+        this.repository.deleteById(id);
     }
 
     private void verifyFruitExists(Integer id) {
-        if (!repository.existsById(id)) {
+        if (!this.repository.existsById(id)) {
             throw new RuntimeException(String.format("Fruit with id=%d was not found", id));
         }
     }
@@ -142,7 +128,9 @@ Build and start the application again
 
 Now that we have implemented all the services we are now able to see fruits on the page, and also update, create and delete them.
 
-When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
+When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com) link.
+
+Press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application.
 
 ![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
 

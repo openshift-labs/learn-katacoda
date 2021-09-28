@@ -6,7 +6,8 @@
   "difficulty": "intermediate",
   "time": "30 minutes",
   "backend": {
-    "imageid": "openshift-4-4"
+    "autoUpgrade": true,
+    "imageid": "openshift-4-7"
   },
   "environment": {
     "showdashboard": true,

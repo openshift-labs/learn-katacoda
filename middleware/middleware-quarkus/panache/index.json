@@ -7,12 +7,12 @@
   "time": "15 minutes",
   "details": {
     "steps": [
-      { "title": "Step 1", "text": "01-define-entity.md" },
-      { "title": "Step 2", "text": "02-add-query-endpoints.md" },
-      { "title": "Step 3", "text": "03-add-paging-filtering.md" },
-      { "title": "Step 4", "text": "04-add-lifecycle-task.md" },
-      { "title": "Step 5", "text": "05-deploy-to-openshift.md" },
-      { "title": "Step 6", "text": "06-exercise-table.md" }
+      { "title": "Define Entity", "text": "01-define-entity.md" },
+      { "title": "Setup Remove Development", "text": "02-remote-dev.md" },
+      { "title": "Add Queries", "text": "03-add-query-endpoints.md" },
+      { "title": "Add Paging/Filtering", "text": "04-add-paging-filtering.md" },
+      { "title": "Add Startup Task", "text": "05-add-lifecycle-task.md" },
+      { "title": "Exercise Table", "text": "06-exercise-table.md" }
     ],
     "intro": {
       "text": "00-intro.md",
@@ -28,15 +28,15 @@
   ],
   "environment": {
     "showdashboard": true,
-    "dashboards": [{"name":"Local Web Browser","port":8080},{"name":"OpenShift Console","port":8443}],
-    "uilayout": "editor-terminal",
+    "dashboards": [{"name": "OpenShift Console", "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"}],    "uilayout": "editor-terminal",
     "uisettings": "java",
     "hideintro": false,
     "uieditorpath": "/root/projects/rhoar-getting-started/quarkus/panache",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "openshift-3-11",
+    "autoUpgrade": true,
+    "imageid": "openshift-4-7",
     "port": 8443
   }
 }

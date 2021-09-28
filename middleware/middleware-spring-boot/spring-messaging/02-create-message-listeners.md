@@ -4,36 +4,33 @@ The Java Message Service (JMS) is a standard designed to allow applications to c
 
 Spring Boot offers abstractions for the JMS standard that make it very quick and easy to create messages from Java objects, send them to destination queues using the familiar Template pattern (akin to Spring's RestTemplate or JdbcTemplate), and to create Receivers (or Listeners) for specific types of messages on Queues.
 
+
 **1. Create a Message Listener**
 
-First we need a message object. Spring Boot allows us to code in the context of our own Java models when dealing with messages. For this purpose we will create a simple `Fruit` object which contains a String `body`. For this you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/Fruit.java``{{open}}
+First we need a message object. Spring Boot allows us to code in the context of our own Java models when dealing with messages. For this purpose we will create a simple `Fruit` object which contains a String `body`. 
 
-Then, copy the below content into the file (or use the `Copy to Editor` button):
+Start with clicking on the following link which will open an empty file in the editor: ``src/main/java/com/example/domain/Fruit.java``{{open}}
 
-<pre class="file" data-filename="src/main/java/com/example/service/Fruit.java" data-target="replace">
-package com.example.service;
+Then, copy part of the below content into the files (or use the `Copy to Editor` button):
 
-import java.util.ArrayList;
+<pre class="file" data-filename="src/main/java/com/example/domain/Fruit.java" data-target="replace">
+package com.example.domain;
+
+import java.util.List;
 import java.util.Random;
 
 public class Fruit {
-
     private String name;
-
-    private static ArrayList&lt;String&gt; fruits = new ArrayList() {{
-        add("Apple");
-        add("Banana");
-        add("Watermelon");
-    }};
+    private static final List&ltString&gt FRUITS = List.of("Apple", "Banana", "Watermelon");
 
     private static String getRandomFruit() {
-      Random rand = new Random();
-      int index = rand.nextInt(fruits.size());
-      return fruits.get(index);
+        Random rand = new Random();
+        int index = rand.nextInt(FRUITS.size());
+        return FRUITS.get(index);
     }
 
     public Fruit() {
-      this.name = getRandomFruit();
+        this.name = getRandomFruit();
     }
 
     public Fruit(String name) {
@@ -41,7 +38,7 @@ public class Fruit {
     }
 
     public String getFruit() {
-        return name;
+        return this.name;
     }
 
     public void setFruit(String name) {
@@ -50,41 +47,79 @@ public class Fruit {
 
     @Override
     public String toString() {
-        return "Fruit{ Name ='" + name + '\'' + " }";
+        return "Fruit{ Name ='" + this.name + '\'' + " }";
+    }
+}
+
+</pre>
+
+Do the same for ``src/main/java/com/example/domain/MemCache.java``{{open}} which adds/retrives messages to/from the cache.
+
+<pre class="file" data-filename="src/main/java/com/example/domain/MemCache.java" data-target="replace">
+package com.example.domain;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class MemCache {
+    private static final int CACHE_MAX_SIZE = 5;
+    private Queue&ltFruit&gt messages = new ArrayDeque&lt&gt(CACHE_MAX_SIZE);
+
+    public long getCount() {
+        return this.messages.size();
+    }
+
+    public void addMessage(Fruit fruit) {
+        this.messages.add(fruit);
+
+        if (this.messages.size() > CACHE_MAX_SIZE) {
+            this.messages.remove();
+        }
+    }
+
+    public List&ltFruit&gt getMessages() {
+        return new ArrayList&lt&gt(this.messages);
     }
 }
 </pre>
 
 Just a Plain Old Java Object (POJO)!
 
-To receive our Ping messages from a JMS Queue we'll need a class that listens for Queue messages. These components (typically called `Receivers`) in Spring Boot are `@Component`-annotated classes with a method annotated with `@JmsListener`. For this you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/Receiver.java``{{open}}
+To receive our Ping messages from a JMS Queue we'll need a class that listens for Queue messages. These components (typically called `Receivers`) in Spring Boot are `@Component`-annotated classes with a method annotated with `@JmsListener`. For this you need to click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/FruitReceiver.java``{{open}}
 
-Then, copy the below content into the file (or use the `Copy to Editor` button):
+Then, copy part of the below content into the file (or use the `Copy to Editor` button):
 
-<pre class="file" data-filename="src/main/java/com/example/service/Receiver.java" data-target="replace">
+<pre class="file" data-filename="src/main/java/com/example/service/FruitReceiver.java" data-target="replace">
 package com.example.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
+import com.example.domain.Fruit;
+import com.example.domain.MemCache;
+
 @Component
-public class Receiver {
+public class FruitReceiver {
+    private static final Logger LOGGER = LoggerFactory.getLogger(FruitReceiver.class);
+    private final MemCache cache;
 
-    private MemCache cache;
-
-    @Autowired
-    public Receiver(MemCache cache) {
+    public FruitReceiver(MemCache cache) {
         this.cache = cache;
     }
 
-    @JmsListener(destination = "${queue.boot}")
+    @JmsListener(destination = "${queue.name}")
     public void receiveMessage(Fruit fruit) {
-        System.out.println("Received: " + fruit);
-        cache.incr();
-        cache.addMessage(fruit);
+        LOGGER.info("Received: {}", fruit);
+        this.cache.addMessage(fruit);
     }
-
 }
 </pre>
 
@@ -92,7 +127,7 @@ We annotate the class with `@Component` to get the class picked up by Spring's C
 
 The `@JmsListener` annotation is what sets this class up for JMS Message handling. We're essentially creating a binding: whenever a message of type `Fruit` is sent to the target Queue (called a `destination` here) this method will be called by Spring for processing. Spring will attempt to deserialize the message to an object and then pass that object to our method here.
 
-The `"${queue.fruit}"` String in the destination utilizes the Spring Expression Language to allow parameterization of Queue names. This allows us to place the name of the Queue in our `.properties` files which can change between environments without the need for a code change. You can see the properties for local running by opening the ``src/main/resources/application.properties``{{open}} file.
+The `"${queue.name}"` String in the destination utilizes the Spring Expression Language to allow parameterization of Queue names. This allows us to place the name of the Queue in our `.properties` files which can change between environments without the need for a code change. You can see the properties for openshift running by opening the ``src/main/resources/application-openshift.properties``{{open}} file.
 
 There also exists a second annotation parameter, `connectionFactory`, that we can use if we have a custom `ConnectionFactory` Bean but we don't use that here because we are defaulting to use the `ConnectionFactory` Spring Boot automatically creates.
 
@@ -102,25 +137,21 @@ The actual body of the message is mostly just integration with the included web 
 
 Notice that the argument to our `receiveMessage()` method is our domain class: a `Fruit`. We're not accepting any custom types or wrapper objects (although Spring does support arguments of their `Message<T>` type). This is because Spring magic, under the hood, can convert the raw messages coming into the Queue into our custom objects if we meet a few criteria. For our purposes we are going to send and receive these messages as JSON strings because Spring Boot makes JSON support a breeze.
 
-In the first step of this scenario we included the `jackson-databind` dependency in the `pom.xml`. Jackson is a library that has tight integration with Spring Boot which enables marshalling and unmarshalling JSON to and from our objects respectively. For our JMS messages this means Spring Boot will automatically marshall our objects to JSON when we send them and unmarshal JSON to our objects when we receive them. We need to create a Configuration class to utilize this functionality. Click on the following link which will open an empty file in the editor: ``src/main/java/com/example/MessageConfig.java``{{open}}
+In the first step of this scenario we included the `jackson-databind` dependency in the `pom.xml`. Jackson is a library that has tight integration with Spring Boot which enables marshalling and unmarshalling JSON to and from our objects respectively. For our JMS messages this means Spring Boot will automatically marshall our objects to JSON when we send them and unmarshal JSON to our objects when we receive them. We need to create a Configuration class to utilize this functionality. Click on the following link which will open an empty file in the editor: ``src/main/java/com/example/config/MessageConfig.java``{{open}}
 
-Then, copy the below content into the file (or use the `Copy to Editor` button):
+Then, copy part of the below content into the file (or use the `Copy to Editor` button):
 
-<pre class="file" data-filename="src/main/java/com/example/MessageConfig.java" data-target="replace">
-package com.example;
+<pre class="file" data-filename="src/main/java/com/example/config/MessageConfig.java" data-target="replace">
+package com.example.config;;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jms.annotation.EnableJms;
-import org.springframework.jms.support.converter.*;
-import org.apache.activemq.ActiveMQConnectionFactory;
+import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
+import org.springframework.jms.support.converter.MessageConverter;
+import org.springframework.jms.support.converter.MessageType;
 
 @Configuration
-@EnableJms
 public class MessageConfig {
-
-  //TODO Add JBoss AMQ integration
-  
     @Bean
     public MessageConverter jacksonJmsMessageConverter() {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
@@ -128,48 +159,47 @@ public class MessageConfig {
         converter.setTypeIdPropertyName("_type");
         return converter;
     }
-
 }
-
 </pre>
 
-This `@Configuration` class does two things for us. With the `@EnableJms` annotation we effectively "turn on" Spring Boot's JMS configuration which registers scanning for components with the `@JmsListener` annotation. This is how we tell Spring to search for these classes (it also sets up a couple infrastructure items to accept JMS messages).
-
-The single Bean in this class is our `MessageConverter`. Spring Boot uses this class to automatically serialize/deserialize JMS messages. Registering this Bean means that Spring Boot will automatically pick it up and use it for our JMS Messages. `MessageConverter` is the base type and `MappingJackson2MessageConverter` is the Jackson implementation of this base class.
+This `@Configuration` class has a single Bean - `MessageConverter`. Spring Boot uses this class to automatically serialize/deserialize JMS messages. Registering this Bean means that Spring Boot will automatically pick it up and use it for our JMS Messages. `MessageConverter` is the base type and `MappingJackson2MessageConverter` is the Jackson implementation of this base class.
 
 **3. Sending JMS Messages**
 
-Now that we have a listener and a Message model we now need a Message Producer. Normally these would be coming from external systems but for our purposes we are going to send messages to ourselves. To do that we need a Producer class. Click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/FruitController.java``{{open}}
+Now that we have a listener and a Message model we now need a Message Producer. Normally these would be coming from external systems but for our purposes we are going to send messages to ourselves. To do that we need a Producer class. Click on the following link which will open an empty file in the editor: ``src/main/java/com/example/service/FruitPublisher.java``{{open}}
 
-Then, copy the below content into the file (or use the `Copy to Editor` button):
+Then, copy part of the below content into the file (or use the `Copy to Editor` button):
 
-<pre class="file" data-filename="src/main/java/com/example/service/FruitController.java" data-target="replace">
+<pre class="file" data-filename="src/main/java/com/example/service/FruitPublisher.java" data-target="replace">
 package com.example.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import com.example.domain.Fruit;
 
 @Component
-public class FruitController {
+public class FruitPublisher {
+    private static final Logger LOGGER = LoggerFactory.getLogger(FruitPublisher.class);
+    private final JmsTemplate jmsTemplate;
 
-    private JmsTemplate jmsTemplate;
+    @Value("${queue.name}")
+    private String queueName;
 
-    @Value("${queue.boot}")
-    private String queue;
-
-    @Autowired
-    public FruitController(JmsTemplate jmsTemplate) {
+    public FruitPublisher(JmsTemplate jmsTemplate) {
         this.jmsTemplate = jmsTemplate;
     }
 
     @Scheduled(fixedRate = 3000L)
     public void sendTick() {
-        jmsTemplate.convertAndSend(queue, new Fruit());
+        Fruit fruit = new Fruit();
+        LOGGER.info("Publishing fruit {} to destination {}", fruit, this.queueName);
+        this.jmsTemplate.convertAndSend(this.queueName, fruit);
     }
 
 }
@@ -181,20 +211,10 @@ The `@Value` annotation is our way of pulling the Queue name from our properties
 
 The `@Scheduled` interface is just a convenience annotation which prompts the Spring Container to call this method every 3000 milliseconds (3 seconds). The exact details is out of scope for this scenario. Just know that this method will automatically fire every 3 seconds.
 
-**4. Test the service from a web browser locally**
+**4. No local execution**
 
-Run the application by executing the below command:
-
-``mvn spring-boot:run``{{execute}}
-
-In the interest of time, we will skip creating test cases for the service and instead test it directly in our web browser.
-
-When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
-
-If everything works you should see a web page with a description banner, a `Count:` column, and a `Last 5 Messages:` column. The count column is the total number of pings while the `Last 5 Messages` column is exactly as the name implies. If you refresh the page these values should change every 3 seconds to reflect the Producer firing.
-
-Press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application.
+Typically, you would be running the application locally prior to deploying to OpenShift. Without a local message broker available, the local execution step will be skipped and you'll be deploying the application directly to OpenShift in the following two steps. 
 
 ## Congratulations
 
-You have now learned how to how to create JMS Queue listeners and how to send JMS Messages with Spring Boot! In the next step we will deploy this application to OpenShift and deploy a JBoss AMQ queue instead of a local Queue.
+You have now learned how to how to create JMS Queue listeners and how to send JMS Messages with Spring Boot! In the next step we will deploy this application to OpenShift and deploy a Red Hat AMQ queue via the Red Hat Integration - AMQ Broker operator.

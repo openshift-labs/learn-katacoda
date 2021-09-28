@@ -1,0 +1,55 @@
+{
+    "icon": "fa-openshift",
+    "title": "Working with Helm",
+    "description": "",
+    "pathwayTitle": "OpenShift",
+    "difficulty": "beginner",
+    "time": "30 minutes",
+    "backend": {
+      "imageid": "openshift-4-7"
+    },
+    "environment": {
+      "showdashboard": true,
+      "dashboards": [
+        {
+          "name": "OpenShift Web Console",
+          "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+        },
+        {
+          "name": "Argo CD Web Console",
+          "href": "https://openshift-gitops-server-openshift-gitops.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"
+        }
+      ],
+      "uieditorpath": "/root/resources",
+      "uilayout": "editor-terminal",
+      "uisettings": "bash",
+      "hideintro": false,
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+
+    },
+    "details": {
+      "intro": {
+        "courseData": "env-init.sh",
+        "text": "00-intro.md",
+        "code": "set-env.sh"
+      },
+      "steps": [
+        {
+          "title": "Helm Integration",
+          "text": "01-helm-integration.md"
+        },
+        {
+          "title": "Helm GitOps Deployment",
+          "text": "02-helm-gitops.md"
+        }
+      ],
+      "finish": {
+        "text": "finish.md"
+      },
+      "assets": {
+       "client": [
+            { "file": "scripts/argocd-postinstall.sh", "target": "~/resources/scripts" }
+       ]
+     }
+    }  
+}

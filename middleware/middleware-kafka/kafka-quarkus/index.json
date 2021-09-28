@@ -6,19 +6,19 @@
   "details": {
     "steps": [
       {
-        "title": "Quarkus Reactive Messaging Extension",
+        "title": "Adding a Quarkus Reactive Messaging Extension",
         "text": "step1.md"
       },
       {
-        "title": "Create an event generator",
+        "title": "Creating an event generator",
         "text": "step2.md"
       },
       {
-        "title": "Deploy to OpenShift",
+        "title": "Deploying the application to OpenShift",
         "text": "step3.md"
       },
       {
-        "title": "Check the Kafka records",
+        "title": "Checking Kafka records",
         "text": "step4.md"
       }
     ],
@@ -52,6 +52,7 @@
     "uieditorpath": "/opt/projects/kafka-quarkus"
   },
   "backend": {
+    "autoUpgrade": true,
     "imageid": "openshift-4-5"
   }
 }

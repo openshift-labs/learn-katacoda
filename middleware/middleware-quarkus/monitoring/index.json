@@ -1,8 +1,8 @@
 {
-  "pathwayTitle": "Monitoring Quarkus with Prometheus and Grafana",
+  "pathwayTitle": "Monitoring Quarkus with Micrometer",
   "icon": "fa-java",
-  "title": "Monitoring Quarkus with Prometheus and Grafana",
-  "description": "In this exercise, you will use MicroProfile extensions to instrument and monitor a Quarkus app",
+  "title": "Monitoring Quarkus with Micrometer",
+  "description": "In this exercise, you will use Micrometer extensions to instrument and monitor a Quarkus app",
   "difficulty": "beginner",
   "time": "15 minutes",
   "details": {
@@ -37,7 +37,8 @@
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "openshift-4-4",
+    "autoUpgrade": true,
+    "imageid": "openshift-4-7",
     "port": 8443
   }
 }

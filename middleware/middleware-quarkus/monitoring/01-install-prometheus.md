@@ -47,14 +47,14 @@ scrape_configs:
     static_configs:
     - targets: ['localhost:9090']
   - job_name: 'hello-app'
+    metrics_path: '/q/metrics'
     static_configs:
-    - targets: ['primes:8080']
+    - targets: ['primes']
 EOF
 ```{{execute}}
 
 This file contains basic Prometheus configuration, plus a specific `scrape_config` which instructs Prometheus to
-look for application metrics from both Prometheus itself, and a Quarkus app called `primes` which we'll create later, on HTTP port 8080 at the `/metrics`
-endpoint.
+look for application metrics from both Prometheus itself, and a Quarkus app called `primes` (which we'll create later) at the `/q/metrics` endpoint.
 
 Next, click this command to create a ConfigMap with the above file:
 
@@ -62,21 +62,21 @@ Next, click this command to create a ConfigMap with the above file:
 
 ## Deploy Prometheus
 
-Next, deploy and expose Prometheus using its public Docker Hub image:
+Next, deploy and expose Prometheus using its public Quay.io image:
 
-`oc new-app prom/prometheus && oc expose svc/prometheus`{{execute}}
+`oc new-app quay.io/prometheus/prometheus && oc expose svc/prometheus`{{execute}}
 
 And finally, mount the ConfigMap into the running container:
 
-`oc set volume dc/prometheus --add -t configmap --configmap-name=prom -m /etc/prometheus/prometheus.yml --sub-path=prometheus.yml`{{execute}}
+`oc set volume deployment/prometheus --add -t configmap --configmap-name=prom -m /etc/prometheus/prometheus.yml --sub-path=prometheus.yml`{{execute}}
 
 This will cause the contents of the ConfigMap data to be mounted at `/etc/prometheus/prometheus.yml` inside its container
 where Prometheus is expecting it.
 
 Verify Prometheus is up and running:
 
-`oc rollout status -w dc/prometheus`{{execute}}
+`oc rollout status -w deployment/prometheus`{{execute}}
 
-You should see `replication controller "prometheus-2" successfully rolled out`.
+You should see `deployment "prometheus" successfully rolled out`.
 
 > If this command appears to hang, just press `CTRL-C` and click it again.

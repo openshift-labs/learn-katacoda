@@ -1,17 +1,32 @@
+# Inspect Java runtime and create basic project
+
+An appropriate Java runtime has been installed for you. Ensure you can use it by running this command:
+
+`$JAVA_HOME/bin/java --version`{{execute T1}}
+
+The command should report the version in use, for example (the versions and dates may be slightly different than the below example):
+
+```console
+openjdk 11.0.10 2021-01-19
+OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.10+9)
+OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.10+9, mixed mode)
+```
+
+If the command fails, wait a few moments and try again (it is installed in a background process and make take a few moments depending on system load).
+
 ## Create basic project
 
 Let's create the basic Quarkus _Hello World_ application and include the necessary monitoring extensions. Click this command to create the project:
 
-`mvn io.quarkus:quarkus-maven-plugin:1.3.2.Final-redhat-00001:create \
+`cd /root/projects/quarkus && \
+mvn io.quarkus:quarkus-maven-plugin:2.0.0.Final:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=primes \
-    -DplatformGroupId=com.redhat.quarkus \
-    -DplatformVersion=1.3.2.Final-redhat-00001 \
     -DclassName="org.acme.quickstart.GreetingResource" \
-    -Dextensions="metrics" \
+    -Dextensions="micrometer-registry-prometheus" \
     -Dpath="/hello"`{{execute T1}}
 
-This will use the Quarkus Maven Plugin and generate a basic Maven project for you in the `primes` subdirectory and include the `smallrye-metrics` extension which is an implementation of the MicroProfile Metrics specification used in Quarkus.
+This will use the Quarkus Maven Plugin and generate a basic Maven project for you in the `primes` subdirectory and include the `micrometer-registry-prometheus` extension which causes the app to generate metrics at the `/q/metrics` endpoint.
 
 ## Start the app
 
@@ -21,16 +36,23 @@ Change to the directory in which the app was created:
 
 Let's begin Live Coding. Click on the following command to start the app in _Live Coding_ mode:
 
-`mvn compile quarkus:dev`{{execute T1}}
+`mvn quarkus:dev`{{execute T1}}
 
 You should see:
 
 ```console
-INFO  [io.qua.dep.QuarkusAugmentor] (main) Beginning quarkus augmentation
-INFO  [io.qua.dep.QuarkusAugmentor] (main) Quarkus augmentation completed in 1283ms
-INFO  [io.quarkus] (main) Quarkus x.xx.x started in 1.988s. Listening on: http://[::]:8080
-INFO  [io.quarkus] (main) Installed features: [cdi, resteasy, smallrye-metrics]
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+INFO  [io.quarkus] (Quarkus Main Thread) primes 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.xx.x.Final) started in x.xxxs. Listening on: http://localhost:8080
+INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, micrometer, resteasy]
+
+--
+Tests paused, press [r] to resume, [h] for more options>
 ```
+
 > The first time you build the app, new dependencies may be downloaded via maven. This should only happen once, after that things will go even faster.
 
 Note the amazingly fast startup time! The app is now running "locally" (within the Linux container in which this exercise runs).
@@ -45,24 +67,28 @@ Test that the app is running by accessing the simple `hello` endpoint:
 you should see
 
 ```console
-hello
+Hello RESTEasy
 ```
 
 ## Test Metrics endpoint
 
 You will be able to immediately see the raw metrics generated from Quarkus apps. Run this in the Terminal:
 
-`curl http://localhost:8080/metrics`{{execute T2}}
+`curl http://localhost:8080/q/metrics`{{execute T2}}
 
-You will see a bunch of metrics in the OpenMetrics format:
+You will see a bunch of raw metrics in the OpenMetrics format (as we are using a Prometheus registry):
 
-```
-# HELP base:jvm_uptime_seconds Displays the time from the start of the Java virtual machine in milliseconds.
-# TYPE base:jvm_uptime_seconds gauge
-base:jvm_uptime_seconds 5.631
-# HELP base:gc_ps_mark_sweep_count Displays the total number of collections that have occurred. This attribute lists -1 if the collection count is undefined for this collector.
-# TYPE base:gc_ps_mark_sweep_count counter
-base:gc_ps_mark_sweep_count 2.0
+```console
+# TYPE http_server_bytes_read summary
+http_server_bytes_read_count 1.0
+http_server_bytes_read_sum 0.0
+# HELP http_server_bytes_read_max
+# TYPE http_server_bytes_read_max gauge
+http_server_bytes_read_max 0.0
 ```
 
 This is what Prometheus will do to access and index the metrics from our app when we deploy it to the cluster.
+
+### Using other Registry Implementations
+
+It is possible to use other systems to consume metrics other than Prometheus, for example StackDriver (part of the [Quarkiverse](https://github.com/quarkiverse/quarkiverse-micrometer-registry)). You can also use other pre-packaged registries for other APM systems. Consult the [Quarkus Micrometer Guide](https://quarkus.io/guides/micrometer) for more detail.

@@ -1,38 +1,32 @@
 # Login to OpenShift Container Platform
 
-**Red Hat OpenShift Container Platform** is the preferred runtime for **Red Hat OpenShift Application Runtimes** like **Spring Boot**, **Vert.x**, etc. OpenShift Container Platform is based on **Kubernetes** which is a Container Orchestrator that has grown massively over the last couple years. **OpenShift** is currently the only container platform based on Kubernetes that offers multitenancy. This means that developers can have their own personal, isolated projects to test and verify application before committing to a shared code repository.
+**Red Hat OpenShift Container Platform** is the preferred platform for **Red Hat Runtimes** like **Spring Boot**, **Vert.x**, etc. OpenShift Container Platform is based on **Kubernetes** which is a Container Orchestrator that has grown massively over the last couple years. **OpenShift** is currently the only container platform based on Kubernetes that offers multitenancy. This means that developers can have their own personal, isolated projects to test and verify application before committing to a shared code repository.
 
 OpenShift also ships with a feature rich web console as well as command line tools to provide users with a friendly interface to work with applications deployed to the platform. 
 
 **1. Login to OpenShift Container Platform**
 
-To login, we will use the `oc` command and then specify username and password like this:
+This sandbox has already authenticated you to OpenShift. To validate, we will use the `oc whoami` command:
 
-``oc login [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com --insecure-skip-tls-verify=true -u developer -p developer``{{execute interrupt}}
-
-Congratulations, you are now authenticated to the OpenShift server.
-
->**IMPORTANT:** If the above `oc login` command doesn't seem to do anything, you may have forgotten to stop the application from the previous
-step. Click on the terminal and press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application and try the above `oc login` command again!
+``oc whoami``{{execute}}
 
 **2. Create project**
 
-[Projects](https://docs.openshift.com/container-platform/3.6/architecture/core_concepts/projects_and_users.html#projects) are a top-level concept to help you organize your deployments. An OpenShift project allows a community of users (or a user) to organize and manage their content in isolation from other communities. Each project has its own resources, policies (who can or cannot perform actions), and constraints (quotas and limits on resources, etc.). Projects act as a wrapper around all the application services and endpoints you (or your teams) are using for your work.
+[Projects](https://docs.openshift.com/container-platform/4.7/rest_api/project_apis/project-project-openshift-io-v1.html) are a top-level concept to help you organize your deployments. An OpenShift project allows a community of users (or a user) to organize and manage their content in isolation from other communities. Each project has its own resources, policies (who can or cannot perform actions), and constraints (quotas and limits on resources, etc.). Projects act as a wrapper around all the application services and endpoints you (or your teams) are using for your work.
 
 For this scenario, let's create a project that you will use to house your applications.
 
-``oc new-project amq-demo``{{execute}}
+``oc new-project dev``{{execute}}
 
 **3. Open the OpenShift Web Console**
 
 OpenShift ships with a web-based console that will allow users to
 perform various tasks via a browser. To get a feel for how the web console
-works, click on the "OpenShift Console" tab next to the "Local Web Browser" tab. The login credentials are the ones used in the `oc login` command: developer/developer.
+works, click on the "OpenShift Console" tab. The login credentials are: admin/admin.
 
 ![OpenShift Console Tab](/openshift/assets/middleware/rhoar-getting-started-spring/openshift-console-tab.png)
 
-The first screen you will see is the authentication screen. Enter the developer username and password and 
-then login:
+The first screen you will see is the authentication screen. Use `admin/admin` credentials (admin account is required to install the operator):
 
 ![Web Console Login](/openshift/assets/middleware/rhoar-getting-started-spring/login.png)
 
@@ -46,8 +40,22 @@ Click on your new project name to be taken to the project overview page which wi
 
 There's nothing there now, but that's about to change.
 
+**3. Installation of the Red Hat Integration - AMQ Broker operator**
+
+From OpenShift Web Console administrator perspective, navigate the OperatorHub and search for the **Red Hat Integration - AMQ Broker** operator. 
+
+![Red Hat Integration - AMQ Broker operator](/openshift/assets/middleware/rhoar-messaging/amq-operator.png)
+
+Click **Install** and and follow this configuration:
+
+![Red Hat Integration - AMQ Broker operator](/openshift/assets/middleware/rhoar-messaging/operator-configuration.png)
+
+The installation might take a few minutes. Wait till the operator installation is complete.
+
+![Red Hat Integration - AMQ Broker operator installation complete](/openshift/assets/middleware/rhoar-messaging/operator-installation-complete.png)
+
 ## Congratulations
 
-You have now learned how to access your openshift environment. 
+You have now learned how to access your openshift environment and install an operator from the OperatorHub. 
 
 In next step of this scenario, we will deploy our application to the OpenShift Container Platform.

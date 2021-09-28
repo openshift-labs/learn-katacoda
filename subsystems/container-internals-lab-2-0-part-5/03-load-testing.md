@@ -9,7 +9,7 @@ Test with ab before we scale the application to get a base line. Take note of th
 ``ab -n10 -c 3 -k -H "Accept-Encoding: gzip, deflate" $SITE``{{execute}}
 
 
-Take not of the following sections in the output:
+Take note of the following sections in the output:
 
 - Time taken for tests
 - Requests per second

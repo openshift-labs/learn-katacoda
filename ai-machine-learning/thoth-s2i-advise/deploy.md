@@ -14,7 +14,7 @@ Now that you have scheduled it in the katacoda terminal on the right, you should
 buildconfig.build.openshift.io/s2i-example-log created
 deploymentconfig.apps.openshift.io/s2i-example-log created
 imagestream.image.openshift.io/s2i-example-log created
-imagestream.image.openshift.io/s2i-thoth-ubi8-py36 created
+imagestream.image.openshift.io/s2i-thoth-ubi8-py38 created
 ```
 
 ### Let's go to Openshift UI and checkout our build process - 
@@ -36,7 +36,7 @@ Now if you check the UI, your app should be running under `Workloads -> Pods`.
 
 Once the application is deployed, you can check the logs from the deployed app using - 
 
-``oc logs -f dc/s2i-example-log``{{execute}}
+``oc logs -f bc/s2i-example-log``{{execute}}
 
 After Thoth finishes processing your stack you should see something similar to this in your report - 
 ![thoth advise pass](https://raw.githubusercontent.com/saisankargochhayat/katacoda-scenarios/master/hello-world/assets/thamos_advise_pass.png)

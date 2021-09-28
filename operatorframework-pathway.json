@@ -23,11 +23,6 @@
       "title": "Operator Lifecycle Manager"
     },
     {
-      "external_link": "https://learn.openshift.com/ansibleop/ansible-refresher/",
-      "course_id": "ansible-refresher",
-      "title": "Ansible Refresher"
-    },
-    {
       "external_link": "https://learn.openshift.com/ansibleop/ansible-k8s-modules/",
       "course_id": "ansible-k8s-modules",
       "title": "Ansible Kubernetes Modules"
@@ -46,6 +41,16 @@
       "external_link": "https://learn.openshift.com/operatorframework/helm-operator/",
       "course_id": "helm-operator",
       "title": "Operator SDK with Helm"
+    },
+    {
+      "external_link": "https://learn.openshift.com/operatorframework/go-operator-memcached/",
+      "course_id": "go-operator-memcached",
+      "title": "Operator SDK with Go, Memcached"
+    },
+    {
+      "external_link": "https://learn.openshift.com/operatorframework/helm-operator-memcached/",
+      "course_id": "helm-operator-memcached",
+      "title": "Operator SDK with Helm, Memcached"
     }
   ]
 }

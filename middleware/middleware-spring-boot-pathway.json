@@ -10,12 +10,6 @@
       "description": "Basic Introduction to Spring on Red Hat OpenShift"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/spring-mvc",
-      "course_id": "spring-mvc",
-      "title": "Spring MVC",
-      "description": "Model/View/Controller pattern with Spring's MVC framework."
-    },
-    {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/spring-rest-services",
       "course_id": "spring-rest-services",
       "title": "Spring REST",
@@ -34,28 +28,10 @@
       "description": "Modern Distributed microservices using Red Hat messaging"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/arquillian-cube",
-      "course_id": "arquillian-cube",
-      "title": "Testing Spring Applications with Arquillian Cube",
-      "description": "Integration testing in a containerized environment"
-    },
-    {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/microservices-1",
       "course_id": "microservices-1",
       "title": "Externalized Configuration",
-      "description": "Externalized Configuration and Health Checks"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/microservices-2",
-      "course_id": "microservices-2",
-      "title": "Service Discovery and Load Balancing",
-      "description": "Service Discovery and Load Balancing"
-    },
-    {
-      "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/microservices-3",
-      "course_id": "microservices-3",
-      "title": "Fault Tolerance and Resiliency",
-      "description": "Circuit Breaking"
+      "description": "Externalized Configuration"
     },
     {
       "external_link": "https://learn.openshift.com/middleware/courses/middleware-spring-boot/monitoring",

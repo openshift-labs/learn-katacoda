@@ -1,11 +1,11 @@
 **1. What is Java Persistence API?**
 
-The Java Persistence API (JPA) is a Java application programming interface specification that describes the management of relational data in applications using Java Platform. Java Persistence API removes a lot of boilerplate code and helps bridge the differences between the object modules (used in Object-oriented languages like Java) and the relational model (used in relational databases like PostgreSQL®, MySQL®, Oracle® DB, etc.). JPA is commonly used in both Java EE and other frameworks like Spring Data.
+The Java Persistence API (JPA) is a Java application programming interface specification that describes the management of relational data in applications using Java Platform. Java Persistence API removes a lot of boilerplate code and helps bridge the differences between the object modules (used in Object-oriented languages like Java) and the relational model (used in relational databases like PostgreSQL®, MySQL®, Oracle® DB, etc.). JPA is commonly used in both Jakarta EE and other frameworks like Spring Data.
 
-The JPA implementation in JBoss EAP is called Hibernate, which is a Red Hat lead open source project. Hibernate is probably the most popular JPA implementation known for its stability and performance.
+The JPA implementation in JBoss EAP is called Hibernate, which is a Red Hat-lead open source project. Hibernate is probably the most popular JPA implementation known for its stability and performance.
 
 **2. Enable JPA in JBoss EAP**
-Java EE has sometimes received criticism for being too big, making application servers slow and requiring too much resources, but to be fair Java EE is only a specification of different API's and how they should work. How these specifications are implemented are left to the application server, and while there are application servers that are slow and requires a lot of resources, JBoss EAP is a modern application server based on a modular architecture using subsystems to implement Java EE technologies. Many of these modules are only started when an application makes uses of them. So  if you are only using parts of all the features in Java EE, JBoss EAP will not waste resources like memory and CPU with unused subsystems.
+Jakarta EE has sometimes received criticism for being too big, making application servers slow and requiring too much resources, but to be fair Jakarta EE is only a specification of different API's and how they should work. How these specifications are implemented are left to the application server, and while there are application servers that are slow and requires a lot of resources, JBoss EAP is a modern application server based on a modular architecture using subsystems to implement Jakarta EE technologies. Many of these modules are only started when an application makes uses of them. So  if you are only using parts of all the features in Jakarta EE, JBoss EAP will not waste resources like memory and CPU with unused subsystems.
 
 The way you enable JPA in JBoss EAP merely is by putting a `persistence.xml` file on the classpath. The `persistence.xml` file is anyway required by the JPA specification and holds the base configuration, for example, which datasource to use.
 
@@ -38,7 +38,7 @@ Note that we are giving the persistence unit the name `primary` and instructing 
 
 **3. Create a datasource**
 
-Next step is to create the datasource. Usually this is done by configuring JBoss EAP using web-console, CLI scripts, or similar. However, as you will see later in this scenario, we can do this in OpenShift by just specifying environment variables pointing to a database. At this stage, we haven't created a database yet, but for test and development purposes we can use an in-memory database like H2. We can define it as follows.
+Next step is to create the datasource. Usually this is done by configuring JBoss EAP using web-console, CLI scripts, or similar. At this stage, we haven't created a database yet, but for test and development purposes we can use an in-memory database like H2. We can define it as follows.
 
 Open the `src/main/webapp/WEB-INF/weather-ds.xml`{{open}} file and click **Copy To Editor** to insert add the following content to the file:
 
@@ -75,12 +75,12 @@ First, we need to tell JPA that this class is an Entity, meaning that it needs t
 <pre class="file" data-filename="./src/main/java/com/redhat/example/weather/City.java" data-target="insert" data-marker="//TODO: Add Entity annotation">
 @Entity</pre>
 
-Then, we need to indicate which field is to be considered the primary key for the object. We do this by adding annotation `@Id` to the field `private String id`. 
+Then, we need to indicate which field is to be considered the primary key for the object. We do this by adding annotation `@Id` to the field `private String id`.
 
 <pre class="file" data-filename="./src/main/java/com/redhat/example/weather/City.java" data-target="insert" data-marker="// TODO: add Id annotation">
 @Id</pre>
 
-That's it! We are now ready to retrieve object of the type City. However, We also have a data model for Country that holds a list of Cities. Let's go ahead and annotate that as well. 
+That's it! We are now ready to retrieve object of the type City. However, We also have a data model for Country that holds a list of Cities. Let's go ahead and annotate that as well.
 
 Open `src/main/java/com/redhat/example/weather/Country.java`{{open}}
 
@@ -94,7 +94,7 @@ Then add `@Id` annotation to  `public String id`;
 <pre class="file" data-filename="./src/main/java/com/redhat/example/weather/Country.java" data-target="insert" data-marker="// TODO: add Id annotation">
 @Id</pre>
 
-Now, we also need to tell JPA that the `private List<City> cities;` are related to each other. The relationship is what DB's calls *One-To-Many*, meaning that one single `Country` object has zero, one or more related `City` objects. In JPA we can accomplish this by adding `@OneToMany` annotation to it. 
+Now, we also need to tell JPA that the `private List<City> cities;` are related to each other. The relationship is what DB's calls *One-To-Many*, meaning that one single `Country` object has zero, one or more related `City` objects. In JPA we can accomplish this by adding `@OneToMany` annotation to it.
 
 <pre class="file" data-filename="./src/main/java/com/redhat/example/weather/Country.java" data-target="insert" data-marker="// TODO: add one to many annotation">
 @OneToMany(fetch = FetchType.EAGER)</pre>
@@ -146,7 +146,7 @@ That is it. We are ready to start using the JPA model. So the next task is to up
 
 **5. Update the rest service to return content from the database**
 
-To find or persist the object in the database using JPA provides an API object called `EntityManager`. Getting an EntityManager is fairly simple since all we have to do is to inject it using `@PersistenceContext`. 
+To find or persist the object in the database using JPA provides an API object called `EntityManager`. Getting an EntityManager is fairly simple since all we have to do is to inject it using `@PersistenceContext`.
 
 Open `src/main/java/com/redhat/example/weather/WeatherService.java`{{open}}
 
@@ -158,7 +158,7 @@ EntityManager em;</pre>
 
 Note, that we also set the unitName to "primary". That is actually not necessary since we only have a single persistence unit, JPA would use that one, but as a best practice it's always good to refer to named persistence units.
 
-Now we can use the `EntityManager` to collect Country object. There are many different API calls we can do including creating our own query, however the fastest and easiest way is to use a methods called `find(Class returnType,Object key)` like this: 
+Now we can use the `EntityManager` to collect Country object. There are many different API calls we can do including creating our own query, however the fastest and easiest way is to use a methods called `find(Class returnType,Object key)` like this:
 
 <pre class="file" data-filename="./src/main/java/com/redhat/example/weather/WeatherService.java" data-target="insert" data-marker="return england; //TODO: Replace with call to database">
 return em.find(Country.class,"en"/* TODO: Replace with dynamic call to get selected language*/);</pre>
@@ -177,16 +177,58 @@ This will produce a WAR file called ROOT.war under the target directory.
 
 Next, build a container by starting an OpenShift S2I build and provide the WAR file as input.
 
-`oc start-build weather-app --from-file=target/ROOT.war --wait`{{execute}}
+`oc start-build weather-app --from-file=target/ROOT.war --follow`{{execute}}
 
 When the build has finished, you can test the REST endpoint directly using for example curl.
 
-`curl -i -H "Accept:application/json" http://weather-app-my-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/weather`{{execute}}
+`curl -s "Accept:application/json" http://weather-app-my-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/api/weather | jq`{{execute}}
 
-Note: that it might take a couple of seconds for the application to start so if the command fails at first, please try again.
+> **Note:** that it might take a couple of seconds for the application to start so if the command fails at first, please try again.
+
+You should see:
+
+```console
+{
+  "cities": [
+    {
+      "id": "lon",
+      "maxTemp": 11,
+      "minTemp": 7,
+      "name": "London",
+      "temp": 9,
+      "tempFeelsLike": 9,
+      "weatherType": "sunny",
+      "wind": 3
+    },
+    {
+      "id": "man",
+      "maxTemp": 8,
+      "minTemp": 5,
+      "name": "Manchester",
+      "temp": 7,
+      "tempFeelsLike": 3,
+      "weatherType": "rainy-7",
+      "wind": 10
+    },
+    {
+      "id": "edi",
+      "maxTemp": -6,
+      "minTemp": -9,
+      "name": "Edinburgh",
+      "temp": -7,
+      "tempFeelsLike": -13,
+      "weatherType": "snowy-4",
+      "wind": 7
+    }
+  ],
+  "id": "en",
+  "name": "England"
+}
+```
+
 
 You can also test the web application by clicking [here](http://weather-app-my-project.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/index.html)
 
 **Summary**
 
-We have now connected our application to use an in-memory database to collect the data. If you wonder where the data comes from we are using a Hibernate specific feature where you can load data into the database by adding it to `src/main/resources/import.sql`{{open}}. The database tables that are generated here are `City`,`Country` and `Country_City`. The later one is a mapping table that maps Cities with Countries and could potentially be made more efficient by instead using a Foreign key, but in that case, we would have to extend the domain model objects. 
+We have now connected our application to use an in-memory database to collect the data. If you wonder where the data comes from we are using a Hibernate specific feature where you can load data into the database by adding it to `src/main/resources/import.sql`{{open}}. The database tables that are generated here are `City`,`Country` and `Country_City`. The later one is a mapping table that maps Cities with Countries and could potentially be made more efficient by instead using a Foreign key, but in that case, we would have to extend the domain model objects.

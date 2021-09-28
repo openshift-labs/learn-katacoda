@@ -1,12 +1,12 @@
-This project has already a `VehicleGenerator` class that will be used to send events to Kafka. However, is missing the Reactive Messaging code.
+This project has already a `VehicleGenerator` class that will be used to send events to Kafka. However, it is missing the Reactive Messaging code.
 
 ### Writing Kafka Records
 
-The Kafka Connector can write Reactive Messaging Messages as Kafka Records.
+The Kafka connector can write Reactive Messaging messages as Kafka records.
 
 Open the `src/main/java/com/redhat/katacoda/kafka/VehicleGenerator.java`{{open}} file to check the code.
 
-We will be sending the events to the `uber` channel through the following method:
+We will be sending the events to the `uber` channel by adding the following method:
 
 <pre class="file" data-filename="./src/main/java/com/redhat/katacoda/kafka/VehicleGenerator.java" data-target="insert" data-marker="//  TODO-publisher">
     @Outgoing("uber")
@@ -26,4 +26,4 @@ We will be sending the events to the `uber` channel through the following method
 This simple method:
 
 - Instructs Reactive Messaging to dispatch the items from returned stream to the `uber`channel.
-- Returns an [RX Java 2 stream](https://github.com/ReactiveX/RxJava) (`Flowable`) emitting a random  vehicle information every 5 seconds
+- Returns an [RX Java 2 stream](https://github.com/ReactiveX/RxJava) (`Flowable`) emitting random vehicle information every 5 seconds

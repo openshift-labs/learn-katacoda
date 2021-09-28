@@ -21,9 +21,6 @@ sleep 3
 echo "Serverless Operator deployed. Deploying knative-serving..."
 # If we make it this far we have deployed the Serverless Operator!
 # Next, Knative Serving
-oc new-project knative-serving
-sleep 3
-
 oc create -f 01-prepare/serving.yaml
 sleep 3
 

@@ -1,15 +1,15 @@
 # Rendering Periodic Reports
 
-Templating engine could be also very useful when rendering periodic reports. We will use the `quarkus-scheduler` extension which you've alrady added.
+Templating engines can be also very useful when rendering periodic reports. We will use the `quarkus-scheduler` extension which you've already added.
 
 ## Create Samples
 
 Now let's create a simple `Sample` object that represents a point-in-time of a value (maybe ambient temperature or blood pressure of a patient):
 
-Click `qute/src/main/java/org/acme/qute/Sample.java`{{open}} to open the file. Click **Copy to Editor** to paste in the code:
+Click `qute/src/main/java/org/acme/Sample.java`{{open}} to open the file. Click **Copy to Editor** to paste in the code:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/Sample.java" data-target="replace">
-package org.acme.qute;
+<pre class="file" data-filename="./qute/src/main/java/org/acme/Sample.java" data-target="replace">
+package org.acme;
 
 public class Sample {
     public boolean valid;
@@ -25,33 +25,28 @@ public class Sample {
 }
 </pre>
 
-Now let's ceate a service whose `get()` method returns a random list of samples. Open the file with `qute/src/main/java/org/acme/qute/SampleService.java`{{open}} and click **Copy to Editor** to create the code:
+Now let's ceate a service whose `get()` method returns a random list of samples. Open the file with `qute/src/main/java/org/acme/SampleService.java`{{open}} and click **Copy to Editor** to create the code:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/SampleService.java" data-target="replace">
-package org.acme.qute;
+<pre class="file" data-filename="./qute/src/main/java/org/acme/SampleService.java" data-target="replace">
+package org.acme;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class SampleService {
-
     private static final String[] names = {&quot;James&quot;, &quot;Deepak&quot;, &quot;Daniel&quot;, &quot;Shaaf&quot;, &quot;Jeff&quot;, &quot;Sally&quot;};
 
     public List&lt;Sample&gt; get() {
         int count = new Random().nextInt(10);
-        List&lt;Sample&gt; result = new ArrayList&lt;&gt;(count);
-        for (int i = 0; i &lt; count; i++) {
-            boolean valid = false;
-            if (Math.random() &gt; 0.5) {
-                valid = true;
-            }
-            result.add(new Sample(valid, names[(int)(Math.random() * names.length)], Math.random() + &quot;&quot;));
-        }
-        return result;
+        return IntStream.range(0, count)
+            .mapToObj(idx -&gt; Math.random() &gt; 0.5)
+            .map(valid -&gt; new Sample(valid, names[(int)(Math.random() * names.length)], Math.random() + &quot;&quot;))
+            .collect(Collectors.toList());
     }
 }
 </pre>
@@ -83,12 +78,12 @@ Also note the use of the [elvis operator](https://en.wikipedia.org/wiki/Elvis_op
 
 ## Create periodic reports
 
-Create the ReportGenerator file by clicking `qute/src/main/java/org/acme/qute/ReportGenerator.java`{{open}}.
+Create the ReportGenerator file by clicking `qute/src/main/java/org/acme/ReportGenerator.java`{{open}}.
 
 And finally click **Copy to Editor** to add code that uses all of the above and generates reports periodically to a file in `/tmp`:
 
-<pre class="file" data-filename="./qute/src/main/java/org/acme/qute/ReportGenerator.java" data-target="replace">
-package org.acme.qute;
+<pre class="file" data-filename="./qute/src/main/java/org/acme/ReportGenerator.java" data-target="replace">
+package org.acme;
 
 import java.io.FileWriter;
 
@@ -97,7 +92,7 @@ import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
 import io.quarkus.qute.Template;
-import io.quarkus.qute.api.ResourcePath;
+import io.quarkus.qute.Location;
 import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.StartupEvent;
 import io.quarkus.scheduler.Scheduled;
@@ -110,7 +105,7 @@ public class ReportGenerator {
 
     private FileWriter fout = null;
 
-    @ResourcePath("reports/v1/report_01.json.template")
+    @Location("reports/v1/report_01.json.template")
     Template report;
 
     @Scheduled(cron="* * * ? * *")
