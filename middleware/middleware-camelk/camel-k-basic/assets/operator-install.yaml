@@ -1,0 +1,21 @@
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: camelk-operatorgroup
+  namespace: camel-basic
+spec:
+  targetNamespaces:
+  - camel-basic
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: red-hat-camel-k
+  namespace: camel-basic
+spec:
+  channel: 1.4.x
+  installPlanApproval: Automatic
+  name: red-hat-camel-k
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
