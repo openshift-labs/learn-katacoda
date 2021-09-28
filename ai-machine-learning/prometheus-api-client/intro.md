@@ -8,7 +8,7 @@ Once the environment is ready to be used, you will see the links to access it in
 
 ### The Environment
 
-During this tutorial you will be using a hosted OpenShift 4.2 environment that is created just for you. This environment is not shared with other users of the system. <br>
+During this tutorial you will be using a hosted OpenShift 4.7 environment that is created just for you. This environment is not shared with other users of the system. <br>
 Your environment will only be active for a one hour period. Keep this in mind before embarking on getting through the content. <br>
 Each time you start this tutorial, a new environment will be created on the fly.
 

@@ -18,7 +18,8 @@ If the command fails, wait a few moments and try again (it is installed in a bac
 
 Let's create the basic Quarkus _Hello World_ application and include the necessary monitoring extensions. Click this command to create the project:
 
-`mvn io.quarkus:quarkus-maven-plugin:2.0.0.Final:create \
+`cd /root/projects/quarkus && \
+mvn io.quarkus:quarkus-maven-plugin:2.0.0.Final:create \
     -DprojectGroupId=org.acme \
     -DprojectArtifactId=primes \
     -DclassName="org.acme.quickstart.GreetingResource" \
@@ -44,9 +45,9 @@ __  ____  __  _____   ___  __ ____  ______
  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
  -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
 --\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-2021-04-15 16:38:11,352 INFO  [io.quarkus] (Quarkus Main Thread) primes 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.xx.x.Final) started in x.xxxs. Listening on: http://localhost:8080
-2021-04-15 16:38:11,360 INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2021-04-15 16:38:11,360 INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, micrometer, resteasy]
+INFO  [io.quarkus] (Quarkus Main Thread) primes 1.0.0-SNAPSHOT on JVM (powered by Quarkus x.xx.x.Final) started in x.xxxs. Listening on: http://localhost:8080
+INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, micrometer, resteasy]
 
 --
 Tests paused, press [r] to resume, [h] for more options>

@@ -7,8 +7,8 @@ Click the [Console](https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[K
 
 You will then able able to login with admin permissions with:
 
-* **Username:** ``admin``{{copy}}
-* **Password:** ``admin``{{copy}}
+* **Username:** ``developer``{{copy}}
+* **Password:** ``developer``{{copy}}
 
 ## Logging in to the Cluster via CLI
 
@@ -22,12 +22,12 @@ use it.
 
 To login to the OpenShift cluster from the _Terminal_ run:
 
-``oc login -u admin -p admin``{{execute}}
+``oc login -u developer -p developer``{{execute}}
 
 This will log you in using the credentials:
 
-* **Username:** ``admin``
-* **Password:** ``admin``
+* **Username:** ``developer``
+* **Password:** ``developer``
 
 Use the same credentials to log into the web console.
 For simplicity we are logging in here as admin.

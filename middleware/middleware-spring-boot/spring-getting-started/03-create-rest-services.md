@@ -55,7 +55,7 @@ Run the application by executing the below command:
 
 In the interest of time, we will skip creating test cases for the service and instead test it directly in our web browser.
 
-When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
+When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com) link.
 
 ![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
 
@@ -128,7 +128,9 @@ Build and start the application again
 
 Now that we have implemented all the services we are now able to see fruits on the page, and also update, create and delete them.
 
-When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) link.
+When the console reports that Spring is up and running access the web page by either click the Web Browser Tab or use [this](https://[[CLIENT_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com) link.
+
+Press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the application.
 
 ![Local Web Browser Tab](/openshift/assets/middleware/rhoar-getting-started-spring/web-browser-tab.png)
 

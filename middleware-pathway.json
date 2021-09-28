@@ -56,11 +56,6 @@
       "description": "Get started with Red Hat AMQ and OpenShift"
     },
     {
-      "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-thorntail/",
-      "course_id": "rhoar-getting-started-thorntail",
-      "title": "Thorntail development"
-    },
-    {
       "external_link": "https://learn.openshift.com/middleware/rhoar-getting-started-rhdg/",
       "course_id": "rhoar-getting-started-rhdg",
       "title": "Red Hat Data Grid development"

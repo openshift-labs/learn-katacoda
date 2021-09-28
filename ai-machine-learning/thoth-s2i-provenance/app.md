@@ -11,20 +11,20 @@ If you go to app.py, it's a simple Python app that prints `Hello thoth` every 10
 And you have a Pipfile that has `daiquiri` as the only package. That is the standard Python project, we are going to experiment with. 
 
 Now let's explore the `openshift.yaml`. 
-End of the yaml, we declare the image to be `s2i-thoth-ubi8-py36`
+End of the yaml, we declare the image to be `s2i-thoth-ubi8-py38`
 ```
   - apiVersion: "image.openshift.io/v1"
     kind: ImageStream
     metadata:
       labels:
         app: "s2i-example-log"
-      name: "s2i-thoth-ubi8-py36"
+      name: "s2i-thoth-ubi8-py38"
     spec:
       tags:
         - name: "latest"
           from:
             kind: "DockerImage"
-            name: "quay.io/thoth-station/s2i-thoth-ubi8-py36"
+            name: "quay.io/thoth-station/s2i-thoth-ubi8-py38"
           referencePolicy:
             type: "Source"
 ```

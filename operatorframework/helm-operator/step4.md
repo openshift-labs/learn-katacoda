@@ -7,7 +7,7 @@ Before applying the CockroachDB Custom Resource, observe the CockroachDB Helm Ch
 
 [CockroachDB Helm Chart Values.yaml file](https://github.com/helm/charts/blob/master/stable/cockroachdb/values.yaml)
 
-Update the CockroachDB Custom Resource at `go/src/github.com/redhat/cockroachdb-operator/deploy/crds/charts.helm.k8s.io_v1alpha1_cockroachdb_cr.yaml` with the following values:
+Update the CockroachDB Custom Resource at `config/samples/charts_v1alpha1_cockroachdb.yaml` with the following values:
 
 * `spec.statefulset.replicas: 1`
 * `spec.storage.persistentVolume.size: 1Gi`
