@@ -1,0 +1,48 @@
+{
+    "title": "Using OpenShift",
+    "icon": "fa-openshift",
+    "courses": [
+      {
+        "external_link": "https://learn.openshift.com/introduction/cluster-access/",
+        "pathway_id": "introduction",
+        "course_id": "cluster-access",
+        "title": "Logging in to an OpenShift Cluster"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/transferring-files/",
+        "pathway_id": "introduction",
+        "course_id": "transferring-files",
+        "title": "Transferring Files in and out of Containers"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/port-forwarding/",
+        "pathway_id": "introduction",
+        "course_id": "port-forwarding",
+        "title": "Connecting to a Database Using Port Forwarding"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/resource-objects/",
+        "pathway_id": "introduction",
+        "course_id": "resource-objects",
+        "title": "Using the CLI to Manage Resource Objects"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/deploying-images/",
+        "pathway_id": "introduction",
+        "course_id": "deploying-images",
+        "title": "Deploying Applications From Images"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/deploying-python/",
+        "pathway_id": "introduction",
+        "course_id": "deploying-python",
+        "title": "Deploying Applications From Source"
+      },
+      {
+        "external_link": "https://learn.openshift.com/introduction/deploy-prometheus-grafana/",
+        "pathway_id": "introduction",
+        "title": "How to set up Prometheus and Grafana on OpenShift",
+        "course_id": "deploy-prometheus-grafana"
+      }
+    ]
+  }
