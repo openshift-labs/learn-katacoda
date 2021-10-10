@@ -4,10 +4,9 @@
   "courses": [
     {
       "pathway_id": "openshift/playgrounds",
-      "course_id": "openshift42",
-      "id": "openshift42",
-      "title": "OpenShift 4.2 Playground"
+      "course_id": "openshift47",
+      "id": "openshift47",
+      "title": "Playground (OpenShift 4.7)"
     }
-
   ]
 }
