@@ -1,0 +1,42 @@
+{
+    "title": "OpenShift at KubeCon NA 2021",
+    "icon": "fa-openshift",
+    "courses": [
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "getting-started",
+        "course_id": "getting-started",
+        "title": "Getting Started with OpenShift for Developers"
+      },
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "deploying-python",
+        "course_id": "deploying-python",
+        "title": "Deploying Applications From Source"
+      },
+      {
+        "pathway_id": "openshift/introduction",
+        "id": "developing-with-odo",
+        "course_id": "developing-with-odo",
+        "title": "Developing with odo"
+      },
+      {
+        "pathway_id": "openshift/developing-with-quarkus",
+        "id": "spring",
+        "course_id": "spring",
+        "title": "Quarkus for Spring Boot Developers"
+      },
+      {
+        "pathway_id": "openshift/developing-on-openshift",
+        "id": "serverless",
+        "course_id": "serverless",
+        "title": "Getting Started with OpenShift Serverless"
+      },
+      {
+        "pathway_id": "openshift/developing-on-openshift",
+        "id": "helm",
+        "course_id": "helm",
+        "title": "Getting Started with Helm 3 on OpenShift"
+      }
+    ]
+}
