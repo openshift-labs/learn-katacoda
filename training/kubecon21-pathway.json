@@ -21,7 +21,7 @@
         "title": "Developing with odo"
       },
       {
-        "pathway_id": "openshift/developing-with-quarkus",
+        "pathway_id": "openshift/middleware/middleware-quarkus",
         "id": "spring",
         "course_id": "spring",
         "title": "Quarkus for Spring Boot Developers"
