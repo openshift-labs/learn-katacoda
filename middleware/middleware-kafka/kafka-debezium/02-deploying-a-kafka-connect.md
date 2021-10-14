@@ -48,27 +48,32 @@ The command returns output that is similar to the following example:
   {
     "class": "io.debezium.connector.db2.Db2Connector",
     "type": "source",
-    "version": "1.2.4.Final-redhat-00001"
+    "version": "1.4.2.Final-redhat-00002"
   },
   {
     "class": "io.debezium.connector.mongodb.MongoDbConnector",
     "type": "source",
-    "version": "1.2.4.Final-redhat-00001"
+    "version": "1.4.2.Final-redhat-00002"
   },
   {
     "class": "io.debezium.connector.mysql.MySqlConnector",
     "type": "source",
-    "version": "1.2.4.Final-redhat-00001"
+    "version": "1.4.2.Final-redhat-00002"
   },
+  {
+    "class": "io.debezium.connector.oracle.OracleConnector",
+    "type": "source",
+    "version": "1.4.2.Final-redhat-00002"
+  },  
   {
     "class": "io.debezium.connector.postgresql.PostgresConnector",
     "type": "source",
-    "version": "1.2.4.Final-redhat-00001"
+    "version": "1.4.2.Final-redhat-00002"
   },
   {
     "class": "io.debezium.connector.sqlserver.SqlServerConnector",
     "type": "source",
-    "version": "1.2.4.Final-redhat-00001"
+    "version": "1.4.2.Final-redhat-00002"
   }
   ...
 ]
