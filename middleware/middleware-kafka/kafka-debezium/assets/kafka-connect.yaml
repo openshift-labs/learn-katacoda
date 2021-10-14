@@ -1,4 +1,4 @@
-apiVersion: kafka.strimzi.io/v1beta1
+apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaConnect
 metadata:
   annotations:
@@ -14,7 +14,7 @@ spec:
     config.storage.replication.factor: 1
     offset.storage.replication.factor: 1
     status.storage.replication.factor: 1
-  image: 'quay.io/hguerreroo/rhi-cdc-connect:2020-Q3'
+  image: 'quay.io/redhatintegration/rhi-cdc-connect:2021-Q1'
   jvmOptions:
     gcLoggingEnabled: false
   replicas: 1

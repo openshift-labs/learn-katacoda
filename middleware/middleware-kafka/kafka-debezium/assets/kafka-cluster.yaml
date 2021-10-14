@@ -1,4 +1,4 @@
-apiVersion: kafka.strimzi.io/v1beta1
+apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
   name: my-cluster
@@ -10,7 +10,10 @@ spec:
       offsets.topic.replication.factor: 1
     replicas: 1
     listeners:
-      plain: {}
+      - name: plain
+        port: 9092
+        type: internal
+        tls: false
     storage:
       type: ephemeral
   zookeeper:
