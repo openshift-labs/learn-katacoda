@@ -3,46 +3,55 @@
   "icon": "fa-openshift",
   "courses": [
     {
+      "pathway_id": "openshift/ai-machine-learning",
       "external_link": "https://learn.openshift.com/ai-machine-learning/jupyter-notebooks/",
       "course_id": "jupyter-notebooks",
       "title": "Deploying a Jupyter Notebook Image"
     },
     {
+      "pathway_id": "openshift/ai-machine-learning",
       "external_link": "https://learn.openshift.com/ai-machine-learning/custom-notebooks/",
       "course_id": "custom-notebooks",
       "title": "Building Custom Notebook Images"
     },
     {
+      "pathway_id": "openshift/ai-machine-learning",
       "external_link": "https://learn.openshift.com/ai-machine-learning/jupyter-workspace/",
       "course_id": "jupyter-workspace",
       "title": "Persistent Workspace for Notebooks"
     },
     {
+      "pathway_id": "openshift/ai-machine-learning",
       "external_link": "https://learn.openshift.com/ai-machine-learning/jupyterhub-service/",
       "course_id": "jupyterhub-service",
       "title": "Deploying JupyterHub as a Service"
     },
     {
+      "pathway_id": "openshift/ai-machine-learning",
       "external_link": "https://learn.openshift.com/ai-machine-learning/jupyterhub-workspace/",
       "course_id": "jupyterhub-workspace",
       "title": "Multi-user Workspace Using JupyterHub"
     },
     {
+      "pathway_id": "openshift/ai-machine-learning",
       "external_link": "https://learn.openshift.com/ai-machine-learning/prometheus-api-client/",
       "course_id": "prometheus-api-client",
       "title": "Prometheus metrics for Data Science on OpenShift"
     },
     {
+      "pathway_id": "openshift/ai-machine-learning",
       "external_link": "https://learn.openshift.com/ai-machine-learning/prometheus-timeseries-forecasting/",
       "course_id": "prometheus-timeseries-forecasting",
       "title": "Time series forecasting for Prometheus metrics"
     },
     {
+      "pathway_id": "openshift/ai-machine-learning",
       "external_link": "https://learn.openshift.com/ai-machine-learning/thoth-s2i-advise/",
       "course_id": "thoth-s2i-advise",
       "title": "Thoth S2I build with Advise on OpenShift"
     },
     {
+      "pathway_id": "openshift/ai-machine-learning",
       "external_link": "https://learn.openshift.com/ai-machine-learning/thoth-s2i-provenance/",
       "course_id": "thoth-s2i-provenance",
       "title": "Thoth S2I build with Provenance check on OpenShift"
